@@ -4,3 +4,8 @@ body {
     font-family: 'Baloo 2', sans-serif;
     text-transform: uppercase;
 }
+
+::selection {
+    background-color: black;
+    color: white;
+}

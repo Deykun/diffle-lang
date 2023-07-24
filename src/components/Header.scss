@@ -1,4 +1,6 @@
 .header {
+    display: flex;
+    justify-content: center;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -15,6 +17,19 @@
         line-height: 56px;
         font-weight: 800;
         text-shadow: 0 0px 10px white;
+        position: absolute;
+
+        &::after {
+            content: '';
+            height: 12px;
+            width: 16px;
+            bottom: 16px;
+            right: -20px;
+            background-image: linear-gradient(to top, #c30101, #c30101 50%, white 50%, white);
+            border-radius: 3px;
+            position: absolute;
+            box-shadow: 0 -1px 3px rgba(black, 0.1);
+        }
     }
 
     button {
