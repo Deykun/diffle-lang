@@ -2,28 +2,16 @@ import { useState } from 'react'
 import './App.scss'
 
 import Header from './components/Header'
+import Keyboard from './components/Keyboard'
+import Words from './components/Words'
 
 const App = () => {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="wrapper">
       <Header />
       <main>
-        <div>
-          <p>
-            POLAND
-          </p>
-          <p>
-            ADMIRE
-          </p>
-          <p>
-            Ready
-          </p>
-        </div>
-        <div>
-          [Keyboard]
-        </div>
+        <Words />
+        <Keyboard />
       </main>
     </div>
   )

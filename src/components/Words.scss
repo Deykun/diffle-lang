@@ -1,0 +1,57 @@
+.word {
+    margin-bottom: 16px;
+}
+
+.letter {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    margin: 0 2px;
+    font-size: 24px;
+    line-height: 44px;
+    border-radius: 21px;
+    font-weight: 600;
+    color: white;
+    background-color: #959b9d;
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 0;
+        width: 4px;
+        height: 100%;
+    }
+
+    &.letter-correct {
+        &,
+        &::before,
+        &::after {
+            background-color: #4fb061;
+        }
+    }
+
+    &.letter-wrong-order {
+        background-color: #e8b838;
+    }
+
+    &.letter-right {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &::after {
+            content: '';
+            right: -4px;
+        }
+    }
+
+    &.letter-left {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+
+        &::before {
+            content: '';
+            left: -4px;
+        }
+    }
+}

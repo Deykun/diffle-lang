@@ -1,16 +1,20 @@
-import { useState } from 'react'
-import './Header.scss'
+import IconHelp from './Icons/IconHelp';
+import IconChart from './Icons/IconChart';
+
+import './Header.scss';
 
 const Header = () => {
-  const [count, setCount] = useState(0)
-
   return (
     <header className="header">
-        <button>?</button>
+        <button className="button-left">
+            <IconHelp />
+        </button>
         <h1>Diffle</h1>
-        <button>rank</button>
+        <button className="button-right">
+            <IconChart />
+        </button>
     </header>
   )
-}
+};
 
 export default Header;
