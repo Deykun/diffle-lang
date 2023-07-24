@@ -1,0 +1,21 @@
+.header {
+    height: 50px;
+    line-height: 50px;
+    background-color: white;
+    border-bottom: 1px solid #e2e4e4;
+    margin-bottom: 20px;    
+
+    h1 {
+        font-size: 32px;
+        font-weight: 800;
+    }
+
+    position: sticky;
+    top: 0;
+
+    button {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+    }
+}
