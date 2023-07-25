@@ -4,3 +4,20 @@
     text-align: center;
     min-height: 100vh;
 }
+
+.app-loader {
+    margin-top: 100px;
+    fill: #eeeeee;
+    width: 96px;
+    height: 96px;
+    animation: spin infinite linear 1s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}

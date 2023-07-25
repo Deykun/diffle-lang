@@ -1,6 +1,8 @@
 import fs from 'fs';
 import chalk from 'chalk';
 
+const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 5;
+
 const spellcheckerDictionary = fs.readFileSync('./resources/SJP/dictionary.txt', 'utf-8');
 const winningDictionary = fs.readFileSync('./resources/FreeDict/dictionary.txt', 'utf-8');
 
@@ -10,7 +12,10 @@ const totalSpellcheckerWords = spellcheckerWords.length;
 const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))];
 const totalWinningWords = winningWords.length;
 
-let catalog = {};
+let catalog = {
+    words: 0,
+    items: [],
+};
 
 const tempIndex = {};
 
@@ -32,6 +37,7 @@ const getNormalizedKey = word => {
     const key = word.startsWith('nie') ? word.slice(0, 6) : word.slice(0, 3);
 
     return key
+        .replaceAll('ą', 'a')
         .replaceAll('ć', 'c')
         .replaceAll('ę', 'e')
         .replaceAll('ł', 'l')
@@ -42,19 +48,30 @@ const getNormalizedKey = word => {
         .replaceAll('ż', 'z');
 }
 
-const closeIndex = (index, pathPattern) => {
+const closeIndex = (index, pathPattern, { withCatalog = false, total} = {}) => {
     const { key, words } = currentIndex;
 
     if (key && words.length > 0) {
         const uniqueWords = [...new Set(words)];
 
-        catalog[key] = { key, total: uniqueWords.length };
+        if (withCatalog) {
+            const endIndex = catalog.words + uniqueWords.length;
+
+            catalog.items.push({
+                key,
+                endIndex,
+                keyWords: uniqueWords.length,
+            });
+
+            catalog.words = endIndex;
+        }
+
         tempIndex[key] = { key, words: uniqueWords };
 
-        const progressPercent = index ? 100 * (index / totalSpellcheckerWords) : undefined;
+        const progressPercent = (index && total) ? 100 * (index / total) : undefined;
 
         const message = [
-            `Chunk ${key} saved with ${uniqueWords.length} words`,
+            `Chunk "${key}" saved with ${uniqueWords.length} words`,
         ];
 
         if (progressPercent) {
@@ -82,8 +99,9 @@ const openIndexIfNeeded = word => {
     return true;
 }
 
-
+console.log(' ');
 console.log(chalk.blue(`Creating spelling chunks from ${totalSpellcheckerWords} words...`));
+console.log(' ');
 
 spellcheckerWords.forEach((word, index) =>  {
     const key = getNormalizedKey(word, 3);
@@ -92,31 +110,32 @@ spellcheckerWords.forEach((word, index) =>  {
         if (key === currentIndex.key) {
             currentIndex.words.push(word);
         } else {
-            closeIndex(index, 'spelling/chunk');
+            closeIndex(index, 'spelling/chunk', { total: totalSpellcheckerWords });
 
             openIndexIfNeeded(word);
         }
     }
 });
 
-closeIndex(undefined, 'spelling/chunk-');
+closeIndex(totalSpellcheckerWords, 'spelling/chunk', { total: totalSpellcheckerWords });
 
-fs.writeFileSync(`public/dictionary/catalog-spelling.json`, JSON.stringify(catalog));
-
-catalog = {};
-
+console.log(' ');
 console.log(chalk.blue(`Creating winning chunks from ${totalWinningWords} words...`));
+console.log(' ');
 
-spellcheckerWords.forEach((word, index) =>  {
+let accepted = 0;
+
+winningWords.forEach((word, index) =>  {
     const key = getNormalizedKey(word, 3);
 
-    if (key && key.length >= 3) {
+    if (key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD) {
         if (tempIndex[key]?.words.includes(word)) {
+            accepted = accepted + 1;
             if (key === currentIndex.key) {
                 currentIndex.words.push(word);
             } else {
                 if (currentIndex.key) {
-                    closeIndex(index, 'winning/chunk');
+                    closeIndex(index, 'winning/chunk', { withCatalog: true, total: totalWinningWords });
                 }
         
                 openIndexIfNeeded(word);
@@ -125,6 +144,14 @@ spellcheckerWords.forEach((word, index) =>  {
     }
 });
 
-fs.writeFileSync(`public/dictionary/catalog-winning.json`, JSON.stringify(catalog));
+closeIndex(totalWinningWords, 'winning/chunk', { withCatalog: true, total: totalWinningWords });
 
-closeIndex(undefined, 'winning/chunk');
+// We can't accept words that are present in one dictionary and not in another
+let rejected = totalWinningWords - accepted;
+
+console.log(' ');
+console.log(chalk.blue(`Winning chunks created.`));
+console.log(` - accepted: ${chalk.green(accepted)} `);
+console.log(` - rejected: ${chalk.red(rejected)} `);
+
+fs.writeFileSync(`public/dictionary/catalog.json`, JSON.stringify(catalog));
