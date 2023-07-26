@@ -1,42 +1,37 @@
-import * as classNames from 'classnames';
-import { useCallback, useEffect, useRef } from 'react';
-import IconBackspace from '../Icons/IconBackspace';
+import { useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { ALLOWED_KEYS } from './contants'
+import { letterChangeInAnswer, submitAnswer } from '../../store/gameSlice';
 
-import './VirualKeyboard.scss';
+import { ALLOWED_KEYS } from '../../constants';
 
-interface Props {
-    typeAction: (value: string) => {},
-}
+const UserKeyboardListner = () => {
+    const dispatch = useDispatch();
 
-const UserKeyboardListner = ({ typeAction }: Props ) => {
-    const listnerRef = useRef(null);
+    const handleTyped = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
+        const keyTyped = (event?.key || '').toLowerCase();
 
+        if (keyTyped === 'enter') {
+            // TODO is asunc
+            dispatch(submitAnswer());
+
+            return;
+        }
+
+        const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
+
+        if (isAllowedKey) {
+            dispatch(letterChangeInAnswer(keyTyped));
+        }
+    }, [dispatch]);
 
     useEffect(() => {
-        if (!listnerRef.current) {
-            listnerRef.current = (event: React.KeyboardEvent<HTMLDivElement>) => {
-                const keyTyped = (event?.key || '').toLowerCase();
-
-                const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
-
-                console.log('keyTyped', keyTyped);
-
-                if (isAllowedKey) {
-                    typeAction(keyTyped)
-                }
-            };
-
-            document.addEventListener('keydown', listnerRef.current);
-        }
+        document.addEventListener('keydown', handleTyped);
 
         () => {
-            if (listnerRef.current) {
-                document.removeEventListener('keydown', listnerRef.current);
-            }
+            document.removeEventListener('keydown', handleTyped);
         }
-    }, [typeAction])
+    }, [handleTyped])
 
     return null;
 };

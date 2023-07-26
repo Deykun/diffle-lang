@@ -1,5 +1,9 @@
 @import './styles/reset.scss';
 
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Baloo 2', sans-serif;
     text-transform: uppercase;

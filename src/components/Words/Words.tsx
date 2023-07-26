@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useSelector } from 'react-redux';
 
 import Word from './Word';
 
@@ -12,6 +13,8 @@ const WORDS = [
 ];
 
 const Words = ({ typedWord }) => {
+  const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
+
   return (
     <div>
         {WORDS.map(({ word, markers }, index) => {
@@ -39,7 +42,7 @@ const Words = ({ typedWord }) => {
                 </p>
             );
         })}
-        <Word word={typedWord} />
+        <Word word={wordToSubmit} />
     </div>
   )
 };

@@ -1,16 +1,18 @@
 import * as classNames from 'classnames';
-import { useCallback } from 'react';
+
+import { useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+
+
 import IconBackspace from '../Icons/IconBackspace';
+
+import { submitAnswer, letterChangeInAnswer } from '../../store/gameSlice';
 
 import UserKeyboardListner from './UserKeyboardListner';
 
-import { KEYLINES } from './contants'
+import { KEY_LINES, ALLOWED_KEYS } from '../../constants';
 
 import './VirualKeyboard.scss';
-
-interface Props {
-    value: string,
-}
 
 const USED = ['a', 'd', 'e', 'k', 'o', 'z', 'h', 'c'];
 
@@ -18,34 +20,34 @@ const CORRECT = ['a', 'd', 'e', 'k', 'o', 'z'];
 
 const WRONG_ORDER = ['e', 'z'];
 
-const Keyboard = ({ value, setValue }: Props ) => {
-    const handleTyped = useCallback((key: string) => {
-        if (key === 'backspace') {
-            setValue(value => value.slice(0, -1))
+const Keyboard = () => {
+    const dispatch = useDispatch();
+
+    const handleClick = useCallback((keyTyped) => {
+        if (keyTyped === 'enter') {
+            // TODO is asunc
+            dispatch(submitAnswer());
 
             return;
         }
 
-        if (key === 'enter') {
-            // TODO submit
+        const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
 
-            return;
+        if (isAllowedKey) {
+            dispatch(letterChangeInAnswer(keyTyped));
         }
-
-        setValue(value => value + key);
-    }, [setValue]);
+    }, [dispatch])
 
     return (
         <>
-            <UserKeyboardListner typeAction={handleTyped} />
             <aside className="keyboard">
-                {KEYLINES.map((line, index) => {
+                {KEY_LINES.map((line, index) => {
                     return (
                         <div className="line">
                             {line.map((key) => {
                                 return (<button
                                     key={`letter-${key}-${index}`}
-                                    onClick={() => handleTyped(key)}
+                                    onClick={() => handleClick(key)}
                                     className={classNames('key', {
                                         'key-used': USED.includes(key),
                                         'key-correct': CORRECT.includes(key),

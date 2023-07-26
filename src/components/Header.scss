@@ -1,8 +1,11 @@
 .header {
     display: flex;
     justify-content: center;
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(500px, 100%);
     z-index: 1;
     height: 50px;
     line-height: 50px;
