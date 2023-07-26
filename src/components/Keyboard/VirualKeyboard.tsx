@@ -38,7 +38,7 @@ const Keyboard = () => {
         <aside className="keyboard">
             {KEY_LINES.map((line) => {
                 return (
-                    <div className="line">
+                    <div key={line[0]} className="line">
                         {line.map((keyText) => (
                             <KeyCap key={keyText} text={keyText} onClick={keyText === 'enter' ? handleSubmit : () => handleType(keyText)} />)
                         )}

@@ -1,22 +1,28 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import getDoesWordExist from '@api/getDoesWordExist';
+import compareWords from '@api/compareWords';
 
 import { ALLOWED_KEYS } from '@const';
 
+console.log('getDoesWordExist', getDoesWordExist);
+
 export const submitAnswer = createAsyncThunk(
-    'posts/submitAnswer',
-    async ({ dispatch, getState }) => {
+    'game/submitAnswer',
+    async (_, { getState }) => {
         const state = getState();
-        const wordToSubmit = state.wordToSubmit;
+        const wordToGuess = state.game.wordToGuess;
+        const wordToSubmit = state.game.wordToSubmit;
 
-        console.log('wordToSubmit', wordToSubmit);
+        const doesWordExist = await getDoesWordExist(wordToSubmit);
 
-        const res = await getDoesWordExist(wordToSubmit)
+        if (!doesWordExist) {
+            return { wasSubmited: false, doesWordExist: false };
+        }
 
-        console.log('res');
+        const result = compareWords(wordToGuess, wordToSubmit);
 
-        return res;
+        return { wasSubmited: true, doesWordExist: true, result };
     },
 );
 
@@ -70,11 +76,22 @@ const gameSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(submitAnswer.pending, (state) => {
+            console.log('pen');
 
-        }).addCase(submitAnswer.fulfilled, (state) => {
+        }).addCase(submitAnswer.fulfilled, (state, action) => {
+            const { wasSubmited, doesWordExist, result } = action.payload;
+
+            if (!wasSubmited) {
+                return;
+            }
+
+            console.log(action.payload);
+            console.log(result);
+            console.log(result.pattern);
+
 
         }).addCase(submitAnswer.rejected, (state) => {
-
+            console.log('rej');
         })
     },
 })

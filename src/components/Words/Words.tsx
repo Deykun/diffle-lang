@@ -20,7 +20,7 @@ const Words = ({ typedWord }) => {
     <div>
         {submitedWords.map((word, index) => {            
             return (
-                <Word key={word} word={word} />
+                <Word key={`${word}-${index}`} word={word} />
             );
         })}
         <Word word={wordToSubmit} isNew />

@@ -14,12 +14,12 @@ const Word = ({ word = '', isNew = false }: Props) => {
 
   return (
     <p className="word">
-        {Array.from(turnToLetters).map((letter, letterIndex) => {
+        {Array.from(turnToLetters).map((text, textIndex) => {
             // const { correct, left, right, wordOrder } = markers[letterIndex] || {};
             const { correct, left, right, wordOrder } = {};
 
             return (
-                <Affix text={letter} type={isNew ? 'new' : 'incorrect'} />
+                <Affix key={`${text}-${textIndex}`} text={text} type={isNew ? 'new' : 'incorrect'} />
             );
         })}
     </p>
