@@ -9,17 +9,27 @@ interface Props {
     isNew: boolean,
 }
 
-const Word = ({ word = '', isNew = false }: Props) => {
-  const turnToLetters = isNew && word === '' ? ' ' : word;
+const Word = ({ word = '', guess }: Props) => {
+  // let affixes = !guess ? [{ type: 'new', text: word || ' ' }] : guess.affixes;
+
+    // console.log(guess);
+
+  // if (guess) {
+  //   affixes = guess.affixes;
+  // }
+  // guess
+
+  console.log(guess);
+
+  if (!guess) {
+    return null;
+  }
 
   return (
     <p className="word">
-        {Array.from(turnToLetters).map((text, textIndex) => {
-            // const { correct, left, right, wordOrder } = markers[letterIndex] || {};
-            const { correct, left, right, wordOrder } = {};
-
+        {guess.affixes.map(({ text, type, isStart, isEnd }, index) => {
             return (
-                <Affix key={`${text}-${textIndex}`} text={text} type={isNew ? 'new' : 'incorrect'} />
+                <Affix key={`${index}-${text}`} text={text} type={type} isStart={isStart} isEnd={isEnd} />
             );
         })}
     </p>

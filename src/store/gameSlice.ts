@@ -5,7 +5,60 @@ import compareWords from '@api/compareWords';
 
 import { ALLOWED_KEYS } from '@const';
 
-console.log('getDoesWordExist', getDoesWordExist);
+// type: ('new' | 'correct' | 'position' | 'incorrect'),
+
+export const tempolaryTranslatorPatterns = (word, pattern) => {
+    const letters = Array.from(word);
+    const length = pattern.length;
+
+    const { affixes, wordLetters } = pattern.reduce((stack, value, index) => {
+        const letter = letters[index];
+        const { current: { type, text } } = stack;
+
+        const shouldClose = value < 3;
+
+        if (shouldClose) {
+            if (type && text) {
+                stack.affixes.push({ type, text });
+                stack.current = { type: '', text : '' };    
+            }
+        }
+
+        if (value === 0) {
+            stack.affixes.push({ type: 'incorrect', text: letter });
+
+            stack.wordLetters.incorrect[letter] = true;
+        }
+        
+        if (value === 1) {
+            stack.affixes.push({ type: 'position', text: letter });
+
+            stack.wordLetters.position[letter] = true;
+        }
+
+        if (value === 2 || value === 3) {
+            const { text } = stack.current;
+
+            stack.current = ({ type: 'correct', text: `${text}${letter}` });
+
+            stack.wordLetters.correct[letter] = true;
+        }
+
+        const isLast = index + 1 === length;
+
+        if (isLast && stack.current.type) {
+            stack.affixes.push(stack.current);
+        }
+
+        return stack;
+    }, {
+        affixes: [],
+        wordLetters: { correct: {}, incorrect: {}, position: {} },
+        current: { type: '', text: '' },
+    });
+
+    return { affixes, wordLetters };
+};
 
 export const submitAnswer = createAsyncThunk(
     'game/submitAnswer',
@@ -17,12 +70,24 @@ export const submitAnswer = createAsyncThunk(
         const doesWordExist = await getDoesWordExist(wordToSubmit);
 
         if (!doesWordExist) {
-            return { wasSubmited: false, doesWordExist: false };
+            return { wasSubmited: false, doesWordExist: false, word: wordToSubmit };
         }
 
         const result = compareWords(wordToGuess, wordToSubmit);
 
-        return { wasSubmited: true, doesWordExist: true, result };
+        const { pattern, start, end } = result;
+
+        const { affixes, wordLetters } = tempolaryTranslatorPatterns(wordToSubmit, pattern);
+
+        if (start) {
+            affixes[0].isStart = true;
+        }
+
+        if (end) {
+            affixes[affixes.length - 1].isEnd = true;
+        }
+
+        return { wasSubmited: true, doesWordExist: true, word: wordToSubmit, result, affixes, wordLetters };
     },
 );
 
@@ -30,7 +95,9 @@ const initialState = {
     wordToGuess: '',
     wordToSubmit: '',
     usedLetters: {},
+    letters: { correct: {}, incorrect: {}, position: {} },
     submited: [],
+    guesses: [],
 };
 
 const gameSlice = createSlice({
@@ -79,15 +146,36 @@ const gameSlice = createSlice({
             console.log('pen');
 
         }).addCase(submitAnswer.fulfilled, (state, action) => {
-            const { wasSubmited, doesWordExist, result } = action.payload;
+            const { wasSubmited, doesWordExist, affixes, result, word, wordLetters } = action.payload;
 
             if (!wasSubmited) {
                 return;
             }
 
-            console.log(action.payload);
-            console.log(result);
-            console.log(result.pattern);
+            state.wordToSubmit = '';
+            state.submited.push(word);
+
+
+            state.letters = {
+                correct: {
+                    ...state.letters.correct,
+                    ...wordLetters.correct,
+                },
+                incorrect: {
+                    ...state.letters.incorrect,
+                    ...wordLetters.incorrect,
+                },
+                position: {
+                    ...state.letters.position,
+                    ...wordLetters.position,
+                },
+            }
+
+                    // state.submited.push(state.wordToSubmit);
+
+
+            // state.submited.push(state.wordToSubmit);
+            state.guesses.push({ affixes });
 
 
         }).addCase(submitAnswer.rejected, (state) => {

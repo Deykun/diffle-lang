@@ -2,6 +2,12 @@ import fs from 'fs';
 import chalk from 'chalk';
 
 const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 5;
+/*
+    Very long words have multiple markers
+    and it is uasaly come kind of "okrówkowanie"
+    game is nicer with this limit
+*/
+const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 10;
 
 const spellcheckerDictionary = fs.readFileSync('./resources/SJP/dictionary.txt', 'utf-8');
 const winningDictionary = fs.readFileSync('./resources/FreeDict/dictionary.txt', 'utf-8');
@@ -138,7 +144,7 @@ const winnigIndex = {};
 winningWords.forEach((word, index) =>  {
     const key = getNormalizedKey(word, 3);
 
-    if (key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD) {
+    if (key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD && word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD) {
         if (spellingIndex[key]?.words.includes(word)) {
             accepted = accepted + 1;
 

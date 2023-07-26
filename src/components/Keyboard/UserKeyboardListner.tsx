@@ -12,15 +12,10 @@ const UserKeyboardListner = () => {
         const keyTyped = (event?.key || '').toLowerCase();
 
         if (keyTyped === 'enter') {
-            // TODO is asunc
-            console.log('sdsd')
-            console.log('submitAnswer', submitAnswer);
             dispatch(submitAnswer());
 
             return;
         }
-
-        console.log('submitAnswer', letterChangeInAnswer);
 
         const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
 

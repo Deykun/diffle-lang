@@ -52,10 +52,10 @@ const App = () => {
             <IconLoader className="app-loader" />
           </When>
           <Otherwise>
-              <p>Zgadnij</p>
+              {/* <p>Zgadnij</p>
               <h1><strong>{wordToGuess}</strong></h1>
               <br />
-              <br />
+              <br /> */}
               <Words />
           </Otherwise>
         </Choose>

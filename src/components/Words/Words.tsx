@@ -1,5 +1,8 @@
 import clsx from 'clsx';
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+
+import IconEye from '@components/Icons/IconEye'
 
 import Word from './Word';
 
@@ -13,17 +16,33 @@ const WORDS = [
 ];
 
 const Words = ({ typedWord }) => {
-  const submitedWords = useSelector((state) => state.game.submited);
+  const guesses = useSelector((state) => state.game.guesses);
   const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
 
+  const submitGuess = useMemo(() => {
+    const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: 'new', text: letter }));
+
+    return {
+      affixes,
+    };
+  }, [wordToSubmit]);
+
+  console.log('guesses', guesses);
+
   return (
-    <div>
-        {submitedWords.map((word, index) => {            
+    <div className='words'>
+        <IconEye className="icon-focus" />
+        {guesses.map((guess, index) => {            
+            return (
+                <Word key={`guess-${index}`} guess={guess} />
+            );
+        })}
+        {/* {submitedWords.map((word, index) => {            
             return (
                 <Word key={`${word}-${index}`} word={word} />
             );
-        })}
-        <Word word={wordToSubmit} isNew />
+        })} */}
+        <Word guess={submitGuess} />
     </div>
   )
 };
