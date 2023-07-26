@@ -10,11 +10,11 @@ import Words from './components/Words/Words'
 
 import IconLoader from './components/Icons/IconLoader';
 
-import getDoesWordExist from './actions/getDoesWordExist'
-import getWordToGuess from './actions/getWordToGuess'
-import compareWords from './actions/compareWords';
+// import getDoesWordExist from './api/getDoesWordExist'
+import getWordToGuess from '@api/getWordToGuess'
+// import compareWords from './api/compareWords';
 
-import { setWordToGuess } from './store/gameSlice'
+import { setWordToGuess } from '@store/gameSlice'
 
 const App = () => {
   const dispatch = useDispatch();
@@ -52,8 +52,11 @@ const App = () => {
             <IconLoader className="app-loader" />
           </When>
           <Otherwise>
+              <p>Zgadnij</p>
+              <h1><strong>{wordToGuess}</strong></h1>
+              <br />
+              <br />
               <Words />
-              <h2>{wordToGuess}</h2>
           </Otherwise>
         </Choose>
         <UserKeyboardListner />

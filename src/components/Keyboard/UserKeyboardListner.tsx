@@ -1,9 +1,9 @@
 import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { letterChangeInAnswer, submitAnswer } from '../../store/gameSlice';
+import { letterChangeInAnswer, submitAnswer } from '@store/gameSlice';
 
-import { ALLOWED_KEYS } from '../../constants';
+import { ALLOWED_KEYS } from '@const';
 
 const UserKeyboardListner = () => {
     const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const UserKeyboardListner = () => {
 
         if (keyTyped === 'enter') {
             // TODO is asunc
+            console.log('sdsd')
             dispatch(submitAnswer());
 
             return;

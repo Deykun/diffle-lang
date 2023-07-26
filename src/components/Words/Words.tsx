@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 
 import Word from './Word';
@@ -13,36 +13,17 @@ const WORDS = [
 ];
 
 const Words = ({ typedWord }) => {
+  const submitedWords = useSelector((state) => state.game.submited);
   const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
 
   return (
     <div>
-        {WORDS.map(({ word, markers }, index) => {
-            const key = `${word}-${index}`;
-            
+        {submitedWords.map((word, index) => {            
             return (
-                <p key={key} className="word">
-                    {Array.from(word).map((letter, letterIndex) => {
-                        const { correct, left, right, wordOrder } = markers[letterIndex] || {};
-
-                        return (
-                            <span
-                              key={`${key}-${letterIndex}`}
-                              className={classNames('letter', {
-                                'letter-correct': correct,
-                                'letter-left': left,
-                                'letter-right': right,
-                                'letter-wrong-order': wordOrder,
-                              })}
-                            >
-                                {letter}
-                            </span>
-                        );
-                    })}
-                </p>
+                <Word key={word} word={word} />
             );
         })}
-        <Word word={wordToSubmit} />
+        <Word word={wordToSubmit} isNew />
     </div>
   )
 };

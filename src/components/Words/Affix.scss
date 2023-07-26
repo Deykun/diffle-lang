@@ -1,0 +1,45 @@
+.affix {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    padding-left: 1em;
+    padding-right: 0.5em; // letterspacing adds space after
+    letter-spacing: 0.5em;
+    min-width: 42px;
+
+    &.letter {
+        max-width: 42px;
+        padding: 0;
+        letter-spacing: 0;
+    }
+
+    height: 42px;
+    line-height: 42px;
+
+    margin: 0 2px;
+    font-size: 24px;
+    border-radius: 21px;
+    font-weight: 600;
+    
+    color: black;
+    border: 1px solid #cacaca;
+    background-color: white;
+
+    &.correct {
+        color: white;
+        background-color: #4fb061;
+        border-color: #4fb061;
+    }
+
+    &.incorrect {
+        color: white;
+        background-color: #959b9d;
+        border-color: #959b9d;
+    }
+
+    &.position {
+        color: white;
+        background-color: #e8b838;
+        border-color: #e8b838;
+    }
+}

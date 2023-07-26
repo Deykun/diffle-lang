@@ -1,16 +1,15 @@
-import * as classNames from 'classnames';
+import clsx from 'clsx';
 
 import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import IconBackspace from '@components/Icons/IconBackspace';
 
-import IconBackspace from '../Icons/IconBackspace';
+import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 
-import { submitAnswer, letterChangeInAnswer } from '../../store/gameSlice';
+import { KEY_LINES, ALLOWED_KEYS } from '@const';
 
-import UserKeyboardListner from './UserKeyboardListner';
-
-import { KEY_LINES, ALLOWED_KEYS } from '../../constants';
+import KeyCap from './KeyCap';
 
 import './VirualKeyboard.scss';
 
@@ -23,14 +22,11 @@ const WRONG_ORDER = ['e', 'z'];
 const Keyboard = () => {
     const dispatch = useDispatch();
 
-    const handleClick = useCallback((keyTyped) => {
-        if (keyTyped === 'enter') {
-            // TODO is asunc
-            dispatch(submitAnswer());
+    const handleSubmit = useCallback(() => {
+        dispatch(submitAnswer());
+    }, [dispatch])
 
-            return;
-        }
-
+    const handleType = useCallback((keyTyped) => {
         const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
 
         if (isAllowedKey) {
@@ -39,29 +35,17 @@ const Keyboard = () => {
     }, [dispatch])
 
     return (
-        <>
-            <aside className="keyboard">
-                {KEY_LINES.map((line, index) => {
-                    return (
-                        <div className="line">
-                            {line.map((key) => {
-                                return (<button
-                                    key={`letter-${key}-${index}`}
-                                    onClick={() => handleClick(key)}
-                                    className={classNames('key', {
-                                        'key-used': USED.includes(key),
-                                        'key-correct': CORRECT.includes(key),
-                                        'key-wrong-order': WRONG_ORDER.includes(key),
-                                    })}>
-                                        {key === 'backspace' ? <IconBackspace /> : key}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    );
-                })}
-            </aside>
-        </>
+        <aside className="keyboard">
+            {KEY_LINES.map((line) => {
+                return (
+                    <div className="line">
+                        {line.map((keyText) => (
+                            <KeyCap key={keyText} text={keyText} onClick={keyText === 'enter' ? handleSubmit : () => handleType(keyText)} />)
+                        )}
+                    </div>
+                );
+            })}
+        </aside>
     )
 };
 

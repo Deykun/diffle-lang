@@ -1,34 +1,29 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
+
+import Affix from '@components/Words/Affix';
 
 import './Words.scss';
 
 interface Props {
     word: string,
+    isNew: boolean,
 }
 
-const Words = ({ word = '' }: Props) => {
+const Word = ({ word = '', isNew = false }: Props) => {
+  const turnToLetters = isNew && word === '' ? ' ' : word;
+
   return (
     <p className="word">
-        {Array.from(word).map((letter, letterIndex) => {
+        {Array.from(turnToLetters).map((letter, letterIndex) => {
             // const { correct, left, right, wordOrder } = markers[letterIndex] || {};
             const { correct, left, right, wordOrder } = {};
 
             return (
-                <span
-                    key={letterIndex}
-                    className={classNames('letter', {
-                    'letter-correct': correct,
-                    'letter-left': left,
-                    'letter-right': right,
-                    'letter-wrong-order': wordOrder,
-                    })}
-                >
-                    {letter}
-                </span>
+                <Affix text={letter} type={isNew ? 'new' : 'incorrect'} />
             );
         })}
     </p>
   )
 };
 
-export default Words;
+export default Word;

@@ -1,5 +1,5 @@
-import IconHelp from './Icons/IconHelp';
-import IconChart from './Icons/IconChart';
+import IconHelp from '@components/Icons/IconHelp';
+import IconChart from '@components/Icons/IconChart';
 
 import './Header.scss';
 

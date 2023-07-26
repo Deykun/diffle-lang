@@ -16,39 +16,4 @@
         gap: 7px;
         margin-bottom: 7px;
     }
-
-    .key {
-        display: inline-block;
-        padding: 0 12px;
-        border-radius: 4px;
-        border: none;
-        color: black;
-        background-color: #eee;
-        width: 100%;
-        font-weight: 600;
-        text-transform: uppercase;
-        height: 36px;
-        font-size: 14px;
-        line-height: 28px;
-
-        &.key-used {
-            color: white;
-            background-color: #959b9d;
-        }
-
-        &.key-correct {
-            color: white;
-            background-color: #4fb061;
-        }
-
-        &.key-wrong-order {
-            color: white;
-            background-color: #e8b838;
-        }
-    }
-}
-
-svg {
-    width: 22px;
-    height: 22px;
 }
