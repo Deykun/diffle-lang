@@ -5,4 +5,6 @@ export const KEY_LINES = [
     ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż', 'enter'],
 ];
 
-export const ALLOWED_KEYS = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
+const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
+
+export const ALLOWED_KEYS = [' ', ...ALLOWED_FROM_KEYLINES];

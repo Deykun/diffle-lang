@@ -7,7 +7,9 @@ const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 5;
     and it is uasaly come kind of "okrówkowanie"
     game is nicer with this limit
 */
-const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 10;
+const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 12;
+
+const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x'];
 
 const spellcheckerDictionary = fs.readFileSync('./resources/SJP/dictionary.txt', 'utf-8');
 const winningDictionary = fs.readFileSync('./resources/FreeDict/dictionary.txt', 'utf-8');
@@ -138,50 +140,76 @@ Object.keys(spellingIndex).forEach((key, index) => {
 console.log(' ');
 console.log(chalk.blue(`Creating winning chunks from ${totalWinningWords} words...`));
 
-let accepted = 0;
+let totalAccepted = 0;
+let totalTooLong = 0;
+let totalTooShort = 0;
+let totalWrongLetters = 0;
+
 const winnigIndex = {};
 
 winningWords.forEach((word, index) =>  {
     const key = getNormalizedKey(word, 3);
 
-    if (key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD && word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD) {
-        if (spellingIndex[key]?.words.includes(word)) {
-            accepted = accepted + 1;
-
-
-            if (winnigIndex[key]) {
-                winnigIndex[key].words.push(word);
-            } else {
-                winnigIndex[key] = {
-                    key,
-                    words: [word],
-                };
-            }
-
-            const shouldUpdate = index % 2500 === 0;
-
-            if (shouldUpdate) {
-                const progressPercent = (index / totalWinningWords) * 100;
-    
-                console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4,0))}% - Creating winning chunks... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
-            }
+    const isWithCorrectLength = key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD && word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD;
+    if (!isWithCorrectLength) {
+        // Meets it so it's too long
+        if (word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD) {
+            totalTooLong += 1;
         }
+
+        if (word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD) {
+            totalTooShort += 1;
+        }
+
+        return;
+    }
+
+    const isWordInSpellingDictionary = spellingIndex[key]?.words.includes(word);
+    if (!isWordInSpellingDictionary) {
+        return;
+    }
+ 
+    const hasNotAllowedLetterInWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD.some((notAllowedLetter) => word.includes(notAllowedLetter));
+    if (hasNotAllowedLetterInWord) {
+        totalWrongLetters += 1;
+    }
+
+    totalAccepted = totalAccepted + 1;
+
+
+    if (winnigIndex[key]) {
+        winnigIndex[key].words.push(word);
+    } else {
+        winnigIndex[key] = {
+            key,
+            words: [word],
+        };
+    }
+
+    const shouldUpdate = index % 2500 === 0;
+
+    if (shouldUpdate) {
+        const progressPercent = (index / totalWinningWords) * 100;
+
+        console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4,0))}% - Creating winning chunks... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
     }
 });
 
-const rejected = totalWinningWords - accepted;
+const totalRejected = totalWinningWords - totalAccepted;
+
+console.log(' ');
+console.log(chalk.blue(`Winning chunks created.`));
+// We can't accept words that are present in one dictionary and not in another
+console.log(` - accepted words: ${chalk.green(totalAccepted)} `);
+console.log(` - rejected words: ${chalk.red(totalRejected)} `);
+console.log(`   - too long: ${chalk.red(totalTooLong)} `);
+console.log(`   - too short: ${chalk.red(totalTooShort)} `);
+console.log(`   - not accepted letters (${LETTERS_NOT_ALLOWED_IN_WINNING_WORD.join(',')}): ${chalk.red(totalWrongLetters)} `);
 
 const catalog = {
     words: 0,
     items: [],
 };
-
-
-console.log(' ');
-console.log(chalk.blue(`Winning chunks created.`));
-// We can't accept words that are present in one dictionary and not in another
-console.log(` - accepted words: ${chalk.green(accepted)} `);
-console.log(` - rejected words: ${chalk.red(rejected)} `);
 
 const totalNumberOfWinningChunks = Object.keys(winnigIndex).length;
 
