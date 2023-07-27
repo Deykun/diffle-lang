@@ -3,12 +3,12 @@ import './App.scss'
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Header from './components/Header'
-import UserKeyboardListner from './components/Keyboard/UserKeyboardListner'
-import VirualKeyboard from './components/Keyboard/VirualKeyboard'
-import Words from './components/Words/Words'
+import Header from '@components/Header'
+import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
+import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
+import Words from '@components/Words/Words'
 
-import IconLoader from './components/Icons/IconLoader';
+import IconLoader from '@components/Icons/IconLoader';
 
 // import getDoesWordExist from './api/getDoesWordExist'
 import getWordToGuess from '@api/getWordToGuess'

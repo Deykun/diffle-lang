@@ -1,8 +1,9 @@
 import clsx from 'clsx';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import IconEye from '@components/Icons/IconEye'
+import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
 import Word from './Word';
 
@@ -17,6 +18,7 @@ const WORDS = [
 
 const Words = ({ typedWord }) => {
   const guesses = useSelector((state) => state.game.guesses);
+  const isProcessing = useSelector((state) => state.game.isProcessing);
   const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
 
   const submitGuess = useMemo(() => {
@@ -26,6 +28,10 @@ const Words = ({ typedWord }) => {
       affixes,
     };
   }, [wordToSubmit]);
+
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [wordToSubmit])
 
   console.log('guesses', guesses);
 
@@ -43,6 +49,11 @@ const Words = ({ typedWord }) => {
             );
         })} */}
         <Word guess={submitGuess} />
+        <If condition={isProcessing}>
+          <p className="processing">
+            <IconDashedCircle /> <span>sprawdzanie...</span>
+          </p>
+        </If>
     </div>
   )
 };

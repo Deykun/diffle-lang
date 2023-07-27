@@ -13,12 +13,6 @@ import KeyCap from './KeyCap';
 
 import './VirualKeyboard.scss';
 
-const USED = ['a', 'd', 'e', 'k', 'o', 'z', 'h', 'c'];
-
-const CORRECT = ['a', 'd', 'e', 'k', 'o', 'z'];
-
-const WRONG_ORDER = ['e', 'z'];
-
 const Keyboard = () => {
     const dispatch = useDispatch();
 

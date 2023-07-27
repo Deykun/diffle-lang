@@ -67,6 +67,10 @@ export const submitAnswer = createAsyncThunk(
         const wordToGuess = state.game.wordToGuess;
         const wordToSubmit = state.game.wordToSubmit;
 
+        if (wordToSubmit.includes(' ')) {
+            return { wasSubmited: false, doesWordExist: false, word: wordToSubmit };
+        }
+
         const doesWordExist = await getDoesWordExist(wordToSubmit);
 
         if (!doesWordExist) {
@@ -98,6 +102,7 @@ const initialState = {
     letters: { correct: {}, incorrect: {}, position: {} },
     submited: [],
     guesses: [],
+    isProcessing: false,
 };
 
 const gameSlice = createSlice({
@@ -108,44 +113,31 @@ const gameSlice = createSlice({
         state.wordToGuess = action.payload;
         },
         letterChangeInAnswer(state, action) {
-        const typed = action.payload;
+            if (state.isProcessing) {
+                return;
+            }
 
-        if (typed === 'backspace') {
-            state.wordToSubmit = state.wordToSubmit.slice(0, -1);
-        
-            return;
-        }
+            const typed = action.payload;
 
-        if (ALLOWED_KEYS.includes(typed)) {
-            state.wordToSubmit = state.wordToSubmit + typed;
-        }
+            if (typed === 'backspace') {
+                state.wordToSubmit = state.wordToSubmit.slice(0, -1);
+            
+                return;
+            }
+
+            if (ALLOWED_KEYS.includes(typed)) {
+                state.wordToSubmit = state.wordToSubmit + typed;
+            }
         },
-        // submitAnswer(state, action) {
-        // if (!state.wordToSubmit) {
-        //     return;
-        // }
-
-        // const wordUsedLetters = state.wordToSubmit.split('').reduce((usedLetters, letter) => {
-        //     usedLetters[letter] = true;
-
-        //     return usedLetters;
-        // }, {});
-
-        // state.usedLetters = {
-        //     ...state.usedLetters, 
-        //     ...wordUsedLetters,
-        // };
-
-        // state.submited.push(state.wordToSubmit);
-
-        // state.wordToSubmit = '';
-        // }
     },
     extraReducers: (builder) => {
         builder.addCase(submitAnswer.pending, (state) => {
             console.log('pen');
+            state.isProcessing = true;
 
         }).addCase(submitAnswer.fulfilled, (state, action) => {
+            state.isProcessing = false;
+
             const { wasSubmited, doesWordExist, affixes, result, word, wordLetters } = action.payload;
 
             if (!wasSubmited) {
@@ -177,9 +169,9 @@ const gameSlice = createSlice({
             // state.submited.push(state.wordToSubmit);
             state.guesses.push({ affixes });
 
-
         }).addCase(submitAnswer.rejected, (state) => {
             console.log('rej');
+            state.isProcessing = false;
         })
     },
 })

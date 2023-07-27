@@ -10,20 +10,44 @@
         position: absolute;
         top: -20px;
         right: 0px;
+        z-index: 1;
         width: 24px;
         height: 24px;
         fill: #cacaca;
+        border-radius: 50px;
+        background-color: rgba(white, 0.8);
+        box-shadow: 0 0 5px rgba(white, 0.5);
+        z-index: 1;
 
         &:hover ~ .word .incorrect {
             transform: scale(0.6);
         }
     }
+
+    .processing {
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            animation: spin infinite linear reverse 1s;
+            fill: #4fb061;
+        }
+
+        span {
+            text-transform: none;
+            margin-left: 5px;
+            color: #959b9d;
+        }
+    }
 }
 
-
-
-
 .word {
+    display: flex;
+    justify-content: center;
     height: 42px;
     margin: 0;
     margin-bottom: 16px;
