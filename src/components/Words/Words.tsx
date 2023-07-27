@@ -34,39 +34,26 @@ const Words = ({ typedWord }) => {
     window.scrollTo(0, document.body.scrollHeight);
   }, [wordToSubmit])
 
-  // hasLongGuesses
+  const shouldBeSmaller = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS || guesses.length > 8;
 
   return (
-    <div className={classNames('words', { 'has-long': hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS })}>
+    <div className={classNames('words', { 'zoom-out': shouldBeSmaller })}>
         <IconEye className="icon-focus" />
         {guesses.map((guess, index) => {            
             return (
                 <Word key={`guess-${index}`} guess={guess} />
             );
         })}
-        <Choose>
-          <When condition={isWin}>
-            <Win />
-          </When>
-          <Otherwise>
-            <Word guess={submitGuess} />
-          </Otherwise>
-        </Choose>
-        <Choose>
-          <When condition={isProcessing}>
-            <p className="status processing">
-              <IconDashedCircle /> <span>sprawdzanie...</span>
-            </p>
-          </When>
-          <When condition={hasSpace}>
-            <p className="status space">
-              <small>Hasło nie mają spacji, ale możesz jej używać zamiast X.</small>
-            </p>
-          </When>
-          <Otherwise>
-            <p className="status"></p>
-          </Otherwise>
-        </Choose>
+        {isWin ? <Win /> : <Word guess={submitGuess} />}
+        <p
+          className={classNames('status', {
+            'processing': isProcessing,
+            'space': hasSpace,
+          })}
+        >
+          {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
+          {!isProcessing && hasSpace && <small>Hasło nie mają spacji, ale możesz jej używać zamiast X.</small>}
+        </p>
     </div>
   )
 };

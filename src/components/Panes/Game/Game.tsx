@@ -28,14 +28,7 @@ const Game = () => {
 
     return (
         <div className="game">
-            <Choose>
-                <When condition={!wordToGuess}>
-                    <IconLoader className="app-loader" />
-                </When>
-                <Otherwise>
-                    <Words />
-                </Otherwise>
-            </Choose>
+            {wordToGuess ? <Words /> : <IconLoader className="game-loader" />}
             <UserKeyboardListner />
             <VirualKeyboard />
         </div>

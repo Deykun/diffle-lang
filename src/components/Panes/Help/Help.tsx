@@ -21,7 +21,23 @@ const Help = ({ onPaneChange }) => {
             <p>Hasło zaczyna się na litrę <strong>S</strong>, zawiera literę <strong>P</strong> i kończy na <strong>R</strong>.</p>
             <Word guess={HELP_WORDS[4]} />
             <p>Podane słowo jest hasłem.</p>
-            <button onClick={() => onPaneChange('game')}>Zacznij grać</button>
+            <p>
+                <button className="button" onClick={() => onPaneChange('game')}>Zacznij grać</button>
+            </p>
+            <footer>
+                <h2 className="title">Źródła</h2>
+                <p>
+                    Specjalne podziękowania. dla SJP i FreeDict.                    
+                    <br /><br />
+                    <ul>
+                        <li><a href="https://sjp.pl" target="blank">https://sjp.pl</a> - używane jako spellchecker</li>
+                        <li><a href="ttps://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
+                        <li><a href="https://iconmonstr.com/" target="blank">https://iconmonstr.com/</a> - ikonki</li>
+                        <li><a href="https://www.nytimes.com/games/wordle/index.html" target="blank">https://www.nytimes.com/games/wordle/</a> - oryginalne wordle</li>
+                        <li><a href="https://hedalu244.github.io/diffle/" target="blank">https://hedalu244.github.io/diffle/</a> - oryginalne diffle</li>
+                    </ul>
+                </p>
+            </footer>
         </div>
     )
 };

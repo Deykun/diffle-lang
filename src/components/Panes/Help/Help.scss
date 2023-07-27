@@ -6,4 +6,46 @@
     .word {
         margin-bottom: 10px;
     }
+
+    .button {
+        display: inline-block;
+        padding: 0 10px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        color: white;
+        background-color: #1c732d;
+        border-radius: 3px;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: #4fb061;
+        }
+    }
+
+    > footer {
+        margin-top: 40px;
+        padding-bottom: 20px;
+        font-size: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.65);
+                    
+        a {
+            color: #275fb3;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+
+            &:hover {
+                color: #275fb3;
+            }
+        }
+
+        ul {
+            li {
+                margin-bottom: 8px;
+            }
+        }
+    }
 }

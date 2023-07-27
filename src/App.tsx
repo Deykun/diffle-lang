@@ -3,6 +3,7 @@ import './App.scss'
 import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+
 import Header from '@components/Header'
 
 import Game from '@components/Panes/Game/Game';
@@ -24,14 +25,8 @@ const App = () => {
       <Header pane={pane} onPaneChange={handlePaneChange} />
       <main>
         <Toast />
-        <Choose>
-          <When condition={pane === 'help'}>
-            <Help onPaneChange={handlePaneChange} />
-          </When>
-          <Otherwise>
-            <Game />
-          </Otherwise>
-        </Choose>
+        {pane === 'help' && <Help onPaneChange={handlePaneChange} />}
+        {pane === 'game' && <Game />}
       </main>
     </div>
   )
