@@ -1,9 +1,5 @@
-import classNames from 'clsx';
-
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-
-import IconBackspace from '@components/Icons/IconBackspace';
 
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 
@@ -13,7 +9,7 @@ import KeyCap from './KeyCap';
 
 import './VirualKeyboard.scss';
 
-const Keyboard = () => {
+const VirualKeyboard = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = useCallback(() => {
@@ -43,4 +39,4 @@ const Keyboard = () => {
     )
 };
 
-export default Keyboard;
+export default VirualKeyboard;

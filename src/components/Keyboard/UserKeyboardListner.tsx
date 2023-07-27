@@ -1,7 +1,10 @@
-import { useEffect, useCallback } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { letterChangeInAnswer, submitAnswer } from '@store/gameSlice';
+
+import useEventListener from '@hooks/useEventListener';
+
 
 import { ALLOWED_KEYS } from '@const';
 
@@ -12,6 +15,9 @@ const UserKeyboardListner = () => {
         const keyTyped = (event?.key || '').toLowerCase();
 
         if (keyTyped === 'enter') {
+            // Last focused button is not triggered by that
+            event.preventDefault();
+
             dispatch(submitAnswer());
 
             return;
@@ -24,13 +30,21 @@ const UserKeyboardListner = () => {
         }
     }, [dispatch]);
 
-    useEffect(() => {
-        document.addEventListener('keydown', handleTyped);
+    useEventListener('keydown', handleTyped);
 
-        () => {
-            document.removeEventListener('keydown', handleTyped);
-        }
-    }, [handleTyped])
+    // useEffect(() => {
+    //     handlerRef.current = handleTyped;
+    // }, [handleTyped]);
+
+    // useEffect(() => {
+    //     const eventListener = event => handlerRef.current(event);
+
+    //     document.addEventListener('keydown', eventListener);
+
+    //     () => {
+    //         document.removeEventListener('keydown', eventListener);
+    //     }
+    // }, [])
 
     return null;
 };

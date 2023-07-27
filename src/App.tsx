@@ -1,45 +1,37 @@
-import { useEffect } from 'react'
 import './App.scss'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import Header from '@components/Header'
-import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
-import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
-import Words from '@components/Words/Words'
 
-import IconLoader from '@components/Icons/IconLoader';
-
-import getWordToGuess from '@api/getWordToGuess'
-
-import { setWordToGuess } from '@store/gameSlice'
+import Game from '@components/Panes/Game/Game';
+import Help from '@components/Panes/Help/Help';
 import Toast from '@components/Toast/Toast';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const [pane, setPane] = useState('game');
   const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
-  useEffect(() => {
-    getWordToGuess().then(word => {
-      dispatch(setWordToGuess(word));
-    })
-  }, [dispatch]);
+  const handlePaneChange = useCallback((pickedPane) => {
+    const isClose = pickedPane === pane;
+
+    setPane(isClose ? 'game' : pickedPane);
+  }, [pane]);
 
   return (
     <div className="wrapper" data-word-to-guess={wordToGuess}>
-      <Header />
+      <Header pane={pane} onPaneChange={handlePaneChange} />
       <main>
         <Toast />
         <Choose>
-          <When condition={!wordToGuess}>
-            <IconLoader className="app-loader" />
+          <When condition={pane === 'help'}>
+            <Help onPaneChange={handlePaneChange} />
           </When>
           <Otherwise>
-              <Words />
+            <Game />
           </Otherwise>
         </Choose>
-        <UserKeyboardListner />
-        <VirualKeyboard />
       </main>
     </div>
   )

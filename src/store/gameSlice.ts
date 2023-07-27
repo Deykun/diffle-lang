@@ -67,7 +67,6 @@ export const submitAnswer = createAsyncThunk(
             return { wasSubmited: false, word: wordToSubmit };
         }
 
-        const wordToGuess = state.game.wordToGuess;
         const wordToSubmit = state.game.wordToSubmit;
 
         if (wordToSubmit.includes(' ')) {
@@ -79,6 +78,16 @@ export const submitAnswer = createAsyncThunk(
         if (!doesWordExist) {
             return { wasSubmited: false, doesWordExist: false, word: wordToSubmit };
         }
+
+        const guesses = state.game.guesses;
+
+        const alreadyTrierd = guesses.some(({ word }) => word === wordToSubmit);
+
+        if (alreadyTrierd) {
+            return { wasSubmited: false, word: wordToSubmit };
+        }
+
+        const wordToGuess = state.game.wordToGuess;
 
         const result = compareWords(wordToGuess, wordToSubmit);
 

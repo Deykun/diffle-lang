@@ -3,10 +3,10 @@ import IconChart from '@components/Icons/IconChart';
 
 import './Header.scss';
 
-const Header = () => {
+const Header = ({ onPaneChange }) => {
   return (
     <header className="header">
-        <button className="button-left">
+        <button className="button-left" onClick={() => onPaneChange('help')}>
             <IconHelp />
         </button>
         <h1>Diffle</h1>
