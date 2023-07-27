@@ -1,11 +1,6 @@
 .words {
     position: relative;
 
-    .word .incorrect  {
-        opacity: 1;
-        transition: all 0.1s ease-in-out;
-    }
-
     .icon-focus {
         position: absolute;
         top: -20px;
@@ -24,23 +19,29 @@
         }
     }
 
-    .processing {
+    .status {
+        color: #959b9d;
+        text-transform: none;
+        margin: 0;
+        min-height: 30px;
+
         > * {
             display: inline-block;
             vertical-align: middle;
         }
 
-        svg {
-            width: 24px;
-            height: 24px;
-            animation: spin infinite linear reverse 1s;
-            fill: #4fb061;
+        &.processing {
+            svg {
+                width: 24px;
+                height: 24px;
+                margin-right: 5px;
+                animation: spin infinite linear reverse 1s;
+                fill: #4fb061;            
+            }
         }
 
-        span {
-            text-transform: none;
-            margin-left: 5px;
-            color: #959b9d;
+        small {
+            font-size: 80%;
         }
     }
 }
@@ -51,4 +52,11 @@
     height: 42px;
     margin: 0;
     margin-bottom: 16px;
+}
+
+.words.has-long {
+    .word {
+        height: 28px;
+        margin-bottom: 8px;
+    }
 }

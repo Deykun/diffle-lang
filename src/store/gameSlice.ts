@@ -3,9 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import getDoesWordExist from '@api/getDoesWordExist';
 import compareWords from '@api/compareWords';
 
-import { ALLOWED_KEYS } from '@const';
-
-// type: ('new' | 'correct' | 'position' | 'incorrect'),
+import { ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 export const tempolaryTranslatorPatterns = (word, pattern) => {
     const letters = Array.from(word);
@@ -64,11 +62,16 @@ export const submitAnswer = createAsyncThunk(
     'game/submitAnswer',
     async (_, { getState }) => {
         const state = getState();
+
+        if (state.isWin || state.isProcessing) {
+            return { wasSubmited: false, word: wordToSubmit };
+        }
+
         const wordToGuess = state.game.wordToGuess;
         const wordToSubmit = state.game.wordToSubmit;
 
         if (wordToSubmit.includes(' ')) {
-            return { wasSubmited: false, doesWordExist: false, word: wordToSubmit };
+            return { wasSubmited: false, hasSpaces: true, word: wordToSubmit };
         }
 
         const doesWordExist = await getDoesWordExist(wordToSubmit);
@@ -91,18 +94,22 @@ export const submitAnswer = createAsyncThunk(
             affixes[affixes.length - 1].isEnd = true;
         }
 
-        return { wasSubmited: true, doesWordExist: true, word: wordToSubmit, result, affixes, wordLetters };
+        const isWin = wordToSubmit === wordToGuess;
+
+        return { isWin, wasSubmited: true, doesWordExist: true, word: wordToSubmit, result, affixes, wordLetters };
     },
 );
 
 const initialState = {
     wordToGuess: '',
     wordToSubmit: '',
+    isWin: false,
     usedLetters: {},
     letters: { correct: {}, incorrect: {}, position: {} },
-    submited: [],
     guesses: [],
+    hasLongGuesses: false,
     isProcessing: false,
+    toast: { text: '', timeoutSeconds: 5 },
 };
 
 const gameSlice = createSlice({
@@ -110,10 +117,10 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         setWordToGuess(state, action) {
-        state.wordToGuess = action.payload;
+            state.wordToGuess = action.payload;
         },
         letterChangeInAnswer(state, action) {
-            if (state.isProcessing) {
+            if (state.isWin || state.isProcessing) {
                 return;
             }
 
@@ -126,9 +133,16 @@ const gameSlice = createSlice({
             }
 
             if (ALLOWED_KEYS.includes(typed)) {
+                if (state.wordToSubmit.length >= WORD_MAXLENGTH) {
+                    return;
+                }
+
                 state.wordToSubmit = state.wordToSubmit + typed;
             }
         },
+        clearToast(state) {
+            state.toast = { text: '', timeoutSeconds: 2 };
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(submitAnswer.pending, (state) => {
@@ -138,15 +152,26 @@ const gameSlice = createSlice({
         }).addCase(submitAnswer.fulfilled, (state, action) => {
             state.isProcessing = false;
 
-            const { wasSubmited, doesWordExist, affixes, result, word, wordLetters } = action.payload;
+            const { wasSubmited, isWin, hasSpaces, doesWordExist, affixes, result, word, wordLetters } = action.payload;
 
             if (!wasSubmited) {
+                if (hasSpaces) {
+                    state.toast = { text: 'Spacje usunięte', timeoutSeconds: 2 };
+                    state.wordToSubmit = state.wordToSubmit.replaceAll(' ', '');
+
+                    return;
+                }
+
+                if (!doesWordExist) {
+                    state.toast = { text: 'Brak słowa w słowniku', timeoutSeconds: 3 };
+                }
+
                 return;
             }
 
-            state.wordToSubmit = '';
-            state.submited.push(word);
+            state.isWin = isWin;
 
+            state.wordToSubmit = '';
 
             state.letters = {
                 correct: {
@@ -163,18 +188,19 @@ const gameSlice = createSlice({
                 },
             }
 
-                    // state.submited.push(state.wordToSubmit);
+            if (word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS) {
+                state.hasLongGuesses = true;
+            }
 
-
-            // state.submited.push(state.wordToSubmit);
-            state.guesses.push({ affixes });
+            state.guesses.push({ word, affixes });
 
         }).addCase(submitAnswer.rejected, (state) => {
-            console.log('rej');
             state.isProcessing = false;
+
+            state.toast = { text: 'Nieznany błąd', timeoutSeconds: 3 };
         })
     },
 })
 
-export const { setWordToGuess, letterChangeInAnswer } = gameSlice.actions
+export const { setWordToGuess, letterChangeInAnswer, clearToast } = gameSlice.actions
 export default gameSlice.reducer

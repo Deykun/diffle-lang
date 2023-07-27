@@ -1,15 +1,15 @@
 import fs from 'fs';
 import chalk from 'chalk';
 
-const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 5;
+const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 4;
 /*
     Very long words have multiple markers
     and it is uasaly come kind of "okrówkowanie"
     game is nicer with this limit
 */
-const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 12;
+const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 13;
 
-const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x'];
+const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x', 'v'];
 
 const spellcheckerDictionary = fs.readFileSync('./resources/SJP/dictionary.txt', 'utf-8');
 const winningDictionary = fs.readFileSync('./resources/FreeDict/dictionary.txt', 'utf-8');
@@ -21,11 +21,6 @@ const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (l
 const totalWinningWords = winningWords.length;
 
 let spellingIndex = {};
-
-let currentIndex = {
-    key: 'aaa',
-    words: [],
-};
 
 const getNormalizedKey = word => {
     if (word.length < 3) {
@@ -51,43 +46,7 @@ const getNormalizedKey = word => {
         .replaceAll('ż', 'z');
 }
 
-const closeIndex = (index, pathPattern, { withCatalog = false, total, tempIndex } = {}) => {
-    const { key, words } = currentIndex;
-
-    if (key && words.length > 0) {
-        const uniqueWords = [...new Set(words)];
-
-        if (withCatalog) {
-            const endIndex = catalog.words + uniqueWords.length;
-
-            catalog.items.push({
-                key,
-                endIndex,
-                keyWords: uniqueWords.length,
-            });
-
-            catalog.words = endIndex;
-        }
-
-        tempIndex[key] = { key, words: uniqueWords };
-
-        const progressPercent = (index && total) ? 100 * (index / total) : undefined;
-
-        const message = [
-            `Chunk "${key}" saved with ${uniqueWords.length} words`,
-        ];
-
-        if (progressPercent) {
-            message.push(`${chalk.green(progressPercent.toFixed(2))}%`);
-        }
-
-        console.log(message.join(' - '));
-
-        // fs.writeFileSync(`public/dictionary/${pathPattern}-${currentIndex.key}.json`, JSON.stringify(currentIndex.words));
-
-        currentIndex = {};
-    }
-}
+let longestWord = '';
 
 console.log(' ');
 console.log(chalk.blue(`Creating spelling chunks index from ${totalSpellcheckerWords} words...`));
@@ -105,6 +64,10 @@ spellcheckerWords.forEach((word, index) =>  {
             };
         }
 
+        if (word.length > longestWord.length) {
+            longestWord = word;
+        }
+
         const shouldUpdate = index % 75000 === 0;
 
         if (shouldUpdate) {
@@ -114,8 +77,6 @@ spellcheckerWords.forEach((word, index) =>  {
         }
     }
 });
-
-closeIndex(totalSpellcheckerWords, 'spelling/chunk', { total: totalSpellcheckerWords, tempIndex: spellingIndex });
 
 const totalNumberOfSpellingChunks = Object.keys(spellingIndex).length;
 
@@ -248,3 +209,6 @@ console.log(chalk.blue(`Winning catalog saved!`));
 
 console.log(' ');
 console.log(chalk.green('Finished!'));
+
+console.log(' ');
+console.log(`Longest indexed word is "${chalk.blue(longestWord)}" it has ${chalk.blue(longestWord.length)} letters.`);

@@ -7,11 +7,14 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:jsx-control-statements/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    "react/jsx-no-undef": [ "error", { "allowGlobals": true } ],
+    "jsx-control-statements/jsx-jcs-no-undef": "off",
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },

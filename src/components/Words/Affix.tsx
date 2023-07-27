@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import classNames from 'clsx';
 
 import './Affix.scss';
 
@@ -14,7 +14,7 @@ const Affix = ({ type, text, isStart, isEnd }: Props) => {
 
   return (
         <span
-            className={clsx('affix', type, {
+            className={classNames('affix', type, {
                 'letter': text.length === 1,
                 'start': isStart,
                 'end': isEnd,

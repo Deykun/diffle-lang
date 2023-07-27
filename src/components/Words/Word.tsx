@@ -1,26 +1,14 @@
-import clsx from 'clsx';
+import classNames from 'clsx';
 
 import Affix from '@components/Words/Affix';
 
 import './Words.scss';
 
 interface Props {
-    word: string,
-    isNew: boolean,
+    // guess: boolean,
 }
 
-const Word = ({ word = '', guess }: Props) => {
-  // let affixes = !guess ? [{ type: 'new', text: word || ' ' }] : guess.affixes;
-
-    // console.log(guess);
-
-  // if (guess) {
-  //   affixes = guess.affixes;
-  // }
-  // guess
-
-  console.log(guess);
-
+const Word = ({ guess }: Props) => {
   if (!guess) {
     return null;
   }
@@ -33,7 +21,7 @@ const Word = ({ word = '', guess }: Props) => {
             );
         })}
     </p>
-  )
+  );
 };
 
 export default Word;

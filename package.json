@@ -1,5 +1,10 @@
 {
-  "name": "diffle-pl",
+  "name": "diffle-lang",
+  "keywords": [
+    "wordle",
+    "diffle",
+    "literalnie"
+  ],
   "private": true,
   "version": "0.0.0",
   "type": "module",

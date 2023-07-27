@@ -6,7 +6,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: min(500px, 100%);
-    z-index: 1;
+    z-index: 2;
     height: 50px;
     line-height: 50px;
     background-color: rgba(white, 0.65);
@@ -19,6 +19,7 @@
         font-size: 32px;
         line-height: 56px;
         font-weight: 800;
+        text-transform: uppercase;
         text-shadow: 0 0px 10px white;
         position: absolute;
 

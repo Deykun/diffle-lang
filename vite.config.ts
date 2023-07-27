@@ -8,7 +8,10 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
-        plugins: [['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }], 'jsx-control-statements'],
+        plugins: [
+          ['@babel/plugin-transform-react-jsx', { runtime: 'automatic' }],
+          'jsx-control-statements'
+        ],
       },
     }),
   ],

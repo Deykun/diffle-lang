@@ -5,20 +5,23 @@
     padding-left: 0.6em;
     padding-right: 0em; // letterspacing adds space after
     letter-spacing: 0.6em;
+    text-transform: uppercase;
     vertical-align: middle;
-    min-width: 42px;
+    min-width: min(42px, 7vw);
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
 
     &.letter {
-        max-width: 42px;
+        max-width:  min(42px, 7vw);
         padding: 0;
         letter-spacing: 0;
     }
 
-    height: 42px;
-    line-height: 42px;
+    height: min(42px, 7vw);
+    line-height: min(42px, 7vw);
 
     margin: 0 2px;
-    font-size: 24px;
+    font-size: min(42px, 5vw);
     border-radius: 21px;
 
     &.start {
@@ -53,5 +56,20 @@
         color: white;
         background-color: #e8b838;
         border-color: #e8b838;
+    }
+}
+
+.words.has-long {
+    .affix {
+        min-width: min(28px, 5vw);
+        height: min(28px, 5vw);
+        line-height: min(28px, 5vw);
+        font-size: min(18px, 3vw);
+
+        &.letter {
+            max-width: min(28px, 5vw);
+            padding: 0;
+            letter-spacing: 0;
+        }
     }
 }

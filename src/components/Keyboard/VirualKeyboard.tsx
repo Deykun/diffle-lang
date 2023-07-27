@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import classNames from 'clsx';
 
 import { useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';

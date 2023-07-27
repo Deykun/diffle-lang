@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import classNames from 'clsx';
 
 import { useSelector } from 'react-redux';
 
@@ -26,7 +26,7 @@ const KeyCap = ({ text, onClick }) => {
     return (
         <button
             onClick={onClick}
-            className={clsx('key', type, { 'typed': isTyped })}>
+            className={classNames('key', `key-${text}`, type, { 'typed': isTyped })}>
                 {text === 'backspace' ? <IconBackspace /> : text}
         </button>
     );

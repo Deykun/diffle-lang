@@ -1,0 +1,20 @@
+.toast {
+    position: fixed;
+    top: 65px;
+    left: 50%;
+    font-size: 12px;
+    transform: translateY(0) translateX(-50%);
+    z-index: 1;
+    background-color: black;
+    color: white;
+    padding: 7px;
+    text-transform: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(black, 0.2);
+    animation: slideInFromTop 0.25s ease-out;
+}
+
+@keyframes slideInFromTop {
+    0% { transform: translateY(-150px) translateX(-50%); }
+    100% { transform: translateY(0) translateX(-50%); }
+}

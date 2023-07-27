@@ -1,0 +1,45 @@
+.win {
+    margin-top: 30px;
+
+    .title {
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .totals {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 18px;
+    }
+
+    .total {
+        strong {
+            color: #4fb061;
+            font-size: 24px;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+    }
+
+    .link-sjp {
+        display: inline-block;
+        padding: 0 8px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        color: white;
+        background-color: #26c;
+        border-radius: 3px;
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: #275fb3;
+        }
+    }
+}
