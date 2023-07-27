@@ -2,7 +2,7 @@
     position: relative;
 
     .word .incorrect  {
-        transform: scale(1);
+        opacity: 1;
         transition: all 0.1s ease-in-out;
     }
 
@@ -20,7 +20,7 @@
         z-index: 1;
 
         &:hover ~ .word .incorrect {
-            transform: scale(0.6);
+            opacity: 0.2;
         }
     }
 
