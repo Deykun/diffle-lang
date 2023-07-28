@@ -6,7 +6,7 @@ import { clearToast } from '@store/gameSlice';
 import './Toast.scss';
 
 const Toasts = () => {
-  const setTimeoutRef = useRef(null);
+  const setTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const dispatch = useDispatch();
   const { text, timeoutSeconds = 4 } = useSelector(state => state.game.toast);
 
@@ -32,7 +32,6 @@ const Toasts = () => {
     return null;
   }
 
-  // toast
   return (
     <p className="toast">
         {text}

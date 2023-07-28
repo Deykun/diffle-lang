@@ -1,7 +1,5 @@
-
-
 interface Props {
-    className: string,
+    className?: string,
 }
 
 const IconDashedCircle = ({ className }: Props) => (

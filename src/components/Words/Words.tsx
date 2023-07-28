@@ -16,7 +16,7 @@ import './Words.scss';
 
 const Words = ({ typedWord }) => {
   const guesses = useSelector((state) => state.game.guesses);
-  const isWin = useSelector((state) => state.game.isWin);
+  const isWon = useSelector((state) => state.game.isWon);
   const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
   const isProcessing = useSelector((state) => state.game.isProcessing);
   const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
@@ -44,7 +44,7 @@ const Words = ({ typedWord }) => {
                 <Word key={`guess-${index}`} guess={guess} />
             );
         })}
-        {isWin ? <Win /> : <Word guess={submitGuess} />}
+        {isWon ? <Win /> : <Word guess={submitGuess} />}
         <p
           className={classNames('status', {
             'processing': isProcessing,

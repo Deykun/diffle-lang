@@ -13,13 +13,73 @@ const SUBMIT_ERRORS = {
     WORD_DOES_NOT_EXIST: 'word_does_not_exist',
 };
 
-export const temporaryTranslatorPatterns = (word, pattern) => {
+interface Word {
+    word: string,
+    affixes: Affix[],
+}
+
+interface Toast {
+    text: string,
+    timeoutSeconds: number,
+}
+
+interface RootGameState {
+    wordToGuess: string,
+    wordToSubmit: string,
+    isWon: boolean,
+    letters: {
+        correct: usedLetters,
+        incorrect: usedLetters,
+        position: usedLetters,
+    },
+    guesses: Word[],
+    hasLongGuesses: boolean,
+    isProcessing: boolean,
+    toast: Toast,
+}
+
+interface RootState {
+    game: RootGameState
+}
+
+const initialState: RootGameState = {
+    wordToGuess: '',
+    wordToSubmit: '',
+    isWon: false,
+    letters: { correct: {}, incorrect: {}, position: {} },
+    guesses: [],
+    hasLongGuesses: false,
+    isProcessing: false,
+    toast: { text: '', timeoutSeconds: 5 },
+};
+interface Affix {
+    type: ('' | 'new' | 'correct' | 'position' | 'incorrect'),
+    text: string,
+    isStart?: boolean,
+    isEnd?: boolean,
+}
+
+interface usedLetters {
+    [key: string]: boolean,
+}
+
+interface PatternReport {
+    affixes: Affix[],
+    wordLetters: {
+        correct: usedLetters,
+        incorrect: usedLetters,
+        position: usedLetters,
+    },
+    current?: Affix
+}
+
+export const temporaryTranslatorPatterns = (word: string, pattern: number[]): PatternReport => {
     const letters = Array.from(word);
     const length = pattern.length;
 
-    const { affixes, wordLetters } = pattern.reduce((stack, value, index) => {
+    const { affixes, wordLetters } = pattern.reduce((stack: PatternReport, value: number, index: number) => {
         const letter = letters[index];
-        const { current: { type, text } } = stack;
+        const { type, text } = stack.current || {};
 
         const shouldClose = value < 3;
 
@@ -43,7 +103,7 @@ export const temporaryTranslatorPatterns = (word, pattern) => {
         }
 
         if (value === 2 || value === 3) {
-            const { text } = stack.current;
+            const { text } = stack.current || {};
 
             stack.current = ({ type: 'correct', text: `${text}${letter}` });
 
@@ -52,14 +112,18 @@ export const temporaryTranslatorPatterns = (word, pattern) => {
 
         const isLast = index + 1 === length;
 
-        if (isLast && stack.current.type) {
+        if (isLast && stack.current?.type) {
             stack.affixes.push(stack.current);
         }
 
         return stack;
     }, {
         affixes: [],
-        wordLetters: { correct: {}, incorrect: {}, position: {} },
+        wordLetters: {
+            correct: {},
+            incorrect: {},
+            position: {}
+        },
         current: { type: '', text: '' },
     });
 
@@ -68,14 +132,18 @@ export const temporaryTranslatorPatterns = (word, pattern) => {
 
 export const submitAnswer = createAsyncThunk(
     'game/submitAnswer',
-    async (_, { getState }) => {
-        const state = getState();
+    async (_, { dispatch, getState }) => {
+        const state  = getState() as RootState;
 
-        if (state.isProcessing) {
+        console.log('state', state);
+
+        // gameSlice.actions
+
+        if (state.game.isProcessing) {
             return { isError: true, type: SUBMIT_ERRORS.ALREADY_PROCESSING };
         }
 
-        if (state.isWin) {
+        if (state.game.isWon) {
             return { isError: true, type: SUBMIT_ERRORS.ALREADY_WON };
         }
 
@@ -83,6 +151,8 @@ export const submitAnswer = createAsyncThunk(
         if (wordToSubmit.includes(' ')) {
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
+
+        dispatch(gameSlice.actions.setProcessing(true));
 
         const doesWordExist = await getDoesWordExist(wordToSubmit);
         if (!doesWordExist) {
@@ -113,23 +183,11 @@ export const submitAnswer = createAsyncThunk(
             affixes[affixes.length - 1].isEnd = true;
         }
 
-        const isWin = wordToSubmit === wordToGuess;
+        const isWon = wordToSubmit === wordToGuess;
 
-        return { isError: false, isWin, word: wordToSubmit, result, affixes, wordLetters };
+        return { isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters };
     },
 );
-
-const initialState = {
-    wordToGuess: '',
-    wordToSubmit: '',
-    isWin: false,
-    usedLetters: {},
-    letters: { correct: {}, incorrect: {}, position: {} },
-    guesses: [],
-    hasLongGuesses: false,
-    isProcessing: false,
-    toast: { text: '', timeoutSeconds: 5 },
-};
 
 const gameSlice = createSlice({
     name: 'game',
@@ -139,7 +197,7 @@ const gameSlice = createSlice({
             state.wordToGuess = action.payload;
         },
         letterChangeInAnswer(state, action) {
-            if (state.isWin || state.isProcessing) {
+            if (state.isWon || state.isProcessing) {
                 return;
             }
 
@@ -161,11 +219,14 @@ const gameSlice = createSlice({
         },
         clearToast(state) {
             state.toast = { text: '', timeoutSeconds: 2 };
+        },
+        setProcessing(state, action) {
+            state.isProcessing = action.payload;
         }
     },
     extraReducers: (builder) => {
         builder.addCase(submitAnswer.pending, (state) => {
-            state.isProcessing = true;
+            // 
         }).addCase(submitAnswer.fulfilled, (state, action) => {
             state.isProcessing = false;
 
@@ -190,23 +251,23 @@ const gameSlice = createSlice({
                 return;
             }
 
-            const { isWin, affixes, word, wordLetters } = action.payload;
+            const { isWon = false, affixes = [], word = '', wordLetters } = action.payload;
 
-            state.isWin = isWin;
+            state.isWon = isWon;
             state.wordToSubmit = '';
 
             state.letters = {
                 correct: {
                     ...state.letters.correct,
-                    ...wordLetters.correct,
+                    ...wordLetters?.correct || {},
                 },
                 incorrect: {
                     ...state.letters.incorrect,
-                    ...wordLetters.incorrect,
+                    ...wordLetters?.incorrect,
                 },
                 position: {
                     ...state.letters.position,
-                    ...wordLetters.position,
+                    ...wordLetters?.position,
                 },
             }
 
@@ -223,5 +284,5 @@ const gameSlice = createSlice({
     },
 })
 
-export const { setWordToGuess, letterChangeInAnswer, clearToast } = gameSlice.actions
-export default gameSlice.reducer
+export const { setWordToGuess, letterChangeInAnswer, clearToast } = gameSlice.actions;
+export default gameSlice.reducer;

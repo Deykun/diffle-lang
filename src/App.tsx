@@ -1,14 +1,13 @@
-import './App.scss'
-
 import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
-
 
 import Header from '@components/Header'
 
 import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
 import Toast from '@components/Toast/Toast';
+
+import './App.scss'
 
 const App = () => {
   const [pane, setPane] = useState('game');
