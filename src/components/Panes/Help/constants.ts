@@ -1,4 +1,6 @@
-export const HELP_WORDS = [
+import { Word } from '@common-types';
+
+export const HELP_WORDS: Word[] = [
     {
       word: 'ahoj',
       affixes: [

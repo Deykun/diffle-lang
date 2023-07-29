@@ -4,10 +4,10 @@ import chalk from 'chalk';
 const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 4;
 /*
     Very long words have multiple markers
-    and it is uasaly come kind of "okrówkowanie"
-    game is nicer with this limit
+    and it is usually come kind of "okrówkowanie"
+    The game is nicer with this limit
 */
-const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 13;
+const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 11;
 
 const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x', 'v'];
 
@@ -23,6 +23,11 @@ const totalWinningWords = winningWords.length;
 let spellingIndex = {};
 
 const getNormalizedKey = word => {
+    if (word.length === 2) {
+        // Requires reviewing
+        // return '2ch';
+    }
+
     if (word.length < 3) {
         return;
     }
@@ -104,9 +109,11 @@ console.log(chalk.blue(`Creating winning chunks from ${totalWinningWords} words.
 let totalAccepted = 0;
 let totalTooLong = 0;
 let totalTooShort = 0;
+
 let totalWrongLetters = 0;
 
 const winnigIndex = {};
+const winningWordsLengths = {};
 
 winningWords.forEach((word, index) =>  {
     const key = getNormalizedKey(word, 3);
@@ -137,7 +144,6 @@ winningWords.forEach((word, index) =>  {
 
     totalAccepted = totalAccepted + 1;
 
-
     if (winnigIndex[key]) {
         winnigIndex[key].words.push(word);
     } else {
@@ -146,6 +152,9 @@ winningWords.forEach((word, index) =>  {
             words: [word],
         };
     }
+
+    const wordLength = word.length;
+    winningWordsLengths[wordLength] = winningWordsLengths[wordLength] ? winningWordsLengths[wordLength] + 1 : 1;
 
     const shouldUpdate = index % 2500 === 0;
 
@@ -161,11 +170,16 @@ const totalRejected = totalWinningWords - totalAccepted;
 console.log(' ');
 console.log(chalk.blue(`Winning chunks created.`));
 // We can't accept words that are present in one dictionary and not in another
-console.log(` - accepted words: ${chalk.green(totalAccepted)} `);
-console.log(` - rejected words: ${chalk.red(totalRejected)} `);
-console.log(`   - too long: ${chalk.red(totalTooLong)} `);
-console.log(`   - too short: ${chalk.red(totalTooShort)} `);
+console.log(` - accepted words: ${chalk.green(totalAccepted)}`);
+console.log(` - rejected words: ${chalk.red(totalRejected)}`);
+console.log(`   - too long: ${chalk.red(totalTooLong)}`);
+console.log(`   - too short: ${chalk.red(totalTooShort)}`);
 console.log(`   - not accepted letters (${LETTERS_NOT_ALLOWED_IN_WINNING_WORD.join(',')}): ${chalk.red(totalWrongLetters)} `);
+console.log(' ');
+console.log(chalk.blue(`Winning words lengths:`));
+Object.keys(winningWordsLengths).sort((a, b) => a - b).forEach((length) => {
+    console.log(` - words with ${length} letters: ${chalk.green(winningWordsLengths[length])}`);
+});
 
 const catalog = {
     words: 0,

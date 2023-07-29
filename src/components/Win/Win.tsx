@@ -1,6 +1,10 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import IconBook from '@components/Icons/IconBook';
+import IconFancyCheck from '@components/Icons/IconFancyCheck';
+import IconShare from '@components/Icons/IconShare';
+
 import './Win.scss';
 
 const Win = () => {
@@ -24,17 +28,29 @@ const Win = () => {
 
     return (
         <div className="win">
-            <h3 className="title">Wygrana!</h3>
+            <h3 className="title">
+                <span>Wygrana</span>
+                <IconFancyCheck className="title-icon" />
+            </h3>
             <div className="totals">
                 <p className="total"><strong>{words}</strong> słów</p>
                 <p className="total"><strong>{letters}</strong> liter</p>
             </div>
+            <button
+              className="link-sjp"
+            >
+                <IconShare />
+                Udostępnij wynik
+            </button>
+            <br />
+            <br />
             <a
               className="link-sjp"
               href={`https://sjp.pl/${wordToGuess}`}
               target="blank"
             >
-                Zobacz "{wordToGuess}" na SJP.PL
+                <IconBook />
+                Sprawdź "{wordToGuess}" na SJP.PL
             </a>
         </div>
     )

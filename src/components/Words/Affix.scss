@@ -3,8 +3,8 @@
     display: inline-block;
     padding: 0;
     padding-left: 0.6em;
-    padding-right: 0em; // letterspacing adds space after
-    letter-spacing: 0.6em;
+    padding-right: 0.2em; // letterspacing adds space after
+    letter-spacing: 0.4em;
     text-transform: uppercase;
     vertical-align: middle;
     min-width: min(42px, 7vw);
@@ -19,7 +19,6 @@
 
     height: min(42px, 7vw);
     line-height: min(42px, 7vw);
-
     margin: 0 2px;
     font-size: min(24px, 5vw);
     border-radius: 21px;

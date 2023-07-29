@@ -1,4 +1,9 @@
 // Taken fron original: https://github.com/hedalu244/diffle/blob/main/main.ts
+interface DiffleResult {
+    pattern: (0 | 1 | 2 | 3)[],
+    start: boolean,
+    end: boolean,
+}
 
 export const compareWords = (answer: string, guess: string) => {
     const table = Array.from({ length: answer.length + 1 }, () => Array.from({ length: guess.length + 1 }, () => (

@@ -21,12 +21,15 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
+    "esModuleInterop": true,
+
     "paths": {
-      "@api/*": ["./src/api/*", "./src/api/*/index"],
+      "@api*": ["./src/api*", "./src/api*/index"],
       "@components/*": ["./src/components/*", "./src/components/*/index"],
       "@hooks/*": ["./src/hooks/*", "./src/hooks/*/index"],
       "@const": ["./src/const"],
-      "@store/*": ["./src/store/*", "./src/store/*/index"],
+      "@store*": ["./src/store*", "./src/store*/index"],
+      "@common-types": ["./src/types.d"]
     }
   },
   "include": ["src"],

@@ -1,17 +1,10 @@
 import classNames from 'clsx';
 
+import { Affix as AffixInterface } from '@common-types';
+
 import './Affix.scss';
 
-interface Props {
-    text: string,
-    type: ('new' | 'correct' | 'position' | 'incorrect'),
-    isIncorect: boolean,
-    isStart: boolean,
-    isEnd: boolean,
-}
-
-const Affix = ({ type, text, isStart, isEnd }: Props) => {
-
+const Affix = ({ type, text, isStart, isEnd }: AffixInterface) => {
   return (
         <span
             className={classNames('affix', type, {

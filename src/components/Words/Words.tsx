@@ -14,7 +14,7 @@ import Word from './Word';
 
 import './Words.scss';
 
-const Words = ({ typedWord }) => {
+const Words = () => {
   const guesses = useSelector((state) => state.game.guesses);
   const isWon = useSelector((state) => state.game.isWon);
   const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
@@ -26,6 +26,7 @@ const Words = ({ typedWord }) => {
     const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: 'new', text: letter }));
 
     return {
+      word: wordToSubmit,
       affixes,
     };
   }, [wordToSubmit]);

@@ -4,7 +4,11 @@ import { HELP_WORDS } from './constants';
 
 import './Help.scss'
 
-const Help = ({ onPaneChange }) => {
+interface Props {
+    
+};
+
+const Help = ({ onPaneChange }: Props) => {
     return (
         <div className="help">
             <h2 className="title">Jak gra się w diffle?</h2>

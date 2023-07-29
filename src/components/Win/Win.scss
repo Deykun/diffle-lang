@@ -1,10 +1,24 @@
 .win {
-    margin-top: 30px;
+    margin-top: 50px;
 
     .title {
-        font-size: 26px;
+        font-size: 42px;
         font-weight: 600;
+        letter-spacing: 0.05em;
         margin-bottom: 15px;
+
+        > * {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+
+    .title-icon {
+        width: 42px;
+        height: 42px;
+        fill: #26c;
+        margin-left: 10px;
+        vertical-align: middle;
     }
 
     .totals {
@@ -12,31 +26,45 @@
         justify-content: center;
         align-items: center;
         gap: 30px;
-        margin-bottom: 18px;
+        margin-bottom: 30px;
     }
 
     .total {
+        color: #343434;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+
         strong {
-            color: #4fb061;
-            font-size: 24px;
+            color: #26c;
+            font-size: 30px;
             font-weight: 600;
             vertical-align: middle;
+            margin-right: 5px;
         }
     }
 
     .link-sjp {
         display: inline-block;
-        padding: 0 8px;
-        height: 24px;
-        line-height: 24px;
-        font-size: 12px;
+        padding: 0 12px;
+        height: 42px;
+        line-height: 42px;
+        font-size: 16px;
         font-weight: 600;
         letter-spacing: 0.05em;
         text-decoration: none;
+        fill: white;
         color: white;
         background-color: #26c;
-        border-radius: 3px;
+        border-radius: 6px;
         transition: all 0.3s;
+
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+        }
 
         &:hover {
             background-color: #275fb3;

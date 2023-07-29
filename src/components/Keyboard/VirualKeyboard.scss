@@ -5,16 +5,16 @@
     transform: translateX(-50%);
     width: min(500px, 100%);
     padding: 7px;
-    background-color: rgba(white, 0.65);
-    backdrop-filter: blur(7px) saturate(1.3);
+    background-color: rgba(white, 0.75);
+    backdrop-filter: blur(3px) saturate(1.3) hue-rotate(-50deg);
     border-top: 1px solid rgba(black, 0.2);
-    box-shadow: 0 -5px 15px rgba(white, 0.4);
+    box-shadow: 0 -7px 15px rgba(255, 255, 255, 0.75);
 
     .line {
         display: flex;
         justify-content: center;
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: min(10px, 2vw);
+        margin-bottom: min(10px, 2vw);
 
         &:last-child {
             margin-bottom: 0;

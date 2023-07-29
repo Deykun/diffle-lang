@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+import { RootGameState, Affix, UsedLetters } from '@common-types';
+
 import getDoesWordExist from '@api/getDoesWordExist';
 import compareWords from '@api/compareWords';
 
@@ -13,34 +15,6 @@ const SUBMIT_ERRORS = {
     WORD_DOES_NOT_EXIST: 'word_does_not_exist',
 };
 
-interface Word {
-    word: string,
-    affixes: Affix[],
-}
-
-interface Toast {
-    text: string,
-    timeoutSeconds: number,
-}
-
-interface RootGameState {
-    wordToGuess: string,
-    wordToSubmit: string,
-    isWon: boolean,
-    letters: {
-        correct: usedLetters,
-        incorrect: usedLetters,
-        position: usedLetters,
-    },
-    guesses: Word[],
-    hasLongGuesses: boolean,
-    isProcessing: boolean,
-    toast: Toast,
-}
-
-interface RootState {
-    game: RootGameState
-}
 
 const initialState: RootGameState = {
     wordToGuess: '',
@@ -52,23 +26,13 @@ const initialState: RootGameState = {
     isProcessing: false,
     toast: { text: '', timeoutSeconds: 5 },
 };
-interface Affix {
-    type: ('' | 'new' | 'correct' | 'position' | 'incorrect'),
-    text: string,
-    isStart?: boolean,
-    isEnd?: boolean,
-}
 
-interface usedLetters {
-    [key: string]: boolean,
-}
-
-interface PatternReport {
+export interface PatternReport {
     affixes: Affix[],
     wordLetters: {
-        correct: usedLetters,
-        incorrect: usedLetters,
-        position: usedLetters,
+        correct: UsedLetters,
+        incorrect: UsedLetters,
+        position: UsedLetters,
     },
     current?: Affix
 }
@@ -134,10 +98,6 @@ export const submitAnswer = createAsyncThunk(
     'game/submitAnswer',
     async (_, { dispatch, getState }) => {
         const state  = getState() as RootState;
-
-        console.log('state', state);
-
-        // gameSlice.actions
 
         if (state.game.isProcessing) {
             return { isError: true, type: SUBMIT_ERRORS.ALREADY_PROCESSING };
@@ -225,7 +185,7 @@ const gameSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(submitAnswer.pending, (state) => {
+        builder.addCase(submitAnswer.pending, () => {
             // 
         }).addCase(submitAnswer.fulfilled, (state, action) => {
             state.isProcessing = false;
