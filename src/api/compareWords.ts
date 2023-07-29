@@ -39,8 +39,8 @@ export const compareWords = (answer: string, guess: string) => {
     table[answer.length][guess.length].paths.forEach(path => {
         const start = path[0] == ">";
         const end = path[path.length - 1] == ">";
-        const pattern: (0 | 1 | 2 | 3)[] = Array.from({ length: guess.length }, x => 0);
-        const unused_letter: string[] = Array.from(answer); //　answerの中でまだ使ってない文字
+        const pattern: (0 | 1 | 2 | 3)[] = Array.from({ length: guess.length }, () => 0);
+        const unused_letter: string[] = Array.from(answer);
 
         let accept_count = 0;
         let streak_length = 0;
@@ -72,16 +72,18 @@ export const compareWords = (answer: string, guess: string) => {
             }
         }
 
-        // 黄色を生成
+        // Yellow
         for (let i = 0; i < guess.length; i++) {
             if (pattern[i] == 0 && unused_letter.includes(guess[i])) {
                 pattern[i] = 1;
                 unused_letter.splice(unused_letter.indexOf(guess[i]), 1);
             }
         }
-        // 緑が一文字のとき黄色に変換
+
+        // If green is the only marked character it turns it yellow
         if (accept_count == 1 && !start && !end) {
-            pattern[pattern.indexOf(2)] = 1;
+            // Not sure If thats wanted
+            // pattern[pattern.indexOf(2)] = 1;
         }
 
         if (best_score == score) {

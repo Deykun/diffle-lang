@@ -58,6 +58,12 @@
             }
         }
     }
+
+    .button-active {
+        svg {
+            fill: black;
+        }
+    }
     
     .button-left {
         left: 7px;

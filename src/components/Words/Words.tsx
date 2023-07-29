@@ -1,9 +1,12 @@
 import classNames from 'clsx';
 import { useEffect, useMemo } from 'react';
 
+import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+
 import { useSelector } from '@store';
 
-import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { Word as WordInterface } from '@common-types';
+
 
 import IconEye from '@components/Icons/IconEye'
 import IconDashedCircle from '@components/Icons/IconDashedCircle';
@@ -22,7 +25,7 @@ const Words = () => {
   const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
   const hasSpace = wordToSubmit.includes(' ');
 
-  const submitGuess = useMemo(() => {
+  const submitGuess: WordInterface = useMemo(() => {
     const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: 'new', text: letter }));
 
     return {

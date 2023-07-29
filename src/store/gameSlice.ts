@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootGameState, Affix, UsedLetters } from '@common-types';
+import { RootState, RootGameState, Affix, UsedLetters } from '@common-types';
 
 import getDoesWordExist from '@api/getDoesWordExist';
 import compareWords from '@api/compareWords';

@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { letterChangeInAnswer, submitAnswer } from '@store/gameSlice';
@@ -31,20 +31,6 @@ const UserKeyboardListner = () => {
     }, [dispatch]);
 
     useEventListener('keydown', handleTyped);
-
-    // useEffect(() => {
-    //     handlerRef.current = handleTyped;
-    // }, [handleTyped]);
-
-    // useEffect(() => {
-    //     const eventListener = event => handlerRef.current(event);
-
-    //     document.addEventListener('keydown', eventListener);
-
-    //     () => {
-    //         document.removeEventListener('keydown', eventListener);
-    //     }
-    // }, [])
 
     return null;
 };

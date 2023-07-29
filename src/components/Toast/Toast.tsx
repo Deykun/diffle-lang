@@ -1,6 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
 
+import { useSelector } from '@store';
 import { clearToast } from '@store/gameSlice';
 
 import './Toast.scss';

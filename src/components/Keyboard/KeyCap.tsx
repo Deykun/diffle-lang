@@ -6,7 +6,11 @@ import IconBackspace from '@components/Icons/IconBackspace';
 
 import './KeyCap.scss';
 
-const KeyCap = ({ text, onClick }) => {
+interface Props {
+    text: string,
+}
+
+const KeyCap = ({ text, onClick }): Props => {
     const isCorrect = useSelector(state => state.game.letters.correct[text]);
     const isIncorrect = useSelector(state => state.game.letters.incorrect[text]);
     const isPosition = useSelector(state => state.game.letters.position[text]);
