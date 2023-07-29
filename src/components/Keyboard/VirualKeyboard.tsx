@@ -16,7 +16,7 @@ const VirualKeyboard = () => {
         dispatch(submitAnswer());
     }, [dispatch])
 
-    const handleType = useCallback((keyTyped) => {
+    const handleType = useCallback((keyTyped: string) => {
         const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
 
         if (isAllowedKey) {
