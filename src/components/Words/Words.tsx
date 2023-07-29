@@ -1,7 +1,7 @@
 import classNames from 'clsx';
-
 import { useEffect, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+
+import { useSelector } from '@store';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -53,7 +53,8 @@ const Words = () => {
           })}
         >
           {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
-          {!isProcessing && hasSpace && <small>Hasło nie mają spacji, ale możesz jej używać zamiast X.</small>}
+          {!isProcessing && hasSpace && <small>Hasło nie mają spacji, ale możesz jej używać (zostanie usunięta
+            ).</small>}
         </p>
     </div>
   )

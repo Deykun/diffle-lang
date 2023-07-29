@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+
+import { useSelector } from '@store';
 
 import IconBook from '@components/Icons/IconBook';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';

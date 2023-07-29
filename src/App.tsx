@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector } from '@store';
 
 import Header from '@components/Header'
 

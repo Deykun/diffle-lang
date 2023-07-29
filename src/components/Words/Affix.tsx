@@ -5,7 +5,7 @@ import { Affix as AffixInterface } from '@common-types';
 import './Affix.scss';
 
 const Affix = ({ type, text, isStart, isEnd }: AffixInterface) => {
-  return (
+    return (
         <span
             className={classNames('affix', type, {
                 'letter': text.length === 1,

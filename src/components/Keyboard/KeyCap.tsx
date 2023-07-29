@@ -1,6 +1,6 @@
 import classNames from 'clsx';
 
-import { useSelector } from 'react-redux';
+import { useSelector } from '@store';
 
 import IconBackspace from '@components/Icons/IconBackspace';
 
