@@ -54,9 +54,15 @@
     margin-bottom: 16px;
 }
 
-.words.zoom-out {
+.words.narrow {
     .word {
         height: 28px;
+        margin-bottom: 8px;
+    }
+}
+
+.words.shorter {
+    .word {
         margin-bottom: 8px;
     }
 }

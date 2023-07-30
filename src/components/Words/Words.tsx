@@ -37,10 +37,11 @@ const Words = () => {
     window.scrollTo(0, document.body.scrollHeight);
   }, [wordToSubmit])
 
-  const shouldBeSmaller = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS || guesses.length > 8;
+  const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
+  const shouldBeShorter = guesses.length > 8;
 
   return (
-    <div className={clsx('words', { 'zoom-out': shouldBeSmaller })}>
+    <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
         <IconEye className="icon-focus" />
         {guesses.map((guess, index) => {            
             return (
@@ -55,7 +56,7 @@ const Words = () => {
           })}
         >
           {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
-          {!isProcessing && hasSpace && <small>Hasło nie mają spacji, ale możesz jej używać (zostanie usunięta).</small>}
+          {!isProcessing && hasSpace && <small>Hasła nie mają spacji, ale możesz jej używać (zostanie usunięta).</small>}
         </p>
     </div>
   )
