@@ -22,6 +22,10 @@ export interface Toast {
     timeoutSeconds: number,
 }
 
+export interface RootAppState {
+    toast: Toast,
+}
+
 export interface RootGameState {
     wordToGuess: string,
     wordToSubmit: string,
@@ -34,11 +38,11 @@ export interface RootGameState {
     guesses: Word[],
     hasLongGuesses: boolean,
     isProcessing: boolean,
-    toast: Toast,
 }
 
 export interface RootState {
-    game: RootGameState
+    app: RootAppState,
+    game: RootGameState,
 }
 
 export interface UsedLetters {

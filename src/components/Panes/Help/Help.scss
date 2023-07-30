@@ -7,25 +7,6 @@
         margin-bottom: 10px;
     }
 
-    .button {
-        display: inline-block;
-        padding: 0 10px;
-        height: 30px;
-        line-height: 30px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        text-decoration: none;
-        color: white;
-        background-color: #1c732d;
-        border-radius: 3px;
-        transition: all 0.3s;
-
-        &:hover {
-            background-color: #4fb061;
-        }
-    }
-
     > footer {
         margin-top: 40px;
         padding-bottom: 20px;

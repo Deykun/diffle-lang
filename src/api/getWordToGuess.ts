@@ -16,8 +16,6 @@ export const getWordToGuess = async (): Promise<string> => {
 
     const cataolgResult: { words: number, items: catalogItem[] } = await catalogResponse.json();
 
-    console.log('cataolgResult', cataolgResult);
-
     const { words, items } = cataolgResult;
 
     const randomInt = getRandomInt(words, words * 3);

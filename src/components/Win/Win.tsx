@@ -2,7 +2,8 @@ import { useCallback, useMemo } from 'react';
 
 import { AffixStatus } from '@common-types';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
+import { setToast } from '@store/appSlice';
 
 import { copyMessage } from '@utils/copyMessage';
 
@@ -15,6 +16,7 @@ import Button from '@components/Button/Button';
 import './Win.scss';
 
 const Win = () => {
+    const dispatch = useDispatch();
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
 
@@ -78,7 +80,8 @@ Słowa: ${words} | Liter: ${letters}
 ${diffleUrl}`;
 
         copyMessage(textToCopy);
-    }, [wordToGuess, words, letters, subtotals]);
+        dispatch(setToast({ text: 'Skopiowano.' }));
+    }, [wordToGuess, words, letters, subtotals.correct, subtotals.position, subtotals.incorrect, dispatch]);
 
     if (guesses.length === 0) {
         return null;
@@ -108,6 +111,7 @@ ${diffleUrl}`;
             <br />
             <br />
             <Button
+              tagName="a"
               href={`https://sjp.pl/${wordToGuess}`}
               target="blank"
             >

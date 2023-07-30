@@ -26,6 +26,12 @@ const appSlice = createSlice({
             state.toast = { text: '', timeoutSeconds: 5 };
         },
     },
+    extraReducers: (builder) => {
+        builder
+          .addCase('game/submitAnswer/rejected', (state) => {
+            state.toast = { text: 'Nieznany błąd.', timeoutSeconds: 5 };
+          });
+      },
 })
 
 export const { setToast, clearToast } = appSlice.actions;

@@ -12,3 +12,11 @@ export const KEY_LINES = [
 const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
 
 export const ALLOWED_KEYS = [' ', ...ALLOWED_FROM_KEYLINES];
+
+export const SUBMIT_ERRORS = {
+    ALREADY_PROCESSING: 'already_processing',
+    ALREADY_WON: 'already_won',
+    ALREADY_SUBMITED: 'already_submited',
+    HAS_SPACE: 'has_space',
+    WORD_DOES_NOT_EXIST: 'word_does_not_exist',
+};

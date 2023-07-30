@@ -5,6 +5,8 @@ import { RootState, RootGameState, Affix, AffixStatus, UsedLetters } from '@comm
 import getDoesWordExist from '@api/getDoesWordExist';
 import compareWords from '@api/compareWords';
 
+import { setToast } from '@store/appSlice';
+
 import { ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const SUBMIT_ERRORS = {
@@ -24,7 +26,6 @@ const initialState: RootGameState = {
     guesses: [],
     hasLongGuesses: false,
     isProcessing: false,
-    toast: { text: '', timeoutSeconds: 5 },
 };
 
 export interface PatternReport {
@@ -109,6 +110,8 @@ export const submitAnswer = createAsyncThunk(
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
+            dispatch(setToast({ text: 'Usunięto spacje.' }));
+
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
 
@@ -116,6 +119,8 @@ export const submitAnswer = createAsyncThunk(
 
         const doesWordExist = await getDoesWordExist(wordToSubmit);
         if (!doesWordExist) {
+            dispatch(setToast({ text: 'Brak słowa w słowniku.' }));
+
             return { isError: true, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
         }
 
@@ -177,9 +182,6 @@ const gameSlice = createSlice({
                 state.wordToSubmit = state.wordToSubmit + typed;
             }
         },
-        clearToast(state) {
-            state.toast = { text: '', timeoutSeconds: 2 };
-        },
         setProcessing(state, action) {
             state.isProcessing = action.payload;
         }
@@ -196,14 +198,12 @@ const gameSlice = createSlice({
                 const { type } = action.payload;
 
                 if (type === SUBMIT_ERRORS.HAS_SPACE) {
-                    state.toast = { text: 'Usunięto spacje', timeoutSeconds: 2 };
                     state.wordToSubmit = state.wordToSubmit.replaceAll(' ', '');
 
                     return;
                 }
 
                 if (type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST) {
-                    state.toast = { text: 'Brak słowa w słowniku', timeoutSeconds: 3 };
 
                     return;
                 }
@@ -238,11 +238,9 @@ const gameSlice = createSlice({
             state.guesses.push({ word, affixes });
         }).addCase(submitAnswer.rejected, (state) => {
             state.isProcessing = false;
-
-            state.toast = { text: 'Nieznany błąd', timeoutSeconds: 3 };
         })
     },
 })
 
-export const { setWordToGuess, letterChangeInAnswer, clearToast } = gameSlice.actions;
+export const { setWordToGuess, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;
