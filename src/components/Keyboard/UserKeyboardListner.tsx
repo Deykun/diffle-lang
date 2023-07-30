@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 
+import { useDispatch } from '@store';
 import { letterChangeInAnswer, submitAnswer } from '@store/gameSlice';
 
 import useEventListener from '@hooks/useEventListener';
@@ -11,7 +11,7 @@ import { ALLOWED_KEYS } from '@const';
 const UserKeyboardListner = () => {
     const dispatch = useDispatch();
 
-    const handleTyped = useCallback((event: React.KeyboardEvent<HTMLDivElement>) => {
+    const handleTyped = useCallback((event: KeyboardEvent) => {
         const keyTyped = (event?.key || '').toLowerCase();
 
         if (keyTyped === 'enter') {

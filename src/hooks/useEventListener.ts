@@ -3,9 +3,9 @@
 import { useEffect, useRef } from 'react';
 
 // Hook
-function useEventListener(eventName, handler, element = window){
+function useEventListener(eventName: ('keydown'), handler: (event: KeyboardEvent) => void, element = window){
     // Create a ref that stores handler
-    const savedHandler = useRef();
+    const savedHandler = useRef(handler);
   
     // Update ref.current value if handler changes.
     // This allows our effect below to always get latest handler ...
@@ -23,7 +23,8 @@ function useEventListener(eventName, handler, element = window){
             if (!isSupported) return;
     
             // Create event listener that calls handler function stored in ref
-            const eventListener = event => savedHandler.current(event);
+            const eventListener = (event: KeyboardEvent) => savedHandler.current(event);
+            // const eventListener = savedHandler.current(event);
     
             // Add event listener
             element.addEventListener(eventName, eventListener);

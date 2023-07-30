@@ -13,7 +13,7 @@ const App = () => {
   const [pane, setPane] = useState('game');
   const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
-  const handlePaneChange = useCallback((pickedPane) => {
+  const handlePaneChange = useCallback((pickedPane: string) => {
     const isClose = pickedPane === pane;
 
     setPane(isClose ? 'game' : pickedPane);
@@ -21,10 +21,10 @@ const App = () => {
 
   return (
     <div className="wrapper" data-word-to-guess={wordToGuess}>
-      <Header pane={pane} onPaneChange={handlePaneChange} />
+      <Header pane={pane} changePane={handlePaneChange} />
       <main>
         <Toast />
-        {pane === 'help' && <Help onPaneChange={handlePaneChange} />}
+        {pane === 'help' && <Help changePane={handlePaneChange} />}
         {pane === 'game' && <Game />}
       </main>
     </div>

@@ -8,9 +8,10 @@ import './KeyCap.scss';
 
 interface Props {
     text: string,
+    onClick: (event: React.MouseEvent<HTMLElement>) => void,
 }
 
-const KeyCap = ({ text, onClick }): Props => {
+const KeyCap = ({ text, onClick }: Props) => {
     const isCorrect = useSelector(state => state.game.letters.correct[text]);
     const isIncorrect = useSelector(state => state.game.letters.incorrect[text]);
     const isPosition = useSelector(state => state.game.letters.position[text]);

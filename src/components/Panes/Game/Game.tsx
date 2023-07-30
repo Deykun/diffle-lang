@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
 
 import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'

@@ -5,10 +5,10 @@ import { HELP_WORDS } from './constants';
 import './Help.scss'
 
 interface Props {
-    
-};
+    changePane: (pane: string) => void;
+}
 
-const Help = ({ onPaneChange }: Props) => {
+const Help = ({ changePane }: Props) => {
     return (
         <div className="help">
             <h2 className="title">Jak gra się w diffle?</h2>
@@ -26,7 +26,7 @@ const Help = ({ onPaneChange }: Props) => {
             <Word guess={HELP_WORDS[4]} />
             <p>Podane słowo jest hasłem.</p>
             <p>
-                <button className="button" onClick={() => onPaneChange('game')}>Zacznij grać</button>
+                <button className="button" onClick={() => changePane('game')}>Zacznij grać</button>
             </p>
             <footer>
                 <h2 className="title">Źródła</h2>

@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 
 import { KEY_LINES, ALLOWED_KEYS } from '@const';
+
+import { useDispatch } from '@store';
+import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 
 import KeyCap from './KeyCap';
 
