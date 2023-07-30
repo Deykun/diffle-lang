@@ -2,7 +2,7 @@
     display: inline-block;
     padding: 0 12px;
     height: 42px;
-    line-height: 42px;
+    line-height: 40px;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -10,6 +10,7 @@
     fill: white;
     color: white;
     background-color: #26c;
+    border: 2px solid #26c;
     border-radius: 6px;
     transition: all 0.3s;
 
@@ -23,5 +24,20 @@
 
     &:hover {
         background-color: #275fb3;
+        border-color: #275fb3;
+    }
+
+    &.inverted {
+        fill: #26c;
+        color: #26c;
+        border-color: #26c;
+        background-color: transparent;
+
+        &:hover {
+            color: #275fb3;
+            fill: #275fb3;
+            border-color: #275fb3;
+            background-color: transparent;
+        }
     }
 }

@@ -6,8 +6,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <title>DIFFLE PL</title>
-        <meta name="description" content="DIFFLE po polsku, każde użyte słowo podpowiada pozycje i kolejność liter w haśle.">
+        <title>DIFFLE - 🇵🇱 - Wordle bez limitu znaków</title>
+        <meta name="description" content="Wordle bez limitu znaków. Każde użyte słowo podpowiada pozycję i kolejność liter w haśle.">
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
         <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -27,7 +27,16 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        <div id="root"></div>
+        <div id="root">
+            <div class="help" style="max-width: 400px; margin: 30px auto; text-align: center; font-family: 'Baloo 2', sans-serif; color: #ddd;">
+                <h1>DIFFLE</h1>
+                <h2>Czym jest Diffle?</h2>
+                <p>Diffle to Wordle bez limitu znaków, jeśli lubisz polskie wersje Wordle to gra dla Ciebie.</p>
+                <h2>Jak gra się w diffle?</h2>
+                <p>Cel to odgadnięcie hasła używając jak najmniejszej liczby słów i liter.</p>
+                <p>Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.</p>
+            </div>
+        </div>
         <script type="module" src="/src/main.tsx"></script>
     </body>
 </html>

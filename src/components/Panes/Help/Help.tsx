@@ -14,7 +14,7 @@ const Help = ({ changePane }: Props) => {
     return (
         <div className="help">
             <h2 className="title">Jak gra się w diffle?</h2>
-            <p>Cel to odgadniecie hasła używając jak najmniejszej liczby słów i liter.</p>
+            <p>Cel to odgadnięcie hasła używając jak najmniejszej liczby słów i liter.</p>
             <p>Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.</p>
             <h2 className="title">Przykład</h2>
             <Word guess={HELP_WORDS[0]} />
@@ -35,16 +35,15 @@ const Help = ({ changePane }: Props) => {
             <footer>
                 <h2 className="title">Źródła</h2>
                 <p>
-                    Specjalne podziękowania. dla SJP i FreeDict.                    
-                    <br /><br />
-                    <ul>
-                        <li><a href="https://sjp.pl" target="blank">https://sjp.pl</a> - używane jako spellchecker</li>
-                        <li><a href="ttps://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
-                        <li><a href="https://iconmonstr.com/" target="blank">https://iconmonstr.com/</a> - ikonki</li>
-                        <li><a href="https://www.nytimes.com/games/wordle/index.html" target="blank">https://www.nytimes.com/games/wordle/</a> - oryginalne wordle</li>
-                        <li><a href="https://hedalu244.github.io/diffle/" target="blank">https://hedalu244.github.io/diffle/</a> - oryginalne diffle</li>
-                    </ul>
+                    Specjalne podziękowania. dla SJP i FreeDict.
                 </p>
+                <ul>
+                    <li><a href="https://sjp.pl" target="blank">https://sjp.pl</a> - używane jako spellchecker</li>
+                    <li><a href="ttps://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
+                    <li><a href="https://iconmonstr.com/" target="blank">https://iconmonstr.com/</a> - ikonki</li>
+                    <li><a href="https://www.nytimes.com/games/wordle/index.html" target="blank">https://www.nytimes.com/games/wordle/</a> - oryginalne wordle</li>
+                    <li><a href="https://hedalu244.github.io/diffle/" target="blank">https://hedalu244.github.io/diffle/</a> - oryginalne diffle</li>
+                </ul>
             </footer>
         </div>
     )

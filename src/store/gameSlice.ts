@@ -2,12 +2,14 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { RootState, RootGameState, Affix, AffixStatus, UsedLetters } from '@common-types';
 
+import { normilzeWord } from '@utils/normilzeWord';
+
 import getDoesWordExist from '@api/getDoesWordExist';
 import compareWords from '@api/compareWords';
 
 import { setToast } from '@store/appSlice';
 
-import { ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { POLISH_CHARACTERS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const SUBMIT_ERRORS = {
     ALREADY_PROCESSING: 'already_processing',
@@ -159,7 +161,25 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         setWordToGuess(state, action) {
-            state.wordToGuess = action.payload;
+            const wordToGuess = action.payload;
+
+            state.wordToGuess = wordToGuess;
+
+            const hasPolishCharacters = wordToGuess !== normilzeWord(wordToGuess);
+
+            const lettersToMarkAsIncorrect = hasPolishCharacters ? {} : POLISH_CHARACTERS.reduce((stack: UsedLetters, letter: string) => {
+                stack[letter] = true;
+
+                return stack;
+            }, {});
+
+            state.letters = {
+                correct: {},
+                incorrect: {
+                    ...lettersToMarkAsIncorrect,
+                },
+                position: {},
+            }
         },
         letterChangeInAnswer(state, action) {
             if (state.isWon || state.isProcessing) {

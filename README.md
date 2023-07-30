@@ -1,6 +1,8 @@
-# Polskie DIFFLE 🇵🇱
+#  🇵🇱 Polskie DIFFLE
 
-Każde użyte słowo podpowiada pozycje i kolejność liter w haśle.
+Wordle bez limitu znaków. Każde użyte słowo podpowiada pozycje i kolejność liter w haśle.
+
+Strona: https://deykun.github.io/diffle-lang/
 
 ---
 
@@ -11,4 +13,4 @@ Każde użyte słowo podpowiada pozycje i kolejność liter w haśle.
 ## Sources
  - https://sjp.pl - a spellechecker dictionary
  - https://freedict.org - a winning words dictionary
- - ttps://iconmonstr.com/ - icons
+ - https://iconmonstr.com/ - icons

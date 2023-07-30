@@ -11,6 +11,8 @@ export const KEY_LINES = [
 
 const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
 
+export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
+
 export const ALLOWED_KEYS = [' ', ...ALLOWED_FROM_KEYLINES];
 
 export const SUBMIT_ERRORS = {

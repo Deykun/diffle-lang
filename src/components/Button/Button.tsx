@@ -10,6 +10,7 @@ interface Props {
     onClick?: (e: React.MouseEvent<HTMLElement>) => void,
     href?: string,
     target?: string,
+    isInverted?: boolean,
 }
 
 const Button = ({
@@ -19,12 +20,13 @@ const Button = ({
     onClick,
     href,
     target,
+    isInverted = false,
 }: Props) => {
     const Tag = tagName || 'button';
 
     return (
         <Tag
-          className={clsx('button', { [className]: className })}
+          className={clsx('button', { 'inverted': isInverted, [className]: className })}
           onClick={onClick}
           href={href}
           target={target}

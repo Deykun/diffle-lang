@@ -21,6 +21,7 @@ const Game = () => {
     if (!wordToGuess) {
       getWordToGuess().then(word => {
         dispatch(setWordToGuess(word));
+        
       })
     }
   }, [dispatch, wordToGuess]);

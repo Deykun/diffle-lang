@@ -20,7 +20,7 @@ const Header = ({ pane, changePane }: Props) => {
             </div>
             <h1>Diffle</h1>
             <div className="header-right">
-                <button className={clsx('header-button', { 'button-active': pane ==='stats' })} onClick={() => changePane('stats')}>
+                <button className={clsx('header-button', { 'button-active': pane ==='summary' })} onClick={() => changePane('summary')}>
                     <IconChart />
                 </button>
             </div>

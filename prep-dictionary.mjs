@@ -1,13 +1,13 @@
 import fs from 'fs';
 import chalk from 'chalk';
 
-const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 4;
+const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 3;
 /*
     Very long words have multiple markers
     and it is usually come kind of "okrówkowanie"
     The game is nicer with this limit
 */
-const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 11;
+const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 9;
 
 const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x', 'v'];
 
@@ -24,8 +24,7 @@ let spellingIndex = {};
 
 const getNormalizedKey = word => {
     if (word.length === 2) {
-        // Requires reviewing
-        // return '2ch';
+        return '2ch';
     }
 
     if (word.length < 3) {

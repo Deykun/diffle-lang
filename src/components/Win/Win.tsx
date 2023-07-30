@@ -93,7 +93,7 @@ ${diffleUrl}`;
     return (
         <div className="win">
             <h3 className="title">
-                <span>Wygrana</span>
+                <span>Sukces</span>
                 <IconFancyCheck className="title-icon" />
             </h3>
             <div className="totals">
@@ -117,6 +117,7 @@ ${diffleUrl}`;
               tagName="a"
               href={`https://sjp.pl/${wordToGuess}`}
               target="blank"
+              isInverted
             >
                 <IconBook />
                 Sprawdź "{wordToGuess}" na SJP.PL

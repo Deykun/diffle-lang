@@ -14,10 +14,12 @@ const UserKeyboardListner = () => {
     const handleTyped = useCallback((event: KeyboardEvent) => {
         const keyTyped = (event?.key || '').toLowerCase();
 
-        if (keyTyped === 'enter') {
+        if ([' ', 'enter'].includes(keyTyped)) {
             // Last focused button is not triggered by that
             event.preventDefault();
+        }
 
+        if (keyTyped === 'enter') {
             dispatch(submitAnswer());
 
             return;

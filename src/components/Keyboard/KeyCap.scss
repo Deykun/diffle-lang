@@ -25,8 +25,8 @@
 
     &.incorrect {
         color: white;
-        background-color: #959b9d;
-        border-color: #959b9d;
+        background-color: #d4d4d4;
+        border-color: #d4d4d4;
 
         &.typed {
             border-color: #8f2513;
@@ -54,19 +54,29 @@
     }
 
     &-backspace {
+        fill: white !important;
+        background-color: #da8383 !important;
+        border-color: #da8383 !important;
+
         svg {
             width: 26px;
             height: 26px;
         }
 
         &:hover {
-            fill: #7e1717;
+            background-color: #c13838 !important;
+            border-color: #c13838 !important;
         }
     }
 
     &-enter {
+        color: white !important;
+        background-color: #7392c1  !important;
+        border-color: #7392c1 !important;
+
         &:hover {
-            color: #1c732d;
+            background-color: #26c !important;
+            border-color: #26c !important;
         }
     }
 }

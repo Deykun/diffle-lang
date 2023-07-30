@@ -1,4 +1,8 @@
 export const getNormalizedKey = (word: string): string => {
+    if (word.length === 2) {
+        return '2ch';
+    }
+
     if (word.length < 3) {
         return '';
     }
