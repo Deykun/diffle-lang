@@ -1,29 +1,14 @@
-# React + TypeScript + Vite
+# Polskie DIFFLE 🇵🇱
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Każde użyte słowo podpowiada pozycje i kolejność liter w haśle.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Original DIFFLE
+ - https://hedalu244.github.io/diffle/
+ - https://github.com/hedalu244/diffle
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
-https://iconmonstr.com/license/
+## Sources
+ - https://sjp.pl - a spellechecker dictionary
+ - https://freedict.org - a winning words dictionary
+ - ttps://iconmonstr.com/ - icons

@@ -20,7 +20,7 @@ const App = () => {
   }, [pane]);
 
   return (
-    <div className="wrapper" data-word-to-guess={wordToGuess}>
+    <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
       <Header pane={pane} changePane={handlePaneChange} />
       <main>
         <Toast />

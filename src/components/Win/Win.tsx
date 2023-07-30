@@ -87,6 +87,9 @@ ${diffleUrl}`;
         return null;
     }
 
+    const labelWords = words > 4 ? 'słów' : (words > 1) ? 'słowa' : 'słowo';
+    const labelLetters = letters > 4 ? 'liter' : (letters > 1) ? 'litery' : 'litera';
+
     return (
         <div className="win">
             <h3 className="title">
@@ -94,8 +97,8 @@ ${diffleUrl}`;
                 <IconFancyCheck className="title-icon" />
             </h3>
             <div className="totals">
-                <p className="total"><strong>{words}</strong> słów</p>
-                <p className="total"><strong>{letters}</strong> liter</p>
+                <p className="total"><strong>{words}</strong> {labelWords}</p>
+                <p className="total"><strong>{letters}</strong> {labelLetters}</p>
             </div>
             <div className="subtotals">
                 <p className="subtotal correct"><span>{subtotals.correct}</span></p>
