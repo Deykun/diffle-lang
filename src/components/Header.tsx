@@ -1,4 +1,4 @@
-import classNames from 'clsx';
+import clsx from 'clsx';
 
 import IconHelp from '@components/Icons/IconHelp';
 import IconChart from '@components/Icons/IconChart';
@@ -13,13 +13,17 @@ interface Props {
 const Header = ({ pane, changePane }: Props) => {
     return (
         <header className="header">
-            <button className={classNames('button', 'button-left', { 'button-active': pane ==='help' })} onClick={() => changePane('help')}>
-                <IconHelp />
-            </button>
+            <div className="header-left">
+                <button className={clsx('header-button', { 'button-active': pane ==='help' })} onClick={() => changePane('help')}>
+                    <IconHelp />
+                </button>
+            </div>
             <h1>Diffle</h1>
-            <button className={classNames('button', 'button-right', { 'button-active': pane ==='stats' })} onClick={() => changePane('stats')}>
-                <IconChart />
-            </button>
+            <div className="header-right">
+                <button className={clsx('header-button', { 'button-active': pane ==='stats' })} onClick={() => changePane('stats')}>
+                    <IconChart />
+                </button>
+            </div>
         </header>
     )
 };

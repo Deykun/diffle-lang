@@ -26,7 +26,7 @@
         justify-content: center;
         align-items: center;
         gap: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 15px;
     }
 
     .total {
@@ -43,31 +43,45 @@
         }
     }
 
-    .link-sjp {
-        display: inline-block;
-        padding: 0 12px;
-        height: 42px;
-        line-height: 42px;
-        font-size: 16px;
+    .subtotals {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .subtotal {
         font-weight: 600;
         letter-spacing: 0.05em;
-        text-decoration: none;
-        fill: white;
-        color: white;
-        background-color: #26c;
-        border-radius: 6px;
-        transition: all 0.3s;
+        color: #576b8a;
 
-        svg {
+        > * {
+            vertical-align: middle;
+        }
+
+        &::before {
+            content: '';
             display: inline-block;
             vertical-align: middle;
-            width: 20px;
-            height: 20px;
-            margin-right: 12px;
+            margin-right: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: red;
+        }
+        
+        &.correct::before {
+            background-color: #4fb061;
         }
 
-        &:hover {
-            background-color: #275fb3;
+        &.position::before {
+            background-color: #e8b838;
         }
+
+        &.incorrect::before {
+            background-color: #959b9d;
+        }
+
     }
 }

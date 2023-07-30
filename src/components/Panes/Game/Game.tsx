@@ -18,10 +18,12 @@ const Game = () => {
   const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
   useEffect(() => {
-    getWordToGuess().then(word => {
-      dispatch(setWordToGuess(word));
-    })
-  }, [dispatch]);
+    if (!wordToGuess) {
+      getWordToGuess().then(word => {
+        dispatch(setWordToGuess(word));
+      })
+    }
+  }, [dispatch, wordToGuess]);
 
     if (!wordToGuess) {
         return (<IconLoader className="game-loader" />);

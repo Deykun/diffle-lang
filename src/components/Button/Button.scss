@@ -1,0 +1,27 @@
+.button {
+    display: inline-block;
+    padding: 0 12px;
+    height: 42px;
+    line-height: 42px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    fill: white;
+    color: white;
+    background-color: #26c;
+    border-radius: 6px;
+    transition: all 0.3s;
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        margin-right: 12px;
+    }
+
+    &:hover {
+        background-color: #275fb3;
+    }
+}

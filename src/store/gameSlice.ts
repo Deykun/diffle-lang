@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, Affix, UsedLetters } from '@common-types';
+import { RootState, RootGameState, Affix, AffixStatus, UsedLetters } from '@common-types';
 
 import getDoesWordExist from '@api/getDoesWordExist';
 import compareWords from '@api/compareWords';
@@ -50,18 +50,18 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
         if (shouldClose) {
             if (type && text) {
                 stack.affixes.push({ type, text });
-                stack.current = { type: '', text : '' };    
+                stack.current = { type: AffixStatus.Unknown, text : '' };    
             }
         }
 
         if (value === 0) {
-            stack.affixes.push({ type: 'incorrect', text: letter });
+            stack.affixes.push({ type: AffixStatus.Incorrect, text: letter });
 
             stack.wordLetters.incorrect[letter] = true;
         }
         
         if (value === 1) {
-            stack.affixes.push({ type: 'position', text: letter });
+            stack.affixes.push({ type: AffixStatus.Position, text: letter });
 
             stack.wordLetters.position[letter] = true;
         }
@@ -69,7 +69,7 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
         if (value === 2 || value === 3) {
             const { text } = stack.current || {};
 
-            stack.current = ({ type: 'correct', text: `${text}${letter}` });
+            stack.current = ({ type: AffixStatus.Correct, text: `${text}${letter}` });
 
             stack.wordLetters.correct[letter] = true;
         }
@@ -88,7 +88,7 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
             incorrect: {},
             position: {}
         },
-        current: { type: '', text: '' },
+        current: { type: AffixStatus.Unknown, text: '' },
     });
 
     return { affixes, wordLetters };

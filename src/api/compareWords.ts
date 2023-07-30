@@ -80,10 +80,9 @@ export const compareWords = (answer: string, guess: string) => {
             }
         }
 
-        // If green is the only marked character it turns it yellow
+        // If green in the middle the only marked character it turns it yellow
         if (accept_count == 1 && !start && !end) {
-            // Not sure If thats wanted
-            // pattern[pattern.indexOf(2)] = 1;
+            pattern[pattern.indexOf(2)] = 1;
         }
 
         if (best_score == score) {

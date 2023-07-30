@@ -1,5 +1,12 @@
+export enum AffixStatus {
+    Unknown = '',
+    New = 'new',
+    Correct = 'correct',
+    Position = 'position',
+    Incorrect = 'incorrect',
+}
 export interface Affix {
-    type: ('' | 'new' | 'correct' | 'position' | 'incorrect'),
+    type: AffixStatus,
     text: string,
     isStart?: boolean,
     isEnd?: boolean,
@@ -30,7 +37,7 @@ export interface RootGameState {
     toast: Toast,
 }
 
-export export interface RootState {
+export interface RootState {
     game: RootGameState
 }
 

@@ -24,8 +24,8 @@ module.exports = {
         map: [
           ['@api', resolve(__dirname, './src/api/')],
           ['@components', resolve(__dirname, './src/components/')],
-          ['@const', resolve(__dirname, './src/const/')],
           ['@store', resolve(__dirname, './src/store/')],
+          ['@utils', resolve(__dirname, './src/utils/')],
         ]
       }
     }

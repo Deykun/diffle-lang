@@ -1,23 +1,23 @@
-import { Word } from '@common-types';
+import { Word, AffixStatus } from '@common-types';
 
 export const HELP_WORDS: Word[] = [
     {
       word: 'ahoj',
       affixes: [
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'a'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'h'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'o'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'j'
         }
       ]
@@ -26,27 +26,27 @@ export const HELP_WORDS: Word[] = [
       word: 'prosta',
       affixes: [
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 'p'
         },
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 'r'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'o'
         },
         {
-          type: 'position',
+          type: AffixStatus.Position,
           text: 's'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 't'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'a'
         }
       ]
@@ -55,15 +55,15 @@ export const HELP_WORDS: Word[] = [
       word: 'tupet',
       affixes: [
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 't'
         },
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 'upe'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 't'
         }
       ]
@@ -72,20 +72,20 @@ export const HELP_WORDS: Word[] = [
       word: 'spór',
       affixes: [
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 's',
           isStart: true
         },
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 'p'
         },
         {
-          type: 'incorrect',
+          type: AffixStatus.Incorrect,
           text: 'ó'
         },
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 'r',
           isEnd: true
         }
@@ -95,7 +95,7 @@ export const HELP_WORDS: Word[] = [
       word: 'super',
       affixes: [
         {
-          type: 'correct',
+          type: AffixStatus.Correct,
           text: 'super',
           isStart: true,
           isEnd: true

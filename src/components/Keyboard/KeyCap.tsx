@@ -1,4 +1,4 @@
-import classNames from 'clsx';
+import clsx from 'clsx';
 
 import { useSelector } from '@store';
 
@@ -31,7 +31,7 @@ const KeyCap = ({ text, onClick }: Props) => {
     return (
         <button
             onClick={onClick}
-            className={classNames('key', `key-${text}`, type, { 'typed': isTyped })}>
+            className={clsx('key', `key-${text}`, type, { 'typed': isTyped })}>
                 {text === 'backspace' ? <IconBackspace /> : text}
         </button>
     );
