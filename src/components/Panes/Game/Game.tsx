@@ -1,6 +1,12 @@
 import { useEffect } from 'react'
 
+import { LOCAL_STORAGE } from '@const';
+
 import { useSelector, useDispatch } from '@store';
+
+import { getWordReportForMultipleWords } from '@api/getWordReport';
+
+import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 
 import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
@@ -9,7 +15,7 @@ import IconLoader from '@components/Icons/IconLoader';
 
 import getWordToGuess from '@api/getWordToGuess'
 
-import { setWordToGuess } from '@store/gameSlice'
+import { setWordToGuess, restoreGameState, submitAnswersInBulk } from '@store/gameSlice'
 
 import './Game.scss'
 
@@ -19,12 +25,33 @@ const Game = () => {
 
   useEffect(() => {
     if (!wordToGuess) {
+      const storedState = localStorage.getItem(LOCAL_STORAGE.LAST_GAME);
+  
+      if (storedState) {
+        const {
+          wordToGuess: lastWordToGuess = '',
+          guessesWords = [],
+        } = JSON.parse(storedState);
+
+        if (lastWordToGuess) {
+          // getWordReportForMultipleWords(lastWordToGuess, guessesWords)
+          dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
+
+          // console.log('guessesWords', guessesWords);
+
+          // dispatch(submitAnswersInBulk(guessesWords));
+          
+          return;
+        }
+      }
+
       getWordToGuess().then(word => {
-        dispatch(setWordToGuess(word));
-        
-      })
+        dispatch(setWordToGuess(word));  
+      });
     }
   }, [dispatch, wordToGuess]);
+
+  useSaveProgressLocally();
 
     if (!wordToGuess) {
         return (<IconLoader className="game-loader" />);
