@@ -26,16 +26,16 @@ const Game = () => {
       const storedState = localStorage.getItem(LOCAL_STORAGE.LAST_GAME);
   
       if (storedState) {
-        const {
-          wordToGuess: lastWordToGuess = '',
-          guessesWords = [],
-        } = JSON.parse(storedState);
+            const {
+                wordToGuess: lastWordToGuess = '',
+                guessesWords = [],
+            } = JSON.parse(storedState);
 
-        if (lastWordToGuess) {
-          dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
-          
-          return;
-        }
+            if (lastWordToGuess) {
+                dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
+                
+                return;
+            }
       }
 
       getWordToGuess().then(word => {

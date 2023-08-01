@@ -5,10 +5,15 @@ import { AffixStatus } from '@common-types';
 import { useSelector, useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
 
+import { setWordToGuess } from '@store/gameSlice'
+
+import getWordToGuess from '@api/getWordToGuess'
+
 import { copyMessage } from '@utils/copyMessage';
 
 import IconBook from '@components/Icons/IconBook';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
+import IconGamepad from '@components/Icons/IconGamepad';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
@@ -19,6 +24,12 @@ const Win = () => {
     const dispatch = useDispatch();
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
+
+    const handleNewGame = useCallback(() => {
+        getWordToGuess().then(word => {
+            dispatch(setWordToGuess(word));  
+          });
+    }, [dispatch]);
 
     const { words, letters, subtotals } = useMemo(() => {
         const{ words, subtotals } = guesses.reduce((stack, { affixes }) => {
@@ -105,14 +116,20 @@ ${diffleUrl}`;
                 <p className="subtotal position"><span>{subtotals.position}</span></p>
                 <p className="subtotal incorrect"><span>{subtotals.incorrect}</span></p>
             </div>
-            <Button
-              onClick={handleCopy}
-            >
-                <IconShare />
-                Skopiuj wynik
-            </Button>
-            <br />
-            <br />
+            <div className="actions">
+                <Button
+                  onClick={handleNewGame}
+                >
+                    <IconGamepad />
+                    <span>Nowa gra</span>
+                </Button>
+                <Button
+                  onClick={handleCopy}
+                >
+                    <IconShare />
+                    <span>Skopiuj wynik</span>
+                </Button>
+            </div>
             <Button
               tagName="a"
               href={`https://sjp.pl/${wordToGuess}`}
@@ -120,7 +137,7 @@ ${diffleUrl}`;
               isInverted
             >
                 <IconBook />
-                Sprawdź "{wordToGuess}" na SJP.PL
+                <span>Sprawdź "{wordToGuess}" na SJP.PL</span>
             </Button>
         </div>
     )

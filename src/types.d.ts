@@ -5,6 +5,7 @@ export enum AffixStatus {
     Position = 'position',
     Incorrect = 'incorrect',
 }
+
 export interface Affix {
     type: AffixStatus,
     text: string,
@@ -26,7 +27,13 @@ export interface RootAppState {
     toast: Toast,
 }
 
+export enum GameMode {
+    Daily = 'daily',
+    Practice = 'practice',
+}
+
 export interface RootGameState {
+    type: GameMode,
     wordToGuess: string,
     wordToSubmit: string,
     isWon: boolean,

@@ -65,7 +65,6 @@
 .word {
     display: flex;
     justify-content: center;
-    height: 42px;
     margin: 0;
     margin-bottom: 16px;
     transition: all 0.2s ease-in-out;
@@ -73,13 +72,12 @@
 
 .words.narrow {
     .word {
-        height: 28px;
         margin-bottom: 8px;
     }
 }
 
 .words.shorter {
     .word {
-        margin-bottom: 8px;
+        margin-bottom: 12px;
     }
 }

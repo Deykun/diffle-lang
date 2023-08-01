@@ -1,6 +1,6 @@
 import Word from '@components/Words/Word'
 import Button from '@components/Button/Button';
-import IconRocket from '@components/Icons/IconRocket';
+import IconGamepad from '@components/Icons/IconGamepad';
 
 import { HELP_WORDS } from './constants';
 
@@ -29,7 +29,8 @@ const Help = ({ changePane }: Props) => {
             <p>Podane słowo jest hasłem.</p>
             <p>
                 <Button onClick={() => changePane('game')}>
-                    <IconRocket />GRAJ
+                    <IconGamepad />
+                    <span>GRAJ</span>
                 </Button>
             </p>
             <footer>

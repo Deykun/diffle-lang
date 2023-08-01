@@ -53,15 +53,25 @@
         }
     }
 
+    &-backspace,
+    &-enter {
+        flex-shrink: 0;
+        padding: 0 min(6px, 1vw);
+        min-width: 36px;
+        max-width: 7vw;
+        width: 56px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+
     &-backspace {
         fill: white !important;
         background-color: #da8383 !important;
         border-color: #da8383 !important;
-
-        svg {
-            width: 26px;
-            height: 26px;
-        }
 
         &:hover {
             background-color: #c13838 !important;
