@@ -1,6 +1,6 @@
-import { RootState, RootGameState, Affix, AffixStatus, UsedLetters } from '@common-types';
+import { Affix, AffixStatus, UsedLetters } from '@common-types';
 
-import { SUBMIT_ERRORS, POLISH_CHARACTERS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { SUBMIT_ERRORS } from '@const';
 
 import getDoesWordExist from '@api/getDoesWordExist';
 

@@ -4,8 +4,6 @@ import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 
-import { getWordReportForMultipleWords } from '@api/getWordReport';
-
 import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 
 import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
@@ -15,7 +13,7 @@ import IconLoader from '@components/Icons/IconLoader';
 
 import getWordToGuess from '@api/getWordToGuess'
 
-import { setWordToGuess, restoreGameState, submitAnswersInBulk } from '@store/gameSlice'
+import { setWordToGuess, restoreGameState } from '@store/gameSlice'
 
 import './Game.scss'
 
@@ -34,12 +32,7 @@ const Game = () => {
         } = JSON.parse(storedState);
 
         if (lastWordToGuess) {
-          // getWordReportForMultipleWords(lastWordToGuess, guessesWords)
           dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
-
-          // console.log('guessesWords', guessesWords);
-
-          // dispatch(submitAnswersInBulk(guessesWords));
           
           return;
         }
