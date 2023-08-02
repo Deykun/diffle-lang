@@ -18,33 +18,34 @@ import { setWordToGuess, restoreGameState } from '@store/gameSlice'
 import './Game.scss'
 
 const Game = () => {
-  const dispatch = useDispatch();
-  const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const dispatch = useDispatch();
+    const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
-  useEffect(() => {
-    if (!wordToGuess) {
-      const storedState = localStorage.getItem(LOCAL_STORAGE.LAST_GAME);
-  
-      if (storedState) {
-            const {
-                wordToGuess: lastWordToGuess = '',
-                guessesWords = [],
-            } = JSON.parse(storedState);
+    useEffect(() => {
+        if (!wordToGuess) {
+            // TODO add types
+            const storedState = localStorage.getItem(LOCAL_STORAGE.TYPE_PRACTICE);
+        
+            if (storedState) {
+                    const {
+                        wordToGuess: lastWordToGuess = '',
+                        guessesWords = [],
+                    } = JSON.parse(storedState);
 
-            if (lastWordToGuess) {
-                dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
-                
-                return;
+                    if (lastWordToGuess) {
+                        dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
+                        
+                        return;
+                    }
             }
-      }
 
-      getWordToGuess().then(word => {
-        dispatch(setWordToGuess(word));  
-      });
-    }
-  }, [dispatch, wordToGuess]);
+            getWordToGuess().then(word => {
+                dispatch(setWordToGuess(word));  
+            });
+        }
+    }, [dispatch, wordToGuess]);
 
-  useSaveProgressLocally();
+    useSaveProgressLocally();
 
     if (!wordToGuess) {
         return (<IconLoader className="game-loader" />);

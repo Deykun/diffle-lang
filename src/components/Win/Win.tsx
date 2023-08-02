@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { AffixStatus } from '@common-types';
 
@@ -24,12 +24,18 @@ const Win = () => {
     const dispatch = useDispatch();
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
+    const [isReseting, setIsReseting] = useState(false);
 
     const handleNewGame = useCallback(() => {
-        getWordToGuess().then(word => {
-            dispatch(setWordToGuess(word));  
-          });
-    }, [dispatch]);
+        if (!isReseting) {
+            setIsReseting(true);
+            getWordToGuess().then(word => {
+                return dispatch(setWordToGuess(word));  
+            }).finally(() => {
+                setIsReseting(false);
+            });
+        }
+    }, [dispatch, isReseting]);
 
     const { words, letters, subtotals } = useMemo(() => {
         const{ words, subtotals } = guesses.reduce((stack, { affixes }) => {
@@ -119,6 +125,7 @@ ${diffleUrl}`;
             <div className="actions">
                 <Button
                   onClick={handleNewGame}
+                  isLoading={isReseting}
                 >
                     <IconGamepad />
                     <span>Nowa gra</span>

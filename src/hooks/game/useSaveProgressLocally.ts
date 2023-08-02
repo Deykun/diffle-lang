@@ -6,6 +6,7 @@ import useEffectChange from "@hooks/useEffectChange";
 
 
 function useSaveProgressLocally() {
+    // const type = useSelector(state => state.game.type);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const guesses = useSelector(state => state.game.guesses);
 
@@ -17,7 +18,7 @@ function useSaveProgressLocally() {
             guessesWords,
         };
 
-        localStorage.setItem(LOCAL_STORAGE.LAST_GAME, JSON.stringify(recoveryState));
+        localStorage.setItem(LOCAL_STORAGE.TYPE_PRACTICE, JSON.stringify(recoveryState));
     }, [wordToGuess, guesses]);
 }
 

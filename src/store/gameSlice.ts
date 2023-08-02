@@ -36,7 +36,7 @@ export const submitAnswer = createAsyncThunk(
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
-            dispatch(setToast({ text: 'Usunięto spacje.' }));
+            dispatch(setToast({ text: 'Usunięto spacje.', timeoutSeconds: 10 }));
 
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
@@ -87,13 +87,14 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         setWordToGuess(state, action) {
+            console.log('setWordToGuess', action.payload);
             const wordToGuess = action.payload;
 
             state.wordToGuess = wordToGuess;
             state.guesses = [];
             state.isWon = false;
 
-            const hasPolishCharacters = wordToGuess !== normilzeWord(wordToGuess);
+            const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
 
             const lettersToMarkAsIncorrect = hasPolishCharacters ? {} : POLISH_CHARACTERS.reduce((stack: UsedLetters, letter: string) => {
                 stack[letter] = true;

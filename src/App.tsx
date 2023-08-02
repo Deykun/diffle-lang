@@ -5,10 +5,11 @@ import Header from '@components/Header'
 
 import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
+import Settings from '@components/Panes/Settings/Settings';
+
 import Toast from '@components/Toast/Toast';
 
 import './App.scss'
-import Summary from '@components/Panes/Summary/Summary';
 
 const App = () => {
   const [pane, setPane] = useState('game');
@@ -27,7 +28,7 @@ const App = () => {
         <Toast />
         {pane === 'help' && <Help changePane={handlePaneChange} />}
         {pane === 'game' && <Game />}
-        {pane === 'summary' && <Summary />}
+        {pane === 'settings' && <Settings />}
       </main>
     </div>
   )

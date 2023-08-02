@@ -24,5 +24,8 @@ export const SUBMIT_ERRORS = {
 };
 
 export const LOCAL_STORAGE = {
-    LAST_GAME: 'diffle_last_game',
+    LAST_TYPE: 'diffle_last_type',
+    TYPE_DAILY: 'diffle_daily',
+    TYPE_PRACTICE: 'diffle_practice',
+    TYPE_SHARE: 'diffle_share',
 };

@@ -30,6 +30,7 @@ export interface RootAppState {
 export enum GameMode {
     Daily = 'daily',
     Practice = 'practice',
+    Share = 'share',
 }
 
 export interface RootGameState {
