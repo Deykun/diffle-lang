@@ -22,3 +22,10 @@ export const SUBMIT_ERRORS = {
     HAS_SPACE: 'has_space',
     WORD_DOES_NOT_EXIST: 'word_does_not_exist',
 };
+
+export const LOCAL_STORAGE = {
+    LAST_TYPE: 'diffle_last_type',
+    TYPE_DAILY: 'diffle_daily',
+    TYPE_PRACTICE: 'diffle_practice',
+    TYPE_SHARE: 'diffle_share',
+};

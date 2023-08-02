@@ -1,6 +1,6 @@
 import Word from '@components/Words/Word'
 import Button from '@components/Button/Button';
-import IconRocket from '@components/Icons/IconRocket';
+import IconGamepad from '@components/Icons/IconGamepad';
 
 import { HELP_WORDS } from './constants';
 
@@ -29,7 +29,8 @@ const Help = ({ changePane }: Props) => {
             <p>Podane słowo jest hasłem.</p>
             <p>
                 <Button onClick={() => changePane('game')}>
-                    <IconRocket />GRAJ
+                    <IconGamepad />
+                    <span>GRAJ</span>
                 </Button>
             </p>
             <footer>
@@ -39,7 +40,7 @@ const Help = ({ changePane }: Props) => {
                 </p>
                 <ul>
                     <li><a href="https://sjp.pl" target="blank">https://sjp.pl</a> - używane jako spellchecker</li>
-                    <li><a href="ttps://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
+                    <li><a href="https://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
                     <li><a href="https://iconmonstr.com/" target="blank">https://iconmonstr.com/</a> - ikonki</li>
                     <li><a href="https://www.nytimes.com/games/wordle/index.html" target="blank">https://www.nytimes.com/games/wordle/</a> - oryginalne wordle</li>
                     <li><a href="https://hedalu244.github.io/diffle/" target="blank">https://hedalu244.github.io/diffle/</a> - oryginalne diffle</li>

@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 
+import { LOCAL_STORAGE } from '@const';
+
 import { useSelector, useDispatch } from '@store';
+
+import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 
 import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
@@ -9,22 +13,39 @@ import IconLoader from '@components/Icons/IconLoader';
 
 import getWordToGuess from '@api/getWordToGuess'
 
-import { setWordToGuess } from '@store/gameSlice'
+import { setWordToGuess, restoreGameState } from '@store/gameSlice'
 
 import './Game.scss'
 
 const Game = () => {
-  const dispatch = useDispatch();
-  const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const dispatch = useDispatch();
+    const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
-  useEffect(() => {
-    if (!wordToGuess) {
-      getWordToGuess().then(word => {
-        dispatch(setWordToGuess(word));
+    useEffect(() => {
+        if (!wordToGuess) {
+            // TODO add types
+            const storedState = localStorage.getItem(LOCAL_STORAGE.TYPE_PRACTICE);
         
-      })
-    }
-  }, [dispatch, wordToGuess]);
+            if (storedState) {
+                    const {
+                        wordToGuess: lastWordToGuess = '',
+                        guessesWords = [],
+                    } = JSON.parse(storedState);
+
+                    if (lastWordToGuess) {
+                        dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
+                        
+                        return;
+                    }
+            }
+
+            getWordToGuess().then(word => {
+                dispatch(setWordToGuess(word));  
+            });
+        }
+    }, [dispatch, wordToGuess]);
+
+    useSaveProgressLocally();
 
     if (!wordToGuess) {
         return (<IconLoader className="game-loader" />);

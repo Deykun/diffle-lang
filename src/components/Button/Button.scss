@@ -1,8 +1,10 @@
 .button {
-    display: inline-block;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
     padding: 0 12px;
     height: 42px;
-    line-height: 40px;
+    line-height: 38px;
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.05em;
@@ -13,6 +15,11 @@
     border: 2px solid #26c;
     border-radius: 6px;
     transition: all 0.3s;
+
+    > * {
+        filter: blur(0);
+        transition: all 0.3s;
+    }
 
     svg {
         display: inline-block;
@@ -27,12 +34,36 @@
         border-color: #275fb3;
     }
 
+    .button-loader {
+        position: absolute;
+        left: calc(50% - 10px);
+        top: calc(50% - 10px);
+        z-index: 1;
+        animation: spin infinite linear reverse 1s;
+    }
+
+    &.loading {
+        background-color: #275fb3;
+        border-color: #275fb3;
+
+        > * {
+            opacity: 0.3;
+            filter: blur(2px);
+        }
+
+        .button-loader {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
     &.inverted {
         fill: #26c;
         color: #26c;
         border-color: #26c;
         background-color: transparent;
 
+        &:loading,
         &:hover {
             color: #275fb3;
             fill: #275fb3;

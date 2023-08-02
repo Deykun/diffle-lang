@@ -1,26 +1,17 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, Affix, AffixStatus, UsedLetters } from '@common-types';
+import { RootState, RootGameState, UsedLetters, GameMode } from '@common-types';
 
 import { normilzeWord } from '@utils/normilzeWord';
 
-import getDoesWordExist from '@api/getDoesWordExist';
-import compareWords from '@api/compareWords';
+import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 
 import { setToast } from '@store/appSlice';
 
-import { POLISH_CHARACTERS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
-
-const SUBMIT_ERRORS = {
-    ALREADY_PROCESSING: 'already_processing',
-    ALREADY_WON: 'already_won',
-    ALREADY_SUBMITED: 'already_submited',
-    HAS_SPACE: 'has_space',
-    WORD_DOES_NOT_EXIST: 'word_does_not_exist',
-};
-
+import { SUBMIT_ERRORS, POLISH_CHARACTERS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const initialState: RootGameState = {
+    type: GameMode.Practice,
     wordToGuess: '',
     wordToSubmit: '',
     isWon: false,
@@ -28,73 +19,6 @@ const initialState: RootGameState = {
     guesses: [],
     hasLongGuesses: false,
     isProcessing: false,
-};
-
-export interface PatternReport {
-    affixes: Affix[],
-    wordLetters: {
-        correct: UsedLetters,
-        incorrect: UsedLetters,
-        position: UsedLetters,
-    },
-    current?: Affix
-}
-
-export const temporaryTranslatorPatterns = (word: string, pattern: number[]): PatternReport => {
-    const letters = Array.from(word);
-    const length = pattern.length;
-
-    const { affixes, wordLetters } = pattern.reduce((stack: PatternReport, value: number, index: number) => {
-        const letter = letters[index];
-        const { type, text } = stack.current || {};
-
-        const shouldClose = value < 3;
-
-        if (shouldClose) {
-            if (type && text) {
-                stack.affixes.push({ type, text });
-                stack.current = { type: AffixStatus.Unknown, text : '' };    
-            }
-        }
-
-        if (value === 0) {
-            stack.affixes.push({ type: AffixStatus.Incorrect, text: letter });
-
-            stack.wordLetters.incorrect[letter] = true;
-        }
-        
-        if (value === 1) {
-            stack.affixes.push({ type: AffixStatus.Position, text: letter });
-
-            stack.wordLetters.position[letter] = true;
-        }
-
-        if (value === 2 || value === 3) {
-            const { text } = stack.current || {};
-
-            stack.current = ({ type: AffixStatus.Correct, text: `${text}${letter}` });
-
-            stack.wordLetters.correct[letter] = true;
-        }
-
-        const isLast = index + 1 === length;
-
-        if (isLast && stack.current?.type) {
-            stack.affixes.push(stack.current);
-        }
-
-        return stack;
-    }, {
-        affixes: [],
-        wordLetters: {
-            correct: {},
-            incorrect: {},
-            position: {}
-        },
-        current: { type: AffixStatus.Unknown, text: '' },
-    });
-
-    return { affixes, wordLetters };
 };
 
 export const submitAnswer = createAsyncThunk(
@@ -112,47 +36,49 @@ export const submitAnswer = createAsyncThunk(
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
-            dispatch(setToast({ text: 'Usunięto spacje.' }));
+            dispatch(setToast({ text: 'Usunięto spacje.', timeoutSeconds: 10 }));
 
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
 
         dispatch(gameSlice.actions.setProcessing(true));
 
-        const doesWordExist = await getDoesWordExist(wordToSubmit);
-        if (!doesWordExist) {
-            dispatch(setToast({ text: 'Brak słowa w słowniku.' }));
-
-            return { isError: true, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
-        }
-
-        const guesses = state.game.guesses;
-
-        const alreadyTrierd = guesses.some(({ word }) => word === wordToSubmit);
-        if (alreadyTrierd) {
-            // I haven't decide if that is an error
-            // return { isError: true, type: SUBMIT_ERRORS.ALREADY_SUBMITED };
-        }
-
         const wordToGuess = state.game.wordToGuess;
 
-        const result = compareWords(wordToGuess, wordToSubmit);
+        const result = await getWordReport(wordToGuess, wordToSubmit);
 
-        const { pattern, start, end } = result;
+        const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
 
-        const { affixes, wordLetters } = temporaryTranslatorPatterns(wordToSubmit, pattern);
-
-        if (start) {
-            affixes[0].isStart = true;
+        if (isWordDoesNotExistError) {
+            dispatch(setToast({ text: 'Brak słowa w słowniku.' }));
         }
 
-        if (end) {
-            affixes[affixes.length - 1].isEnd = true;
+        return result;
+    },
+);
+
+export const restoreGameState = createAsyncThunk(
+    'game/restoreGameState',
+    async ({ wordToGuess, guessesWords = [] }: { wordToGuess: string, guessesWords: string[] }) => {
+        if (!wordToGuess) {
+            return;
         }
 
-        const isWon = wordToSubmit === wordToGuess;
 
-        return { isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters };
+        const { hasError, isWon, results, wordsLetters } = await getWordReportForMultipleWords(wordToGuess, guessesWords);
+
+        if (hasError) {
+            // dispatch(setToast({ text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
+
+            // return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
+        }
+
+        return {
+            isWon,
+            results,
+            wordToGuess,
+            wordsLetters,
+        };
     },
 );
 
@@ -161,11 +87,14 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         setWordToGuess(state, action) {
+            console.log('setWordToGuess', action.payload);
             const wordToGuess = action.payload;
 
             state.wordToGuess = wordToGuess;
+            state.guesses = [];
+            state.isWon = false;
 
-            const hasPolishCharacters = wordToGuess !== normilzeWord(wordToGuess);
+            const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
 
             const lettersToMarkAsIncorrect = hasPolishCharacters ? {} : POLISH_CHARACTERS.reduce((stack: UsedLetters, letter: string) => {
                 stack[letter] = true;
@@ -179,6 +108,18 @@ const gameSlice = createSlice({
                     ...lettersToMarkAsIncorrect,
                 },
                 position: {},
+            }
+        },
+        setWordToSubmit(state, action) {
+            state.wordToSubmit = action.payload;
+
+            state.isWon = false;
+            state.wordToSubmit = '';
+
+            state.letters = {
+                correct: { },
+                incorrect: { },
+                position: { },
             }
         },
         letterChangeInAnswer(state, action) {
@@ -231,7 +172,7 @@ const gameSlice = createSlice({
                 return;
             }
 
-            const { isWon = false, affixes = [], word = '', wordLetters } = action.payload;
+            const { isWon, affixes = [], word, wordLetters } = action.payload as WordReport;
 
             state.isWon = isWon;
             state.wordToSubmit = '';
@@ -239,7 +180,7 @@ const gameSlice = createSlice({
             state.letters = {
                 correct: {
                     ...state.letters.correct,
-                    ...wordLetters?.correct || {},
+                    ...wordLetters?.correct,
                 },
                 incorrect: {
                     ...state.letters.incorrect,
@@ -258,9 +199,49 @@ const gameSlice = createSlice({
             state.guesses.push({ word, affixes });
         }).addCase(submitAnswer.rejected, (state) => {
             state.isProcessing = false;
+        }).addCase(restoreGameState.fulfilled, (state, action) => {
+            const {
+                isWon,
+                results,
+                wordToGuess,
+                wordsLetters,
+            } = action.payload as {
+                isWon: boolean,
+                results: WordReport[],
+                wordToGuess: string,
+                wordsLetters: {
+                    correct: UsedLetters,
+                    incorrect: UsedLetters,
+                    position: UsedLetters,
+                },
+            };
+
+            const guesses = results.map(({ word = '', affixes = [] }) => ({
+                word,
+                affixes,
+            }));
+
+            state.isWon = isWon;
+
+            state.wordToGuess = wordToGuess;
+            state.guesses = guesses;
+
+
+            state.letters = {
+                correct: {
+                    ...wordsLetters?.correct,
+                },
+                incorrect: {
+                    ...wordsLetters?.incorrect,
+                },
+                position: {
+                    ...wordsLetters?.position,
+                },
+            }
+        
         })
     },
 })
 
-export const { setWordToGuess, letterChangeInAnswer } = gameSlice.actions;
+export const { setWordToGuess, setWordToSubmit, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;

@@ -1,8 +1,12 @@
+1.2:
+  - progress is not lost when the page is reloaded
+  - the player can give up
+  - the Enter key is an icon
 1.1:
   - the user is informed if the searched password contains Polish characters
   - two-character words are accepted
   - the saturation of unused letters was decreased
-  - the keys 'Enter' and 'Backspace' are visually marked
+  - the keys "Enter" and "Backspace" are visually marked
 1.0:
   - working game
   - help page

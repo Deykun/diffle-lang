@@ -1,7 +1,7 @@
 import fs from 'fs';
 import chalk from 'chalk';
 
-const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 3;
+const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 4;
 /*
     Very long words have multiple markers
     and it is usually come kind of "okrówkowanie"

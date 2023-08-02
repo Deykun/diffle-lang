@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     padding: 0 min(12px, 3vw);;
-    border-radius: 4px;
+    border-radius: 6px;
     border: none;
     color: black;
     background-color: #eee;
@@ -53,15 +53,25 @@
         }
     }
 
+    &-backspace,
+    &-enter {
+        flex-shrink: 0;
+        padding: 0 min(6px, 1vw);
+        min-width: 36px;
+        max-width: 7vw;
+        width: 56px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+
     &-backspace {
         fill: white !important;
         background-color: #da8383 !important;
         border-color: #da8383 !important;
-
-        svg {
-            width: 26px;
-            height: 26px;
-        }
 
         &:hover {
             background-color: #c13838 !important;
@@ -70,7 +80,7 @@
     }
 
     &-enter {
-        color: white !important;
+        fill: white !important;
         background-color: #7392c1  !important;
         border-color: #7392c1 !important;
 

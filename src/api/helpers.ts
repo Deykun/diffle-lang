@@ -15,6 +15,7 @@ export const getNormalizedKey = (word: string): string => {
     const key = word.startsWith('nie') ? word.slice(0, 6) : word.slice(0, 3);
 
     return key
+        .replaceAll('ą', 'a')
         .replaceAll('ć', 'c')
         .replaceAll('ę', 'e')
         .replaceAll('ł', 'l')

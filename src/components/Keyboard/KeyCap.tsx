@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import { useSelector } from '@store';
 
 import IconBackspace from '@components/Icons/IconBackspace';
+import IconCheckEnter from '@components/Icons/IconCheckEnter';
+
 
 import './KeyCap.scss';
 
@@ -28,11 +30,15 @@ const KeyCap = ({ text, onClick }: Props) => {
         type = 'incorrect';
     }
 
+    const shouldUseIcon = text === 'backspace' || text === 'enter';
+
     return (
         <button
             onClick={onClick}
             className={clsx('key', `key-${text}`, type, { 'typed': isTyped })}>
-                {text === 'backspace' ? <IconBackspace /> : text}
+                {shouldUseIcon && text ==='backspace' && <IconBackspace />}
+                {shouldUseIcon && text ==='enter' && <IconCheckEnter />}
+                {!shouldUseIcon && text}
         </button>
     );
 };
