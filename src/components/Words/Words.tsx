@@ -6,6 +6,7 @@ import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 import { normilzeWord } from '@utils/normilzeWord';
 
 import { useSelector } from '@store';
+import { selectIsProcessing, selectWordToGuess, selectWordToSubmit } from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
 
@@ -21,9 +22,9 @@ const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
     const isWon = useSelector((state) => state.game.isWon);
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
-    const isProcessing = useSelector((state) => state.game.isProcessing);
-    const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
-    const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const isProcessing = useSelector(selectIsProcessing);
+    const wordToSubmit = useSelector(selectWordToSubmit);
+    const wordToGuess = useSelector(selectWordToGuess);
     const hasSpace = wordToSubmit.includes(' ');
 
     const submitGuess: WordInterface = useMemo(() => {

@@ -91,6 +91,7 @@ const gameSlice = createSlice({
             const wordToGuess = action.payload;
 
             state.wordToGuess = wordToGuess;
+            state.wordToSubmit = '';
             state.guesses = [];
             state.isWon = false;
 
