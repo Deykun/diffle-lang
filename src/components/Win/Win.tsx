@@ -22,6 +22,7 @@ import './Win.scss';
 
 const Win = () => {
     const dispatch = useDispatch();
+    const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
     const [isReseting, setIsReseting] = useState(false);
@@ -29,13 +30,13 @@ const Win = () => {
     const handleNewGame = useCallback(() => {
         if (!isReseting) {
             setIsReseting(true);
-            getWordToGuess().then(word => {
+            getWordToGuess({ gameMode }).then(word => {
                 return dispatch(setWordToGuess(word));  
             }).finally(() => {
                 setIsReseting(false);
             });
         }
-    }, [dispatch, isReseting]);
+    }, [dispatch, gameMode, isReseting]);
 
     const { words, letters, subtotals } = useMemo(() => {
         const{ words, subtotals } = guesses.reduce((stack, { affixes }) => {

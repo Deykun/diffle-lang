@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -9,6 +9,8 @@ import { useSelector } from '@store';
 import { selectIsProcessing, selectWordToGuess, selectWordToSubmit } from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
+
+import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
@@ -40,9 +42,7 @@ const Words = () => {
         return wordToGuess !== normilzeWord(wordToGuess);
     }, [wordToGuess])
 
-    useEffect(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, [wordToSubmit])
+    useScrollEffect('bottom', [wordToSubmit])
 
     const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
     const shouldBeShorter = guesses.length > 8;

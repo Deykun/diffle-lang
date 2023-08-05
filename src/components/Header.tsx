@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import IconClose from '@components/Icons/IconClose';
 import IconHelp from '@components/Icons/IconHelp';
 import IconLayers from '@components/Icons/IconLayers';
 
@@ -20,13 +21,13 @@ const Header = ({ pane, changePane }: Props) => {
                   })}
                   onClick={() => changePane('help')}
                 >
-                    <IconHelp />
+                    {pane === 'help' ? <IconClose /> : <IconHelp />}
                 </button>
             </div>
             <h1><button onClick={() => changePane('game')}>Diffle</button></h1>
             <div className="header-right">
                 <button className={clsx('header-button', { 'button-active': pane ==='settings' })} onClick={() => changePane('settings')}>
-                    <IconLayers />
+                    {pane === 'settings' ? <IconClose /> : <IconLayers />}
                 </button>
             </div>
         </header>

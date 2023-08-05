@@ -1,9 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, UsedLetters, GameMode } from '@common-types';
+import { RootState, RootGameState, UsedLetters } from '@common-types';
 
+
+import { getNow } from '@utils/date';
 import { normilzeWord } from '@utils/normilzeWord';
 
+import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 
 import { setToast } from '@store/appSlice';
@@ -11,7 +14,8 @@ import { setToast } from '@store/appSlice';
 import { SUBMIT_ERRORS, POLISH_CHARACTERS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const initialState: RootGameState = {
-    type: GameMode.Practice,
+    mode: getInitMode(),
+    today: getNow().stamp,
     wordToGuess: '',
     wordToSubmit: '',
     isWon: false,
@@ -86,8 +90,12 @@ const gameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
+        setGameMode(state, action) {
+            const gameMode = action.payload;
+
+            state.mode = gameMode;
+        },
         setWordToGuess(state, action) {
-            console.log('setWordToGuess', action.payload);
             const wordToGuess = action.payload;
 
             state.wordToGuess = wordToGuess;
@@ -244,5 +252,5 @@ const gameSlice = createSlice({
     },
 })
 
-export const { setWordToGuess, setWordToSubmit, letterChangeInAnswer } = gameSlice.actions;
+export const { setGameMode, setWordToGuess, setWordToSubmit, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;

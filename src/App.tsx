@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react';
 import { useSelector } from '@store';
 
+import { getInitPane } from '@api/getInit';
+
 import Header from '@components/Header'
 
 import Game from '@components/Panes/Game/Game';
@@ -12,7 +14,7 @@ import Toast from '@components/Toast/Toast';
 import './App.scss'
 
 const App = () => {
-  const [pane, setPane] = useState('game');
+  const [pane, setPane] = useState(getInitPane());
   const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
   const handlePaneChange = useCallback((pickedPane: string) => {

@@ -20,6 +20,7 @@
                 height: 150px;
                 background-color: transparent;
                 border: 1px solid rgba(black, 0.2);
+                border-radius: 6px;
                 transition: all 0.3s ease-in;
 
                 svg {
@@ -48,6 +49,31 @@
                     background-color: #4fb061;
                     border-color: #4fb061;
                 }
+            }
+        }
+    }
+
+    > footer {
+        margin-top: 40px;
+        padding-bottom: 20px;
+        font-size: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.65);
+                    
+        a {
+            color: #275fb3;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+
+            &:hover {
+                color: #275fb3;
+            }
+        }
+
+        ul {
+            display: block;
+
+            li {
+                margin-bottom: 8px;
             }
         }
     }

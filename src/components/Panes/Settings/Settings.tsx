@@ -7,7 +7,9 @@ import { LOCAL_STORAGE } from '@const';
 import { useSelector, useDispatch } from '@store';
 
 import { setToast } from '@store/appSlice';
-import { setWordToGuess } from '@store/gameSlice'
+import { setGameMode, setWordToGuess } from '@store/gameSlice'
+
+import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconBin from '@components/Icons/IconBin';
 import IconBook from '@components/Icons/IconBook';
@@ -25,11 +27,13 @@ const Settings = () => {
     const dispatch = useDispatch();
     const [lastWord, setLastWord] = useState('');
     const wordToGuess = useSelector(state => state.game.wordToGuess);
-    const gameType = useSelector(state => state.game.type);
+    const gameMode = useSelector(state => state.game.mode);
     const guesses = useSelector(state => state.game.guesses);
     const isWon = useSelector(state => state.game.isWon);
 
-    const canGiveUp = gameType === GameMode.Practice && guesses.length > 0 && !isWon;
+    const canGiveUp = gameMode === GameMode.Practice && guesses.length > 0 && !isWon;
+
+    useScrollEffect('top', []);
 
     const handleGiveUpClick = useCallback(() => {
         localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
@@ -39,6 +43,12 @@ const Settings = () => {
         dispatch(setToast({ text: `"${wordToGuess.toUpperCase()}" to nieodgadnięte słowo.` }));
         dispatch(setWordToGuess(''));
     }, [dispatch, wordToGuess]);
+
+    const handleChangeGameMode = useCallback((newGameMode: GameMode) => {
+        localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, newGameMode);
+        dispatch(setGameMode(newGameMode));
+        dispatch(setWordToGuess(''));
+    }, [dispatch]);
 
     return (
         <div className="settings">
@@ -72,24 +82,44 @@ const Settings = () => {
             <h2>Rodzaj gry</h2>
             <ul>
                 <li>
-                    <button className={clsx('setting', { 'setting-active': gameType === GameMode.Daily })} disabled>
+                    <button
+                      className={clsx('setting', { 'setting-active': gameMode === GameMode.Daily })}
+                      onClick={() => handleChangeGameMode(GameMode.Daily)}
+                    >
                         <IconDay />
-                        <span>Raz dziennie</span>
+                        <span>Codzienny</span>
                     </button>
                 </li>
                 <li>
-                    <button className={clsx('setting', { 'setting-active': gameType === GameMode.Practice })}>
+                    <button
+                      className={clsx('setting', { 'setting-active': gameMode === GameMode.Practice })}
+                      disabled={(!isWon && gameMode === GameMode.Daily)}
+                      onClick={() => handleChangeGameMode(GameMode.Practice)}
+                    >
                         <IconInfinity />
                         <span>Nieskończony</span>
                     </button>
                 </li>
                 <li>
-                    <button className={clsx('setting', { 'setting-active': gameType === GameMode.Share })} disabled>
+                    <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
                         <IconShare />
                         <span>Udostępniony</span>
                     </button>
                 </li>
             </ul>
+            <footer>
+                <h2>Źródła</h2>
+                <p>
+                    Specjalne podziękowania. dla SJP i FreeDict.
+                </p>
+                <ul>
+                    <li><a href="https://sjp.pl" target="blank">https://sjp.pl</a> - używane jako spellchecker</li>
+                    <li><a href="https://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
+                    <li><a href="https://iconmonstr.com/" target="blank">https://iconmonstr.com/</a> - ikonki</li>
+                    <li><a href="https://www.nytimes.com/games/wordle/index.html" target="blank">https://www.nytimes.com/games/wordle/</a> - oryginalne wordle</li>
+                    <li><a href="https://hedalu244.github.io/diffle/" target="blank">https://hedalu244.github.io/diffle/</a> - oryginalne diffle</li>
+                </ul>
+            </footer>
         </div>
     )
 };
