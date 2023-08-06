@@ -40,7 +40,7 @@ export const submitAnswer = createAsyncThunk(
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
-            dispatch(setToast({ text: 'Usunięto spacje.', timeoutSeconds: 10 }));
+            dispatch(setToast({ text: 'Usunięto spacje.' }));
 
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }

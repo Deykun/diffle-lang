@@ -40,7 +40,7 @@ const Settings = () => {
         
         setLastWord(wordToGuess);
 
-        dispatch(setToast({ text: `"${wordToGuess.toUpperCase()}" to nieodgadnięte słowo.` }));
+        dispatch(setToast({ text: `"${wordToGuess.toUpperCase()}" to nieodgadnięte słowo.`, timeoutSeconds: 10 }));
         dispatch(setWordToGuess(''));
     }, [dispatch, wordToGuess]);
 
