@@ -20,6 +20,11 @@ const App = () => {
   const handlePaneChange = useCallback((pickedPane: string) => {
     const isClose = pickedPane === pane;
 
+    if (isClose && pickedPane === 'game') {
+      return;
+    }
+
+    navigator?.vibrate(150);
     setPane(isClose ? 'game' : pickedPane);
   }, [pane]);
 

@@ -45,3 +45,49 @@ export const selectLetterState = (letter: string) => createSelector(
         return AffixStatus.Unknown;
     },
 );
+
+export const selectKeyboardState = createSelector(
+    selectWordToGuess,
+    selectWordToSubmit,
+    selectCorrectLetters,
+    selectIncorrectLetters,
+    selectPositionLetters,
+    (wordToGuess, wordToSubmit, correctLetters, incorrectLetter, positionLetters) => {
+        if (!wordToSubmit) {
+            return AffixStatus.Unknown;
+        }
+
+        const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))];
+
+        const hasIncorrectLetterTyped = uniqueWordLetters.some((uniqueLetter) => {
+            const isIncorrect = incorrectLetter[uniqueLetter] === true;
+            if (!isIncorrect) {
+                return false;
+            }
+
+            const isNotCorrectInOtherContexts = correctLetters[uniqueLetter] !== true && positionLetters[uniqueLetter] !== true;
+
+            return isNotCorrectInOtherContexts;
+        });
+
+        if (hasIncorrectLetterTyped) {
+            return  AffixStatus.Incorrect;
+        }
+
+        const hasWordToGuessPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
+        const hasWordToSubmitPolishCharacters = wordToSubmit && wordToSubmit !== normilzeWord(wordToSubmit);
+        const polishCharacterTypedWhenNotNeeded = !hasWordToGuessPolishCharacters && hasWordToSubmitPolishCharacters;
+        if (polishCharacterTypedWhenNotNeeded) {
+            return  AffixStatus.Incorrect;
+        }
+
+        const uniqueCorrectAndPositionLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(positionLetters)])];
+        const allKnownLettersAreTyped = uniqueCorrectAndPositionLetters.every((letter) => wordToSubmit.includes(letter));
+        if (allKnownLettersAreTyped) {
+            return AffixStatus.Correct;
+        }
+
+        // Infact if not all know letter are typed we know that the word is incorrect, but we don't show it up
+        return AffixStatus.Unknown;
+    },
+);

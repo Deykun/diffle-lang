@@ -13,7 +13,7 @@ export const KEY_LINES = [
 
 const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
 
-export const SEED_SHIFT = 1984;
+export const SEED_SHIFT = location.hostname === 'localhost' ? 0 : 1984;
 
 export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
 

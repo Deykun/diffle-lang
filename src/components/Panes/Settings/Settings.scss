@@ -71,6 +71,45 @@
                     background-color: rgba(#c13838, 0.9);
                     backdrop-filter: blur(4px);
                 }
+
+                .setting-label {
+                    position: absolute;
+                    bottom: -8px;
+                    right: -8px;
+                    display: flex;
+                    align-items: center;
+
+                    span {
+                        padding: 0;
+                        font-weight: bold;
+                        font-size: 12px;
+                        border-radius: 3px;
+                        margin-right: 5px;
+                    }
+
+                    svg {
+                        width: 36px;
+                        height: 36px;
+                        fill: currentColor;
+                        background-color: white;
+                        border-radius: 25%;
+                        margin: 0;
+                    }
+
+                    &.correct {
+                        span,
+                        svg {
+                            color: #4fb061;
+                        }
+                    }
+
+                    &.incorrect {
+                        span,
+                        svg {
+                            color: #8f2513;
+                        }
+                    }
+                }
             }
 
             .setting-active {
@@ -80,6 +119,34 @@
                     fill: white;
                     background-color: #4fb061;
                     border-color: #4fb061;
+                }
+
+                .setting-label {
+                    svg {
+                        background-color: transparent;
+                    }
+
+                    &.correct {
+                        span,
+                        svg {
+                            color: white;
+                        }
+
+                        svg {
+                            filter: drop-shadow(0 0 5px #4fb061);
+                        }
+                    }
+
+                    &.incorrect {
+                        span,
+                        svg {
+                            color: white;
+                        }
+
+                        svg {
+                            filter: drop-shadow(0 0 5px #4fb061);
+                        }
+                    }
                 }
             }
         }

@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { AffixStatus, GameMode } from '@common-types';
 
@@ -28,6 +28,10 @@ const Win = () => {
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
     const [isReseting, setIsReseting] = useState(false);
+
+    useEffect(() => {
+        navigator?.vibrate(300);
+    }, [])
 
     const handleNewGame = useCallback(() => {
         if (!isReseting) {
@@ -91,19 +95,15 @@ const Win = () => {
     const handleCopy = useCallback(() => {
         const diffleUrl = location.href.split('?')[0];
         const { stamp } = getNow();
-        const textToCopy = gameMode === GameMode.Daily ? `DIFFLE  🇵🇱
-
-${stamp}
+        const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
  
-Słowa: ${words} | Liter: ${letters}
+Słowa: ${words} – Liter: ${letters}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
 ${diffleUrl} #diffle`:
-`DIFFLE  🇵🇱
- 
-« ${wordToGuess} »
- 
-Słowa: ${words} | Liter: ${letters}
+`« ${wordToGuess} » – DIFFLE  🇵🇱
+
+Słowa: ${words} – Liter: ${letters}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
 ${diffleUrl} #diffle`;

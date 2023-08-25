@@ -21,6 +21,7 @@ import IconBookAlt from '@components/Icons/IconBookAlt';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconChart from '@components/Icons/IconChart';
 import IconDay from '@components/Icons/IconDay';
+import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconGamepadAlt from '@components/Icons/IconGamepadAlt';
 import IconGithub from '@components/Icons/IconGithub';
@@ -73,6 +74,8 @@ const Settings = ({ changePane }: Props) => {
         changePane('game');
     }, [changePane, dispatch]);
 
+    const isDailyNotWon = !isWon && gameMode === GameMode.Daily;
+
     return (
         <div className="settings">
             <h1>Sekcja w budowie</h1>
@@ -111,17 +114,18 @@ const Settings = ({ changePane }: Props) => {
                     >
                         <IconDay />
                         <span>Codzienny</span>
+                        {!isDailyNotWon && <span className={clsx('setting-label', 'correct')}><span>zaliczone</span> <IconFancyCheck /></span>}
                     </button>
                 </li>
                 <li>
                     <button
                       className={clsx('setting', { 'setting-active': gameMode === GameMode.Practice })}
-                      disabled={!isWon && gameMode === GameMode.Daily}
+                      disabled={isDailyNotWon}
                       onClick={() => handleChangeGameMode(GameMode.Practice)}
                     >
                         <IconInfinity />
                         <span>Ćwiczenia</span>
-                        {!isWon && gameMode === GameMode.Daily && <span className="setting-unlock">Odgadnij dzisiejsze hasło by odblokować.</span>}
+                        {isDailyNotWon && <span className={clsx('setting-label', 'incorrect')}><span>ukończ</span> <IconDay /></span>}
                     </button>
                 </li>
                 <li>
@@ -131,22 +135,6 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
             </ul>
-            {yesterdayWord && (<>
-                <h2>Wczoraj</h2>
-                <p>
-                    Wczorajsze hasło w trybie codziennym to "{yesterdayWord}".
-                    <br /><br />
-                    <Button
-                    tagName="a"
-                    href={`https://sjp.pl/${yesterdayWord}`}
-                    target="blank"
-                    isInverted
-                    >
-                        <IconBook />
-                        <span>Sprawdź "{yesterdayWord}" na SJP.PL</span>
-                    </Button>
-                </p>
-            </>)}
             <footer>
                 <h2>Źródła</h2>
                 <p>
@@ -178,10 +166,27 @@ const Settings = ({ changePane }: Props) => {
                     </li>
                     <li>
                         <a href="https://github.com/Deykun/diffle-lang" target="blank">
-                            <IconGithub /><span>Repozytorium</span>
+                            <IconGithub /><span>repozytorium strony</span>
                         </a>
                     </li>
                 </ul>
+
+                {yesterdayWord && (<>
+                    <h2>Wczoraj</h2>
+                    <p>
+                        Wczorajsze hasło w trybie codziennym to "{yesterdayWord}".
+                        <br /><br />
+                        <Button
+                          tagName="a"
+                          href={`https://sjp.pl/${yesterdayWord}`}
+                          target="blank"
+                          isInverted
+                        >
+                            <IconBook />
+                            <span>Sprawdź "{yesterdayWord}" na SJP.PL</span>
+                        </Button>
+                    </p>
+                </>)}
             </footer>
         </div>
     )

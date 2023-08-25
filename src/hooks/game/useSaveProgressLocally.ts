@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
 
 import { useSelector } from '@store';
@@ -11,7 +13,7 @@ function useSaveProgressLocally() {
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const guesses = useSelector(state => state.game.guesses);
 
-    useEffectChange(() => {
+    useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, gameMode);
         localStorage.setItem(LOCAL_STORAGE.LAST_DAILY_STAMP, todayStamp);
     }, [gameMode, todayStamp]);

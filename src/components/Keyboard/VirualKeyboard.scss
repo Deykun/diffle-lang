@@ -8,7 +8,20 @@
     background-color: rgba(white, 0.75);
     backdrop-filter: blur(3px) saturate(1.3) hue-rotate(-50deg);
     border-top: 1px solid rgba(black, 0.2);
-    box-shadow: 0 -7px 15px rgba(255, 255, 255, 0.75);
+    box-shadow: 0 -7px 15px 0 rgba(255, 255, 255, 0.75);
+    transition: all 0.3s ease-in-out;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        height: 10px;
+        opacity: 0;
+        background-image: linear-gradient(to bottom, transparent, transparent);
+        transition: all 0.3s ease-in-out;
+    }
 
     .line {
         display: flex;
@@ -18,6 +31,24 @@
 
         &:last-child {
             margin-bottom: 0;
+        }
+    }
+
+    &.incorrect {
+        border-color: #8f2513;
+
+        &::before {
+            opacity: 0.2;
+            background-image: linear-gradient(to bottom, transparent, #8f2513);
+        }
+    }
+
+    &.correct {
+        border-color: #1c732d;
+
+        &::before {
+            opacity: 0.2;
+            background-image: linear-gradient(to bottom, transparent, #1c732d);
         }
     }
 }
