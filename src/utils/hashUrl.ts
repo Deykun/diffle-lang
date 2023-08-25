@@ -17,6 +17,5 @@ export const hashUrlParams = ({ wordToGuess = '', guesses = [] }: Params) => {
 
     console.log('guesses', guesses);
 
-
     return normalizedLentgPassword;
 };

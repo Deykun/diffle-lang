@@ -158,7 +158,5 @@ export const getWordReportForMultipleWords = async (wordToGuess: string, wordsTo
     response.hasError = response.results.some(({ isError }) => isError === true);
     response.isWon = response.results.some(({ isWon }) => isWon === true);
 
-    console.log('response', response);
-
     return response;
 };

@@ -29,18 +29,11 @@ const Game = () => {
         if (!wordToGuess) {
             const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
 
-            console.log('gameMode', gameMode);
-
             if (storedState) {
                 const {
                     wordToGuess: lastWordToGuess = '',
                     guessesWords = [],
                 } = JSON.parse(storedState);
-
-                console.log({
-                    lastWordToGuess,
-                    guessesWords,
-                });
 
                 const isDailyMode = gameMode === GameMode.Daily;
                 const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);

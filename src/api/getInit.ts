@@ -23,8 +23,6 @@ export const getInitMode = () => {
         return GameMode.Daily;
     }
 
-    console.log('initGameModeFromStored', initGameModeFromStored);
-
     return initGameModeFromStored;
 };
 
