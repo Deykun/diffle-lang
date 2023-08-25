@@ -6,7 +6,7 @@ import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 
-import { getYesterdaysSeed } from '@utils/date';
+import { getNow, getYesterdaysSeed } from '@utils/date';
 
 import getWordToGuess from '@api/getWordToGuess'
 
@@ -81,7 +81,8 @@ const Settings = ({ changePane }: Props) => {
         changePane('game');
     }, [changePane, dispatch]);
 
-    const isDailyNotWon = !isWon && gameMode === GameMode.Daily;
+    const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
+    const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;
 
     return (
         <div className="settings">
@@ -120,18 +121,19 @@ const Settings = ({ changePane }: Props) => {
                     >
                         <IconDay />
                         <span>Codzienny</span>
-                        {!isDailyNotWon && <span className={clsx('setting-label', 'correct')}><span>zaliczone</span> <IconFancyCheck /></span>}
+                        {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>zaliczony</span> <IconFancyCheck /></span>}
+                        {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>nowa gra za {24 - getNow().nowUTC.getHours() + 1}g.</span> <IconFancyCheck /></span>}
                     </button>
                 </li>
                 <li>
                     <button
                       className={clsx('setting', { 'setting-active': gameMode === GameMode.Practice })}
-                      disabled={isDailyNotWon}
+                      disabled={!shouldShowCheckedDaily}
                       onClick={() => handleChangeGameMode(GameMode.Practice)}
                     >
                         <IconInfinity />
                         <span>Ćwiczenia</span>
-                        {isDailyNotWon && <span className={clsx('setting-label', 'incorrect')}><span>ukończ</span> <IconDay /></span>}
+                        {!shouldShowCheckedDaily && <span className={clsx('setting-label', 'incorrect')}><span>ukończ</span> <IconDay /></span>}
                     </button>
                 </li>
                 <li>

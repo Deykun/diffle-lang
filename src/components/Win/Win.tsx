@@ -160,6 +160,9 @@ ${diffleUrl} #diffle`;
                 <IconBook />
                 <span>Sprawdź "{wordToGuess}" na SJP.PL</span>
             </Button>
+            {gameMode === GameMode.Daily && (
+                <p className="next-word-tip">Nowe hasło dnia będzie dostępne za <strong>{24 - getNow().nowUTC.getHours() + 1} godziny</strong>.</p>
+            )}
         </div>
     )
 };
