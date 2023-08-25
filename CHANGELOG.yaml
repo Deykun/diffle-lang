@@ -1,18 +1,20 @@
-1.4:
+1.4.1 27.08.2023:
+  - better ux for settings
+1.4 26.08.2023:
   - fixed broken progress save
   - added vibration while typing on the phone
   - implemented word checker for the entire keyboard
-1.3:
+1.3 26.08.2023:
   - daily and practice modes work
-1.2:
+1.2 02.08.2023:
   - progress is not lost when the page is reloaded
   - the player can give up
   - the Enter key is an icon
-1.1:
+1.1 30.07.2023:
   - the user is informed if the searched password contains Polish characters
   - two-character words are accepted
   - the saturation of unused letters was decreased
   - the keys "Enter" and "Backspace" are visually marked
-1.0:
+1.0 30.07.2023:
   - working game
   - help page

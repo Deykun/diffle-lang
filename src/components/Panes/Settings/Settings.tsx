@@ -18,6 +18,7 @@ import useScrollEffect from '@hooks/useScrollEffect';
 import IconBin from '@components/Icons/IconBin';
 import IconBook from '@components/Icons/IconBook';
 import IconBookAlt from '@components/Icons/IconBookAlt';
+import IconConstruction from '@components/Icons/IconConstruction';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconChart from '@components/Icons/IconChart';
 import IconDay from '@components/Icons/IconDay';
@@ -59,13 +60,19 @@ const Settings = ({ changePane }: Props) => {
     }, []);
 
     const handleGiveUpClick = useCallback(() => {
+        if (!canGiveUp) {
+            dispatch(setToast({ text: `Możesz się poddać tylko w trybie ćwiczenia po wpisaniu chociaż jednego słowa.`, timeoutSeconds: 5 }));
+
+            return;
+        }
+
         localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
         
         setLastWord(wordToGuess);
 
-        dispatch(setToast({ text: `"${wordToGuess.toUpperCase()}" to nieodgadnięte słowo.`, timeoutSeconds: 10 }));
+        dispatch(setToast({ text: `"${wordToGuess.toUpperCase()}" to nieodgadnięte słowo.`, timeoutSeconds: 5 }));
         dispatch(setWordToGuess(''));
-    }, [dispatch, wordToGuess]);
+    }, [dispatch, canGiveUp, wordToGuess]);
 
     const handleChangeGameMode = useCallback((newGameMode: GameMode) => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, newGameMode);
@@ -78,8 +85,6 @@ const Settings = ({ changePane }: Props) => {
 
     return (
         <div className="settings">
-            <h1>Sekcja w budowie</h1>
-            <br />
             {lastWord && <p>
                 <Button
                   tagName="a"
@@ -93,13 +98,14 @@ const Settings = ({ changePane }: Props) => {
             </p>}
             <ul>
                 <li>
-                    <button disabled>
+                    <button className="setting" disabled>
                         <IconChart />
                         <span>Statystyki</span>
+                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
                     </button>
                 </li>
                 <li>
-                    <button disabled={!canGiveUp} onClick={handleGiveUpClick}>
+                    <button className="setting" onClick={handleGiveUpClick}>
                         <IconBin />
                         <span>Poddaję się</span>
                     </button>
@@ -132,6 +138,7 @@ const Settings = ({ changePane }: Props) => {
                     <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
                         <IconShare />
                         <span>Udostępniony</span>
+                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
                     </button>
                 </li>
             </ul>
@@ -170,7 +177,6 @@ const Settings = ({ changePane }: Props) => {
                         </a>
                     </li>
                 </ul>
-
                 {yesterdayWord && (<>
                     <h2>Wczoraj</h2>
                     <p>

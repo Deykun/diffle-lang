@@ -20,8 +20,8 @@
                 flex-flow: column;
                 align-items: center;
                 justify-content: center;
-                color: #878a8c;
-                fill: #878a8c;
+                color: #313131;
+                fill: #313131;
                 width: 100%;
                 height: 150px;
                 text-decoration: none;
@@ -29,7 +29,7 @@
                 padding: 5px;
                 border: 1px solid rgba(black, 0.2);
                 border-radius: 6px;
-                outline-offset: 5px;
+                outline-offset: 3px;
                 transition: all 0.3s ease-in;
 
                 svg {
@@ -50,7 +50,10 @@
                 }
 
                 &:disabled {
-                    opacity: 0.3;
+                    > svg,
+                    > svg + span {
+                        opacity: 0.3;
+                    }
                 }
             }
 
@@ -96,10 +99,23 @@
                         margin: 0;
                     }
 
+                    &.construction {
+                        svg {
+                            border-radius: 50%;
+                        }
+                    }
+
                     &.correct {
                         span,
                         svg {
                             color: #4fb061;
+                        }
+                    }
+
+                    &.position {
+                        span,
+                        svg {
+                            color: #e8b838;
                         }
                     }
 
@@ -127,6 +143,17 @@
                     }
 
                     &.correct {
+                        span,
+                        svg {
+                            color: white;
+                        }
+
+                        svg {
+                            filter: drop-shadow(0 0 5px #4fb061);
+                        }
+                    }
+
+                    &.position {
                         span,
                         svg {
                             color: white;
