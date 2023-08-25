@@ -1,6 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 
-import { AffixStatus } from '@common-types';
+import { AffixStatus, GameMode } from '@common-types';
+
+import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
@@ -88,18 +90,27 @@ const Win = () => {
 
     const handleCopy = useCallback(() => {
         const diffleUrl = location.href.split('?')[0];
+        const { stamp } = getNow();
+        const textToCopy = gameMode === GameMode.Daily ? `DIFFLE  🇵🇱
 
-        const textToCopy = `DIFFLE 🇵🇱
-« ${wordToGuess} »
+${stamp}
+ 
 Słowa: ${words} | Liter: ${letters}
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚫ ${subtotals.incorrect}
+${diffleUrl} #diffle`:
+`DIFFLE  🇵🇱
+ 
+« ${wordToGuess} »
+ 
+Słowa: ${words} | Liter: ${letters}
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
-${diffleUrl}`;
+${diffleUrl} #diffle`;
 
         copyMessage(textToCopy);
         dispatch(setToast({ text: 'Skopiowano.' }));
-    }, [wordToGuess, words, letters, subtotals.correct, subtotals.position, subtotals.incorrect, dispatch]);
+    }, [wordToGuess, words, letters, subtotals.correct, subtotals.position, subtotals.incorrect, dispatch, gameMode]);
 
     if (guesses.length === 0) {
         return null;
@@ -124,13 +135,15 @@ ${diffleUrl}`;
                 <p className="subtotal incorrect"><span>{subtotals.incorrect}</span></p>
             </div>
             <div className="actions">
-                <Button
-                  onClick={handleNewGame}
-                  isLoading={isReseting}
-                >
-                    <IconGamepad />
-                    <span>Nowa gra</span>
-                </Button>
+                {gameMode === GameMode.Practice && (
+                    <Button
+                      onClick={handleNewGame}
+                      isLoading={isReseting}
+                    >
+                        <IconGamepad />
+                        <span>Nowa gra</span>
+                    </Button>
+                )}
                 <Button
                   onClick={handleCopy}
                 >

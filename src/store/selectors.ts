@@ -1,7 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 
+import { POLISH_CHARACTERS } from '@const';
+
 import { RootState, AffixStatus } from '@common-types';
 
+import { normilzeWord } from '@utils/normilzeWord';
 
 export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
@@ -12,10 +15,21 @@ const selectIncorrectLetters = (state: RootState) => state.game.letters.incorrec
 const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
 export const selectLetterState = (letter: string) => createSelector(
+    selectWordToGuess,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (correctLetters, incorrectLetter, positionLetters) => {
+    (wordToGuess, correctLetters, incorrectLetter, positionLetters) => {
+        const isPolishCharacter = POLISH_CHARACTERS.includes(letter);
+        if (isPolishCharacter) {
+            const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
+
+            if (!hasPolishCharacters) {
+                // All special characters are marked as incorrect if word to guess dosen't have one
+                return AffixStatus.Incorrect;
+            }
+        }
+
         if (correctLetters[letter]) {
             return AffixStatus.Correct;
         }

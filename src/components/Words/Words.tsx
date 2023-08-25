@@ -52,8 +52,8 @@ const Words = () => {
             <p className={clsx('word-tip', { 'has-polish': hasPolishCharacters })}>
                 {
                     hasPolishCharacters ?
-                    <>Obecne hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
-                    <>Obecne hasło <strong>nie zawiera</strong> polskich znaków.</>
+                    <>Hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
+                    <>Hasło <strong>nie zawiera</strong> polskich znaków.</>
                 }
             </p>
             {guesses.map((guess, index) => {            

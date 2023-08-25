@@ -21,16 +21,19 @@ const getRandomIntForDaily = () => {
     return dateSeed;
 };
 
-export const getWordToGuess = async ({ gameMode }: { gameMode: GameMode }): Promise<string> => {
+export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameMode, seedNumber?: number }): Promise<string> => {
     const catalogResponse = await fetch(`./dictionary/catalog.json`);
 
     const cataolgResult: { words: number, items: catalogItem[] } = await catalogResponse.json();
 
     const { words: totalNumberOfWords , items } = cataolgResult;
 
-    console.log('gameMode', gameMode);
-
-    const randomInt = gameMode === GameMode.Daily ? getRandomIntForDaily() : getRandomInt(totalNumberOfWords, totalNumberOfWords * 3);
+    let randomInt;
+    if (seedNumber) {
+        randomInt = seedNumber;
+    } else {
+        randomInt = gameMode === GameMode.Daily ? getRandomIntForDaily() : getRandomInt(totalNumberOfWords, totalNumberOfWords * 3);
+    }
 
     const indexOfWord = randomInt % totalNumberOfWords;
 

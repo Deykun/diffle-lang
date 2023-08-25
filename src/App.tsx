@@ -30,7 +30,7 @@ const App = () => {
         <Toast />
         {pane === 'help' && <Help changePane={handlePaneChange} />}
         {pane === 'game' && <Game />}
-        {pane === 'settings' && <Settings />}
+        {pane === 'settings' && <Settings changePane={handlePaneChange} />}
       </main>
     </div>
   )

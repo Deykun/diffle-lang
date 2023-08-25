@@ -26,7 +26,7 @@ time, mark, audio, video {
 
 /* make sure to set some focus styles for accessibility */
 :focus {
-    outline: 0;
+    outline: none;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -139,7 +139,7 @@ a:focus {
 
 a:active,
 a:hover {
-    outline: 0;
+    outline: none;
 }
 
 /**
