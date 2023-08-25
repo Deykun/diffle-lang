@@ -1,3 +1,7 @@
+import { GameMode } from '@common-types';
+
+import { getNow } from '@utils/date';
+
 // TODO: will be replaced with seed based on day
 const getRandomInt = (min: number, max: number): number => {
     min = Math.ceil(min);
@@ -11,16 +15,27 @@ type catalogItem = {
     keyWords: number,
 }
 
-export const getWordToGuess = async (): Promise<string> => {
+const getRandomIntForDaily = () => {
+    const { dateSeed } = getNow();
+
+    return dateSeed;
+};
+
+export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameMode, seedNumber?: number }): Promise<string> => {
     const catalogResponse = await fetch(`./dictionary/catalog.json`);
 
     const cataolgResult: { words: number, items: catalogItem[] } = await catalogResponse.json();
 
-    const { words, items } = cataolgResult;
+    const { words: totalNumberOfWords , items } = cataolgResult;
 
-    const randomInt = getRandomInt(words, words * 3);
+    let randomInt;
+    if (seedNumber) {
+        randomInt = seedNumber;
+    } else {
+        randomInt = gameMode === GameMode.Daily ? getRandomIntForDaily() : getRandomInt(totalNumberOfWords, totalNumberOfWords * 3);
+    }
 
-    const indexOfWord = randomInt % words;
+    const indexOfWord = randomInt % totalNumberOfWords;
 
     const keyItem = items.find(({ endIndex }) => endIndex >= indexOfWord );
 

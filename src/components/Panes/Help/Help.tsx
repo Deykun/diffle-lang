@@ -1,3 +1,5 @@
+import useScrollEffect from '@hooks/useScrollEffect';
+
 import Word from '@components/Words/Word'
 import Button from '@components/Button/Button';
 import IconGamepad from '@components/Icons/IconGamepad';
@@ -11,6 +13,8 @@ interface Props {
 }
 
 const Help = ({ changePane }: Props) => {
+    useScrollEffect('top', []);
+
     return (
         <div className="help">
             <h2 className="title">Jak gra się w diffle?</h2>
@@ -33,19 +37,6 @@ const Help = ({ changePane }: Props) => {
                     <span>GRAJ</span>
                 </Button>
             </p>
-            <footer>
-                <h2 className="title">Źródła</h2>
-                <p>
-                    Specjalne podziękowania. dla SJP i FreeDict.
-                </p>
-                <ul>
-                    <li><a href="https://sjp.pl" target="blank">https://sjp.pl</a> - używane jako spellchecker</li>
-                    <li><a href="https://freedict.org/" target="blank">ttps://freedict.org/</a> - do ustalenia lepszych haseł (bez dziwnnych odmian)</li>
-                    <li><a href="https://iconmonstr.com/" target="blank">https://iconmonstr.com/</a> - ikonki</li>
-                    <li><a href="https://www.nytimes.com/games/wordle/index.html" target="blank">https://www.nytimes.com/games/wordle/</a> - oryginalne wordle</li>
-                    <li><a href="https://hedalu244.github.io/diffle/" target="blank">https://hedalu244.github.io/diffle/</a> - oryginalne diffle</li>
-                </ul>
-            </footer>
         </div>
     )
 };

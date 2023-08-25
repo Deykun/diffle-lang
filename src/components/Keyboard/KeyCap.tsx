@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 
 import { useSelector } from '@store';
+import { selectLetterState, selectWordToSubmit } from '@store/selectors';
 
 import IconBackspace from '@components/Icons/IconBackspace';
 import IconCheckEnter from '@components/Icons/IconCheckEnter';
-
 
 import './KeyCap.scss';
 
@@ -14,21 +14,10 @@ interface Props {
 }
 
 const KeyCap = ({ text, onClick }: Props) => {
-    const isCorrect = useSelector(state => state.game.letters.correct[text]);
-    const isIncorrect = useSelector(state => state.game.letters.incorrect[text]);
-    const isPosition = useSelector(state => state.game.letters.position[text]);
-    const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
+    const type = useSelector(selectLetterState(text));
+    const wordToSubmit = useSelector(selectWordToSubmit);
+
     const isTyped = wordToSubmit.includes(text);
-
-    let type = 'unused';
-
-    if (isCorrect) {
-        type = 'correct';
-    } else if (isPosition) {
-        type = 'position';
-    } else if (isIncorrect) {
-        type = 'incorrect';
-    }
 
     const shouldUseIcon = text === 'backspace' || text === 'enter';
 

@@ -1,13 +1,16 @@
 import clsx from 'clsx';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { normilzeWord } from '@utils/normilzeWord';
 
 import { useSelector } from '@store';
+import { selectIsProcessing, selectWordToGuess, selectWordToSubmit } from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
+
+import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
@@ -21,9 +24,9 @@ const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
     const isWon = useSelector((state) => state.game.isWon);
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
-    const isProcessing = useSelector((state) => state.game.isProcessing);
-    const wordToSubmit = useSelector((state) => state.game.wordToSubmit);
-    const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const isProcessing = useSelector(selectIsProcessing);
+    const wordToSubmit = useSelector(selectWordToSubmit);
+    const wordToGuess = useSelector(selectWordToGuess);
     const hasSpace = wordToSubmit.includes(' ');
 
     const submitGuess: WordInterface = useMemo(() => {
@@ -39,9 +42,7 @@ const Words = () => {
         return wordToGuess !== normilzeWord(wordToGuess);
     }, [wordToGuess])
 
-    useEffect(() => {
-        window.scrollTo(0, document.body.scrollHeight);
-    }, [wordToSubmit])
+    useScrollEffect('bottom', [wordToSubmit])
 
     const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
     const shouldBeShorter = guesses.length > 8;
@@ -51,8 +52,8 @@ const Words = () => {
             <p className={clsx('word-tip', { 'has-polish': hasPolishCharacters })}>
                 {
                     hasPolishCharacters ?
-                    <>Obecne hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
-                    <>Obecne hasło <strong>nie zawiera</strong> polskich znaków.</>
+                    <>Hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
+                    <>Hasło <strong>nie zawiera</strong> polskich znaków.</>
                 }
             </p>
             {guesses.map((guess, index) => {            

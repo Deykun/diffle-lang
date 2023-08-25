@@ -1,5 +1,7 @@
 export const WORD_MAXLENGTH = 15;
 
+import { GameMode } from '@common-types';
+
 export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
 
 export const KEY_LINES = [
@@ -10,6 +12,8 @@ export const KEY_LINES = [
 ];
 
 const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
+
+export const SEED_SHIFT = 1984;
 
 export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
 
@@ -24,8 +28,15 @@ export const SUBMIT_ERRORS = {
 };
 
 export const LOCAL_STORAGE = {
-    LAST_TYPE: 'diffle_last_type',
+    LAST_GAME_MODE: 'diffle_last_game_mode',
+    LAST_DAILY_STAMP: 'diffle_daily_stamp',
     TYPE_DAILY: 'diffle_daily',
     TYPE_PRACTICE: 'diffle_practice',
     TYPE_SHARE: 'diffle_share',
+};
+
+export const LOCAL_STORAGE_GAME_BY_MODE = {
+    [GameMode.Daily]: LOCAL_STORAGE.TYPE_DAILY,
+    [GameMode.Practice]: LOCAL_STORAGE.TYPE_PRACTICE,
+    [GameMode.Share]: LOCAL_STORAGE.TYPE_SHARE,
 };

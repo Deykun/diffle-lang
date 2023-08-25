@@ -1,17 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, UsedLetters, GameMode } from '@common-types';
+import { RootState, RootGameState, UsedLetters } from '@common-types';
 
-import { normilzeWord } from '@utils/normilzeWord';
+import { getNow } from '@utils/date';
 
+import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 
 import { setToast } from '@store/appSlice';
 
-import { SUBMIT_ERRORS, POLISH_CHARACTERS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { SUBMIT_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const initialState: RootGameState = {
-    type: GameMode.Practice,
+    mode: getInitMode(),
+    today: getNow().stamp,
     wordToGuess: '',
     wordToSubmit: '',
     isWon: false,
@@ -36,7 +38,7 @@ export const submitAnswer = createAsyncThunk(
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
-            dispatch(setToast({ text: 'Usunięto spacje.', timeoutSeconds: 10 }));
+            dispatch(setToast({ text: 'Usunięto spacje.' }));
 
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
@@ -86,27 +88,21 @@ const gameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
+        setGameMode(state, action) {
+            const gameMode = action.payload;
+
+            state.mode = gameMode;
+        },
         setWordToGuess(state, action) {
-            console.log('setWordToGuess', action.payload);
             const wordToGuess = action.payload;
 
             state.wordToGuess = wordToGuess;
+            state.wordToSubmit = '';
             state.guesses = [];
             state.isWon = false;
-
-            const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
-
-            const lettersToMarkAsIncorrect = hasPolishCharacters ? {} : POLISH_CHARACTERS.reduce((stack: UsedLetters, letter: string) => {
-                stack[letter] = true;
-
-                return stack;
-            }, {});
-
             state.letters = {
                 correct: {},
-                incorrect: {
-                    ...lettersToMarkAsIncorrect,
-                },
+                incorrect: {},
                 position: {},
             }
         },
@@ -243,5 +239,5 @@ const gameSlice = createSlice({
     },
 })
 
-export const { setWordToGuess, setWordToSubmit, letterChangeInAnswer } = gameSlice.actions;
+export const { setGameMode, setWordToGuess, setWordToSubmit, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;

@@ -34,7 +34,8 @@ export enum GameMode {
 }
 
 export interface RootGameState {
-    type: GameMode,
+    mode: GameMode,
+    today: string,
     wordToGuess: string,
     wordToSubmit: string,
     isWon: boolean,
