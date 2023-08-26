@@ -54,7 +54,7 @@
     .subtotal {
         font-weight: 600;
         letter-spacing: 0.05em;
-        color: #576b8a;
+        color: var(--text-alt);
 
         > * {
             vertical-align: middle;
@@ -72,11 +72,11 @@
         }
         
         &.correct::before {
-            background-color: #4fb061;
+            background-color: var(--green);
         }
 
         &.position::before {
-            background-color: #e8b838;
+            background-color: var(--orange);
         }
 
         &.incorrect::before {
@@ -88,7 +88,7 @@
         margin-top: 10px;
         margin-bottom: 0;
         font-size: 70%;
-        color: #576b8a;
+        color: var(--text-alt);
     }
 
     .actions {

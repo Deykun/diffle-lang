@@ -42,22 +42,22 @@
                 height: 24px;
                 margin-right: 5px;
                 animation: spin infinite linear reverse 1s;
-                fill: #4fb061;            
+                fill: var(--green);            
             }
         }
     }
 
     .word-tip {
         font-size: 70%;
-        color: #576b8a;
+        color: var(--text-alt);
         margin-bottom: 15px;
 
         strong {
-            color: #c13838;
+            color: var(--red);
         }
 
         &.has-polish strong {
-            color: #4fb061;
+            color: var(--green);
         }
     }
 }

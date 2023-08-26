@@ -89,7 +89,11 @@ const Settings = ({ changePane }: Props) => {
         localStorage.setItem(LOCAL_STORAGE.SHOULD_VIBRATE, shouldVibrate ? 'false' : 'true');
 
         dispatch(toggleVibration())
-    }, [dispatch, shouldVibrate])
+    }, [dispatch, shouldVibrate]);
+
+    const handleToggleDarkLightMode = useCallback(() => {
+        document.documentElement.classList.toggle('dark');
+    }, []);
 
     const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
     const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;
@@ -163,10 +167,9 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" disabled>
+                    <button className="setting" onClick={handleToggleDarkLightMode}>
                         <IconMoon />
                         <span>Styl nocny</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
                     </button>
                 </li>
             </ul>

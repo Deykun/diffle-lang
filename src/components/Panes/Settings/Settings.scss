@@ -24,14 +24,14 @@
                 flex-flow: column;
                 align-items: center;
                 justify-content: center;
-                color: #313131;
-                fill: #313131;
+                color: var(--text-weaker);
+                fill: currentColor;
                 width: 100%;
                 height: 150px;
                 text-decoration: none;
                 background-color: transparent;
                 padding: 5px;
-                border: 1px solid rgba(black, 0.2);
+                border: 1px solid var(--border);
                 border-radius: 6px;
                 outline-offset: 3px;
                 transition: all 0.3s ease-in;
@@ -45,8 +45,7 @@
                 }
 
                 &:hover {
-                    fill: black;
-                    color: black;
+                    color: var(--text);
                 }
 
                 &:focus {
@@ -98,7 +97,7 @@
                         width: 36px;
                         height: 36px;
                         fill: currentColor;
-                        background-color: white;
+                        background-color: var(--background);
                         border-radius: 25%;
                         margin: 0;
                     }
@@ -112,21 +111,21 @@
                     &.correct {
                         span,
                         svg {
-                            color: #4fb061;
+                            color: var(--green);
                         }
                     }
 
                     &.position {
                         span,
                         svg {
-                            color: #e8b838;
+                            color: var(--orange);
                         }
                     }
 
                     &.incorrect {
                         span,
                         svg {
-                            color: #8f2513;
+                            color: var(--red);
                         }
                     }
                 }
@@ -135,10 +134,10 @@
             .setting-active {
                 &,
                 &:hover {
-                    color: white;
-                    fill: white;
-                    background-color: #4fb061;
-                    border-color: #4fb061;
+                    color: var(--green-contrast);
+                    fill: var(--green-contrast);
+                    background-color: var(--green);
+                    border-color: var(--green);
                 }
 
                 .setting-label {
@@ -149,33 +148,33 @@
                     &.correct {
                         span,
                         svg {
-                            color: white;
+                            color: var(--green-contrast);
                         }
 
                         svg {
-                            filter: drop-shadow(0 0 5px #4fb061);
+                            filter: drop-shadow(0 0 5px var(--green));
                         }
                     }
 
                     &.position {
                         span,
                         svg {
-                            color: white;
+                            color: var(--green-contrast);
                         }
 
                         svg {
-                            filter: drop-shadow(0 0 5px #4fb061);
+                            filter: drop-shadow(0 0 5px var(--green));
                         }
                     }
 
                     &.incorrect {
                         span,
                         svg {
-                            color: white;
+                            color: var(--green-contrast);
                         }
 
                         svg {
-                            filter: drop-shadow(0 0 5px #4fb061);
+                            filter: drop-shadow(0 0 5px var(--green));
                         }
                     }
                 }
@@ -187,7 +186,7 @@
         margin-top: 40px;
         padding-bottom: 20px;
         font-size: 12px;
-        border-top: 1px solid rgba(255, 255, 255, 0.65);
+        border-top: 1px solid var(--border);
 
         ul {
             display: grid;

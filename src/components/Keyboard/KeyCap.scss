@@ -5,9 +5,9 @@
     padding: 0 min(13px, 3vw);;
     border-radius: 6px;
     border: none;
-    color: black;
-    background-color: #eee;
-    border: 2px solid #eee;
+    color: var(--untyped-contrast);
+    background-color: var(--untyped);
+    border: 2px solid var(--untyped);
     min-width: 8%;
     font-weight: 600;
     text-transform: uppercase;
@@ -17,38 +17,38 @@
     transition: all 0.3s ease-in-out;
 
     &.typed {
-        color: black;
-        background-color: white;
-        border-color: #4fb061;
+        color: var(--typed);
+        background-color: var(--typed-contrast);
+        border-color: var(--green);
     }
 
     &.incorrect {
-        color: white;
-        background-color: #d4d4d4;
-        border-color: #d4d4d4;
+        color: var(--incorrect-contrast);
+        background-color: var(--incorrect);
+        border-color: var(--incorrect);
 
         &.typed {
-            border-color: #8f2513;
+            border-color: var(--red);
         }
     }
 
     &.correct {
-        color: white;
-        background-color: #4fb061;
-        border-color: #4fb061;
+        color: var(--green-contrast);
+        background-color: var(--green);
+        border-color: var(--green);
 
         &.typed {
-            border-color: #1c732d;
+            border-color: var(--green-stronger);
         }
     }
 
     &.position {
-        color: white;
-        background-color: #e8b838;
-        border-color: #e8b838;
+        color: var(--orange-contrast);
+        background-color: var(--orange);
+        border-color: var(--orange);
 
         &.typed {
-            border-color: #a47e18;
+            border-color: var(--orange-stronger);
         }
     }
 
@@ -71,11 +71,10 @@
         }
     }
 
-
     &-backspace {
-        fill: white !important;
-        background-color: #da8383 !important;
-        border-color: #da8383 !important;
+        fill: var(--red-contrast) !important;
+        background-color: var(--red-weaker) !important;
+        border-color: var(--red-weaker) !important;
 
         &:hover {
             background-color: #c13838 !important;

@@ -5,10 +5,10 @@
     transform: translateX(-50%);
     width: min(500px, 100%);
     padding: 7px;
-    background-color: rgba(white, 0.75);
+    background-color: rgba(var(--background), 0.75);
     backdrop-filter: blur(3px) saturate(1.3) hue-rotate(-50deg);
-    border-top: 1px solid rgba(black, 0.2);
-    box-shadow: 0 -7px 15px 0 rgba(255, 255, 255, 0.75);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -7px 15px 0 rgba(var(--background), 0.75);
     transition: all 0.3s ease-in-out;
 
     &::before {
@@ -35,20 +35,20 @@
     }
 
     &.incorrect {
-        border-color: #8f2513;
+        border-color: var(--red);
 
         &::before {
             opacity: 0.2;
-            background-image: linear-gradient(to bottom, transparent, #8f2513);
+            background-image: linear-gradient(to bottom, transparent, var(--red));
         }
     }
 
     &.correct {
-        border-color: #1c732d;
+        border-color: var(--green-stronger);
 
         &::before {
             opacity: 0.2;
-            background-image: linear-gradient(to bottom, transparent, #1c732d);
+            background-image: linear-gradient(to bottom, transparent, var(--green-stronger));
         }
     }
 }
