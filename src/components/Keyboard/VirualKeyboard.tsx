@@ -13,6 +13,7 @@ import './VirualKeyboard.scss';
 
 const VirualKeyboard = () => {
     const dispatch = useDispatch();
+    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const type = useSelector(selectKeyboardState);
 
     const handleSubmit = useCallback(() => {
@@ -23,10 +24,13 @@ const VirualKeyboard = () => {
         const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
 
         if (isAllowedKey) {
-            navigator?.vibrate(50);
+            if (shouldVibrate) {
+                navigator?.vibrate(50);
+            }
+
             dispatch(letterChangeInAnswer(keyTyped));
         }
-    }, [dispatch]);
+    }, [dispatch, shouldVibrate]);
 
     return (
         <aside className={clsx('keyboard', type)}>

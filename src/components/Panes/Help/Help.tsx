@@ -24,7 +24,7 @@ const Help = ({ changePane }: Props) => {
             <Word guess={HELP_WORDS[0]} />
             <p>Szarych liter nie ma w haśle.</p>
             <Word guess={HELP_WORDS[1]} />
-            <p>Litery <strong>P</strong> i <strong>R</strong> są w haśle w tej kolejności, ale nie obok siebie.<br />Litera <strong>S</strong> jest w haśle ale nie za <strong>R</strong>.</p>
+            <p>Litery <strong>P</strong> i <strong>R</strong> są w haśle w tej kolejności, ale nie obok siebie.<br />Litera <strong>S</strong> jest w haśle ale w innym miejscu.</p>
             <Word guess={HELP_WORDS[2]} />
             <p>Litery <strong>UPE</strong> są w haśle ciągiem.</p>
             <Word guess={HELP_WORDS[3]} />
@@ -32,7 +32,7 @@ const Help = ({ changePane }: Props) => {
             <Word guess={HELP_WORDS[4]} />
             <p>Podane słowo jest hasłem.</p>
             <p>
-                <Button onClick={() => changePane('game')}>
+                <Button onClick={() => changePane('game')} isLarge>
                     <IconGamepad />
                     <span>GRAJ</span>
                 </Button>

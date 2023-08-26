@@ -10,7 +10,7 @@ import { getNow, getYesterdaysSeed } from '@utils/date';
 
 import getWordToGuess from '@api/getWordToGuess'
 
-import { setToast } from '@store/appSlice';
+import { setToast, toggleVibration } from '@store/appSlice';
 import { setGameMode, setWordToGuess } from '@store/gameSlice'
 
 import useScrollEffect from '@hooks/useScrollEffect';
@@ -27,7 +27,9 @@ import IconGamepad from '@components/Icons/IconGamepad';
 import IconGamepadAlt from '@components/Icons/IconGamepadAlt';
 import IconGithub from '@components/Icons/IconGithub';
 import IconIconmonstr from '@components/Icons/IconIconmonstr';
+import IconMoon from '@components/Icons/IconMoon';
 import IconShare from '@components/Icons/IconShare';
+import IconVibrate from '@components/Icons/IconVibrate';
 
 import Button from '@components/Button/Button';
 
@@ -42,6 +44,7 @@ const Settings = ({ changePane }: Props) => {
     const dispatch = useDispatch();
     const [lastWord, setLastWord] = useState('');
     const [yesterdayWord, setYesterdayWord] = useState('');
+    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const gameMode = useSelector(state => state.game.mode);
     const guesses = useSelector(state => state.game.guesses);
@@ -80,6 +83,13 @@ const Settings = ({ changePane }: Props) => {
         dispatch(setWordToGuess(''));
         changePane('game');
     }, [changePane, dispatch]);
+
+    const handleToggleVibrate = useCallback(() => {
+        // Inverted because toggled
+        localStorage.setItem(LOCAL_STORAGE.SHOULD_VIBRATE, shouldVibrate ? 'false' : 'true');
+
+        dispatch(toggleVibration())
+    }, [dispatch, shouldVibrate])
 
     const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
     const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;
@@ -140,6 +150,22 @@ const Settings = ({ changePane }: Props) => {
                     <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
                         <IconShare />
                         <span>Udostępniony</span>
+                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
+                    </button>
+                </li>
+            </ul>
+            <h2>Preferencje</h2>
+            <ul>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
+                        <IconVibrate />
+                        <span>Wibracje</span>
+                    </button>
+                </li>
+                <li>
+                    <button className="setting" disabled>
+                        <IconMoon />
+                        <span>Styl nocny</span>
                         <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
                     </button>
                 </li>

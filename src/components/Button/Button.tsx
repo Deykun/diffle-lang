@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import clsx from 'clsx';
 
+import { useSelector } from '@store';
+
 import IconLoader from '@components/Icons/IconLoader';
 
 import './Button.scss';
@@ -14,6 +16,7 @@ interface Props {
     target?: string,
     isLoading?: boolean,
     isInverted?: boolean,
+    isLarge?: boolean,
 }
 
 const Button = ({
@@ -25,20 +28,24 @@ const Button = ({
     target,
     isLoading = false,
     isInverted = false,
+    isLarge = false,
 }: Props) => {
     const Tag = tagName || 'button';
+    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
 
     const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
-        navigator?.vibrate(50);
+        if (shouldVibrate) {
+            navigator?.vibrate(50);
+        }
 
         if (onClick) {
             onClick(event);
         }
-    }, [onClick]);
+    }, [onClick, shouldVibrate]);
 
     return (
         <Tag
-          className={clsx('button', { 'inverted': isInverted, [className]: className, 'loading': isLoading })}
+          className={clsx('button', { 'inverted': isInverted, 'large': isLarge, [className]: className, 'loading': isLoading })}
           onClick={handleClick}
           href={href}
           target={target}

@@ -24,14 +24,17 @@ import './Win.scss';
 
 const Win = () => {
     const dispatch = useDispatch();
+    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
     const [isReseting, setIsReseting] = useState(false);
 
     useEffect(() => {
-        navigator?.vibrate(300);
-    }, [])
+        if (shouldVibrate) {
+            navigator?.vibrate(300);
+        }
+    }, [shouldVibrate])
 
     const handleNewGame = useCallback(() => {
         if (!isReseting) {

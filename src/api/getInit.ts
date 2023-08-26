@@ -26,3 +26,7 @@ export const getInitMode = () => {
     return initGameModeFromStored;
 };
 
+export const getInitShouldVibrate = () => {
+    // By default returns false
+    return localStorage.getItem(LOCAL_STORAGE.SHOULD_VIBRATE) === 'true';
+};

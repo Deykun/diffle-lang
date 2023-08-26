@@ -2,7 +2,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 min(12px, 3vw);;
+    padding: 0 min(13px, 3vw);;
     border-radius: 6px;
     border: none;
     color: black;
@@ -57,6 +57,11 @@
         flex-shrink: 0;
         padding: 0 min(6px, 1vw);
         min-width: 36px;
+
+        @media (min-width: 400px) {
+            min-width: 52px;
+        }
+
         max-width: 7vw;
         width: 56px;
 

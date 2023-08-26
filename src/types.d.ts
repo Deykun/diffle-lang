@@ -25,6 +25,7 @@ export interface Toast {
 
 export interface RootAppState {
     toast: Toast,
+    shouldVibrate: boolean,
 }
 
 export enum GameMode {

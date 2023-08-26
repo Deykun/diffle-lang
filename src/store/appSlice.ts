@@ -1,16 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { Toast } from '@common-types';
+import { RootAppState } from '@common-types';
 
-export interface AppState {
-    toast: Toast,
-}
+import { getInitShouldVibrate } from '@api/getInit';
 
-const initialState: AppState = {
+const initialState: RootAppState = {
     toast: {
         text: '',
         timeoutSeconds: 5,
     },
+    shouldVibrate: getInitShouldVibrate(),
 };
 
 const appSlice = createSlice({
@@ -25,6 +24,9 @@ const appSlice = createSlice({
         clearToast(state) {
             state.toast = { text: '', timeoutSeconds: 5 };
         },
+        toggleVibration(state) {
+            state.shouldVibrate = !state.shouldVibrate;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -34,5 +36,5 @@ const appSlice = createSlice({
       },
 })
 
-export const { setToast, clearToast } = appSlice.actions;
+export const { setToast, clearToast, toggleVibration } = appSlice.actions;
 export default appSlice.reducer;

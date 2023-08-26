@@ -42,6 +42,24 @@
         animation: spin infinite linear reverse 1s;
     }
 
+    &.large {
+        padding: 0 16px;
+        height: 52px;
+        line-height: 46px;
+        font-size: 22px;
+
+        svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .button-loader {
+            position: absolute;
+            left: calc(50% - 10px);
+            top: calc(50% - 10px);
+        }
+    }
+
     &.loading {
         background-color: #275fb3;
         border-color: #275fb3;

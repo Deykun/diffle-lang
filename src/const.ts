@@ -7,7 +7,7 @@ export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
 export const KEY_LINES = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'backspace'],
     ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
 ];
 
@@ -33,6 +33,7 @@ export const LOCAL_STORAGE = {
     TYPE_DAILY: 'diffle_daily',
     TYPE_PRACTICE: 'diffle_practice',
     TYPE_SHARE: 'diffle_share',
+    SHOULD_VIBRATE: 'diffle_should_vibrate',
 };
 
 export const LOCAL_STORAGE_GAME_BY_MODE = {

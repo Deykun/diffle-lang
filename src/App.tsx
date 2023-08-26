@@ -14,31 +14,35 @@ import Toast from '@components/Toast/Toast';
 import './App.scss'
 
 const App = () => {
-  const [pane, setPane] = useState(getInitPane());
-  const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const [pane, setPane] = useState(getInitPane());
+    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
+    const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
-  const handlePaneChange = useCallback((pickedPane: string) => {
-    const isClose = pickedPane === pane;
+    const handlePaneChange = useCallback((pickedPane: string) => {
+        const isClose = pickedPane === pane;
 
-    if (isClose && pickedPane === 'game') {
-      return;
-    }
+        if (isClose && pickedPane === 'game') {
+            return;
+        }
 
-    navigator?.vibrate(150);
-    setPane(isClose ? 'game' : pickedPane);
-  }, [pane]);
+        if (shouldVibrate) {
+            navigator?.vibrate(150);
+        }
 
-  return (
-    <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
-      <Header pane={pane} changePane={handlePaneChange} />
-      <main>
-        <Toast />
-        {pane === 'help' && <Help changePane={handlePaneChange} />}
-        {pane === 'game' && <Game />}
-        {pane === 'settings' && <Settings changePane={handlePaneChange} />}
-      </main>
-    </div>
-  )
+        setPane(isClose ? 'game' : pickedPane);
+    }, [pane, shouldVibrate]);
+
+    return (
+        <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
+            <Header pane={pane} changePane={handlePaneChange} />
+            <main>
+                <Toast />
+                {pane === 'help' && <Help changePane={handlePaneChange} />}
+                {pane === 'game' && <Game />}
+                {pane === 'settings' && <Settings changePane={handlePaneChange} />}
+            </main>
+        </div>
+    )
 };
 
 export default App;
