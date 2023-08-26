@@ -78,3 +78,16 @@ html, button, input, select, textarea {
 body {
     background-color: var(--background);
 }
+.only-dark {
+    display: none;
+}
+
+.dark {
+    .only-light {
+        display: none;
+    }
+
+    .only-dark {
+        display: block;
+    }
+}

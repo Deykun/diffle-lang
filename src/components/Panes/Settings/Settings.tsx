@@ -29,6 +29,7 @@ import IconGithub from '@components/Icons/IconGithub';
 import IconIconmonstr from '@components/Icons/IconIconmonstr';
 import IconMoon from '@components/Icons/IconMoon';
 import IconShare from '@components/Icons/IconShare';
+import IconSun from '@components/Icons/IconSun';
 import IconVibrate from '@components/Icons/IconVibrate';
 
 import Button from '@components/Button/Button';
@@ -167,9 +168,15 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" onClick={handleToggleDarkLightMode}>
-                        <IconMoon />
-                        <span>Styl nocny</span>
+                    <button className="setting setting-active" onClick={handleToggleDarkLightMode}>
+                        <span className="only-dark">
+                            <IconMoon />
+                            <span>Styl nocny</span>
+                        </span>
+                        <span className="only-light">
+                            <IconSun />
+                            <span>Styl dzienny</span>
+                        </span>
                     </button>
                 </li>
             </ul>
