@@ -38,6 +38,16 @@
         text-transform: uppercase;
         text-shadow: 0 0px 10px white;
 
+        svg {
+            position: absolute;
+            left: 50%;
+            top: 2px;
+            transform: translateX(-55%);
+            fill: currentColor;
+            height: 0.4em;
+            fill: #878a8c;
+        }
+
         &::after {
             content: '';
             height: 12px;
