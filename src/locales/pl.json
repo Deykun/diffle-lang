@@ -1,0 +1,51 @@
+{
+    "common": {
+        "play": "Graj",
+        "copyResult": "Skopiuj wynik",
+        "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL"
+    },
+    "game": {
+        "modeDaily": "Codzienny",
+        "modePractice": "Ćwiczenia",
+        "modeShare": "Udostępniony",
+        "iGiveUp": "Poddaje się"
+    },
+    "win": {
+        "title": "Sukces",
+        "wordsUsed_zero": "słów",
+        "wordsUsed_one": "słowo",
+        "wordsUsed_few": "słowa",
+        "wordsUsed_many": "słów",
+        "lettersUsed_zero": "liter",
+        "lettersUsed_one": "litera",
+        "lettersUsed_few": "litery",
+        "lettersUsed_many": "liter",
+        "nextDaily_zero": "Nowe hasło dnia będzie dostępne za <strong>mniej niż godzinę.</strong>.", 
+        "nextDaily_one": "Nowe hasło dnia będzie dostępne za <strong>godzinę</strong>.",       
+        "nextDaily_few": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godziny</strong>.",
+        "nextDaily_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
+        "nextDailyShort": "nowe za {{count}}g"
+    },
+    "help": {
+        "howToPlayTitle": "Jak gra się w diffle?",
+        "howToPlayText1": "Cel to odgadnięcie hasła używając jak najmniejszej liczby słów i liter.",
+        "howToPlayText2": "Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.",
+        "exampleTitle": "Przykład",
+        "incorrectLettersTip": "Szarych liter nie ma w haśle.",
+        "correctLettersTip": "Litery <strong>P</strong> i <strong>R</strong> są w haśle w <strong>tej kolejności</strong>.<br />Litera <strong>S</strong> jest w haśle ale nie po <strong>R</strong>.",
+        "sequenceOfLettersTip": "Litery <strong>UPE</strong> są w haśle <strong>ciągiem</strong>.",
+        "firstAndLastLetterTip": "Hasło zaczyna się na litrę <strong>S</strong>, zawiera literę <strong>P</strong> i kończy na <strong>R</strong>.",
+        "winingWordMessage": "Podane słowo jest hasłem."
+    },
+    "settings": {
+        "inDevelopment": "w budowie",
+        "statisticsTitle": "Statystyki",
+        "gameModeTitle": "Rodzaj gry",
+        "labelFinishGame": "ukończ",
+        "preferencesTitle": "Preferencje",
+        "currentLanguage": "Polski",
+        "phoneVibrations": "Wibracje",
+        "lightMode": "Styl dzienny",
+        "darkMode": "Styl nocny"
+    }
+}

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { AffixStatus, GameMode } from '@common-types';
 
@@ -29,6 +30,8 @@ const Win = () => {
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
     const [isReseting, setIsReseting] = useState(false);
+
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (shouldVibrate) {
@@ -100,37 +103,36 @@ const Win = () => {
         const { stamp } = getNow();
         const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
  
-Słowa: ${words} – Liter: ${letters}
+${words} ${t('win.wordsUsed', { postProcess: 'interval', count: words })} – ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
 ${diffleUrl} #diffle`:
 `« ${wordToGuess} » – DIFFLE  🇵🇱
 
-Słowa: ${words} – Liter: ${letters}
+${words} ${t('win.wordsUsed', { postProcess: 'interval', count: words })} – ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
 ${diffleUrl} #diffle`;
 
         copyMessage(textToCopy);
         dispatch(setToast({ text: 'Skopiowano.' }));
-    }, [wordToGuess, words, letters, subtotals.correct, subtotals.position, subtotals.incorrect, dispatch, gameMode]);
+    }, [gameMode, words, letters, t, subtotals.correct, subtotals.position, subtotals.incorrect, wordToGuess, dispatch]);
 
     if (guesses.length === 0) {
         return null;
     }
 
-    const labelWords = words > 4 ? 'słów' : (words > 1) ? 'słowa' : 'słowo';
-    const labelLetters = letters > 4 ? 'liter' : (letters > 1) ? 'litery' : 'litera';
+    const hoursToNext = 24 - getNow().nowUTC.getHours() + 1;
 
     return (
         <div className="win">
             <h3 className="title">
-                <span>Sukces</span>
+                <span>{t('win.title')}</span>
                 <IconFancyCheck className="title-icon" />
             </h3>
             <div className="totals">
-                <p className="total"><strong>{words}</strong> {labelWords}</p>
-                <p className="total"><strong>{letters}</strong> {labelLetters}</p>
+                <p className="total"><strong>{words}</strong> {t('win.wordsUsed', { postProcess: 'interval', count: words })}</p>
+                <p className="total"><strong>{letters}</strong> {t('win.lettersUsed', { postProcess: 'interval', count: letters })}</p>
             </div>
             <div className="subtotals">
                 <p className="subtotal correct"><span>{subtotals.correct}</span></p>
@@ -151,7 +153,7 @@ ${diffleUrl} #diffle`;
                   onClick={handleCopy}
                 >
                     <IconShare />
-                    <span>Skopiuj wynik</span>
+                    <span>{t('common.copyResult')}</span>
                 </Button>
             </div>
             <Button
@@ -161,10 +163,16 @@ ${diffleUrl} #diffle`;
               isInverted
             >
                 <IconBook />
-                <span>Sprawdź "{wordToGuess}" na SJP.PL</span>
+                <span>{t('common.checkInDictionary', { word: wordToGuess })}</span>
             </Button>
             {gameMode === GameMode.Daily && (
-                <p className="next-word-tip">Nowe hasło dnia będzie dostępne za <strong>{24 - getNow().nowUTC.getHours() + 1} godziny</strong>.</p>
+                <p
+                  className="next-word-tip"
+                  dangerouslySetInnerHTML={{ __html: t('win.nextDaily', {
+                        postProcess: 'interval',
+                        count: hoursToNext,
+                  })}}
+                />
             )}
         </div>
     )

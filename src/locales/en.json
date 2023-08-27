@@ -1,0 +1,45 @@
+{
+    "common": {
+        "play": "Play",
+        "copyResult": "Copy result",
+        "checkInDictionary": "Check \"{{word}}\" on SJP.PL"
+    },
+    "game": {
+        "modeDaily": "Daily",
+        "modePractice": "Practice",
+        "modeShare": "Shared",
+        "iGiveUp": "I give up"
+    },
+    "help": {
+        "howToPlayTitle": "How to play?",
+        "howToPlayText1": "Guess the word using as few letters as possible.",
+        "howToPlayText2": "Once you give it your best guess, the letter colors switch up to tell you how warm or cold you are to the word.",
+        "exampleTitle": "An example",
+        "incorrectLettersTip": "Gray letters are not in the word.",
+        "correctLettersTip": "The letters <strong>P</strong> and <strong>R</strong> are in the word in <strong>this order</strong>.<br />The letter <strong>S</strong> is in the word but not after <strong>R</strong>.",
+        "sequenceOfLettersTip": "The letters <strong>UPE</strong> are in the word <strong>in a row</strong>.",
+        "firstAndLastLetterTip": "The word starts with <strong>S</strong>, includes <strong>P</strong> and ends with <strong>R</strong>.",
+        "winingWordMessage": "This is the answer word."
+    },
+    "win": {
+        "title": "Success",
+        "wordsUsed_one": "word",
+        "wordsUsed_other": "words",
+        "lettersUsed_one": "letter",
+        "lettersUsed_other": "letters",
+        "nextDaily_one": "The new daily word will be available in <strong>an hour</strong>.",       
+        "nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
+        "nextDailyShort": "next in {{count}}h"
+    },
+    "settings": {
+        "inDevelopment": "in development",
+        "statisticsTitle": "Statistics",
+        "gameModeTitle": "Game modes",
+        "labelFinishGame": "finish",
+        "preferencesTitle": "Preferences",
+        "currentLanguage": "English",
+        "phoneVibrations": "Vibrations",
+        "lightMode": "Light mode",
+        "darkMode": "Dark mode"
+    }
+}
