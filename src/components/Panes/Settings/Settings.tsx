@@ -93,6 +93,10 @@ const Settings = ({ changePane }: Props) => {
     }, [dispatch, shouldVibrate]);
 
     const handleToggleDarkLightMode = useCallback(() => {
+        const isDarkThemeBeforeToggle = document.documentElement.classList.contains('dark');
+
+        localStorage.setItem(LOCAL_STORAGE.THEME, isDarkThemeBeforeToggle ? 'light' : 'dark');
+
         document.documentElement.classList.toggle('dark');
     }, []);
 
@@ -137,7 +141,7 @@ const Settings = ({ changePane }: Props) => {
                         <IconDay />
                         <span>Codzienny</span>
                         {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>zaliczony</span> <IconFancyCheck /></span>}
-                        {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>nowa gra za {24 - getNow().nowUTC.getHours() + 1}g.</span> <IconFancyCheck /></span>}
+                        {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>nowe słowo: {24 - getNow().nowUTC.getHours() + 1}g.</span> <IconFancyCheck /></span>}
                     </button>
                 </li>
                 <li>

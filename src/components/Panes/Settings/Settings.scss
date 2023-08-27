@@ -49,7 +49,7 @@
                 }
 
                 &:focus {
-                    outline: 3px solid #275fb3;
+                    outline: 3px solid var(--blue-on-background);
                 }
 
                 &:disabled {

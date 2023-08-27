@@ -77,19 +77,19 @@
         border-color: var(--red-weaker) !important;
 
         &:hover {
-            background-color: #c13838 !important;
-            border-color: #c13838 !important;
+            background-color: var(--red) !important;
+            border-color: var(--red) !important;
         }
     }
 
     &-enter {
-        fill: white !important;
-        background-color: #7392c1  !important;
-        border-color: #7392c1 !important;
+        fill: var(--blue-contrast) !important;
+        background-color: var(--blue-weaker) !important;
+        border-color: var(--blue-weaker) !important;
 
         &:hover {
-            background-color: #26c !important;
-            border-color: #26c !important;
+            background-color: var(--blue) !important;
+            border-color: var(--blue) !important;
         }
     }
 }

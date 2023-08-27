@@ -1,4 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useEffect, useCallback, useState } from 'react';
+
+import { LOCAL_STORAGE } from '@const';
+
 import { useSelector } from '@store';
 
 import { getInitPane } from '@api/getInit';
@@ -17,6 +20,16 @@ const App = () => {
     const [pane, setPane] = useState(getInitPane());
     const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
+
+    useEffect(() => {
+        const isSavedDarkTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'dark';
+        const isNotSavedAndSystemUsesDarkTheme = !localStorage.getItem(LOCAL_STORAGE.THEME) && window?.matchMedia('(prefers-color-scheme: dark)');
+        const isDarkTheme = isSavedDarkTheme || isNotSavedAndSystemUsesDarkTheme;
+
+        if (isDarkTheme) {
+            document.documentElement.classList.add('dark');
+        }
+    }, []);
 
     const handlePaneChange = useCallback((pickedPane: string) => {
         const isClose = pickedPane === pane;

@@ -5,10 +5,10 @@
     transform: translateX(-50%);
     width: min(500px, 100%);
     padding: 7px;
-    background-color: rgba(var(--background), 0.75);
-    backdrop-filter: blur(3px) saturate(1.3) hue-rotate(-50deg);
+    background-color: var(--background-transparent);
+    backdrop-filter: blur(6px) saturate(1.1) hue-rotate(-10deg);
     border-top: 1px solid var(--border);
-    box-shadow: 0 -7px 15px 0 rgba(var(--background), 0.75);
+    box-shadow: 0 -7px 15px 0 var(--background-transparent);
     transition: all 0.3s ease-in-out;
 
     &::before {
