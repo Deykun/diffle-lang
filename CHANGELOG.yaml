@@ -1,9 +1,12 @@
-1.5 27.08.2023:
+1.6 27.08.2023:
+  - dark mode added
+  - incorrect message about lost game fixed
+1.5 26.08.2023:
   - vibration toggle added
   - the key "Enter" swaped with "Backspace"
-1.4.2 27.08.2023:
+1.4.2 26.08.2023:
   - next game time for daily shown
-1.4.1 27.08.2023:
+1.4.1 26.08.2023:
   - better ux for settings
 1.4 26.08.2023:
   - fixed broken progress save
