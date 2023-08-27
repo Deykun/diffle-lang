@@ -34,27 +34,25 @@
     }
 
     font-weight: 600;
-    
-    color: black;
-    border: 1px solid #cacaca;
-    background-color: white;
+    border: 1px solid var(--border);
+    background-color: transparent;
 
     &.correct {
-        color: white;
-        background-color: #4fb061;
-        border-color: #4fb061;
+        color: var(--green-contrast);
+        background-color: var(--green);
+        border-color: var(--green);
     }
 
     &.incorrect {
-        color: white;
-        background-color: #d4d4d4;
-        border-color: #d4d4d4;
+        color: var(--incorrect-contrast);
+        background-color: var(--incorrect);
+        border-color: var(--incorrect);
     }
 
     &.position {
-        color: white;
-        background-color: #e8b838;
-        border-color: #e8b838;
+        color: var(--orange-contrast);
+        background-color: var(--orange);
+        border-color: var(--orange);
     }
 }
 

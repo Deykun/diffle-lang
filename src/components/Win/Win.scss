@@ -16,7 +16,7 @@
     .title-icon {
         width: 42px;
         height: 42px;
-        fill: #26c;
+        fill: var(--blue-on-background);
         margin-left: 10px;
         vertical-align: middle;
     }
@@ -30,12 +30,12 @@
     }
 
     .total {
-        color: #343434;
+        color: var(--text-weaker);
         letter-spacing: 0.05em;
         font-weight: 600;
 
         strong {
-            color: #26c;
+            color: var(--blue-on-background);
             font-size: 30px;
             font-weight: 600;
             vertical-align: middle;
@@ -54,7 +54,7 @@
     .subtotal {
         font-weight: 600;
         letter-spacing: 0.05em;
-        color: #576b8a;
+        color: var(--text);
 
         > * {
             vertical-align: middle;
@@ -68,19 +68,18 @@
             width: 16px;
             height: 16px;
             border-radius: 50%;
-            background-color: red;
         }
         
         &.correct::before {
-            background-color: #4fb061;
+            background-color: var(--green);
         }
 
         &.position::before {
-            background-color: #e8b838;
+            background-color: var(--orange);
         }
 
         &.incorrect::before {
-            background-color: #d4d4d4;
+            background-color: var(--incorrect);
         }
     }
 
@@ -88,7 +87,7 @@
         margin-top: 10px;
         margin-bottom: 0;
         font-size: 70%;
-        color: #576b8a;
+        color: var(--text-alt);
     }
 
     .actions {

@@ -29,6 +29,7 @@ import IconGithub from '@components/Icons/IconGithub';
 import IconIconmonstr from '@components/Icons/IconIconmonstr';
 import IconMoon from '@components/Icons/IconMoon';
 import IconShare from '@components/Icons/IconShare';
+import IconSun from '@components/Icons/IconSun';
 import IconVibrate from '@components/Icons/IconVibrate';
 
 import Button from '@components/Button/Button';
@@ -89,7 +90,15 @@ const Settings = ({ changePane }: Props) => {
         localStorage.setItem(LOCAL_STORAGE.SHOULD_VIBRATE, shouldVibrate ? 'false' : 'true');
 
         dispatch(toggleVibration())
-    }, [dispatch, shouldVibrate])
+    }, [dispatch, shouldVibrate]);
+
+    const handleToggleDarkLightMode = useCallback(() => {
+        const isDarkThemeBeforeToggle = document.documentElement.classList.contains('dark');
+
+        localStorage.setItem(LOCAL_STORAGE.THEME, isDarkThemeBeforeToggle ? 'light' : 'dark');
+
+        document.documentElement.classList.toggle('dark');
+    }, []);
 
     const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
     const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;
@@ -132,7 +141,7 @@ const Settings = ({ changePane }: Props) => {
                         <IconDay />
                         <span>Codzienny</span>
                         {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>zaliczony</span> <IconFancyCheck /></span>}
-                        {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>nowa gra za {24 - getNow().nowUTC.getHours() + 1}g.</span> <IconFancyCheck /></span>}
+                        {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>nowe słowo: {24 - getNow().nowUTC.getHours() + 1}g.</span> <IconFancyCheck /></span>}
                     </button>
                 </li>
                 <li>
@@ -163,10 +172,15 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" disabled>
-                        <IconMoon />
-                        <span>Styl nocny</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
+                    <button className="setting setting-active" onClick={handleToggleDarkLightMode}>
+                        <span className="only-dark">
+                            <IconMoon />
+                            <span>Styl nocny</span>
+                        </span>
+                        <span className="only-light">
+                            <IconSun />
+                            <span>Styl dzienny</span>
+                        </span>
                     </button>
                 </li>
             </ul>

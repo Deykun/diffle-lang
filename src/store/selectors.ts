@@ -53,7 +53,7 @@ export const selectKeyboardState = createSelector(
     selectIncorrectLetters,
     selectPositionLetters,
     (wordToGuess, wordToSubmit, correctLetters, incorrectLetter, positionLetters) => {
-        if (!wordToSubmit) {
+        if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
             return AffixStatus.Unknown;
         }
 

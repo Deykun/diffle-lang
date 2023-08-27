@@ -33,6 +33,7 @@ export const LOCAL_STORAGE = {
     TYPE_DAILY: 'diffle_daily',
     TYPE_PRACTICE: 'diffle_practice',
     TYPE_SHARE: 'diffle_share',
+    THEME: 'diffle_theme',
     SHOULD_VIBRATE: 'diffle_should_vibrate',
 };
 

@@ -19,6 +19,12 @@ function useSaveProgressLocally() {
     }, [gameMode, todayStamp]);
 
     useEffectChange(() => {
+        if (!wordToGuess) {
+            localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+
+            return;
+        }
+
         const guessesWords = guesses.map(({ word }) => word);
 
         const recoveryState = {
