@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GameMode } from '@common-types';
 
@@ -6,36 +8,27 @@ import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 
-import { getNow, getYesterdaysSeed } from '@utils/date';
+import { getYesterdaysSeed } from '@utils/date';
 
 import getWordToGuess from '@api/getWordToGuess'
 
-import { setToast, toggleVibration } from '@store/appSlice';
-import { setGameMode, setWordToGuess } from '@store/gameSlice'
+import { setToast } from '@store/appSlice';
+import { setWordToGuess } from '@store/gameSlice'
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconBin from '@components/Icons/IconBin';
 import IconBook from '@components/Icons/IconBook';
-import IconBookAlt from '@components/Icons/IconBookAlt';
 import IconConstruction from '@components/Icons/IconConstruction';
-import IconInfinity from '@components/Icons/IconInfinity';
 import IconChart from '@components/Icons/IconChart';
-import IconDay from '@components/Icons/IconDay';
-import IconFancyCheck from '@components/Icons/IconFancyCheck';
-import IconGamepad from '@components/Icons/IconGamepad';
-import IconGamepadAlt from '@components/Icons/IconGamepadAlt';
-import IconGithub from '@components/Icons/IconGithub';
-import IconIconmonstr from '@components/Icons/IconIconmonstr';
-import IconMoon from '@components/Icons/IconMoon';
-import IconShare from '@components/Icons/IconShare';
-import IconSun from '@components/Icons/IconSun';
-import IconVibrate from '@components/Icons/IconVibrate';
 
 import Button from '@components/Button/Button';
 
 import './Settings.scss'
-import { useCallback, useEffect, useState } from 'react';
+
+import SettingsModes from './SettingsModes';
+import SettingsPreferences from './SettingsPreferences';
+import SettingsSources from './SettingsSources';
 
 interface Props {
     changePane: (pane: string) => void;
@@ -45,11 +38,12 @@ const Settings = ({ changePane }: Props) => {
     const dispatch = useDispatch();
     const [lastWord, setLastWord] = useState('');
     const [yesterdayWord, setYesterdayWord] = useState('');
-    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const gameMode = useSelector(state => state.game.mode);
     const guesses = useSelector(state => state.game.guesses);
     const isWon = useSelector(state => state.game.isWon);
+
+    const { t } = useTranslation();
 
     const canGiveUp = gameMode === GameMode.Practice && guesses.length > 0 && !isWon;
 
@@ -78,31 +72,6 @@ const Settings = ({ changePane }: Props) => {
         dispatch(setWordToGuess(''));
     }, [dispatch, canGiveUp, wordToGuess]);
 
-    const handleChangeGameMode = useCallback((newGameMode: GameMode) => {
-        localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, newGameMode);
-        dispatch(setGameMode(newGameMode));
-        dispatch(setWordToGuess(''));
-        changePane('game');
-    }, [changePane, dispatch]);
-
-    const handleToggleVibrate = useCallback(() => {
-        // Inverted because toggled
-        localStorage.setItem(LOCAL_STORAGE.SHOULD_VIBRATE, shouldVibrate ? 'false' : 'true');
-
-        dispatch(toggleVibration())
-    }, [dispatch, shouldVibrate]);
-
-    const handleToggleDarkLightMode = useCallback(() => {
-        const isDarkThemeBeforeToggle = document.documentElement.classList.contains('dark');
-
-        localStorage.setItem(LOCAL_STORAGE.THEME, isDarkThemeBeforeToggle ? 'light' : 'dark');
-
-        document.documentElement.classList.toggle('dark');
-    }, []);
-
-    const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
-    const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;
-
     return (
         <div className="settings">
             {lastWord && <p>
@@ -113,112 +82,28 @@ const Settings = ({ changePane }: Props) => {
                   isInverted
                 >
                     <IconBook />
-                    <span>Sprawdź "{lastWord}" na SJP.PL</span>
+                    <span>{t('common.checkInDictionary', { word: lastWord })}</span>
                 </Button>
             </p>}
             <ul>
                 <li>
                     <button className="setting" disabled>
                         <IconChart />
-                        <span>Statystyki</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
+                        <span>{t('settings.statisticsTitle')}</span>
+                        <span className={clsx('setting-label', 'position', 'construction')}><span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
                     </button>
                 </li>
                 <li>
                     <button className="setting" onClick={handleGiveUpClick}>
                         <IconBin />
-                        <span>Poddaję się</span>
+                        <span>{t('game.iGiveUp')}</span>
                     </button>
                 </li>
             </ul>
-            <h2>Rodzaj gry</h2>
-            <ul>
-                <li>
-                    <button
-                      className={clsx('setting', { 'setting-active': gameMode === GameMode.Daily })}
-                      onClick={() => handleChangeGameMode(GameMode.Daily)}
-                    >
-                        <IconDay />
-                        <span>Codzienny</span>
-                        {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>zaliczony</span> <IconFancyCheck /></span>}
-                        {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>nowe słowo: {24 - getNow().nowUTC.getHours() + 1}g.</span> <IconFancyCheck /></span>}
-                    </button>
-                </li>
-                <li>
-                    <button
-                      className={clsx('setting', { 'setting-active': gameMode === GameMode.Practice })}
-                      disabled={!shouldShowCheckedDaily}
-                      onClick={() => handleChangeGameMode(GameMode.Practice)}
-                    >
-                        <IconInfinity />
-                        <span>Ćwiczenia</span>
-                        {!shouldShowCheckedDaily && <span className={clsx('setting-label', 'incorrect')}><span>ukończ</span> <IconDay /></span>}
-                    </button>
-                </li>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
-                        <IconShare />
-                        <span>Udostępniony</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>w budowie</span> <IconConstruction /></span>
-                    </button>
-                </li>
-            </ul>
-            <h2>Preferencje</h2>
-            <ul>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
-                        <IconVibrate />
-                        <span>Wibracje</span>
-                    </button>
-                </li>
-                <li>
-                    <button className="setting setting-active" onClick={handleToggleDarkLightMode}>
-                        <span className="only-dark">
-                            <IconMoon />
-                            <span>Styl nocny</span>
-                        </span>
-                        <span className="only-light">
-                            <IconSun />
-                            <span>Styl dzienny</span>
-                        </span>
-                    </button>
-                </li>
-            </ul>
+            <SettingsModes changePane={changePane} />
+            <SettingsPreferences />
             <footer>
-                <h2>Źródła</h2>
-                <p>
-                    Specjalne podziękowania. dla SJP i FreeDict.
-                </p>
-                <ul>
-                    <li><a href="https://sjp.pl" target="blank">
-                        <IconBookAlt /><span>sjp.pl - używane jako spellchecker</span></a>
-                    </li>
-                    <li>
-                        <a href="https://freedict.org/" target="blank">
-                            <IconBook /><span>freedict.org - do ustalenia lepszych haseł</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://iconmonstr.com/" target="blank">
-                            <IconIconmonstr /><span>iconmonstr.com - ikonki</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">
-                            <IconGamepadAlt /><span>oryginalne wordle</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://hedalu244.github.io/diffle/" target="blank">
-                            <IconGamepad /><span>oryginalne diffle</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Deykun/diffle-lang" target="blank">
-                            <IconGithub /><span>repozytorium strony</span>
-                        </a>
-                    </li>
-                </ul>
+                <SettingsSources />
                 {yesterdayWord && (<>
                     <h2>Wczoraj</h2>
                     <p>
@@ -231,7 +116,7 @@ const Settings = ({ changePane }: Props) => {
                           isInverted
                         >
                             <IconBook />
-                            <span>Sprawdź "{yesterdayWord}" na SJP.PL</span>
+                            <span>{t('common.checkInDictionary', { word: yesterdayWord })}</span>
                         </Button>
                     </p>
                 </>)}
