@@ -17,8 +17,7 @@ import Toast from '@components/Toast/Toast';
 import './App.scss'
 
 const App = () => {
-    // const [pane, setPane] = useState(getInitPane());
-    const [pane, setPane] = useState('help');
+    const [pane, setPane] = useState(getInitPane());
     const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
