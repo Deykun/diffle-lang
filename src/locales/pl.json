@@ -1,5 +1,7 @@
 {
     "common": {
+        "yes": "Tak",
+        "no": "Nie",
         "play": "Graj",
         "newGame": "Nowa Gra",
         "copyResult": "Skopiuj wynik",
@@ -9,7 +11,8 @@
         "modeDaily": "Codzienny",
         "modePractice": "Ćwiczenia",
         "modeShare": "Udostępniony",
-        "iGiveUp": "Poddaje się"
+        "iGiveUp": "Poddaje się",
+        "confirmCheckTheWord": "Sprawdzamy słowo?"
     },
     "win": {
         "title": "Sukces",

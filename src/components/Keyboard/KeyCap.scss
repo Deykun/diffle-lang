@@ -5,6 +5,7 @@
     padding: 0 min(13px, 3vw);;
     border-radius: 6px;
     border: none;
+    fill: currentColor;
     color: var(--untyped-contrast);
     background-color: var(--untyped);
     border: 2px solid var(--untyped);
@@ -54,7 +55,6 @@
 
     &-backspace,
     &-enter {
-        flex-shrink: 0;
         padding: 0 min(6px, 1vw);
         min-width: 36px;
 
@@ -64,6 +64,12 @@
 
         max-width: 7vw;
         width: 56px;
+    }
+
+    &-backspace,
+    &-enter,
+    &-yes {
+        flex-shrink: 0;
 
         svg {
             width: 24px;
@@ -71,8 +77,25 @@
         }
     }
 
+    &-no,
+    &-yes {
+        span {
+            margin-right: 10px;
+        }
+    }
+
+    &-no {
+        flex-shrink: 0;
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &-no,
     &-backspace {
-        fill: var(--red-contrast) !important;
+        color: var(--red-contrast) !important;
         background-color: var(--red-weaker) !important;
         border-color: var(--red-weaker) !important;
 
@@ -82,8 +105,9 @@
         }
     }
 
+    &-yes,
     &-enter {
-        fill: var(--blue-contrast) !important;
+        color: var(--blue-contrast) !important;
         background-color: var(--blue-weaker) !important;
         border-color: var(--blue-weaker) !important;
 

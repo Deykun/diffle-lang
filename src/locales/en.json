@@ -1,5 +1,7 @@
 {
     "common": {
+        "yes": "Yes",
+        "no": "No",
         "play": "Play",
         "newGame": "New game",
         "copyResult": "Copy result",
@@ -9,7 +11,8 @@
         "modeDaily": "Daily",
         "modePractice": "Practice",
         "modeShare": "Shared",
-        "iGiveUp": "I give up"
+        "iGiveUp": "I give up",
+        "confirmCheckTheWord": "Should we check the word?"
     },
     "help": {
         "howToPlayTitle": "How to play?",
