@@ -1,6 +1,7 @@
 {
     "common": {
         "play": "Graj",
+        "newGame": "Nowa Gra",
         "copyResult": "Skopiuj wynik",
         "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL"
     },
@@ -12,6 +13,7 @@
     },
     "win": {
         "title": "Sukces",
+        "titleCheater": "Jasnowidz",
         "wordsUsed_zero": "słów",
         "wordsUsed_one": "słowo",
         "wordsUsed_few": "słowa",

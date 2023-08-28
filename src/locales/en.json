@@ -1,6 +1,7 @@
 {
     "common": {
         "play": "Play",
+        "newGame": "New game",
         "copyResult": "Copy result",
         "checkInDictionary": "Check \"{{word}}\" on SJP.PL"
     },
@@ -23,6 +24,7 @@
     },
     "win": {
         "title": "Success",
+        "titleCheater": "A clairvoyant",
         "wordsUsed_one": "word",
         "wordsUsed_other": "words",
         "lettersUsed_one": "letter",

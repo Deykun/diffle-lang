@@ -17,6 +17,7 @@ import { copyMessage } from '@utils/copyMessage';
 import IconBook from '@components/Icons/IconBook';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconGamepad from '@components/Icons/IconGamepad';
+import IconMagic from '@components/Icons/IconMagic';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
@@ -127,8 +128,14 @@ ${diffleUrl} #diffle`;
     return (
         <div className="win">
             <h3 className="title">
-                <span>{t('win.title')}</span>
-                <IconFancyCheck className="title-icon" />
+                {guesses.length > 1 ? (<>
+                    <span>{t('win.title')}</span>
+                    <IconFancyCheck className="title-icon" />
+                </>): (<>
+                    <span>{t('win.titleCheater')}</span>
+                    <IconMagic className="title-icon" />
+                </>)}
+
             </h3>
             <div className="totals">
                 <p className="total"><strong>{words}</strong> {t('win.wordsUsed', { postProcess: 'interval', count: words })}</p>
@@ -146,7 +153,7 @@ ${diffleUrl} #diffle`;
                       isLoading={isReseting}
                     >
                         <IconGamepad />
-                        <span>Nowa gra</span>
+                        <span>{t('common.newGame')}</span>
                     </Button>
                 )}
                 <Button

@@ -31,7 +31,7 @@
                 text-decoration: none;
                 background-color: transparent;
                 padding: 5px;
-                border: 1px solid var(--border);
+                border: 1px dashed var(--border);
                 border-radius: 6px;
                 outline-offset: 3px;
                 transition: all 0.3s ease-in;
@@ -109,7 +109,10 @@
                     }
 
                     &.correct {
-                        span,
+                        span {
+                            color: var(--text);
+                        }
+
                         svg {
                             color: var(--green);
                         }
@@ -186,7 +189,7 @@
         margin-top: 40px;
         padding-bottom: 20px;
         font-size: 12px;
-        border-top: 1px solid var(--border);
+        border-top: 1px dashed var(--border);
 
         ul {
             display: grid;

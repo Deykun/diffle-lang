@@ -94,7 +94,7 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" onClick={handleGiveUpClick}>
+                    <button className="setting" onClick={handleGiveUpClick} disabled={isWon}>
                         <IconBin />
                         <span>{t('game.iGiveUp')}</span>
                     </button>
