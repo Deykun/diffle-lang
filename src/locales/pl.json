@@ -34,7 +34,7 @@
     },
     "help": {
         "howToPlayTitle": "Jak gra się w diffle?",
-        "howToPlayText1": "Cel to odgadnięcie hasła używając jak najmniejszej liczby słów i liter.",
+        "howToPlayText1": "Cel to odgadnięcie hasła używając jak najmniejszej liczby liter.",
         "howToPlayText2": "Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.",
         "exampleTitle": "Przykład",
         "incorrectLettersTip": "Szarych liter nie ma w haśle.",
