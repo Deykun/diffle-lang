@@ -12,7 +12,8 @@
         "modePractice": "Practice",
         "modeShare": "Shared",
         "iGiveUp": "I give up",
-        "confirmCheckTheWord": "Should we check the word?"
+        "confirmCheckTheWord": "Is \"{{word}}\" okay?",
+        "wordToSubmitIsMissing": "Should we check the word?"
     },
     "help": {
         "howToPlayTitle": "How to play?",
@@ -43,8 +44,11 @@
         "labelFinishGame": "finish",
         "preferencesTitle": "Preferences",
         "currentLanguage": "English",
-        "phoneVibrations": "Vibrations",
         "lightMode": "Light mode",
-        "darkMode": "Dark mode"
+        "darkMode": "Dark mode",
+        "appVibration": "App vibrations",
+        "confirmSubmition": "Confirm words",
+        "keyboardVibration": "Keyboard vibrations",
+        "smallerKeyboard": "Smaller keyboard"
     }
 }
