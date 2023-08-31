@@ -1,3 +1,9 @@
+1.7.3 31.08.2023:
+  - new - turn off keyboard's vibrations
+  - new - turn off submit confirm
+  - new - make keyboard smaller
+  - fix - longer words are allowed while typing
+  - new - less swear words in winning words pool
 1.7.2 28.08.2023:
   - added a confirmation step to the keyboard
   - the key "Enter" swaped with "Backspace" - again
