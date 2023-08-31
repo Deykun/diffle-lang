@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import clsx from 'clsx';
 
-import { useSelector } from '@store';
+import useVibrate from '@hooks/useVibrate';
 
 import IconLoader from '@components/Icons/IconLoader';
 
@@ -31,17 +31,16 @@ const Button = ({
     isLarge = false,
 }: Props) => {
     const Tag = tagName || 'button';
-    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
+
+    const { vibrate } = useVibrate();
 
     const handleClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
-        if (shouldVibrate) {
-            navigator?.vibrate(50);
-        }
+        vibrate();
 
         if (onClick) {
             onClick(event);
         }
-    }, [onClick, shouldVibrate]);
+    }, [onClick, vibrate]);
 
     return (
         <Tag

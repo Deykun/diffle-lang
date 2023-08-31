@@ -1,6 +1,8 @@
 import fs from 'fs';
 import chalk from 'chalk';
 
+import { BLOCKED_WORDS_PL as BLOCKED_WORDS, BLOCKED_PARTS_PL as BLOCKED_PARTS } from './resources/constants.js?';
+
 const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 4;
 /*
     Very long words have multiple markers
@@ -108,6 +110,7 @@ console.log(chalk.blue(`Creating winning chunks from ${totalWinningWords} words.
 let totalAccepted = 0;
 let totalTooLong = 0;
 let totalTooShort = 0;
+let totalBlocked = 0;
 
 let totalWrongLetters = 0;
 
@@ -139,6 +142,15 @@ winningWords.forEach((word, index) =>  {
     const hasNotAllowedLetterInWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD.some((notAllowedLetter) => word.includes(notAllowedLetter));
     if (hasNotAllowedLetterInWord) {
         totalWrongLetters += 1;
+
+        return;
+    }
+
+    const isBlockedWords = BLOCKED_WORDS.includes(word) || BLOCKED_PARTS.some((blockedPart) => word.includes(blockedPart));
+    if (isBlockedWords) {
+        totalBlocked += 1;
+
+        return;
     }
 
     totalAccepted = totalAccepted + 1;
@@ -173,6 +185,7 @@ console.log(` - accepted words: ${chalk.green(totalAccepted)}`);
 console.log(` - rejected words: ${chalk.red(totalRejected)}`);
 console.log(`   - too long: ${chalk.red(totalTooLong)}`);
 console.log(`   - too short: ${chalk.red(totalTooShort)}`);
+console.log(`   - probably a swear word: ${chalk.red(totalBlocked)}`);
 console.log(`   - not accepted letters (${LETTERS_NOT_ALLOWED_IN_WINNING_WORD.join(',')}): ${chalk.red(totalWrongLetters)} `);
 console.log(' ');
 console.log(chalk.blue(`Winning words lengths:`));

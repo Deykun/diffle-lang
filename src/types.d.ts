@@ -26,6 +26,9 @@ export interface Toast {
 export interface RootAppState {
     toast: Toast,
     shouldVibrate: boolean,
+    shouldKeyboardVibrate: boolean,
+    isSmallKeyboard: boolean,
+    shouldConfirmEnter: boolean,
 }
 
 export enum GameMode {

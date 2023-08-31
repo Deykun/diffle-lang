@@ -12,7 +12,8 @@
         "modePractice": "Ćwiczenia",
         "modeShare": "Udostępniony",
         "iGiveUp": "Poddaje się",
-        "confirmCheckTheWord": "Sprawdzamy słowo?"
+        "confirmCheckTheWord": "Wysłać \"{{word}}\"?",
+        "wordToSubmitIsMissing": "Wysłać?"
     },
     "win": {
         "title": "Sukces",
@@ -49,8 +50,11 @@
         "labelFinishGame": "ukończ",
         "preferencesTitle": "Preferencje",
         "currentLanguage": "Polski",
-        "phoneVibrations": "Wibracje",
         "lightMode": "Styl dzienny",
-        "darkMode": "Styl nocny"
+        "darkMode": "Styl nocny",
+        "appVibration": "Wibracje aplikacji",
+        "confirmSubmition": "Wymagaj potwierdzenia",
+        "keyboardVibration": "Wibracje klawiatury",
+        "smallerKeyboard": "Mniejsza klawiatura"
     }
 }

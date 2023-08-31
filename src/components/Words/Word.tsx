@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { Word as WordInterface } from '@common-types';
 
 import Affix from '@components/Words/Affix';
@@ -10,7 +11,7 @@ const Word = ({ guess }: { guess: WordInterface }) => {
   }
 
   return (
-    <p className="word">
+    <p className={clsx('word', { 'isExtraLong': guess.word.length > 12 })}>
         {guess.affixes.map((
             {
                 text,

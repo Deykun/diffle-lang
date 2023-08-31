@@ -6,6 +6,8 @@ import { useSelector } from '@store';
 
 import { getInitPane } from '@api/getInit';
 
+import useVibrate from '@hooks/useVibrate';
+
 import Header from '@components/Header'
 
 import Game from '@components/Panes/Game/Game';
@@ -18,8 +20,9 @@ import './App.scss'
 
 const App = () => {
     const [pane, setPane] = useState(getInitPane());
-    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
+
+    const { vibrate } = useVibrate();
 
     useEffect(() => {
         const isSavedDarkTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'dark';
@@ -38,12 +41,10 @@ const App = () => {
             return;
         }
 
-        if (shouldVibrate) {
-            navigator?.vibrate(150);
-        }
+        vibrate();
 
         setPane(isClose ? 'game' : pickedPane);
-    }, [pane, shouldVibrate]);
+    }, [pane, vibrate]);
 
     return (
         <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>

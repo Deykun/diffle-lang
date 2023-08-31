@@ -30,7 +30,7 @@
                 height: 150px;
                 text-decoration: none;
                 background-color: transparent;
-                padding: 5px;
+                padding: 5px 10px;
                 border: 1px dashed var(--border);
                 border-radius: 6px;
                 outline-offset: 3px;
@@ -41,7 +41,14 @@
                     margin: 0 auto 5px;
                     width: 48px;
                     height: 48px;
+                    margin-top: 10px;
                     margin-bottom: 10px;
+                }
+
+                svg + span {
+                    display: block;
+                    line-height: 1.1;
+                    min-height: 30px;
                 }
 
                 &:hover {
@@ -62,6 +69,10 @@
 
             .setting {
                 position: relative;
+
+                .setting-title-small {
+                    font-size: 80%;
+                }
 
                 .setting-unlock {
                     position: absolute;

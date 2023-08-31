@@ -14,6 +14,8 @@ import getWordToGuess from '@api/getWordToGuess'
 
 import { copyMessage } from '@utils/copyMessage';
 
+import useVibrate from '@hooks/useVibrate';
+
 import IconBook from '@components/Icons/IconBook';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconGamepad from '@components/Icons/IconGamepad';
@@ -34,11 +36,11 @@ const Win = () => {
 
     const { t } = useTranslation();
 
+    const { vibrate } = useVibrate();
+
     useEffect(() => {
-        if (shouldVibrate) {
-            navigator?.vibrate(300);
-        }
-    }, [shouldVibrate])
+        vibrate({ duration: 100 });
+    }, [shouldVibrate, vibrate])
 
     const handleNewGame = useCallback(() => {
         if (!isReseting) {

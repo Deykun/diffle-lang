@@ -4,42 +4,51 @@ import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
-import { useSelector, useDispatch } from '@store';
-
-import { toggleVibration } from '@store/appSlice';
+import useKeyboardSettings from '@hooks/useKeyboardSettings';
+import useVibrate from '@hooks/useVibrate';
 
 import IconConstruction from '@components/Icons/IconConstruction';
+import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
+import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
 import IconTranslation from '@components/Icons/IconTranslation';
 import IconVibrate from '@components/Icons/IconVibrate';
+import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
 import './Settings.scss'
 
 const SettingsPreferences = () => {
-    const dispatch = useDispatch();
-    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
-
     const { t, i18n } = useTranslation();
 
-    const handleToggleVibrate = useCallback(() => {
-        // Inverted because toggled
-        localStorage.setItem(LOCAL_STORAGE.SHOULD_VIBRATE, shouldVibrate ? 'false' : 'true');
+    const {
+        shouldVibrate,
+        handleToggleVibrate,
+        shouldKeyboardVibrate,
+        handleTogglKeyboardVibrate,
+        isSmallKeyboard,
+        handleToggleKeyboardSize,
+        shouldConfirmEnter,
+        handleToggleConfirmEnter,
+     } = useKeyboardSettings();
 
-        dispatch(toggleVibration())
-    }, [dispatch, shouldVibrate]);
+    const { vibrate } = useVibrate();
 
     const handleToggleDarkLightMode = useCallback(() => {
+        vibrate();
+
         const isDarkThemeBeforeToggle = document.documentElement.classList.contains('dark');
 
         localStorage.setItem(LOCAL_STORAGE.THEME, isDarkThemeBeforeToggle ? 'light' : 'dark');
 
         document.documentElement.classList.toggle('dark');
-    }, []);
+    }, [vibrate]);
 
     const handleLanguageChange = useCallback(() => {
+        vibrate();
+
         i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl');
-    }, [i18n]);
+    }, [i18n, vibrate]);
 
     return (
         <>
@@ -48,7 +57,7 @@ const SettingsPreferences = () => {
                 <li>
                     <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
                         <IconVibrate />
-                        <span>{t('settings.phoneVibrations')}</span>
+                        <span>{t('settings.appVibration')}</span>
                     </button>
                 </li>
                 <li>
@@ -70,6 +79,27 @@ const SettingsPreferences = () => {
                         {i18n.language === 'en'&& <span className={clsx('setting-label', 'position', 'construction')}>
                             <span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
                         }
+                    </button>
+                </li>
+            </ul>
+            <h3>Klawiatura</h3>
+            <ul>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>
+                        <IconVibrateKeyboard />
+                        <span className="setting-title-small">{t('settings.keyboardVibration')}</span>
+                    </button>
+                </li>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': isSmallKeyboard })} onClick={handleToggleKeyboardSize}>
+                        <IconKeyboardDown />
+                        <span className="setting-title-small">{t('settings.smallerKeyboard')}</span>
+                    </button>
+                </li>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': shouldConfirmEnter })} onClick={handleToggleConfirmEnter}>
+                        <IconCheckConfirm />
+                        <span className="setting-title-small">{t('settings.confirmSubmition')}</span>
                     </button>
                 </li>
             </ul>

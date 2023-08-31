@@ -68,6 +68,10 @@
     margin: 0;
     margin-bottom: 16px;
     transition: all 0.2s ease-in-out;
+
+    > * {
+        flex-shrink: 0;
+    }
 }
 
 .words.narrow {
@@ -80,4 +84,8 @@
     .word {
         margin-bottom: 12px;
     }
+}
+
+.word.isExtraLong {
+    transform: scale(0.8);
 }

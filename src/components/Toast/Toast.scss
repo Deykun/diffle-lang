@@ -5,8 +5,8 @@
     font-size: 12px;
     transform: translateY(0) translateX(-50%);
     z-index: 1;
-    background-color: black;
-    color: white;
+    background-color: var(--toast-bacground);
+    color: var(--toast-text);
     padding: 7px;
     text-transform: none;
     border-radius: 3px;

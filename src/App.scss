@@ -9,13 +9,16 @@ body p {
     line-height: 1.4;
 }
 
-:root {    
+:root {
     --text: #222;
     --text-alt: #576b8a;
     --text-weaker: #9b9b9b;
     --background: rgba(252, 252, 252, 1);
     --background-transparent: rgba(252, 252, 252, 0.5);
     --border: #cacaca;
+
+    --toast-text: white;
+    --toast-bacground: black;
 
     --flag-shadow: rgba(0, 0, 0, 0.1);
 
@@ -52,8 +55,11 @@ body p {
     --text-alt: #a3bde6;
     --text-weaker: #8e8e8e;
     --background: rgba(34, 34, 34, 1);;
-    --background-transparent: rgba(34, 34, 34, 0.5);
+    --background-transparent: rgba(34, 34, 34, 0.7);
     --border: #555;
+
+    --toast-text: black;
+    --toast-bacground: white;
 
     --flag-shadow: rgb(255, 255, 255, 0.1);
 

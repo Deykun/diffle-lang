@@ -100,6 +100,7 @@ const gameSlice = createSlice({
             state.wordToSubmit = '';
             state.guesses = [];
             state.isWon = false;
+            state.hasLongGuesses = false;
             state.letters = {
                 correct: {},
                 incorrect: {},
@@ -132,7 +133,7 @@ const gameSlice = createSlice({
             }
 
             if (ALLOWED_KEYS.includes(typed)) {
-                if (state.wordToSubmit.length >= WORD_MAXLENGTH) {
+                if (state.wordToSubmit.length > WORD_MAXLENGTH + 1) {
                     return;
                 }
 

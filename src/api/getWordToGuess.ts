@@ -21,6 +21,12 @@ const getRandomIntForDaily = () => {
     return dateSeed;
 };
 
+const dailyIntCache = new Map();
+
+// Those are set temporary after dictionary update
+dailyIntCache.set(3001300801304007, 'niesforny');
+dailyIntCache.set(3101300801304007, 'bajgiel');
+
 export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameMode, seedNumber?: number }): Promise<string> => {
     const catalogResponse = await fetch(`./dictionary/catalog.json`);
 
@@ -28,11 +34,16 @@ export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameM
 
     const { words: totalNumberOfWords , items } = cataolgResult;
 
-    let randomInt;
+    let randomInt: number;
     if (seedNumber) {
         randomInt = seedNumber;
     } else {
         randomInt = gameMode === GameMode.Daily ? getRandomIntForDaily() : getRandomInt(totalNumberOfWords, totalNumberOfWords * 3);
+    }
+
+    const isCachedDailyInt = gameMode === GameMode.Daily && dailyIntCache.has(randomInt);
+    if (isCachedDailyInt) {
+        return dailyIntCache.get(randomInt);
     }
 
     const indexOfWord = randomInt % totalNumberOfWords;

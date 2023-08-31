@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { KEY_LINES, ALLOWED_KEYS } from '@const';
 
@@ -8,61 +7,58 @@ import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 import { selectKeyboardState } from '@store/selectors';
 
+import useVibrate from '@hooks/useVibrate';
+
 import KeyCap from './KeyCap';
+import VirualKeyboardConfirm from './VirualKeyboardConfirm';
 
 import './VirualKeyboard.scss';
 
 const VirualKeyboard = () => {
     const dispatch = useDispatch();
-    const shouldVibrate = useSelector(state => state.app.shouldVibrate);
+    const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
+    const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
+    const isWon = useSelector(state => state.game.isWon);
     const type = useSelector(selectKeyboardState);
-    const [shouldConfirm, setShouldConfirm] = useState(false);
+    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
-    const { t } = useTranslation();
+    const { vibrateKeyboard } = useVibrate();
 
-    const toggleConfirmModal = useCallback(() => {
-        if (shouldVibrate) {
-            navigator?.vibrate(50);
-        }
-
-        setShouldConfirm((prevValue) => !prevValue);
-    }, [shouldVibrate]);
+    const closeConfirm = () => setIsConfirmOpen(false);
 
     const handleSubmit = useCallback(() => {
-        if (shouldVibrate) {
-            navigator?.vibrate(50);
-        }
+        vibrateKeyboard();
 
         dispatch(submitAnswer());
-        setShouldConfirm(false);
-    }, [dispatch, shouldVibrate]);
+        setIsConfirmOpen(false);
+    }, [dispatch, vibrateKeyboard]);
+
+    const toggleConfirmModal = useCallback(() => {        
+        vibrateKeyboard();
+
+        setIsConfirmOpen((prevValue) => !prevValue);
+    }, [vibrateKeyboard]);
 
     const handleType = useCallback((keyTyped: string) => {
         const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
 
         if (isAllowedKey) {
-            if (shouldVibrate) {
-                navigator?.vibrate(50);
-            }
+            vibrateKeyboard();
 
             dispatch(letterChangeInAnswer(keyTyped));
         }
-    }, [dispatch, shouldVibrate]);
+    }, [dispatch, vibrateKeyboard]);
+
+    const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
     return (
-        <aside className={clsx('keyboard', type)}>
-            {shouldConfirm && (<div className="keyboard-confirm">
-                <h3>{t('game.confirmCheckTheWord')}</h3>
-                <div className="line">
-                    <KeyCap text="no" onClick={toggleConfirmModal} />
-                    <KeyCap text="yes" onClick={handleSubmit} />
-                </div>
-            </div>)}
+        <aside className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
+            {isConfirmOpen && !isWon && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
             {KEY_LINES.map((line) => {
                 return (
                     <div key={line[0]} className="line">
                         {line.map((keyText) => (
-                            <KeyCap key={keyText} text={keyText} onClick={keyText === 'enter' ? toggleConfirmModal : () => handleType(keyText)} />)
+                            <KeyCap key={keyText} text={keyText} onClick={keyText === 'enter' ? enterCallback : () => handleType(keyText)} />)
                         )}
                     </div>
                 );
