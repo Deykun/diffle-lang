@@ -35,6 +35,9 @@ export const LOCAL_STORAGE = {
     TYPE_SHARE: 'diffle_share',
     THEME: 'diffle_theme',
     SHOULD_VIBRATE: 'diffle_should_vibrate',
+    SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',
+    IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
+    SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
 };
 
 export const LOCAL_STORAGE_GAME_BY_MODE = {

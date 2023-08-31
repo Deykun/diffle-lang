@@ -1,0 +1,72 @@
+.keyboard-confirm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0 7px;
+    opacity: 0;
+    background-color: var(--background-transparent);
+    backdrop-filter: blur(3px) saturate(1.1) hue-rotate(-10deg);
+    animation: fadeIn 0.25s ease-out forwards;
+
+    h3 {
+        text-shadow: 0 3px 5px var(--background-transparent);
+        margin-top: 0;
+    }
+
+    .line {
+        padding-bottom: 50px;
+
+        > button {
+            box-shadow: 0 3px 5px var(--background-transparent);
+        }
+    }
+}
+
+.keyboard-settings {
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.keyboard-setting {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px;
+    color: var(--text);
+    background-color: transparent;
+    text-shadow: 0 1px 5px var(--background-transparent);
+
+    svg {
+        flex-shrink: 0;
+        fill: currentColor;
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+    }
+
+    span {
+        font-size: 10px;
+        white-space: nowrap;
+    }
+
+    opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+
+    &.keyboard-setting-active {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}

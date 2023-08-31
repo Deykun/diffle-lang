@@ -100,6 +100,7 @@ const gameSlice = createSlice({
             state.wordToSubmit = '';
             state.guesses = [];
             state.isWon = false;
+            state.hasLongGuesses = false;
             state.letters = {
                 correct: {},
                 incorrect: {},

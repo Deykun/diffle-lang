@@ -17,6 +17,12 @@
     line-height: 50px;
     transition: all 0.3s ease-in-out;
 
+    .keyboard.isSmall & {
+        height: 40px;
+        line-height: 40px;
+        list-style: 40px;
+    }
+
     &.typed {
         color: var(--typed);
         background-color: var(--typed-contrast);
