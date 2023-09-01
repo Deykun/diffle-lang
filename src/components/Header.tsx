@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { GameMode } from '@common-types';
+import { GameMode, Pane, PaneChange } from '@common-types';
 
 import { useSelector } from '@store';
 
@@ -12,8 +12,8 @@ import IconLayers from '@components/Icons/IconLayers';
 import './Header.scss';
 
 interface Props {
-    pane?: string,
-    changePane: (pane: string) => void;
+    pane: Pane,
+    changePane: PaneChange,
 }
 
 const Header = ({ pane, changePane }: Props) => {
@@ -24,17 +24,20 @@ const Header = ({ pane, changePane }: Props) => {
             <div className="header-left">
                 <button
                   className={clsx('header-button', {
-                    'button-active': pane ==='help'
+                    'button-active': pane === Pane.Help
                   })}
-                  onClick={() => changePane('help')}
+                  onClick={() => changePane(Pane.Help)}
                 >
-                    {pane === 'help' ? <IconClose /> : <IconHelp />}
+                    {pane === Pane.Help ? <IconClose /> : <IconHelp />}
                 </button>
             </div>
-            <h1><button onClick={() => changePane('game')}>Diffle{gameMode === GameMode.Practice && <IconInfinity />}</button></h1>
+            <h1><button onClick={() => changePane(Pane.Game)}>Diffle{gameMode === GameMode.Practice && <IconInfinity />}</button></h1>
             <div className="header-right">
-                <button className={clsx('header-button', { 'button-active': pane ==='settings' })} onClick={() => changePane('settings')}>
-                    {pane === 'settings' ? <IconClose /> : <IconLayers />}
+                <button
+                  className={clsx('header-button', {
+                    'button-active': pane === Pane.Settings
+                  })} onClick={() => changePane(Pane.Settings)}>
+                    {pane === Pane.Settings ? <IconClose /> : <IconLayers />}
                 </button>
             </div>
         </header>

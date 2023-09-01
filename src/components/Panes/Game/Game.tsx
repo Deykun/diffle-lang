@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import clsx from 'clsx';
 
 import { GameMode } from '@common-types';
 
@@ -24,6 +25,7 @@ const Game = () => {
     const gameMode = useSelector((state) => state.game.mode);
     const todayStamp = useSelector((state) => state.game.today);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
 
     useEffect(() => {
         if (!wordToGuess) {
@@ -69,7 +71,7 @@ const Game = () => {
     }
 
     return (
-        <div className="game">
+        <div className={clsx('game', { 'isSmallKeyboard': isSmallKeyboard })}>
             {wordToGuess ? <Words /> : <IconLoader className="game-loader" />}
             <UserKeyboardListner />
             <VirualKeyboard />

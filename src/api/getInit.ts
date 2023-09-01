@@ -1,4 +1,4 @@
-import { GameMode } from '@common-types';
+import { GameMode, Pane } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
@@ -7,7 +7,7 @@ import { getNow } from '@utils/date';
 export const getInitPane = () => {
     const lastGameMode = localStorage.getItem(LOCAL_STORAGE.LAST_GAME_MODE);
 
-    return !lastGameMode ? 'help' : 'game';
+    return !lastGameMode ? Pane.Help : Pane.Game;
 };
 
 export const getInitMode = () => {

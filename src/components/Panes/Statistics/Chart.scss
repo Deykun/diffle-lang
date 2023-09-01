@@ -1,0 +1,44 @@
+.chart {
+    list-style: none;
+    padding: 0;
+    padding: 18px;
+    padding-right: 50px;
+    margin: 0;
+    margin-left: 30px;
+    border-left: 1px solid rgba(255, 255, 255, 0.11);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.11);
+
+    li {
+        display: flex;
+        gap: 3px;
+        padding: 0;
+        margin-bottom: 18px;
+        position: relative;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.chart-word-count {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 18px + 10px);
+    transform: translateY(-50%);
+}
+
+.chart-word {
+    height: 5px;
+    width: 100%;
+    background-color: var(--green-stronger);
+    border-radius: 3px;
+}
+
+.chart-label {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 10px);
+    transform: translateY(-50%);
+    white-space: nowrap;
+}

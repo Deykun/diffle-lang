@@ -1,6 +1,10 @@
 .game {
     // Space for keyboard
-    padding-bottom: 250px;
+    padding-bottom: 220px;
+
+    &.isSmallKeyboard {
+        padding-bottom: 180px;
+    }
 }
 
 .game-loader {

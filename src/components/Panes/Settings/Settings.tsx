@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GameMode } from '@common-types';
+import { GameMode, Pane, PaneChange } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
@@ -31,7 +31,7 @@ import SettingsPreferences from './SettingsPreferences';
 import SettingsSources from './SettingsSources';
 
 interface Props {
-    changePane: (pane: string) => void;
+    changePane: PaneChange,
 }
 
 const Settings = ({ changePane }: Props) => {
@@ -87,7 +87,7 @@ const Settings = ({ changePane }: Props) => {
             </p>}
             <ul>
                 <li>
-                    <button className="setting" disabled>
+                    <button className="setting" onClick={() => changePane(Pane.Statistics)}>
                         <IconChart />
                         <span>{t('settings.statisticsTitle')}</span>
                         <span className={clsx('setting-label', 'position', 'construction')}><span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>

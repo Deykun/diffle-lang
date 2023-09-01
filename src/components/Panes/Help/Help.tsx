@@ -1,4 +1,6 @@
-import { useTranslation } from 'react-i18next';;
+import { useTranslation } from 'react-i18next';
+
+import { Pane, PaneChange } from '@common-types';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
@@ -11,7 +13,7 @@ import { HELP_WORDS } from './constants';
 import './Help.scss'
 
 interface Props {
-    changePane: (pane: string) => void;
+    changePane: PaneChange,
 }
 
 const Help = ({ changePane }: Props) => {
@@ -36,7 +38,7 @@ const Help = ({ changePane }: Props) => {
             <Word guess={HELP_WORDS[4]} />
             <p>{t('help.winingWordMessage')}</p>
             <p>
-                <Button onClick={() => changePane('game')} isLarge>
+                <Button onClick={() => changePane(Pane.Game)} isLarge>
                     <IconGamepad />
                     <span>{t('common.play')}</span>
                 </Button>

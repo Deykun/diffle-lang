@@ -1,5 +1,7 @@
 import { useEffect, useCallback, useState } from 'react';
 
+import { Pane as PaneInterface } from '@common-types';
+
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector } from '@store';
@@ -13,13 +15,15 @@ import Header from '@components/Header'
 import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
 import Settings from '@components/Panes/Settings/Settings';
+import Statistics from '@components/Panes/Statistics/Statistics';
 
 import Toast from '@components/Toast/Toast';
 
 import './App.scss'
 
 const App = () => {
-    const [pane, setPane] = useState(getInitPane());
+    // const [pane, setPane] = useState(getInitPane());
+    const [pane, setPane] = useState(PaneInterface.Statistics);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
     const { vibrate } = useVibrate();
@@ -34,16 +38,16 @@ const App = () => {
         }
     }, []);
 
-    const handlePaneChange = useCallback((pickedPane: string) => {
+    const handlePaneChange = useCallback((pickedPane: PaneInterface) => {
         const isClose = pickedPane === pane;
 
-        if (isClose && pickedPane === 'game') {
+        if (isClose && pickedPane === PaneInterface.Game) {
             return;
         }
 
         vibrate();
 
-        setPane(isClose ? 'game' : pickedPane);
+        setPane(isClose ? PaneInterface.Game : pickedPane);
     }, [pane, vibrate]);
 
     return (
@@ -51,9 +55,10 @@ const App = () => {
             <Header pane={pane} changePane={handlePaneChange} />
             <main>
                 <Toast />
-                {pane === 'help' && <Help changePane={handlePaneChange} />}
-                {pane === 'game' && <Game />}
-                {pane === 'settings' && <Settings changePane={handlePaneChange} />}
+                {pane === PaneInterface.Help && <Help changePane={handlePaneChange} />}
+                {pane === PaneInterface.Game && <Game />}
+                {pane === PaneInterface.Settings && <Settings changePane={handlePaneChange} />}
+                {pane === PaneInterface.Statistics && <Statistics />}
             </main>
         </div>
     )

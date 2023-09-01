@@ -1,3 +1,12 @@
+export enum Pane {
+    Help = 'Help',
+    Game = 'Game',
+    Settings = 'Settings',
+    Statistics = 'Statistics',
+}
+
+export type PaneChange = (Pane) => void;
+
 export enum AffixStatus {
     Unknown = '',
     New = 'new',

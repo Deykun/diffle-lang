@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GameMode } from '@common-types';
+import { GameMode, Pane, PaneChange } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
@@ -21,7 +21,7 @@ import IconShare from '@components/Icons/IconShare';
 import './Settings.scss'
 
 interface Props {
-    changePane: (pane: string) => void;
+    changePane: PaneChange,
 }
 
 const SettingsModes = ({ changePane }: Props) => {
@@ -35,7 +35,7 @@ const SettingsModes = ({ changePane }: Props) => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, newGameMode);
         dispatch(setGameMode(newGameMode));
         dispatch(setWordToGuess(''));
-        changePane('game');
+        changePane(Pane.Game);
     }, [changePane, dispatch]);
 
     const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
