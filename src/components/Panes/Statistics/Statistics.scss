@@ -3,18 +3,14 @@
 }
 
 .statistics-summary {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
     color: var(--text);
     fill: currentColor;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    min-height: 450px;
-    padding: 5px 10px;
-    border: 1px dashed var(--border);
+    min-height: 400px;
+    padding: 200px 10px 5px;
+    border: 1px solid #b2d57f;
     border-radius: 6px;
     
     background-color: var(--green);
@@ -29,7 +25,7 @@
         right: -50px;
         width: 200px;
         height: 200px;
-        fill: #a4c870;
+        fill: white;
         opacity: 0.5;
     }
 
@@ -40,10 +36,11 @@
     strong {
         position: relative;
         display: inline-block;
-        vertical-align: sub;
+        vertical-align: middle;
         color: var(--text);
         color: #436e05;
-        margin: 0 0.07em;
+        color: black;
+        margin: 0 0.25em;
     }
 
     .statistics-letters {
@@ -101,6 +98,46 @@
                 // aspect-ratio: 1 / 1;
                 // border-radius: 50%;
                 // background-color: #a4c870;
+            }
+        }
+    }
+
+    .statistics-letters-types {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+
+        & > span {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--text);
+
+            > * {
+                vertical-align: middle;
+            }
+
+            &::before {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 8px;
+                width: 16px;
+                height: 16px;
+                border-radius: 50%;
+            }
+            
+            &.correct::before {
+                background-color: var(--green);
+            }
+
+            &.position::before {
+                background-color: var(--orange);
+            }
+
+            &.incorrect::before {
+                background-color: var(--incorrect);
             }
         }
     }

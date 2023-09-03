@@ -24,7 +24,9 @@
         display: block;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
-        border: 1px solid currentColor;
+        border: 1px solid rgba(white, 0.3);
+        pointer-events: none;
+        user-select: none;
 
         span {
             position: absolute;
@@ -33,11 +35,13 @@
             left: 50%;
             transform: translateX(-50%) rotate(30deg);
             color: #a4c870;
+            color: rgba(white, 0.3);
         }
 
         &.circle-scale-border-checked {
             border-color: rgba(white, 0.8);
-            background-color: rgba(white, 0.2);
+            border-color: transparent;
+            background-color: rgba(white, 0.3);
 
             span {
                 color: black;

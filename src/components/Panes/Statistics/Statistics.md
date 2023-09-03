@@ -1,6 +1,7 @@
 What should be noted in local storage
  - lastRecordedWord
  - lastPlay
+ - legnth of first / second word
 
 
 Globally:
@@ -19,3 +20,4 @@ What options should be avaialble:
  - export stats
  - import stats
  - share stats
+ 
