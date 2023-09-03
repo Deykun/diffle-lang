@@ -106,13 +106,13 @@ const Win = () => {
         const { stamp } = getNow();
         const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
  
-${words} ${t('win.wordsUsed', { postProcess: 'interval', count: words })} – ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })}
+${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
 ${diffleUrl} #diffle`:
 `« ${wordToGuess} » – DIFFLE  🇵🇱
 
-${words} ${t('win.wordsUsed', { postProcess: 'interval', count: words })} – ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })}
+${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
 
 ${diffleUrl} #diffle`;
@@ -140,8 +140,15 @@ ${diffleUrl} #diffle`;
 
             </h3>
             <div className="totals">
-                <p className="total"><strong>{words}</strong> {t('win.wordsUsed', { postProcess: 'interval', count: words })}</p>
-                <p className="total"><strong>{letters}</strong> {t('win.lettersUsed', { postProcess: 'interval', count: letters })}</p>
+                <p className="total">
+                    <strong>{letters}</strong>
+                    {t('win.lettersUsed', { postProcess: 'interval', count: letters })}
+                    {' '}
+                    {t('win.in')}
+                    {' '}
+                    <strong>{words}</strong>
+                    {t('win.inWordsUsed', { postProcess: 'interval', count: words })}
+                </p>
             </div>
             <div className="subtotals">
                 <p className="subtotal correct"><span>{subtotals.correct}</span></p>

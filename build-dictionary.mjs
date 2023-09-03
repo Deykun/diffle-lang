@@ -24,6 +24,17 @@ const totalWinningWords = winningWords.length;
 
 let spellingIndex = {};
 
+const removeDiacratics = (word) => word
+    .replaceAll('ą', 'a')
+    .replaceAll('ć', 'c')
+    .replaceAll('ę', 'e')
+    .replaceAll('ł', 'l')
+    .replaceAll('ń', 'n')
+    .replaceAll('ó', 'o')
+    .replaceAll('ś', 's')
+    .replaceAll('ź', 'z')
+    .replaceAll('ż', 'z');
+
 const getNormalizedKey = word => {
     if (word.length === 2) {
         return '2ch';
@@ -40,19 +51,14 @@ const getNormalizedKey = word => {
     */
     const key = word.startsWith('nie') ? word.slice(0, 6) : word.slice(0, 3);
 
-    return key
-        .replaceAll('ą', 'a')
-        .replaceAll('ć', 'c')
-        .replaceAll('ę', 'e')
-        .replaceAll('ł', 'l')
-        .replaceAll('ń', 'n')
-        .replaceAll('ó', 'o')
-        .replaceAll('ś', 's')
-        .replaceAll('ź', 'z')
-        .replaceAll('ż', 'z');
+    return removeDiacratics(key);
 }
 
 let longestWord = '';
+let totalWithoutSpecialCharacters = 0;
+let totalWithSpecialCharacters = 0;
+
+// removeDiacratics
 
 console.log(' ');
 console.log(chalk.blue(`Creating spelling chunks index from ${totalSpellcheckerWords} words...`));
@@ -70,6 +76,12 @@ spellcheckerWords.forEach((word, index) =>  {
             };
         }
 
+        if (word === removeDiacratics(word)) {
+            totalWithoutSpecialCharacters += 1;
+        } else {
+            totalWithSpecialCharacters += 1;
+        }
+
         if (word.length > longestWord.length) {
             longestWord = word;
         }
@@ -85,6 +97,9 @@ spellcheckerWords.forEach((word, index) =>  {
 });
 
 const totalNumberOfSpellingChunks = Object.keys(spellingIndex).length;
+
+console.log(`  - total with special characters: ${chalk.green(totalWithSpecialCharacters)}`);
+console.log(`  - total without special characters: ${chalk.green(totalWithoutSpecialCharacters)}`);
 
 console.log(' ');
 console.log(chalk.blue(`Saving ${totalNumberOfSpellingChunks} created chunks...`));

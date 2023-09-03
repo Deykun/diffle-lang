@@ -22,7 +22,7 @@ const Chart = () => {
                     <span className="chart-word"  style={{ width: `26%` }}></span>
                     <strong className="chart-label">52 liter</strong>
                 </li>
-                <li style={{ width: '100%' }}>
+                <li style={{ width: '10yarn dev0%' }}>
                     <span className="chart-word-count">6.5</span>
                     <span className="chart-word"></span>
                     <span className="chart-word"></span>
