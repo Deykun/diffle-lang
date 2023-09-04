@@ -12,31 +12,39 @@ import './Statistics.scss'
 
 const roundMath = num => Math.round(num * 10) / 10;
 
-const StatisticsCard = ({ lettersAverage = 72.3, wordsAverage = 8.1 }) => {
+function getRandomArbitrary(min, max) {
+    return roundMath(Math.random() * (max - min) + min);
+}
+
+const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
     const { t } = useTranslation();
+
+    const lettersAverage = roundMath(wordsAverage * getRandomArbitrary(4, 9));
 
     return (
         <div className="statistics-summary">
             <IconDiffleChart className="statistics-summary-icon" />
             <p className="statistics-letters">
                 <strong>
-                    {lettersAverage}
-                    <CircleScale breakPoints={[20, 40, 60, 80, 110]} value={lettersAverage} />
+                    {lettersAverage.toFixed(1)}
+                    <CircleScale breakPoints={[120, 100, 80, 60, 42]} value={lettersAverage} />
                 </strong>
-                liter
+                <span>liter</span>
             </p>
             <p className="statistics-words">
-                w
+                <span>w</span>
                 <strong>
-                    {wordsAverage}
-                    <CircleScale breakPoints={[2, 4, 7, 10, 14]} value={wordsAverage} />
+                    {wordsAverage.toFixed(1)}
+                    <CircleScale breakPoints={[20, 16, 12, 9, 6]} value={wordsAverage} />
                 </strong>
-                słowach    
+                <span>słowach</span>
             </p>
-            <p>średnio liter <strong>{roundMath(lettersAverage / wordsAverage)}</strong> w słowie</p>
-            <p>średnio liter <strong>6.1</strong> w pierwszym słowie</p>
-            <p>średnio liter <strong>4.7</strong> w drugi słowie</p>
-            <p>Ostatnie nie odgadnięte słowo <strong>lekoman</strong></p>
+            <div className="statistics-text">
+                <p>średnio liter <strong>{roundMath(lettersAverage / wordsAverage)}</strong> w słowie</p>
+                <p>średnio liter <strong>6.1</strong> w pierwszym słowie</p>
+                <p>średnio liter <strong>4.7</strong> w drugi słowie</p>
+                <p>ostatnie nie odgadnięte słowo <strong>lekoman</strong></p>
+            </div>
             <p className="statistics-letters-types">
                 <span className="correct">
                     <strong>25.4</strong>

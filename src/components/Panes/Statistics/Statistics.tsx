@@ -25,7 +25,11 @@ const Statistics = () => {
         <div className="statistics">
             <div>
                 <h3>{t('settings.statisticsTitle')}</h3>
-                <StatisticsCard lettersAverage={getRandomArbitrary(24, 160)} wordsAverage={getRandomArbitrary(3, 21)} />
+                <StatisticsCard wordsAverage={getRandomArbitrary(3, 14)} />
+                <br />
+                <StatisticsCard wordsAverage={getRandomArbitrary(3, 14)} />
+                <br />
+                <StatisticsCard wordsAverage={getRandomArbitrary(3, 14)} />
             </div>
             <br />
             <br />
