@@ -57,9 +57,16 @@ const VirualKeyboard = () => {
             {KEY_LINES.map((line) => {
                 return (
                     <div key={line[0]} className="line">
-                        {line.map((keyText) => (
-                            <KeyCap key={keyText} text={keyText} onClick={keyText === 'enter' ? enterCallback : () => handleType(keyText)} />)
-                        )}
+                        {line.map((keyText) => {
+                            let onClick = () => handleType(keyText);
+
+                            if (keyText === 'enter') {
+                                onClick = enterCallback;
+                            }
+                            
+
+                            return (<KeyCap key={keyText} text={keyText} onClick={onClick} />);
+                        })}
                     </div>
                 );
             })}

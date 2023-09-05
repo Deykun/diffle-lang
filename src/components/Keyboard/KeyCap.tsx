@@ -5,8 +5,9 @@ import { useSelector } from '@store';
 import { selectLetterState, selectWordToSubmit } from '@store/selectors';
 
 import IconBackspace from '@components/Icons/IconBackspace';
-import IconClose from '@components/Icons/IconClose';
 import IconCheckEnter from '@components/Icons/IconCheckEnter';
+import IconClose from '@components/Icons/IconClose';
+import IconCircle from '@components/Icons/IconCircle';
 
 import './KeyCap.scss';
 
@@ -23,7 +24,7 @@ const KeyCap = ({ text, onClick }: Props) => {
 
     const { t } = useTranslation();
 
-    const shouldUseIcon = ['backspace', 'enter', 'yes', 'no'].includes(text);
+    const shouldUseIcon = ['backspace', 'enter', 'spacebar', 'yes', 'no'].includes(text);
     const shouldShowText = !shouldUseIcon || ['yes', 'no'].includes(text);
     const textToShow = ['yes', 'no'].includes(text) ? t(`common.${text}`) : text;
 
@@ -33,6 +34,7 @@ const KeyCap = ({ text, onClick }: Props) => {
             className={clsx('key', `key-${text}`, type, { 'typed': isTyped })}>
                 {shouldShowText && <span>{textToShow}</span>}
                 {shouldUseIcon && text ==='backspace' && <IconBackspace />}
+                {shouldUseIcon && text ==='spacebar' && <IconCircle />}
                 {shouldUseIcon && text ==='enter' && <IconCheckEnter />}
                 {shouldUseIcon && text ==='no' && <IconClose />}
                 {shouldUseIcon && text ==='yes' && <IconCheckEnter />}

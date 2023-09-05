@@ -72,6 +72,19 @@
         width: 56px;
     }
 
+    
+    &-spacebar {
+        padding: 0 min(6px, 1vw);
+        min-width: 36px;
+
+        @media (min-width: 400px) {
+            min-width: 52px;
+        }
+
+        max-width: 7vw;
+        width: 56px;
+    }
+
     &-backspace,
     &-enter,
     &-yes {
@@ -112,6 +125,7 @@
     }
 
     &-yes,
+    &-spacebar,
     &-enter {
         color: var(--blue-contrast) !important;
         background-color: var(--blue-weaker) !important;

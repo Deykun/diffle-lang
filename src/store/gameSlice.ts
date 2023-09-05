@@ -137,6 +137,12 @@ const gameSlice = createSlice({
                     return;
                 }
 
+                if (typed === 'spacebar') {
+                    state.wordToSubmit = state.wordToSubmit + ' ';
+
+                    return;
+                }
+
                 state.wordToSubmit = state.wordToSubmit + typed;
             }
         },
