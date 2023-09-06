@@ -1,16 +1,11 @@
-.statistics {
-
-}
-
-.statistics-summary {
+.statistics-card {
     color: var(--text);
     color: black;
     fill: currentColor;
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
-    min-height: 530px;
-    padding: 200px 10px 5px;
+    padding: 200px 10px 50px;
     border: 1px solid #b2d57f;
     border-radius: 6px;
     
@@ -20,7 +15,7 @@
     position: relative;
     overflow: hidden;
 
-    .statistics-summary-icon {
+    .statistics-card-icon {
         position: absolute;
         bottom: -50px;
         right: -50px;
@@ -59,24 +54,10 @@
 
         strong {
             font-size: 48px;
-            // color: var(--green-stronger-contrast);
             position: relative;
 
             .circle-scale {
                 width: 300%;
-            }
-
-            &::before {
-                // content: '';
-                // position: absolute;
-                // z-index: -1;
-                // top: 50%;
-                // left: 50%;
-                // transform: translate(-50%, -50%);
-                // width: 140%;
-                // aspect-ratio: 1 / 1;
-                // border-radius: 50%;
-                // background-color: #a4c870;
             }
         }
     }
@@ -92,19 +73,6 @@
 
             .circle-scale {
                 width: 500%;
-            }
-
-            &::before {
-                // content: '';
-                // position: absolute;
-                // z-index: -1;
-                // top: 50%;
-                // left: 50%;
-                // transform: translate(-50%, -50%);
-                // width: 260%;
-                // aspect-ratio: 1 / 1;
-                // border-radius: 50%;
-                // background-color: #a4c870;
             }
         }
     }
@@ -148,9 +116,10 @@
                 display: inline-block;
                 vertical-align: middle;
                 margin-right: 8px;
-                width: 16px;
-                height: 16px;
+                width: 24px;
+                height: 24px;
                 border-radius: 50%;
+                border: 2px solid rgba(black, 0.2);
             }
             
             &.correct::before {
@@ -172,12 +141,8 @@
     }
 
     .statistics-other {
-        position: absolute;
-        bottom: 12px;
-        left: 50%;
-        width: calc(100% - 16px - 16px);
-        transform: translateX(-50%);
         display: flex;
+        margin-top: 60px;
         gap: 12px;
         align-items: flex-start;
         justify-content: space-evenly;
@@ -193,5 +158,19 @@
             display: block;
             margin: 0 auto 1px;
         }
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 6;
+        background: #77b81961;
+        width: 100%;
+        padding: 10px;
+        color: white;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
     }
 }

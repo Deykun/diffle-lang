@@ -2,18 +2,42 @@ import clsx from 'clsx';
 
 import './CircleScale.scss'
 
-const CircleScale = ({ breakPoints = [], value }) => {
-    const maxPoint = breakPoints[0];
+interface Props {
+    breakPoints: number[],
+    value: number,
+    isScaleOnLeft?: boolean,
+    isInvert?: boolean,
+    isPercentage?: boolean,
+}
 
-    console.log('maxPoint', maxPoint);
+const CircleScale = ({
+    breakPoints,
+    value,
+    isScaleOnLeft = false,
+    isInvert = false,
+    isPercentage = false,
+}: Props) => {
+    const maxPoint = isInvert ? breakPoints.at(0) : breakPoints.at(-1);
+
+    if (!maxPoint) {
+        return null;
+    }
 
     return (
-        <div className="circle-scale">
-            {breakPoints.map((breakPoint) => <>
-                <span className={clsx('circle-scale-border', {
-                    'circle-scale-border-checked': value <= breakPoint,
-                })} style={{ width: `${(breakPoint / maxPoint) * 100}%` }}><span>{breakPoint}</span></span>
-            </>)}
+        <div className={clsx('circle-scale', {
+            'circle-scale-scale-on-left': isScaleOnLeft,
+            'circle-scale-is-normal': !isInvert,
+        })}>
+            {breakPoints.map((breakPoint) => (<span
+                  key={breakPoint}
+                  className={clsx('circle-scale-border', {
+                    'circle-scale-border-checked': isInvert ? value <= breakPoint : value >= breakPoint,
+                  })}
+                  style={{ width: `${(breakPoint / maxPoint) * 100}%` }}
+                >
+                    <span>{breakPoint}{isPercentage ? '%' : ''}</span>
+                </span>
+            ))}
         </div>
     )
 };

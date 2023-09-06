@@ -1,3 +1,5 @@
+
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Chart from './StatisticsCard';
@@ -8,7 +10,13 @@ import IconHeartStreak from '@components/Icons/IconHeartStreak';
 import CircleScale from './CircleScale';
 
 
-import './Statistics.scss'  
+import './StatisticsCard.scss';
+
+const BREAKPOINTS = {
+    LETTERS_AVERAGE: [105, 85, 65, 45, 25],
+    WORDS_AVERAGES: [21, 17, 13, 10, 7, 4],
+    LETTER_TYPES: [10, 25, 40, 55],
+};
 
 const roundMath = num => Math.round(num * 10) / 10;
 
@@ -21,13 +29,29 @@ const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
 
     const lettersAverage = roundMath(wordsAverage * getRandomArbitrary(4, 9));
 
+    const {
+        correct,
+        incorrect,
+        position,
+    } = useMemo(() => {
+        const position = getRandomArbitrary(0, 12);
+        const correct = getRandomArbitrary(position, 100);
+        const incorrect = 100 - correct;
+
+        return {
+            correct,
+            incorrect,
+            position,
+        };
+    }, []);
+
     return (
-        <div className="statistics-summary">
-            <IconDiffleChart className="statistics-summary-icon" />
+        <div className="statistics-card">
+            <IconDiffleChart className="statistics-card-icon" />
             <p className="statistics-letters">
                 <strong>
                     {lettersAverage.toFixed(1)}
-                    <CircleScale breakPoints={[120, 100, 80, 60, 42]} value={lettersAverage} />
+                    <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} value={lettersAverage} isInvert isScaleOnLeft/>
                 </strong>
                 <span>liter</span>
             </p>
@@ -35,7 +59,7 @@ const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
                 <span>w</span>
                 <strong>
                     {wordsAverage.toFixed(1)}
-                    <CircleScale breakPoints={[20, 16, 12, 9, 6]} value={wordsAverage} />
+                    <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} value={wordsAverage} isInvert />
                 </strong>
                 <span>słowach</span>
             </p>
@@ -47,22 +71,33 @@ const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
             </div>
             <p className="statistics-letters-types">
                 <span className="correct">
-                    <strong>25.4</strong>
+                    <strong>
+                        {(lettersAverage * correct / 100).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={correct} isPercentage />
+                    </strong>
                 </span>
                 <span className="position">
-                    <strong>5.6</strong>
+                    <strong>
+                        {(lettersAverage * position / 100).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={position} isPercentage />
+                    </strong>
                 </span>
                 <span className="incorrect">
-                    <strong>21.1</strong>
+                    <strong>
+                        {(lettersAverage * incorrect / 100).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={incorrect} isPercentage />
+                    </strong>
                 </span>
             </p>
-            {/* <IconHeartStreak /> */}
             <div className="statistics-other">
                 <p><strong>15</strong> gier</p>
                 <p><strong>14</strong> wygranych</p>
                 <p><strong>4</strong> z rzędu</p>
                 <p><strong>9</strong> najwięcej z rzędu</p>
             </div>
+            <footer>
+                {location.href}
+            </footer>
         </div>
     )
 };

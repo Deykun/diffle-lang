@@ -4,23 +4,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    // display: flex;/
-    // justify-content: space-between;
     font-size: 8px;
     width: 100%;
     aspect-ratio: 1 / 1;
-    color: var(--text-weaker);
     color: #a4c870;
     font-weight: 300;
     letter-spacing: 0.05em;
-    // border-top: 1px solid currentColor;
     
 
     .circle-scale-border {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) rotate(-30deg);
+        transform: translate(-50%, -50%) rotate(-35deg);
         display: block;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
@@ -33,13 +29,11 @@
             height: 0;
             top: calc(100% + 5px);
             left: 50%;
-            transform: translateX(-50%) rotate(30deg);
+            transform: translateX(-50%) rotate(35deg);
             color: #a4c870;
-            // color: rgba(#a4c870, 0.3);
         }
 
         &.circle-scale-border-checked {
-            border-color: rgba(white, 0.8);
             border-color: transparent;
             background-color: rgba(white, 0.3);
 
@@ -49,27 +43,23 @@
         }
     }
 
-    // > span {
-    //     display: block;
-    //     width: 1px;
-    //     height: 6px;
-    //     transform: translateY(-50%);
-    //     background-color: currentColor;
-    // }
+    &.circle-scale-scale-on-left {
+        .circle-scale-border {
+            transform: translate(-50%, -50%) rotate(15deg);
 
-    // .scale-mid {
-    //     height: 12px;
-    // }
+            span {
+                transform: translateX(-50%) rotate(-15deg);
+            }
+        }
+    }
 
-    // .scale-main {
-    //     height: 24px;
-    //     position: relative;
+    &.circle-scale-is-normal {
+        .circle-scale-border:not(.circle-scale-border-checked) {
+            border-color: transparent;
 
-    //     span {
-    //         position: absolute;
-    //         left: 50%;
-    //         bottom: calc(100% + 6px);
-    //         transform: translateX(-50%);
-    //     }
-    // }
+            span {
+                color: transparent;
+            }
+        }
+    }
 }

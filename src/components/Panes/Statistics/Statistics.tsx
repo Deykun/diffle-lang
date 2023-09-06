@@ -1,14 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import Chart from './StatisticsCard';
-
-import IconDiffleChart from '@components/Icons/IconDiffleChart';
-import IconHeartStreak from '@components/Icons/IconHeartStreak';
-
-import CircleScale from './CircleScale';
-
 import StatisticsCard from './StatisticsCard';
-
 
 import './Statistics.scss'
 
@@ -25,18 +17,8 @@ const Statistics = () => {
         <div className="statistics">
             <div>
                 <h3>{t('settings.statisticsTitle')}</h3>
-                <StatisticsCard wordsAverage={getRandomArbitrary(3, 14)} />
-                <br />
-                <StatisticsCard wordsAverage={getRandomArbitrary(3, 14)} />
-                <br />
-                <StatisticsCard wordsAverage={getRandomArbitrary(3, 14)} />
+                <StatisticsCard wordsAverage={getRandomArbitrary(3, 16)} />
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            {/* <CircleScale /> */}
         </div>
     )
 };
