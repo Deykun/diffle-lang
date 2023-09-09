@@ -6,6 +6,7 @@ interface Props {
     breakPoints: number[],
     value: number,
     isScaleOnLeft?: boolean,
+    startFrom?: number,
     isInvert?: boolean,
     isPercentage?: boolean,
 }
@@ -13,6 +14,7 @@ interface Props {
 const CircleScale = ({
     breakPoints,
     value,
+    startFrom = 0,
     isScaleOnLeft = false,
     isInvert = false,
     isPercentage = false,
@@ -28,16 +30,21 @@ const CircleScale = ({
             'circle-scale-scale-on-left': isScaleOnLeft,
             'circle-scale-is-normal': !isInvert,
         })}>
-            {breakPoints.map((breakPoint) => (<span
-                  key={breakPoint}
-                  className={clsx('circle-scale-border', {
-                    'circle-scale-border-checked': isInvert ? value <= breakPoint : value >= breakPoint,
-                  })}
-                  style={{ width: `${(breakPoint / maxPoint) * 100}%` }}
-                >
-                    <span>{breakPoint}{isPercentage ? '%' : ''}</span>
-                </span>
-            ))}
+            {breakPoints.map((breakPoint) => {
+                const progressX = ((breakPoint + startFrom) / maxPoint);
+            
+                return (
+                    <span
+                    key={breakPoint}
+                    className={clsx('circle-scale-border', {
+                        'circle-scale-border-checked': isInvert ? value <= breakPoint : value >= breakPoint,
+                    })}
+                    style={{ width: `${progressX * 100}%` }}
+                    >
+                        <span>{breakPoint}{isPercentage ? '%' : ''}</span>
+                    </span>
+                );
+            })}
         </div>
     )
 };

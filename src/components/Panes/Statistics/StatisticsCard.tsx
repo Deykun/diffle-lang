@@ -13,10 +13,15 @@ import CircleScale from './CircleScale';
 import './StatisticsCard.scss';
 
 const BREAKPOINTS = {
-    LETTERS_AVERAGE: [105, 85, 65, 45, 25],
-    WORDS_AVERAGES: [21, 17, 13, 10, 7, 4],
+    LETTERS_AVERAGE: [78, 62, 52, 42, 32, 22],
+    WORDS_AVERAGES: [10, 8, 7, 6, 5, 4, 3],
     LETTER_TYPES: [10, 25, 40, 55],
 };
+
+const START_FROM = {
+    LETTERS_AVERAGE: -10,
+    WORDS_AVERAGES: -2,
+}
 
 const roundMath = num => Math.round(num * 10) / 10;
 
@@ -51,7 +56,7 @@ const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
             <p className="statistics-letters">
                 <strong>
                     {lettersAverage.toFixed(1)}
-                    <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} value={lettersAverage} isInvert isScaleOnLeft/>
+                    <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} startFrom={START_FROM.LETTERS_AVERAGE} value={lettersAverage} isInvert isScaleOnLeft/>
                 </strong>
                 <span>liter</span>
             </p>
@@ -59,15 +64,15 @@ const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
                 <span>w</span>
                 <strong>
                     {wordsAverage.toFixed(1)}
-                    <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} value={wordsAverage} isInvert />
+                    <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} startFrom={START_FROM.WORDS_AVERAGES} value={wordsAverage} isInvert />
                 </strong>
                 <span>słowach</span>
             </p>
             <div className="statistics-text">
                 <p>średnio liter <strong>{roundMath(lettersAverage / wordsAverage)}</strong> w słowie</p>
                 <p>średnio liter <strong>6.1</strong> w pierwszym słowie</p>
-                <p>średnio liter <strong>4.7</strong> w drugi słowie</p>
-                <p>ostatnie nie odgadnięte słowo <strong>lekoman</strong></p>
+                <p>średnio liter <strong>4.7</strong> w drugim słowie</p>
+                <p>ostatnie nieodgadnięte słowo <strong>lekoman</strong></p>
             </div>
             <p className="statistics-letters-types">
                 <span className="correct">

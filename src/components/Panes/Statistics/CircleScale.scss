@@ -20,7 +20,9 @@
         display: block;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
-        border: 1px solid rgba(#a4c870, 0.2);
+        border: 2px dashed rgba(#a4c870, 0.2);
+        border: 1px dashed rgba(119, 143, 85, 0.2);
+        border: 1px dashed transparent;
         pointer-events: none;
         user-select: none;
 
@@ -30,7 +32,8 @@
             top: calc(100% + 5px);
             left: 50%;
             transform: translateX(-50%) rotate(35deg);
-            color: #a4c870;
+            color: rgba(119, 143, 85, 0.2);
+            color: transparent;
         }
 
         &.circle-scale-border-checked {
