@@ -25,6 +25,7 @@ export const SUBMIT_ERRORS = {
     ALREADY_SUBMITED: 'already_submited',
     HAS_SPACE: 'has_space',
     WORD_DOES_NOT_EXIST: 'word_does_not_exist',
+    WORD_FETCH_ERROR: 'word_fetch_error',
 };
 
 export const LOCAL_STORAGE = {
