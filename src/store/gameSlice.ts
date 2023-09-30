@@ -56,7 +56,7 @@ export const submitAnswer = createAsyncThunk(
 
         const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
         if (isWordFetchError) {
-            dispatch(setToast({ text: 'Błąd pobierania.' }));
+            dispatch(setToast({ text: 'Błąd pobierania, spróbuj ponownie.' }));
         }
 
         return result;
