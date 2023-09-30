@@ -2,7 +2,7 @@ import { Affix, AffixStatus, UsedLetters } from '@common-types';
 
 import { SUBMIT_ERRORS } from '@const';
 
-import getDoesWordExist from '@api/getDoesWordExist';
+import getDoesWordExist, { DoesWordExistErrorType } from '@api/getDoesWordExist';
 
 import compareWords from '@api/utils/compareWords';
 
@@ -88,8 +88,18 @@ export interface WordReport {
 }
 
 export const getWordReport = async (wordToGuess: string, wordToSubmit: string) => {
-    const doesWordExist = await getDoesWordExist(wordToSubmit);
-    if (!doesWordExist) {
+    const doesWordExistReport = await getDoesWordExist(wordToSubmit);
+
+    if (doesWordExistReport.isError) {
+        if (doesWordExistReport.errorType === DoesWordExistErrorType.Fetch) {
+            return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_FETCH_ERROR };
+        }
+
+        // Too short the same massage as
+        return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
+    }
+
+    if (!doesWordExistReport.doesWordExist) {
         return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
     }
 

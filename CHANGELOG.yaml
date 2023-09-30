@@ -1,3 +1,5 @@
+1.7.4:
+  - fix - error while fetching dictionary chunk does not block the chunk
 1.7.3 31.08.2023:
   - new - turn off keyboard's vibrations
   - new - turn off submit confirm

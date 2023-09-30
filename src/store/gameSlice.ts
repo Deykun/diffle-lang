@@ -50,9 +50,13 @@ export const submitAnswer = createAsyncThunk(
         const result = await getWordReport(wordToGuess, wordToSubmit);
 
         const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
-
         if (isWordDoesNotExistError) {
             dispatch(setToast({ text: 'Brak słowa w słowniku.' }));
+        }
+
+        const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
+        if (isWordFetchError) {
+            dispatch(setToast({ text: 'Błąd pobierania.' }));
         }
 
         return result;
