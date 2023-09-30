@@ -19,6 +19,8 @@ export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź'
 
 export const ALLOWED_KEYS = [' ', ...ALLOWED_FROM_KEYLINES];
 
+export const ALLOWED_LETTERS = KEY_LINES.flatMap((line) => line).filter((key => !['backspace', 'enter', 'spacebar'].includes(key)));
+
 export const SUBMIT_ERRORS = {
     ALREADY_PROCESSING: 'already_processing',
     ALREADY_WON: 'already_won',

@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { POLISH_CHARACTERS } from '@const';
+import { POLISH_CHARACTERS, ALLOWED_LETTERS } from '@const';
 
 import { RootState, AffixStatus } from '@common-types';
 
@@ -89,5 +89,19 @@ export const selectKeyboardState = createSelector(
 
         // Infact if not all know letter are typed we know that the word is incorrect, but we don't show it up
         return AffixStatus.Unknown;
+    },
+);
+
+export const selectKeyboardUsagePercentage = createSelector(
+    selectCorrectLetters,
+    selectIncorrectLetters,
+    selectPositionLetters,
+    (correctLetters, incorrectLetter, positionLetters) => {
+        const totalNumberOfLetters = ALLOWED_LETTERS.length;
+
+        const usedLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(incorrectLetter), ...Object.keys(positionLetters)])];
+        const totalNumberOfUsedLetters = usedLetters.length;
+
+        return Math.round(totalNumberOfUsedLetters / totalNumberOfLetters * 100);
     },
 );

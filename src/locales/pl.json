@@ -35,7 +35,8 @@
         "nextDaily_one": "Nowe hasło dnia będzie dostępne za <strong>godzinę</strong>.",       
         "nextDaily_few": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godziny</strong>.",
         "nextDaily_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
-        "nextDailyShort": "nowe za {{count}}g"
+        "nextDailyShort": "nowe za {{count}}g",
+        "uniqLettersUsed": "wykorzystano {{percentage}}% klawiatury"
     },
     "help": {
         "howToPlayTitle": "Jak gra się w diffle?",

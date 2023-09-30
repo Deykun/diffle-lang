@@ -7,6 +7,7 @@ import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
+import { selectKeyboardUsagePercentage } from '@store/selectors';
 
 import { setWordToGuess } from '@store/gameSlice'
 
@@ -32,6 +33,7 @@ const Win = () => {
     const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
+    const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
     const [isReseting, setIsReseting] = useState(false);
 
     const { t } = useTranslation();
@@ -107,19 +109,19 @@ const Win = () => {
         const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
  
 ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⌨️ ${keyboardUsagePercentage}%
 
 ${diffleUrl} #diffle`:
 `« ${wordToGuess} » – DIFFLE  🇵🇱
 
 ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⌨️ ${keyboardUsagePercentage}%
 
 ${diffleUrl} #diffle`;
 
         copyMessage(textToCopy);
         dispatch(setToast({ text: 'Skopiowano.' }));
-    }, [gameMode, words, letters, t, subtotals.correct, subtotals.position, subtotals.incorrect, wordToGuess, dispatch]);
+    }, [gameMode, words, letters, t, subtotals.correct, subtotals.position, subtotals.incorrect, keyboardUsagePercentage, wordToGuess, dispatch]);
 
     if (guesses.length === 0) {
         return null;
@@ -154,6 +156,11 @@ ${diffleUrl} #diffle`;
                 <p className="subtotal correct"><span>{subtotals.correct}</span></p>
                 <p className="subtotal position"><span>{subtotals.position}</span></p>
                 <p className="subtotal incorrect"><span>{subtotals.incorrect}</span></p>
+            </div>
+            <div className="subtotals">
+                <p className="subtotal-keyboard-usage">
+                    {t('win.uniqLettersUsed', { percentage: keyboardUsagePercentage })}
+                </p>
             </div>
             <div className="actions">
                 {gameMode === GameMode.Practice && (
