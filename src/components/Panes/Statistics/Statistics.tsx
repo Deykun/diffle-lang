@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import StatisticsCard from './StatisticsCard';
+import StatisticsFilters from './StatisticsFilters';
 
 import './Statistics.scss'
 
@@ -15,6 +16,7 @@ const Statistics = () => {
 
     return (
         <div className="statistics">
+            <StatisticsFilters />
             <div>
                 <h3>{t('settings.statisticsTitle')}</h3>
                 <StatisticsCard wordsAverage={getRandomArbitrary(3, 16)} />

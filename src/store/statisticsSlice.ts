@@ -7,7 +7,6 @@ import { getInitShouldVibrate, getInitShouldKeyboardVibrate, getInitIsSmallKeybo
 const initialState: RootAppState = {
     dataByKey: {
     },
-    
 };
 
 const appSlice = createSlice({

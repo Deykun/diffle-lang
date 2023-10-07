@@ -3,13 +3,14 @@
     display: inline-block;
     padding: 0;
     padding-left: 0.6em;
-    padding-right: 0.2em; // letterspacing adds space after
-    letter-spacing: 0.4em;
+    padding-right: 0.5em; // letterspacing adds space after
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     vertical-align: middle;
     min-width: min(42px, 7vw);
     opacity: 1;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s linear;
+    transition-delay: 0s;
 
     &.letter {
         max-width:  min(42px, 7vw);
@@ -53,6 +54,19 @@
         color: var(--orange-contrast);
         background-color: var(--orange);
         border-color: var(--orange);
+    }
+}
+
+.word:hover {
+    .affix {
+        padding-right: 0.2em; // 0.6em - 0.4em
+        letter-spacing: 0.4em;
+        transition-delay: 0.5s;
+    }
+
+    .letter {
+        padding-right: 0;
+        letter-spacing: 0;
     }
 }
 
