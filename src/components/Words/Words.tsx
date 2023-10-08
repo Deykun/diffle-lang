@@ -3,10 +3,8 @@ import { useMemo } from 'react';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
-import { normilzeWord } from '@utils/normilzeWord';
-
 import { useSelector } from '@store';
-import { selectIsProcessing, selectWordToGuess, selectWordToSubmit } from '@store/selectors';
+import { selectIsProcessing, selectHasWordToGuessSpecialCharacters, selectWordToSubmit } from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
 
@@ -26,7 +24,7 @@ const Words = () => {
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);
-    const wordToGuess = useSelector(selectWordToGuess);
+    const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const hasSpace = wordToSubmit.includes(' ');
 
     const submitGuess: WordInterface = useMemo(() => {
@@ -38,10 +36,6 @@ const Words = () => {
         };
     }, [wordToSubmit]);
 
-    const hasPolishCharacters = useMemo(() => {
-        return wordToGuess !== normilzeWord(wordToGuess);
-    }, [wordToGuess])
-
     useScrollEffect('bottom', [wordToSubmit])
 
     const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
@@ -49,9 +43,9 @@ const Words = () => {
 
     return (
         <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
-            <p className={clsx('word-tip', { 'has-polish': hasPolishCharacters })}>
+            <p className={clsx('word-tip', { 'has-polish': hasSpecialCharacters })}>
                 {
-                    hasPolishCharacters ?
+                    hasSpecialCharacters ?
                     <>Hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
                     <>Hasło <strong>nie zawiera</strong> polskich znaków.</>
                 }

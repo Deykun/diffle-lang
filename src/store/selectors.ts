@@ -10,6 +10,11 @@ export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
 export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;
 
+export const selectHasWordToGuessSpecialCharacters = createSelector(
+    selectWordToGuess,
+    wordToGuess => wordToGuess !== normilzeWord(wordToGuess),
+);
+
 const selectCorrectLetters = (state: RootState) => state.game.letters.correct;
 const selectIncorrectLetters = (state: RootState) => state.game.letters.incorrect;
 const selectPositionLetters = (state: RootState) => state.game.letters.position;

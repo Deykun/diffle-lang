@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { GameMode, Pane, PaneChange } from '@common-types';
@@ -9,6 +9,7 @@ import { LOCAL_STORAGE } from '@const';
 import { useSelector, useDispatch } from '@store';
 
 import { getNow } from '@utils/date';
+import { ModeFilter, CharactersFilter, getStatisticForFilter } from '@utils/statistics';
 
 import { setGameMode, setWordToGuess } from '@store/gameSlice'
 
@@ -24,23 +25,20 @@ interface Props {
     changePane: PaneChange,
 }
 
-enum ModeFilter {
-    All = 'all',
-    Daily = 'daily',
-    Practice = 'practice',
-}
-
-enum CharactersFilter {
-    All = 'all',
-    NoSpecial = 'noSpecial',
-    Special = 'onlySpecial',
-}
-
 const StatisticsFilters = ({ changePane }: Props) => {
     const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
     const [modeCharactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(CharactersFilter.All);
 
     const { t } = useTranslation();
+
+    useEffect(() => {
+        const arrayOfStatistics = getStatisticForFilter({
+            modeFilter,
+            modeCharactersFilter,
+        });
+
+        console.log('arrayOfStatistics', arrayOfStatistics);
+    }, [modeFilter, modeCharactersFilter]);
     
     return (
         <div>

@@ -29,10 +29,14 @@ function getRandomArbitrary(min, max) {
     return roundMath(Math.random() * (max - min) + min);
 }
 
-const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
+const StatisticsCard = ({
+    lettersAverage_ = 72.3,
+    wordsAverage = 4.5,
+    keyboardPercentageUsed = 35,
+}) => {
     const { t } = useTranslation();
 
-    const lettersAverage = roundMath(wordsAverage * getRandomArbitrary(4, 9));
+    const lettersAverage = roundMath(wordsAverage * getRandomArbitrary(4, 7));
 
     const {
         correct,
@@ -73,6 +77,7 @@ const StatisticsCard = ({ lettersAverage_ = 72.3, wordsAverage = 8.1 }) => {
                 <p>średnio liter <strong>6.1</strong> w pierwszym słowie</p>
                 <p>średnio liter <strong>4.7</strong> w drugim słowie</p>
                 <p>ostatnie nieodgadnięte słowo <strong>lekoman</strong></p>
+                <p>średnio <strong>{keyboardPercentageUsed}%</strong> odkrytej klawiatury</p>
             </div>
             <p className="statistics-letters-types">
                 <span className="correct">
