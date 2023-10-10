@@ -3,7 +3,12 @@ import { useEffect } from 'react';
 import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
 
 import { useSelector } from '@store';
-import { selectWordToGuess, selectHasWordToGuessSpecialCharacters } from '@store/selectors';
+import {
+    selectWordToGuess,
+    selectHasWordToGuessSpecialCharacters,
+    selectGuessesStatsForLetters,
+    selectKeyboardUsagePercentage,
+} from '@store/selectors';
 
 import { saveWinIfNeeded } from '@utils/statistics';
 
@@ -17,6 +22,8 @@ function useSaveProgressLocally() {
     const wordToGuess = useSelector(selectWordToGuess);
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const guesses = useSelector(state => state.game.guesses);
+    const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
+    const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, gameMode);
@@ -43,9 +50,15 @@ function useSaveProgressLocally() {
     useEffect(() => {
         if (isWon) {
             saveWinIfNeeded({
+                wordToGuess,
                 gameLanguage: 'pl',
                 gameMode,
                 hasSpecialCharacters: hasSpecialCharacters,
+                guesses,
+                words,
+                letters,
+                subtotals,
+                keyboardUsagePercentage,
             });
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps

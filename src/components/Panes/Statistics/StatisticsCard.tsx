@@ -33,6 +33,19 @@ const StatisticsCard = ({
     lettersAverage_ = 72.3,
     wordsAverage = 4.5,
     keyboardPercentageUsed = 35,
+    totalGames,
+    totalWon,
+    currentStreak,
+    bestStreak,
+    lettersPerGame,
+    wordsPerGame,
+    lettersPerWord,
+    lettersInFirstWord,
+    lettersInSecondWord,
+    lettersCorrect,
+    lettersPosition,
+    lettersIncorrect,
+    keyboardUsed,
 }) => {
     const { t } = useTranslation();
 
@@ -59,51 +72,51 @@ const StatisticsCard = ({
             <IconDiffleChart className="statistics-card-icon" />
             <p className="statistics-letters">
                 <strong>
-                    {lettersAverage.toFixed(1)}
-                    <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} startFrom={START_FROM.LETTERS_AVERAGE} value={lettersAverage} isInvert isScaleOnLeft/>
+                    {lettersPerGame.toFixed(1)}
+                    <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} startFrom={START_FROM.LETTERS_AVERAGE} value={lettersPerGame} isInvert isScaleOnLeft/>
                 </strong>
                 <span>liter</span>
             </p>
             <p className="statistics-words">
                 <span>w</span>
                 <strong>
-                    {wordsAverage.toFixed(1)}
-                    <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} startFrom={START_FROM.WORDS_AVERAGES} value={wordsAverage} isInvert />
+                    {wordsPerGame.toFixed(1)}
+                    <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} startFrom={START_FROM.WORDS_AVERAGES} value={wordsPerGame} isInvert />
                 </strong>
                 <span>słowach</span>
             </p>
             <div className="statistics-text">
-                <p>średnio liter <strong>{roundMath(lettersAverage / wordsAverage)}</strong> w słowie</p>
-                <p>średnio liter <strong>6.1</strong> w pierwszym słowie</p>
-                <p>średnio liter <strong>4.7</strong> w drugim słowie</p>
-                <p>ostatnie nieodgadnięte słowo <strong>lekoman</strong></p>
-                <p>średnio <strong>{keyboardPercentageUsed}%</strong> odkrytej klawiatury</p>
+                <p>średnio liter <strong>{lettersPerWord.toFixed(1)}</strong> w słowie</p>
+                <p>średnio liter <strong>{lettersInFirstWord.toFixed(1)}</strong> w pierwszym słowie</p>
+                <p>średnio liter <strong>{lettersInSecondWord.toFixed(1)}</strong> w drugim słowie</p>
+                {/* <p>ostatnie nieodgadnięte słowo <strong>lekoman</strong></p> */}
+                <p>średnio <strong>{keyboardUsed}%</strong> odkrytej klawiatury</p>
             </div>
             <p className="statistics-letters-types">
                 <span className="correct">
                     <strong>
-                        {(lettersAverage * correct / 100).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={correct} isPercentage />
+                        {(lettersCorrect).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersCorrect / lettersPerGame} isPercentage />
                     </strong>
                 </span>
                 <span className="position">
                     <strong>
-                        {(lettersAverage * position / 100).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={position} isPercentage />
+                        {(lettersPosition).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersPosition / lettersPerGame} isPercentage />
                     </strong>
                 </span>
                 <span className="incorrect">
                     <strong>
-                        {(lettersAverage * incorrect / 100).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={incorrect} isPercentage />
+                        {(lettersIncorrect).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersIncorrect / lettersPerGame} isPercentage />
                     </strong>
                 </span>
             </p>
             <div className="statistics-other">
-                <p><strong>15</strong> gier</p>
-                <p><strong>14</strong> wygranych</p>
-                <p><strong>4</strong> z rzędu</p>
-                <p><strong>9</strong> najwięcej z rzędu</p>
+                <p><strong>{totalGames}</strong> gier</p>
+                <p><strong>{totalWon}</strong> wygranych</p>
+                <p><strong>{currentStreak}</strong> z rzędu</p>
+                <p><strong>{bestStreak}</strong> najwięcej z rzędu</p>
             </div>
             <footer>
                 {location.href}

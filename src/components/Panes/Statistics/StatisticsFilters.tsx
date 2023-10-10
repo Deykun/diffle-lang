@@ -9,7 +9,7 @@ import { LOCAL_STORAGE } from '@const';
 import { useSelector, useDispatch } from '@store';
 
 import { getNow } from '@utils/date';
-import { ModeFilter, CharactersFilter, getStatisticForFilter } from '@utils/statistics';
+import { ModeFilter, CharactersFilter, getStatisticForFilter, getStatisticCardDataFromStatistics } from '@utils/statistics';
 
 import { setGameMode, setWordToGuess } from '@store/gameSlice'
 
@@ -22,23 +22,25 @@ import IconShare from '@components/Icons/IconShare';
 import '../Settings/Settings.scss'
 
 interface Props {
-    changePane: PaneChange,
+    // changePane: PaneChange,
 }
 
-const StatisticsFilters = ({ changePane }: Props) => {
+const StatisticsFilters = ({ setStatisticData }: Props) => {
     const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
     const [modeCharactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(CharactersFilter.All);
 
     const { t } = useTranslation();
 
     useEffect(() => {
-        const arrayOfStatistics = getStatisticForFilter({
+        const statistics = getStatisticForFilter({
             modeFilter,
             modeCharactersFilter,
         });
 
-        console.log('arrayOfStatistics', arrayOfStatistics);
-    }, [modeFilter, modeCharactersFilter]);
+        const statisitcsData = getStatisticCardDataFromStatistics(statistics);
+
+        setStatisticData(statisitcsData)
+    }, [modeFilter, modeCharactersFilter, setStatisticData]);
     
     return (
         <div>
@@ -88,9 +90,9 @@ const StatisticsFilters = ({ changePane }: Props) => {
                     className={clsx('setting', { 'setting-active': modeCharactersFilter === CharactersFilter.NoSpecial })}
                     onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
                     >
-                        <IconDay />
+                        {/* <IconDay /> */}
                         {/* <span>{t('game.modeDaily')}</span> */}
-                        <span>z polskimi znakami</span>
+                        <span>bez polskich znaków</span>
                     </button>
                 </li>
                 <li>
@@ -98,9 +100,9 @@ const StatisticsFilters = ({ changePane }: Props) => {
                     className={clsx('setting', { 'setting-active': modeCharactersFilter === CharactersFilter.Special })}
                     onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
                     >
-                        <IconInfinity />
-                        <span>{t('game.modePractice')}</span>
-                        <span>bez polskich znaków</span>
+                        {/* <IconInfinity /> */}
+                        {/* <span>{t('game.modePractice')}</span> */}
+                        <span>z polskimi znakami</span>
                     </button>
                 </li>
             </ul>

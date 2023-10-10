@@ -19,6 +19,8 @@ const selectCorrectLetters = (state: RootState) => state.game.letters.correct;
 const selectIncorrectLetters = (state: RootState) => state.game.letters.incorrect;
 const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
+export const selectGuesses = (state: RootState) => state.game.guesses;
+
 export const selectLetterState = (letter: string) => createSelector(
     selectWordToGuess,
     selectCorrectLetters,
@@ -108,5 +110,56 @@ export const selectKeyboardUsagePercentage = createSelector(
         const totalNumberOfUsedLetters = usedLetters.length;
 
         return Math.round(totalNumberOfUsedLetters / totalNumberOfLetters * 100);
+    },
+);
+
+export const selectGuessesStatsForLetters = createSelector(
+    selectGuesses,
+    (guesses) => {
+        const { words, subtotals } = guesses.reduce((stack, { affixes }) => {
+            const { subtotals: wordTotals } = affixes.reduce((stack, affix) => {
+                if (affix.type === AffixStatus.Correct) {
+                    stack.subtotals.correct += affix.text.length;
+                }
+
+                if (affix.type === AffixStatus.Position) {
+                    stack.subtotals.position += affix.text.length;
+                }
+
+                if (affix.type === AffixStatus.Incorrect) {
+                    stack.subtotals.incorrect += affix.text.length;
+                }
+
+                return stack;
+            }, {
+                subtotals: {
+                    correct: 0,
+                    position: 0,
+                    incorrect: 0,
+                }
+            });
+
+            stack.words += 1;
+            stack.subtotals.correct += wordTotals.correct;
+            stack.subtotals.position += wordTotals.position;
+            stack.subtotals.incorrect += wordTotals.incorrect;
+
+            stack
+
+            return stack;
+        }, {
+            words: 0,
+            subtotals: {
+                correct: 0,
+                position: 0,
+                incorrect: 0,
+            }
+        });
+
+        return {
+            words,
+            letters: subtotals.correct + subtotals.position + subtotals.incorrect,
+            subtotals,
+        };
     },
 );

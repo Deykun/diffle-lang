@@ -7,7 +7,7 @@ import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
-import { selectKeyboardUsagePercentage } from '@store/selectors';
+import { selectKeyboardUsagePercentage, selectGuessesStatsForLetters } from '@store/selectors';
 
 import { setWordToGuess } from '@store/gameSlice'
 
@@ -32,6 +32,7 @@ const Win = () => {
     const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
+    const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
     const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
     const [isReseting, setIsReseting] = useState(false);
 
@@ -53,54 +54,6 @@ const Win = () => {
             });
         }
     }, [dispatch, gameMode, isReseting]);
-
-    const { words, letters, subtotals } = useMemo(() => {
-        const{ words, subtotals } = guesses.reduce((stack, { affixes }) => {
-            const { subtotals: wordTotals } = affixes.reduce((stack, affix) => {
-                if (affix.type === AffixStatus.Correct) {
-                    stack.subtotals.correct += affix.text.length;
-                }
-
-                if (affix.type === AffixStatus.Position) {
-                    stack.subtotals.position += affix.text.length;
-                }
-
-                if (affix.type === AffixStatus.Incorrect) {
-                    stack.subtotals.incorrect += affix.text.length;
-                }
-
-                return stack;
-            }, {
-                subtotals: {
-                    correct: 0,
-                    position: 0,
-                    incorrect: 0,
-                }
-            });
-
-            stack.words += 1;
-            stack.subtotals.correct += wordTotals.correct;
-            stack.subtotals.position += wordTotals.position;
-            stack.subtotals.incorrect += wordTotals.incorrect;
-
-            stack
-
-            return stack;
-        }, {
-            words: 0,
-            subtotals: {
-                correct: 0,
-                position: 0,
-                incorrect: 0,
-            }
-        });
-
-        return {
-            words,
-            letters: subtotals.correct + subtotals.position + subtotals.incorrect,
-            subtotals,
-        }
-    }, [guesses]);
 
     const handleCopy = useCallback(() => {
         const diffleUrl = location.href.split('?')[0];
