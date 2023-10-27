@@ -9,12 +9,17 @@
     }
 
     ul {
-        display: flex;
+        display: grid;
         justify-content: center;
         align-items: flex-start;
         gap: 20px;
         gap: min(20px, 3vw);
+        grid-template-columns: 1fr 1fr;
         margin-bottom: 15px;
+
+        &.list-col-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 
         li {
             flex-basis: 100%;
@@ -146,6 +151,7 @@
                 }
             }
 
+            body.contrast & .setting-active--contrast,
             .setting-active {
                 &,
                 &:hover {

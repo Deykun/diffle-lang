@@ -36,6 +36,7 @@ export const LOCAL_STORAGE = {
     TYPE_PRACTICE: 'diffle_practice',
     TYPE_SHARE: 'diffle_share',
     THEME: 'diffle_theme',
+    THEME_CONTRAST: 'diffle_theme_contrast',
     SHOULD_VIBRATE: 'diffle_should_vibrate',
     SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',
     IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',

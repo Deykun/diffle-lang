@@ -44,7 +44,7 @@ const SettingsModes = ({ changePane }: Props) => {
     return (
         <>
             <h2>{t('settings.gameModeTitle')}</h2>
-            <ul>
+            <ul className="list-col-3">
                 <li>
                     <button
                       className={clsx('setting', { 'setting-active': gameMode === GameMode.Daily })}

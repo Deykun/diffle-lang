@@ -10,6 +10,49 @@ body p {
 }
 
 :root {
+    --text: #fcfcfc; // 252, 252, 252
+    --text-alt: #a3bde6;
+    --text-weaker: rgba(252, 252, 252, 0.5);
+    --background: rgba(34, 34, 34, 1);;
+    --background-transparent: rgba(34, 34, 34, 0.7);
+    --border: #555;
+
+    --toast-text: black;
+    --toast-bacground: white;
+
+    --flag-shadow: rgb(255, 255, 255, 0.1);
+
+    --blue: #26c;
+    --blue-weaker: #7392c1;
+    --blue-contrast: white;
+    --blue-on-background: white;
+
+    --green: #4fb061;
+    --green-stronger: #84ec6e;
+    --green-contrast: white;
+    --green-stronger-contrast: rgb(28, 82, 17);
+
+    --orange: #b29446;
+    --orange-stronger: #e0c273;
+    --orange-contrast: white;
+
+    --red: #ff3636;
+    --red-weaker: #b35c5c;
+    --red-contrast: white;
+
+    --untyped: #747474;
+    --untyped-contrast: #eee;
+
+    --typed: white;
+    --typed-contrast: #222;
+
+    --incorrect: #414141;
+    --incorrect-contrast: #6d6d6d;
+
+    --stroke-contrast: #1f1f1f;
+}
+
+:root.light {
     --text: #222; // 34, 34, 34
     --text-alt: #576b8a;
     --text-weaker: rgba(34, 34, 34, 0.5);
@@ -49,47 +92,8 @@ body p {
 
     --incorrect: #d4d4d4;
     --incorrect-contrast: white;
-}
 
-:root.dark {
-    --text: #fcfcfc; // 252, 252, 252
-    --text-alt: #a3bde6;
-    --text-weaker: rgba(252, 252, 252, 0.5);
-    --background: rgba(34, 34, 34, 1);;
-    --background-transparent: rgba(34, 34, 34, 0.7);
-    --border: #555;
-
-    --toast-text: black;
-    --toast-bacground: white;
-
-    --flag-shadow: rgb(255, 255, 255, 0.1);
-
-    --blue: #26c;
-    --blue-weaker: #7392c1;
-    --blue-contrast: white;
-    --blue-on-background: white;
-
-    --green: #4fb061;
-    --green-stronger: #84ec6e;
-    --green-contrast: white;
-    --green-stronger-contrast: rgb(28, 82, 17);
-
-    --orange: #b29446;
-    --orange-stronger: #e0c273;
-    --orange-contrast: white;
-
-    --red: #ff3636;
-    --red-weaker: #b35c5c;
-    --red-contrast: white;
-
-    --untyped: #747474;
-    --untyped-contrast: #eee;
-
-    --typed: white;
-    --typed-contrast: #222;
-
-    --incorrect: #414141;
-    --incorrect-contrast: #6d6d6d;
+    --stroke-contrast: #434343;
 }
 
 html, button, input, select, textarea {
@@ -99,16 +103,17 @@ html, button, input, select, textarea {
 body {
     background-color: var(--background);
 }
-.only-dark {
+
+.only-light {
     display: none;
 }
 
-.dark {
-    .only-light {
+.light {
+    .only-dark {
         display: none;
     }
 
-    .only-dark {
+    .only-light {
         display: block;
     }
 }

@@ -29,12 +29,17 @@ const App = () => {
     const { vibrate } = useVibrate();
 
     useEffect(() => {
-        const isSavedDarkTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'dark';
-        const isNotSavedAndSystemUsesDarkTheme = !localStorage.getItem(LOCAL_STORAGE.THEME) && window?.matchMedia('(prefers-color-scheme: dark)');
-        const isDarkTheme = isSavedDarkTheme || isNotSavedAndSystemUsesDarkTheme;
+        const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
+        const isNotSavedAndSystemUsesLightTheme = !localStorage.getItem(LOCAL_STORAGE.THEME) && window?.matchMedia('(prefers-color-scheme: light)');
+        const isLightTheme = isSavedLightTheme || isNotSavedAndSystemUsesLightTheme;
 
-        if (isDarkTheme) {
-            document.documentElement.classList.add('dark');
+        if (isLightTheme) {
+            document.documentElement.classList.add('light');
+        }
+
+        const isSavedContrastTheme = localStorage.getItem(LOCAL_STORAGE.THEME_CONTRAST) === 'true';
+        if (isSavedContrastTheme) {
+            document.body.classList.add('contrast');
         }
     }, []);
 

@@ -8,6 +8,7 @@ import useKeyboardSettings from '@hooks/useKeyboardSettings';
 import useVibrate from '@hooks/useVibrate';
 
 import IconConstruction from '@components/Icons/IconConstruction';
+import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
@@ -37,12 +38,22 @@ const SettingsPreferences = () => {
     const handleToggleDarkLightMode = useCallback(() => {
         vibrate();
 
-        const isDarkThemeBeforeToggle = document.documentElement.classList.contains('dark');
+        const isLightThemeBeforeToggle = document.documentElement.classList.contains('light');
 
-        localStorage.setItem(LOCAL_STORAGE.THEME, isDarkThemeBeforeToggle ? 'light' : 'dark');
+        localStorage.setItem(LOCAL_STORAGE.THEME, isLightThemeBeforeToggle ? 'dark' : 'light');
 
-        document.documentElement.classList.toggle('dark');
+        document.documentElement.classList.toggle('light');
     }, [vibrate]);
+
+    const handleToggleHighContrastMode = () => {
+        vibrate();
+
+        const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
+
+        localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
+
+        document.body.classList.toggle('contrast');
+    };
 
     const handleLanguageChange = useCallback(() => {
         vibrate();
@@ -73,6 +84,12 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
                 <li>
+                    <button className="setting setting-active--contrast" onClick={handleToggleHighContrastMode}>
+                        <IconContrast />
+                        <span>{t('settings.highContrastMode')}</span>
+                    </button>
+                </li>
+                <li>
                     <button className="setting" onClick={handleLanguageChange}>
                         <IconTranslation />
                         <span>{t('settings.currentLanguage')}</span>
@@ -83,7 +100,7 @@ const SettingsPreferences = () => {
                 </li>
             </ul>
             <h3>Klawiatura</h3>
-            <ul>
+            <ul className="list-col-3">
                 <li>
                     <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>
                         <IconVibrateKeyboard />

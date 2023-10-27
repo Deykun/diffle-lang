@@ -38,6 +38,11 @@
     border: 1px solid var(--border);
     background-color: transparent;
 
+    body.contrast & {
+        -webkit-text-stroke: 4px var(--stroke-contrast);
+        paint-order: stroke fill;
+    }
+
     &.correct {
         color: var(--green-contrast);
         background-color: var(--green);
@@ -54,19 +59,17 @@
         color: var(--orange-contrast);
         background-color: var(--orange);
         border-color: var(--orange);
-    }
-}
 
-.word:hover {
-    .affix {
-        padding-right: 0.2em; // 0.6em - 0.4em
-        letter-spacing: 0.4em;
-        transition-delay: 0.5s;
-    }
-
-    .letter {
-        padding-right: 0;
-        letter-spacing: 0;
+        body.contrast & {
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--incorrect) 0px,
+                var(--incorrect) 10px,
+                var(--green) 10px,
+                var(--green) 20px
+            );
+            border-color: var(--green);
+        }
     }
 }
 

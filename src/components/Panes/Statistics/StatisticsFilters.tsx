@@ -45,7 +45,7 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
     return (
         <div>
             <h2>{t('settings.gameModeTitle')}</h2>
-            <ul>
+            <ul className="list-col-3">
                 <li>
                     <button
                         className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.All })}
@@ -75,7 +75,7 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                 </li>
             </ul>
             <h2>{t('settings.gameModeTitle')}</h2>
-            <ul>
+            <ul className="list-col-3">
                 <li>
                     <button
                         className={clsx('setting', { 'setting-active': modeCharactersFilter === CharactersFilter.All })}
