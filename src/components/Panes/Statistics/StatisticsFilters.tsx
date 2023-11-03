@@ -18,7 +18,8 @@ interface Props {
 }
 
 const StatisticsFilters = ({ setStatisticData }: Props) => {
-    const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
+    // const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
+    const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.All);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(CharactersFilter.All);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(LengthFilter.All);
 
@@ -110,7 +111,9 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                     className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Short })}
                     onClick={() => setLengthFilter(LengthFilter.Short)}
                     >
-                        <span>{t('statistics.wordLengthShort', { to: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })}</span>
+                        <span dangerouslySetInnerHTML={{
+                            __html: t('statistics.wordLengthShort', { to: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
+                        }} />
                     </button>
                 </li>
                 <li>
@@ -118,7 +121,9 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                     className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Long })}
                     onClick={() => setLengthFilter(LengthFilter.Long)}
                     >
-                        <span>{t('statistics.wordLengthLong', { above: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })}</span>
+                        <span dangerouslySetInnerHTML={{
+                            __html: t('statistics.wordLengthLong', { above: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
+                        }} />
                     </button>
                 </li>
             </ul>

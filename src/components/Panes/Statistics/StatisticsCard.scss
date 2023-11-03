@@ -89,6 +89,7 @@
             
             strong {
                 font-size: 120%;
+                text-shadow: 0 0 5px var(--green-contrast);
             }
 
             &:last-child {
@@ -163,6 +164,7 @@
         }
 
         strong {
+            text-shadow: 0 0 5px var(--green-contrast);
             font-size: 34px;
             display: block;
             margin: 0 auto 1px;

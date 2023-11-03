@@ -71,7 +71,25 @@
         "noData": "Brak danych.",
         "specialCharactersWithout": "bez znaków specjalnych",
         "specialCharactersWith": "ze znakami specjalnymi",
-        "wordLengthShort": "do {{to}} znaków",
-        "wordLengthLong": "powyżej {{above}} znaków"
+        "wordLengthShort": "do <strong>{{to}}</strong> znaków",
+        "wordLengthLong": "powyżej <strong>{{above}}</strong> znaków",
+        "letters": "liter",
+        "averageWordsBefore": "w",
+        "averageWords": "słowach",
+        "averageLetters": "średnio liter",
+        "inWord": "w słowie",
+        "inFirstWord": "w pierwszym słowie",
+        "inSecondWord": "w drugim słowie",
+        "keyboardUsed": "średnio <strong>{{value}}%</strong> odkrytej klawiatury",
+        "totalGames_zero": "<strong>0</strong> gier",       
+        "totalGames_one": "<strong>1</strong> grę",       
+        "totalGames_few": "<strong>{{count}}</strong> gier",       
+        "totalGames_many": "<strong>{{count}}</strong> gier",
+        "totalWon_zero": "<strong>0</strong> wygranych",
+        "totalWon_one": "<strong>1</strong> wygrana",
+        "totalWon_few": "<strong>{{count}}</strong> wygranych",
+        "totalWon_many": "<strong>{{count}}</strong> wygranych",
+        "totalStreak": "z rzędu",
+        "totalBestStreak": "najwięcej z rzędu"
     }
 }

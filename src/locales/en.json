@@ -62,7 +62,7 @@
         "noData": "No data.",
         "specialCharactersWithout": "without special characters",
         "specialCharactersWith": "with special characters",
-        "wordLengthShort": "to {{to}} characters",
-        "wordLengthLong": "above {{above}} characters"
+        "wordLengthShort": "to <strong>{{to}}</strong> characters",
+        "wordLengthLong": "above <strong>{{above}}</strong> characters"
     }
 }

@@ -1,5 +1,8 @@
 1.8:
-  - new - high constrast mode
+  - new - high contrast mode
+  - new - statistics panel added
+  - new - stat with percentage of keyboard discoverd was added
+  - new - single letters are conisder green
 1.7.3 31.08.2023:
   - new - turn off keyboard's vibrations
   - new - turn off submit confirm

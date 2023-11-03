@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AffixStatus, GameMode } from '@common-types';
+import { GameMode } from '@common-types';
 
 import { getNow } from '@utils/date';
 
@@ -59,17 +59,17 @@ const Win = () => {
         const diffleUrl = location.href.split('?')[0];
         const { stamp } = getNow();
         const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
- 
-${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⌨️ ${keyboardUsagePercentage}%
 
-${diffleUrl} #diffle`:
+${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⠀ 🔠 ${keyboardUsagePercentage}%
+
+${diffleUrl} #diffle #difflepl`:
 `« ${wordToGuess} » – DIFFLE  🇵🇱
 
 ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⌨️ ${keyboardUsagePercentage}%
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⠀ 🔠 ${keyboardUsagePercentage}%
 
-${diffleUrl} #diffle`;
+${diffleUrl} #diffle #difflepl`;
 
         copyMessage(textToCopy);
         dispatch(setToast({ text: 'Skopiowano.' }));

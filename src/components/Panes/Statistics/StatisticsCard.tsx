@@ -44,22 +44,23 @@ const StatisticsCard = ({
                     {lettersPerGame.toFixed(1)}
                     <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} startFrom={START_FROM.LETTERS_AVERAGE} value={lettersPerGame} isInvert isScaleOnLeft/>
                 </strong>
-                <span>liter</span>
+                <span>{t('statistics.letters')}</span>
             </p>
             <p className="statistics-words">
-                <span>w</span>
+                <span>{t('statistics.averageWordsBefore')}</span>
                 <strong>
                     {wordsPerGame.toFixed(1)}
                     <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} startFrom={START_FROM.WORDS_AVERAGES} value={wordsPerGame} isInvert />
                 </strong>
-                <span>słowach</span>
+                <span>{t('statistics.averageWords')}</span>
             </p>
             <div className="statistics-text">
-                <p>średnio liter <strong>{lettersPerWord.toFixed(1)}</strong> w słowie</p>
-                <p>średnio liter <strong>{lettersInFirstWord.toFixed(1)}</strong> w pierwszym słowie</p>
-                <p>średnio liter <strong>{lettersInSecondWord.toFixed(1)}</strong> w drugim słowie</p>
-                {/* <p>ostatnie nieodgadnięte słowo <strong>lekoman</strong></p> */}
-                <p>średnio <strong>{keyboardUsed}%</strong> odkrytej klawiatury</p>
+                <p>{t('statistics.averageLetters')} <strong>{lettersPerWord.toFixed(1)}</strong> {t('statistics.inWord')}</p>
+                <p>{t('statistics.averageLetters')} <strong>{lettersInFirstWord.toFixed(1)}</strong> {t('statistics.inFirstWord')}</p>
+                <p>{t('statistics.averageLetters')} <strong>{lettersInSecondWord.toFixed(1)}</strong> {t('statistics.inSecondWord')}</p>
+                <p dangerouslySetInnerHTML={{
+                    __html: t('statistics.keyboardUsed', { value: keyboardUsed })
+                }} />
             </div>
             <p className="statistics-letters-types">
                 <span className="correct">
@@ -82,10 +83,20 @@ const StatisticsCard = ({
                 </span>
             </p>
             <div className="statistics-other">
-                <p><strong>{totalGames}</strong> gier</p>
-                <p><strong>{totalWon}</strong> wygranych</p>
-                <p><strong>{currentStreak}</strong> z rzędu</p>
-                <p><strong>{bestStreak}</strong> najwięcej z rzędu</p>
+                <p dangerouslySetInnerHTML={{
+                    __html: t('statistics.totalGames', {
+                        postProcess: 'interval',
+                        count: totalGames,
+                    })
+                }} />
+                <p dangerouslySetInnerHTML={{
+                    __html: t('statistics.totalWon', {
+                        postProcess: 'interval',
+                        count: totalWon,
+                    })
+                }} />
+                <p><strong>{currentStreak}</strong> {t('statistics.totalStreak')}</p>
+                <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>
             </div>
             <footer>
                 {location.href}
