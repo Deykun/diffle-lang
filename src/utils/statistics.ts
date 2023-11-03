@@ -191,8 +191,6 @@ export const saveWinIfNeeded = ({
 
     statisticToUpdate.secondWord.letters += secondWord.word.length;
 
-    console.log('called');
-
     saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
 };
 
@@ -266,8 +264,6 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
     return stack;
 }, []);
 
-console.log(KEYS_FOR_FILTERS);
-
 export const getStatisticForFilter = ({
     modeFilter,
     charactersFilter,
@@ -296,14 +292,28 @@ export const getStatisticForFilter = ({
         return true;
     }).map(({ key }) => key);
 
-    console.log(JSON.stringify(keysToUse, null, 4));
-
     const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
 
     return mergeStatistics(arrayOfStatistics);
 };
 
-export const getStatisticCardDataFromStatistics = (statistic: Statistic) => {
+export interface StatisticForCard {
+    totalGames: number,
+    totalWon: number,
+    currentStreak: number,
+    bestStreak: number,
+    lettersPerGame: number,
+    wordsPerGame: number,
+    lettersPerWord: number,
+    lettersInFirstWord: number,
+    lettersInSecondWord: number,
+    lettersCorrect: number,
+    lettersPosition: number,
+    lettersIncorrect: number,
+    keyboardUsed: number,
+}
+
+export const getStatisticCardDataFromStatistics = (statistic: Statistic): StatisticForCard => {
     const totalGames = statistic.totals.won + statistic.totals.lost;
 
     return {

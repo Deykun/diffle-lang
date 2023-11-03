@@ -1,14 +1,10 @@
-
-import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Chart from './StatisticsCard';
+import { StatisticForCard } from '@utils/statistics';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
-import IconHeartStreak from '@components/Icons/IconHeartStreak';
 
 import CircleScale from './CircleScale';
-
 
 import './StatisticsCard.scss';
 
@@ -23,16 +19,7 @@ const START_FROM = {
     WORDS_AVERAGES: -2,
 }
 
-const roundMath = num => Math.round(num * 10) / 10;
-
-function getRandomArbitrary(min, max) {
-    return roundMath(Math.random() * (max - min) + min);
-}
-
 const StatisticsCard = ({
-    lettersAverage_ = 72.3,
-    wordsAverage = 4.5,
-    keyboardPercentageUsed = 35,
     totalGames,
     totalWon,
     currentStreak,
@@ -46,26 +33,8 @@ const StatisticsCard = ({
     lettersPosition,
     lettersIncorrect,
     keyboardUsed,
-}) => {
+}: StatisticForCard) => {
     const { t } = useTranslation();
-
-    const lettersAverage = roundMath(wordsAverage * getRandomArbitrary(4, 7));
-
-    const {
-        correct,
-        incorrect,
-        position,
-    } = useMemo(() => {
-        const position = getRandomArbitrary(0, 12);
-        const correct = getRandomArbitrary(position, 100);
-        const incorrect = 100 - correct;
-
-        return {
-            correct,
-            incorrect,
-            position,
-        };
-    }, []);
 
     return (
         <div className="statistics-card">

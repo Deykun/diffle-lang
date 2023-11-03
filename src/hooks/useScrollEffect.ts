@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useScrollEffect(to: ('top' | 'bottom'), args: string[]) {
+export default function useScrollEffect(to: ('top' | 'bottom'), args: (string | object | undefined)[]) {
     useEffect(() => {
         if (to === 'top') {
             window.scrollTo(0, 0);

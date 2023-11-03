@@ -3,11 +3,13 @@
     fill: currentColor;
     width: 100%;
     margin: 0 auto;
-    padding: 200px 10px 50px;
+    padding: 230px 10px 50px;
     border: 1px solid var(--green);
     border-radius: 6px;
     background-color: var(--green);
     position: relative;
+    z-index: 0
+    ;
     overflow: hidden;
 
     .statistics-card-icon {
@@ -73,7 +75,14 @@
     .statistics-text {
         position: relative;
         z-index: 5;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
+        color: var(--green-contrast);
+        text-shadow:
+            0 -4px 20px var(--green),
+            0 -4px 10px var(--green),
+            0 0 5px var(--green),
+            0 0 5px var(--green),
+            0 0 5px var(--green);
 
         p {
             margin-bottom: 6px;
@@ -140,6 +149,13 @@
         align-items: flex-start;
         justify-content: space-evenly;
         text-align: center;
+        color: var(--green-contrast);
+        text-shadow:
+            0 0 20px var(--green),
+            0 0 10px var(--green),
+            0 0 5px var(--green),
+            0 0 5px var(--green),
+            0 0 5px var(--green);
 
         > p {
             font-size: 12px;
@@ -162,7 +178,13 @@
         background-color: color-mix(in srgb, var(--green-stronger) 20%, transparent);;
         width: 100%;
         padding: 10px;
-        // color: var(--green-contrast);
+        color: var(--green-contrast);
+        text-shadow:
+            0 0 20px var(--green),
+            0 0 10px var(--green),
+            0 0 5px var(--green),
+            0 0 5px var(--green),
+            0 0 5px var(--green);
         text-align: left;
         font-size: 14px;
         font-weight: 600;

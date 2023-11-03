@@ -1,30 +1,20 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GameMode, Pane, PaneChange } from '@common-types';
-
-// import { LOCAL_STORAGE } from '@const';
+import { StatisticForCard } from '@utils/statistics';
 import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
-import { useSelector, useDispatch } from '@store';
-
-import { getNow } from '@utils/date';
 import { ModeFilter, CharactersFilter, LengthFilter, getStatisticForFilter, getStatisticCardDataFromStatistics } from '@utils/statistics';
 
-import { setGameMode, setWordToGuess } from '@store/gameSlice'
-
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
 import IconLayersAlt from '@components/Icons/IconLayersAlt';
-import IconFancyCheck from '@components/Icons/IconFancyCheck';
-import IconShare from '@components/Icons/IconShare';
 
 import '../Settings/Settings.scss'
 
 interface Props {
-    // changePane: PaneChange,
+    setStatisticData: Dispatch<SetStateAction<StatisticForCard | undefined>>
 }
 
 const StatisticsFilters = ({ setStatisticData }: Props) => {

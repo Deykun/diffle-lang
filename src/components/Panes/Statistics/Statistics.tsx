@@ -1,19 +1,17 @@
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Statistic } from '@utils/statistics';
+import { StatisticForCard } from '@utils/statistics';
 
 import StatisticsCard from './StatisticsCard';
 import StatisticsFilters from './StatisticsFilters';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
-
-
 import './Statistics.scss'
-import { useState } from 'react';
 
 const Statistics = () => {
-    const [statisticData, setStatisticData] = useState<Statistic | undefined>(undefined);
+    const [statisticData, setStatisticData] = useState<StatisticForCard | undefined>(undefined);
     const { t } = useTranslation();
     
     useScrollEffect('bottom', [statisticData])

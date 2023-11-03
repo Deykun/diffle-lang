@@ -39,8 +39,18 @@
     background-color: transparent;
 
     .contrast & {
-        -webkit-text-stroke: 4px var(--stroke-contrast);
-        paint-order: stroke fill;
+        // We are waiting for chrome
+        // -webkit-text-stroke: 4px var(--stroke-contrast);
+        // paint-order: stroke fill;
+
+        text-shadow: 0 2px 4px var(--stroke-contrast), 0 1px 3px var(--stroke-contrast), 0 0 2px var(--stroke-contrast);
+    }
+
+    &.new {
+        .contrast & {
+            // -webkit-text-stroke: 0;
+            text-shadow: none;
+        }
     }
 
     &.correct {
