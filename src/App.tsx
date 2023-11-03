@@ -22,8 +22,7 @@ import Toast from '@components/Toast/Toast';
 import './App.scss'
 
 const App = () => {
-    // const [pane, setPane] = useState(getInitPane());
-    const [pane, setPane] = useState(PaneInterface.Statistics);
+    const [pane, setPane] = useState(getInitPane());
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
     const { vibrate } = useVibrate();
@@ -39,7 +38,7 @@ const App = () => {
 
         const isSavedContrastTheme = localStorage.getItem(LOCAL_STORAGE.THEME_CONTRAST) === 'true';
         if (isSavedContrastTheme) {
-            document.body.classList.add('contrast');
+            document.documentElement.classList.add('contrast');
         }
     }, []);
 

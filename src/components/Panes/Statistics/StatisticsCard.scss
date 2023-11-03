@@ -1,15 +1,12 @@
 .statistics-card {
-    color: var(--text);
     color: black;
     fill: currentColor;
     width: 100%;
-    max-width: 400px;
     margin: 0 auto;
     padding: 200px 10px 50px;
-    border: 1px solid #b2d57f;
+    border: 1px solid var(--green);
     border-radius: 6px;
     background-color: var(--green);
-    background-color: #b2d57f;
     position: relative;
     overflow: hidden;
 
@@ -36,8 +33,6 @@
         position: relative;
         display: inline-block;
         vertical-align: middle;
-        color: var(--text);
-        color: #436e05;
         color: black;
         margin: 0 0.25em;
     }
@@ -55,7 +50,7 @@
             position: relative;
 
             .circle-scale {
-                width: 450%;
+                width: 550%;
             }
         }
     }
@@ -163,10 +158,11 @@
         bottom: 0;
         left: 0;
         z-index: 6;
-        background: #77b81961;
+        background-color: var(--green-stronger);
+        background-color: color-mix(in srgb, var(--green-stronger) 20%, transparent);;
         width: 100%;
         padding: 10px;
-        color: white;
+        // color: var(--green-contrast);
         text-align: left;
         font-size: 14px;
         font-weight: 600;

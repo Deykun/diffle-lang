@@ -151,7 +151,7 @@
                 }
             }
 
-            body.contrast & .setting-active--contrast,
+            .contrast & .setting-active--contrast,
             .setting-active {
                 &,
                 &:hover {

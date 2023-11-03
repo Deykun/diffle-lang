@@ -4,6 +4,8 @@ import { GameMode } from '@common-types';
 
 export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
 
+export const PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS = 6;
+
 export const KEY_LINES = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],

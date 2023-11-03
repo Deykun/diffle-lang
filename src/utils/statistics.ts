@@ -1,5 +1,5 @@
 import { GameMode } from '@common-types';
-import Statistics from '@components/Panes/Statistics/Statistics';
+import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
 export enum ModeFilter {
     All = 'all',
@@ -12,41 +12,25 @@ export enum CharactersFilter {
     NoSpecial = 'noSpecial',
     Special = 'onlySpecial',
 }
-interface LocalStorageInput {
-    gameMode: GameMode,
-    gameLanguage: string,
-    hasSpecialCharacters: boolean,
+
+export enum LengthFilter {
+    All = 'all',
+    Short = 'short',
+    Long = 'long',
 }
 
-export const getLocalStorageKeyForStat = ({ gameLanguage, gameMode, hasSpecialCharacters }: LocalStorageInput) => {
-    return `diffle_stats_${gameLanguage}_${gameMode}_${hasSpecialCharacters ? 'special' : 'no_special'}`;
-};
+interface LocalStorageInput {
+    gameMode: GameMode | ModeFilter,
+    gameLanguage: string,
+    hasSpecialCharacters: boolean,
+    isShort: boolean,
+}
 
-// What should be noted in local storage
-//  - lastRecordedWord
-//  - lastPlay
-//  - legnth of first / second word
+export const getLocalStorageKeyForStat = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageInput) => {
+    return `diffle_stats_${gameLanguage}_${gameMode}_${hasSpecialCharacters ? 'special' : 'no_special'}_${isShort ? 'short' : 'long'}`;
+}; 
 
-
-// Globally:
-//  - used letters
-//     - green, yellow, gray
-//     - unique letters
-
-// Questions:
-//   - should there be a division for special characters and not?
-
-//  What should be rejected:
-//   - one word win in stats
-
-// What options should be avaialble:
-//  - reset stats (per mode)
-//  - export stats
-//  - import stats
-//  - share stats
- 
-
-interface Statistic {
+export interface Statistic {
     totals: {
         won: number,
         lost: number,
@@ -102,13 +86,7 @@ const EMPTY_STATISTIC = {
     },
 };
 
-const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters }: LocalStorageInput): Statistic => {
-    const key = getLocalStorageKeyForStat({
-        gameLanguage,
-        gameMode,
-        hasSpecialCharacters,
-    });
-
+const getStatisticForKey = (key: string): Statistic => {
     const savedState = localStorage.getItem(key);
 
     if (savedState) {
@@ -120,11 +98,23 @@ const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters }: LocalSto
     return EMPTY_STATISTIC;
 }
 
-const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters }: LocalStorageInput, statistics: Statistic) => {
+const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageInput): Statistic => {
     const key = getLocalStorageKeyForStat({
         gameLanguage,
         gameMode,
         hasSpecialCharacters,
+        isShort,
+    });
+
+    return getStatisticForKey(key);
+}
+
+const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageInput, statistics: Statistic) => {
+    const key = getLocalStorageKeyForStat({
+        gameLanguage,
+        gameMode,
+        hasSpecialCharacters,
+        isShort,
     });
 
     const statisticToSave = JSON.stringify(statistics);
@@ -152,7 +142,9 @@ export const saveWinIfNeeded = ({
         return;
     }
 
-    const statisticToUpdate = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters });
+    const isShort = wordToGuess.length > PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
+
+    const statisticToUpdate = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort });
 
     const isAlreadySaved = wordToGuess === statisticToUpdate.lastGame?.word;
     if (isAlreadySaved) {
@@ -199,7 +191,9 @@ export const saveWinIfNeeded = ({
 
     statisticToUpdate.secondWord.letters += secondWord.word.length;
 
-    saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters }, statisticToUpdate);
+    console.log('called');
+
+    saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
 };
 
 const mergeStatistics = (statistics: Statistic[]): Statistic => {
@@ -238,43 +232,73 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
     }, EMPTY_STATISTIC);
 };
 
+interface KeyForFilters {
+    gameLanguage: 'pl',
+    keyModeFilter: ModeFilter,
+    keyCharactersFilter: CharactersFilter,
+    keyLengthFilter: LengthFilter,
+    key: string,
+}
+
+const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: KeyForFilters[], keyModeFilter) => {
+    [CharactersFilter.NoSpecial, CharactersFilter.Special].forEach(keyCharactersFilter => {
+        const hasSpecialCharacters = keyCharactersFilter === CharactersFilter.Special;
+        [LengthFilter.Short, LengthFilter.Long].forEach(keyLengthFilter => {
+            const isShort = keyLengthFilter === LengthFilter.Short;
+
+            const key = getLocalStorageKeyForStat({
+                gameLanguage: 'pl',
+                gameMode: keyModeFilter,
+                hasSpecialCharacters,
+                isShort,
+            });
+
+            stack.push({
+                gameLanguage: 'pl',
+                keyModeFilter,
+                keyCharactersFilter,
+                keyLengthFilter,
+                key,
+            })
+        })
+    });
+
+    return stack;
+}, []);
+
+console.log(KEYS_FOR_FILTERS);
+
 export const getStatisticForFilter = ({
     modeFilter,
-    modeCharactersFilter,
-}: { modeFilter: ModeFilter, modeCharactersFilter: CharactersFilter }) => {
-    const modesToMerge = [];
-
-    if ([ModeFilter.All, ModeFilter.Daily].includes(modeFilter)) {
-        modesToMerge.push(GameMode.Daily);
-    }
-
-    if ([ModeFilter.All, ModeFilter.Practice].includes(modeFilter)) {
-        modesToMerge.push(GameMode.Practice);
-    }
-
-    const arrayOfStatistics = modesToMerge.reduce((stack: Statistic[], modeToMerge) => {
-        if ([CharactersFilter.All, CharactersFilter.NoSpecial].includes(modeCharactersFilter)) {
-            const statisticToUse = getStatistic({
-                gameLanguage: 'pl',
-                gameMode: modeToMerge,
-                hasSpecialCharacters: false,
-            });
-
-            stack.push(statisticToUse);
+    charactersFilter,
+    lengthFilter,
+}: { modeFilter: ModeFilter, charactersFilter: CharactersFilter, lengthFilter: LengthFilter }) => {
+    const keysToUse = KEYS_FOR_FILTERS.filter(({
+        keyModeFilter,
+        keyCharactersFilter,
+        keyLengthFilter,
+    }) => {
+        const isStrictModeFilter = [ModeFilter.Daily, ModeFilter.Practice].includes(modeFilter);
+        if (isStrictModeFilter && keyModeFilter !== modeFilter) {
+            return false;
         }
 
-        if ([CharactersFilter.All, CharactersFilter.Special].includes(modeCharactersFilter)) {
-            const statisticToUse = getStatistic({
-                gameLanguage: 'pl',
-                gameMode: modeToMerge,
-                hasSpecialCharacters: true,
-            });
-
-            stack.push(statisticToUse);
+        const isStrictCharacterFilter = [CharactersFilter.NoSpecial, CharactersFilter.Special].includes(charactersFilter);
+        if (isStrictCharacterFilter && keyCharactersFilter !== charactersFilter) {
+            return false;
         }
 
-        return stack;
-    }, []);
+        const isStrictLengthFilter = [LengthFilter.Short, LengthFilter.Long].includes(lengthFilter);
+        if (isStrictLengthFilter && keyLengthFilter !== lengthFilter) {
+            return false;
+        }
+
+        return true;
+    }).map(({ key }) => key);
+
+    console.log(JSON.stringify(keysToUse, null, 4));
+
+    const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
 
     return mergeStatistics(arrayOfStatistics);
 };

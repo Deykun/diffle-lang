@@ -38,7 +38,7 @@
     border: 1px solid var(--border);
     background-color: transparent;
 
-    body.contrast & {
+    .contrast & {
         -webkit-text-stroke: 4px var(--stroke-contrast);
         paint-order: stroke fill;
     }
@@ -60,15 +60,15 @@
         background-color: var(--orange);
         border-color: var(--orange);
 
-        body.contrast & {
+        .contrast & {
             background-image: repeating-linear-gradient(
                 45deg,
                 var(--incorrect) 0px,
                 var(--incorrect) 10px,
-                var(--green) 10px,
-                var(--green) 20px
+                var(--orange) 10px,
+                var(--orange) 20px
             );
-            border-color: var(--green);
+            border-color: var(--orange);
         }
     }
 }

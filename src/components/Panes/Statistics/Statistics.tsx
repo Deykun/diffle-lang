@@ -1,20 +1,22 @@
 import { useTranslation } from 'react-i18next';
 
+import { Statistic } from '@utils/statistics';
+
 import StatisticsCard from './StatisticsCard';
 import StatisticsFilters from './StatisticsFilters';
+
+import useScrollEffect from '@hooks/useScrollEffect';
+
+
 
 import './Statistics.scss'
 import { useState } from 'react';
 
-const roundMath = num => Math.round(num * 10) / 10;
-
-function getRandomArbitrary(min, max) {
-    return roundMath(Math.random() * (max - min) + min);
-}
-
 const Statistics = () => {
-    const [statisticData, setStatisticData] = useState(undefined);
+    const [statisticData, setStatisticData] = useState<Statistic | undefined>(undefined);
     const { t } = useTranslation();
+    
+    useScrollEffect('bottom', [statisticData])
 
     const isMissingData = !statisticData || statisticData.totalGames === 0;
 
@@ -22,8 +24,8 @@ const Statistics = () => {
         <div className="statistics">
             <StatisticsFilters setStatisticData={setStatisticData} />
             <div>
-                <h3>{t('settings.statisticsTitle')}</h3>
-                {!isMissingData && <StatisticsCard {...statisticData} />}
+                <h2>{t('settings.statisticsTitle')}</h2>
+                {isMissingData ? <p>{t('statistics.noData')}</p> : <StatisticsCard {...statisticData} />}
             </div>
         </div>
     )

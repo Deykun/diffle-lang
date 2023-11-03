@@ -96,19 +96,19 @@ const StatisticsCard = ({
                 <span className="correct">
                     <strong>
                         {(lettersCorrect).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersCorrect / lettersPerGame} isPercentage />
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersCorrect / lettersPerGame) * 100} isPercentage />
                     </strong>
                 </span>
                 <span className="position">
                     <strong>
                         {(lettersPosition).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersPosition / lettersPerGame} isPercentage />
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersPosition / lettersPerGame) * 100} isPercentage />
                     </strong>
                 </span>
                 <span className="incorrect">
                     <strong>
                         {(lettersIncorrect).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersIncorrect / lettersPerGame} isPercentage />
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersIncorrect / lettersPerGame) * 100} isPercentage />
                     </strong>
                 </span>
             </p>

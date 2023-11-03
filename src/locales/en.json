@@ -51,8 +51,18 @@
         "lightMode": "Light mode",
         "darkMode": "Dark mode",
         "appVibration": "App vibrations",
+        "keyboard": "Keyboard",
         "confirmSubmition": "Confirm words",
         "keyboardVibration": "Keyboard vibrations",
         "smallerKeyboard": "Smaller keyboard"
+    },
+    "statistics": {
+        "filters": "Filters",
+        "filterAll": "All",
+        "noData": "No data.",
+        "specialCharactersWithout": "without special characters",
+        "specialCharactersWith": "with special characters",
+        "wordLengthShort": "to {{to}} characters",
+        "wordLengthLong": "above {{above}} characters"
     }
 }

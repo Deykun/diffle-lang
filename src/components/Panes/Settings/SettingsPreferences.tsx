@@ -52,7 +52,8 @@ const SettingsPreferences = () => {
 
         localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
 
-        document.body.classList.toggle('contrast');
+        // document.body.classList.toggle('contrast');
+        document.documentElement.classList.toggle('contrast');
     };
 
     const handleLanguageChange = useCallback(() => {
@@ -65,12 +66,6 @@ const SettingsPreferences = () => {
         <>
             <h2>{t('settings.preferencesTitle')}</h2>
             <ul>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
-                        <IconVibrate />
-                        <span>{t('settings.appVibration')}</span>
-                    </button>
-                </li>
                 <li>
                     <button className="setting setting-active" onClick={handleToggleDarkLightMode}>
                         <span className="only-dark">
@@ -90,6 +85,12 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
                 <li>
+                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
+                        <IconVibrate />
+                        <span>{t('settings.appVibration')}</span>
+                    </button>
+                </li>
+                <li>
                     <button className="setting" onClick={handleLanguageChange}>
                         <IconTranslation />
                         <span>{t('settings.currentLanguage')}</span>
@@ -99,7 +100,7 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
             </ul>
-            <h3>Klawiatura</h3>
+            <h3>{t('settings.keyboard')}</h3>
             <ul className="list-col-3">
                 <li>
                     <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>

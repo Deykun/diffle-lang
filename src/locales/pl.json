@@ -60,9 +60,18 @@
         "lightMode": "Styl dzienny",
         "darkMode": "Styl nocny",
         "appVibration": "Wibracje aplikacji",
+        "keyboard": "Klawiatura",
         "confirmSubmition": "Wymagaj potwierdzenia",
         "keyboardVibration": "Wibracje klawiatury",
-        "smallerKeyboard": "Mniejsza klawiatura",
-        "statisticsFilterAll": "Wszystkie"
+        "smallerKeyboard": "Mniejsza klawiatura"
+    },
+    "statistics": {
+        "filters": "Filtry",
+        "filterAll": "Wszystkie",
+        "noData": "Brak danych.",
+        "specialCharactersWithout": "bez znaków specjalnych",
+        "specialCharactersWith": "ze znakami specjalnymi",
+        "wordLengthShort": "do {{to}} znaków",
+        "wordLengthLong": "powyżej {{above}} znaków"
     }
 }
