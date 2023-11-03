@@ -58,11 +58,24 @@
     },
     "statistics": {
         "filters": "Filters",
-        "filterAll": "All",
+        "filterAll": "Merge",
         "noData": "No data.",
         "specialCharactersWithout": "without special characters",
         "specialCharactersWith": "with special characters",
         "wordLengthShort": "to <strong>{{to}}</strong> characters",
-        "wordLengthLong": "above <strong>{{above}}</strong> characters"
+        "wordLengthLong": "above <strong>{{above}}</strong> characters",
+        "letters": "letters",
+        "averageWordsBefore": "in",
+        "averageWords": "words",
+        "averageLetters": "average letters",
+        "inWord": "in word",
+        "inFirstWord": "in the first word",
+        "inSecondWord": "in the second word",
+        "keyboardUsed": "average <strong>{{value}}%</strong> of the keyboard used",
+        "totalGames_one": "<strong>1</strong> game", 
+        "totalGames_other": "<strong>{{count}}</strong> games",
+        "totalWon": "<strong>{{count}}</strong> won",
+        "totalStreak": "in a row",
+        "totalBestStreak": "best in a row"
     }
 }

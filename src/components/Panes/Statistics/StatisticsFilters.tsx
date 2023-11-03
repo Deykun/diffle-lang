@@ -9,7 +9,11 @@ import { ModeFilter, CharactersFilter, LengthFilter, getStatisticForFilter, getS
 
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
+import IconFlag from '@components/Icons/IconFlag';
+import IconFlagAlt from '@components/Icons/IconFlagAlt';
 import IconLayersAlt from '@components/Icons/IconLayersAlt';
+import IconRulerSmall from '@components/Icons/IconRulerSmall';
+import IconRulerBig from '@components/Icons/IconRulerBig';
 
 import '../Settings/Settings.scss'
 
@@ -84,6 +88,7 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                     className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.NoSpecial })}
                     onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
                     >
+                        <IconFlag />
                         <span>{t('statistics.specialCharactersWithout')}</span>
                     </button>
                 </li>
@@ -92,6 +97,7 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                     className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.Special })}
                     onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
                     >
+                        <IconFlagAlt />
                         <span>{t('statistics.specialCharactersWith')}</span>
                     </button>
                 </li>
@@ -111,6 +117,7 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                     className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Short })}
                     onClick={() => setLengthFilter(LengthFilter.Short)}
                     >
+                        <IconRulerSmall />
                         <span dangerouslySetInnerHTML={{
                             __html: t('statistics.wordLengthShort', { to: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
                         }} />
@@ -121,6 +128,7 @@ const StatisticsFilters = ({ setStatisticData }: Props) => {
                     className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Long })}
                     onClick={() => setLengthFilter(LengthFilter.Long)}
                     >
+                        <IconRulerBig />
                         <span dangerouslySetInnerHTML={{
                             __html: t('statistics.wordLengthLong', { above: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
                         }} />

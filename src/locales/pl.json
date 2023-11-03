@@ -67,7 +67,7 @@
     },
     "statistics": {
         "filters": "Filtry",
-        "filterAll": "Wszystkie",
+        "filterAll": "Połącz",
         "noData": "Brak danych.",
         "specialCharactersWithout": "bez znaków specjalnych",
         "specialCharactersWith": "ze znakami specjalnymi",
