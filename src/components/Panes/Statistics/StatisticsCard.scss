@@ -8,8 +8,7 @@
     border-radius: 6px;
     background-color: var(--green);
     position: relative;
-    z-index: 0
-    ;
+    z-index: 0;
     overflow: hidden;
 
     .statistics-card-icon {
@@ -145,7 +144,7 @@
 
     .statistics-other {
         display: flex;
-        margin-top: 60px;
+        margin-top: 70px;
         gap: 12px;
         align-items: flex-start;
         justify-content: space-evenly;
@@ -160,12 +159,13 @@
 
         > p {
             font-size: 12px;
-            width:20%;
+            width: 20%;
         }
 
         strong {
             text-shadow: 0 0 5px var(--green-contrast);
-            font-size: 34px;
+            font-size: 50px;
+            line-height: 1;
             display: block;
             margin: 0 auto 1px;
         }

@@ -19,16 +19,25 @@ export enum LengthFilter {
     Long = 'long',
 }
 
-interface LocalStorageInput {
+interface LocalStorageStatisticInput {
     gameMode: GameMode | ModeFilter,
     gameLanguage: string,
     hasSpecialCharacters: boolean,
     isShort: boolean,
 }
 
-export const getLocalStorageKeyForStat = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageInput) => {
+export const getLocalStorageKeyForStat = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageStatisticInput) => {
     return `diffle_stats_${gameLanguage}_${gameMode}_${hasSpecialCharacters ? 'special' : 'no_special'}_${isShort ? 'short' : 'long'}`;
-}; 
+};
+
+interface LocalStorageStreakInput {
+    gameMode: GameMode | ModeFilter,
+    gameLanguage: string,
+}
+
+export const getLocalStorageKeyForStreak = ({ gameLanguage, gameMode }: LocalStorageStreakInput) => {
+    return `diffle_streak_${gameLanguage}_${gameMode}`;
+};
 
 export interface Statistic {
     totals: {
@@ -96,9 +105,9 @@ const getStatisticForKey = (key: string): Statistic => {
     }
 
     return EMPTY_STATISTIC;
-}
+};
 
-const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageInput): Statistic => {
+const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageStatisticInput): Statistic => {
     const key = getLocalStorageKeyForStat({
         gameLanguage,
         gameMode,
@@ -107,9 +116,9 @@ const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }:
     });
 
     return getStatisticForKey(key);
-}
+};
 
-const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageInput, statistics: Statistic) => {
+const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageStatisticInput, statistics: Statistic) => {
     const key = getLocalStorageKeyForStat({
         gameLanguage,
         gameMode,
@@ -122,7 +131,49 @@ const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }
     localStorage.setItem(key, statisticToSave);
 };
 
-export interface SaveGame extends LocalStorageInput {
+export interface Streak {
+    streak: number,
+    bestStreak: number,
+}
+
+const EMPTY_STREAK = {
+    streak: 0,
+    bestStreak: 0,
+};
+
+const getStreakForKey = (key: string): Streak => {
+    const savedState = localStorage.getItem(key);
+
+    if (savedState) {
+        const state = JSON.parse(savedState) as Streak;
+
+        return state;
+    }
+
+    return EMPTY_STREAK;
+}
+
+const getStreak = ({ gameLanguage, gameMode }: LocalStorageStreakInput) => {
+    const key = getLocalStorageKeyForStreak({
+        gameLanguage,
+        gameMode,
+    });
+
+    return getStreakForKey(key);
+};
+
+const saveStreak = ({ gameLanguage, gameMode}: LocalStorageStreakInput, streak: Streak) => {
+    const key = getLocalStorageKeyForStreak({
+        gameLanguage,
+        gameMode,
+    });
+
+    const streakToSave = JSON.stringify(streak);
+
+    localStorage.setItem(key, streakToSave);
+};
+
+export interface SaveGame extends LocalStorageStatisticInput {
     wordToGuess: string,
 }
 
@@ -142,9 +193,10 @@ export const saveWinIfNeeded = ({
         return;
     }
 
-    const isShort = wordToGuess.length > PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
+    const isShort = wordToGuess.length <= PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
 
     const statisticToUpdate = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort });
+    const streakToUpdate = getStreak({ gameLanguage, gameMode });
 
     const isAlreadySaved = wordToGuess === statisticToUpdate.lastGame?.word;
     if (isAlreadySaved) {
@@ -159,7 +211,6 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.totals.won += 1;
     statisticToUpdate.totals.letters += letters;
     statisticToUpdate.totals.words += words;
-    statisticToUpdate.totals.streak += 1;
 
     statisticToUpdate.letters.keyboardUsed = weightedKeyboarUsagePercentage;
     statisticToUpdate.letters.correct += subtotals.correct;
@@ -172,10 +223,6 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.lastGame.word = wordToGuess;
     statisticToUpdate.lastGame.letters = letters;
     statisticToUpdate.lastGame.words = words;
-
-    if (statisticToUpdate.totals.streak > statisticToUpdate.totals.bestStreak) {
-        statisticToUpdate.totals.bestStreak = statisticToUpdate.totals.streak;
-    }
 
     const [firstWord, secondWord] = guesses;
 
@@ -192,6 +239,14 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.secondWord.letters += secondWord.word.length;
 
     saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
+
+    streakToUpdate.streak += 1;
+
+    if (streakToUpdate.streak > streakToUpdate.bestStreak) {
+        streakToUpdate.bestStreak = streakToUpdate.streak;
+    }
+
+    saveStreak({ gameLanguage, gameMode }, streakToUpdate);
 };
 
 const mergeStatistics = (statistics: Statistic[]): Statistic => {
@@ -295,6 +350,18 @@ export const getStatisticForFilter = ({
     const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
 
     return mergeStatistics(arrayOfStatistics);
+};
+
+export const getStreakForFilter = ({
+    modeFilter,
+}: { modeFilter: ModeFilter, charactersFilter: CharactersFilter, lengthFilter: LengthFilter }): Streak => {
+    const isStrictModeFilter = [ModeFilter.Daily, ModeFilter.Practice].includes(modeFilter);
+
+    if (isStrictModeFilter) {
+        return getStreak({ gameLanguage: 'pl', gameMode: modeFilter });
+    }
+
+    return EMPTY_STREAK;
 };
 
 export interface StatisticForCard {

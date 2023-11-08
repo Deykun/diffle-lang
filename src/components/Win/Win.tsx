@@ -111,7 +111,11 @@ ${diffleUrl} #diffle #difflepl`;
             </div>
             <div className="subtotals">
                 <p className="subtotal-keyboard-usage">
-                    {t('win.uniqLettersUsed', { percentage: keyboardUsagePercentage })}
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: t('win.uniqLettersUsed', { percentage: keyboardUsagePercentage })
+                      }}
+                    />
                 </p>
             </div>
             <div className="actions">

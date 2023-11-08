@@ -36,7 +36,7 @@
         "nextDaily_few": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godziny</strong>.",
         "nextDaily_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
         "nextDailyShort": "nowe za {{count}}g",
-        "uniqLettersUsed": "odkryto {{percentage}}% klawiatury"
+        "uniqLettersUsed": "odkryto <strong>{{percentage}}%</strong> klawiatury"
     },
     "help": {
         "howToPlayTitle": "Jak gra się w diffle?",
@@ -82,7 +82,7 @@
         "inSecondWord": "w drugim słowie",
         "keyboardUsed": "średnio <strong>{{value}}%</strong> odkrytej klawiatury",
         "totalGames_zero": "<strong>0</strong> gier",       
-        "totalGames_one": "<strong>1</strong> grę",       
+        "totalGames_one": "<strong>1</strong> gra",       
         "totalGames_few": "<strong>{{count}}</strong> gier",       
         "totalGames_many": "<strong>{{count}}</strong> gier",
         "totalWon_zero": "<strong>0</strong> wygranych",

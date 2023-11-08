@@ -22,6 +22,7 @@ const START_FROM = {
 const StatisticsCard = ({
     totalGames,
     totalWon,
+    streak,
     currentStreak,
     bestStreak,
     lettersPerGame,
@@ -95,8 +96,8 @@ const StatisticsCard = ({
                         count: totalWon,
                     })
                 }} />
-                <p><strong>{currentStreak}</strong> {t('statistics.totalStreak')}</p>
-                <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>
+                {bestStreak > 0 && <p><strong>{streak}</strong> {t('statistics.totalStreak')}</p>}
+                {bestStreak > 0 && <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>}                
             </div>
             <footer>
                 {location.href}
