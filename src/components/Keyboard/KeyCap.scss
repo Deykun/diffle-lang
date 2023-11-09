@@ -35,12 +35,11 @@
         border-color: var(--incorrect);
 
         &.typed {
-            color: var(--red);
+            color: var(--incorrect-red-contrast);
+            background-color: var(--incorrect-red);
             border-color: var(--red);
-            animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-            transform: translate3d(0, 0, 0);
-            backface-visibility: hidden;
-            perspective: 1000px;
+            animation: shake 5s cubic-bezier(.36,.07,.19,.97) infinite;
+            transform: translate(0, 0);
         }
     }
 
@@ -144,16 +143,16 @@
 }
 
 @keyframes shake {
-    10%, 90% {
-        transform: translate3d(-1px, 0, 0);
+    2%, 18% {
+        transform: translate(-1px, 0);
     }
-    20%, 80% {
-        transform: translate3d(2px, 0, 0);
+    4%, 16% {
+        transform: translate(2px, 0);
     }
-    30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
+    6%, 10%, 14% {
+        transform: translate(-4px, 0);
     }
-    40%, 60% {
-        transform: translate3d(4px, 0, 0);
+    8%, 12% {
+        transform: translate(4px, 0);
     }
 }
