@@ -1,4 +1,6 @@
-1.7.4:
+1.7.5:
+  - fix - safari `<br />` should be removed from copied content
+1.7.4 30.09.2023:
   - fix - error while fetching dictionary chunk does not block the chunk
 1.7.3 31.08.2023:
   - new - turn off keyboard's vibrations
