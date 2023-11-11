@@ -45,8 +45,7 @@ export interface Statistic {
         lost: number,
         letters: number,
         words: number,
-        streak: number,
-        bestStreak: number,
+        rejectedWords: number,
     },
     letters: {
         keyboardUsed: number,
@@ -77,8 +76,7 @@ const EMPTY_STATISTIC = {
         lost: 0,
         letters: 0,
         words: 0,
-        streak: 0,
-        bestStreak: 0,
+        rejectedWords: 0,
         keyboardUsagePercentage: 0,
     },
     letters: {
@@ -184,6 +182,7 @@ export const saveWinIfNeeded = ({
     hasSpecialCharacters,
     guesses,
     words,
+    rejectedWords,
     letters,
     subtotals,
     keyboardUsagePercentage,
@@ -211,6 +210,7 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.totals.won += 1;
     statisticToUpdate.totals.letters += letters;
     statisticToUpdate.totals.words += words;
+    statisticToUpdate.totals.rejectedWords += rejectedWords.length;
 
     statisticToUpdate.letters.keyboardUsed = weightedKeyboarUsagePercentage;
     statisticToUpdate.letters.correct += subtotals.correct;
@@ -266,8 +266,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
                 lost: stack.totals.lost + statistic.totals.lost,
                 letters: stack.totals.letters + statistic.totals.letters,
                 words: stack.totals.words + statistic.totals.words,
-                streak: Math.max(stack.totals.streak, statistic.totals.streak),
-                bestStreak: Math.max(stack.totals.bestStreak, statistic.totals.bestStreak),
+                rejectedWords: stack.totals.rejectedWords + statistic.totals.rejectedWords,
             },
             letters: {
                 keyboardUsed: weightedKeyboarUsagePercentage,
@@ -367,8 +366,7 @@ export const getStreakForFilter = ({
 export interface StatisticForCard {
     totalGames: number,
     totalWon: number,
-    currentStreak: number,
-    bestStreak: number,
+    rejectedWordsPerGame: number,
     lettersPerGame: number,
     wordsPerGame: number,
     lettersPerWord: number,
@@ -386,8 +384,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
     return {
         totalGames,
         totalWon: statistic.totals.won,
-        currentStreak: statistic.totals.streak,
-        bestStreak: statistic.totals.bestStreak,
+        rejectedWordsPerGame: statistic.totals.rejectedWords / totalGames,
         lettersPerGame: statistic.totals.letters / totalGames,
         wordsPerGame: statistic.totals.words / totalGames,
         lettersPerWord: statistic.totals.letters / statistic.totals.words,

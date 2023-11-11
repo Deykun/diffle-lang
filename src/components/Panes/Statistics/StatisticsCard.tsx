@@ -23,8 +23,8 @@ const StatisticsCard = ({
     totalGames,
     totalWon,
     streak,
-    currentStreak,
     bestStreak,
+    rejectedWordsPerGame,
     lettersPerGame,
     wordsPerGame,
     lettersPerWord,
@@ -62,6 +62,11 @@ const StatisticsCard = ({
                 <p dangerouslySetInnerHTML={{
                     __html: t('statistics.keyboardUsed', { value: keyboardUsed })
                 }} />
+                {rejectedWordsPerGame > 0 && (
+                    <p>
+                        średnio <strong>{rejectedWordsPerGame.toFixed(1)}</strong> nieznalezionych słów w słowniku
+                    </p>
+                )}
             </div>
             <p className="statistics-letters-types">
                 <span className="correct">

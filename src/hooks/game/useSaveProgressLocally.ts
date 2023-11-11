@@ -21,6 +21,7 @@ function useSaveProgressLocally() {
     const todayStamp = useSelector(state => state.game.today);
     const wordToGuess = useSelector(selectWordToGuess);
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
+    const rejectedWords = useSelector(state => state.game.rejectedWords);
     const guesses = useSelector(state => state.game.guesses);
     const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
     const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
@@ -42,10 +43,11 @@ function useSaveProgressLocally() {
         const recoveryState = {
             wordToGuess,
             guessesWords,
+            rejectedWords,
         };
 
         localStorage.setItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode], JSON.stringify(recoveryState));
-    }, [wordToGuess, guesses]);
+    }, [wordToGuess, guesses, rejectedWords]);
 
     useEffect(() => {
         if (isWon) {
@@ -56,6 +58,7 @@ function useSaveProgressLocally() {
                 hasSpecialCharacters: hasSpecialCharacters,
                 guesses,
                 words,
+                rejectedWords,
                 letters,
                 subtotals,
                 keyboardUsagePercentage,

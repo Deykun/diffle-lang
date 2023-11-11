@@ -19,8 +19,6 @@ const Statistics = () => {
 
     const isMissingData = !statisticData || statisticData.totalGames === 0;
 
-    console.log('streakData', streakData);
-
     return (
         <div className="statistics">
             <StatisticsFilters setStatisticData={setStatisticData} setStreakData={setStreakData} />

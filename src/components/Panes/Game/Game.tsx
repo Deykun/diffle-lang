@@ -35,6 +35,7 @@ const Game = () => {
                 const {
                     wordToGuess: lastWordToGuess = '',
                     guessesWords = [],
+                    rejectedWords = [],
                 } = JSON.parse(storedState);
 
                 const isDailyMode = gameMode === GameMode.Daily;
@@ -52,7 +53,7 @@ const Game = () => {
                         }
                     }
                 } else {
-                    dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
+                    dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords, rejectedWords }));
 
                     return;
                 }

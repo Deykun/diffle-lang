@@ -19,6 +19,7 @@ const initialState: RootGameState = {
     isWon: false,
     letters: { correct: {}, incorrect: {}, position: {} },
     guesses: [],
+    rejectedWords: [],
     hasLongGuesses: false,
     isProcessing: false,
 };
@@ -65,7 +66,7 @@ export const submitAnswer = createAsyncThunk(
 
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
-    async ({ wordToGuess, guessesWords = [] }: { wordToGuess: string, guessesWords: string[] }) => {
+    async ({ wordToGuess, guessesWords = [], rejectedWords = [] }: { wordToGuess: string, guessesWords: string[], rejectedWords: string[] }) => {
         if (!wordToGuess) {
             return;
         }
@@ -84,6 +85,7 @@ export const restoreGameState = createAsyncThunk(
             results,
             wordToGuess,
             wordsLetters,
+            rejectedWords,
         };
     },
 );
@@ -103,6 +105,7 @@ const gameSlice = createSlice({
             state.wordToGuess = wordToGuess;
             state.wordToSubmit = '';
             state.guesses = [];
+            state.rejectedWords = [],
             state.isWon = false;
             state.hasLongGuesses = false;
             state.letters = {
@@ -172,6 +175,9 @@ const gameSlice = createSlice({
                 }
 
                 if (type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST) {
+                    if (!state.rejectedWords.includes(state.wordToSubmit)) {
+                        state.rejectedWords.push(state.wordToSubmit);
+                    }
 
                     return;
                 }
@@ -210,11 +216,13 @@ const gameSlice = createSlice({
             const {
                 isWon,
                 results,
+                rejectedWords = [],
                 wordToGuess,
                 wordsLetters,
             } = action.payload as {
                 isWon: boolean,
                 results: WordReport[],
+                rejectedWords: string[],
                 wordToGuess: string,
                 wordsLetters: {
                     correct: UsedLetters,
@@ -232,7 +240,7 @@ const gameSlice = createSlice({
 
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;
-
+            state.rejectedWords = rejectedWords;
 
             state.letters = {
                 correct: {
@@ -245,7 +253,6 @@ const gameSlice = createSlice({
                     ...wordsLetters?.position,
                 },
             }
-        
         })
     },
 })

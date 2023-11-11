@@ -58,6 +58,7 @@ export interface RootGameState {
         position: UsedLetters,
     },
     guesses: Word[],
+    rejectedWords: string[],
     hasLongGuesses: boolean,
     isProcessing: boolean,
 }

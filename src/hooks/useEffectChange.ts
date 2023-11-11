@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 
 import { Word } from '@common-types';
 
-export default function useEffectChange(callback: () => void, args: (string | Word[])[] ) {
+export default function useEffectChange(callback: () => void, args: (string | Word[] | string[])[] ) {
     const isInited = useRef(false);
 
     useEffect(() => {
