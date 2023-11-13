@@ -1,4 +1,6 @@
-1.7.5:
+1.8:
+  - new - tracking of users added
+1.7.5 11.11.2023:
   - fix - safari `<br />` should be removed from copied content
 1.7.4 30.09.2023:
   - fix - error while fetching dictionary chunk does not block the chunk
