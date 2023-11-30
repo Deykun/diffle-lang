@@ -27,16 +27,18 @@ const Words = () => {
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);
     const wordToGuess = useSelector(selectWordToGuess);
+    const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
 
     const submitGuess: WordInterface = useMemo(() => {
         const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: AffixStatus.New, text: letter }));
 
         return {
-        word: wordToSubmit,
-        affixes,
+            word: wordToSubmit,
+            affixes,
+            caretShift,
         };
-    }, [wordToSubmit]);
+    }, [wordToSubmit, caretShift]);
 
     const hasPolishCharacters = useMemo(() => {
         return wordToGuess !== normilzeWord(wordToGuess);
