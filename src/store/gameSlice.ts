@@ -126,6 +126,17 @@ const gameSlice = createSlice({
                 position: { },
             }
         },
+        setCaretShift(state, action) {
+            const letterIndex = action.payload + 1; // First letter (index: 0)
+            const newCaretShift = letterIndex - state.wordToSubmit.length;
+
+            const newCaretShiftClamped = Math.max(
+                Math.min(newCaretShift, 0),
+                -(state.wordToSubmit.length)
+            );
+
+            state.caretShift = newCaretShiftClamped;
+        },
         letterChangeInAnswer(state, action) {
             if (state.isWon || state.isProcessing) {
                 return;
@@ -287,5 +298,5 @@ const gameSlice = createSlice({
     },
 })
 
-export const { setGameMode, setWordToGuess, setWordToSubmit, letterChangeInAnswer } = gameSlice.actions;
+export const { setGameMode, setWordToGuess, setWordToSubmit, setCaretShift, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;

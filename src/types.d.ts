@@ -12,6 +12,7 @@ export interface Affix {
     isStart?: boolean,
     isEnd?: boolean,
     hasCaretBefore?: boolean,
+    onClick?: () => void,
 }
 
 export interface Word {

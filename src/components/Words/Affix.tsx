@@ -4,7 +4,7 @@ import { Affix as AffixInterface } from '@common-types';
 
 import './Affix.scss';
 
-const Affix = ({ type, text, isStart, isEnd, hasCaretBefore }: AffixInterface) => {
+const Affix = ({ type, text, isStart, isEnd, hasCaretBefore, onClick }: AffixInterface) => {
     return (
         <span
             className={clsx('affix', type, {
@@ -13,6 +13,7 @@ const Affix = ({ type, text, isStart, isEnd, hasCaretBefore }: AffixInterface) =
                 'end': isEnd,
                 'caret': hasCaretBefore,
             })}
+            onClick={onClick}
         >
             {text}
         </span>

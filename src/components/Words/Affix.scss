@@ -37,6 +37,17 @@
     border: 1px solid var(--border);
     background-color: transparent;
 
+    &.new {
+        cursor: pointer;
+
+        &:hover {
+            --blue-transparentized: color-mix(in srgb, transparent 75%, var(--blue));
+
+            box-shadow: 3px 0 3px var(--blue-weaker);
+            box-shadow: 3px 0 3px var(--blue-transparentized);
+        }
+    }
+
     &.correct {
         color: var(--green-contrast);
         background-color: var(--green);
@@ -64,6 +75,7 @@
             left: -5px;
             top: 50%;
             width: 2px;
+            border-radius: 2px;
             height: 20px;
             transform: translateY(-50%);
             background-color: var(--blue);
