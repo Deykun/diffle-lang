@@ -11,11 +11,13 @@ export interface Affix {
     text: string,
     isStart?: boolean,
     isEnd?: boolean,
+    hasCaretBefore?: boolean,
 }
 
 export interface Word {
     word: string,
     affixes: Affix[],
+    caretShift?: number,
 }
 
 export interface Toast {
@@ -41,6 +43,7 @@ export interface RootGameState {
     mode: GameMode,
     today: string,
     wordToGuess: string,
+    caretShift: number,
     wordToSubmit: string,
     isWon: boolean,
     letters: {

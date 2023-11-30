@@ -10,8 +10,11 @@ const Word = ({ guess }: { guess: WordInterface }) => {
     return null;
   }
 
+  const length = guess.word.length;
+  const indexWithCaretBefore = guess.caretShift !== undefined && guess.caretShift < 0 ? guess.word.length + guess.caretShift : undefined;
+
   return (
-    <p className={clsx('word', { 'isExtraLong': guess.word.length > 12 })}>
+    <p className={clsx('word', { 'isExtraLong': length > 12 })}>
         {guess.affixes.map((
             {
                 text,
@@ -21,6 +24,8 @@ const Word = ({ guess }: { guess: WordInterface }) => {
             },
                 index
             ) => {
+                const hasCaretBefore = index === indexWithCaretBefore;
+
                 return (
                     <Affix
                       key={`${index}-${text}`}
@@ -28,6 +33,7 @@ const Word = ({ guess }: { guess: WordInterface }) => {
                       type={type}
                       isStart={isStart}
                       isEnd={isEnd}
+                      hasCaretBefore={hasCaretBefore}
                     />
                 );
             }

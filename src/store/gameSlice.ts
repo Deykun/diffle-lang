@@ -15,6 +15,7 @@ const initialState: RootGameState = {
     mode: getInitMode(),
     today: getNow().stamp,
     wordToGuess: '',
+    caretShift: 0,
     wordToSubmit: '',
     isWon: false,
     letters: { correct: {}, incorrect: {}, position: {} },
@@ -102,6 +103,7 @@ const gameSlice = createSlice({
 
             state.wordToGuess = wordToGuess;
             state.wordToSubmit = '';
+            state.caretShift = 0;
             state.guesses = [];
             state.isWon = false;
             state.hasLongGuesses = false;
@@ -116,6 +118,7 @@ const gameSlice = createSlice({
 
             state.isWon = false;
             state.wordToSubmit = '';
+            state.caretShift = 0;
 
             state.letters = {
                 correct: { },
@@ -130,8 +133,40 @@ const gameSlice = createSlice({
 
             const typed = action.payload;
 
-            if (typed === 'backspace') {
-                state.wordToSubmit = state.wordToSubmit.slice(0, -1);
+            if (typed === 'arrowleft') {
+                state.caretShift = Math.max(state.caretShift - 1, -(state.wordToSubmit.length));
+            
+                return;
+            }
+
+            if (typed === 'arrowright') {
+                state.caretShift = Math.min(state.caretShift + 1, 0);
+                
+                return;
+            }
+
+            if (typed === 'backspace' || typed === 'delete') {
+                const isDelete = typed === 'delete';
+
+                if (state.caretShift === 0) {
+                    if (isDelete) {
+                        // End reached
+                        return;
+                    }
+
+                    state.wordToSubmit = state.wordToSubmit.slice(0, -1);
+                } else {
+                    const deleteModificator = isDelete ? 1 : 0;
+
+                    const position = state.wordToSubmit.length + state.caretShift + deleteModificator;
+                    state.wordToSubmit = state.wordToSubmit.substring(0, position - 1) + state.wordToSubmit.substring(position, state.wordToSubmit.length);
+
+                    if (isDelete) {
+                        state.caretShift = state.caretShift + 1;
+                    }
+                }
+
+                state.caretShift = Math.max(state.caretShift, -(state.wordToSubmit.length));
             
                 return;
             }
@@ -141,7 +176,15 @@ const gameSlice = createSlice({
                     return;
                 }
 
-                state.wordToSubmit = state.wordToSubmit + typed;
+                if (state.caretShift === 0) {
+                    state.wordToSubmit = state.wordToSubmit + typed;
+
+                    return;
+                }
+
+                const position = state.wordToSubmit.length + state.caretShift; // caretShift is negative
+
+                state.wordToSubmit = `${state.wordToSubmit.slice(0, position)}${typed}${state.wordToSubmit.slice(position)}`;
             }
         },
         setProcessing(state, action) {
@@ -149,8 +192,8 @@ const gameSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(submitAnswer.pending, () => {
-            // 
+        builder.addCase(submitAnswer.pending, (state) => {
+            state.caretShift = 0;
         }).addCase(submitAnswer.fulfilled, (state, action) => {
             state.isProcessing = false;
 
