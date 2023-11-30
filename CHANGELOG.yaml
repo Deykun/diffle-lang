@@ -1,4 +1,6 @@
-1.8:
+1.8.1:
+  - new - caret works for mobile with click
+1.8 30.11.2023:
   - new - clicking ← or → shows caret and allows easier modifications to the word
   - new - delete button is supported
 1.7.5 11.11.2023:

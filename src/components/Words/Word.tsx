@@ -1,11 +1,20 @@
 import clsx from 'clsx';
-import { Word as WordInterface } from '@common-types';
+import { Word as WordInterface, AffixStatus } from '@common-types';
+
+import { useDispatch } from '@store';
+import { setCaretShift } from '@store/gameSlice';
 
 import Affix from '@components/Words/Affix';
 
 import './Words.scss';
 
 const Word = ({ guess }: { guess: WordInterface }) => {
+  const dispatch = useDispatch();
+
+  const handleClickGenerator = (letterIndex: number) => () => {
+    dispatch(setCaretShift(letterIndex));
+  };
+
   if (!guess) {
     return null;
   }
@@ -24,6 +33,7 @@ const Word = ({ guess }: { guess: WordInterface }) => {
             },
                 index
             ) => {
+                const isNew = type === AffixStatus.New;
                 const hasCaretBefore = index === indexWithCaretBefore;
 
                 return (
@@ -34,6 +44,7 @@ const Word = ({ guess }: { guess: WordInterface }) => {
                       isStart={isStart}
                       isEnd={isEnd}
                       hasCaretBefore={hasCaretBefore}
+                      onClick={isNew ? handleClickGenerator(index) : undefined}
                     />
                 );
             }
