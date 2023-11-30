@@ -22,7 +22,6 @@ const Word = ({ guess }: { guess: WordInterface }) => {
   const length = guess.word.length;
   const indexWithCaretBefore = guess.caretShift !== undefined && guess.caretShift < 0 ? guess.word.length + guess.caretShift : undefined;
 
-
   return (
     <p className={clsx('word', { 'isExtraLong': length > 12 })}>
         {guess.affixes.map((
