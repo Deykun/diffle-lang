@@ -4,8 +4,6 @@ import { Affix as AffixInterface } from '@common-types';
 
 import './Affix.scss';
 
-// hasCaretBefore
-
 const Affix = ({ type, text, isStart, isEnd, hasCaretBefore }: AffixInterface) => {
     return (
         <span
