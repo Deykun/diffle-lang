@@ -51,6 +51,15 @@
             // -webkit-text-stroke: 0;
             text-shadow: none;
         }
+
+        cursor: pointer;
+
+        &:hover {
+            --blue-transparentized: color-mix(in srgb, transparent 75%, var(--blue));
+
+            box-shadow: 3px 0 3px var(--blue-weaker);
+            box-shadow: 3px 0 3px var(--blue-transparentized);
+        }
     }
 
     &.correct {
@@ -80,6 +89,37 @@
             );
             border-color: var(--orange);
         }
+    }
+
+    &.caret {
+        margin-left: 5px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 50%;
+            width: 2px;
+            border-radius: 2px;
+            height: 20px;
+            transform: translateY(-50%);
+            background-color: var(--blue);
+            animation: blink 1s linear infinite;
+        }
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+      opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
 

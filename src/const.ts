@@ -19,7 +19,9 @@ export const SEED_SHIFT = location.hostname === 'localhost' ? 0 : 1984;
 
 export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
 
-export const ALLOWED_KEYS = [' ', ...ALLOWED_FROM_KEYLINES];
+const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [' ', 'delete', 'arrowleft', 'arrowright'] 
+
+export const ALLOWED_KEYS = [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...ALLOWED_FROM_KEYLINES];
 
 export const ALLOWED_LETTERS = KEY_LINES.flatMap((line) => line).filter((key => !['backspace', 'enter', 'spacebar'].includes(key)));
 

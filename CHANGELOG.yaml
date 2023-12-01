@@ -1,8 +1,15 @@
-1.8:
+1.9:
   - new - high contrast mode
   - new - statistics panel added
   - new - stat with percentage of keyboard discoverd was added
   - new - single letters are conisder green
+1.8.1:
+  - new - caret works for mobile with click
+1.8 30.11.2023:
+  - new - clicking ← or → shows caret and allows easier modifications to the word
+  - new - delete button is supported
+1.7.5 11.11.2023:
+  - fix - safari `<br />` should be removed from copied content
 1.7.4 30.09.2023:
   - fix - error while fetching dictionary chunk does not block the chunk
 1.7.3 31.08.2023:
