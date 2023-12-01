@@ -33,6 +33,7 @@ const StatisticsCard = ({
     lettersCorrect,
     lettersPosition,
     lettersIncorrect,
+    lettersTypedKnownIncorrect,
     keyboardUsed,
 }: StatisticForCard) => {
     const { t } = useTranslation();
@@ -63,9 +64,9 @@ const StatisticsCard = ({
                     __html: t('statistics.keyboardUsed', { value: keyboardUsed })
                 }} />
                 {rejectedWordsPerGame > 0 && (
-                    <p>
-                        średnio <strong>{rejectedWordsPerGame.toFixed(1)}</strong> nieznalezionych słów w słowniku
-                    </p>
+                    <p dangerouslySetInnerHTML={{
+                        __html: t('statistics.averageWordsNotFound', { value: rejectedWordsPerGame.toFixed(1) })
+                    }} />
                 )}
             </div>
             <p className="statistics-letters-types">
@@ -85,6 +86,12 @@ const StatisticsCard = ({
                     <strong>
                         {(lettersIncorrect).toFixed(1)}
                         <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersIncorrect / lettersPerGame) * 100} isPercentage />
+                    </strong>
+                </span>
+                <span className="incorrect typed">
+                    <strong>
+                        {(lettersTypedKnownIncorrect).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersTypedKnownIncorrect / lettersPerGame) * 100} isPercentage />
                     </strong>
                 </span>
             </p>

@@ -51,9 +51,11 @@ const VirualKeyboard = () => {
 
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
+    const shouldShowConfirm = isConfirmOpen && !isWon;
+
     return (
         <aside className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
-            {isConfirmOpen && !isWon && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
+            {shouldShowConfirm && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
             {KEY_LINES.map((line) => {
                 return (
                     <div key={line[0]} className="line">
@@ -63,7 +65,6 @@ const VirualKeyboard = () => {
                             if (keyText === 'enter') {
                                 onClick = enterCallback;
                             }
-                            
 
                             return (<KeyCap key={keyText} text={keyText} onClick={onClick} />);
                         })}

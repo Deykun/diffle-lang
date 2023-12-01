@@ -38,10 +38,12 @@
         "lettersUsed_other": "letters",
         "nextDaily_one": "The new daily word will be available in <strong>an hour</strong>.",       
         "nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
-        "nextDailyShort": "next in {{count}}h"
+        "nextDailyShort": "next in {{count}}h",
+        "completed": "completed"
     },
     "settings": {
         "inDevelopment": "in development",
+        "considered": "considered",
         "statisticsTitle": "Statistics",
         "gameModeTitle": "Game modes",
         "labelFinishGame": "finish",
@@ -54,7 +56,17 @@
         "keyboard": "Keyboard",
         "confirmSubmition": "Confirm words",
         "keyboardVibration": "Keyboard vibrations",
-        "smallerKeyboard": "Smaller keyboard"
+        "smallerKeyboard": "Smaller keyboard",
+        "sourcesTitle": "Sources",
+        "sourcesDescription": "Special thanks to SJP and FreeDict.",
+        "sourceSJP": "sjp.pl - used as a spellchecker",
+        "sourceFreeDict": "freedict.org - used to find best wining words",
+        "sourceIconmonstr": "iconmonstr.com - icons",
+        "sourceWordle": "original wordle",
+        "sourceDiffle": "original diffle",
+        "sourceGithub": "site repository",
+        "lastDailyWordsTitle": "Yesterday",
+        "lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\"."
     },
     "statistics": {
         "filters": "Filters",
@@ -72,10 +84,15 @@
         "inFirstWord": "in the first word",
         "inSecondWord": "in the second word",
         "keyboardUsed": "average <strong>{{value}}%</strong> of the keyboard used",
+        "averageWordsNotFound": "<strong>{{value}}</strong> words not found in dictionary",
         "totalGames_one": "<strong>1</strong> game", 
         "totalGames_other": "<strong>{{count}}</strong> games",
         "totalWon": "<strong>{{count}}</strong> won",
         "totalStreak": "in a row",
-        "totalBestStreak": "best in a row"
+        "totalBestStreak": "best in a row",
+        "lettersCorrect": "correct",
+        "lettersPosition": "wrong position",
+        "lettersIncorrect": "incorrect",
+        "lettersIncorrectAndTyped": "typed incorrect"
     }
 }

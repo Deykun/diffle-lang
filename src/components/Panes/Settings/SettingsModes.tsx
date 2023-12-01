@@ -16,6 +16,7 @@ import IconConstruction from '@components/Icons/IconConstruction';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
+import IconFlask from '@components/Icons/IconFlask';
 import IconShare from '@components/Icons/IconShare';
 
 import './Settings.scss'
@@ -52,7 +53,9 @@ const SettingsModes = ({ changePane }: Props) => {
                     >
                         <IconDay />
                         <span>{t('game.modeDaily')}</span>
-                        {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>zaliczony</span> <IconFancyCheck /></span>}
+                        {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
+                            <span>{t('win.completed')}</span><IconFancyCheck />
+                        </span>}
                         {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
                             <span>{t('win.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() + 1 })}</span>
                             <IconFancyCheck />
@@ -74,7 +77,7 @@ const SettingsModes = ({ changePane }: Props) => {
                     <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
                         <IconShare />
                         <span>{t('game.modeShare')}</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
+                        <span className={clsx('setting-label', 'info', 'lab')}><span>{t('settings.considered')}</span> <IconFlask /></span>
                     </button>
                 </li>
             </ul>

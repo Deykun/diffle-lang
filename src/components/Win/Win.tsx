@@ -7,7 +7,7 @@ import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
-import { selectKeyboardUsagePercentage, selectGuessesStatsForLetters } from '@store/selectors';
+import { selectGuessesStatsForLetters } from '@store/selectors';
 
 import { setWordToGuess } from '@store/gameSlice'
 
@@ -33,7 +33,6 @@ const Win = () => {
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
     const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
-    const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
     const [isReseting, setIsReseting] = useState(false);
 
     const { t } = useTranslation();
@@ -105,18 +104,17 @@ ${diffleUrl} #diffle #difflepl`;
                 </p>
             </div>
             <div className="subtotals">
-                <p className="subtotal correct"><span>{subtotals.correct}</span></p>
-                <p className="subtotal position"><span>{subtotals.position}</span></p>
-                <p className="subtotal incorrect"><span>{subtotals.incorrect}</span></p>
-                <p className="subtotal incorrect typed"><span>{subtotals.typedKnownIncorrect}</span></p>
-            </div>
-            <div className="subtotals">
-                <p className="subtotal-keyboard-usage">
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: t('win.uniqLettersUsed', { percentage: keyboardUsagePercentage })
-                      }}
-                    />
+                <p className="subtotal correct" aria-label={t('statistics.lettersCorrect')}>
+                    <span>{subtotals.correct}</span>
+                </p>
+                <p className="subtotal position" aria-label={t('statistics.lettersPosition')}>
+                    <span>{subtotals.position}</span>
+                </p>
+                <p className="subtotal incorrect" aria-label={t('statistics.lettersIncorrect')}>
+                    <span>{subtotals.incorrect}</span>
+                </p>
+                <p className="subtotal incorrect typed" aria-label={t('statistics.lettersIncorrectAndTyped')}>
+                    <span>{subtotals.typedKnownIncorrect}</span>
                 </p>
             </div>
             <div className="actions">

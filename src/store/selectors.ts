@@ -141,6 +141,7 @@ export const selectGuessesStatsForLetters = createSelector(
                     // Incorrect affixes are always length = 1
                     affixesStack.subtotals.incorrect += 1;
 
+                    // TODO fix when the same two times in the word
                     const typedWhenWasKnownToBeIncorrect = guessesStack.incorrectLetters.includes(affix.text);
                     if (typedWhenWasKnownToBeIncorrect) {
                         affixesStack.subtotals.typedKnownIncorrect += 1;

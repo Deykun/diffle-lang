@@ -145,7 +145,7 @@
                     &.incorrect {
                         span,
                         svg {
-                            color: var(--red);
+                            color: var(--incorrect-red-contrast);
                         }
                     }
                 }

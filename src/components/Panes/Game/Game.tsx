@@ -46,7 +46,7 @@ const Game = () => {
                     localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
 
                     if (lastWordToGuess && lastDailyStamp) {
-                        const isLostGame = !guessesWords.includes(lastWordToGuess);
+                        const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
 
                         if (isLostGame) {
                             dispatch(setToast({ text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}` }));

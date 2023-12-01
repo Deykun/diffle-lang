@@ -105,9 +105,9 @@ const Settings = ({ changePane }: Props) => {
             <footer>
                 <SettingsSources />
                 {yesterdayWord && (<>
-                    <h2>Wczoraj</h2>
+                    <h2>{t('settings.lastDailyWordsTitle')}</h2>
                     <p>
-                        Wczorajsze hasło w trybie codziennym to "{yesterdayWord}".
+                        {t('settings.lastDailyWordsYesterday', { word: yesterdayWord })}
                         <br /><br />
                         <Button
                           tagName="a"

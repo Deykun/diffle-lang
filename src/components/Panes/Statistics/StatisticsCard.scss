@@ -136,8 +136,12 @@
                 background-color: var(--incorrect);
             }
 
+            &.incorrect.typed::before {
+                background-color: var(--incorrect-red-contrast);
+            }
+
             .circle-scale {
-                width: 120px;
+                width: 90px;
             }
         }
     }

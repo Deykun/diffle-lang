@@ -35,3 +35,30 @@ h3 {
     background-color: black;
     color: white;
 }
+
+[aria-label]:hover::after {
+    opacity: 1;
+    scale: 1;
+}
+
+[aria-label]::after {
+    content: attr(aria-label);
+    position: absolute;
+    padding: 2px 5px;
+    border-radius: 3px;
+    z-index: 1;
+    top: calc(100% + 3px);
+    left: 50%;
+    transform: translate(-50%, 0);
+    scale: 0.7;
+    font-size: 9px;
+    line-height: 14px;
+    letter-spacing: 0;
+    font-weight: 400;
+    width: max-content;
+    color: var(--blue-contrast);
+    background-color: var(--blue);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.1s ease-in-out;
+}

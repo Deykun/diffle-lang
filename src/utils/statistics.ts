@@ -52,6 +52,7 @@ export interface Statistic {
         correct: number,
         position: number,
         incorrect: number,
+        typedKnownIncorrect: number,
     },
     firstWord: {
         letters: number,
@@ -84,6 +85,7 @@ const EMPTY_STATISTIC = {
         correct: 0,
         position: 0,
         incorrect: 0,
+        typedKnownIncorrect: 0,
     },
     firstWord: {
         letters: 0,
@@ -216,6 +218,7 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.letters.correct += subtotals.correct;
     statisticToUpdate.letters.position += subtotals.position;
     statisticToUpdate.letters.incorrect += subtotals.incorrect;
+    statisticToUpdate.letters.typedKnownIncorrect += subtotals.typedKnownIncorrect;
 
     if (!statisticToUpdate.lastGame) {
         statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0 };
@@ -273,6 +276,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
                 correct: stack.letters.correct + statistic.letters.correct,
                 position: stack.letters.position + statistic.letters.position,
                 incorrect: stack.letters.incorrect + statistic.letters.incorrect,
+                typedKnownIncorrect: stack.letters.typedKnownIncorrect + statistic.letters.typedKnownIncorrect,
             },
             firstWord: {
                 letters: stack.firstWord.letters + statistic.firstWord.letters,
@@ -375,6 +379,7 @@ export interface StatisticForCard {
     lettersCorrect: number,
     lettersPosition: number,
     lettersIncorrect: number,
+    lettersTypedKnownIncorrect: number,
     keyboardUsed: number,
 }
 
@@ -393,6 +398,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
         lettersCorrect: statistic.letters.correct / totalGames,
         lettersPosition: statistic.letters.position / totalGames,
         lettersIncorrect: statistic.letters.incorrect / totalGames,
+        lettersTypedKnownIncorrect: statistic.letters.typedKnownIncorrect / totalGames,
         keyboardUsed: statistic.letters.keyboardUsed,
     }
 };
