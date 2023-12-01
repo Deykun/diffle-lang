@@ -113,46 +113,67 @@ export const selectKeyboardUsagePercentage = createSelector(
     },
 );
 
+interface GuessesStackInterface {
+    words: number,
+    incorrectLetters: string[],
+    subtotals: {
+        correct: number,
+        position: number,
+        incorrect: number,
+        typedKnownIncorrect: number,
+    }
+}
+
 export const selectGuessesStatsForLetters = createSelector(
     selectGuesses,
     (guesses) => {
-        const { words, subtotals } = guesses.reduce((stack, { affixes }) => {
-            const { subtotals: wordTotals } = affixes.reduce((stack, affix) => {
+        const { words, subtotals } = guesses.reduce((guessesStack: GuessesStackInterface, { affixes }) => {
+            const { subtotals: wordTotals } = affixes.reduce((affixesStack, affix) => {
                 if (affix.type === AffixStatus.Correct) {
-                    stack.subtotals.correct += affix.text.length;
+                    affixesStack.subtotals.correct += affix.text.length;
                 }
 
                 if (affix.type === AffixStatus.Position) {
-                    stack.subtotals.position += affix.text.length;
+                    affixesStack.subtotals.position += affix.text.length;
                 }
 
                 if (affix.type === AffixStatus.Incorrect) {
-                    stack.subtotals.incorrect += affix.text.length;
+                    // Incorrect affixes are always length = 1
+                    affixesStack.subtotals.incorrect += 1;
+
+                    const typedWhenWasKnownToBeIncorrect = guessesStack.incorrectLetters.includes(affix.text);
+                    if (typedWhenWasKnownToBeIncorrect) {
+                        affixesStack.subtotals.typedKnownIncorrect += 1;
+                    } else {
+                        guessesStack.incorrectLetters = [...guessesStack.incorrectLetters, ...affix.text];
+                    }
                 }
 
-                return stack;
+                return affixesStack;
             }, {
                 subtotals: {
                     correct: 0,
                     position: 0,
                     incorrect: 0,
+                    typedKnownIncorrect: 0,
                 }
             });
 
-            stack.words += 1;
-            stack.subtotals.correct += wordTotals.correct;
-            stack.subtotals.position += wordTotals.position;
-            stack.subtotals.incorrect += wordTotals.incorrect;
+            guessesStack.words += 1;
+            guessesStack.subtotals.correct += wordTotals.correct;
+            guessesStack.subtotals.position += wordTotals.position;
+            guessesStack.subtotals.incorrect += wordTotals.incorrect;
+            guessesStack.subtotals.typedKnownIncorrect += wordTotals.typedKnownIncorrect;
 
-            stack
-
-            return stack;
+            return guessesStack;
         }, {
             words: 0,
+            incorrectLetters: [],
             subtotals: {
                 correct: 0,
                 position: 0,
                 incorrect: 0,
+                typedKnownIncorrect: 0,
             }
         });
 

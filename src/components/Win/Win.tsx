@@ -61,19 +61,19 @@ const Win = () => {
         const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
 
 ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⠀ 🔠 ${keyboardUsagePercentage}%
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} 🔴 ${subtotals.typedKnownIncorrect}
 
 ${diffleUrl} #diffle #difflepl`:
 `« ${wordToGuess} » – DIFFLE  🇵🇱
 
 ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} ⠀ 🔠 ${keyboardUsagePercentage}%
+🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} 🔴 ${subtotals.typedKnownIncorrect}
 
 ${diffleUrl} #diffle #difflepl`;
 
         copyMessage(textToCopy);
         dispatch(setToast({ text: 'Skopiowano.' }));
-    }, [gameMode, words, letters, t, subtotals.correct, subtotals.position, subtotals.incorrect, keyboardUsagePercentage, wordToGuess, dispatch]);
+    }, [gameMode, letters, t, words, subtotals.correct, subtotals.position, subtotals.incorrect, subtotals.typedKnownIncorrect, wordToGuess, dispatch]);
 
     if (guesses.length === 0) {
         return null;
@@ -108,6 +108,7 @@ ${diffleUrl} #diffle #difflepl`;
                 <p className="subtotal correct"><span>{subtotals.correct}</span></p>
                 <p className="subtotal position"><span>{subtotals.position}</span></p>
                 <p className="subtotal incorrect"><span>{subtotals.incorrect}</span></p>
+                <p className="subtotal incorrect typed"><span>{subtotals.typedKnownIncorrect}</span></p>
             </div>
             <div className="subtotals">
                 <p className="subtotal-keyboard-usage">

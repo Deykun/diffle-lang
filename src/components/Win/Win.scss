@@ -80,6 +80,10 @@
         &.incorrect::before {
             background-color: var(--incorrect);
         }
+
+        &.incorrect.typed::before {
+            background-color: var(--incorrect-red-contrast);
+        }
     }
 
     .subtotal-keyboard-usage {
