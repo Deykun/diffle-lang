@@ -30,7 +30,7 @@
 
     .total {
         color: var(--text-weaker);
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         font-weight: 600;
 
         strong {
@@ -38,7 +38,7 @@
             font-size: 30px;
             font-weight: 600;
             vertical-align: middle;
-            margin-right: 5px;
+            margin: 0 7px;
         }
     }
 
@@ -52,7 +52,7 @@
 
     .subtotal {
         font-weight: 600;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         color: var(--text);
 
         > * {

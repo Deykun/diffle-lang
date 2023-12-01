@@ -208,8 +208,8 @@ const gameSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(submitAnswer.pending, (state) => {
-            state.caretShift = 0;
+        builder.addCase(submitAnswer.pending, () => {
+            // 
         }).addCase(submitAnswer.fulfilled, (state, action) => {
             state.isProcessing = false;
 
@@ -220,6 +220,7 @@ const gameSlice = createSlice({
 
                 if (type === SUBMIT_ERRORS.HAS_SPACE) {
                     state.wordToSubmit = state.wordToSubmit.replaceAll(' ', '');
+                    state.caretShift = 0;
 
                     return;
                 }
@@ -239,6 +240,7 @@ const gameSlice = createSlice({
 
             state.isWon = isWon;
             state.wordToSubmit = '';
+            state.caretShift = 0;
 
             state.letters = {
                 correct: {
