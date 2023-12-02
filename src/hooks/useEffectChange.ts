@@ -1,8 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-import { Word } from '@common-types';
-
-export default function useEffectChange(callback: () => void, args: (string | Word[] | string[])[] ) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function useEffectChange(callback: () => void, args: (any)[] ) {
     const isInited = useRef(false);
 
     useEffect(() => {

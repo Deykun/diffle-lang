@@ -5,7 +5,7 @@ import { KEY_LINES, ALLOWED_KEYS } from '@const';
 
 import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
-import { selectKeyboardState } from '@store/selectors';
+import { selectIsWon, selectKeyboardState } from '@store/selectors';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -18,7 +18,7 @@ const VirualKeyboard = () => {
     const dispatch = useDispatch();
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
-    const isWon = useSelector(state => state.game.isWon);
+    const isWon = useSelector(selectIsWon);
     const type = useSelector(selectKeyboardState);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 

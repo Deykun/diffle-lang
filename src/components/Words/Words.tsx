@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { useSelector } from '@store';
-import { selectIsProcessing, selectHasWordToGuessSpecialCharacters, selectWordToSubmit } from '@store/selectors';
+import { selectIsWon, selectIsProcessing, selectHasWordToGuessSpecialCharacters, selectWordToSubmit } from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
 
@@ -20,7 +20,7 @@ import './Words.scss';
 
 const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
-    const isWon = useSelector((state) => state.game.isWon);
+    const isWon = useSelector(selectIsWon);
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);

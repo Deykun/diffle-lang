@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, UsedLetters } from '@common-types';
+import { RootState, RootGameState, UsedLetters, GameStatus, GameMode } from '@common-types';
 
+import { LOCAL_STORAGE } from '@const';
 import { getNow } from '@utils/date';
 
 import { getInitMode } from '@api/getInit';
@@ -9,7 +10,7 @@ import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/g
 
 import { setToast } from '@store/appSlice';
 
-import { SUBMIT_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { SUBMIT_ERRORS, GIVE_UP_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const initialState: RootGameState = {
     mode: getInitMode(),
@@ -17,7 +18,7 @@ const initialState: RootGameState = {
     wordToGuess: '',
     caretShift: 0,
     wordToSubmit: '',
-    isWon: false,
+    status: GameStatus.Unset,
     letters: { correct: {}, incorrect: {}, position: {} },
     guesses: [],
     rejectedWords: [],
@@ -34,8 +35,9 @@ export const submitAnswer = createAsyncThunk(
             return { isError: true, type: SUBMIT_ERRORS.ALREADY_PROCESSING };
         }
 
-        if (state.game.isWon) {
-            return { isError: true, type: SUBMIT_ERRORS.ALREADY_WON };
+        const isGameEnded = state.game.status !== GameStatus.Guessing;
+        if (isGameEnded) {
+            return { isError: true, type: SUBMIT_ERRORS.ALREADY_ENDED };
         }
 
         const wordToSubmit = state.game.wordToSubmit;
@@ -91,6 +93,30 @@ export const restoreGameState = createAsyncThunk(
     },
 );
 
+export const loseGame = createAsyncThunk(
+    'game/loseGame',
+    async (_, { dispatch, getState, rejectWithValue }) => {
+        const state  = getState() as RootState;
+
+        const isInRightModeAndNotEnded = state.game.mode === GameMode.Practice && state.game.status === GameStatus.Guessing;
+        const canBeGivenUp = isInRightModeAndNotEnded && state.game.guesses.length > 0;
+
+        console.log({
+            canBeGivenUp,
+        })
+
+        if (!canBeGivenUp) {
+            dispatch(setToast({ text: `Możesz się poddać tylko w trybie ćwiczenia po wpisaniu chociaż jednego słowa.`, timeoutSeconds: 5 }));
+
+            return rejectWithValue(GIVE_UP_ERRORS.WRONG_MODE);
+        }
+
+        localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
+
+        // Save lost game
+    },
+);
+
 const gameSlice = createSlice({
     name: 'game',
     initialState,
@@ -108,7 +134,7 @@ const gameSlice = createSlice({
             state.caretShift = 0;
             state.guesses = [];
             state.rejectedWords = [],
-            state.isWon = false;
+            state.status = wordToGuess ? GameStatus.Guessing : GameStatus.Unset;
             state.hasLongGuesses = false;
             state.letters = {
                 correct: {},
@@ -117,9 +143,10 @@ const gameSlice = createSlice({
             }
         },
         setWordToSubmit(state, action) {
-            state.wordToSubmit = action.payload;
+            const wordToSubmit = action.payload;
+            state.wordToSubmit = wordToSubmit;
 
-            state.isWon = false;
+            state.status = wordToSubmit ? GameStatus.Guessing : GameStatus.Unset;
             state.wordToSubmit = '';
             state.caretShift = 0;
 
@@ -141,7 +168,8 @@ const gameSlice = createSlice({
             state.caretShift = newCaretShiftClamped;
         },
         letterChangeInAnswer(state, action) {
-            if (state.isWon || state.isProcessing) {
+            const isGameEnded = state.status !== GameStatus.Guessing;
+            if (isGameEnded || state.isProcessing) {
                 return;
             }
 
@@ -205,7 +233,7 @@ const gameSlice = createSlice({
         },
         setProcessing(state, action) {
             state.isProcessing = action.payload;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(submitAnswer.pending, () => {
@@ -238,7 +266,10 @@ const gameSlice = createSlice({
 
             const { isWon, affixes = [], word, wordLetters } = action.payload as WordReport;
 
-            state.isWon = isWon;
+            if (isWon) {
+                state.status = GameStatus.Won;
+            }
+
             state.wordToSubmit = '';
             state.caretShift = 0;
 
@@ -264,6 +295,10 @@ const gameSlice = createSlice({
             state.guesses.push({ word, affixes });
         }).addCase(submitAnswer.rejected, (state) => {
             state.isProcessing = false;
+        }).addCase(loseGame.fulfilled, (state) => {
+            state.status = GameStatus.Lost;
+        }).addCase(loseGame.rejected, () => {
+            // 
         }).addCase(restoreGameState.fulfilled, (state, action) => {
             const {
                 isWon,
@@ -288,7 +323,12 @@ const gameSlice = createSlice({
                 affixes,
             }));
 
-            state.isWon = isWon;
+            if (isWon) {
+                state.status = GameStatus.Won;
+            } else {
+                // Lost games should be removed from restoring
+                state.status = GameStatus.Guessing;
+            }
 
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;

@@ -7,12 +7,12 @@ import { GameMode, Pane, PaneChange } from '@common-types';
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
+import { selectIsWon } from '@store/selectors';
 
 import { getNow } from '@utils/date';
 
 import { setGameMode, setWordToGuess } from '@store/gameSlice'
 
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
@@ -28,7 +28,7 @@ interface Props {
 const SettingsModes = ({ changePane }: Props) => {
     const dispatch = useDispatch();
     const gameMode = useSelector(state => state.game.mode);
-    const isWon = useSelector(state => state.game.isWon);
+    const isWon = useSelector(selectIsWon);
 
     const { t } = useTranslation();
 

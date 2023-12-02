@@ -1,19 +1,16 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { GameMode, Pane, PaneChange } from '@common-types';
 
-import { LOCAL_STORAGE } from '@const';
-
 import { useSelector, useDispatch } from '@store';
+import { selectIsGameEnded } from '@store/selectors';
+import { loseGame } from '@store/gameSlice';
 
 import { getYesterdaysSeed } from '@utils/date';
 
 import getWordToGuess from '@api/getWordToGuess'
-
-import { setToast } from '@store/appSlice';
-import { setWordToGuess } from '@store/gameSlice'
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
@@ -36,16 +33,10 @@ interface Props {
 
 const Settings = ({ changePane }: Props) => {
     const dispatch = useDispatch();
-    const [lastWord, setLastWord] = useState('');
     const [yesterdayWord, setYesterdayWord] = useState('');
-    const wordToGuess = useSelector(state => state.game.wordToGuess);
-    const gameMode = useSelector(state => state.game.mode);
-    const guesses = useSelector(state => state.game.guesses);
-    const isWon = useSelector(state => state.game.isWon);
+    const isGameEnded = useSelector(selectIsGameEnded);
 
     const { t } = useTranslation();
-
-    const canGiveUp = gameMode === GameMode.Practice && guesses.length > 0 && !isWon;
 
     useScrollEffect('top', []);
 
@@ -57,34 +48,13 @@ const Settings = ({ changePane }: Props) => {
         });
     }, []);
 
-    const handleGiveUpClick = useCallback(() => {
-        if (!canGiveUp) {
-            dispatch(setToast({ text: `Możesz się poddać tylko w trybie ćwiczenia po wpisaniu chociaż jednego słowa.`, timeoutSeconds: 5 }));
-
-            return;
-        }
-
-        localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
-        
-        setLastWord(wordToGuess);
-
-        dispatch(setToast({ text: `"${wordToGuess.toUpperCase()}" to nieodgadnięte słowo.`, timeoutSeconds: 5 }));
-        dispatch(setWordToGuess(''));
-    }, [dispatch, canGiveUp, wordToGuess]);
+    const handleGiveUp = () => {
+        dispatch(loseGame());
+        changePane(Pane.Game);
+    }
 
     return (
         <div className="settings">
-            {lastWord && <p>
-                <Button
-                  tagName="a"
-                  href={`https://sjp.pl/${lastWord}`}
-                  target="blank"
-                  isInverted
-                >
-                    <IconBook />
-                    <span>{t('common.checkInDictionary', { word: lastWord })}</span>
-                </Button>
-            </p>}
             <ul>
                 <li>
                     <button className="setting" onClick={() => changePane(Pane.Statistics)}>
@@ -94,7 +64,7 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" onClick={handleGiveUpClick} disabled={isWon}>
+                    <button className="setting" onClick={handleGiveUp} disabled={isGameEnded}>
                         <IconBin />
                         <span>{t('game.iGiveUp')}</span>
                     </button>

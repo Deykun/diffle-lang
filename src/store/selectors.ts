@@ -2,13 +2,16 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { POLISH_CHARACTERS, ALLOWED_LETTERS } from '@const';
 
-import { RootState, AffixStatus } from '@common-types';
+import { RootState, AffixStatus, GameStatus } from '@common-types';
 
 import { normilzeWord } from '@utils/normilzeWord';
 
 export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
 export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;
+
+export const selectIsWon = (state: RootState) => state.game.status === GameStatus.Won;
+export const selectIsGameEnded = (state: RootState) => state.game.status !== GameStatus.Guessing;
 
 export const selectHasWordToGuessSpecialCharacters = createSelector(
     selectWordToGuess,

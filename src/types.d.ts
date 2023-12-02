@@ -49,13 +49,20 @@ export enum GameMode {
     Share = 'share',
 }
 
+export enum GameStatus {
+    Unset = 'unset',
+    Guessing = 'guessing',
+    Won = 'won',
+    Lost = 'lost',
+}
+
 export interface RootGameState {
     mode: GameMode,
     today: string,
     wordToGuess: string,
     caretShift: number,
     wordToSubmit: string,
-    isWon: boolean,
+    status: GameStatus,
     letters: {
         correct: UsedLetters,
         incorrect: UsedLetters,

@@ -4,6 +4,7 @@ import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
 
 import { useSelector } from '@store';
 import {
+    selectIsWon,
     selectWordToGuess,
     selectHasWordToGuessSpecialCharacters,
     selectGuessesStatsForLetters,
@@ -16,7 +17,7 @@ import useEffectChange from "@hooks/useEffectChange";
 
 
 function useSaveProgressLocally() {
-    const isWon = useSelector(state => state.game.isWon);
+    const isWon = useSelector(selectIsWon);
     const gameMode = useSelector(state => state.game.mode);
     const todayStamp = useSelector(state => state.game.today);
     const wordToGuess = useSelector(selectWordToGuess);
