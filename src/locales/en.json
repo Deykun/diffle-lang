@@ -5,6 +5,7 @@
         "play": "Play",
         "newGame": "New game",
         "copyResult": "Copy result",
+        "copied": "Copied.",
         "checkInDictionary": "Check \"{{word}}\" on SJP.PL"
     },
     "game": {
@@ -12,6 +13,7 @@
         "modePractice": "Practice",
         "modeShare": "Shared",
         "iGiveUp": "I give up",
+        "givingUpIsNotPossible": "You can surrender only in practice mode after entering at least one word.",
         "confirmCheckTheWord": "Is \"{{word}}\" okay?",
         "wordToSubmitIsMissing": "Should we check the word?"
     },
@@ -26,14 +28,17 @@
         "firstAndLastLetterTip": "The word starts with <strong>S</strong>, includes <strong>P</strong> and ends with <strong>R</strong>.",
         "winingWordMessage": "This is the answer word."
     },
-    "win": {
-        "title": "Success",
+    "end": {
+        "titleWon": "Success",
+        "titleLost": "Lost",
         "titleCheater": "A clairvoyant",
+        "winningWord": "The answer:",
         "wordsUsed_one": "word",
         "wordsUsed_other": "words",
         "inWordsUsed_one": "word",
         "inWordsUsed_other": "words",
         "in": "in",
+        "lostIn": "lost in",
         "lettersUsed_one": "letter",
         "lettersUsed_other": "letters",
         "nextDaily_one": "The new daily word will be available in <strong>an hour</strong>.",       

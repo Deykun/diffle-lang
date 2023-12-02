@@ -106,7 +106,7 @@ export const loseGame = createAsyncThunk(
         })
 
         if (!canBeGivenUp) {
-            dispatch(setToast({ text: `Możesz się poddać tylko w trybie ćwiczenia po wpisaniu chociaż jednego słowa.`, timeoutSeconds: 5 }));
+            dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 5 }));
 
             return rejectWithValue(GIVE_UP_ERRORS.WRONG_MODE);
         }

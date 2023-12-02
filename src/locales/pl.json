@@ -5,6 +5,7 @@
         "play": "Graj",
         "newGame": "Nowa Gra",
         "copyResult": "Skopiuj wynik",
+        "copied": "Skopiowano.",
         "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL"
     },
     "game": {
@@ -12,12 +13,15 @@
         "modePractice": "Ćwiczenia",
         "modeShare": "Udostępniony",
         "iGiveUp": "Poddaje się",
+        "givingUpIsNotPossible": "Możesz się poddać tylko w trybie ćwiczeń po wpisaniu chociaż jednego słowa.",
         "confirmCheckTheWord": "Wysłać \"{{word}}\"?",
         "wordToSubmitIsMissing": "Wysłać?"
     },
-    "win": {
-        "title": "Sukces",
+    "end": {
+        "titleWon": "Sukces",
+        "titleLost": "Przegrana",
         "titleCheater": "Jasnowidz",
+        "winningWord": "Hasło:",
         "wordsUsed_zero": "słów",
         "wordsUsed_one": "słowo",
         "wordsUsed_few": "słowa",
@@ -27,6 +31,7 @@
         "inWordsUsed_few": "słowach",
         "inWordsUsed_many": "słowach",
         "in": "w",
+        "lostIn": "przegrana w",
         "lettersUsed_zero": "liter",
         "lettersUsed_one": "litera",
         "lettersUsed_few": "litery",

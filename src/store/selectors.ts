@@ -11,6 +11,7 @@ export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
 export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;
 
 export const selectIsWon = (state: RootState) => state.game.status === GameStatus.Won;
+export const selectIsLost = (state: RootState) => state.game.status === GameStatus.Lost;
 export const selectIsGameEnded = (state: RootState) => state.game.status !== GameStatus.Guessing;
 
 export const selectHasWordToGuessSpecialCharacters = createSelector(

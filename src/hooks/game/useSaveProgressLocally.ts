@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 
+import { GameMode } from '@common-types';
 import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
 
 import { useSelector } from '@store';
 import {
     selectIsWon,
+    selectIsLost,
     selectWordToGuess,
     selectHasWordToGuessSpecialCharacters,
     selectGuessesStatsForLetters,
@@ -18,6 +20,7 @@ import useEffectChange from "@hooks/useEffectChange";
 
 function useSaveProgressLocally() {
     const isWon = useSelector(selectIsWon);
+    const isLost = useSelector(selectIsLost);
     const gameMode = useSelector(state => state.game.mode);
     const todayStamp = useSelector(state => state.game.today);
     const wordToGuess = useSelector(selectWordToGuess);
@@ -26,14 +29,19 @@ function useSaveProgressLocally() {
     const guesses = useSelector(state => state.game.guesses);
     const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
     const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
+    const wasGivenUp = isLost && gameMode === GameMode.Practice;
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, gameMode);
         localStorage.setItem(LOCAL_STORAGE.LAST_DAILY_STAMP, todayStamp);
-    }, [gameMode, todayStamp]);
 
-    useEffectChange(() => {
-        if (!wordToGuess) {
+        if (wasGivenUp) {
+            localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+        }
+    }, [gameMode, wasGivenUp, todayStamp]);
+
+    useEffectChange(() => {        
+        if (!wordToGuess || wasGivenUp) {
             localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
 
             return;

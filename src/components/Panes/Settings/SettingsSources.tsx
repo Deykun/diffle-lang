@@ -18,7 +18,7 @@ const SettingsSources = () => {
         <>
             <h2>{t('settings.sourcesTitle')}</h2>
             <p>{t('settings.sourcesDescription')}</p>
-            <ul>
+            <ul className="list-col-3">
                 <li><a href="https://sjp.pl" target="blank">
                     <IconBookAlt /><span>{t('settings.sourceSJP')}</span></a>
                 </li>

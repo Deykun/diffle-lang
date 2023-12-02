@@ -45,7 +45,7 @@ const SettingsModes = ({ changePane }: Props) => {
     return (
         <>
             <h2>{t('settings.gameModeTitle')}</h2>
-            <ul className="list-col-3">
+            <ul>
                 <li>
                     <button
                       className={clsx('setting', { 'setting-active': gameMode === GameMode.Daily })}
@@ -54,10 +54,10 @@ const SettingsModes = ({ changePane }: Props) => {
                         <IconDay />
                         <span>{t('game.modeDaily')}</span>
                         {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
-                            <span>{t('win.completed')}</span><IconFancyCheck />
+                            <span>{t('end.completed')}</span><IconFancyCheck />
                         </span>}
                         {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
-                            <span>{t('win.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() + 1 })}</span>
+                            <span>{t('end.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() + 1 })}</span>
                             <IconFancyCheck />
                         </span>}
                     </button>
@@ -73,7 +73,7 @@ const SettingsModes = ({ changePane }: Props) => {
                         {!shouldShowCheckedDaily && <span className={clsx('setting-label', 'incorrect')}><span>{t('settings.labelFinishGame')}</span> <IconDay /></span>}
                     </button>
                 </li>
-                <li>
+                <li style={{ display: 'none'}} >
                     <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
                         <IconShare />
                         <span>{t('game.modeShare')}</span>

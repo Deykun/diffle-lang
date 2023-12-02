@@ -33,11 +33,13 @@ const KeyCap = ({ text, onClick }: Props) => {
             onClick={onClick}
             className={clsx('key', `key-${text}`, type, { 'typed': isTyped })}>
                 {shouldShowText && <span>{textToShow}</span>}
-                {shouldUseIcon && text ==='backspace' && <IconBackspace />}
-                {shouldUseIcon && text ==='spacebar' && <IconCircle />}
-                {shouldUseIcon && text ==='enter' && <IconCheckEnter />}
-                {shouldUseIcon && text ==='no' && <IconClose />}
-                {shouldUseIcon && text ==='yes' && <IconCheckEnter />}
+                {shouldUseIcon && <>
+                    {text ==='backspace' && <IconBackspace />}
+                    {text ==='spacebar' && <IconCircle />}
+                    {text ==='enter' && <IconCheckEnter />}
+                    {text ==='no' && <IconClose />}
+                    {text ==='yes' && <IconCheckEnter />}
+                </>}
         </button>
     );
 };

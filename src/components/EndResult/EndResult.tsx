@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
-import { GameMode } from '@common-types';
+import { GameMode, GameStatus } from '@common-types';
 
 import { getNow } from '@utils/date';
 
@@ -25,10 +26,11 @@ import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
 
-import './Win.scss';
+import './EndResult.scss';
 
-const Win = () => {
+const EndResult = () => {
     const dispatch = useDispatch();
+    const endStatus = useSelector((state) => state.game.status);
     const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
@@ -57,22 +59,30 @@ const Win = () => {
     const handleCopy = useCallback(() => {
         const diffleUrl = location.href.split('?')[0];
         const { stamp } = getNow();
-        const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱
 
-${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} 🔴 ${subtotals.typedKnownIncorrect}
+        const isLost = endStatus === GameStatus.Lost;
 
-${diffleUrl} #diffle #difflepl`:
-`« ${wordToGuess} » – DIFFLE  🇵🇱
+        const copyTitle = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱  ` : `« ${wordToGuess} » – DIFFLE  🇵🇱  `;
+        const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
 
-${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })} ${t('win.in')} ${words} ${t('win.inWordsUsed', { postProcess: 'interval', count: words })}
-🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect} 🔴 ${subtotals.typedKnownIncorrect}
+        if (isLost) {
+            copyMessage(`${copyTitle}
 
-${diffleUrl} #diffle #difflepl`;
+🏳️ ${t('end.lostIn')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
+${copySubtotals}
+            
+${diffleUrl} #diffle`);
+        } else {
+            copyMessage(`${copyTitle}
 
-        copyMessage(textToCopy);
-        dispatch(setToast({ text: 'Skopiowano.' }));
-    }, [gameMode, letters, t, words, subtotals.correct, subtotals.position, subtotals.incorrect, subtotals.typedKnownIncorrect, wordToGuess, dispatch]);
+${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
+${copySubtotals}
+
+${diffleUrl} #diffle`);
+        }
+
+        dispatch(setToast({ text: 'common.copied' }));
+    }, [gameMode, endStatus, letters, t, words, subtotals.correct, subtotals.position, subtotals.incorrect, subtotals.typedKnownIncorrect, wordToGuess, dispatch]);
 
     if (guesses.length === 0) {
         return null;
@@ -81,26 +91,39 @@ ${diffleUrl} #diffle #difflepl`;
     const hoursToNext = 24 - getNow().nowUTC.getHours() + 1;
 
     return (
-        <div className="win">
+        <div className={clsx('end', endStatus)}>
             <h3 className="title">
-                {guesses.length > 1 ? (<>
-                    <span>{t('win.title')}</span>
-                    <IconFancyCheck className="title-icon" />
-                </>): (<>
-                    <span>{t('win.titleCheater')}</span>
-                    <IconMagic className="title-icon" />
+                {endStatus === GameStatus.Lost && (<>
+                    <span>{t('end.titleLost')}</span>
                 </>)}
-
+                {endStatus === GameStatus.Won && (<>
+                    {guesses.length > 1 ? (<>
+                        <span>{t('end.titleWon')}</span>
+                        <IconFancyCheck className="title-icon" />
+                    </>): (<>
+                        <span>{t('end.titleCheater')}</span>
+                        <IconMagic className="title-icon" />
+                    </>)}
+                </>)}
             </h3>
             <div className="totals">
                 <p className="total">
-                    <strong>{letters}</strong>
-                    {t('win.lettersUsed', { postProcess: 'interval', count: letters })}
-                    {' '}
-                    {t('win.in')}
-                    {' '}
-                    <strong>{words}</strong>
-                    {t('win.inWordsUsed', { postProcess: 'interval', count: words })}
+                    {endStatus === GameStatus.Lost && (<>
+                        {t('end.winningWord')}
+                        {' '}
+                        {wordToGuess}
+                    </>)}
+                    {endStatus === GameStatus.Won && (<>
+                        <strong>{letters}</strong>
+                        {' '}
+                        {t('end.lettersUsed', { postProcess: 'interval', count: letters })}
+                        {' '}
+                        {t('end.in')}
+                        {' '}
+                        <strong>{words}</strong>
+                        {' '}
+                        {t('end.inWordsUsed', { postProcess: 'interval', count: words })} 
+                    </>)}
                 </p>
             </div>
             <div className="subtotals">
@@ -146,7 +169,7 @@ ${diffleUrl} #diffle #difflepl`;
             {gameMode === GameMode.Daily && (
                 <p
                   className="next-word-tip"
-                  dangerouslySetInnerHTML={{ __html: t('win.nextDaily', {
+                  dangerouslySetInnerHTML={{ __html: t('end.nextDaily', {
                         postProcess: 'interval',
                         count: hoursToNext,
                   })}}
@@ -156,4 +179,4 @@ ${diffleUrl} #diffle #difflepl`;
     )
 };
 
-export default Win;
+export default EndResult;

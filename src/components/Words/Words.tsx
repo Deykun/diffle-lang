@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { useSelector } from '@store';
-import { selectIsWon, selectIsProcessing, selectHasWordToGuessSpecialCharacters, selectWordToSubmit } from '@store/selectors';
+import { selectIsGameEnded, selectIsProcessing, selectHasWordToGuessSpecialCharacters, selectWordToSubmit } from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
 
@@ -12,7 +12,7 @@ import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
-import Win from '@components/Win/Win';
+import EndResult from '@components/EndResult/EndResult';
 
 import Word from './Word';
 
@@ -20,7 +20,7 @@ import './Words.scss';
 
 const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
-    const isWon = useSelector(selectIsWon);
+    const isGameEnded = useSelector(selectIsGameEnded);
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);
@@ -57,7 +57,7 @@ const Words = () => {
                     <Word key={`guess-${index}`} guess={guess} />
                 );
             })}
-            {isWon ? <Win /> : <Word guess={submitGuess} />}
+            {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
             <p
             className={clsx('status', {
                 'processing': isProcessing,

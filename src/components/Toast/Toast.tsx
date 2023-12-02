@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useSelector, useDispatch } from '@store';
 import { clearToast } from '@store/appSlice';
@@ -9,6 +10,8 @@ const Toasts = () => {
   const setTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const dispatch = useDispatch();
   const { text, timeoutSeconds = 4 } = useSelector(state => state.app.toast);
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (text) {
@@ -34,7 +37,7 @@ const Toasts = () => {
 
   return (
     <p className="toast">
-        {text}
+        {t(text)}
     </p>
   )
 };

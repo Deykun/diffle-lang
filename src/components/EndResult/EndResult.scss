@@ -1,4 +1,4 @@
-.win {
+.end {
     margin-top: 30px;
 
     .title {
@@ -16,9 +16,15 @@
     .title-icon {
         width: 42px;
         height: 42px;
-        fill: var(--blue-on-background);
+        fill: currentColor;
         margin-left: 10px;
         vertical-align: middle;
+    }
+
+    &.won {
+        .title-icon {
+            fill: var(--blue-on-background);
+        }
     }
 
     .totals {
@@ -38,8 +44,12 @@
             font-size: 30px;
             font-weight: 600;
             vertical-align: middle;
-            margin: 0 7px;
+            margin: 0 0.15em;
         }
+    }
+
+    &.lost .total strong {
+        color: var(--text);
     }
 
     .subtotals {

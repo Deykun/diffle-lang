@@ -16,8 +16,8 @@ import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconBin from '@components/Icons/IconBin';
 import IconBook from '@components/Icons/IconBook';
+import IconCircleTarget from '@components/Icons/IconCircleTarget';
 import IconConstruction from '@components/Icons/IconConstruction';
-import IconChart from '@components/Icons/IconChart';
 
 import Button from '@components/Button/Button';
 
@@ -58,7 +58,7 @@ const Settings = ({ changePane }: Props) => {
             <ul>
                 <li>
                     <button className="setting" onClick={() => changePane(Pane.Statistics)}>
-                        <IconChart />
+                        <IconCircleTarget />
                         <span>{t('settings.statisticsTitle')}</span>
                         <span className={clsx('setting-label', 'position', 'construction')}><span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
                     </button>

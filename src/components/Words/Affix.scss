@@ -54,23 +54,35 @@
 
         cursor: pointer;
 
-        &:hover {
+        @mixin hover-effect {
             --blue-transparentized: color-mix(in srgb, transparent 75%, var(--blue));
 
             box-shadow: 3px 0 3px var(--blue-weaker);
             box-shadow: 3px 0 3px var(--blue-transparentized);
+        }
+    
+        @media (hover: hover) {
+            &:hover {
+                @include hover-effect;
+            }
+        }
+    
+        @media (hover: none) {
+            &:active {
+                @include hover-effect;
+            }
         }
 
         &.known-incorect {
             &::after {
                 content: '';
                 position: absolute;
-                left: calc(50% - 5px);
+                left: calc(50% - 6px);
                 bottom: -10px;
                 height: 0;
                 width: 0;
-                border-radius: 5px;
-                border: 5px solid transparent;
+                border-radius: 6px;
+                border: 6px solid transparent;
                 border-bottom-color: var(--incorrect-red-contrast);
             }
         }
@@ -106,12 +118,12 @@
     }
 
     &.caret {
-        margin-left: 5px;
+        margin-left: 7px;
 
         &::before {
             content: '';
             position: absolute;
-            left: -5px;
+            left: -6px;
             top: 50%;
             width: 2px;
             border-radius: 2px;

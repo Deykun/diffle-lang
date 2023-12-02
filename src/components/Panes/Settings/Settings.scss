@@ -19,6 +19,10 @@
 
         &.list-col-3 {
             grid-template-columns: 1fr 1fr 1fr;
+
+            @media (max-width: 360px) {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         li {
