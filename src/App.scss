@@ -18,7 +18,7 @@ body p {
     --border: #555;
 
     --toast-text: black;
-    --toast-bacground: white;
+    --toast-bacground: rgba(255, 255, 255, 0.8);
 
     --flag-shadow: rgb(255, 255, 255, 0.1);
 
@@ -63,7 +63,7 @@ body p {
     --border: #cacaca;
 
     --toast-text: white;
-    --toast-bacground: black;
+    --toast-bacground: rgba(0, 0, 0, 0.8);
 
     --flag-shadow: rgba(0, 0, 0, 0.1);
 

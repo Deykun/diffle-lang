@@ -42,7 +42,7 @@ export const submitAnswer = createAsyncThunk(
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
-            dispatch(setToast({ text: 'Usunięto spacje.' }));
+            dispatch(setToast({ text: 'game.spacesRemoved' }));
 
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
@@ -55,12 +55,12 @@ export const submitAnswer = createAsyncThunk(
 
         const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
         if (isWordDoesNotExistError) {
-            dispatch(setToast({ text: 'Brak słowa w słowniku.' }));
+            dispatch(setToast({ text: 'game.isNotInDictionary' }));
         }
 
         const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
         if (isWordFetchError) {
-            dispatch(setToast({ text: 'Błąd pobierania, spróbuj ponownie.' }));
+            dispatch(setToast({ text: 'common.fetchError' }));
         }
 
         return result;

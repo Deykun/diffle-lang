@@ -6,16 +6,25 @@
         "newGame": "Nowa Gra",
         "copyResult": "Skopiuj wynik",
         "copied": "Skopiowano.",
-        "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL"
+        "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL",
+        "close": "zamknij",
+        "more": "więcej",
+        "fetchError": "Błąd pobierania, spróbuj ponownie."
     },
     "game": {
         "modeDaily": "Codzienny",
         "modePractice": "Ćwiczenia",
         "modeShare": "Udostępniony",
         "iGiveUp": "Poddaje się",
-        "givingUpIsNotPossible": "Możesz się poddać tylko w trybie ćwiczeń po wpisaniu chociaż jednego słowa.",
+        "givingUpIsNotPossible": "Zacznij grę by móc się poddać",
         "confirmCheckTheWord": "Wysłać \"{{word}}\"?",
-        "wordToSubmitIsMissing": "Wysłać?"
+        "wordToSubmitIsMissing": "Wysłać?",
+        "withSpecialCharacters": "Hasło <strong>zawiera</strong> chociaż jeden {{specialCharacter}} znak.",
+        "withoutSpecialCharacters": "Hasło <strong>nie zawiera</strong> {{specialCharacters}} znaków.",
+        "plSpecialCharacter": "polski",
+        "plSpecialCharacters": "polskich",
+        "spacesRemoved": "Usunięto spacje.",
+        "isNotInDictionary": "Brak słowa w słowniku."
     },
     "end": {
         "titleWon": "Sukces",
@@ -44,6 +53,7 @@
         "completed": "zaliczony"
     },
     "help": {
+        "title": "Pomoc",
         "howToPlayTitle": "Jak gra się w diffle?",
         "howToPlayText1": "Cel to odgadnięcie hasła używając jak najmniejszej liczby liter.",
         "howToPlayText2": "Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.",
@@ -55,7 +65,9 @@
         "winingWordMessage": "Podane słowo jest hasłem."
     },
     "settings": {
+        "title": "Ustawienia",
         "inDevelopment": "w budowie",
+        "onlyIn": "tylko w",
         "considered": "rozważane",
         "statisticsTitle": "Statystyki",
         "gameModeTitle": "Rodzaj gry",
@@ -108,7 +120,7 @@
         "totalWon_many": "<strong>{{count}}</strong> wygranych",
         "totalStreak": "z rzędu",
         "totalBestStreak": "najwięcej z rzędu",
-        "lettersCorrect": "poprawna",
+        "lettersCorrect": "dobra",
         "lettersPosition": "zła pozycja",
         "lettersIncorrect": "niepoprawna",
         "lettersIncorrectAndTyped": "niepoprawna powtórzona"

@@ -102,6 +102,10 @@
         margin-bottom: 0;
         font-size: 70%;
         color: var(--text-alt);
+
+        strong {
+            color: var(--text);
+        }
     }
 
     .actions {

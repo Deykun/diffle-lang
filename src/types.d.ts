@@ -33,6 +33,7 @@ export interface Word {
 export interface Toast {
     text: string,
     timeoutSeconds: number,
+    toastTime: number | null,
 }
 
 export interface RootAppState {

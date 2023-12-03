@@ -9,7 +9,7 @@ import './Toast.scss';
 const Toasts = () => {
   const setTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const dispatch = useDispatch();
-  const { text, timeoutSeconds = 4 } = useSelector(state => state.app.toast);
+  const { text, timeoutSeconds = 4, toastTime } = useSelector(state => state.app.toast);
 
   const { t } = useTranslation();
 
@@ -36,7 +36,7 @@ const Toasts = () => {
   }
 
   return (
-    <p className="toast">
+    <p className="toast" key={toastTime}>
         {t(text)}
     </p>
   )

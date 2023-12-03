@@ -6,18 +6,28 @@
         "newGame": "New game",
         "copyResult": "Copy result",
         "copied": "Copied.",
-        "checkInDictionary": "Check \"{{word}}\" on SJP.PL"
+        "checkInDictionary": "Check \"{{word}}\" on SJP.PL",
+        "close": "close",
+        "more": "more",
+        "fetchError": "An fetching error, try again."
     },
     "game": {
         "modeDaily": "Daily",
         "modePractice": "Practice",
         "modeShare": "Shared",
         "iGiveUp": "I give up",
-        "givingUpIsNotPossible": "You can surrender only in practice mode after entering at least one word.",
+        "givingUpIsNotPossible": "Start a game to be able to surrender",
         "confirmCheckTheWord": "Is \"{{word}}\" okay?",
-        "wordToSubmitIsMissing": "Should we check the word?"
+        "wordToSubmitIsMissing": "Should we check the word?",
+        "withSpecialCharacters": "The winning word <strong>contains</strong> at least one {{specialCharacter}} character.",
+        "withoutSpecialCharacters": "The winning word <strong>doesn't</strong> contain {{specialCharacters}} characters.",
+        "plSpecialCharacter": "Polish",
+        "plSpecialCharacters": "Polish",
+        "spacesRemoved": "The spaces were removed.",
+        "isNotInDictionary": "The word was not found in the dictionary."
     },
     "help": {
+        "title": "Help",
         "howToPlayTitle": "How to play?",
         "howToPlayText1": "Guess the word using as few letters as possible.",
         "howToPlayText2": "Once you give it your best guess, the letter colors switch up to tell you how warm or cold you are to the word.",
@@ -47,7 +57,9 @@
         "completed": "completed"
     },
     "settings": {
+        "title": "Settings",
         "inDevelopment": "in development",
+        "onlyIn": "only in",
         "considered": "considered",
         "statisticsTitle": "Statistics",
         "gameModeTitle": "Game modes",

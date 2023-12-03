@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
 
 import { GameMode, GameStatus } from '@common-types';
 
@@ -20,6 +20,7 @@ import useVibrate from '@hooks/useVibrate';
 
 import IconBook from '@components/Icons/IconBook';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
+import IconFancyThumbDown from '@components/Icons/IconFancyThumbDown';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconMagic from '@components/Icons/IconMagic';
 import IconShare from '@components/Icons/IconShare';
@@ -95,6 +96,7 @@ ${diffleUrl} #diffle`);
             <h3 className="title">
                 {endStatus === GameStatus.Lost && (<>
                     <span>{t('end.titleLost')}</span>
+                    <IconFancyThumbDown className="title-icon" />
                 </>)}
                 {endStatus === GameStatus.Won && (<>
                     {guesses.length > 1 ? (<>
@@ -127,17 +129,21 @@ ${diffleUrl} #diffle`);
                 </p>
             </div>
             <div className="subtotals">
-                <p className="subtotal correct" aria-label={t('statistics.lettersCorrect')}>
+                <p className="subtotal correct has-tooltip has-tooltip-from-left">
                     <span>{subtotals.correct}</span>
+                    <span className="tooltip">{t('statistics.lettersCorrect')}</span>
                 </p>
-                <p className="subtotal position" aria-label={t('statistics.lettersPosition')}>
+                <p className="subtotal position has-tooltip">
                     <span>{subtotals.position}</span>
+                    <span className="tooltip">{t('statistics.lettersPosition')}</span>
                 </p>
-                <p className="subtotal incorrect" aria-label={t('statistics.lettersIncorrect')}>
+                <p className="subtotal incorrect has-tooltip">
                     <span>{subtotals.incorrect}</span>
+                    <span className="tooltip">{t('statistics.lettersIncorrect')}</span>
                 </p>
-                <p className="subtotal incorrect typed" aria-label={t('statistics.lettersIncorrectAndTyped')}>
+                <p className="subtotal incorrect typed has-tooltip has-tooltip-from-right">
                     <span>{subtotals.typedKnownIncorrect}</span>
+                    <span className="tooltip">{t('statistics.lettersIncorrectAndTyped')}</span>
                 </p>
             </div>
             <div className="actions">

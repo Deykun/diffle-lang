@@ -14,10 +14,11 @@ import getWordToGuess from '@api/getWordToGuess'
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
-import IconBin from '@components/Icons/IconBin';
+import IconBandage from '@components/Icons/IconBandage';
 import IconBook from '@components/Icons/IconBook';
 import IconCircleTarget from '@components/Icons/IconCircleTarget';
 import IconConstruction from '@components/Icons/IconConstruction';
+import IconInfinity from '@components/Icons/IconInfinity';
 
 import Button from '@components/Button/Button';
 
@@ -34,6 +35,7 @@ interface Props {
 const Settings = ({ changePane }: Props) => {
     const dispatch = useDispatch();
     const [yesterdayWord, setYesterdayWord] = useState('');
+    const gameMode = useSelector(state => state.game.mode);
     const isGameEnded = useSelector(selectIsGameEnded);
 
     const { t } = useTranslation();
@@ -65,8 +67,12 @@ const Settings = ({ changePane }: Props) => {
                 </li>
                 <li>
                     <button className="setting" onClick={handleGiveUp} disabled={isGameEnded}>
-                        <IconBin />
+                        <IconBandage />
                         <span>{t('game.iGiveUp')}</span>
+
+                        {gameMode !== GameMode.Practice && (
+                            <span className={clsx('setting-label', 'info', 'mode')}><span>{t('settings.onlyIn')}</span> <IconInfinity /></span> 
+                        )}
                     </button>
                 </li>
             </ul>

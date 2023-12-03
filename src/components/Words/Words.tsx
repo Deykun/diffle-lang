@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -18,6 +19,8 @@ import Word from './Word';
 
 import './Words.scss';
 
+const gameLanguage = 'pl';
+
 const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
     const isGameEnded = useSelector(selectIsGameEnded);
@@ -27,6 +30,8 @@ const Words = () => {
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
+
+    const { t } = useTranslation();
 
     const submitGuess: WordInterface = useMemo(() => {
         const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: AffixStatus.New, text: letter }));
@@ -45,13 +50,31 @@ const Words = () => {
 
     return (
         <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
-            <p className={clsx('word-tip', { 'has-polish': hasSpecialCharacters })}>
+            {/* <p className={clsx('word-tip', { 'has-polish': hasSpecialCharacters })}>
+
                 {
                     hasSpecialCharacters ?
                     <>Hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
                     <>Hasło <strong>nie zawiera</strong> polskich znaków.</>
                 }
-            </p>
+            </p> */}
+
+            {hasSpecialCharacters ?
+                <p 
+                    className={clsx('word-tip', 'has-polish')}
+                    dangerouslySetInnerHTML={{
+                    __html: t('game.withSpecialCharacters', { specialCharacter: t(`game.${gameLanguage}SpecialCharacter`) })
+                    }}
+                />
+                :
+                <p 
+                className="word-tip"
+                dangerouslySetInnerHTML={{
+                    __html: t('game.withoutSpecialCharacters', { specialCharacters: t(`game.${gameLanguage}SpecialCharacters`) })
+                }}
+                />
+            }
+
             {guesses.map((guess, index) => {            
                 return (
                     <Word key={`guess-${index}`} guess={guess} />

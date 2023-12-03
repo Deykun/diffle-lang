@@ -20,6 +20,10 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+
+        button {
+            width: 30px;
+        }
     }
 
     &-left {
@@ -63,6 +67,7 @@
     }
 
     button {
+        position: relative;
         display: inline-flex;
         align-items: center;
         background: none;

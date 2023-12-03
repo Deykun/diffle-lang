@@ -8,6 +8,7 @@ const initialState: RootAppState = {
     toast: {
         text: '',
         timeoutSeconds: 5,
+        toastTime: null,
     },
     shouldVibrate: getInitShouldVibrate(),
     shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
@@ -21,11 +22,12 @@ const appSlice = createSlice({
     reducers: {
         setToast(state, action) {
             const { text = '', timeoutSeconds = 5 } = action.payload;
+            const toastTime = (new Date()).getTime();
 
-            state.toast = { text, timeoutSeconds };
+            state.toast = { text, timeoutSeconds, toastTime };
         },
         clearToast(state) {
-            state.toast = { text: '', timeoutSeconds: 5 };
+            state.toast = { text: '', timeoutSeconds: 5, toastTime: null };
         },
         toggleVibration(state) {
             // Turning off app vibrations turns off keyboard vibration
@@ -55,7 +57,9 @@ const appSlice = createSlice({
     extraReducers: (builder) => {
         builder
           .addCase('game/submitAnswer/rejected', (state) => {
-            state.toast = { text: 'Nieznany błąd.', timeoutSeconds: 5 };
+            const toastTime = (new Date()).getTime();
+
+            state.toast = { text: 'Nieznany błąd.', timeoutSeconds: 5, toastTime };
           });
       },
 })
