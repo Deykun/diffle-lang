@@ -38,6 +38,8 @@ const Settings = ({ changePane }: Props) => {
     const gameMode = useSelector(state => state.game.mode);
     const isGameEnded = useSelector(selectIsGameEnded);
 
+    const isGivingUpDisabled = isGameEnded || gameMode !== GameMode.Practice;
+
     const { t } = useTranslation();
 
     useScrollEffect('top', []);
@@ -66,7 +68,7 @@ const Settings = ({ changePane }: Props) => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" onClick={handleGiveUp} disabled={isGameEnded}>
+                    <button className="setting" onClick={handleGiveUp} disabled={isGivingUpDisabled}>
                         <IconBandage />
                         <span>{t('game.iGiveUp')}</span>
 
