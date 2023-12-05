@@ -104,7 +104,7 @@ const Win = () => {
     const handleCopy = useCallback(() => {
         const diffleUrl = location.href.split('?')[0];
         const { stamp } = getNow();
-        const textToCopy = gameMode === GameMode.Daily ? `${stamp} – DIFFLE
+        const textToCopy = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 DIFFLE
 
 ${words} ${t('win.wordsUsed', { postProcess: 'interval', count: words })} – ${letters} ${t('win.lettersUsed', { postProcess: 'interval', count: letters })}
 🟢 ${subtotals.correct} 🟡 ${subtotals.position} ⚪ ${subtotals.incorrect}
