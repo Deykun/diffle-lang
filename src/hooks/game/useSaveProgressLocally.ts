@@ -27,6 +27,7 @@ function useSaveProgressLocally() {
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const rejectedWords = useSelector(state => state.game.rejectedWords);
     const guesses = useSelector(state => state.game.guesses);
+    const durationMS = useSelector(state => state.game.durationMS);
     const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
     const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
     const wasGivenUp = isLost && gameMode === GameMode.Practice;
@@ -70,6 +71,7 @@ function useSaveProgressLocally() {
                 rejectedWords,
                 letters,
                 subtotals,
+                durationMS,
                 keyboardUsagePercentage,
             });
         }

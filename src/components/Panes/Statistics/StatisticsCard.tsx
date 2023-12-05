@@ -27,6 +27,7 @@ const StatisticsCard = ({
     rejectedWordsPerGame,
     lettersPerGame,
     wordsPerGame,
+    secondsPerGame,
     lettersPerWord,
     lettersInFirstWord,
     lettersInSecondWord,
@@ -57,9 +58,11 @@ const StatisticsCard = ({
                 <span>{t('statistics.averageWords')}</span>
             </p>
             <div className="statistics-text">
+            
                 <p>{t('statistics.averageLetters')} <strong>{lettersPerWord.toFixed(1)}</strong> {t('statistics.inWord')}</p>
                 <p>{t('statistics.averageLetters')} <strong>{lettersInFirstWord.toFixed(1)}</strong> {t('statistics.inFirstWord')}</p>
                 <p>{t('statistics.averageLetters')} <strong>{lettersInSecondWord.toFixed(1)}</strong> {t('statistics.inSecondWord')}</p>
+                <p><strong>{secondsPerGame.toFixed(1)}</strong>s</p>
                 <p dangerouslySetInnerHTML={{
                     __html: t('statistics.keyboardUsed', { value: keyboardUsed })
                 }} />

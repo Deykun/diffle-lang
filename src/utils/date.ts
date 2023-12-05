@@ -1,5 +1,7 @@
 import { SEED_SHIFT } from '@const';
 
+import { RootGameState } from '@common-types';
+
 export const generateSeedForDay = (
     { day, month, year }: { day: number, month: number, year: number}
 ) => {
@@ -44,4 +46,32 @@ export const getYesterdaysSeed = () => {
     const day = dateUTC.getDate();
 
     return generateSeedForDay({ day, month, year });
+};
+
+export const getTimeUpdateFromTimeStamp = (timeToCompare: number) => {    
+    const now = new Date().getTime();
+
+    if (!timeToCompare) {
+        return {
+            now,
+            timePassed: 0,
+        };
+    }
+
+    const timePassed = Math.abs(timeToCompare - now);
+
+    const inactivityBreakPointInMS = 60 * 1000;
+
+    const shouldIgnoreDueToInactivity = timePassed > inactivityBreakPointInMS;
+    if (shouldIgnoreDueToInactivity) {
+        return {
+            now,
+            timePassed: 0,
+        };
+    }
+
+    return {
+        now,
+        timePassed,
+    };
 };

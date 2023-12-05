@@ -46,6 +46,7 @@ export interface Statistic {
         letters: number,
         words: number,
         rejectedWords: number,
+        durationMS: number,
     },
     letters: {
         keyboardUsed: number,
@@ -79,6 +80,7 @@ const EMPTY_STATISTIC = {
         words: 0,
         rejectedWords: 0,
         keyboardUsagePercentage: 0,
+        durationMS: 0,
     },
     letters: {
         keyboardUsed: 0,
@@ -187,6 +189,7 @@ export const saveWinIfNeeded = ({
     rejectedWords,
     letters,
     subtotals,
+    durationMS,
     keyboardUsagePercentage,
 }: SaveGame) => {
     if (guesses.length === 1) {
@@ -213,6 +216,7 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.totals.letters += letters;
     statisticToUpdate.totals.words += words;
     statisticToUpdate.totals.rejectedWords += rejectedWords.length;
+    statisticToUpdate.totals.durationMS += durationMS;    
 
     statisticToUpdate.letters.keyboardUsed = weightedKeyboarUsagePercentage;
     statisticToUpdate.letters.correct += subtotals.correct;
@@ -270,6 +274,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
                 letters: stack.totals.letters + statistic.totals.letters,
                 words: stack.totals.words + statistic.totals.words,
                 rejectedWords: stack.totals.rejectedWords + statistic.totals.rejectedWords,
+                durationMS: stack.totals.durationMS + statistic.totals.durationMS,
             },
             letters: {
                 keyboardUsed: weightedKeyboarUsagePercentage,
@@ -373,6 +378,7 @@ export interface StatisticForCard {
     rejectedWordsPerGame: number,
     lettersPerGame: number,
     wordsPerGame: number,
+    secondsPerGame: number,
     lettersPerWord: number,
     lettersInFirstWord: number,
     lettersInSecondWord: number,
@@ -392,6 +398,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
         rejectedWordsPerGame: statistic.totals.rejectedWords / totalGames,
         lettersPerGame: statistic.totals.letters / totalGames,
         wordsPerGame: statistic.totals.words / totalGames,
+        secondsPerGame: statistic.totals.durationMS / 1000 / totalGames,
         lettersPerWord: statistic.totals.letters / statistic.totals.words,
         lettersInFirstWord: statistic.firstWord.letters / totalGames,
         lettersInSecondWord: statistic.secondWord.letters / totalGames,

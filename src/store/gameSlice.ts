@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { RootState, RootGameState, UsedLetters, GameStatus, GameMode } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
-import { getNow } from '@utils/date';
+import { getNow, getTimeUpdateFromTimeStamp } from '@utils/date';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
@@ -24,6 +24,18 @@ const initialState: RootGameState = {
     rejectedWords: [],
     hasLongGuesses: false,
     isProcessing: false,
+    lastUpdateTime: 0,
+    durationMS: 0,
+};
+
+const updatePassedTimeInState = (state: RootGameState) => {
+    const {
+        now,
+        timePassed,
+    } = getTimeUpdateFromTimeStamp(state.lastUpdateTime);
+
+    state.lastUpdateTime = now;
+    state.durationMS += timePassed;
 };
 
 export const submitAnswer = createAsyncThunk(
@@ -141,6 +153,8 @@ const gameSlice = createSlice({
                 incorrect: {},
                 position: {},
             }
+            state.lastUpdateTime = 0;
+            state.durationMS = 0;
         },
         setWordToSubmit(state, action) {
             const wordToSubmit = action.payload;
@@ -166,12 +180,16 @@ const gameSlice = createSlice({
             );
 
             state.caretShift = newCaretShiftClamped;
+
+            updatePassedTimeInState(state);
         },
         letterChangeInAnswer(state, action) {
             const isGameEnded = state.status !== GameStatus.Guessing;
             if (isGameEnded || state.isProcessing) {
                 return;
             }
+
+            updatePassedTimeInState(state);
 
             const typed = action.payload;
 
@@ -300,6 +318,7 @@ const gameSlice = createSlice({
         }).addCase(loseGame.rejected, () => {
             // 
         }).addCase(restoreGameState.fulfilled, (state, action) => {
+            // TODO add timespent restore
             const {
                 isWon,
                 results,
