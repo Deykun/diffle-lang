@@ -111,6 +111,7 @@
     .actions {
         display: flex;
         justify-content: center;
+        flex-flow: row wrap;
         gap: 12px;
         margin-bottom: 12px;
     }
