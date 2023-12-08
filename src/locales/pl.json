@@ -9,6 +9,8 @@
         "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL",
         "close": "zamknij",
         "more": "więcej",
+        "download": "Pobierz",
+        "downloadError": "Błąd pobierania.",
         "fetchError": "Błąd pobierania, spróbuj ponownie."
     },
     "game": {
