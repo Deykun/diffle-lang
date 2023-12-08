@@ -40,11 +40,10 @@
 
     .statistics-letters {
         position: absolute;
-        left: 0;
         top: 24px;
+        left: 20px;
         z-index: 3;
-        padding: 0;
-        padding-left: 20px;
+        cursor: help;
 
         strong {
             font-size: 48px;
@@ -59,8 +58,8 @@
     .statistics-words {
         position: absolute;
         top: 80px;
-        right: 0;
-        padding-right: 20px;
+        right: 20px;
+        cursor: help;
 
         strong {
             font-size: 36px;

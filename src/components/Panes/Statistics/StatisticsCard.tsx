@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
 import { StatisticForCard } from '@utils/statistics';
@@ -42,20 +43,22 @@ const StatisticsCard = ({
     return (
         <div className="statistics-card">
             <IconDiffleChart className="statistics-card-icon" />
-            <p className="statistics-letters">
+            <p className={clsx('statistics-letters', 'has-tooltip')}>
                 <strong>
                     {lettersPerGame.toFixed(1)}
                     <CircleScale breakPoints={BREAKPOINTS.LETTERS_AVERAGE} startFrom={START_FROM.LETTERS_AVERAGE} value={lettersPerGame} isInvert isScaleOnLeft/>
                 </strong>
                 <span>{t('statistics.letters')}</span>
+                <span className="tooltip">{t('statistics.medianTooltip')}</span>
             </p>
-            <p className="statistics-words">
-                <span>{t('statistics.averageWordsBefore')}</span>
+            <p className={clsx('statistics-words', 'has-tooltip')}>
+                <span>{t('statistics.medianWordsBefore')}</span>
                 <strong>
                     {wordsPerGame.toFixed(1)}
                     <CircleScale breakPoints={BREAKPOINTS.WORDS_AVERAGES} startFrom={START_FROM.WORDS_AVERAGES} value={wordsPerGame} isInvert />
                 </strong>
-                <span>{t('statistics.averageWords')}</span>
+                <span>{t('statistics.medianWords')}</span>
+                <span className="tooltip">{t('statistics.medianTooltip')}</span>
             </p>
             <div className="statistics-text">
             

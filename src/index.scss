@@ -45,7 +45,7 @@ h3 {
     left: 50%;
     transform: translate(-50%, 5px);
     width: max-content;
-    max-width: 40vw;
+    max-width: min(55vw, 200px);
     transform-origin: top center;
     pointer-events: none;
     opacity: 0;
