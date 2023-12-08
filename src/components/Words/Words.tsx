@@ -37,6 +37,7 @@ const Words = () => {
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
+    const isIncorrect = wordStatus === AffixStatus.Incorrect;
 
     const { t } = useTranslation();
 
@@ -85,8 +86,8 @@ const Words = () => {
                 })}
             >
                 {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
-                {!isProcessing && wordStatus === AffixStatus.Incorrect && <span>Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.</span>}
-                {!isProcessing && hasSpace && <span>Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).</span>}
+                {!isProcessing && isIncorrect && <span>Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.</span>}
+                {!isProcessing && !isIncorrect && hasSpace && <span>Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).</span>}
             </p>
         </div>
     )

@@ -1,12 +1,12 @@
 .words {
     .word-tip,
     .status-tip {
-        font-size: 70%;
         color: var(--text-alt);
         letter-spacing: 0.03em;
     }
 
     .word-tip {
+        font-size: 70%;
         margin-bottom: 15px;
 
         strong {
@@ -19,8 +19,14 @@
     }
 
     .status-tip {
+        font-size: 60%;
         margin: 20px 0 10px;
         min-height: 30px;
+        opacity: 0.5;
+
+        .contrast & {
+            opacity: 1;
+        }
 
         > * {
             display: inline-block;
@@ -29,7 +35,7 @@
         }
 
         strong {
-            color: black;
+            color: var(--text);
             letter-spacing: 0.05em;
         }
 
