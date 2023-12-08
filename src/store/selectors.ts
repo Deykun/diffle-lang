@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { POLISH_CHARACTERS, ALLOWED_LETTERS } from '@const';
 
-import { RootState, AffixStatus, GameStatus } from '@common-types';
+import { RootState, AffixStatus, UsedLetters, GameStatus } from '@common-types';
 
 import { normilzeWord } from '@utils/normilzeWord';
 
@@ -25,31 +25,61 @@ const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
 export const selectGuesses = (state: RootState) => state.game.guesses;
 
+const getLetterState = (
+    letter: string,
+    wordToGuess: string,
+    correctLetters: UsedLetters,
+    incorrectLetter: UsedLetters,
+    positionLetters: UsedLetters,
+) => {
+    const isPolishCharacter = POLISH_CHARACTERS.includes(letter);
+    if (isPolishCharacter) {
+        const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
+
+        if (!hasPolishCharacters) {
+            // All special characters are marked as incorrect if word to guess dosen't have one
+            return AffixStatus.Incorrect;
+        }
+    }
+
+    if (correctLetters[letter]) {
+        return AffixStatus.Correct;
+    }
+
+    if (positionLetters[letter]) {
+        return AffixStatus.Position;
+    }
+
+    if (incorrectLetter[letter]) {
+        return AffixStatus.Incorrect;
+    }
+
+    return AffixStatus.Unknown;
+}
+
 export const selectLetterState = (letter: string) => createSelector(
     selectWordToGuess,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
     (wordToGuess, correctLetters, incorrectLetter, positionLetters) => {
-        const isPolishCharacter = POLISH_CHARACTERS.includes(letter);
-        if (isPolishCharacter) {
-            const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
+        return getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters);
+    },
+);
 
-            if (!hasPolishCharacters) {
-                // All special characters are marked as incorrect if word to guess dosen't have one
-                return AffixStatus.Incorrect;
-            }
-        }
+export const selectWordState = (word: string) => createSelector(
+    selectWordToGuess,
+    selectCorrectLetters,
+    selectIncorrectLetters,
+    selectPositionLetters,
+    (wordToGuess, correctLetters, incorrectLetter, positionLetters) => {
+        const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
-        if (correctLetters[letter]) {
-            return AffixStatus.Correct;
-        }
+        const hasIncorrectLetterTyped = uniqueLettersInWord.some(
+            (letter) => getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters) === AffixStatus.Incorrect,
+        );
 
-        if (positionLetters[letter]) {
-            return AffixStatus.Position;
-        }
-
-        if (incorrectLetter[letter]) {
+        if (hasIncorrectLetterTyped) {
             return AffixStatus.Incorrect;
         }
 

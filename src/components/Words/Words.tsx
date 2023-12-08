@@ -5,7 +5,13 @@ import { useTranslation } from 'react-i18next';
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { useSelector } from '@store';
-import { selectIsGameEnded, selectIsProcessing, selectHasWordToGuessSpecialCharacters, selectWordToSubmit } from '@store/selectors';
+import {
+    selectIsGameEnded,
+    selectIsProcessing,
+    selectHasWordToGuessSpecialCharacters,
+    selectWordToSubmit,
+    selectWordState,
+} from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
 
@@ -27,6 +33,7 @@ const Words = () => {
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);
+    const wordStatus = useSelector(selectWordState(wordToSubmit));
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
@@ -50,15 +57,6 @@ const Words = () => {
 
     return (
         <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
-            {/* <p className={clsx('word-tip', { 'has-polish': hasSpecialCharacters })}>
-
-                {
-                    hasSpecialCharacters ?
-                    <>Hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
-                    <>Hasło <strong>nie zawiera</strong> polskich znaków.</>
-                }
-            </p> */}
-
             {hasSpecialCharacters ?
                 <p 
                     className={clsx('word-tip', 'has-polish')}
@@ -68,13 +66,12 @@ const Words = () => {
                 />
                 :
                 <p 
-                className="word-tip"
-                dangerouslySetInnerHTML={{
-                    __html: t('game.withoutSpecialCharacters', { specialCharacters: t(`game.${gameLanguage}SpecialCharacters`) })
-                }}
+                    className="word-tip"
+                    dangerouslySetInnerHTML={{
+                        __html: t('game.withoutSpecialCharacters', { specialCharacters: t(`game.${gameLanguage}SpecialCharacters`) })
+                    }}
                 />
             }
-
             {guesses.map((guess, index) => {            
                 return (
                     <Word key={`guess-${index}`} guess={guess} />
@@ -82,13 +79,14 @@ const Words = () => {
             })}
             {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
             <p
-            className={clsx('status', {
-                'processing': isProcessing,
-                'space': hasSpace,
-            })}
+                className={clsx('status-tip', {
+                    'processing': isProcessing,
+                    'space': hasSpace,
+                })}
             >
                 {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
-                {!isProcessing && hasSpace && <span>Hasła nie mają spacji, ale możesz jej używać (zostanie usunięta).</span>}
+                {!isProcessing && wordStatus === AffixStatus.Incorrect && <span>Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.</span>}
+                {!isProcessing && hasSpace && <span>Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).</span>}
             </p>
         </div>
     )

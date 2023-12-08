@@ -1,34 +1,31 @@
 .words {
-    position: relative;
+    .word-tip,
+    .status-tip {
+        font-size: 70%;
+        color: var(--text-alt);
+        letter-spacing: 0.03em;
+    }
 
-    .icon-focus {
-        position: absolute;
-        top: -20px;
-        right: 0px;
-        z-index: 1;
-        width: 24px;
-        height: 24px;
-        fill: #cacaca;
-        border-radius: 50px;
-        background-color: rgba(white, 0.8);
-        box-shadow: 0 0 5px rgba(white, 0.5);
-        z-index: 1;
+    .word-tip {
+        margin-bottom: 15px;
 
-        &:hover ~ .word .incorrect {
-            opacity: 0.2;
+        strong {
+            color: var(--red);
+        }
+
+        &.has-polish strong {
+            color: var(--green);
         }
     }
 
-
-    .status {
-        color: #d4d4d4;
-        margin: 15px 0;
+    .status-tip {
+        margin: 20px 0 10px;
         min-height: 30px;
-        font-size: 70%;
 
         > * {
             display: inline-block;
             vertical-align: middle;
+            margin-bottom: 5px;
         }
 
         strong {
@@ -44,20 +41,6 @@
                 animation: spin infinite linear reverse 1s;
                 fill: var(--green);            
             }
-        }
-    }
-
-    .word-tip {
-        font-size: 70%;
-        color: var(--text-alt);
-        margin-bottom: 15px;
-
-        strong {
-            color: var(--red);
-        }
-
-        &.has-polish strong {
-            color: var(--green);
         }
     }
 }

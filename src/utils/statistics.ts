@@ -48,6 +48,14 @@ export interface Statistic {
         rejectedWords: number,
         durationMS: number,
     },
+    medianData: {
+        letters: {
+            [key: number]: number,
+        },
+        words: {
+            [key: number]: number,
+        },
+    },
     letters: {
         keyboardUsed: number,
         correct: number,
@@ -81,6 +89,10 @@ const EMPTY_STATISTIC = {
         rejectedWords: 0,
         keyboardUsagePercentage: 0,
         durationMS: 0,
+    },
+    medianData: {
+        letters: {},
+        words: {},
     },
     letters: {
         keyboardUsed: 0,
@@ -216,7 +228,19 @@ export const saveWinIfNeeded = ({
     statisticToUpdate.totals.letters += letters;
     statisticToUpdate.totals.words += words;
     statisticToUpdate.totals.rejectedWords += rejectedWords.length;
-    statisticToUpdate.totals.durationMS += durationMS;    
+    statisticToUpdate.totals.durationMS += durationMS;
+
+    if (statisticToUpdate.medianData.letters[letters]) {
+        statisticToUpdate.medianData.letters[letters] += 1;
+    } else {
+        statisticToUpdate.medianData.letters[letters] = 1;
+    }
+
+    if (statisticToUpdate.medianData.words[words]) {
+        statisticToUpdate.medianData.words[words] += 1;
+    } else {
+        statisticToUpdate.medianData.words[words] = 1;
+    }
 
     statisticToUpdate.letters.keyboardUsed = weightedKeyboarUsagePercentage;
     statisticToUpdate.letters.correct += subtotals.correct;
@@ -267,6 +291,28 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
 
         const weightedKeyboarUsagePercentage = weightedKeyboardNumerator > 0 ? Math.round(weightedKeyboardNumerator / (totalGamesStack + totalGameStatToAdd)) : 0;
 
+        const uniqueMedianDataLetters = [...new Set([
+            ...Object.keys(stack.medianData.letters),
+            ...Object.keys(statistic.medianData.letters),
+        ])].map(Number);
+
+        const medianDataLetters = uniqueMedianDataLetters.reduce((medianStack: { [key: number]: number}, key: number) => {
+            medianStack[key] = (stack.medianData.letters[key] ?? 0) + (statistic.medianData.letters[key] ?? 0);
+
+            return medianStack;
+        }, {});
+
+        const uniqueMedianDataWords = [...new Set([
+            ...Object.keys(stack.medianData.words),
+            ...Object.keys(statistic.medianData.words),
+        ])].map(Number);
+
+        const medianDataWords = uniqueMedianDataWords.reduce((medianStack: { [key: number]: number}, key: number) => {
+            medianStack[key] = (stack.medianData.words[key] ?? 0) + (statistic.medianData.words[key] ?? 0);
+
+            return medianStack;
+        }, {});
+
         return {
             totals: {
                 won: stack.totals.won + statistic.totals.won,
@@ -275,6 +321,10 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
                 words: stack.totals.words + statistic.totals.words,
                 rejectedWords: stack.totals.rejectedWords + statistic.totals.rejectedWords,
                 durationMS: stack.totals.durationMS + statistic.totals.durationMS,
+            },
+            medianData: {
+                letters: medianDataLetters,
+                words: medianDataWords,
             },
             letters: {
                 keyboardUsed: weightedKeyboarUsagePercentage,
@@ -377,7 +427,9 @@ export interface StatisticForCard {
     totalWon: number,
     rejectedWordsPerGame: number,
     lettersPerGame: number,
+    averageLettersPerGame: number,
     wordsPerGame: number,
+    averageWordsPerGame: number,
     secondsPerGame: number,
     lettersPerWord: number,
     lettersInFirstWord: number,
@@ -389,23 +441,57 @@ export interface StatisticForCard {
     keyboardUsed: number,
 }
 
+const getMedianFromMedianData = (medianData: { [value: number]: number }) => {
+    const totalDataInMedian = Object.values(medianData).reduce((stack, totalForValue) => stack + totalForValue, 0);
+    const medianIndex = Math.floor(totalDataInMedian / 2);
+    const shouldUseAverage = totalDataInMedian % 2 === 1;
+
+    const sortedData = Object.entries(medianData).sort(([valueA], [valueB]) => Number(valueA) - Number(valueB));
+
+    let currenIndex = 0;
+    for (let i = 0; i < sortedData.length; i++) {
+        const [value, total] = sortedData[i];
+        
+        currenIndex += total;
+
+        if (medianIndex <= currenIndex) {
+            if (shouldUseAverage) {
+                const nextValue = Number(sortedData[i + 1]?.[0]);
+
+                if (nextValue) {
+                    return (Number(value) + nextValue) / 2;
+                }
+            }
+
+            return Number(value);
+        }
+    }
+
+    // It shouldn't be possible
+    return 0;
+}
+
 export const getStatisticCardDataFromStatistics = (statistic: Statistic): StatisticForCard => {
     const totalGames = statistic.totals.won + statistic.totals.lost;
 
+    const averageLettersPerGame = statistic.totals.letters / totalGames;
+    
     return {
         totalGames,
         totalWon: statistic.totals.won,
         rejectedWordsPerGame: statistic.totals.rejectedWords / totalGames,
-        lettersPerGame: statistic.totals.letters / totalGames,
-        wordsPerGame: statistic.totals.words / totalGames,
+        lettersPerGame: getMedianFromMedianData(statistic.medianData.letters),
+        averageLettersPerGame,
+        wordsPerGame: getMedianFromMedianData(statistic.medianData.words),
+        averageWordsPerGame: statistic.totals.words / totalGames,
         secondsPerGame: statistic.totals.durationMS / 1000 / totalGames,
         lettersPerWord: statistic.totals.letters / statistic.totals.words,
         lettersInFirstWord: statistic.firstWord.letters / totalGames,
         lettersInSecondWord: statistic.secondWord.letters / totalGames,
-        lettersCorrect: statistic.letters.correct / totalGames,
-        lettersPosition: statistic.letters.position / totalGames,
-        lettersIncorrect: statistic.letters.incorrect / totalGames,
-        lettersTypedKnownIncorrect: statistic.letters.typedKnownIncorrect / totalGames,
+        lettersCorrect: (statistic.letters.correct / totalGames) / averageLettersPerGame,
+        lettersPosition: (statistic.letters.position / totalGames) / averageLettersPerGame,
+        lettersIncorrect: (statistic.letters.incorrect / totalGames) / averageLettersPerGame,
+        lettersTypedKnownIncorrect: (statistic.letters.typedKnownIncorrect / totalGames) / averageLettersPerGame,
         keyboardUsed: statistic.letters.keyboardUsed,
     }
 };

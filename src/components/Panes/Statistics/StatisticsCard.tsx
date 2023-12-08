@@ -75,26 +75,26 @@ const StatisticsCard = ({
             <p className="statistics-letters-types">
                 <span className="correct">
                     <strong>
-                        {(lettersCorrect).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersCorrect / lettersPerGame) * 100} isPercentage />
+                        {(lettersCorrect * lettersPerGame).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersCorrect * 100} isPercentage />
                     </strong>
                 </span>
                 <span className="position">
                     <strong>
-                        {(lettersPosition).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersPosition / lettersPerGame) * 100} isPercentage />
+                        {(lettersPosition * lettersPerGame).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersPosition * 100} isPercentage />
                     </strong>
                 </span>
                 <span className="incorrect">
                     <strong>
-                        {(lettersIncorrect).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersIncorrect / lettersPerGame) * 100} isPercentage />
+                        {(lettersIncorrect * lettersPerGame).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersIncorrect * 100} isPercentage />
                     </strong>
                 </span>
                 <span className="incorrect typed">
                     <strong>
-                        {(lettersTypedKnownIncorrect).toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={(lettersTypedKnownIncorrect / lettersPerGame) * 100} isPercentage />
+                        {(lettersTypedKnownIncorrect * lettersPerGame).toFixed(1)}
+                        <CircleScale breakPoints={BREAKPOINTS.LETTER_TYPES} value={lettersTypedKnownIncorrect * 100} isPercentage />
                     </strong>
                 </span>
             </p>
