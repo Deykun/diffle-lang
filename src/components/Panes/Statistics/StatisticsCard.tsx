@@ -5,6 +5,7 @@ import { useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
 
 import { StatisticForCard } from '@utils/statistics';
+import { getNow } from '@utils/date';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconPicture from '@components/Icons/IconPicture';
@@ -59,8 +60,11 @@ const StatisticsCard = ({
     
         try {
             const dataUrl = await htmlToImage.toJpeg(domElement);
+
+            const { stamp, stampOnlyTime } = getNow();
+            const fullStamp = `${stamp} ${stampOnlyTime}`;
             
-            download(dataUrl, 'diffle.jpeg');
+            download(dataUrl, `DIFFLE ${fullStamp}.jpeg`);
         } catch (error) {
             console.error(error);
 

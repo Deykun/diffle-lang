@@ -1,7 +1,5 @@
 import { SEED_SHIFT } from '@const';
 
-import { RootGameState } from '@common-types';
-
 export const generateSeedForDay = (
     { day, month, year }: { day: number, month: number, year: number}
 ) => {
@@ -23,10 +21,13 @@ export const getNow = () => {
 
     const stamp = `${('' + day).padStart(2, '0')}.${('' + month).padStart(2, '0')}.${year}`;
 
+    const stampOnlyTime = `${('' + nowUTC.getHours()).padStart(2,'0')}:${('' + nowUTC.getMinutes()).padStart(2,'0')}:${('' + nowUTC.getSeconds()).padStart(2,'0')}`;
+
     const dateSeed = generateSeedForDay({ day, month, year });
 
     return {
         stamp,
+        stampOnlyTime,
         year,
         month,
         day,

@@ -9,3 +9,7 @@ export const normilzeWord = (text: string) => {
         .replaceAll('ź', 'z')
         .replaceAll('ż', 'z');
 };
+
+export const getHasSpecialCharacters = (text: string) => {
+    return text !== normilzeWord(text);
+};

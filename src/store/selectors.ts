@@ -4,7 +4,7 @@ import { POLISH_CHARACTERS, ALLOWED_LETTERS } from '@const';
 
 import { RootState, AffixStatus, UsedLetters, GameStatus } from '@common-types';
 
-import { normilzeWord } from '@utils/normilzeWord';
+import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
@@ -16,7 +16,7 @@ export const selectIsGameEnded = (state: RootState) => state.game.status !== Gam
 
 export const selectHasWordToGuessSpecialCharacters = createSelector(
     selectWordToGuess,
-    wordToGuess => wordToGuess !== normilzeWord(wordToGuess),
+    wordToGuess => getHasSpecialCharacters(wordToGuess),
 );
 
 const selectCorrectLetters = (state: RootState) => state.game.letters.correct;
@@ -34,7 +34,7 @@ const getLetterState = (
 ) => {
     const isPolishCharacter = POLISH_CHARACTERS.includes(letter);
     if (isPolishCharacter) {
-        const hasPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
+        const hasPolishCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
 
         if (!hasPolishCharacters) {
             // All special characters are marked as incorrect if word to guess dosen't have one
@@ -115,9 +115,9 @@ export const selectKeyboardState = createSelector(
             return  AffixStatus.Incorrect;
         }
 
-        const hasWordToGuessPolishCharacters = wordToGuess && wordToGuess !== normilzeWord(wordToGuess);
-        const hasWordToSubmitPolishCharacters = wordToSubmit && wordToSubmit !== normilzeWord(wordToSubmit);
-        const polishCharacterTypedWhenNotNeeded = !hasWordToGuessPolishCharacters && hasWordToSubmitPolishCharacters;
+        const hasWordToGuessSpecialCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
+        const hasWordToSubmitSpecialCharacters = wordToSubmit && getHasSpecialCharacters(wordToSubmit);
+        const polishCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
         if (polishCharacterTypedWhenNotNeeded) {
             return  AffixStatus.Incorrect;
         }
@@ -163,7 +163,8 @@ interface GuessesStackInterface extends AffixStackInterface {
 
 export const selectGuessesStatsForLetters = createSelector(
     selectGuesses,
-    (guesses) => {
+    selectHasWordToGuessSpecialCharacters,
+    (guesses, hasWordToGuessSpecialCharacters) => {
         const { words, subtotals } = guesses.reduce((guessesStack: GuessesStackInterface, { affixes }) => {
             const { subtotals: wordTotals, incorrectLetters: wordIncorrectLetters } = affixes.reduce((affixesStack: AffixStackInterface, affix) => {
                 if (affix.type === AffixStatus.Correct) {
@@ -184,7 +185,9 @@ export const selectGuessesStatsForLetters = createSelector(
                         to signal this better in code and to the end user.
                     */
                     const typedWhenWasKnownToBeIncorrect = guessesStack.incorrectLetters.includes(affix.text);
-                    if (typedWhenWasKnownToBeIncorrect) {
+                    const isSpecialCharacterButWinningWordDonNotHaveThem = !hasWordToGuessSpecialCharacters && getHasSpecialCharacters(affix.text);
+
+                    if (typedWhenWasKnownToBeIncorrect || isSpecialCharacterButWinningWordDonNotHaveThem) {
                         affixesStack.subtotals.typedKnownIncorrect += 1;
                     } else {
                         affixesStack.incorrectLetters = [...affixesStack.incorrectLetters, ...affix.text];

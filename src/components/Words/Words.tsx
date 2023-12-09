@@ -62,7 +62,7 @@ const Words = () => {
                 <p 
                     className={clsx('word-tip', 'has-polish')}
                     dangerouslySetInnerHTML={{
-                    __html: t('game.withSpecialCharacters', { specialCharacter: t(`game.${gameLanguage}SpecialCharacter`) })
+                        __html: t('game.withSpecialCharacters', { specialCharacter: t(`game.${gameLanguage}SpecialCharacter`) })
                     }}
                 />
                 :
@@ -86,9 +86,9 @@ const Words = () => {
                     'space': hasSpace,
                 })}
             >
-                {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
-                {!isProcessing && isIncorrect && <span>Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.</span>}
-                {!isProcessing && !isIncorrect && hasSpace && <span>Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).</span>}
+                {isProcessing && <><IconDashedCircle /> <span>{t('game.checking')}</span></>}
+                {!isProcessing && isIncorrect && <span dangerouslySetInnerHTML={{ __html: t('game.youCanUseIncorrectLetters') }} />}
+                {!isProcessing && !isIncorrect && hasSpace && <span dangerouslySetInnerHTML={{ __html: t('game.youCanUseSpace') }} />}
             </p>
         </div>
     )

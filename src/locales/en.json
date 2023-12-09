@@ -19,10 +19,13 @@
         "givingUpIsNotPossible": "Start a game to be able to surrender",
         "confirmCheckTheWord": "Is \"{{word}}\" okay?",
         "wordToSubmitIsMissing": "Should we check the word?",
+        "checking": "checking...",
         "withSpecialCharacters": "The winning word <strong>contains</strong> at least one {{specialCharacter}} character.",
         "withoutSpecialCharacters": "The winning word <strong>doesn't</strong> contain {{specialCharacters}} characters.",
         "plSpecialCharacter": "Polish",
         "plSpecialCharacters": "Polish",
+        "youCanUseIncorrectLetters": "Your word <strong>can't</strong> win, but you can use it while searching for the winning word.",
+        "youCanUseSpace": "Words <strong>don't</strong> have spaces, but you can use them (they will be removed).",
         "spacesRemoved": "The spaces were removed.",
         "isNotInDictionary": "The word was not found in the dictionary."
     },
