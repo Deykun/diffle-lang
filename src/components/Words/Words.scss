@@ -39,7 +39,13 @@
             letter-spacing: 0.05em;
         }
 
-        &.processing {
+        &.isIncorrect {
+            strong {
+                color: var(--red);
+            }
+        }
+
+        &.isProcessing {
             svg {
                 width: 24px;
                 height: 24px;

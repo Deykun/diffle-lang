@@ -81,7 +81,8 @@ const Words = () => {
             {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
             <p
                 className={clsx('status-tip', {
-                    'processing': isProcessing,
+                    'isProcessing': isProcessing,
+                    'isIncorrect': isIncorrect,
                     'space': hasSpace,
                 })}
             >

@@ -147,8 +147,7 @@ export const selectKeyboardUsagePercentage = createSelector(
     },
 );
 
-interface GuessesStackInterface {
-    words: number,
+interface AffixStackInterface {
     incorrectLetters: string[],
     subtotals: {
         correct: number,
@@ -158,11 +157,15 @@ interface GuessesStackInterface {
     }
 }
 
+interface GuessesStackInterface extends AffixStackInterface {
+    words: number,
+}
+
 export const selectGuessesStatsForLetters = createSelector(
     selectGuesses,
     (guesses) => {
         const { words, subtotals } = guesses.reduce((guessesStack: GuessesStackInterface, { affixes }) => {
-            const { subtotals: wordTotals } = affixes.reduce((affixesStack, affix) => {
+            const { subtotals: wordTotals, incorrectLetters: wordIncorrectLetters } = affixes.reduce((affixesStack: AffixStackInterface, affix) => {
                 if (affix.type === AffixStatus.Correct) {
                     affixesStack.subtotals.correct += affix.text.length;
                 }
@@ -175,12 +178,16 @@ export const selectGuessesStatsForLetters = createSelector(
                     // Incorrect affixes are always length = 1
                     affixesStack.subtotals.incorrect += 1;
 
-                    // TODO fix when the same two times in the word
+                    /*
+                        The letter can be either correct or incorrect; for example, if it exists in incorrectLetters,
+                        that means the user knows it occurs only once. In the future, more logic can be implemented
+                        to signal this better in code and to the end user.
+                    */
                     const typedWhenWasKnownToBeIncorrect = guessesStack.incorrectLetters.includes(affix.text);
                     if (typedWhenWasKnownToBeIncorrect) {
                         affixesStack.subtotals.typedKnownIncorrect += 1;
                     } else {
-                        guessesStack.incorrectLetters = [...guessesStack.incorrectLetters, ...affix.text];
+                        affixesStack.incorrectLetters = [...affixesStack.incorrectLetters, ...affix.text];
                     }
                 }
 
@@ -191,7 +198,8 @@ export const selectGuessesStatsForLetters = createSelector(
                     position: 0,
                     incorrect: 0,
                     typedKnownIncorrect: 0,
-                }
+                },
+                incorrectLetters: [],
             });
 
             guessesStack.words += 1;
@@ -199,6 +207,7 @@ export const selectGuessesStatsForLetters = createSelector(
             guessesStack.subtotals.position += wordTotals.position;
             guessesStack.subtotals.incorrect += wordTotals.incorrect;
             guessesStack.subtotals.typedKnownIncorrect += wordTotals.typedKnownIncorrect;
+            guessesStack.incorrectLetters = [...guessesStack.incorrectLetters, ...wordIncorrectLetters];
 
             return guessesStack;
         }, {
