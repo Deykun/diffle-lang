@@ -63,7 +63,7 @@ const EndResult = () => {
 
         const isLost = endStatus === GameStatus.Lost;
 
-        const copyTitle = gameMode === GameMode.Daily ? `${stamp} – DIFFLE  🇵🇱  ` : `« ${wordToGuess} » – DIFFLE  🇵🇱  `;
+        const copyTitle = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 DIFFLE` : `« ${wordToGuess} » – 🇵🇱 DIFFLE`;
         const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
 
         if (isLost) {
