@@ -96,16 +96,4 @@ export const compareWords = (answer: string, guess: string) => {
     return best_results[0];
 }
 
-/*
-    TODO:
-    Word to guess: PIRYTOWY (two Y)
-
-    Guess: ISKRY returns:
-    - [Green I] SK [Green RY]
-
-    It should return:
-    - [Green I] SK [Green R] [Green Y with information that this is the last letter]
-
-*/
-
 export default compareWords;
