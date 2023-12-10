@@ -1,3 +1,26 @@
 .statistics {
     padding-bottom: 20px;
 }
+
+.missing-data {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .missing-data-icon {
+        height: 24px;
+        fill: var(--red);
+        opacity: 0.2;
+        margin-right: 15px;
+    }
+
+    p {
+        position: relative;
+        z-index: 1;
+        fill: var(--text);
+        margin-bottom: 0;
+    }
+}

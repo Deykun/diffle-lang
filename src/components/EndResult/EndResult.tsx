@@ -113,7 +113,7 @@ ${diffleUrl} #diffle`);
                     {endStatus === GameStatus.Lost && (<>
                         {t('end.winningWord')}
                         {' '}
-                        {wordToGuess}
+                        „<strong>{wordToGuess}</strong>”
                     </>)}
                     {endStatus === GameStatus.Won && (<>
                         <strong>{letters}</strong>

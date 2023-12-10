@@ -17,7 +17,6 @@ import { saveWinIfNeeded } from '@utils/statistics';
 
 import useEffectChange from "@hooks/useEffectChange";
 
-
 function useSaveProgressLocally() {
     const isWon = useSelector(selectIsWon);
     const isLost = useSelector(selectIsLost);

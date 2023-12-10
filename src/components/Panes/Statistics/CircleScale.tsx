@@ -26,7 +26,7 @@ const CircleScale = ({
     }
 
     return (
-        <div className={clsx('circle-scale', {
+        <span className={clsx('circle-scale', {
             'circle-scale-scale-on-left': isScaleOnLeft,
             'circle-scale-is-normal': !isInvert,
         })}>
@@ -35,17 +35,17 @@ const CircleScale = ({
             
                 return (
                     <span
-                    key={breakPoint}
-                    className={clsx('circle-scale-border', {
-                        'circle-scale-border-checked': isInvert ? value <= breakPoint : value >= breakPoint,
-                    })}
-                    style={{ width: `${progressX * 100}%` }}
+                        key={breakPoint}
+                        className={clsx('circle-scale-border', {
+                            'circle-scale-border-checked': isInvert ? value <= breakPoint : value >= breakPoint,
+                        })}
+                        style={{ width: `${progressX * 100}%` }}
                     >
                         <span>{breakPoint}{isPercentage ? '%' : ''}</span>
                     </span>
                 );
             })}
-        </div>
+        </span>
     )
 };
 

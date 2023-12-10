@@ -1,4 +1,5 @@
 import { GameMode } from '@common-types';
+import  { convertMillisecondsToTime } from './date';
 import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
 export enum ModeFilter {
@@ -430,7 +431,16 @@ export interface StatisticForCard {
     averageLettersPerGame: number,
     wordsPerGame: number,
     averageWordsPerGame: number,
-    secondsPerGame: number,
+    timePerGame: {
+        hours: number,
+        minutes: number,
+        seconds: number,
+    },
+    totalTime: {
+        hours: number,
+        minutes: number,
+        seconds: number,
+    },
     lettersPerWord: number,
     lettersInFirstWord: number,
     lettersInSecondWord: number,
@@ -484,7 +494,8 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
         averageLettersPerGame,
         wordsPerGame: getMedianFromMedianData(statistic.medianData.words),
         averageWordsPerGame: statistic.totals.words / totalGames,
-        secondsPerGame: statistic.totals.durationMS / 1000 / totalGames,
+        timePerGame: convertMillisecondsToTime(statistic.totals.durationMS / totalGames),
+        totalTime: convertMillisecondsToTime(statistic.totals.durationMS),
         lettersPerWord: statistic.totals.letters / statistic.totals.words,
         lettersInFirstWord: statistic.firstWord.letters / totalGames,
         lettersInSecondWord: statistic.secondWord.letters / totalGames,

@@ -46,6 +46,8 @@
         }
 
         &.isProcessing {
+            opacity: 1;
+
             svg {
                 width: 24px;
                 height: 24px;

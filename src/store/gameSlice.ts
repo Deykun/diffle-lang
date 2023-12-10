@@ -9,6 +9,7 @@ import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 
 import { setToast } from '@store/appSlice';
+import { selectIsGameEnded } from '@store/selectors';
 
 import { SUBMIT_ERRORS, GIVE_UP_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -29,6 +30,11 @@ const initialState: RootGameState = {
 };
 
 const updatePassedTimeInState = (state: RootGameState) => {
+    // Updates are counted after first word
+    if (state.guesses.length === 0) {
+        return;
+    }
+
     const {
         now,
         timePassed,
@@ -81,18 +87,17 @@ export const submitAnswer = createAsyncThunk(
 
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
-    async ({ wordToGuess, guessesWords = [], rejectedWords = [] }: { wordToGuess: string, guessesWords: string[], rejectedWords: string[] }) => {
+    async ({ wordToGuess, guessesWords = [], rejectedWords = [] }: { wordToGuess: string, guessesWords: string[], rejectedWords: string[] }, { dispatch }) => {
         if (!wordToGuess) {
             return;
         }
 
-
         const { hasError, isWon, results, wordsLetters } = await getWordReportForMultipleWords(wordToGuess, guessesWords);
 
         if (hasError) {
-            // dispatch(setToast({ text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
+            dispatch(setToast({ text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
 
-            // return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
+            return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
 
         return {
@@ -126,6 +131,20 @@ export const loseGame = createAsyncThunk(
         localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
 
         // Save lost game
+    },
+);
+
+export const saveEnedGame = createAsyncThunk(
+    'game/saveEnedGame',
+    async (_, { dispatch, getState }) => {
+        const state  = getState() as RootState;
+
+        const isGameEnded = selectIsGameEnded(state);
+        if (isGameEnded) {
+            return;
+        }
+
+        // TODO rest
     },
 );
 
@@ -168,7 +187,7 @@ const gameSlice = createSlice({
                 correct: { },
                 incorrect: { },
                 position: { },
-            }
+            };
         },
         setCaretShift(state, action) {
             const letterIndex = action.payload + 1; // First letter (index: 0)
@@ -311,6 +330,8 @@ const gameSlice = createSlice({
             }
 
             state.guesses.push({ word, affixes });
+
+            updatePassedTimeInState(state);
         }).addCase(submitAnswer.rejected, (state) => {
             state.isProcessing = false;
         }).addCase(loseGame.fulfilled, (state) => {

@@ -38,6 +38,10 @@ h3 {
     color: white;
 }
 
+.tooltip-relative {
+    position: relative;
+}
+
 .has-tooltip .tooltip {
     @include tooltip;
     position: absolute;
@@ -50,6 +54,7 @@ h3 {
     transform-origin: top center;
     pointer-events: none;
     opacity: 0;
+    text-shadow: none;
     transition: 0.1s ease-in-out;
 
     &::before {

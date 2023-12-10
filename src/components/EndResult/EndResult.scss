@@ -38,18 +38,18 @@
         color: var(--text-weaker);
         letter-spacing: 0.08em;
         font-weight: 600;
-
-        strong {
-            color: var(--blue-on-background);
-            font-size: 30px;
-            font-weight: 600;
-            vertical-align: middle;
-            margin: 0 0.15em;
-        }
     }
 
     &.lost .total strong {
         color: var(--text);
+    }
+
+    &.won .total strong {
+        color: var(--blue-on-background);
+        font-size: 30px;
+        font-weight: 600;
+        vertical-align: middle;
+        margin: 0 0.15em;
     }
 
     .subtotals {
