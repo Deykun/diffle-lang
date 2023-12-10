@@ -2,34 +2,32 @@ import { useEffect } from 'react';
 
 import { GameMode } from '@common-types';
 import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
+import { saveEndedGame } from '@store/gameSlice';
 
-import { useSelector } from '@store';
+import { useDispatch, useSelector } from '@store';
 import {
-    selectIsWon,
     selectIsLost,
     selectWordToGuess,
-    selectHasWordToGuessSpecialCharacters,
-    selectGuessesStatsForLetters,
-    selectKeyboardUsagePercentage,
 } from '@store/selectors';
-
-import { saveWinIfNeeded } from '@utils/statistics';
 
 import useEffectChange from "@hooks/useEffectChange";
 
 function useSaveProgressLocally() {
-    const isWon = useSelector(selectIsWon);
+    const dispatch = useDispatch();
     const isLost = useSelector(selectIsLost);
+    const gameStatus = useSelector(state => state.game.status);
     const gameMode = useSelector(state => state.game.mode);
     const todayStamp = useSelector(state => state.game.today);
+    const lastUpdateTime = useSelector(state => state.game.lastUpdateTime);
+    const durationMS = useSelector(state => state.game.durationMS);
     const wordToGuess = useSelector(selectWordToGuess);
-    const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const rejectedWords = useSelector(state => state.game.rejectedWords);
     const guesses = useSelector(state => state.game.guesses);
-    const durationMS = useSelector(state => state.game.durationMS);
-    const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
-    const keyboardUsagePercentage = useSelector(selectKeyboardUsagePercentage);
     const wasGivenUp = isLost && gameMode === GameMode.Practice;
+
+    useEffect(() => {
+        dispatch(saveEndedGame())
+    }, [dispatch, gameStatus]);
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, gameMode);
@@ -53,29 +51,12 @@ function useSaveProgressLocally() {
             wordToGuess,
             guessesWords,
             rejectedWords,
+            lastUpdateTime,
+            durationMS,
         };
 
         localStorage.setItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode], JSON.stringify(recoveryState));
     }, [wordToGuess, guesses, rejectedWords]);
-
-    useEffect(() => {
-        if (isWon) {
-            saveWinIfNeeded({
-                wordToGuess,
-                gameLanguage: 'pl',
-                gameMode,
-                hasSpecialCharacters: hasSpecialCharacters,
-                guesses,
-                words,
-                rejectedWords,
-                letters,
-                subtotals,
-                durationMS,
-                keyboardUsagePercentage,
-            });
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isWon]);
 }
 
 export default useSaveProgressLocally;

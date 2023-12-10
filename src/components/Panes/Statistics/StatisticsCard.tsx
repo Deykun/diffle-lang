@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
 
-import { StatisticForCard } from '@utils/statistics';
+import { StatisticDataForCard, Filters } from '@utils/statistics';
 import { getNow } from '@utils/date';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
@@ -17,7 +17,14 @@ import CircleScale from './CircleScale';
 import * as htmlToImage from 'html-to-image';
 import download from 'downloadjs';
 
+import StatisticsCardActiveFilters from './StatisticsCardActiveFilters';
+
 import './StatisticsCard.scss';
+
+interface StatisticForCard extends StatisticDataForCard, Filters {
+    streak?: number,
+    bestStreak?: number,
+}
 
 const BREAKPOINTS = {
     LETTERS: [90, 75, 60, 45, 35, 25],
@@ -49,7 +56,10 @@ const StatisticsCard = ({
     lettersPosition,
     lettersIncorrect,
     lettersTypedKnownIncorrect,
-    keyboardUsed,
+    // keyboardUsed,
+    modeFilter,
+    charactersFilter,
+    lengthFilter,
 }: StatisticForCard) => {
     const dispatch = useDispatch();
     const { t } = useTranslation();
@@ -167,11 +177,15 @@ const StatisticsCard = ({
                             count: totalWon,
                         })
                     }} />
-                    {bestStreak > 0 && <p><strong>{streak}</strong> {t('statistics.totalStreak')}</p>}
-                    {bestStreak > 0 && <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>}                
+                    {bestStreak && bestStreak > 0 && <>
+                        <p><strong>{streak}</strong> {t('statistics.totalStreak')}</p>
+                        <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>
+                    </>}
                 </div>
                 <footer>
                     {location.href}
+                    {' '}
+                    <StatisticsCardActiveFilters modeFilter={modeFilter} charactersFilter={charactersFilter} lengthFilter={lengthFilter} />
                 </footer>
             </div>
             <div className="statistics-card-actions">

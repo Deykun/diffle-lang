@@ -2,14 +2,28 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { RootState, RootGameState, UsedLetters, GameStatus, GameMode } from '@common-types';
 
-import { LOCAL_STORAGE } from '@const';
+import { LOCAL_STORAGE, PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 import { getNow, getTimeUpdateFromTimeStamp } from '@utils/date';
+import {
+    getStreak,
+    saveStreak,
+    getStatistic,
+    saveStatistic,
+} from '@utils/statistics';
+import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 
 import { setToast } from '@store/appSlice';
-import { selectIsGameEnded } from '@store/selectors';
+import {
+    selectIsWon,
+    selectIsLost,
+    selectGuesses,
+    selectWordToGuess,
+    selectKeyboardUsagePercentage,
+    selectGuessesStatsForLetters,
+} from '@store/selectors';
 
 import { SUBMIT_ERRORS, GIVE_UP_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -87,7 +101,9 @@ export const submitAnswer = createAsyncThunk(
 
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
-    async ({ wordToGuess, guessesWords = [], rejectedWords = [] }: { wordToGuess: string, guessesWords: string[], rejectedWords: string[] }, { dispatch }) => {
+    async ({
+        wordToGuess, guessesWords = [], rejectedWords = [], lastUpdateTime, durationMS,
+    }: { wordToGuess: string, guessesWords: string[], rejectedWords: string[], lastUpdateTime: number, durationMS: number }, { dispatch }) => {
         if (!wordToGuess) {
             return;
         }
@@ -106,6 +122,8 @@ export const restoreGameState = createAsyncThunk(
             wordToGuess,
             wordsLetters,
             rejectedWords,
+            lastUpdateTime,
+            durationMS,
         };
     },
 );
@@ -118,10 +136,6 @@ export const loseGame = createAsyncThunk(
         const isInRightModeAndNotEnded = state.game.mode === GameMode.Practice && state.game.status === GameStatus.Guessing;
         const canBeGivenUp = isInRightModeAndNotEnded && state.game.guesses.length > 0;
 
-        console.log({
-            canBeGivenUp,
-        })
-
         if (!canBeGivenUp) {
             dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 5 }));
 
@@ -129,22 +143,137 @@ export const loseGame = createAsyncThunk(
         }
 
         localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
-
-        // Save lost game
     },
 );
 
-export const saveEnedGame = createAsyncThunk(
-    'game/saveEnedGame',
+export const saveEndedGame = createAsyncThunk(
+    'game/saveEndedGame',
     async (_, { dispatch, getState }) => {
+        const gameLanguage = 'pl';
         const state  = getState() as RootState;
-
-        const isGameEnded = selectIsGameEnded(state);
-        if (isGameEnded) {
+        
+        const isWon = selectIsWon(state);
+        const isLost = selectIsLost(state);
+        const wordToGuess = selectWordToGuess(state);
+        const isGameEnded = wordToGuess.length > 0 && (isWon || isLost);
+        if (!isGameEnded) {
             return;
         }
 
-        // TODO rest
+        const guesses = selectGuesses(state);
+
+        // Fortunetellers aren't counted
+        const isImpossibleWin = isWon && guesses.length === 1;
+        if (isImpossibleWin) {
+            return;
+        }
+
+        const gameMode = state.game.mode;
+        const isShort = wordToGuess.length <= PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
+        const hasSpecialCharacters = getHasSpecialCharacters(wordToGuess);
+
+        const statisticToUpdate = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort });
+
+        const isAlreadySaved = wordToGuess === statisticToUpdate.lastGame?.word;
+        if (isAlreadySaved) {
+            return;
+        }
+
+        const globalStreakToUpdate = getStreak({ gameLanguage });
+        const gameModeToUpdate = getStreak({ gameLanguage, gameMode });
+
+        console.log('gameModeToUpdate', gameModeToUpdate);
+
+        if (isLost) {
+            globalStreakToUpdate.streak = 0;
+            gameModeToUpdate.streak = 0;
+        } else if (isWon) {
+            globalStreakToUpdate.streak += 1;
+            if (globalStreakToUpdate.streak > globalStreakToUpdate.bestStreak) {
+                globalStreakToUpdate.bestStreak = globalStreakToUpdate.streak;
+            }
+
+            gameModeToUpdate.streak += 1;
+            if (gameModeToUpdate.streak > gameModeToUpdate.bestStreak) {
+                gameModeToUpdate.bestStreak = gameModeToUpdate.streak;
+            }
+        }
+
+        saveStreak({ gameLanguage }, globalStreakToUpdate);
+        saveStreak({ gameLanguage, gameMode }, gameModeToUpdate);
+
+        if (!statisticToUpdate.lastGame) {
+            statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0 };
+        }
+
+        statisticToUpdate.lastGame.word = wordToGuess;
+        statisticToUpdate.lastGame.letters = wordToGuess.length;
+        statisticToUpdate.lastGame.words = guesses.length;
+
+        if (isLost) {
+            statisticToUpdate.totals.lost += 1;
+        } else if (isWon) {
+            const keyboardUsagePercentage = selectKeyboardUsagePercentage(state);
+            const totalGamesStored = statisticToUpdate.totals.won;
+            const weightedKeyboardNumerator = (totalGamesStored * statisticToUpdate.letters.keyboardUsed) + keyboardUsagePercentage;
+        
+            const weightedKeyboarUsagePercentage = weightedKeyboardNumerator > 0 ? Math.round(weightedKeyboardNumerator / (totalGamesStored + 1)) : 0;
+
+            const { words, letters, subtotals } = selectGuessesStatsForLetters(state);
+            const rejectedWords = state.game.rejectedWords;
+            const durationMS = state.game.durationMS;
+
+            statisticToUpdate.totals.won += 1;
+            statisticToUpdate.totals.letters += letters;
+            statisticToUpdate.totals.words += words;
+            statisticToUpdate.totals.rejectedWords += rejectedWords.length;
+            statisticToUpdate.totals.durationMS += durationMS;
+
+            if (statisticToUpdate.medianData.letters[letters]) {
+                statisticToUpdate.medianData.letters[letters] += 1;
+            } else {
+                statisticToUpdate.medianData.letters[letters] = 1;
+            }
+        
+            if (statisticToUpdate.medianData.words[words]) {
+                statisticToUpdate.medianData.words[words] += 1;
+            } else {
+                statisticToUpdate.medianData.words[words] = 1;
+            }
+
+            statisticToUpdate.letters.keyboardUsed = weightedKeyboarUsagePercentage;
+            statisticToUpdate.letters.correct += subtotals.correct;
+            statisticToUpdate.letters.position += subtotals.position;
+            statisticToUpdate.letters.incorrect += subtotals.incorrect;
+            statisticToUpdate.letters.typedKnownIncorrect += subtotals.typedKnownIncorrect;
+
+            if (!statisticToUpdate.lastGame) {
+                statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0 };
+            }
+
+            statisticToUpdate.lastGame.word = wordToGuess;
+            statisticToUpdate.lastGame.letters = letters;
+            statisticToUpdate.lastGame.words = words;
+
+            const [firstWord, secondWord] = guesses;
+
+            if (!statisticToUpdate.firstWord) {
+                statisticToUpdate.firstWord = { letters: 0 };
+            }
+
+            statisticToUpdate.firstWord.letters += firstWord.word.length;
+
+            if (!statisticToUpdate.secondWord) {
+                statisticToUpdate.secondWord = { letters: 0 };
+            }
+
+            statisticToUpdate.secondWord.letters += secondWord.word.length;
+        }
+
+        console.log('statisticToUpdate');
+        console.log(statisticToUpdate);
+
+        saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
     },
 );
 
@@ -346,6 +475,8 @@ const gameSlice = createSlice({
                 rejectedWords = [],
                 wordToGuess,
                 wordsLetters,
+                lastUpdateTime,
+                durationMS,
             } = action.payload as {
                 isWon: boolean,
                 results: WordReport[],
@@ -356,6 +487,8 @@ const gameSlice = createSlice({
                     incorrect: UsedLetters,
                     position: UsedLetters,
                 },
+                lastUpdateTime: number,
+                durationMS: number,
             };
 
             const guesses = results.map(({ word = '', affixes = [] }) => ({
@@ -373,6 +506,8 @@ const gameSlice = createSlice({
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;
             state.rejectedWords = rejectedWords;
+            state.lastUpdateTime = lastUpdateTime;
+            state.durationMS = durationMS;
 
             state.letters = {
                 correct: {

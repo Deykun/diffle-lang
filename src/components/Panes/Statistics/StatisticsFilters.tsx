@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { StatisticForCard, Streak } from '@utils/statistics';
+import { StatisticDataForCard, Streak } from '@utils/statistics';
 import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
-import { ModeFilter, CharactersFilter, LengthFilter, getStatisticForFilter, getStreakForFilter, getStatisticCardDataFromStatistics } from '@utils/statistics';
+import { Filters, ModeFilter, CharactersFilter, LengthFilter, getStatisticForFilter, getStreakForFilter, getStatisticCardDataFromStatistics } from '@utils/statistics';
 
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
@@ -18,13 +18,13 @@ import IconRulerBig from '@components/Icons/IconRulerBig';
 import '../Settings/Settings.scss'
 
 interface Props {
-    setStatisticData: Dispatch<SetStateAction<StatisticForCard | undefined>>
+    setStatisticData: Dispatch<SetStateAction<StatisticDataForCard | undefined>>
     setStreakData: Dispatch<SetStateAction<Streak | undefined>>
+    setFiltersData: Dispatch<SetStateAction<Filters | undefined>>
 }
 
-const StatisticsFilters = ({ setStatisticData, setStreakData }: Props) => {
-    // const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
-    const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.All);
+const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: Props) => {
+    const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(CharactersFilter.All);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(LengthFilter.All);
 
@@ -43,7 +43,8 @@ const StatisticsFilters = ({ setStatisticData, setStreakData }: Props) => {
 
         setStatisticData(statisitcsData);
         setStreakData(streakData);
-    }, [modeFilter, charactersFilter, setStatisticData, lengthFilter, setStreakData]);
+        setFiltersData(filters);
+    }, [modeFilter, charactersFilter, setStatisticData, lengthFilter, setStreakData, setFiltersData]);
     
     return (
         <div>

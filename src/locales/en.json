@@ -111,7 +111,7 @@
         "totalGames_one": "<strong>1</strong> game", 
         "totalGames_other": "<strong>{{count}}</strong> games",
         "totalWon": "<strong>{{count}}</strong> won",
-        "totalStreak": "in a row",
+        "totalStreak": "won in a row",
         "totalBestStreak": "best in a row",
         "lettersCorrect": "correct",
         "lettersPosition": "wrong position",

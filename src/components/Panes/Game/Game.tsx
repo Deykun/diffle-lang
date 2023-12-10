@@ -29,13 +29,15 @@ const Game = () => {
 
     useEffect(() => {
         if (!wordToGuess) {
-            const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+            const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]) ;
 
             if (storedState) {
                 const {
                     wordToGuess: lastWordToGuess = '',
                     guessesWords = [],
                     rejectedWords = [],
+                    lastUpdateTime = 0,
+                    durationMS = 0,
                 } = JSON.parse(storedState);
 
                 const isDailyMode = gameMode === GameMode.Daily;
@@ -53,7 +55,7 @@ const Game = () => {
                         }
                     }
                 } else {
-                    dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords, rejectedWords }));
+                    dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords, rejectedWords, lastUpdateTime, durationMS }));
 
                     return;
                 }

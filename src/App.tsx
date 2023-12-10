@@ -23,8 +23,6 @@ import './App.scss'
 
 const App = () => {
     const [pane, setPane] = useState(getInitPane());
-    // TODO - remove
-    // const [pane, setPane] = useState('Statistics');
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
     const { vibrate } = useVibrate();

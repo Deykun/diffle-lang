@@ -126,7 +126,7 @@
         "totalWon_one": "<strong>1</strong> wygrana",
         "totalWon_few": "<strong>{{count}}</strong> wygranych",
         "totalWon_many": "<strong>{{count}}</strong> wygranych",
-        "totalStreak": "z rzędu",
+        "totalStreak": "wygranych z rzędu",
         "totalBestStreak": "najwięcej z rzędu",
         "lettersCorrect": "dobra",
         "lettersPosition": "zła pozycja",
