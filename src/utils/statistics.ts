@@ -73,6 +73,8 @@ export interface Statistic {
         word: string,
         letters: number,
         words: number,
+        rejectedWords: number,
+        durationMS: number,
     },
     lastLostGame?: {
         word: string,

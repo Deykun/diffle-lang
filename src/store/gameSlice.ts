@@ -203,12 +203,17 @@ export const saveEndedGame = createAsyncThunk(
         saveStreak({ gameLanguage, gameMode }, gameModeToUpdate);
 
         if (!statisticToUpdate.lastGame) {
-            statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0 };
+            statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0, rejectedWords: 0, durationMS: 0 };
         }
+
+        const durationMS = state.game.durationMS;
+        const rejectedWords = state.game.rejectedWords.length;
 
         statisticToUpdate.lastGame.word = wordToGuess;
         statisticToUpdate.lastGame.letters = wordToGuess.length;
         statisticToUpdate.lastGame.words = guesses.length;
+        statisticToUpdate.lastGame.rejectedWords = rejectedWords;
+        statisticToUpdate.lastGame.durationMS = durationMS;
 
         if (isLost) {
             statisticToUpdate.totals.lost += 1;
@@ -220,13 +225,11 @@ export const saveEndedGame = createAsyncThunk(
             const weightedKeyboarUsagePercentage = weightedKeyboardNumerator > 0 ? Math.round(weightedKeyboardNumerator / (totalGamesStored + 1)) : 0;
 
             const { words, letters, subtotals } = selectGuessesStatsForLetters(state);
-            const rejectedWords = state.game.rejectedWords;
-            const durationMS = state.game.durationMS;
 
             statisticToUpdate.totals.won += 1;
             statisticToUpdate.totals.letters += letters;
             statisticToUpdate.totals.words += words;
-            statisticToUpdate.totals.rejectedWords += rejectedWords.length;
+            statisticToUpdate.totals.rejectedWords += rejectedWords;
             statisticToUpdate.totals.durationMS += durationMS;
 
             if (statisticToUpdate.medianData.letters[letters]) {
@@ -247,14 +250,6 @@ export const saveEndedGame = createAsyncThunk(
             statisticToUpdate.letters.incorrect += subtotals.incorrect;
             statisticToUpdate.letters.typedKnownIncorrect += subtotals.typedKnownIncorrect;
 
-            if (!statisticToUpdate.lastGame) {
-                statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0 };
-            }
-
-            statisticToUpdate.lastGame.word = wordToGuess;
-            statisticToUpdate.lastGame.letters = letters;
-            statisticToUpdate.lastGame.words = words;
-
             const [firstWord, secondWord] = guesses;
 
             if (!statisticToUpdate.firstWord) {
@@ -269,9 +264,6 @@ export const saveEndedGame = createAsyncThunk(
 
             statisticToUpdate.secondWord.letters += secondWord.word.length;
         }
-
-        console.log('statisticToUpdate');
-        console.log(statisticToUpdate);
 
         saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
     },
@@ -340,6 +332,36 @@ const gameSlice = createSlice({
             updatePassedTimeInState(state);
 
             const typed = action.payload;
+
+            if (typed === 'arrowup' || typed === 'arrowdown') {
+                if (state.guesses.length > 0) {
+                    const currentWordToSubmit = state.wordToSubmit;
+                    const currentWordIndexInGuesses = currentWordToSubmit === ''
+                        ? state.guesses.length
+                        : state.guesses.findIndex(({ word }) => word === currentWordToSubmit);
+
+                    const hasWordToSet = currentWordIndexInGuesses >= 0;
+                    if (!hasWordToSet) {
+                        return;
+                    }
+
+                    const shiftIncrease = typed === 'arrowup' ? -1 : 1;
+                    const targetIndex = currentWordIndexInGuesses + shiftIncrease;
+                    const shouldRemoveWord = state.guesses.length === targetIndex;
+
+                    if (shouldRemoveWord) {
+                        state.wordToSubmit = '';
+                    } else if (state.guesses[targetIndex]) {
+                        const { word } = state.guesses[targetIndex];
+
+                        if (word) {
+                            state.wordToSubmit = word;
+                        }
+                    }
+                }
+
+                return;
+            }
 
             if (typed === 'arrowleft') {
                 state.caretShift = Math.max(state.caretShift - 1, -(state.wordToSubmit.length));
