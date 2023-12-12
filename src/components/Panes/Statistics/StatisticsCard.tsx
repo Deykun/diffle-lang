@@ -89,10 +89,26 @@ const StatisticsCard = ({
         <>
             <div className="statistics-card" id="sharable-card">
                 <IconDiffleChart className="statistics-card-icon" />
+                <div className="circles-below-visual">
+                    <p className={clsx('statistics-letters')}>
+                        <strong>
+                            {lettersPerGame.toFixed(1)}
+                            <CircleScale breakPoints={BREAKPOINTS.LETTERS} startFrom={START_FROM.LETTERS} value={lettersPerGame} isInvert isScaleOnLeft/>
+                        </strong>
+                        <span>{t('statistics.letters')}</span>
+                    </p>
+                    <p className={clsx('statistics-words')}>
+                        <span>{t('statistics.medianWordsBefore')}</span>
+                        <strong>
+                            {wordsPerGame.toFixed(1)}
+                            <CircleScale breakPoints={BREAKPOINTS.WORDS} startFrom={START_FROM.WORDS} value={wordsPerGame} isInvert />
+                        </strong>
+                        <span>{t('statistics.medianWords')}</span>
+                    </p>
+                </div>
                 <p className={clsx('statistics-letters', 'has-tooltip')}>
                     <strong>
                         {lettersPerGame.toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.LETTERS} startFrom={START_FROM.LETTERS} value={lettersPerGame} isInvert isScaleOnLeft/>
                     </strong>
                     <span>{t('statistics.letters')}</span>
                     <span className="tooltip">{t('statistics.medianTooltipWithAverage')} {averageLettersPerGame.toFixed(1)}</span>
@@ -101,13 +117,11 @@ const StatisticsCard = ({
                     <span>{t('statistics.medianWordsBefore')}</span>
                     <strong>
                         {wordsPerGame.toFixed(1)}
-                        <CircleScale breakPoints={BREAKPOINTS.WORDS} startFrom={START_FROM.WORDS} value={wordsPerGame} isInvert />
                     </strong>
                     <span>{t('statistics.medianWords')}</span>
                     <span className="tooltip">{t('statistics.medianTooltipWithAverage')} {averageWordsPerGame.toFixed(1)}</span>
                 </p>
                 <div className="statistics-text">
-                
                     <p>{t('statistics.averageLetters')} <strong>{lettersPerWord.toFixed(1)}</strong> {t('statistics.inWord')}</p>
                     <p>{t('statistics.averageLetters')} <strong>{lettersInFirstWord.toFixed(1)}</strong> {t('statistics.inFirstWord')}</p>
                     <p>{t('statistics.averageLetters')} <strong>{lettersInSecondWord.toFixed(1)}</strong> {t('statistics.inSecondWord')}</p>

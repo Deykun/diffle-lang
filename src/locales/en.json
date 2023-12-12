@@ -27,7 +27,8 @@
         "youCanUseIncorrectLetters": "Your word <strong>can't</strong> win, but you can use it while searching for the winning word.",
         "youCanUseSpace": "Words <strong>don't</strong> have spaces, but you can use them (they will be removed).",
         "spacesRemoved": "The spaces were removed.",
-        "isNotInDictionary": "The word was not found in the dictionary."
+        "isNotInDictionary": "The word was not found in the dictionary.",
+        "wordAlreadyUsed": "The word had already been used."
     },
     "help": {
         "title": "Help",

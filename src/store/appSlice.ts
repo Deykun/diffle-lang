@@ -21,13 +21,13 @@ const appSlice = createSlice({
     initialState,
     reducers: {
         setToast(state, action) {
-            const { text = '', timeoutSeconds = 5 } = action.payload;
+            const { text = '', timeoutSeconds = 3 } = action.payload;
             const toastTime = (new Date()).getTime();
 
             state.toast = { text, timeoutSeconds, toastTime };
         },
         clearToast(state) {
-            state.toast = { text: '', timeoutSeconds: 5, toastTime: null };
+            state.toast = { text: '', timeoutSeconds: 3, toastTime: null };
         },
         toggleVibration(state) {
             // Turning off app vibrations turns off keyboard vibration

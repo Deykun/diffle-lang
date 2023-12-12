@@ -108,7 +108,7 @@ ${diffleUrl} #diffle`);
 
     return (
         <>
-            <div className={clsx('end', endStatus)}>
+            <div className={clsx('end-result', endStatus)}>
                 <h3 className="title">
                     {endStatus === GameStatus.Lost && (<>
                         <span>{t('end.titleLost')}</span>

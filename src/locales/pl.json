@@ -29,7 +29,8 @@
         "youCanUseIncorrectLetters": "Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.",
         "youCanUseSpace": "Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).",
         "spacesRemoved": "Usunięto spacje.",
-        "isNotInDictionary": "Brak słowa w słowniku."
+        "isNotInDictionary": "Brak słowa w słowniku.",
+        "wordAlreadyUsed": "To słowo zostało już wykorzystane."
     },
     "end": {
         "titleWon": "Sukces",
@@ -128,9 +129,9 @@
         "totalWon_many": "<strong>{{count}}</strong> wygranych",
         "totalStreak": "wygranych z rzędu",
         "totalBestStreak": "najwięcej z rzędu",
-        "lettersCorrect": "dobra",
-        "lettersPosition": "zła pozycja",
-        "lettersIncorrect": "niepoprawna",
-        "lettersIncorrectAndTyped": "niepoprawna powtórzona"
+        "lettersCorrect": "dobre",
+        "lettersPosition": "w złej pozycji",
+        "lettersIncorrect": "niepoprawne",
+        "lettersIncorrectAndTyped": "niepoprawne powtórzone"
     }
 }

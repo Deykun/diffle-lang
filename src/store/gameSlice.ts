@@ -79,6 +79,12 @@ export const submitAnswer = createAsyncThunk(
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
 
+        if (state.game.guesses.some(({ word }) => word === wordToSubmit)) {
+            dispatch(setToast({ text: 'game.wordAlreadyUsed' }));
+
+            return { isError: true, type: SUBMIT_ERRORS.ALREADY_SUBMITED };
+        }        
+
         dispatch(gameSlice.actions.setProcessing(true));
 
         const wordToGuess = state.game.wordToGuess;
@@ -137,7 +143,7 @@ export const loseGame = createAsyncThunk(
         const canBeGivenUp = isInRightModeAndNotEnded && state.game.guesses.length > 0;
 
         if (!canBeGivenUp) {
-            dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 5 }));
+            dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 3 }));
 
             return rejectWithValue(GIVE_UP_ERRORS.WRONG_MODE);
         }
@@ -349,6 +355,8 @@ const gameSlice = createSlice({
                     const targetIndex = currentWordIndexInGuesses + shiftIncrease;
                     const shouldRemoveWord = state.guesses.length === targetIndex;
 
+                    state.caretShift = 0;
+
                     if (shouldRemoveWord) {
                         state.wordToSubmit = '';
                     } else if (state.guesses[targetIndex]) {
@@ -546,5 +554,5 @@ const gameSlice = createSlice({
     },
 })
 
-export const { setGameMode, setWordToGuess, setWordToSubmit, setCaretShift, letterChangeInAnswer } = gameSlice.actions;
+export const { setProcessing, setGameMode, setWordToGuess, setWordToSubmit, setCaretShift, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;
