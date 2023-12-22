@@ -17,7 +17,6 @@ import useScrollEffect from '@hooks/useScrollEffect';
 import IconBandage from '@components/Icons/IconBandage';
 import IconBook from '@components/Icons/IconBook';
 import IconCircleTarget from '@components/Icons/IconCircleTarget';
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconInfinity from '@components/Icons/IconInfinity';
 
 import Button from '@components/Button/Button';
@@ -37,6 +36,7 @@ const Settings = ({ changePane }: Props) => {
     const [yesterdayWord, setYesterdayWord] = useState('');
     const gameMode = useSelector(state => state.game.mode);
     const isGameEnded = useSelector(selectIsGameEnded);
+
 
     const isGivingUpDisabled = isGameEnded || gameMode !== GameMode.Practice;
 
@@ -64,7 +64,6 @@ const Settings = ({ changePane }: Props) => {
                     <button className="setting" onClick={() => changePane(Pane.Statistics)}>
                         <IconCircleTarget />
                         <span>{t('settings.statisticsTitle')}</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
                     </button>
                 </li>
                 <li>

@@ -8,10 +8,12 @@ import IconChartWithMarkedPart from '@components/Icons/IconChartWithMarkedPart';
 import StatisticsCard from './StatisticsCard';
 import StatisticsFilters from './StatisticsFilters';
 
+import { INITIAL_FILTERS } from './constants';
+
 import './Statistics.scss'
 
 const Statistics = () => {
-    const [filtersData, setFiltersData] = useState<Filters | undefined>(undefined);
+    const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
     const [statisticData, setStatisticData] = useState<StatisticDataForCard | undefined>(undefined);
     const [streakData, setStreakData] = useState<Streak | undefined>(undefined);
     const { t } = useTranslation();

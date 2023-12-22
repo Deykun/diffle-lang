@@ -154,7 +154,7 @@ export const loseGame = createAsyncThunk(
 
 export const saveEndedGame = createAsyncThunk(
     'game/saveEndedGame',
-    async (_, { dispatch, getState }) => {
+    async (_, { getState }) => {
         const gameLanguage = 'pl';
         const state  = getState() as RootState;
         

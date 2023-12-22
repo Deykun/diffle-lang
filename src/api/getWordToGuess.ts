@@ -4,7 +4,6 @@ import { getNow } from '@utils/date';
 
 const game_lang = 'pl';
 
-// TODO: will be replaced with seed based on day
 const getRandomInt = (min: number, max: number): number => {
     min = Math.ceil(min);
     max = Math.floor(max);

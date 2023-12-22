@@ -192,7 +192,10 @@ const StatisticsCard = ({
                         })
                     }} />
                     {bestStreak && bestStreak > 0 && <>
-                        <p><strong>{streak}</strong> {t('statistics.totalStreak')}</p>
+                        <p><strong>{streak}</strong> {t('statistics.totalStreak', {
+                            postProcess: 'interval',
+                            count: streak
+                        })}</p>
                         <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>
                     </>}
                 </div>

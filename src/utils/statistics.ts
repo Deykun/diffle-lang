@@ -331,7 +331,7 @@ export const getStatisticForFilter = ({
 
 export const getStreakForFilter = ({
     modeFilter,
-}: { modeFilter: ModeFilter, charactersFilter: CharactersFilter, lengthFilter: LengthFilter }): Streak => {
+}: { modeFilter: ModeFilter | GameMode, charactersFilter?: CharactersFilter, lengthFilter?: LengthFilter }): Streak => {
     return getStreak({ gameLanguage: 'pl', gameMode: modeFilter });
 };
 

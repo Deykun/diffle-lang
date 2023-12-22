@@ -78,23 +78,23 @@ const EndResult = () => {
 
         const isLost = endStatus === GameStatus.Lost;
 
-        const copyTitle = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 DIFFLE` : `« ${wordToGuess} » – 🇵🇱 DIFFLE`;
+        const copyTitle = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 #diffle` : `« ${wordToGuess} » – 🇵🇱 #diffle`;
         const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
 
         if (isLost) {
             copyMessage(`${copyTitle}
 
-🏳️ ${t('end.lostIn')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
+🏳️ ${t('end.lostIn')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })} (${letters} ${t('end.lettersUsedShort')})
 ${copySubtotals}
             
-${diffleUrl} #diffle`);
+${diffleUrl}`);
         } else {
             copyMessage(`${copyTitle}
 
 ${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
 ${copySubtotals}
 
-${diffleUrl} #diffle`);
+${diffleUrl}`);
         }
 
         dispatch(setToast({ text: 'common.copied' }));

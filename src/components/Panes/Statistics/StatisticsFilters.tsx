@@ -15,18 +15,20 @@ import IconLayersAlt from '@components/Icons/IconLayersAlt';
 import IconRulerSmall from '@components/Icons/IconRulerSmall';
 import IconRulerBig from '@components/Icons/IconRulerBig';
 
+import { INITIAL_FILTERS } from './constants';
+
 import '../Settings/Settings.scss'
 
 interface Props {
     setStatisticData: Dispatch<SetStateAction<StatisticDataForCard | undefined>>
     setStreakData: Dispatch<SetStateAction<Streak | undefined>>
-    setFiltersData: Dispatch<SetStateAction<Filters | undefined>>
+    setFiltersData: Dispatch<SetStateAction<Filters>>
 }
 
 const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: Props) => {
-    const [modeFilter, setModeFilter] = useState<ModeFilter>(ModeFilter.Daily);
-    const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(CharactersFilter.All);
-    const [lengthFilter, setLengthFilter] = useState<LengthFilter>(LengthFilter.All);
+    const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
+    const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
+    const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
 
     const { t } = useTranslation();
 
