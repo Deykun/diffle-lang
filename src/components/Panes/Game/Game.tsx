@@ -7,7 +7,7 @@ import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast } from '@store/appSlice'
-import { setWordToGuess, restoreGameState } from '@store/gameSlice'
+import { setWordToGuess, loadGame } from '@store/gameSlice'
 
 import getWordToGuess from '@api/getWordToGuess'
 
@@ -27,45 +27,50 @@ const Game = () => {
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
 
+    // TODO new recovery will be called here
     useEffect(() => {
-        if (!wordToGuess) {
-            const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]) ;
+        dispatch(loadGame());
+    }, [dispatch, gameMode, wordToGuess, todayStamp]);
 
-            if (storedState) {
-                const {
-                    wordToGuess: lastWordToGuess = '',
-                    guessesWords = [],
-                    rejectedWords = [],
-                    lastUpdateTime = 0,
-                    durationMS = 0,
-                } = JSON.parse(storedState);
+    // useEffect(() => {
+    //     if (!wordToGuess) {
+    //         const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]) ;
 
-                const isDailyMode = gameMode === GameMode.Daily;
-                const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
-                const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
+    //         if (storedState) {
+    //             const {
+    //                 wordToGuess: lastWordToGuess = '',
+    //                 guessesWords = [],
+    //                 rejectedWords = [],
+    //                 lastUpdateTime = 0,
+    //                 durationMS = 0,
+    //             } = JSON.parse(storedState);
 
-                if (isExpiredDailyGame) {
-                    localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+    //             const isDailyMode = gameMode === GameMode.Daily;
+    //             const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
+    //             const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
 
-                    if (lastWordToGuess && lastDailyStamp) {
-                        const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
+    //             if (isExpiredDailyGame) {
+    //                 localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
 
-                        if (isLostGame) {
-                            dispatch(setToast({ text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}` }));
-                        }
-                    }
-                } else {
-                    dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords, rejectedWords, lastUpdateTime, durationMS }));
+    //                 if (lastWordToGuess && lastDailyStamp) {
+    //                     const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
 
-                    return;
-                }
-            }
+    //                     if (isLostGame) {
+    //                         dispatch(setToast({ text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}` }));
+    //                     }
+    //                 }
+    //             } else {
+    //                 dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords, rejectedWords, lastUpdateTime, durationMS }));
 
-            getWordToGuess({ gameMode }).then(word => {
-                dispatch(setWordToGuess(word));
-            });
-        }
-    }, [dispatch, gameMode, todayStamp, wordToGuess]);
+    //                 return;
+    //             }
+    //         }
+
+    //         getWordToGuess({ gameMode }).then(word => {
+    //             dispatch(setWordToGuess(word));
+    //         });
+    //     }
+    // }, [dispatch, gameMode, todayStamp, wordToGuess]);
 
     useSaveProgressLocally();
 

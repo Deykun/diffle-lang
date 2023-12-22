@@ -40,7 +40,7 @@ function useSaveProgressLocally() {
 
     useEffectChange(() => {        
         if (!wordToGuess || wasGivenUp) {
-            localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+        //     localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
 
             return;
         }

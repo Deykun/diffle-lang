@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { RootState, RootGameState, UsedLetters, GameStatus, GameMode } from '@common-types';
 
-import { LOCAL_STORAGE, PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
+import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE, PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 import { getNow, getTimeUpdateFromTimeStamp } from '@utils/date';
 import {
     getStreak,
@@ -14,6 +14,7 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
+import getWordToGuess from '@api/getWordToGuess'
 
 import { setToast } from '@store/appSlice';
 import {
@@ -44,7 +45,7 @@ const initialState: RootGameState = {
 };
 
 const updatePassedTimeInState = (state: RootGameState) => {
-    // Updates are counted after first word
+    // Updates are counted after first word was submited
     if (state.guesses.length === 0) {
         return;
     }
@@ -105,11 +106,12 @@ export const submitAnswer = createAsyncThunk(
     },
 );
 
+// Old
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
     async ({
-        wordToGuess, guessesWords = [], rejectedWords = [], lastUpdateTime, durationMS,
-    }: { wordToGuess: string, guessesWords: string[], rejectedWords: string[], lastUpdateTime: number, durationMS: number }, { dispatch }) => {
+        status, wordToGuess, guessesWords = [], rejectedWords = [], lastUpdateTime, durationMS,
+    }: { status?: GameStatus, wordToGuess: string, guessesWords: string[], rejectedWords: string[], lastUpdateTime: number, durationMS: number }, { dispatch }) => {
         if (!wordToGuess) {
             return;
         }
@@ -119,11 +121,20 @@ export const restoreGameState = createAsyncThunk(
         if (hasError) {
             dispatch(setToast({ text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
 
-            return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
+            return { isError: true, type: SUBMIT_ERRORS.RESTORING_ERROR };
+            // return { isError: true, type: SUBMIT_ERRORS. };
         }
 
-        return {
+        const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
+
+        console.log({
+            status,
             isWon,
+            statusToReturn,
+        });
+
+        return {
+            status: statusToReturn,
             results,
             wordToGuess,
             wordsLetters,
@@ -139,16 +150,102 @@ export const loseGame = createAsyncThunk(
     async (_, { dispatch, getState, rejectWithValue }) => {
         const state  = getState() as RootState;
 
-        const isInRightModeAndNotEnded = state.game.mode === GameMode.Practice && state.game.status === GameStatus.Guessing;
-        const canBeGivenUp = isInRightModeAndNotEnded && state.game.guesses.length > 0;
+        const isDailyMode = state.game.mode === GameMode.Daily;
+        if (isDailyMode) {
+            localStorage.removeItem(LOCAL_STORAGE.TYPE_DAILY);
 
-        if (!canBeGivenUp) {
-            dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 3 }));
-
-            return rejectWithValue(GIVE_UP_ERRORS.WRONG_MODE);
+            return;
         }
 
-        localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
+        const isPracticeMode = state.game.mode === GameMode.Practice;
+        if (isPracticeMode) {
+            const isInRightModeAndNotEnded = state.game.mode === GameMode.Practice && state.game.status === GameStatus.Guessing;
+            const canBeGivenUp = isInRightModeAndNotEnded && state.game.guesses.length > 0;
+    
+            if (!canBeGivenUp) {
+                dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 3 }));
+    
+                return rejectWithValue(GIVE_UP_ERRORS.WRONG_MODE);
+            }
+    
+            localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
+        }
+    },
+);
+
+
+// TODO: migrate action from useEffect(() => { add losing for daily mode
+export const loadGame = createAsyncThunk(
+    'game/loadGame',
+    async (_, { dispatch, getState }) => {
+        const gameLanguage = 'pl';
+        const state = getState() as RootState;
+        const wordToGuess = selectWordToGuess(state);
+        const gameMode = state.game.mode;
+        const todayStamp = state.game.today;
+        
+        if (!wordToGuess) {
+            const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]) ;
+
+            if (storedState) {
+                const {
+                    wordToGuess: lastWordToGuess = '',
+                    guessesWords = [],
+                    rejectedWords = [],
+                    lastUpdateTime = 0,
+                    durationMS = 0,
+                } = JSON.parse(storedState);
+
+                const isDailyMode = gameMode === GameMode.Daily;
+                const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
+                const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
+
+                console.log({
+                    isDailyMode,
+                    lastDailyStamp,
+                    todayStamp,
+                    isExpiredDailyGame,
+                });
+
+                if (isExpiredDailyGame) {
+                    localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+
+                    if (lastWordToGuess && lastDailyStamp) {
+                        const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
+
+                        if (isLostGame) {
+                            // TODO: SHOULD SET LOST GAME AND SAVE IT AS LOST
+                            dispatch(setToast({ text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}` }));
+
+                            dispatch(restoreGameState({
+                                status: GameStatus.Lost,
+                                wordToGuess: lastWordToGuess,
+                                guessesWords,
+                                rejectedWords,
+                                lastUpdateTime,
+                                durationMS,
+                            }));
+
+                            return;
+                        }
+                    }
+                }
+
+                dispatch(restoreGameState({
+                    wordToGuess: lastWordToGuess,
+                    guessesWords,
+                    rejectedWords,
+                    lastUpdateTime,
+                    durationMS,
+                }));
+
+                return;
+            }
+
+            getWordToGuess({ gameMode }).then(word => {
+                dispatch(setWordToGuess(word));
+            });
+        }
     },
 );
 
@@ -156,7 +253,7 @@ export const saveEndedGame = createAsyncThunk(
     'game/saveEndedGame',
     async (_, { getState }) => {
         const gameLanguage = 'pl';
-        const state  = getState() as RootState;
+        const state = getState() as RootState;
         
         const isWon = selectIsWon(state);
         const isLost = selectIsLost(state);
@@ -498,9 +595,8 @@ const gameSlice = createSlice({
         }).addCase(loseGame.rejected, () => {
             // 
         }).addCase(restoreGameState.fulfilled, (state, action) => {
-            // TODO add timespent restore
             const {
-                isWon,
+                status = GameStatus.Guessing,
                 results,
                 rejectedWords = [],
                 wordToGuess,
@@ -508,7 +604,7 @@ const gameSlice = createSlice({
                 lastUpdateTime,
                 durationMS,
             } = action.payload as {
-                isWon: boolean,
+                status: GameStatus,
                 results: WordReport[],
                 rejectedWords: string[],
                 wordToGuess: string,
@@ -526,13 +622,7 @@ const gameSlice = createSlice({
                 affixes,
             }));
 
-            if (isWon) {
-                state.status = GameStatus.Won;
-            } else {
-                // Lost games should be removed from restoring
-                state.status = GameStatus.Guessing;
-            }
-
+            state.status = status;
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;
             state.rejectedWords = rejectedWords;

@@ -32,6 +32,7 @@ export const SUBMIT_ERRORS = {
     HAS_SPACE: 'has_space',
     WORD_DOES_NOT_EXIST: 'word_does_not_exist',
     WORD_FETCH_ERROR: 'word_fetch_error',
+    RESTORING_ERROR: 'restoring_error',
 };
 
 export const GIVE_UP_ERRORS = {
@@ -39,11 +40,12 @@ export const GIVE_UP_ERRORS = {
 };
 
 export const LOCAL_STORAGE = {
-    LAST_GAME_MODE: 'diffle_last_game_mode',
-    LAST_DAILY_STAMP: 'diffle_daily_stamp',
-    TYPE_DAILY: 'diffle_daily',
-    TYPE_PRACTICE: 'diffle_practice',
-    TYPE_SHARE: 'diffle_share',
+    LAST_GAME_MODE: 'diffle_pl_last_game_mode',
+    LAST_DAILY_STAMP: 'diffle_pl_daily_stamp',
+    TYPE_DAILY: 'diffle_pl_mode_daily',
+    TYPE_PRACTICE: 'diffle_pl_mode_practice',
+    TYPE_SHARE: 'diffle_pl_mode_share',
+    // Not lang dependent
     THEME: 'diffle_theme',
     THEME_CONTRAST: 'diffle_theme_contrast',
     SHOULD_VIBRATE: 'diffle_should_vibrate',
