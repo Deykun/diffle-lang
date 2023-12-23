@@ -40,6 +40,7 @@ const initialState: RootGameState = {
     rejectedWords: [],
     hasLongGuesses: false,
     isProcessing: false,
+    isLoadingGame: false,
     lastUpdateTime: 0,
     durationMS: 0,
 };
@@ -127,12 +128,6 @@ export const restoreGameState = createAsyncThunk(
 
         const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
 
-        console.log({
-            status,
-            isWon,
-            statusToReturn,
-        });
-
         return {
             status: statusToReturn,
             results,
@@ -181,6 +176,12 @@ export const loadGame = createAsyncThunk(
         const gameLanguage = 'pl';
         const state = getState() as RootState;
         const wordToGuess = selectWordToGuess(state);
+
+        const isLoadingGameAlready = state.game.isLoadingGame;
+        if (!isLoadingGameAlready) {
+            return;
+        }
+
         const gameMode = state.game.mode;
         const todayStamp = state.game.today;
         
@@ -190,6 +191,7 @@ export const loadGame = createAsyncThunk(
             if (storedState) {
                 const {
                     wordToGuess: lastWordToGuess = '',
+                    status,
                     guessesWords = [],
                     rejectedWords = [],
                     lastUpdateTime = 0,
@@ -215,9 +217,15 @@ export const loadGame = createAsyncThunk(
 
                         if (isLostGame) {
                             // TODO: SHOULD SET LOST GAME AND SAVE IT AS LOST
-                            dispatch(setToast({ text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}` }));
+                            dispatch(setToast({
+                                text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
+                            }));
 
-                            dispatch(restoreGameState({
+                            /*
+                                Stats are saved directly from the state,
+                                so we set the state, save the stats, and reset the state.
+                            */
+                            await dispatch(restoreGameState({
                                 status: GameStatus.Lost,
                                 wordToGuess: lastWordToGuess,
                                 guessesWords,
@@ -226,13 +234,20 @@ export const loadGame = createAsyncThunk(
                                 durationMS,
                             }));
 
+                            await dispatch(saveEndedGame());
+
+                            getWordToGuess({ gameMode }).then(word => {
+                                dispatch(setWordToGuess(word));
+                            });
+
                             return;
                         }
                     }
                 }
 
-                dispatch(restoreGameState({
+                await dispatch(restoreGameState({
                     wordToGuess: lastWordToGuess,
+                    status,
                     guessesWords,
                     rejectedWords,
                     lastUpdateTime,
@@ -259,6 +274,7 @@ export const saveEndedGame = createAsyncThunk(
         const isLost = selectIsLost(state);
         const wordToGuess = selectWordToGuess(state);
         const isGameEnded = wordToGuess.length > 0 && (isWon || isLost);
+        console.log('isGameEnded', isGameEnded);
         if (!isGameEnded) {
             return;
         }
@@ -284,8 +300,6 @@ export const saveEndedGame = createAsyncThunk(
 
         const globalStreakToUpdate = getStreak({ gameLanguage });
         const gameModeToUpdate = getStreak({ gameLanguage, gameMode });
-
-        console.log('gameModeToUpdate', gameModeToUpdate);
 
         if (isLost) {
             globalStreakToUpdate.streak = 0;
@@ -594,6 +608,10 @@ const gameSlice = createSlice({
             state.status = GameStatus.Lost;
         }).addCase(loseGame.rejected, () => {
             // 
+        }).addCase(loadGame.pending, (state) => {
+            state.isLoadingGame = true;
+        }).addCase(loadGame.fulfilled, (state) => {
+            state.isLoadingGame = false;
         }).addCase(restoreGameState.fulfilled, (state, action) => {
             const {
                 status = GameStatus.Guessing,

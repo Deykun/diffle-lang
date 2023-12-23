@@ -38,16 +38,11 @@ function useSaveProgressLocally() {
         }
     }, [gameMode, wasGivenUp, todayStamp]);
 
-    useEffectChange(() => {        
-        if (!wordToGuess || wasGivenUp) {
-        //     localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
-
-            return;
-        }
-
+    useEffectChange(() => {
         const guessesWords = guesses.map(({ word }) => word);
 
         const recoveryState = {
+            status: gameStatus,
             wordToGuess,
             guessesWords,
             rejectedWords,
@@ -56,7 +51,7 @@ function useSaveProgressLocally() {
         };
 
         localStorage.setItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode], JSON.stringify(recoveryState));
-    }, [wordToGuess, guesses, rejectedWords]);
+    }, [wordToGuess, gameStatus, guesses, rejectedWords]);
 }
 
 export default useSaveProgressLocally;

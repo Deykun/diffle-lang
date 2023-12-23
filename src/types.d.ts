@@ -73,6 +73,7 @@ export interface RootGameState {
     rejectedWords: string[],
     hasLongGuesses: boolean,
     isProcessing: boolean,
+    isLoadingGame: boolean,
     lastUpdateTime: number,
     durationMS: number,
 }
