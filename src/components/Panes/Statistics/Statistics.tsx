@@ -13,6 +13,7 @@ import { INITIAL_FILTERS } from './constants';
 import './Statistics.scss'
 
 const Statistics = () => {
+    // TODO: use one state or useReducer
     const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
     const [statisticData, setStatisticData] = useState<StatisticDataForCard | undefined>(undefined);
     const [streakData, setStreakData] = useState<Streak | undefined>(undefined);
@@ -22,7 +23,12 @@ const Statistics = () => {
 
     return (
         <div className="statistics">
-            <StatisticsFilters setStatisticData={setStatisticData} setStreakData={setStreakData} setFiltersData={setFiltersData} />
+            <StatisticsFilters
+              total={statisticData?.totalGames}
+              setStatisticData={setStatisticData}
+              setStreakData={setStreakData}
+              setFiltersData={setFiltersData}
+            />
             <div>
                 <h2>{t('settings.statisticsTitle')}</h2>
                 {isMissingData

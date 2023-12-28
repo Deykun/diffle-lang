@@ -2,6 +2,20 @@
     padding-bottom: 20px;
 }
 
+.statistics-title-total {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 0 4px;
+    color: var(--background);
+    background-color: var(--text-weaker);
+}
+
 .missing-data {
     padding-top: 20px;
     padding-bottom: 20px;

@@ -148,13 +148,17 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
 };
 
 export interface Streak {
-    streak: number,
+    wonStreak: number,
+    lostStreak: number,
     bestStreak: number,
+    worstStreak: number,
 }
 
 const EMPTY_STREAK = {
-    streak: 0,
+    wonStreak: 0,
+    lostStreak: 0,
     bestStreak: 0,
+    worstStreak: 0,
 };
 
 const getStreakForKey = (key: string): Streak => {

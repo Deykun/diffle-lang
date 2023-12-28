@@ -20,12 +20,13 @@ import { INITIAL_FILTERS } from './constants';
 import '../Settings/Settings.scss'
 
 interface Props {
+    total: number | undefined,
     setStatisticData: Dispatch<SetStateAction<StatisticDataForCard | undefined>>
     setStreakData: Dispatch<SetStateAction<Streak | undefined>>
     setFiltersData: Dispatch<SetStateAction<Filters>>
 }
 
-const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: Props) => {
+const StatisticsFilters = ({ total = 0, setStatisticData, setStreakData, setFiltersData }: Props) => {
     const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
@@ -50,7 +51,10 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
     
     return (
         <div>
-            <h3>{t('statistics.filters')}</h3>
+            <h3>
+                {t('statistics.filters')}
+                {total > 0 && <span className="statistics-title-total">{total}</span>}
+            </h3>
             <ul className="list-col-3">
                 <li>
                     <button

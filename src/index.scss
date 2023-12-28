@@ -57,6 +57,14 @@ h3 {
     text-shadow: none;
     transition: 0.1s ease-in-out;
 
+    strong {
+        font-size: inherit;
+        color: inherit;
+        display: inline;
+        text-shadow: none !important;
+        line-height: 1;
+    }
+
     &::before {
         content: '';
         position: absolute;

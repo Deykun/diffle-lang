@@ -192,9 +192,16 @@
         strong {
             text-shadow: 0 0 20px var(--green-contrast);
             font-size: 50px;
-            line-height: 1;
+            line-height: 50px;
             display: block;
             margin: 0 auto 1px;
+        }
+
+        .statistics-other-percentage {
+            strong {
+                font-size: 42px;
+                letter-spacing: -0.05em;
+            }
         }
     }
 

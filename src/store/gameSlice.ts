@@ -274,7 +274,6 @@ export const saveEndedGame = createAsyncThunk(
         const isLost = selectIsLost(state);
         const wordToGuess = selectWordToGuess(state);
         const isGameEnded = wordToGuess.length > 0 && (isWon || isLost);
-        console.log('isGameEnded', isGameEnded);
         if (!isGameEnded) {
             return;
         }
@@ -301,19 +300,21 @@ export const saveEndedGame = createAsyncThunk(
         const globalStreakToUpdate = getStreak({ gameLanguage });
         const gameModeToUpdate = getStreak({ gameLanguage, gameMode });
 
-        if (isLost) {
-            globalStreakToUpdate.streak = 0;
-            gameModeToUpdate.streak = 0;
-        } else if (isWon) {
-            globalStreakToUpdate.streak += 1;
-            if (globalStreakToUpdate.streak > globalStreakToUpdate.bestStreak) {
-                globalStreakToUpdate.bestStreak = globalStreakToUpdate.streak;
-            }
+        const streakKeyToIncrease = isWon ? 'wonStreak' : 'lostStreak';
+        const streakKeyForRecord = isWon ? 'bestStreak' : 'worstStreak';
+        const streakKeyToReset = isWon ? 'lostStreak' : 'wonStreak';
 
-            gameModeToUpdate.streak += 1;
-            if (gameModeToUpdate.streak > gameModeToUpdate.bestStreak) {
-                gameModeToUpdate.bestStreak = gameModeToUpdate.streak;
-            }
+        globalStreakToUpdate[streakKeyToReset] = 0;
+        gameModeToUpdate[streakKeyToReset] = 0;
+
+        globalStreakToUpdate[streakKeyToIncrease] = globalStreakToUpdate[streakKeyToIncrease] + 1;
+        if (globalStreakToUpdate[streakKeyToIncrease] > globalStreakToUpdate[streakKeyForRecord]) {
+            globalStreakToUpdate[streakKeyForRecord] = globalStreakToUpdate[streakKeyToIncrease];
+        }
+
+        gameModeToUpdate[streakKeyToIncrease] = gameModeToUpdate[streakKeyToIncrease] + 1;
+        if (gameModeToUpdate[streakKeyToIncrease] > gameModeToUpdate[streakKeyForRecord]) {
+            gameModeToUpdate[streakKeyForRecord] = gameModeToUpdate[streakKeyToIncrease];
         }
 
         saveStreak({ gameLanguage }, globalStreakToUpdate);

@@ -22,8 +22,10 @@ import StatisticsCardActiveFilters from './StatisticsCardActiveFilters';
 import './StatisticsCard.scss';
 
 interface StatisticForCard extends StatisticDataForCard, Filters {
-    streak?: number,
+    wonStreak?: number,
+    lostStreak?: number,
     bestStreak?: number,
+    worstStreak?: number,
 }
 
 const BREAKPOINTS = {
@@ -40,8 +42,10 @@ const START_FROM = {
 const StatisticsCard = ({
     totalGames,
     totalWon,
-    streak,
-    bestStreak,
+    lostStreak = 0,
+    worstStreak = 0,
+    wonStreak = 0,
+    bestStreak = 0,
     rejectedWordsPerGame,
     lettersPerGame,
     averageLettersPerGame,
@@ -111,7 +115,11 @@ const StatisticsCard = ({
                         {lettersPerGame.toFixed(1)}
                     </strong>
                     <span>{t('statistics.letters')}</span>
-                    <span className="tooltip">{t('statistics.medianTooltipWithAverage')} {averageLettersPerGame.toFixed(1)}</span>
+                    <span className="tooltip">
+                        {t('statistics.medianTooltipWithAverage')}
+                        {' '}
+                        <strong>{averageLettersPerGame.toFixed(2)}</strong>
+                    </span>
                 </p>
                 <p className={clsx('statistics-words', 'has-tooltip')}>
                     <span>{t('statistics.medianWordsBefore')}</span>
@@ -119,7 +127,11 @@ const StatisticsCard = ({
                         {wordsPerGame.toFixed(1)}
                     </strong>
                     <span>{t('statistics.medianWords')}</span>
-                    <span className="tooltip">{t('statistics.medianTooltipWithAverage')} {averageWordsPerGame.toFixed(1)}</span>
+                    <span className="tooltip">
+                        {t('statistics.medianTooltipWithAverage')}
+                        {' '}
+                        <strong>{averageWordsPerGame.toFixed(2)}</strong>
+                    </span>
                 </p>
                 <div className="statistics-text">
                     <p>{t('statistics.averageLetters')} <strong>{lettersPerWord.toFixed(1)}</strong> {t('statistics.inWord')}</p>
@@ -135,11 +147,11 @@ const StatisticsCard = ({
                         <span className="tooltip">
                             {t('statistics.totalGameTime')}
                             {' '}
-                            {totalTime.hours > 0 && `${totalTime.hours} h`}
+                            {totalTime.hours > 0 && <><strong>${totalTime.hours}</strong> h</>}
                             {' '}
-                            {totalTime.minutes > 0 && `${totalTime.minutes} m`}
+                            {totalTime.minutes > 0 && <><strong>{totalTime.minutes}</strong> m</>}
                             {' '}
-                            {totalTime.seconds > 0 && `${totalTime.seconds} s`}
+                            {totalTime.seconds > 0 && <><strong>{totalTime.seconds}</strong> s</>}
                         </span>
                     </p>
                     {rejectedWordsPerGame > 0 && (
@@ -185,19 +197,28 @@ const StatisticsCard = ({
                             count: totalGames,
                         })
                     }} />
-                    <p dangerouslySetInnerHTML={{
-                        __html: t('statistics.totalWon', {
+                    <p className="statistics-other-percentage">
+                        <strong>{((totalWon / totalGames) * 100).toFixed(0)}<small>%</small></strong>
+                        {t('statistics.totalWon')}
+                    </p>
+                    {wonStreak > 0 && <p>
+                        <strong>{wonStreak}</strong>
+                        {t('statistics.totalWonStreak', {
                             postProcess: 'interval',
-                            count: totalWon,
-                        })
-                    }} />
-                    {bestStreak && bestStreak > 0 && <>
-                        <p><strong>{streak}</strong> {t('statistics.totalStreak', {
+                            count: wonStreak
+                        })}
+                    </p>}
+                    {lostStreak > 0 && <p>
+                        <strong>{lostStreak}</strong>
+                        {t('statistics.totalLostStreak', {
                             postProcess: 'interval',
-                            count: streak
-                        })}</p>
-                        <p><strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}</p>
-                    </>}
+                            count: lostStreak
+                        })}
+                    </p>}
+                    {bestStreak > 0 && <p className="has-tooltip has-tooltip-from-right tooltip-relative">
+                        <strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}
+                        <span className="tooltip">{t('statistics.streakTooltipWithWorstStreak')} <strong>{worstStreak}</strong></span>
+                    </p>}
                 </div>
                 <footer>
                     {location.href}
