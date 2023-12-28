@@ -100,7 +100,9 @@ const StatisticsFilters = ({ total = 0, setStatisticData, setStreakData, setFilt
                     onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
                     >
                         <IconFlag />
-                        <span>{t('statistics.specialCharactersWithout')}</span>
+                        <span dangerouslySetInnerHTML={{
+                            __html: t('statistics.specialCharactersWithout')
+                        }} />
                     </button>
                 </li>
                 <li>
@@ -109,7 +111,9 @@ const StatisticsFilters = ({ total = 0, setStatisticData, setStreakData, setFilt
                     onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
                     >
                         <IconFlagAlt />
-                        <span>{t('statistics.specialCharactersWith')}</span>
+                        <span dangerouslySetInnerHTML={{
+                            __html: t('statistics.specialCharactersWith')
+                        }} />
                     </button>
                 </li>
             </ul>

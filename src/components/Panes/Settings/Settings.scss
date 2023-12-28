@@ -59,6 +59,11 @@
                     display: block;
                     line-height: 1.1;
                     min-height: 30px;
+
+                    strong {
+                        color: var(--text);
+                        transition: all 0.3s ease-in;
+                    }
                 }
 
                 &:hover {
@@ -163,6 +168,12 @@
                     fill: var(--green-contrast);
                     background-color: var(--green);
                     border-color: var(--green);
+                }
+
+                svg + span {    
+                    strong {
+                        color: var(--green-contrast);
+                    }
                 }
 
                 .setting-label {
