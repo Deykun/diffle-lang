@@ -31,7 +31,7 @@ interface StatisticForCard extends StatisticDataForCard, Filters {
 const BREAKPOINTS = {
     LETTERS: [90, 75, 60, 45, 35, 25],
     WORDS: [15, 13, 11, 9, 7, 5],
-    LETTER_TYPES: [10, 25, 40, 55],
+    LETTER_TYPES: [5, 20, 35, 50],
 };
 
 const START_FROM = {
@@ -118,7 +118,7 @@ const StatisticsCard = ({
                     <span className="tooltip">
                         {t('statistics.medianTooltipWithAverage')}
                         {' '}
-                        <strong>{averageLettersPerGame.toFixed(2)}</strong>
+                        <strong>{averageLettersPerGame.toFixed(1)}</strong>
                     </span>
                 </p>
                 <p className={clsx('statistics-words', 'has-tooltip')}>
@@ -130,7 +130,7 @@ const StatisticsCard = ({
                     <span className="tooltip">
                         {t('statistics.medianTooltipWithAverage')}
                         {' '}
-                        <strong>{averageWordsPerGame.toFixed(2)}</strong>
+                        <strong>{averageWordsPerGame.toFixed(1)}</strong>
                     </span>
                 </p>
                 <div className="statistics-text">

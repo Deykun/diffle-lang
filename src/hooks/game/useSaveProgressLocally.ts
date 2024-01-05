@@ -14,7 +14,6 @@ import useEffectChange from "@hooks/useEffectChange";
 
 function useSaveProgressLocally() {
     const dispatch = useDispatch();
-    const isLost = useSelector(selectIsLost);
     const gameStatus = useSelector(state => state.game.status);
     const gameMode = useSelector(state => state.game.mode);
     const todayStamp = useSelector(state => state.game.today);
@@ -23,7 +22,6 @@ function useSaveProgressLocally() {
     const wordToGuess = useSelector(selectWordToGuess);
     const rejectedWords = useSelector(state => state.game.rejectedWords);
     const guesses = useSelector(state => state.game.guesses);
-    const wasGivenUp = isLost && gameMode === GameMode.Practice;
 
     useEffect(() => {
         dispatch(saveEndedGame())
@@ -31,12 +29,8 @@ function useSaveProgressLocally() {
 
     useEffect(() => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, gameMode);
-        localStorage.setItem(LOCAL_STORAGE.LAST_DAILY_STAMP, todayStamp);
-
-        if (wasGivenUp) {
-            localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
-        }
-    }, [gameMode, wasGivenUp, todayStamp]);
+        localStorage.setItem(LOCAL_STORAGE.LAST_DAILY_STAMP, todayStamp);  
+    }, [gameMode, todayStamp]);
 
     useEffectChange(() => {
         const guessesWords = guesses.map(({ word }) => word);
@@ -51,7 +45,7 @@ function useSaveProgressLocally() {
         };
 
         localStorage.setItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode], JSON.stringify(recoveryState));
-    }, [wordToGuess, gameStatus, guesses, rejectedWords]);
+    }, [wordToGuess, gameStatus, guesses, rejectedWords, durationMS]);
 }
 
 export default useSaveProgressLocally;

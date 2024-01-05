@@ -129,3 +129,49 @@ h3 {
         }
     }
 }
+
+@keyframes detailsShow {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+details {
+    summary {
+        cursor: pointer;
+        list-style: none;
+        user-select: none;
+        position: relative;
+    }
+
+    .details-content {
+        display: block !important;
+        transform-origin: top center;
+    }
+
+    .details-icon {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) scaleY(1);
+        height: 24px;
+        fill: var(--text-weaker);
+        transition: 0.15s ease-in-out;
+    }
+
+    &[open] {
+        .details-icon  {
+            transform: translateY(-50%) scaleY(-1);
+        }
+
+        > .details-content {
+            animation: detailsShow 0.15s ease-in-out;
+        }
+    }
+}

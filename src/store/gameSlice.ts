@@ -107,7 +107,6 @@ export const submitAnswer = createAsyncThunk(
     },
 );
 
-// Old
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
     async ({
@@ -169,7 +168,6 @@ export const loseGame = createAsyncThunk(
 );
 
 
-// TODO: migrate action from useEffect(() => { add losing for daily mode
 export const loadGame = createAsyncThunk(
     'game/loadGame',
     async (_, { dispatch, getState }) => {
