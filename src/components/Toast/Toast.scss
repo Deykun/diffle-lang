@@ -11,7 +11,7 @@
     padding: 7px 14px;
     max-width: calc(100vw - 20px);
     transform: translateY(0) translateX(-50%);
-    animation: slideInFromTop 0.25s cubic-bezier(.68,-.55,.265,1.3);
+    animation: slideInFromTop 0.25s cubic-bezier(0.68, -0.55, 0.265, 1.3);
 }
 
 @keyframes slideInFromTop {

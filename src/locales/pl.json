@@ -65,11 +65,17 @@
         "howToPlayText1": "Cel to odgadnięcie hasła używając jak najmniejszej liczby liter.",
         "howToPlayText2": "Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.",
         "exampleTitle": "Przykład",
+        "exampleTitleAlt": "Inny przykład",
         "incorrectLettersTip": "Szarych liter nie ma w haśle.",
         "correctLettersTip": "Litery <strong>P</strong> i <strong>R</strong> są w haśle w <strong>tej kolejności</strong>.<br />Litera <strong>S</strong> jest w haśle ale nie po <strong>R</strong>.",
+        "correctLettersTipAlt": "Litery <strong>K</strong> i <strong>A</strong> są w haśle w <strong>tej kolejności</strong>.<br />Litera <strong>R</strong> jest w haśle ale nie pomiędzy nimi.",
         "sequenceOfLettersTip": "Litery <strong>UPE</strong> są w haśle <strong>ciągiem</strong>.",
+        "sequenceOfLettersTipAlt": "Litery <strong>ŁA</strong> są w haśle <strong>ciągiem</strong>.",
         "firstAndLastLetterTip": "Hasło zaczyna się na litrę <strong>S</strong>, zawiera literę <strong>P</strong> i kończy na <strong>R</strong>.",
-        "winingWordMessage": "Podane słowo jest hasłem."
+        "firstAndLastLetterTipAlt": "Hasło zaczyna się na litrę <strong>P</strong> i kończy na <strong>D</strong>.",
+        "winingWordMessage": "Podane słowo jest hasłem.",
+        "previousExample": "Poprzedni przykład",
+        "altExample": "Inny przykład?"
     },
     "settings": {
         "title": "Ustawienia",

@@ -328,6 +328,8 @@ export const getStatisticForFilter = ({
         return true;
     }).map(({ key }) => key);
 
+    console.log('keysToUse', keysToUse);
+
     const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
 
     return mergeStatistics(arrayOfStatistics);

@@ -111,7 +111,14 @@ export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
     async ({
         status, wordToGuess, guessesWords = [], rejectedWords = [], lastUpdateTime, durationMS,
-    }: { status?: GameStatus, wordToGuess: string, guessesWords: string[], rejectedWords: string[], lastUpdateTime: number, durationMS: number }, { dispatch }) => {
+    }: {
+        status?: GameStatus,
+        wordToGuess: string, 
+        guessesWords: string[],
+        rejectedWords: string[],
+        lastUpdateTime: number,
+        durationMS: number,
+    }, { dispatch, rejectWithValue }) => {
         if (!wordToGuess) {
             return;
         }
@@ -202,60 +209,63 @@ export const loadGame = createAsyncThunk(
 
                 console.log({
                     isDailyMode,
+                    lastWordToGuess,
                     lastDailyStamp,
                     todayStamp,
                     isExpiredDailyGame,
                 });
 
-                if (isExpiredDailyGame) {
-                    localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+                if (lastWordToGuess) {
+                    if (isExpiredDailyGame) {
+                        localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
 
-                    if (lastWordToGuess && lastDailyStamp) {
-                        const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
+                        if (lastDailyStamp) {
+                            const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
 
-                        if (isLostGame) {
-                            // TODO: SHOULD SET LOST GAME AND SAVE IT AS LOST
-                            dispatch(setToast({
-                                text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
-                            }));
+                            if (isLostGame) {
+                                // TODO: SHOULD SET LOST GAME AND SAVE IT AS LOST
+                                dispatch(setToast({
+                                    text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
+                                }));
 
-                            /*
-                                Stats are saved directly from the state,
-                                so we set the state, save the stats, and reset the state.
-                            */
-                            await dispatch(restoreGameState({
-                                status: GameStatus.Lost,
-                                wordToGuess: lastWordToGuess,
-                                guessesWords,
-                                rejectedWords,
-                                lastUpdateTime,
-                                durationMS,
-                            }));
+                                /*
+                                    Stats are saved directly from the state,
+                                    so we set the state, save the stats, and reset the state.
+                                */
+                                await dispatch(restoreGameState({
+                                    status: GameStatus.Lost,
+                                    wordToGuess: lastWordToGuess,
+                                    guessesWords,
+                                    rejectedWords,
+                                    lastUpdateTime,
+                                    durationMS,
+                                }));
 
-                            await dispatch(saveEndedGame());
+                                await dispatch(saveEndedGame());
 
-                            getWordToGuess({ gameMode }).then(word => {
-                                dispatch(setWordToGuess(word));
-                            });
+                                await getWordToGuess({ gameMode }).then(word => {
+                                    dispatch(setWordToGuess(word));
+                                });
 
-                            return;
+                                return;
+                            }
                         }
                     }
+
+                    await dispatch(restoreGameState({
+                        wordToGuess: lastWordToGuess,
+                        status,
+                        guessesWords,
+                        rejectedWords,
+                        lastUpdateTime,
+                        durationMS,
+                    }));
+
+                    return;
                 }
-
-                await dispatch(restoreGameState({
-                    wordToGuess: lastWordToGuess,
-                    status,
-                    guessesWords,
-                    rejectedWords,
-                    lastUpdateTime,
-                    durationMS,
-                }));
-
-                return;
             }
 
-            getWordToGuess({ gameMode }).then(word => {
+            await getWordToGuess({ gameMode }).then(word => {
                 dispatch(setWordToGuess(word));
             });
         }
@@ -612,6 +622,8 @@ const gameSlice = createSlice({
         }).addCase(loadGame.fulfilled, (state) => {
             state.isLoadingGame = false;
         }).addCase(restoreGameState.fulfilled, (state, action) => {
+            console.log('action', action);
+
             const {
                 status = GameStatus.Guessing,
                 results,

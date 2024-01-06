@@ -16,6 +16,7 @@ body {
 
 button {
     border: none;
+    background-color: transparent;
     font-family: inherit;
 }
 
@@ -148,6 +149,35 @@ details {
         list-style: none;
         user-select: none;
         position: relative;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed var(--border);
+        transition: 0.3s ease-in-out;
+
+        @mixin hover-effect {
+            .details-icon {
+                &::before,
+                &::after {
+                    border-bottom-color: var(--text);
+                }
+            }
+        }
+    
+        @media (hover: hover) {
+            &:hover {
+                @include hover-effect;
+            }
+        }
+    
+        @media (hover: none) {
+            &:active {
+                @include hover-effect;
+            }
+        }
+    }
+
+    .details-icon {
+        position: absolute;
+        right: 0;
     }
 
     .details-content {
@@ -155,19 +185,9 @@ details {
         transform-origin: top center;
     }
 
-    .details-icon {
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translateY(-50%) scaleY(1);
-        height: 24px;
-        fill: var(--text-weaker);
-        transition: 0.15s ease-in-out;
-    }
-
     &[open] {
-        .details-icon  {
-            transform: translateY(-50%) scaleY(-1);
+        summary {
+            border-bottom-color: transparent;
         }
 
         > .details-content {

@@ -2,6 +2,14 @@
     padding-bottom: 20px;
 }
 
+.statistics-filters {
+    ul.list-col-3 {
+        @media (max-width: 360px) {
+            grid-template-columns: 0.5fr 1fr 1fr;
+        }
+    }
+}
+
 .statistics-title-total {
     display: inline-block;
     vertical-align: middle;

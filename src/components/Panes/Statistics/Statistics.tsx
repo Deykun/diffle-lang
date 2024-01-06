@@ -24,13 +24,15 @@ const Statistics = () => {
     return (
         <div className="statistics">
             <StatisticsFilters
-              total={statisticData?.totalGames}
               setStatisticData={setStatisticData}
               setStreakData={setStreakData}
               setFiltersData={setFiltersData}
             />
             <div>
-                <h2>{t('settings.statisticsTitle')}</h2>
+                <h2>
+                    {t('settings.statisticsTitle')}
+                    {<span className="statistics-title-total">{statisticData?.totalGames || 0}</span>}
+                </h2>
                 {isMissingData
                     ? <div className="missing-data"><IconChartWithMarkedPart className="missing-data-icon" /><p>{t('statistics.noData')}</p></div>
                     : <StatisticsCard {...statisticData} {...streakData} {...filtersData} />

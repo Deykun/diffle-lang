@@ -7,7 +7,7 @@ import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
 import { Filters, ModeFilter, CharactersFilter, LengthFilter, getStatisticForFilter, getStreakForFilter, getStatisticCardDataFromStatistics } from '@utils/statistics';
 
-import IconCaretDown from '@components/Icons/IconCaretDown';
+import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
 import IconFlag from '@components/Icons/IconFlag';
@@ -21,13 +21,12 @@ import { INITIAL_FILTERS } from './constants';
 import '../Settings/Settings.scss'
 
 interface Props {
-    total: number | undefined,
     setStatisticData: Dispatch<SetStateAction<StatisticDataForCard | undefined>>
     setStreakData: Dispatch<SetStateAction<Streak | undefined>>
     setFiltersData: Dispatch<SetStateAction<Filters>>
 }
 
-const StatisticsFilters = ({ total = 0, setStatisticData, setStreakData, setFiltersData }: Props) => {
+const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: Props) => {
     const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
@@ -55,9 +54,8 @@ const StatisticsFilters = ({ total = 0, setStatisticData, setStreakData, setFilt
             <summary>
                 <h3>
                     {t('statistics.filters')}
-                    {<span className="statistics-title-total">{total}</span>}
                 </h3>
-                <IconCaretDown className="details-icon" />
+                <IconAnimatedCaret className="details-icon" />
             </summary>
             <div className="details-content">
                 <ul className="list-col-3">
