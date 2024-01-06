@@ -1,5 +1,9 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
+import * as htmlToImage from 'html-to-image';
+import download from 'downloadjs';
+
+import { ToastType } from '@common-types';
 
 import { useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
@@ -13,9 +17,6 @@ import IconPicture from '@components/Icons/IconPicture';
 import Button from '@components/Button/Button';
 
 import CircleScale from './CircleScale';
-
-import * as htmlToImage from 'html-to-image';
-import download from 'downloadjs';
 
 import StatisticsCardActiveFilters from './StatisticsCardActiveFilters';
 
@@ -85,7 +86,7 @@ const StatisticsCard = ({
         } catch (error) {
             console.error(error);
 
-            dispatch(setToast({ text: `common.downloadError` }));
+            dispatch(setToast({ type: ToastType.Incorrect, text: `common.downloadError` }));
         }
     };
 

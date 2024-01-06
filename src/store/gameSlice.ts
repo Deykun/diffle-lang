@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, UsedLetters, GameStatus, GameMode } from '@common-types';
+import { RootState, RootGameState, ToastType, UsedLetters, GameStatus, GameMode } from '@common-types';
 
 import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE, PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 import { getNow, getTimeUpdateFromTimeStamp } from '@utils/date';
@@ -100,7 +100,7 @@ export const submitAnswer = createAsyncThunk(
 
         const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
         if (isWordFetchError) {
-            dispatch(setToast({ text: 'common.fetchError' }));
+            dispatch(setToast({ type: ToastType.Incorrect, text: 'common.fetchError' }));
         }
 
         return result;
@@ -126,7 +126,7 @@ export const restoreGameState = createAsyncThunk(
         const { hasError, isWon, results, wordsLetters } = await getWordReportForMultipleWords(wordToGuess, guessesWords);
 
         if (hasError) {
-            dispatch(setToast({ text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
+            dispatch(setToast({ type: ToastType.Incorrect, text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
 
             return { isError: true, type: SUBMIT_ERRORS.RESTORING_ERROR };
             // return { isError: true, type: SUBMIT_ERRORS. };
@@ -225,6 +225,7 @@ export const loadGame = createAsyncThunk(
                             if (isLostGame) {
                                 // TODO: SHOULD SET LOST GAME AND SAVE IT AS LOST
                                 dispatch(setToast({
+                                    type: ToastType.Incorrect,
                                     text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
                                 }));
 

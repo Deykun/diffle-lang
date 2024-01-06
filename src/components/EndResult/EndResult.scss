@@ -21,8 +21,26 @@
         vertical-align: middle;
     }
 
+    &.lost {
+        .title-icon {        
+            fill: var(--incorrect-red-contrast);
+
+            .icon-inside {
+                fill: var(--incorrect-red);
+            }
+        }
+    }
+
     &.won {
         .title-icon {
+            fill: var(--green);
+
+            .icon-inside {
+                fill: var(--green-contrast);
+            }
+        }
+
+        .title-icon--magic {
             fill: var(--blue-on-background);
         }
     }

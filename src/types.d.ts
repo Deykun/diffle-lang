@@ -1,3 +1,9 @@
+export enum ToastType {
+    Default = 'default',
+    Error = 'error',
+    Incorrect = 'incorrect',
+}
+
 export enum Pane {
     Help = 'Help',
     Game = 'Game',
@@ -32,6 +38,7 @@ export interface Word {
 
 export interface Toast {
     text: string,
+    type: ToastType,
     timeoutSeconds: number,
     toastTime: number | null,
 }

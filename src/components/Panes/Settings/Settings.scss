@@ -225,3 +225,31 @@
         border-top: 1px dashed var(--border);
     }
 }
+
+.setting-icon-with-streak {
+    position: relative;
+
+    .setting-streak {
+        display: inline-flex;
+        align-items: center;
+        position: absolute;
+        bottom: -10px;
+        right: -15px;
+        color: var(--green);
+        font-weight: 700;
+        filter: drop-shadow(0 0 5px var(--background)) drop-shadow(0 0 5px var(--background)) drop-shadow(0 0 5px var(--background));
+
+        svg {
+            height: 20px;
+            width: 20px;
+            margin-left: 5px;
+            fill: currentColor;
+        }
+    }
+
+    button:hover & {
+        .setting-streak {
+            color: var(--green-stronge);
+        }
+    }
+}

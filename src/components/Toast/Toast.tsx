@@ -12,7 +12,7 @@ const Toasts = () => {
   const setTimeoutShakeToastRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const dispatch = useDispatch();
   const [{ shouldShake, didShake }, setShake] = useState({ shouldShake: false, didShake: false });
-  const { text, timeoutSeconds = 4, toastTime } = useSelector(state => state.app.toast);
+  const { type, text, timeoutSeconds = 4, toastTime } = useSelector(state => state.app.toast);
 
   const { t } = useTranslation();
 
@@ -67,7 +67,7 @@ const Toasts = () => {
   }
 
   return (
-    <p className={clsx('toast', { 'toast-shake': shouldShake, 'toast-shaked': didShake })} key={text}>
+    <p className={clsx('toast', `toast-${type}`, { 'toast-shake': shouldShake, 'toast-shaked': didShake })} key={text}>
         {t(text)}
     </p>
   )

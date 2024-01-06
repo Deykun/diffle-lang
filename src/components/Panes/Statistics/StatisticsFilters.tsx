@@ -21,12 +21,14 @@ import { INITIAL_FILTERS } from './constants';
 import '../Settings/Settings.scss'
 
 interface Props {
-    setStatisticData: Dispatch<SetStateAction<StatisticDataForCard | undefined>>
-    setStreakData: Dispatch<SetStateAction<Streak | undefined>>
-    setFiltersData: Dispatch<SetStateAction<Filters>>
+    setData: Dispatch<SetStateAction<{
+        filtersData: Filters,
+        statisticsData: StatisticDataForCard | undefined,
+        streakData: Streak | undefined,
+    }>>
 }
 
-const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: Props) => {
+const StatisticsFilters = ({ setData }: Props) => {
     const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
@@ -34,27 +36,31 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
     const { t } = useTranslation();
 
     useEffect(() => {
-        const filters = {
+        const filtersData = {
             modeFilter,
             charactersFilter,
             lengthFilter,
         };
-        const statistics = getStatisticForFilter(filters);
-        const streakData = getStreakForFilter(filters);
 
-        const statisitcsData = getStatisticCardDataFromStatistics(statistics);
+        const statistics = getStatisticForFilter(filtersData);
+        const streakData = getStreakForFilter(filtersData);
 
-        setStatisticData(statisitcsData);
-        setStreakData(streakData);
-        setFiltersData(filters);
-    }, [modeFilter, charactersFilter, setStatisticData, lengthFilter, setStreakData, setFiltersData]);
+        const statisticsData = getStatisticCardDataFromStatistics(statistics);
+
+        console.log(statistics);
+        console.log(statisticsData);
+
+        setData({
+            filtersData,
+            statisticsData,
+            streakData,
+        });
+    }, [modeFilter, charactersFilter, lengthFilter, setData]);
     
     return (
         <details className="statistics-filters">
             <summary>
-                <h3>
-                    {t('statistics.filters')}
-                </h3>
+                <h3>{t('statistics.filters')}</h3>
                 <IconAnimatedCaret className="details-icon" />
             </summary>
             <div className="details-content">
@@ -63,15 +69,15 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
                         <button
                             className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.All })}
                             onClick={() => setModeFilter(ModeFilter.All)}
-                            >
+                        >
                             <IconLayersAlt />
                             <span>{t('statistics.filterAll')}</span>
                         </button>
                     </li>
                     <li>
                         <button
-                        className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.Daily })}
-                        onClick={() => setModeFilter(ModeFilter.Daily)}
+                            className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.Daily })}
+                            onClick={() => setModeFilter(ModeFilter.Daily)}
                         >
                             <IconDay />
                             <span>{t('game.modeDaily')}</span>
@@ -79,8 +85,8 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
                     </li>
                     <li>
                         <button
-                        className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.Practice })}
-                        onClick={() => setModeFilter(ModeFilter.Practice)}
+                            className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.Practice })}
+                            onClick={() => setModeFilter(ModeFilter.Practice)}
                         >
                             <IconInfinity />
                             <span>{t('game.modePractice')}</span>
@@ -92,15 +98,15 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
                         <button
                             className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.All })}
                             onClick={() => setModeCharactersFilter(CharactersFilter.All)}
-                            >
+                        >
                             <IconLayersAlt />
                             <span>{t('statistics.filterAll')}</span>
                         </button>
                     </li>
                     <li>
                         <button
-                        className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.NoSpecial })}
-                        onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
+                            className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.NoSpecial })}
+                            onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
                         >
                             <IconFlag />
                             <span dangerouslySetInnerHTML={{
@@ -110,8 +116,8 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
                     </li>
                     <li>
                         <button
-                        className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.Special })}
-                        onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
+                            className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.Special })}
+                            onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
                         >
                             <IconFlagAlt />
                             <span dangerouslySetInnerHTML={{
@@ -125,15 +131,15 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
                         <button
                             className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.All })}
                             onClick={() => setLengthFilter(LengthFilter.All)}
-                            >
+                        >
                             <IconLayersAlt />
                             <span>{t('statistics.filterAll')}</span>
                         </button>
                     </li>
                     <li>
                         <button
-                        className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Short })}
-                        onClick={() => setLengthFilter(LengthFilter.Short)}
+                            className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Short })}
+                            onClick={() => setLengthFilter(LengthFilter.Short)}
                         >
                             <IconRulerSmall />
                             <span dangerouslySetInnerHTML={{
@@ -143,8 +149,8 @@ const StatisticsFilters = ({ setStatisticData, setStreakData, setFiltersData }: 
                     </li>
                     <li>
                         <button
-                        className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Long })}
-                        onClick={() => setLengthFilter(LengthFilter.Long)}
+                            className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Long })}
+                            onClick={() => setLengthFilter(LengthFilter.Long)}
                         >
                             <IconRulerBig />
                             <span dangerouslySetInnerHTML={{

@@ -332,12 +332,14 @@ export const getStatisticForFilter = ({
 
     const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
 
+    console.log(arrayOfStatistics);
+
     return mergeStatistics(arrayOfStatistics);
 };
 
 export const getStreakForFilter = ({
     modeFilter,
-}: { modeFilter: ModeFilter | GameMode, charactersFilter?: CharactersFilter, lengthFilter?: LengthFilter }): Streak => {
+}: { modeFilter: ModeFilter | GameMode }): Streak => {
     return getStreak({ gameLanguage: 'pl', gameMode: modeFilter });
 };
 

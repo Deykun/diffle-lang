@@ -20,6 +20,7 @@ import IconBook from '@components/Icons/IconBook';
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconInfinity from '@components/Icons/IconInfinity';
+import IconLoader from '@components/Icons/IconLoader';
 
 import Button from '@components/Button/Button';
 
@@ -86,12 +87,12 @@ const Settings = ({ changePane }: Props) => {
                 </li>)}
             </ul>
             <SettingsModes changePane={changePane} />
-            {yesterdayWord && (<details>
+            <details>
                 <summary>
                     <h2>{t('settings.lastDailyWordsTitle')}</h2>
                     <IconAnimatedCaret className="details-icon" />
                 </summary>
-                <div className="details-content">
+                {yesterdayWord && (<div className="details-content">
                     <p>
                         {t('settings.lastDailyWordsYesterday', { word: yesterdayWord })}
                     </p>
@@ -104,8 +105,8 @@ const Settings = ({ changePane }: Props) => {
                         <IconBook />
                         <span>{t('common.checkInDictionary', { word: yesterdayWord })}</span>
                     </Button>
-                </div>
-            </details>)}
+                </div>)}
+            </details>
             <SettingsPreferences />
             <footer>
                 <SettingsSources />

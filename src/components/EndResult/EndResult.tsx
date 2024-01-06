@@ -120,7 +120,7 @@ ${diffleUrl}`);
                             <IconFancyCheck className="title-icon" />
                         </>): (<>
                             <span>{t('end.titleCheater')}</span>
-                            <IconMagic className="title-icon" />
+                            <IconMagic className={clsx('title-icon', 'title-icon--magic')} />
                         </>)}
                     </>)}
                 </h3>
