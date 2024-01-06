@@ -530,7 +530,7 @@ const gameSlice = createSlice({
             }
 
             if (ALLOWED_KEYS.includes(typed)) {
-                if (state.wordToSubmit.length > WORD_MAXLENGTH + 1) {
+                if (state.wordToSubmit.length > WORD_MAXLENGTH - 1) {
                     return;
                 }
 

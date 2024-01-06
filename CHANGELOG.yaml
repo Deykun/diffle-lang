@@ -5,6 +5,7 @@
   - new - single letters are conisder green
   - new - arrows for up and down arrows added
   - new - using the word second time is blocked
+  - fix - typing 16 characters or longer word is blocked
 1.8.1 30.11.2023:
   - new - caret works for mobile with click
 1.8 30.11.2023:
