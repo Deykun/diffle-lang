@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import clsx from 'clsx';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector, useDispatch } from '@store';
@@ -7,36 +8,66 @@ import { clearToast } from '@store/appSlice';
 import './Toast.scss';
 
 const Toasts = () => {
-  const setTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const setTimeoutShowToastRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const setTimeoutShakeToastRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const dispatch = useDispatch();
+  const [{ shouldShake, didShake }, setShake] = useState({ shouldShake: false, didShake: false });
   const { text, timeoutSeconds = 4, toastTime } = useSelector(state => state.app.toast);
 
   const { t } = useTranslation();
 
+  const resetToast = useCallback(() => {
+    if (setTimeoutShowToastRef.current) {
+      clearTimeout(setTimeoutShowToastRef.current);
+    }
+
+    setTimeoutShowToastRef.current = setTimeout(() => {
+      dispatch(clearToast());
+    }, timeoutSeconds * 1000);
+  }, [dispatch, timeoutSeconds]);
+
   useEffect(() => {
-    if (text) {
-      if (setTimeoutRef.current) {
-        clearTimeout(setTimeoutRef.current);
+    if (toastTime) {
+      if (setTimeoutShakeToastRef.current) {
+        clearTimeout(setTimeoutShakeToastRef.current);
       }
-  
-      setTimeoutRef.current = setTimeout(() => {
-        dispatch(clearToast());
-      }, timeoutSeconds * 1000);
+
+      setShake({ shouldShake: true, didShake: false });
+
+      resetToast();
+
+      setTimeoutShakeToastRef.current = setTimeout(() => {
+        setShake({ shouldShake: false, didShake: true });
+      }, 0.5 * 1000);
     }
 
     () => {
-      if (setTimeoutRef.current) {
-        clearTimeout(setTimeoutRef.current);
+        if (setTimeoutShakeToastRef.current) {
+          clearTimeout(setTimeoutShakeToastRef.current);
+        }
+    }
+  }, [resetToast, toastTime]);
+
+  useEffect(() => {
+    setShake({ shouldShake: false, didShake: false });
+
+    if (text) {
+      resetToast();
+    }
+
+    () => {
+      if (setTimeoutShowToastRef.current) {
+        clearTimeout(setTimeoutShowToastRef.current);
       }
     }
-  }, [dispatch, text, timeoutSeconds]);
+  }, [dispatch, resetToast, text]);
 
   if (!text) {
     return null;
   }
 
   return (
-    <p className="toast" key={toastTime}>
+    <p className={clsx('toast', { 'toast-shake': shouldShake, 'toast-shaked': didShake })} key={text}>
         {t(text)}
     </p>
   )

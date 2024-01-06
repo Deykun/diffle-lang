@@ -655,6 +655,7 @@ const gameSlice = createSlice({
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;
             state.rejectedWords = rejectedWords;
+            state.hasLongGuesses = guesses.some(({ word }) => word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS);
             state.lastUpdateTime = lastUpdateTime;
             state.durationMS = durationMS;
 
