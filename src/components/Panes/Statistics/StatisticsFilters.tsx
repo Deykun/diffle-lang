@@ -47,9 +47,6 @@ const StatisticsFilters = ({ setData }: Props) => {
 
         const statisticsData = getStatisticCardDataFromStatistics(statistics);
 
-        console.log(statistics);
-        console.log(statisticsData);
-
         setData({
             filtersData,
             statisticsData,

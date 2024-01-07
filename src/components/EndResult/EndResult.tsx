@@ -125,7 +125,7 @@ ${diffleUrl}`);
                     </>)}
                 </h3>
                 <div className="totals">
-                    <p className="total">
+                    <div className="total">
                         {endStatus === GameStatus.Lost && (<>
                             {t('end.winningWord')}
                             <div className="lost-word-wrapper">
@@ -143,7 +143,7 @@ ${diffleUrl}`);
                             {' '}
                             {t('end.inWordsUsed', { postProcess: 'interval', count: words })}
                         </>)}
-                    </p>
+                    </div>
                 </div>
                 <div className="subtotals">
                     <p className="subtotal correct has-tooltip has-tooltip-from-left">
@@ -184,6 +184,7 @@ ${diffleUrl}`);
                     tagName="a"
                     href={`https://sjp.pl/${wordToGuess}`}
                     target="blank"
+                    rel="noopener noreferrer"
                     isInverted
                 >
                     <IconBook />

@@ -40,6 +40,7 @@ export const getLocalStorageKeyForStreak = ({ gameLanguage, gameMode }: LocalSto
 };
 
 export interface Statistic {
+    meta: string[],
     totals: {
         won: number,
         lost: number,
@@ -83,6 +84,7 @@ export interface Statistic {
 }
 
 const EMPTY_STATISTIC = {
+    meta: ['empty'],
     totals: {
         won: 0,
         lost: 0,
@@ -120,7 +122,7 @@ const getStatisticForKey = (key: string): Statistic => {
         return state;
     }
 
-    return EMPTY_STATISTIC;
+    return JSON.parse(JSON.stringify(EMPTY_STATISTIC));
 };
 
 export const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageStatisticInput): Statistic => {
@@ -142,7 +144,10 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
         isShort,
     });
 
-    const statisticToSave = JSON.stringify(statistics);
+    const statisticToSave = JSON.stringify({
+        ...statistics,
+        meta: [key || 'unknown'],
+    });
 
     localStorage.setItem(key, statisticToSave);
 };
@@ -170,7 +175,7 @@ const getStreakForKey = (key: string): Streak => {
         return state;
     }
 
-    return EMPTY_STREAK;
+    return JSON.parse(JSON.stringify(EMPTY_STREAK));
 }
 
 export const getStreak = ({ gameLanguage, gameMode }: LocalStorageStreakInput) => {
@@ -199,7 +204,6 @@ export interface SaveGame extends LocalStorageStatisticInput {
 
 const mergeStatistics = (statistics: Statistic[]): Statistic => {
     return statistics.reduce((stack: Statistic, statistic) => {
-
         const totalGamesStack = stack.totals.won + stack.totals.lost;
         const totalGameStatToAdd = statistic.totals.won + statistic.totals.lost;
 
@@ -213,7 +217,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
             ...Object.keys(statistic.medianData.letters),
         ])].map(Number);
 
-        const medianDataLetters = uniqueMedianDataLetters.reduce((medianStack: { [key: number]: number}, key: number) => {
+        const medianDataLetters = uniqueMedianDataLetters.reduce((medianStack: { [key: number]: number }, key: number) => {
             medianStack[key] = (stack.medianData.letters[key] ?? 0) + (statistic.medianData.letters[key] ?? 0);
 
             return medianStack;
@@ -231,6 +235,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
         }, {});
 
         return {
+            meta: [...stack.meta, ...statistic.meta],
             totals: {
                 won: stack.totals.won + statistic.totals.won,
                 lost: stack.totals.lost + statistic.totals.lost,
@@ -328,11 +333,7 @@ export const getStatisticForFilter = ({
         return true;
     }).map(({ key }) => key);
 
-    console.log('keysToUse', keysToUse);
-
     const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
-
-    console.log(arrayOfStatistics);
 
     return mergeStatistics(arrayOfStatistics);
 };
@@ -405,7 +406,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
     const totalGames = statistic.totals.won + statistic.totals.lost;
     const totalWon = statistic.totals.won;
 
-    const averageLettersPerGame = statistic.totals.letters / totalWon;
+    const averageLettersPerGame = statistic.totals.letters / totalWon; // Lost games are not included in detailed games
     
     return {
         totalGames,

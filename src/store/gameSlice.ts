@@ -118,7 +118,7 @@ export const restoreGameState = createAsyncThunk(
         rejectedWords: string[],
         lastUpdateTime: number,
         durationMS: number,
-    }, { dispatch, rejectWithValue }) => {
+    }, { dispatch }) => {
         if (!wordToGuess) {
             return;
         }
@@ -129,7 +129,6 @@ export const restoreGameState = createAsyncThunk(
             dispatch(setToast({ type: ToastType.Incorrect, text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
 
             return { isError: true, type: SUBMIT_ERRORS.RESTORING_ERROR };
-            // return { isError: true, type: SUBMIT_ERRORS. };
         }
 
         const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
@@ -623,8 +622,6 @@ const gameSlice = createSlice({
         }).addCase(loadGame.fulfilled, (state) => {
             state.isLoadingGame = false;
         }).addCase(restoreGameState.fulfilled, (state, action) => {
-            console.log('action', action);
-
             const {
                 status = GameStatus.Guessing,
                 results,

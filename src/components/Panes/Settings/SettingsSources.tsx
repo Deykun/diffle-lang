@@ -18,27 +18,27 @@ const SettingsSources = () => {
         <>
             <h2>{t('settings.sourcesTitle')}</h2>
             <p>{t('settings.sourcesDescription')}</p>
-            <ul className="list-col-3">
-                <li><a href="https://sjp.pl" target="blank">
+            <ul>
+                <li><a href="https://sjp.pl" target="blank" rel="noopener noreferrer">
                     <IconBookAlt /><span>{t('settings.sourceSJP')}</span></a>
                 </li>
                 <li>
-                    <a href="https://freedict.org/" target="blank">
+                    <a href="https://freedict.org/" target="blank" rel="noopener noreferrer">
                         <IconBook /><span>{t('settings.sourceFreeDict')}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://iconmonstr.com/" target="blank">
+                    <a href="https://iconmonstr.com/" target="blank" rel="noopener noreferrer">
                         <IconIconmonstr /><span>{t('settings.sourceIconmonstr')}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">
+                    <a href="https://www.nytimes.com/games/wordle/index.html" target="blank" rel="noopener noreferrer">
                         <IconGamepadAlt /><span>{t('settings.sourceWordle')}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://hedalu244.github.io/diffle/" target="blank">
+                    <a href="https://hedalu244.github.io/diffle/" target="blank" rel="noopener noreferrer">
                         <IconGamepad /><span>{t('settings.sourceDiffle')}</span>
                     </a>
                 </li>

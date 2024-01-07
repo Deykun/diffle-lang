@@ -78,7 +78,6 @@ export const getTimeUpdateFromTimeStamp = (timeToCompare: number) => {
 };
 
 export const convertMillisecondsToTime = (milliseconds: number) => {
-    console.log('milliseconds', milliseconds);
     const hours = Math.floor(milliseconds / (1000 * 60 * 60));
     const minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);

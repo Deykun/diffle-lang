@@ -100,6 +100,7 @@ const Settings = ({ changePane }: Props) => {
                         tagName="a"
                         href={`https://sjp.pl/${yesterdayWord}`}
                         target="blank"
+                        rel="noopener noreferrer"
                         isInverted
                     >
                         <IconBook />
