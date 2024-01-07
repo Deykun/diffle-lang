@@ -1,12 +1,10 @@
 import { useEffect } from 'react';
 
-import { GameMode } from '@common-types';
 import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
 import { saveEndedGame } from '@store/gameSlice';
 
 import { useDispatch, useSelector } from '@store';
 import {
-    selectIsLost,
     selectWordToGuess,
 } from '@store/selectors';
 

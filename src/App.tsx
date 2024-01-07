@@ -8,6 +8,7 @@ import { useSelector } from '@store';
 
 import { getInitPane } from '@api/getInit';
 
+import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useVibrate from '@hooks/useVibrate';
 
 import Header from '@components/Header'
@@ -26,6 +27,8 @@ const App = () => {
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
     const { vibrate } = useVibrate();
+
+    useAppUpdateIfNeeded();
 
     useEffect(() => {
         const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
