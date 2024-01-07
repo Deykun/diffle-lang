@@ -8,7 +8,7 @@ import { ToastType } from '@common-types';
 import { useDispatch } from '@store';
 import { setToast } from '@store/appSlice';
 
-import { StatisticDataForCard, Filters } from '@utils/statistics';
+import { StatisticDataForCard, Filters, CharactersFilter, LengthFilter } from '@utils/statistics';
 import { getNow } from '@utils/date';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
@@ -89,6 +89,8 @@ const StatisticsCard = ({
             dispatch(setToast({ type: ToastType.Incorrect, text: `common.downloadError` }));
         }
     };
+
+    const canShowStreak = charactersFilter === CharactersFilter.All && lengthFilter === LengthFilter.All;
 
     return (
         <>
@@ -202,27 +204,27 @@ const StatisticsCard = ({
                         <strong>{((totalWon / totalGames) * 100).toFixed(0)}<small>%</small></strong>
                         {t('statistics.totalWon')}
                     </p>
-                    {wonStreak > 0 && <p>
+                    {canShowStreak && wonStreak > 0 && <p>
                         <strong>{wonStreak}</strong>
                         {t('statistics.totalWonStreak', {
                             postProcess: 'interval',
                             count: wonStreak
                         })}
                     </p>}
-                    {lostStreak > 0 && <p>
+                    {canShowStreak && lostStreak > 0 && <p>
                         <strong>{lostStreak}</strong>
                         {t('statistics.totalLostStreak', {
                             postProcess: 'interval',
                             count: lostStreak
                         })}
                     </p>}
-                    {bestStreak > 0 && <p className="has-tooltip has-tooltip-from-right tooltip-relative">
+                    {canShowStreak && bestStreak > 0 && <p className="has-tooltip has-tooltip-from-right tooltip-relative">
                         <strong>{bestStreak}</strong> {t('statistics.totalBestStreak')}
                         <span className="tooltip">{t('statistics.streakTooltipWithWorstStreak')} <strong>{worstStreak}</strong></span>
                     </p>}
                 </div>
                 <footer>
-                    {location.href}
+                    {location.href.replace('http://', '').replace('https://', '')}
                     {' '}
                     <StatisticsCardActiveFilters modeFilter={modeFilter} charactersFilter={charactersFilter} lengthFilter={lengthFilter} />
                 </footer>

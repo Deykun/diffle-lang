@@ -10,6 +10,7 @@ import useVibrate from '@hooks/useVibrate';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
+import IconBackspaceAlt from '@components/Icons/IconBackspaceAlt';
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
@@ -29,6 +30,8 @@ const SettingsPreferences = () => {
         handleTogglKeyboardVibrate,
         isSmallKeyboard,
         handleToggleKeyboardSize,
+        isEnterSwapped,
+        handleToggleEnterSwap,
         shouldConfirmEnter,
         handleToggleConfirmEnter,
      } = useKeyboardSettings();
@@ -52,7 +55,6 @@ const SettingsPreferences = () => {
 
         localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
 
-        // document.body.classList.toggle('contrast');
         document.documentElement.classList.toggle('contrast');
     };
 
@@ -101,7 +103,7 @@ const SettingsPreferences = () => {
                 </li>
             </ul>
             <h3>{t('settings.keyboard')}</h3>
-            <ul className="list-col-3">
+            <ul>
                 <li>
                     <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>
                         <IconVibrateKeyboard />
@@ -112,6 +114,12 @@ const SettingsPreferences = () => {
                     <button className={clsx('setting', { 'setting-active': isSmallKeyboard })} onClick={handleToggleKeyboardSize}>
                         <IconKeyboardDown />
                         <span className="setting-title-small">{t('settings.smallerKeyboard')}</span>
+                    </button>
+                </li>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': isEnterSwapped })} onClick={handleToggleEnterSwap}>
+                        <IconBackspaceAlt />
+                        <span className="setting-title-small">{t('settings.swapEnterAndBackspace')}</span>
                     </button>
                 </li>
                 <li>

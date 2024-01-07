@@ -2,7 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { RootAppState, ToastType } from '@common-types';
 
-import { getInitShouldVibrate, getInitShouldKeyboardVibrate, getInitIsSmallKeyboard, getShouldConfirmEnter } from '@api/getInit';
+import {
+    getInitShouldVibrate,
+    getInitShouldKeyboardVibrate,
+    getInitIsSmallKeyboard,
+    getIsEnterSwapped,
+    getShouldConfirmEnter,
+} from '@api/getInit';
 
 const initialState: RootAppState = {
     toast: {
@@ -14,6 +20,7 @@ const initialState: RootAppState = {
     shouldVibrate: getInitShouldVibrate(),
     shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
     isSmallKeyboard: getInitIsSmallKeyboard(),
+    isEnterSwapped: getIsEnterSwapped(),
     shouldConfirmEnter: getShouldConfirmEnter(),
 };
 
@@ -50,6 +57,9 @@ const appSlice = createSlice({
         toggleKeyboardSize(state) {
             state.isSmallKeyboard = !state.isSmallKeyboard;
         },
+        toggleEnterSwap(state) {
+            state.isEnterSwapped = !state.isEnterSwapped;
+        },
         toggleConfirmEnter(state) {
             state.shouldConfirmEnter = !state.shouldConfirmEnter;
         }
@@ -64,5 +74,5 @@ const appSlice = createSlice({
       },
 })
 
-export const { setToast, clearToast, toggleVibration, toggleKeyboardVibration, toggleKeyboardSize, toggleConfirmEnter } = appSlice.actions;
+export const { setToast, clearToast, toggleVibration, toggleKeyboardVibration, toggleKeyboardSize, toggleEnterSwap, toggleConfirmEnter } = appSlice.actions;
 export default appSlice.reducer;

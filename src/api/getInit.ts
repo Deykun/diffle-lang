@@ -47,8 +47,15 @@ export const getInitShouldKeyboardVibrate = () => {
     return shouldVibrateAtAll && localStorage.getItem(LOCAL_STORAGE.SHOULD_VIBRATE_KEYBOARD) === 'true';
 };
 
+export const getIsEnterSwapped = () => {
+    const shouldSwapEnter = localStorage.getItem(LOCAL_STORAGE.SHOULD_SWAP_ENTER) === 'true';
+
+    return shouldSwapEnter;
+};
+
 export const getShouldConfirmEnter = () => {
     const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_CONFIRM_ENTER) === 'false';
     // By default returns true
     return !shouldBlock;
 };
+

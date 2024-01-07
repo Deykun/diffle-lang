@@ -48,6 +48,7 @@ export interface RootAppState {
     shouldVibrate: boolean,
     shouldKeyboardVibrate: boolean,
     isSmallKeyboard: boolean,
+    isEnterSwapped: boolean,
     shouldConfirmEnter: boolean,
 }
 

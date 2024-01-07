@@ -13,6 +13,7 @@ import { getYesterdaysSeed } from '@utils/date';
 import getWordToGuess from '@api/getWordToGuess'
 
 import useScrollEffect from '@hooks/useScrollEffect';
+import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconBandage from '@components/Icons/IconBandage';
@@ -20,7 +21,6 @@ import IconBook from '@components/Icons/IconBook';
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconInfinity from '@components/Icons/IconInfinity';
-import IconLoader from '@components/Icons/IconLoader';
 
 import Button from '@components/Button/Button';
 
@@ -45,6 +45,8 @@ const Settings = ({ changePane }: Props) => {
     const { t } = useTranslation();
 
     useScrollEffect('top', []);
+
+    const { handleClickSummary } = useEnhancedDetails();
 
     useEffect(() => {
         const yesterdaysSeed = getYesterdaysSeed();
@@ -88,7 +90,7 @@ const Settings = ({ changePane }: Props) => {
             </ul>
             <SettingsModes changePane={changePane} />
             <details>
-                <summary>
+                <summary onClick={handleClickSummary}>
                     <h2>{t('settings.lastDailyWordsTitle')}</h2>
                     <IconAnimatedCaret className="details-icon" />
                 </summary>

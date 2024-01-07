@@ -14,11 +14,6 @@ import { INITIAL_FILTERS } from './constants';
 import './Statistics.scss'
 
 const Statistics = () => {
-    // TODO: use one state or useReducer
-    // const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
-    // const [statisticData, setStatisticData] = useState<StatisticDataForCard | undefined>(undefined);
-    // const [streakData, setStreakData] = useState<Streak | undefined>(undefined);
-
     const [{ filtersData, statisticsData, streakData }, setData] = useState<{
         filtersData: Filters,
         statisticsData: StatisticDataForCard | undefined,
@@ -30,7 +25,7 @@ const Statistics = () => {
     });
     const { t } = useTranslation();
 
-    const isMissingData = !statisticsData || statisticsData.totalGames === 0;
+    const isMissingData = !statisticsData || statisticsData.totalWon === 0;
 
     return (
         <div className="statistics">
@@ -41,7 +36,7 @@ const Statistics = () => {
                 <h2 className="statistics-title">
                     {t('settings.statisticsTitle')}
                     <span className="statistics-title-total">
-                        <span>{statisticsData?.totalGames || 0}</span>
+                        <span>{isMissingData ? 0 : statisticsData.totalGames}</span>
                         <IconGamepad />
                     </span>
                 </h2>

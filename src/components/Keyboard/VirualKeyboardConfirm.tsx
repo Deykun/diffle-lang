@@ -10,7 +10,6 @@ import useVibrate from '@hooks/useVibrate';
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
-import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
 import KeyCap from './KeyCap';
 
@@ -27,8 +26,6 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
     const { t } = useTranslation();
 
     const {
-        shouldKeyboardVibrate,
-        handleTogglKeyboardVibrate,
         shouldConfirmEnter,
         handleToggleConfirmEnter,
      } = useKeyboardSettings();
@@ -51,13 +48,6 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
                 <KeyCap text="yes" onClick={handleSubmit} />
             </div>
             <div className="keyboard-settings">
-                <button
-                    className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldKeyboardVibrate })}
-                    onClick={handleTogglKeyboardVibrate}
-                >
-                    <IconVibrateKeyboard />
-                    <span>{t('settings.keyboardVibration')}</span>
-                </button>
                 <button
                     className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
                     onClick={handleToggleConfirmEnter}

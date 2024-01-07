@@ -51,6 +51,7 @@ export const LOCAL_STORAGE = {
     SHOULD_VIBRATE: 'diffle_should_vibrate',
     SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',
     IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
+    SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
     SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
 };
 

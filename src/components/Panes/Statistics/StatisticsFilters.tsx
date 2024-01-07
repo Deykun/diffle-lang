@@ -5,7 +5,17 @@ import { useTranslation } from 'react-i18next';
 import { StatisticDataForCard, Streak } from '@utils/statistics';
 import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
-import { Filters, ModeFilter, CharactersFilter, LengthFilter, getStatisticForFilter, getStreakForFilter, getStatisticCardDataFromStatistics } from '@utils/statistics';
+import {
+    Filters,
+    ModeFilter,
+    CharactersFilter,
+    LengthFilter,
+    getStatisticForFilter,
+    getStreakForFilter,
+    getStatisticCardDataFromStatistics,
+} from '@utils/statistics';
+
+import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconInfinity from '@components/Icons/IconInfinity';
@@ -35,6 +45,8 @@ const StatisticsFilters = ({ setData }: Props) => {
 
     const { t } = useTranslation();
 
+    const { handleClickSummary } = useEnhancedDetails();
+
     useEffect(() => {
         const filtersData = {
             modeFilter,
@@ -56,7 +68,7 @@ const StatisticsFilters = ({ setData }: Props) => {
     
     return (
         <details className="statistics-filters">
-            <summary>
+            <summary onClick={handleClickSummary}>
                 <h3>{t('statistics.filters')}</h3>
                 <IconAnimatedCaret className="details-icon" />
             </summary>

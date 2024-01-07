@@ -183,7 +183,10 @@ details {
 
     .details-content {
         display: block !important;
+        opacity: 1;
+        transform: scale(1);
         transform-origin: top center;
+        transition: all 0.15s ease-in-out;
     }
 
     &[open] {
@@ -193,6 +196,13 @@ details {
 
         > .details-content {
             animation: detailsShow 0.15s ease-in-out;
+        }
+    }
+
+    &.is-closing {
+        > .details-content {
+            opacity: 0;
+            transform: scale(0.6);
         }
     }
 }

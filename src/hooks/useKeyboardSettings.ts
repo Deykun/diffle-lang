@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
-import { toggleVibration, toggleKeyboardVibration, toggleKeyboardSize, toggleConfirmEnter } from '@store/appSlice';
+import { toggleVibration, toggleKeyboardVibration, toggleKeyboardSize, toggleEnterSwap, toggleConfirmEnter } from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -12,6 +12,7 @@ function useKeyboardSettings() {
     const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const shouldKeyboardVibrate = useSelector(state => state.app.shouldKeyboardVibrate);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
+    const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
 
     const { vibrate } = useVibrate();
@@ -46,6 +47,14 @@ function useKeyboardSettings() {
         dispatch(toggleKeyboardSize());
     }, [dispatch, isSmallKeyboard, vibrate]);
 
+    const handleToggleEnterSwap = useCallback(() => {
+        vibrate();
+
+        localStorage.setItem(LOCAL_STORAGE.SHOULD_SWAP_ENTER, isEnterSwapped ? 'false' : 'true');
+
+        dispatch(toggleEnterSwap());
+    }, [dispatch, isEnterSwapped, vibrate]);
+
     const handleToggleConfirmEnter = useCallback(() => {
         vibrate();
 
@@ -63,6 +72,8 @@ function useKeyboardSettings() {
         handleToggleKeyboardSize,
         shouldConfirmEnter,
         handleToggleConfirmEnter,
+        isEnterSwapped,
+        handleToggleEnterSwap,
     }
 }
 

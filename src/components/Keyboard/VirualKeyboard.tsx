@@ -17,6 +17,7 @@ import './VirualKeyboard.scss';
 const VirualKeyboard = () => {
     const dispatch = useDispatch();
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
+    const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
     const isWon = useSelector(selectIsWon);
     const type = useSelector(selectKeyboardState);
@@ -53,10 +54,22 @@ const VirualKeyboard = () => {
 
     const shouldShowConfirm = isConfirmOpen && !isWon;
 
+    const keyLines = !isEnterSwapped ? KEY_LINES : KEY_LINES.map((line) => line.map((keyText) => {
+        if (keyText === 'enter') {
+            return 'backspace';
+        }
+
+        if (keyText === 'backspace') {
+            return 'enter';
+        }
+
+        return keyText;
+    }))
+
     return (
         <aside className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
             {shouldShowConfirm && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
-            {KEY_LINES.map((line) => {
+            {keyLines.map((line) => {
                 return (
                     <div key={line[0]} className="line">
                         {line.map((keyText) => {
