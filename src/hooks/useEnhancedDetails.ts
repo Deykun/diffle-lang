@@ -21,7 +21,8 @@ export default function useEnhancedDetails() {
             if (setTimeoutRef.current) {
                 clearTimeout(setTimeoutRef.current);
             }
-              
+
+            event.preventDefault();
             const isClosingAndShouldStop = detailsElement.classList.contains('is-closing');
 
             if (isClosingAndShouldStop) {
@@ -31,7 +32,6 @@ export default function useEnhancedDetails() {
             }
 
             detailsElement.classList.add('is-closing');
-            event.preventDefault();
 
             setTimeoutRef.current = setTimeout(() => {
                 try {
