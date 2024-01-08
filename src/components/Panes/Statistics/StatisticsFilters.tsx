@@ -15,7 +15,9 @@ import {
     getStatisticCardDataFromStatistics,
 } from '@utils/statistics';
 
+import useVibrate from '@hooks/useVibrate';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
+import useEffectChange from "@hooks/useEffectChange";
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconInfinity from '@components/Icons/IconInfinity';
@@ -45,7 +47,13 @@ const StatisticsFilters = ({ setData }: Props) => {
 
     const { t } = useTranslation();
 
+    const { vibrate } = useVibrate();
+
     const { handleClickSummary } = useEnhancedDetails();
+
+    useEffectChange(() => {
+        vibrate();
+    }, [modeFilter, charactersFilter, lengthFilter]);
 
     useEffect(() => {
         const filtersData = {

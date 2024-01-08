@@ -1,8 +1,12 @@
 import { useRef, useCallback } from 'react';
 
+import useVibrate from './useVibrate';
+
 // HTML Details is shitty and closing animation isn't possible without hacks
 export default function useEnhancedDetails() {
     const setTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+    const { vibrate } = useVibrate();
 
     const handleClickSummary = useCallback((event: React.MouseEvent<HTMLElement>) => {
         if (!(event.target instanceof HTMLElement)) {
@@ -14,6 +18,8 @@ export default function useEnhancedDetails() {
         if (!detailsElement) {
             return;
         }
+
+        vibrate();
 
         const isOpen = detailsElement.hasAttribute('open');
 
@@ -42,7 +48,7 @@ export default function useEnhancedDetails() {
                 }
             }, 150);
         }
-    }, []);
+    }, [vibrate]);
 
     return {
         handleClickSummary,
