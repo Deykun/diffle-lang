@@ -47,6 +47,7 @@ const StatisticsCard = ({
     worstStreak = 0,
     wonStreak = 0,
     bestStreak = 0,
+    rejectedWordsWorstWonInGame,
     rejectedWordsPerGame,
     lettersPerGame,
     averageLettersPerGame,
@@ -157,10 +158,17 @@ const StatisticsCard = ({
                             {totalTime.seconds > 0 && <><strong>{totalTime.seconds}</strong> s</>}
                         </span>
                     </p>
-                    {rejectedWordsPerGame > 0 && (
-                        <p dangerouslySetInnerHTML={{
-                            __html: t('statistics.averageWordsNotFound', { value: rejectedWordsPerGame.toFixed(1) })
-                        }} />
+                    {rejectedWordsWorstWonInGame > 0 && (
+                        <p className="has-tooltip tooltip-relative">
+                            <span dangerouslySetInnerHTML={{
+                                __html: t('statistics.averageWordsNotFound', { value: rejectedWordsPerGame.toFixed(1) })
+                            }} />
+                            <span
+                              className="tooltip"
+                              dangerouslySetInnerHTML={{
+                                __html: t('statistics.worstWordsNotFound', { value: rejectedWordsWorstWonInGame })
+                            }} />
+                        </p>
                     )}
                 </div>
                 <p className="statistics-letters-types">

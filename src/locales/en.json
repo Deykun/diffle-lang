@@ -116,6 +116,7 @@
         "inFirstWord": "in the first word",
         "inSecondWord": "in the second word",
         "keyboardUsed": "average <strong>{{value}}%</strong> of the keyboard used",
+        "worstWordsNotFound": "worst <strong>{{value}}</strong> in one game",
         "averageWordsNotFound": "<strong>{{value}}</strong> words not found in dictionary",
         "totalGames_one": "<strong>1</strong> game", 
         "totalGames_other": "<strong>{{count}}</strong> games",

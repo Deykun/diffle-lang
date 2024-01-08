@@ -126,6 +126,7 @@
         "inFirstWord": "w pierwszym słowie",
         "inSecondWord": "w drugim słowie",
         "keyboardUsed": "średnio <strong>{{value}}%</strong> odkrytej klawiatury",
+        "worstWordsNotFound": "najwięcej <strong>{{value}}</strong> w jednej grze",
         "averageWordsNotFound": "średnio <strong>{{value}}</strong> nieznalezionych słów w słowniku",
         "totalGames_zero": "<strong>0</strong> gier",       
         "totalGames_one": "<strong>1</strong> gra",       
