@@ -206,14 +206,6 @@ export const loadGame = createAsyncThunk(
                 const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
                 const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
 
-                console.log({
-                    isDailyMode,
-                    lastWordToGuess,
-                    lastDailyStamp,
-                    todayStamp,
-                    isExpiredDailyGame,
-                });
-
                 if (lastWordToGuess) {
                     if (isExpiredDailyGame) {
                         localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
@@ -222,9 +214,7 @@ export const loadGame = createAsyncThunk(
                             const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
 
                             if (isLostGame) {
-                                // TODO: SHOULD SET LOST GAME AND SAVE IT AS LOST
                                 dispatch(setToast({
-                                    type: ToastType.Incorrect,
                                     text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
                                 }));
 
@@ -242,13 +232,13 @@ export const loadGame = createAsyncThunk(
                                 }));
 
                                 await dispatch(saveEndedGame());
-
-                                await getWordToGuess({ gameMode }).then(word => {
-                                    dispatch(setWordToGuess(word));
-                                });
-
-                                return;
                             }
+
+                            await getWordToGuess({ gameMode }).then(word => {
+                                dispatch(setWordToGuess(word));
+                            });
+
+                            return;
                         }
                     }
 
@@ -359,6 +349,12 @@ export const saveEndedGame = createAsyncThunk(
 
             if (statisticToUpdate.totals.worstRejectedWords < rejectedWords) {
                 statisticToUpdate.totals.worstRejectedWords = rejectedWords;
+            }
+
+            if (statisticToUpdate.medianData.rejectedWords[rejectedWords]) {
+                statisticToUpdate.medianData.rejectedWords[rejectedWords] += 1;
+            } else {
+                statisticToUpdate.medianData.rejectedWords[rejectedWords] = 1;
             }
 
             statisticToUpdate.totals.durationMS += durationMS;

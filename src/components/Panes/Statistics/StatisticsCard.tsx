@@ -170,11 +170,12 @@ const StatisticsCard = ({
                             <span dangerouslySetInnerHTML={{
                                 __html: t('statistics.averageWordsNotFound', { value: rejectedWordsPerGame.toFixed(1) })
                             }} />
-                            <span
-                              className="tooltip"
-                              dangerouslySetInnerHTML={{
-                                __html: t('statistics.worstWordsNotFound', { value: rejectedWordsWorstWonInGame })
-                            }} />
+                            <span className="tooltip">
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t('statistics.worstWordsNotFound', { value: rejectedWordsWorstWonInGame })
+                                }} />
+                            </span>
                         </p>
                     )}
                 </div>

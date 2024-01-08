@@ -57,6 +57,9 @@ export interface Statistic {
         words: {
             [key: number]: number,
         },
+        rejectedWords: {
+            [key: number]: number,
+        },
     },
     letters: {
         keyboardUsed: number,
@@ -99,6 +102,7 @@ const EMPTY_STATISTIC = {
     medianData: {
         letters: {},
         words: {},
+        rejectedWords: {},
     },
     letters: {
         keyboardUsed: 0,
@@ -236,6 +240,17 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
             return medianStack;
         }, {});
 
+        const uniqueMedianDataRejectedWords = [...new Set([
+            ...Object.keys(stack.medianData.rejectedWords),
+            ...Object.keys(statistic.medianData.rejectedWords),
+        ])].map(Number);
+
+        const medianDataRejectedWords = uniqueMedianDataRejectedWords.reduce((medianStack: { [key: number]: number}, key: number) => {
+            medianStack[key] = (stack.medianData.rejectedWords[key] ?? 0) + (statistic.medianData.rejectedWords[key] ?? 0);
+
+            return medianStack;
+        }, {});
+
         return {
             meta: [...stack.meta, ...statistic.meta],
             totals: {
@@ -250,6 +265,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
             medianData: {
                 letters: medianDataLetters,
                 words: medianDataWords,
+                rejectedWords: medianDataRejectedWords,
             },
             letters: {
                 keyboardUsed: weightedKeyboarUsagePercentage,
@@ -420,7 +436,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
     return {
         totalGames,
         totalWon,
-        rejectedWordsPerGame: statistic.totals.rejectedWords / totalWon,
+        rejectedWordsPerGame: getMedianFromMedianData(statistic.medianData.rejectedWords),
         rejectedWordsWorstWonInGame: statistic.totals.worstRejectedWords,
         lettersPerGame: getMedianFromMedianData(statistic.medianData.letters),
         averageLettersPerGame,
