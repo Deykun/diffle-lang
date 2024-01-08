@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet"> -->
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         <title>DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱</title>
@@ -28,17 +28,26 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
-      <script type="module" crossorigin src="/diffle-lang/assets/index-85e4aeac.js"></script>
-      <link rel="stylesheet" href="/diffle-lang/assets/index-b840d8e3.css">
+        <style>
+            body {
+                background-color: #222222;
+            }
+
+            .help-no-js p {
+                line-height: 1.5;
+            }
+        </style>
+      <script type="module" crossorigin src="/diffle-lang/assets/index-527d38ae.js"></script>
+      <link rel="stylesheet" href="/diffle-lang/assets/index-eb769b94.css">
     </head>
     <body>
         <div id="root">
-            <div class="help" style="max-width: 400px; margin: 30px auto; text-align: center; font-family: 'Baloo 2', sans-serif; color: #ddd;">
+            <div class="help-no-js" style="max-width: 400px; margin: 30px auto; text-align: center; font-family: 'Baloo 2', sans-serif; color: #43483d;">
                 <h1>DIFFLE</h1>
                 <h2>Czym jest Diffle?</h2>
                 <p>Diffle to gra inspirowana Wordle bez limitu znaków, jeśli lubisz polskie wersje Wordle to gra dla Ciebie.</p>
                 <h2>Jak gra się w diffle?</h2>
-                <p>Cel to odgadnięcie hasła używając jak najmniejszej liczby słów i liter.</p>
+                <p>Cel to odgadnięcie hasła używając jak najmniejszej liczby liter i słów.</p>
                 <p>Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.</p>
             </div>
         </div>
