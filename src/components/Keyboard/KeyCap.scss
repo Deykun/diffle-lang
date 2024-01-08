@@ -15,7 +15,7 @@
     height: 50px;
     font-size: 14px;
     line-height: 50px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
 
     .keyboard.isSmall & {
         height: 40px;
@@ -35,7 +35,11 @@
         border-color: var(--incorrect);
 
         &.typed {
-            border-color: var(--red);
+            color: var(--incorrect-red-contrast);
+            background-color: var(--incorrect-red);
+            border-color: var(--incorrect-red-contrast);
+            animation: shake 5s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
+            transform: translate(0, 0);
         }
     }
 
@@ -61,6 +65,19 @@
 
     &-backspace,
     &-enter {
+        padding: 0 min(6px, 1vw);
+        min-width: 36px;
+
+        @media (min-width: 400px) {
+            min-width: 52px;
+        }
+
+        max-width: 7vw;
+        width: 56px;
+    }
+
+    
+    &-spacebar {
         padding: 0 min(6px, 1vw);
         min-width: 36px;
 
@@ -112,6 +129,7 @@
     }
 
     &-yes,
+    &-spacebar,
     &-enter {
         color: var(--blue-contrast) !important;
         background-color: var(--blue-weaker) !important;
@@ -121,5 +139,20 @@
             background-color: var(--blue) !important;
             border-color: var(--blue) !important;
         }
+    }
+}
+
+@keyframes shake {
+    2%, 18% {
+        transform: translate(-1px, 0);
+    }
+    4%, 16% {
+        transform: translate(2px, 0);
+    }
+    6%, 10%, 14% {
+        transform: translate(-4px, 0);
+    }
+    8%, 12% {
+        transform: translate(4px, 0);
     }
 }

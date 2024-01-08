@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import IconBook from '@components/Icons/IconBook';
 import IconBookAlt from '@components/Icons/IconBookAlt';
 
@@ -9,39 +11,40 @@ import IconIconmonstr from '@components/Icons/IconIconmonstr';
 import './Settings.scss'
 
 const SettingsSources = () => {
+
+    const { t } = useTranslation();
+
     return (
         <>
-            <h2>Źródła</h2>
-            <p>
-                Specjalne podziękowania. dla SJP i FreeDict.
-            </p>
+            <h2>{t('settings.sourcesTitle')}</h2>
+            <p>{t('settings.sourcesDescription')}</p>
             <ul>
-                <li><a href="https://sjp.pl" target="blank">
-                    <IconBookAlt /><span>sjp.pl - używane jako spellchecker</span></a>
+                <li><a href="https://sjp.pl" target="blank" rel="noopener noreferrer">
+                    <IconBookAlt /><span>{t('settings.sourceSJP')}</span></a>
                 </li>
                 <li>
-                    <a href="https://freedict.org/" target="blank">
-                        <IconBook /><span>freedict.org - do ustalenia lepszych haseł</span>
+                    <a href="https://freedict.org/" target="blank" rel="noopener noreferrer">
+                        <IconBook /><span>{t('settings.sourceFreeDict')}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://iconmonstr.com/" target="blank">
-                        <IconIconmonstr /><span>iconmonstr.com - ikonki</span>
+                    <a href="https://iconmonstr.com/" target="blank" rel="noopener noreferrer">
+                        <IconIconmonstr /><span>{t('settings.sourceIconmonstr')}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.nytimes.com/games/wordle/index.html" target="blank">
-                        <IconGamepadAlt /><span>oryginalne wordle</span>
+                    <a href="https://www.nytimes.com/games/wordle/index.html" target="blank" rel="noopener noreferrer">
+                        <IconGamepadAlt /><span>{t('settings.sourceWordle')}</span>
                     </a>
                 </li>
                 <li>
-                    <a href="https://hedalu244.github.io/diffle/" target="blank">
-                        <IconGamepad /><span>oryginalne diffle</span>
+                    <a href="https://hedalu244.github.io/diffle/" target="blank" rel="noopener noreferrer">
+                        <IconGamepad /><span>{t('settings.sourceDiffle')}</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/Deykun/diffle-lang" target="blank">
-                        <IconGithub /><span>repozytorium strony</span>
+                        <IconGithub /><span>{t('settings.sourceGithub')}</span>
                     </a>
                 </li>
             </ul>

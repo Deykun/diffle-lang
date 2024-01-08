@@ -2,7 +2,8 @@ import { GameMode } from '@common-types';
 
 import { getNow } from '@utils/date';
 
-// TODO: will be replaced with seed based on day
+const game_lang = 'pl';
+
 const getRandomInt = (min: number, max: number): number => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -21,14 +22,8 @@ const getRandomIntForDaily = () => {
     return dateSeed;
 };
 
-const dailyIntCache = new Map();
-
-// Those are set temporary after dictionary update
-dailyIntCache.set(3001300801304007, 'niesforny');
-dailyIntCache.set(3101300801304007, 'bajgiel');
-
 export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameMode, seedNumber?: number }): Promise<string> => {
-    const catalogResponse = await fetch(`./dictionary/catalog.json`);
+    const catalogResponse = await fetch(`./dictionary/${game_lang}/catalog.json`);
 
     const cataolgResult: { words: number, items: catalogItem[] } = await catalogResponse.json();
 
@@ -41,9 +36,8 @@ export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameM
         randomInt = gameMode === GameMode.Daily ? getRandomIntForDaily() : getRandomInt(totalNumberOfWords, totalNumberOfWords * 3);
     }
 
-    const isCachedDailyInt = gameMode === GameMode.Daily && dailyIntCache.has(randomInt);
-    if (isCachedDailyInt) {
-        return dailyIntCache.get(randomInt);
+    if (randomInt === 801300101304008) {
+        return 'paprotka';
     }
 
     const indexOfWord = randomInt % totalNumberOfWords;
@@ -56,7 +50,7 @@ export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameM
 
     const { key, endIndex } = keyItem;
 
-    const winingKeyResponse = await fetch(`./dictionary/winning/chunk-${key}.json`);
+    const winingKeyResponse = await fetch(`./dictionary/${game_lang}/winning/chunk-${key}.json`);
 
     const winingKeyResult = await winingKeyResponse.json();
 

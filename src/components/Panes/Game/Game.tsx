@@ -1,14 +1,8 @@
 import { useEffect } from 'react'
-
-import { GameMode } from '@common-types';
-
-import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
+import clsx from 'clsx';
 
 import { useSelector, useDispatch } from '@store';
-import { setToast } from '@store/appSlice'
-import { setWordToGuess, restoreGameState } from '@store/gameSlice'
-
-import getWordToGuess from '@api/getWordToGuess'
+import { loadGame } from '@store/gameSlice'
 
 import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 
@@ -24,43 +18,11 @@ const Game = () => {
     const gameMode = useSelector((state) => state.game.mode);
     const todayStamp = useSelector((state) => state.game.today);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
 
     useEffect(() => {
-        if (!wordToGuess) {
-            const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
-
-            if (storedState) {
-                const {
-                    wordToGuess: lastWordToGuess = '',
-                    guessesWords = [],
-                } = JSON.parse(storedState);
-
-                const isDailyMode = gameMode === GameMode.Daily;
-                const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
-                const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
-
-                if (isExpiredDailyGame) {
-                    localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
-
-                    if (lastWordToGuess && lastDailyStamp) {
-                        const isLostGame = !guessesWords.includes(lastWordToGuess);
-
-                        if (isLostGame) {
-                            dispatch(setToast({ text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}` }));
-                        }
-                    }
-                } else {
-                    dispatch(restoreGameState({ wordToGuess: lastWordToGuess, guessesWords }));
-
-                    return;
-                }
-            }
-
-            getWordToGuess({ gameMode }).then(word => {
-                dispatch(setWordToGuess(word));
-            });
-        }
-    }, [dispatch, gameMode, todayStamp, wordToGuess]);
+        dispatch(loadGame());
+    }, [dispatch, gameMode, wordToGuess, todayStamp]);
 
     useSaveProgressLocally();
 
@@ -69,7 +31,7 @@ const Game = () => {
     }
 
     return (
-        <div className="game">
+        <div className={clsx('game', { 'isSmallKeyboard': isSmallKeyboard })}>
             {wordToGuess ? <Words /> : <IconLoader className="game-loader" />}
             <UserKeyboardListner />
             <VirualKeyboard />

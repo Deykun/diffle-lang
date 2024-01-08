@@ -21,10 +21,13 @@ export const getNow = () => {
 
     const stamp = `${('' + day).padStart(2, '0')}.${('' + month).padStart(2, '0')}.${year}`;
 
+    const stampOnlyTime = `${('' + nowUTC.getHours()).padStart(2,'0')}:${('' + nowUTC.getMinutes()).padStart(2,'0')}:${('' + nowUTC.getSeconds()).padStart(2,'0')}`;
+
     const dateSeed = generateSeedForDay({ day, month, year });
 
     return {
         stamp,
+        stampOnlyTime,
         year,
         month,
         day,
@@ -44,4 +47,44 @@ export const getYesterdaysSeed = () => {
     const day = dateUTC.getDate();
 
     return generateSeedForDay({ day, month, year });
+};
+
+export const getTimeUpdateFromTimeStamp = (timeToCompare: number) => {    
+    const now = new Date().getTime();
+
+    if (!timeToCompare) {
+        return {
+            now,
+            timePassed: 0,
+        };
+    }
+
+    const timePassed = Math.abs(timeToCompare - now);
+
+    const inactivityBreakPointInMS = 60 * 1000;
+
+    const shouldIgnoreDueToInactivity = timePassed > inactivityBreakPointInMS;
+    if (shouldIgnoreDueToInactivity) {
+        return {
+            now,
+            timePassed: 0,
+        };
+    }
+
+    return {
+        now,
+        timePassed,
+    };
+};
+
+export const convertMillisecondsToTime = (milliseconds: number) => {
+    const hours = Math.floor(milliseconds / (1000 * 60 * 60));
+    const minutes = Math.floor((milliseconds % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((milliseconds % (1000 * 60)) / 1000);
+
+    return {
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    };
 };

@@ -1,12 +1,17 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
-import { normilzeWord } from '@utils/normilzeWord';
-
 import { useSelector } from '@store';
-import { selectIsProcessing, selectWordToGuess, selectWordToSubmit } from '@store/selectors';
+import {
+    selectIsGameEnded,
+    selectIsProcessing,
+    selectHasWordToGuessSpecialCharacters,
+    selectWordToSubmit,
+    selectWordState,
+} from '@store/selectors';
 
 import { Word as WordInterface, AffixStatus } from '@common-types';
 
@@ -14,21 +19,27 @@ import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
-import Win from '@components/Win/Win';
+import EndResult from '@components/EndResult/EndResult';
 
 import Word from './Word';
 
 import './Words.scss';
 
+const gameLanguage = 'pl';
+
 const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
-    const isWon = useSelector((state) => state.game.isWon);
+    const isGameEnded = useSelector(selectIsGameEnded);
     const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);
-    const wordToGuess = useSelector(selectWordToGuess);
+    const wordStatus = useSelector(selectWordState(wordToSubmit));
+    const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
+    const isIncorrect = wordStatus === AffixStatus.Incorrect;
+
+    const { t } = useTranslation();
 
     const submitGuess: WordInterface = useMemo(() => {
         const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: AffixStatus.New, text: letter }));
@@ -40,10 +51,6 @@ const Words = () => {
         };
     }, [wordToSubmit, caretShift]);
 
-    const hasPolishCharacters = useMemo(() => {
-        return wordToGuess !== normilzeWord(wordToGuess);
-    }, [wordToGuess])
-
     useScrollEffect('bottom', [wordToSubmit])
 
     const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
@@ -51,27 +58,37 @@ const Words = () => {
 
     return (
         <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
-            <p className={clsx('word-tip', { 'has-polish': hasPolishCharacters })}>
-                {
-                    hasPolishCharacters ?
-                    <>Hasło <strong>zawiera</strong> chociaż jeden polski znak.</> : 
-                    <>Hasło <strong>nie zawiera</strong> polskich znaków.</>
-                }
-            </p>
+            {hasSpecialCharacters ?
+                <p 
+                    className={clsx('word-tip', 'has-polish')}
+                    dangerouslySetInnerHTML={{
+                        __html: t('game.withSpecialCharacters', { specialCharacter: t(`game.${gameLanguage}SpecialCharacter`) })
+                    }}
+                />
+                :
+                <p 
+                    className="word-tip"
+                    dangerouslySetInnerHTML={{
+                        __html: t('game.withoutSpecialCharacters', { specialCharacters: t(`game.${gameLanguage}SpecialCharacters`) })
+                    }}
+                />
+            }
             {guesses.map((guess, index) => {            
                 return (
                     <Word key={`guess-${index}`} guess={guess} />
                 );
             })}
-            {isWon ? <Win /> : <Word guess={submitGuess} />}
+            {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
             <p
-            className={clsx('status', {
-                'processing': isProcessing,
-                'space': hasSpace,
-            })}
+                className={clsx('status-tip', {
+                    'isProcessing': isProcessing,
+                    'isIncorrect': isIncorrect,
+                    'space': hasSpace,
+                })}
             >
-                {isProcessing && (<><IconDashedCircle /> <span>sprawdzanie...</span></>)}
-                {!isProcessing && hasSpace && <span>Hasła nie mają spacji, ale możesz jej używać (zostanie usunięta).</span>}
+                {isProcessing && <><IconDashedCircle /> <span>{t('game.checking')}</span></>}
+                {!isProcessing && isIncorrect && <span dangerouslySetInnerHTML={{ __html: t('game.youCanUseIncorrectLetters') }} />}
+                {!isProcessing && !isIncorrect && hasSpace && <span dangerouslySetInnerHTML={{ __html: t('game.youCanUseSpace') }} />}
             </p>
         </div>
     )

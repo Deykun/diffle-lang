@@ -3,13 +3,14 @@
     display: inline-block;
     padding: 0;
     padding-left: 0.6em;
-    padding-right: 0.2em; // letterspacing adds space after
-    letter-spacing: 0.4em;
+    padding-right: 0.3em; // 0.6em - 0.3em
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     vertical-align: middle;
     min-width: min(42px, 7vw);
     opacity: 1;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s linear;
+    transition-delay: 0s;
 
     &.letter {
         max-width:  min(42px, 7vw);
@@ -37,14 +38,53 @@
     border: 1px solid var(--border);
     background-color: transparent;
 
+    .contrast & {
+        // We are waiting for chrome
+        // -webkit-text-stroke: 4px var(--stroke-contrast);
+        // paint-order: stroke fill;
+
+        text-shadow: 0 2px 4px var(--stroke-contrast), 0 1px 3px var(--stroke-contrast), 0 0 2px var(--stroke-contrast);
+    }
+
     &.new {
+        .contrast & {
+            // -webkit-text-stroke: 0;
+            text-shadow: none;
+        }
+
         cursor: pointer;
 
-        &:hover {
+        @mixin hover-effect {
             --blue-transparentized: color-mix(in srgb, transparent 75%, var(--blue));
 
             box-shadow: 3px 0 3px var(--blue-weaker);
             box-shadow: 3px 0 3px var(--blue-transparentized);
+        }
+    
+        @media (hover: hover) {
+            &:hover {
+                @include hover-effect;
+            }
+        }
+    
+        @media (hover: none) {
+            &:active {
+                @include hover-effect;
+            }
+        }
+
+        &.known-incorect {
+            &::after {
+                content: '';
+                position: absolute;
+                left: calc(50% - 4px);
+                bottom: -10px;
+                height: 0;
+                width: 0;
+                border-radius: 6px;
+                border: 4px solid transparent;
+                border-bottom-color: var(--incorrect-red-contrast);
+            }
         }
     }
 
@@ -64,15 +104,26 @@
         color: var(--orange-contrast);
         background-color: var(--orange);
         border-color: var(--orange);
+
+        .contrast & {
+            background-image: repeating-linear-gradient(
+                45deg,
+                var(--incorrect) 0px,
+                var(--incorrect) 10px,
+                var(--orange) 10px,
+                var(--orange) 20px
+            );
+            border-color: var(--orange);
+        }
     }
 
     &.caret {
-        margin-left: 5px;
+        margin-left: 7px;
 
         &::before {
             content: '';
             position: absolute;
-            left: -5px;
+            left: -6px;
             top: 50%;
             width: 2px;
             border-radius: 2px;
@@ -110,5 +161,19 @@
             padding: 0;
             letter-spacing: 0;
         }
+    }
+}
+
+.lost-word-wrapper {
+    .word {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .affix.incorrect {
+        color: var(--incorrect-red-contrast);
+        border-color: var(--incorrect-red);
+        background-color: var(--incorrect-red);
+        text-shadow: none;
     }
 }

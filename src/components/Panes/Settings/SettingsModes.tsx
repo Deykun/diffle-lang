@@ -2,32 +2,33 @@ import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GameMode } from '@common-types';
+import { GameMode, Pane, PaneChange } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
+import { selectIsWon } from '@store/selectors';
 
 import { getNow } from '@utils/date';
 
 import { setGameMode, setWordToGuess } from '@store/gameSlice'
 
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
+import IconFlask from '@components/Icons/IconFlask';
 import IconShare from '@components/Icons/IconShare';
 
 import './Settings.scss'
 
 interface Props {
-    changePane: (pane: string) => void;
+    changePane: PaneChange,
 }
 
 const SettingsModes = ({ changePane }: Props) => {
     const dispatch = useDispatch();
     const gameMode = useSelector(state => state.game.mode);
-    const isWon = useSelector(state => state.game.isWon);
+    const isWon = useSelector(selectIsWon);
 
     const { t } = useTranslation();
 
@@ -35,7 +36,7 @@ const SettingsModes = ({ changePane }: Props) => {
         localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, newGameMode);
         dispatch(setGameMode(newGameMode));
         dispatch(setWordToGuess(''));
-        changePane('game');
+        changePane(Pane.Game);
     }, [changePane, dispatch]);
 
     const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
@@ -52,9 +53,11 @@ const SettingsModes = ({ changePane }: Props) => {
                     >
                         <IconDay />
                         <span>{t('game.modeDaily')}</span>
-                        {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}><span>zaliczony</span> <IconFancyCheck /></span>}
+                        {shouldShowCheckedDaily && !shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
+                            <span>{t('end.completed')}</span><IconFancyCheck />
+                        </span>}
                         {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
-                            <span>{t('win.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() + 1 })}</span>
+                            <span>{t('end.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() + 1 })}</span>
                             <IconFancyCheck />
                         </span>}
                     </button>
@@ -70,11 +73,11 @@ const SettingsModes = ({ changePane }: Props) => {
                         {!shouldShowCheckedDaily && <span className={clsx('setting-label', 'incorrect')}><span>{t('settings.labelFinishGame')}</span> <IconDay /></span>}
                     </button>
                 </li>
-                <li>
+                <li style={{ display: 'none'}} >
                     <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} disabled>
                         <IconShare />
                         <span>{t('game.modeShare')}</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}><span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
+                        <span className={clsx('setting-label', 'info', 'lab')}><span>{t('settings.considered')}</span> <IconFlask /></span>
                     </button>
                 </li>
             </ul>

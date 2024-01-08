@@ -1,15 +1,32 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-import { RootState, RootGameState, UsedLetters } from '@common-types';
+import { RootState, RootGameState, ToastType, UsedLetters, GameStatus, GameMode } from '@common-types';
 
-import { getNow } from '@utils/date';
+import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE, PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
+import { getNow, getTimeUpdateFromTimeStamp } from '@utils/date';
+import {
+    getStreak,
+    saveStreak,
+    getStatistic,
+    saveStatistic,
+} from '@utils/statistics';
+import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
+import getWordToGuess from '@api/getWordToGuess'
 
 import { setToast } from '@store/appSlice';
+import {
+    selectIsWon,
+    selectIsLost,
+    selectGuesses,
+    selectWordToGuess,
+    selectKeyboardUsagePercentage,
+    selectGuessesStatsForLetters,
+} from '@store/selectors';
 
-import { SUBMIT_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { SUBMIT_ERRORS, GIVE_UP_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const initialState: RootGameState = {
     mode: getInitMode(),
@@ -17,11 +34,30 @@ const initialState: RootGameState = {
     wordToGuess: '',
     caretShift: 0,
     wordToSubmit: '',
-    isWon: false,
+    status: GameStatus.Unset,
     letters: { correct: {}, incorrect: {}, position: {} },
     guesses: [],
+    rejectedWords: [],
     hasLongGuesses: false,
     isProcessing: false,
+    isLoadingGame: false,
+    lastUpdateTime: 0,
+    durationMS: 0,
+};
+
+const updatePassedTimeInState = (state: RootGameState) => {
+    // Updates are counted after first word was submited
+    if (state.guesses.length === 0) {
+        return;
+    }
+
+    const {
+        now,
+        timePassed,
+    } = getTimeUpdateFromTimeStamp(state.lastUpdateTime);
+
+    state.lastUpdateTime = now;
+    state.durationMS += timePassed;
 };
 
 export const submitAnswer = createAsyncThunk(
@@ -33,16 +69,23 @@ export const submitAnswer = createAsyncThunk(
             return { isError: true, type: SUBMIT_ERRORS.ALREADY_PROCESSING };
         }
 
-        if (state.game.isWon) {
-            return { isError: true, type: SUBMIT_ERRORS.ALREADY_WON };
+        const isGameEnded = state.game.status !== GameStatus.Guessing;
+        if (isGameEnded) {
+            return { isError: true, type: SUBMIT_ERRORS.ALREADY_ENDED };
         }
 
         const wordToSubmit = state.game.wordToSubmit;
         if (wordToSubmit.includes(' ')) {
-            dispatch(setToast({ text: 'Usunięto spacje.' }));
+            dispatch(setToast({ text: 'game.spacesRemoved' }));
 
             return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
         }
+
+        if (state.game.guesses.some(({ word }) => word === wordToSubmit)) {
+            dispatch(setToast({ text: 'game.wordAlreadyUsed' }));
+
+            return { isError: true, type: SUBMIT_ERRORS.ALREADY_SUBMITED };
+        }        
 
         dispatch(gameSlice.actions.setProcessing(true));
 
@@ -52,12 +95,12 @@ export const submitAnswer = createAsyncThunk(
 
         const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
         if (isWordDoesNotExistError) {
-            dispatch(setToast({ text: 'Brak słowa w słowniku.' }));
+            dispatch(setToast({ text: 'game.isNotInDictionary' }));
         }
 
         const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
         if (isWordFetchError) {
-            dispatch(setToast({ text: 'Błąd pobierania, spróbuj ponownie.' }));
+            dispatch(setToast({ type: ToastType.Incorrect, text: 'common.fetchError' }));
         }
 
         return result;
@@ -66,26 +109,286 @@ export const submitAnswer = createAsyncThunk(
 
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
-    async ({ wordToGuess, guessesWords = [] }: { wordToGuess: string, guessesWords: string[] }) => {
+    async ({
+        status, wordToGuess, guessesWords = [], rejectedWords = [], lastUpdateTime, durationMS,
+    }: {
+        status?: GameStatus,
+        wordToGuess: string, 
+        guessesWords: string[],
+        rejectedWords: string[],
+        lastUpdateTime: number,
+        durationMS: number,
+    }, { dispatch }) => {
         if (!wordToGuess) {
             return;
         }
 
-
         const { hasError, isWon, results, wordsLetters } = await getWordReportForMultipleWords(wordToGuess, guessesWords);
 
         if (hasError) {
-            // dispatch(setToast({ text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
+            dispatch(setToast({ type: ToastType.Incorrect, text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
 
-            // return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
+            return { isError: true, type: SUBMIT_ERRORS.RESTORING_ERROR };
         }
 
+        const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
+
         return {
-            isWon,
+            status: statusToReturn,
             results,
             wordToGuess,
             wordsLetters,
+            rejectedWords,
+            lastUpdateTime,
+            durationMS,
         };
+    },
+);
+
+export const loseGame = createAsyncThunk(
+    'game/loseGame',
+    async (_, { dispatch, getState, rejectWithValue }) => {
+        const state  = getState() as RootState;
+
+        const isDailyMode = state.game.mode === GameMode.Daily;
+        if (isDailyMode) {
+            localStorage.removeItem(LOCAL_STORAGE.TYPE_DAILY);
+
+            return;
+        }
+
+        const isPracticeMode = state.game.mode === GameMode.Practice;
+        if (isPracticeMode) {
+            const isInRightModeAndNotEnded = state.game.mode === GameMode.Practice && state.game.status === GameStatus.Guessing;
+            const canBeGivenUp = isInRightModeAndNotEnded && state.game.guesses.length > 0;
+    
+            if (!canBeGivenUp) {
+                dispatch(setToast({ text: 'game.givingUpIsNotPossible', timeoutSeconds: 3 }));
+    
+                return rejectWithValue(GIVE_UP_ERRORS.WRONG_MODE);
+            }
+    
+            localStorage.removeItem(LOCAL_STORAGE.TYPE_PRACTICE);
+        }
+    },
+);
+
+
+export const loadGame = createAsyncThunk(
+    'game/loadGame',
+    async (_, { dispatch, getState }) => {
+        // const gameLanguage = 'pl';
+        const state = getState() as RootState;
+        const wordToGuess = selectWordToGuess(state);
+
+        const isLoadingGameAlready = state.game.isLoadingGame;
+        if (!isLoadingGameAlready) {
+            return;
+        }
+
+        const gameMode = state.game.mode;
+        const todayStamp = state.game.today;
+        
+        if (!wordToGuess) {
+            const storedState = localStorage.getItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]) ;
+
+            if (storedState) {
+                const {
+                    wordToGuess: lastWordToGuess = '',
+                    status,
+                    guessesWords = [],
+                    rejectedWords = [],
+                    lastUpdateTime = 0,
+                    durationMS = 0,
+                } = JSON.parse(storedState);
+
+                const isDailyMode = gameMode === GameMode.Daily;
+                const lastDailyStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
+                const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
+
+                if (lastWordToGuess) {
+                    if (isExpiredDailyGame) {
+                        localStorage.removeItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode]);
+
+                        if (lastDailyStamp) {
+                            const isLostGame = guessesWords.length > 0 && !guessesWords.includes(lastWordToGuess);
+
+                            if (isLostGame) {
+                                dispatch(setToast({
+                                    text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
+                                }));
+
+                                /*
+                                    Stats are saved directly from the state,
+                                    so we set the state, save the stats, and reset the state.
+                                */
+                                await dispatch(restoreGameState({
+                                    status: GameStatus.Lost,
+                                    wordToGuess: lastWordToGuess,
+                                    guessesWords,
+                                    rejectedWords,
+                                    lastUpdateTime,
+                                    durationMS,
+                                }));
+
+                                await dispatch(saveEndedGame());
+                            }
+
+                            await getWordToGuess({ gameMode }).then(word => {
+                                dispatch(setWordToGuess(word));
+                            });
+
+                            return;
+                        }
+                    }
+
+                    await dispatch(restoreGameState({
+                        wordToGuess: lastWordToGuess,
+                        status,
+                        guessesWords,
+                        rejectedWords,
+                        lastUpdateTime,
+                        durationMS,
+                    }));
+
+                    return;
+                }
+            }
+
+            await getWordToGuess({ gameMode }).then(word => {
+                dispatch(setWordToGuess(word));
+            });
+        }
+    },
+);
+
+export const saveEndedGame = createAsyncThunk(
+    'game/saveEndedGame',
+    async (_, { getState }) => {
+        const gameLanguage = 'pl';
+        const state = getState() as RootState;
+        
+        const isWon = selectIsWon(state);
+        const isLost = selectIsLost(state);
+        const wordToGuess = selectWordToGuess(state);
+        const isGameEnded = wordToGuess.length > 0 && (isWon || isLost);
+        if (!isGameEnded) {
+            return;
+        }
+
+        const guesses = selectGuesses(state);
+
+        // Fortunetellers aren't counted
+        const isImpossibleWin = isWon && guesses.length === 1;
+        if (isImpossibleWin) {
+            return;
+        }
+
+        const gameMode = state.game.mode;
+        const isShort = wordToGuess.length <= PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
+        const hasSpecialCharacters = getHasSpecialCharacters(wordToGuess);
+
+        const statisticToUpdate = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort });
+
+        const isAlreadySaved = wordToGuess === statisticToUpdate.lastGame?.word;
+        if (isAlreadySaved) {
+            return;
+        }
+
+        const globalStreakToUpdate = getStreak({ gameLanguage });
+        const gameModeToUpdate = getStreak({ gameLanguage, gameMode });
+
+        const streakKeyToIncrease = isWon ? 'wonStreak' : 'lostStreak';
+        const streakKeyForRecord = isWon ? 'bestStreak' : 'worstStreak';
+        const streakKeyToReset = isWon ? 'lostStreak' : 'wonStreak';
+
+        globalStreakToUpdate[streakKeyToReset] = 0;
+        gameModeToUpdate[streakKeyToReset] = 0;
+
+        globalStreakToUpdate[streakKeyToIncrease] = globalStreakToUpdate[streakKeyToIncrease] + 1;
+        if (globalStreakToUpdate[streakKeyToIncrease] > globalStreakToUpdate[streakKeyForRecord]) {
+            globalStreakToUpdate[streakKeyForRecord] = globalStreakToUpdate[streakKeyToIncrease];
+        }
+
+        gameModeToUpdate[streakKeyToIncrease] = gameModeToUpdate[streakKeyToIncrease] + 1;
+        if (gameModeToUpdate[streakKeyToIncrease] > gameModeToUpdate[streakKeyForRecord]) {
+            gameModeToUpdate[streakKeyForRecord] = gameModeToUpdate[streakKeyToIncrease];
+        }
+
+        saveStreak({ gameLanguage }, globalStreakToUpdate);
+        saveStreak({ gameLanguage, gameMode }, gameModeToUpdate);
+
+        if (!statisticToUpdate.lastGame) {
+            statisticToUpdate.lastGame = { word: 'Hey ;)', letters: 0, words: 0, rejectedWords: 0, durationMS: 0 };
+        }
+
+        const durationMS = state.game.durationMS;
+        const rejectedWords = state.game.rejectedWords.length;
+
+        statisticToUpdate.lastGame.word = wordToGuess;
+        statisticToUpdate.lastGame.letters = wordToGuess.length;
+        statisticToUpdate.lastGame.words = guesses.length;
+        statisticToUpdate.lastGame.rejectedWords = rejectedWords;
+        statisticToUpdate.lastGame.durationMS = durationMS;
+
+        if (isLost) {
+            statisticToUpdate.totals.lost += 1;
+        } else if (isWon) {
+            const keyboardUsagePercentage = selectKeyboardUsagePercentage(state);
+            const totalGamesStored = statisticToUpdate.totals.won;
+            const weightedKeyboardNumerator = (totalGamesStored * statisticToUpdate.letters.keyboardUsed) + keyboardUsagePercentage;
+        
+            const weightedKeyboarUsagePercentage = weightedKeyboardNumerator > 0 ? Math.round(weightedKeyboardNumerator / (totalGamesStored + 1)) : 0;
+
+            const { words, letters, subtotals } = selectGuessesStatsForLetters(state);
+
+            statisticToUpdate.totals.won += 1;
+            statisticToUpdate.totals.letters += letters;
+            statisticToUpdate.totals.words += words;
+            statisticToUpdate.totals.rejectedWords += rejectedWords;
+
+            if (statisticToUpdate.medianData.rejectedWords[rejectedWords]) {
+                statisticToUpdate.medianData.rejectedWords[rejectedWords] += 1;
+            } else {
+                statisticToUpdate.medianData.rejectedWords[rejectedWords] = 1;
+            }
+
+            statisticToUpdate.totals.durationMS += durationMS;
+
+            if (statisticToUpdate.medianData.letters[letters]) {
+                statisticToUpdate.medianData.letters[letters] += 1;
+            } else {
+                statisticToUpdate.medianData.letters[letters] = 1;
+            }
+        
+            if (statisticToUpdate.medianData.words[words]) {
+                statisticToUpdate.medianData.words[words] += 1;
+            } else {
+                statisticToUpdate.medianData.words[words] = 1;
+            }
+
+            statisticToUpdate.letters.keyboardUsed = weightedKeyboarUsagePercentage;
+            statisticToUpdate.letters.correct += subtotals.correct;
+            statisticToUpdate.letters.position += subtotals.position;
+            statisticToUpdate.letters.incorrect += subtotals.incorrect;
+            statisticToUpdate.letters.typedKnownIncorrect += subtotals.typedKnownIncorrect;
+
+            const [firstWord, secondWord] = guesses;
+
+            if (!statisticToUpdate.firstWord) {
+                statisticToUpdate.firstWord = { letters: 0 };
+            }
+
+            statisticToUpdate.firstWord.letters += firstWord.word.length;
+
+            if (!statisticToUpdate.secondWord) {
+                statisticToUpdate.secondWord = { letters: 0 };
+            }
+
+            statisticToUpdate.secondWord.letters += secondWord.word.length;
+        }
+
+        saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
     },
 );
 
@@ -105,18 +408,22 @@ const gameSlice = createSlice({
             state.wordToSubmit = '';
             state.caretShift = 0;
             state.guesses = [];
-            state.isWon = false;
+            state.rejectedWords = [],
+            state.status = wordToGuess ? GameStatus.Guessing : GameStatus.Unset;
             state.hasLongGuesses = false;
             state.letters = {
                 correct: {},
                 incorrect: {},
                 position: {},
             }
+            state.lastUpdateTime = 0;
+            state.durationMS = 0;
         },
         setWordToSubmit(state, action) {
-            state.wordToSubmit = action.payload;
+            const wordToSubmit = action.payload;
+            state.wordToSubmit = wordToSubmit;
 
-            state.isWon = false;
+            state.status = wordToSubmit ? GameStatus.Guessing : GameStatus.Unset;
             state.wordToSubmit = '';
             state.caretShift = 0;
 
@@ -124,7 +431,7 @@ const gameSlice = createSlice({
                 correct: { },
                 incorrect: { },
                 position: { },
-            }
+            };
         },
         setCaretShift(state, action) {
             const letterIndex = action.payload + 1; // First letter (index: 0)
@@ -136,13 +443,50 @@ const gameSlice = createSlice({
             );
 
             state.caretShift = newCaretShiftClamped;
+
+            updatePassedTimeInState(state);
         },
         letterChangeInAnswer(state, action) {
-            if (state.isWon || state.isProcessing) {
+            const isGameEnded = state.status !== GameStatus.Guessing;
+            if (isGameEnded || state.isProcessing) {
                 return;
             }
 
+            updatePassedTimeInState(state);
+
             const typed = action.payload;
+
+            if (typed === 'arrowup' || typed === 'arrowdown') {
+                if (state.guesses.length > 0) {
+                    const currentWordToSubmit = state.wordToSubmit;
+                    const currentWordIndexInGuesses = currentWordToSubmit === ''
+                        ? state.guesses.length
+                        : state.guesses.findIndex(({ word }) => word === currentWordToSubmit);
+
+                    const hasWordToSet = currentWordIndexInGuesses >= 0;
+                    if (!hasWordToSet) {
+                        return;
+                    }
+
+                    const shiftIncrease = typed === 'arrowup' ? -1 : 1;
+                    const targetIndex = currentWordIndexInGuesses + shiftIncrease;
+                    const shouldRemoveWord = state.guesses.length === targetIndex;
+
+                    state.caretShift = 0;
+
+                    if (shouldRemoveWord) {
+                        state.wordToSubmit = '';
+                    } else if (state.guesses[targetIndex]) {
+                        const { word } = state.guesses[targetIndex];
+
+                        if (word) {
+                            state.wordToSubmit = word;
+                        }
+                    }
+                }
+
+                return;
+            }
 
             if (typed === 'arrowleft') {
                 state.caretShift = Math.max(state.caretShift - 1, -(state.wordToSubmit.length));
@@ -183,28 +527,30 @@ const gameSlice = createSlice({
             }
 
             if (ALLOWED_KEYS.includes(typed)) {
-                if (state.wordToSubmit.length > WORD_MAXLENGTH + 1) {
+                if (state.wordToSubmit.length > WORD_MAXLENGTH - 1) {
                     return;
                 }
 
+                const typedToAdd = typed === 'spacebar' ? ' ' : typed;
+
                 if (state.caretShift === 0) {
-                    state.wordToSubmit = state.wordToSubmit + typed;
+                    state.wordToSubmit = state.wordToSubmit + typedToAdd;
 
                     return;
                 }
 
                 const position = state.wordToSubmit.length + state.caretShift; // caretShift is negative
 
-                state.wordToSubmit = `${state.wordToSubmit.slice(0, position)}${typed}${state.wordToSubmit.slice(position)}`;
+                state.wordToSubmit = `${state.wordToSubmit.slice(0, position)}${typedToAdd}${state.wordToSubmit.slice(position)}`;
             }
         },
         setProcessing(state, action) {
             state.isProcessing = action.payload;
-        }
+        },
     },
     extraReducers: (builder) => {
-        builder.addCase(submitAnswer.pending, (state) => {
-            state.caretShift = 0;
+        builder.addCase(submitAnswer.pending, () => {
+            // 
         }).addCase(submitAnswer.fulfilled, (state, action) => {
             state.isProcessing = false;
 
@@ -215,11 +561,15 @@ const gameSlice = createSlice({
 
                 if (type === SUBMIT_ERRORS.HAS_SPACE) {
                     state.wordToSubmit = state.wordToSubmit.replaceAll(' ', '');
+                    state.caretShift = 0;
 
                     return;
                 }
 
                 if (type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST) {
+                    if (!state.rejectedWords.includes(state.wordToSubmit)) {
+                        state.rejectedWords.push(state.wordToSubmit);
+                    }
 
                     return;
                 }
@@ -229,8 +579,12 @@ const gameSlice = createSlice({
 
             const { isWon, affixes = [], word, wordLetters } = action.payload as WordReport;
 
-            state.isWon = isWon;
+            if (isWon) {
+                state.status = GameStatus.Won;
+            }
+
             state.wordToSubmit = '';
+            state.caretShift = 0;
 
             state.letters = {
                 correct: {
@@ -252,23 +606,39 @@ const gameSlice = createSlice({
             }
 
             state.guesses.push({ word, affixes });
+
+            updatePassedTimeInState(state);
         }).addCase(submitAnswer.rejected, (state) => {
             state.isProcessing = false;
+        }).addCase(loseGame.fulfilled, (state) => {
+            state.status = GameStatus.Lost;
+        }).addCase(loseGame.rejected, () => {
+            // 
+        }).addCase(loadGame.pending, (state) => {
+            state.isLoadingGame = true;
+        }).addCase(loadGame.fulfilled, (state) => {
+            state.isLoadingGame = false;
         }).addCase(restoreGameState.fulfilled, (state, action) => {
             const {
-                isWon,
+                status = GameStatus.Guessing,
                 results,
+                rejectedWords = [],
                 wordToGuess,
                 wordsLetters,
+                lastUpdateTime,
+                durationMS,
             } = action.payload as {
-                isWon: boolean,
+                status: GameStatus,
                 results: WordReport[],
+                rejectedWords: string[],
                 wordToGuess: string,
                 wordsLetters: {
                     correct: UsedLetters,
                     incorrect: UsedLetters,
                     position: UsedLetters,
                 },
+                lastUpdateTime: number,
+                durationMS: number,
             };
 
             const guesses = results.map(({ word = '', affixes = [] }) => ({
@@ -276,11 +646,13 @@ const gameSlice = createSlice({
                 affixes,
             }));
 
-            state.isWon = isWon;
-
+            state.status = status;
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;
-
+            state.rejectedWords = rejectedWords;
+            state.hasLongGuesses = guesses.some(({ word }) => word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS);
+            state.lastUpdateTime = lastUpdateTime;
+            state.durationMS = durationMS;
 
             state.letters = {
                 correct: {
@@ -293,10 +665,9 @@ const gameSlice = createSlice({
                     ...wordsLetters?.position,
                 },
             }
-        
         })
     },
 })
 
-export const { setGameMode, setWordToGuess, setWordToSubmit, setCaretShift, letterChangeInAnswer } = gameSlice.actions;
+export const { setProcessing, setGameMode, setWordToGuess, setWordToSubmit, setCaretShift, letterChangeInAnswer } = gameSlice.actions;
 export default gameSlice.reducer;

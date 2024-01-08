@@ -10,56 +10,15 @@ body p {
 }
 
 :root {
-    --text: #222;
-    --text-alt: #576b8a;
-    --text-weaker: #9b9b9b;
-    --background: rgba(252, 252, 252, 1);
-    --background-transparent: rgba(252, 252, 252, 0.5);
-    --border: #cacaca;
-
-    --toast-text: white;
-    --toast-bacground: black;
-
-    --flag-shadow: rgba(0, 0, 0, 0.1);
-
-    --blue: #26c;
-    --blue-stronger: #275fb3;
-    --blue-weaker: #7392c1;
-    --blue-contrast: white;
-    --blue-on-background: #26c;
-
-    --green: #4fb061;
-    --green-stronger: #1c732d;
-    --green-contrast: white;
-
-    --orange: #e8b838;
-    --orange-stronger: #a47e18;
-    --orange-contrast: white;
-
-    --red: #cf2f14;
-    --red-weaker: #da8383;
-    --red-contrast: white;
-
-    --untyped: #eee;
-    --untyped-contrast: #1e1e1e;
-
-    --typed: black;
-    --typed-contrast: white;
-
-    --incorrect: #d4d4d4;
-    --incorrect-contrast: white;
-}
-
-:root.dark {
-    --text: #fcfcfc;
-    --text-alt: #a3bde6;
-    --text-weaker: #8e8e8e;
+    --text: #fcfcfc; // 252, 252, 252
+    --text-alt: #dbdbdb;
+    --text-weaker: rgba(252, 252, 252, 0.5);
     --background: rgba(34, 34, 34, 1);;
     --background-transparent: rgba(34, 34, 34, 0.7);
     --border: #555;
 
     --toast-text: black;
-    --toast-bacground: white;
+    --toast-bacground: rgba(255, 255, 255, 0.7);
 
     --flag-shadow: rgb(255, 255, 255, 0.1);
 
@@ -71,6 +30,7 @@ body p {
     --green: #4fb061;
     --green-stronger: #84ec6e;
     --green-contrast: white;
+    --green-stronger-contrast: rgb(28, 82, 17);
 
     --orange: #b29446;
     --orange-stronger: #e0c273;
@@ -88,6 +48,56 @@ body p {
 
     --incorrect: #414141;
     --incorrect-contrast: #6d6d6d;
+    --incorrect-red: #551b1b;
+    --incorrect-red-contrast: #ff3636;
+
+    --stroke-contrast: #1f1f1f;
+}
+
+:root.light {
+    --text: #222; // 34, 34, 34
+    --text-alt: #8c8c8c;
+    --text-weaker: rgba(34, 34, 34, 0.5);
+    --background: rgba(252, 252, 252, 1);
+    --background-transparent: rgba(252, 252, 252, 0.5);
+    --border: #cacaca;
+
+    --toast-text: white;
+    --toast-bacground: rgba(0, 0, 0, 0.7);
+
+    --flag-shadow: rgba(0, 0, 0, 0.1);
+
+    --blue: #26c;
+    --blue-stronger: #275fb3;
+    --blue-weaker: #7392c1;
+    --blue-contrast: white;
+    --blue-on-background: #26c;
+
+    --green: #4fb061;
+    --green-stronger: #1c732d;
+    --green-contrast: white;
+    --green-stronger-contrast: rgba(252, 252, 252, 1);
+
+    --orange: #e8b838;
+    --orange-stronger: #a47e18;
+    --orange-contrast: white;
+
+    --red: #800101;
+    --red-weaker: #da8383;
+    --red-contrast: white;
+
+    --untyped: #eee;
+    --untyped-contrast: #1e1e1e;
+
+    --typed: black;
+    --typed-contrast: white;
+
+    --incorrect: #d4d4d4;
+    --incorrect-contrast: white;
+    --incorrect-red: #f7b5b5;
+    --incorrect-red-contrast: #d20707;
+
+    --stroke-contrast: #434343;
 }
 
 html, button, input, select, textarea {
@@ -97,16 +107,17 @@ html, button, input, select, textarea {
 body {
     background-color: var(--background);
 }
-.only-dark {
+
+.only-light {
     display: none;
 }
 
-.dark {
-    .only-light {
+.light {
+    .only-dark {
         display: none;
     }
 
-    .only-dark {
+    .only-light {
         display: block;
     }
 }

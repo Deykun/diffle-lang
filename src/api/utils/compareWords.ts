@@ -48,7 +48,6 @@ export const compareWords = (answer: string, guess: string) => {
         if (start) score += 1;
         if (end) score += 1;
 
-
         let a = 0, b = 0;
         for (let i = 0; i < path.length; i++) {
             switch (path[i]) {
@@ -81,9 +80,9 @@ export const compareWords = (answer: string, guess: string) => {
         }
 
         // If green in the middle the only marked character it turns it yellow
-        if (accept_count == 1 && !start && !end) {
-            pattern[pattern.indexOf(2)] = 1;
-        }
+        // if (accept_count == 1 && !start && !end) {
+        //     pattern[pattern.indexOf(2)] = 1;
+        // }
 
         if (best_score == score) {
             best_results.push({ pattern, start, end });

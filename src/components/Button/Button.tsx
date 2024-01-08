@@ -14,6 +14,7 @@ interface Props {
     onClick?: (e: React.MouseEvent<HTMLElement>) => void,
     href?: string,
     target?: string,
+    rel?: string,
     isLoading?: boolean,
     isInverted?: boolean,
     isLarge?: boolean,
@@ -26,6 +27,7 @@ const Button = ({
     onClick,
     href,
     target,
+    rel,
     isLoading = false,
     isInverted = false,
     isLarge = false,
@@ -47,6 +49,7 @@ const Button = ({
           className={clsx('button', { 'inverted': isInverted, 'large': isLarge, [className]: className, 'loading': isLoading })}
           onClick={handleClick}
           href={href}
+          rel={rel}
           target={target}
         >
             {isLoading && <IconLoader className="button-loader" />}

@@ -1,3 +1,18 @@
+export enum ToastType {
+    Default = 'default',
+    Error = 'error',
+    Incorrect = 'incorrect',
+}
+
+export enum Pane {
+    Help = 'Help',
+    Game = 'Game',
+    Settings = 'Settings',
+    Statistics = 'Statistics',
+}
+
+export type PaneChange = (Pane) => void;
+
 export enum AffixStatus {
     Unknown = '',
     New = 'new',
@@ -23,7 +38,9 @@ export interface Word {
 
 export interface Toast {
     text: string,
+    type: ToastType,
     timeoutSeconds: number,
+    toastTime: number | null,
 }
 
 export interface RootAppState {
@@ -31,6 +48,7 @@ export interface RootAppState {
     shouldVibrate: boolean,
     shouldKeyboardVibrate: boolean,
     isSmallKeyboard: boolean,
+    isEnterSwapped: boolean,
     shouldConfirmEnter: boolean,
 }
 
@@ -40,21 +58,32 @@ export enum GameMode {
     Share = 'share',
 }
 
+export enum GameStatus {
+    Unset = 'unset',
+    Guessing = 'guessing',
+    Won = 'won',
+    Lost = 'lost',
+}
+
 export interface RootGameState {
     mode: GameMode,
     today: string,
     wordToGuess: string,
     caretShift: number,
     wordToSubmit: string,
-    isWon: boolean,
+    status: GameStatus,
     letters: {
         correct: UsedLetters,
         incorrect: UsedLetters,
         position: UsedLetters,
     },
     guesses: Word[],
+    rejectedWords: string[],
     hasLongGuesses: boolean,
     isProcessing: boolean,
+    isLoadingGame: boolean,
+    lastUpdateTime: number,
+    durationMS: number,
 }
 
 export interface RootState {

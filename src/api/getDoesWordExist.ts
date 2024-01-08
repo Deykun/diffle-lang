@@ -1,5 +1,7 @@
 import { getNormalizedKey } from './helpers';
 
+const game_lang = 'pl';
+
 type fetchedWordsListByKeys = {
     [key: string]: string[]
 }
@@ -30,7 +32,7 @@ export const getDoesWordExist = async (word: string): Promise<getDoesWordExistRe
 
     if (!cachedKeys[key]) {
         try {
-            const response = await fetch(`./dictionary/spelling/chunk-${key}.json`).catch(error => {
+            const response = await fetch(`./dictionary/${game_lang}/spelling/chunk-${key}.json`).catch(error => {
                 throw error;
             });
 

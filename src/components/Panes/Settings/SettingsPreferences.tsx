@@ -8,7 +8,9 @@ import useKeyboardSettings from '@hooks/useKeyboardSettings';
 import useVibrate from '@hooks/useVibrate';
 
 import IconConstruction from '@components/Icons/IconConstruction';
+import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
+import IconBackspaceAlt from '@components/Icons/IconBackspaceAlt';
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
@@ -28,6 +30,8 @@ const SettingsPreferences = () => {
         handleTogglKeyboardVibrate,
         isSmallKeyboard,
         handleToggleKeyboardSize,
+        isEnterSwapped,
+        handleToggleEnterSwap,
         shouldConfirmEnter,
         handleToggleConfirmEnter,
      } = useKeyboardSettings();
@@ -37,12 +41,22 @@ const SettingsPreferences = () => {
     const handleToggleDarkLightMode = useCallback(() => {
         vibrate();
 
-        const isDarkThemeBeforeToggle = document.documentElement.classList.contains('dark');
+        const isLightThemeBeforeToggle = document.documentElement.classList.contains('light');
 
-        localStorage.setItem(LOCAL_STORAGE.THEME, isDarkThemeBeforeToggle ? 'light' : 'dark');
+        localStorage.setItem(LOCAL_STORAGE.THEME, isLightThemeBeforeToggle ? 'dark' : 'light');
 
-        document.documentElement.classList.toggle('dark');
+        document.documentElement.classList.toggle('light');
     }, [vibrate]);
+
+    const handleToggleHighContrastMode = () => {
+        vibrate();
+
+        const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
+
+        localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
+
+        document.documentElement.classList.toggle('contrast');
+    };
 
     const handleLanguageChange = useCallback(() => {
         vibrate();
@@ -54,12 +68,6 @@ const SettingsPreferences = () => {
         <>
             <h2>{t('settings.preferencesTitle')}</h2>
             <ul>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
-                        <IconVibrate />
-                        <span>{t('settings.appVibration')}</span>
-                    </button>
-                </li>
                 <li>
                     <button className="setting setting-active" onClick={handleToggleDarkLightMode}>
                         <span className="only-dark">
@@ -73,6 +81,18 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
                 <li>
+                    <button className="setting setting-active--contrast" onClick={handleToggleHighContrastMode}>
+                        <IconContrast />
+                        <span>{t('settings.highContrastMode')}</span>
+                    </button>
+                </li>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
+                        <IconVibrate />
+                        <span>{t('settings.appVibration')}</span>
+                    </button>
+                </li>
+                <li>
                     <button className="setting" onClick={handleLanguageChange}>
                         <IconTranslation />
                         <span>{t('settings.currentLanguage')}</span>
@@ -82,7 +102,7 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
             </ul>
-            <h3>Klawiatura</h3>
+            <h3>{t('settings.keyboard')}</h3>
             <ul>
                 <li>
                     <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>
@@ -94,6 +114,12 @@ const SettingsPreferences = () => {
                     <button className={clsx('setting', { 'setting-active': isSmallKeyboard })} onClick={handleToggleKeyboardSize}>
                         <IconKeyboardDown />
                         <span className="setting-title-small">{t('settings.smallerKeyboard')}</span>
+                    </button>
+                </li>
+                <li>
+                    <button className={clsx('setting', { 'setting-active': isEnterSwapped })} onClick={handleToggleEnterSwap}>
+                        <IconBackspaceAlt />
+                        <span className="setting-title-small">{t('settings.swapEnterAndBackspace')}</span>
                     </button>
                 </li>
                 <li>

@@ -1,0 +1,58 @@
+.statistics {
+    padding-bottom: 20px;
+}
+
+.statistics-filters {
+    ul.list-col-3 {
+        @media (max-width: 360px) {
+            grid-template-columns: 0.5fr 1fr 1fr;
+        }
+    }
+}
+
+.statistics-title {
+    position: relative;
+}
+
+.statistics-title-total {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    span {
+        line-height: 24px;
+    }
+
+    svg {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-left: 7px;
+        height: 24px;
+        width: 24px;
+        fill: currentColor;
+    }
+}
+
+.missing-data {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    .missing-data-icon {
+        height: 24px;
+        fill: var(--red);
+        opacity: 0.2;
+        margin-right: 15px;
+    }
+
+    p {
+        position: relative;
+        z-index: 1;
+        fill: var(--text);
+        margin-bottom: 0;
+    }
+}

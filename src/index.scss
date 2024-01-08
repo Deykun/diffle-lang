@@ -1,4 +1,7 @@
 @import './styles/reset.scss';
+@import './styles/mixins.scss';
+@import './styles/keyframes.scss';
+@import './styles/balboo-2.scss';
 
 html {
     scroll-behavior: smooth;
@@ -14,6 +17,7 @@ body {
 
 button {
     border: none;
+    background-color: transparent;
     font-family: inherit;
 }
 
@@ -34,4 +38,175 @@ h3 {
 ::selection {
     background-color: black;
     color: white;
+}
+
+.tooltip-relative {
+    position: relative;
+    z-index: 0;
+}
+
+.has-tooltip .tooltip {
+    @include tooltip;
+
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translate(-50%, 5px);
+    width: max-content;
+    max-width: min(55vw, 200px);
+    transform-origin: top center;
+    pointer-events: none;
+    opacity: 0;
+    text-shadow: none;
+    transition: 0.1s ease-in-out;
+
+    strong {
+        font-size: inherit;
+        color: inherit;
+        display: inline;
+        text-shadow: none !important;
+        line-height: 1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -7px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border: 4px solid transparent;
+        border-bottom-color: var(--toast-bacground);
+    }
+}
+
+.has-tooltip {
+    &.has-tooltip-activated,
+    &:hover {
+        z-index: 4;
+
+        .tooltip {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+}
+    
+
+.has-tooltip-from-left {
+    .tooltip {
+        left: 14px;
+        transform: translate(-14px, 5px);
+        transform-origin: top left;
+    
+        &::before {
+            left: 14px;
+        }
+    }
+
+    &.has-tooltip-activated,
+    &:hover {
+        .tooltip {
+            transform: translate(-14px, 0);
+        }
+    }
+}
+
+.has-tooltip-from-right {
+    .tooltip {
+        left: auto;
+        right: 14px;
+        transform: translate(14px, 5px);
+        transform-origin: top right;
+    
+        &::before {
+            left: auto;
+            right: 14px;
+            transform: translateX(50%);
+        }
+    }
+
+    &.has-tooltip-activated,
+    &:hover {
+        .tooltip {
+            transform: translate(14px, 0);
+        }
+    }
+}
+
+@keyframes detailsShow {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+details {
+    summary {
+        cursor: pointer;
+        list-style: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed var(--border);
+        transition: 0.3s ease-in-out;
+
+        @mixin hover-effect {
+            .details-icon {
+                &::before,
+                &::after {
+                    border-bottom-color: var(--text);
+                }
+            }
+        }
+    
+        @media (hover: hover) {
+            &:hover {
+                @include hover-effect;
+            }
+        }
+    
+        @media (hover: none) {
+            &:active {
+                @include hover-effect;
+            }
+        }
+    }
+
+    .details-icon {
+        position: absolute;
+        right: 0;
+    }
+
+    .details-content {
+        display: block !important;
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: top center;
+        transition: all 0.15s ease-in-out;
+    }
+
+    &[open] {
+        summary {
+            border-bottom-color: transparent;
+        }
+
+        > .details-content {
+            animation: detailsShow 0.15s ease-in-out;
+        }
+    }
+
+    &.is-closing {
+        > .details-content {
+            opacity: 0;
+            transform: scale(0.6);
+        }
+    }
 }

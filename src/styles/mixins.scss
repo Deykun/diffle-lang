@@ -1,0 +1,12 @@
+@mixin tooltip {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    text-transform: none;
+    border-radius: 3px;
+    color: var(--toast-text);
+    background-color: var(--toast-bacground);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 1px 3px rgba(black, 0.2);
+}

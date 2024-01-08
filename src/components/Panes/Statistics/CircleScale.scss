@@ -1,0 +1,68 @@
+.circle-scale {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    font-size: 8px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    color: #a4c870;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    
+
+    .circle-scale-border {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-35deg);
+        display: block;
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        border: 2px dashed rgba(#a4c870, 0.2);
+        border: 1px dashed rgba(119, 143, 85, 0.2);
+        border: 1px dashed transparent;
+        pointer-events: none;
+        user-select: none;
+
+        span {
+            position: absolute;
+            height: 0;
+            top: calc(100% + 5px);
+            left: 50%;
+            transform: translateX(-50%) rotate(35deg);
+            color: rgba(119, 143, 85, 0.2);
+            color: transparent;
+        }
+
+        &.circle-scale-border-checked {
+            border-color: transparent;
+            background-color: rgba(white, 0.3);
+
+            span {
+                color: black;
+            }
+        }
+    }
+
+    &.circle-scale-scale-on-left {
+        .circle-scale-border {
+            transform: translate(-50%, -50%) rotate(15deg);
+
+            span {
+                transform: translateX(-50%) rotate(-15deg);
+            }
+        }
+    }
+
+    &.circle-scale-is-normal {
+        .circle-scale-border:not(.circle-scale-border-checked) {
+            border-color: transparent;
+
+            span {
+                color: transparent;
+            }
+        }
+    }
+}
