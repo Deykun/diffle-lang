@@ -9,6 +9,8 @@ import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
 import Words from '@components/Words/Words'
+
+import IconConstruction from '@components/Icons/IconConstruction';
 import IconLoader from '@components/Icons/IconLoader';
 
 import './Game.scss'
@@ -28,6 +30,17 @@ const Game = () => {
 
     if (!wordToGuess) {
         return (<IconLoader className="game-loader" />);
+    }
+
+    if (todayStamp === '08.01.2024') {
+        return (
+            <div className={clsx('game', { 'isSmallKeyboard': isSmallKeyboard })}>
+                <IconConstruction className="icon-soon" />
+                <p>
+                    Gra wraca wraz z nowym słowem <strong>09.01.2024</strong>.
+                </p>
+            </div>
+        );
     }
 
     return (
