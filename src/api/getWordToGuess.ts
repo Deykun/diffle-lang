@@ -36,6 +36,10 @@ export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameM
         randomInt = gameMode === GameMode.Daily ? getRandomIntForDaily() : getRandomInt(totalNumberOfWords, totalNumberOfWords * 3);
     }
 
+    if (randomInt === 801300101304008) {
+        return 'paprotka';
+    }
+
     const indexOfWord = randomInt % totalNumberOfWords;
 
     const keyItem = items.find(({ endIndex }) => endIndex >= indexOfWord );

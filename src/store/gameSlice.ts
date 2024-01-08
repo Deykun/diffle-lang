@@ -347,10 +347,6 @@ export const saveEndedGame = createAsyncThunk(
             statisticToUpdate.totals.words += words;
             statisticToUpdate.totals.rejectedWords += rejectedWords;
 
-            if (statisticToUpdate.totals.worstRejectedWords < rejectedWords) {
-                statisticToUpdate.totals.worstRejectedWords = rejectedWords;
-            }
-
             if (statisticToUpdate.medianData.rejectedWords[rejectedWords]) {
                 statisticToUpdate.medianData.rejectedWords[rejectedWords] += 1;
             } else {

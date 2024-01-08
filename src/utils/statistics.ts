@@ -47,7 +47,6 @@ export interface Statistic {
         letters: number,
         words: number,
         rejectedWords: number,
-        worstRejectedWords: number,
         durationMS: number,
     },
     medianData: {
@@ -95,7 +94,6 @@ const EMPTY_STATISTIC = {
         letters: 0,
         words: 0,
         rejectedWords: 0,
-        worstRejectedWords: 0,
         keyboardUsagePercentage: 0,
         durationMS: 0,
     },
@@ -259,7 +257,6 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
                 letters: stack.totals.letters + statistic.totals.letters,
                 words: stack.totals.words + statistic.totals.words,
                 rejectedWords: stack.totals.rejectedWords + statistic.totals.rejectedWords,
-                worstRejectedWords: Math.max(stack.totals.worstRejectedWords, statistic.totals.worstRejectedWords),
                 durationMS: stack.totals.durationMS + statistic.totals.durationMS,
             },
             medianData: {
@@ -397,11 +394,6 @@ const getMedianFromMedianData = (medianData: { [value: number]: number }) => {
     const medianIndex = Math.floor(totalDataInMedian / 2);
     const shouldUseAverage = totalDataInMedian % 2 === 0;
 
-    console.log({
-        shouldUseAverage,
-        medianData,
-    });
-
     const sortedData = Object.entries(medianData).sort(([valueA], [valueB]) => Number(valueA) - Number(valueB));
 
     let currenIndex = 0;
@@ -427,6 +419,10 @@ const getMedianFromMedianData = (medianData: { [value: number]: number }) => {
     return 0;
 }
 
+const getMaxFromFromMedianData = (medianData: { [value: number]: number }) => {
+    return Object.keys(medianData).map(value => Number(value)).sort((a, b) => a - b).at(-1) ?? 0;
+}
+
 export const getStatisticCardDataFromStatistics = (statistic: Statistic): StatisticDataForCard => {
     const totalGames = statistic.totals.won + statistic.totals.lost;
     const totalWon = statistic.totals.won;
@@ -437,7 +433,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
         totalGames,
         totalWon,
         rejectedWordsPerGame: getMedianFromMedianData(statistic.medianData.rejectedWords),
-        rejectedWordsWorstWonInGame: statistic.totals.worstRejectedWords,
+        rejectedWordsWorstWonInGame: getMaxFromFromMedianData(statistic.medianData.rejectedWords),
         lettersPerGame: getMedianFromMedianData(statistic.medianData.letters),
         averageLettersPerGame,
         wordsPerGame: getMedianFromMedianData(statistic.medianData.words),
