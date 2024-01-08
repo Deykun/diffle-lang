@@ -139,8 +139,15 @@ const StatisticsCard = ({
                 </p>
                 <div className="statistics-text">
                     <p>{t('statistics.averageLetters')} <strong>{lettersPerWord.toFixed(1)}</strong> {t('statistics.inWord')}</p>
-                    <p>{t('statistics.averageLetters')} <strong>{lettersInFirstWord.toFixed(1)}</strong> {t('statistics.inFirstWord')}</p>
-                    <p>{t('statistics.averageLetters')} <strong>{lettersInSecondWord.toFixed(1)}</strong> {t('statistics.inSecondWord')}</p>
+                    <p className="has-tooltip tooltip-relative">
+                        {t('statistics.averageLetters')}
+                        <strong>{lettersInFirstWord.toFixed(1)}</strong>
+                        {t('statistics.inFirstWord')}
+                        <span className="tooltip">
+                            <strong>{lettersInSecondWord.toFixed(1)}</strong>
+                            {t('statistics.inSecondWord')}
+                        </span>                    
+                    </p>
                     <p className="has-tooltip tooltip-relative">
                         {t('statistics.averageGameTime')}
                         {timePerGame.hours > 0 && <><strong>{timePerGame.hours}</strong>h</>}

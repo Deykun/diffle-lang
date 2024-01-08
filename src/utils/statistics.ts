@@ -379,7 +379,12 @@ export interface StatisticDataForCard {
 const getMedianFromMedianData = (medianData: { [value: number]: number }) => {
     const totalDataInMedian = Object.values(medianData).reduce((stack, totalForValue) => stack + totalForValue, 0);
     const medianIndex = Math.floor(totalDataInMedian / 2);
-    const shouldUseAverage = totalDataInMedian % 2 === 1;
+    const shouldUseAverage = totalDataInMedian % 2 === 0;
+
+    console.log({
+        shouldUseAverage,
+        medianData,
+    });
 
     const sortedData = Object.entries(medianData).sort(([valueA], [valueB]) => Number(valueA) - Number(valueB));
 
@@ -389,12 +394,12 @@ const getMedianFromMedianData = (medianData: { [value: number]: number }) => {
         
         currenIndex += total;
 
-        if (medianIndex <= currenIndex) {
+        if (medianIndex < currenIndex) {
             if (shouldUseAverage) {
-                const nextValue = Number(sortedData[i + 1]?.[0]);
+                const previousValue = Number(sortedData[i - 1]?.[0]);
 
-                if (nextValue) {
-                    return (Number(value) + nextValue) / 2;
+                if (previousValue) {
+                    return (Number(value) + previousValue) / 2;
                 }
             }
 

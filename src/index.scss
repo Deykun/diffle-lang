@@ -42,12 +42,13 @@ h3 {
 
 .tooltip-relative {
     position: relative;
+    z-index: 0;
 }
 
 .has-tooltip .tooltip {
     @include tooltip;
+
     position: absolute;
-    z-index: 1;
     top: calc(100% + 5px);
     left: 50%;
     transform: translate(-50%, 5px);
@@ -83,6 +84,8 @@ h3 {
 .has-tooltip {
     &.has-tooltip-activated,
     &:hover {
+        z-index: 4;
+
         .tooltip {
             opacity: 1;
             transform: translate(-50%, 0);
