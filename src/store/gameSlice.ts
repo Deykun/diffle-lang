@@ -177,7 +177,7 @@ export const loseGame = createAsyncThunk(
 export const loadGame = createAsyncThunk(
     'game/loadGame',
     async (_, { dispatch, getState }) => {
-        const gameLanguage = 'pl';
+        // const gameLanguage = 'pl';
         const state = getState() as RootState;
         const wordToGuess = selectWordToGuess(state);
 

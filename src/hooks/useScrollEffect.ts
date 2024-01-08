@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export default function useScrollEffect(to: ('top' | 'bottom'), args: (string | object | undefined)[]) {
+export default function useScrollEffect(to: ('top' | 'bottom'), args: (string | boolean | object | undefined)[]) {
     useEffect(() => {
         setTimeout(() => {
             if (to === 'top') {
