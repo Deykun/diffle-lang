@@ -27,6 +27,7 @@ import IconShare from '@components/Icons/IconShare';
 
 import Word from '@components/Words/Word';
 import Button from '@components/Button/Button';
+import ShareModalSettings from '@components/Share/ShareModalSettings'
 
 import './EndResult.scss';
 
@@ -173,12 +174,15 @@ ${diffleUrl}`);
                             <span>{t('common.newGame')}</span>
                         </Button>
                     )}
-                    <Button
-                    onClick={handleCopy}
-                    >
-                        <IconShare />
-                        <span>{t('common.copyResult')}</span>
-                    </Button>
+                    <span>
+                        <Button
+                            onClick={handleCopy}
+                        >
+                            <IconShare />
+                            <span>{t('common.copyResult')}</span>
+                        </Button>
+                        <ShareModalSettings />
+                    </span>
                 </div>
                 <Button
                     tagName="a"

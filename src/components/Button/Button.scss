@@ -30,7 +30,10 @@
         vertical-align: middle;
         width: 20px;
         height: 20px;
-        margin-right: 12px;
+
+        &:first-child:not(:last-child) {
+            margin-right: 12px;
+        }
     }
 
     &:hover {

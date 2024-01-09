@@ -1,0 +1,30 @@
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    z-index: 2;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--background-transparent);
+    // backdrop-filter: blur(6px) saturate(1.2) hue-rotate(-15deg);
+}
+
+.modal {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 5;
+    width: min(500px, 100%);
+    transform: translateX(-50%);
+    background: var(--background);
+}
