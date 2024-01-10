@@ -52,6 +52,9 @@ body p {
     --incorrect-red-contrast: #ff3636;
 
     --stroke-contrast: #1f1f1f;
+
+    --modal-duration-open: 250ms;
+    --modal-duration-close: 100ms;
 }
 
 :root.light {

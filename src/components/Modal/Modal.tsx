@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
+import { getCssVarMillisecondsValue } from '@utils/css';
+
 import IconClose from '@components/Icons/IconClose';
 
 import './Modal.scss';
@@ -28,10 +30,12 @@ const Modal = ({ children, isOpen, onClose }: Props) => {
 
         setIsClosing(true);
 
+        const cssTimeoutMs = getCssVarMillisecondsValue('--modal-duration-close') || 100;
+
         setTimeoutShowModalRef.current = setTimeout(() => {
             onClose();
             setIsClosing(false);
-        }, 100);
+        }, cssTimeoutMs);
     }
 
     useEffect(() => () => {
