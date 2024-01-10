@@ -105,7 +105,9 @@
         "sourceDiffle": "oryginalne diffle",
         "sourceGithub": "repozytorium strony",
         "lastDailyWordsTitle": "Wczoraj",
-        "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\"."
+        "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\".",
+        "shareTitle": "Udostępnianie",
+        "shareLinkWithUsedWords": "Linkuj do użytych słów"
     },
     "statistics": {
         "filters": "Filtry",

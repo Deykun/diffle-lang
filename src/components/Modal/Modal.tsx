@@ -1,30 +1,62 @@
 import ReactDOM from 'react-dom';
 
 import clsx from 'clsx';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useRef, useState } from 'react';
 
-import { useSelector, useDispatch } from '@store';
-import { clearToast } from '@store/appSlice';
+import IconClose from '@components/Icons/IconClose';
 
 import './Modal.scss';
 
-const Modal = ({ children, isOpen, onClose }) => {
+interface Props {
+    children: React.ReactNode,
+    isOpen: boolean,
+    onClose: () => void,
+}
+
+const Modal = ({ children, isOpen, onClose }: Props) => {
+    const setTimeoutShowModalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const [isClosing, setIsClosing] = useState(false);
+
+    const handleClosing = () => {
+        if (isClosing) {
+            return;
+        }
+
+        if (setTimeoutShowModalRef.current) {
+            clearTimeout(setTimeoutShowModalRef.current);
+        }
+
+        setIsClosing(true);
+
+        setTimeoutShowModalRef.current = setTimeout(() => {
+            onClose();
+            setIsClosing(false);
+        }, 100);
+    }
+
+    useEffect(() => () => {
+        if (setTimeoutShowModalRef.current) {
+            clearTimeout(setTimeoutShowModalRef.current);
+        }
+
+        setIsClosing(false);
+    }, []);
+
     if (!isOpen) {
         return null;
     }
 
     return ReactDOM.createPortal(
-        <div className="modal-wrapper">
-            <button className="modal-overlay" onClick={onClose} />
+        <div className={clsx('modal-wrapper', { 'modal-wrapper--is-closing': isClosing })}>
+            <button className="modal-overlay" onClick={handleClosing} />
             <div className="modal">
-                <button onClick={onClose}>
-                    x
+                <button className="modal-close" onClick={handleClosing}>
+                    <IconClose />
                 </button>
                 {children}
             </div>
         </div>,
-        document.getElementById('root-modal'),
+        document.getElementById('root-modal') as HTMLElement,
     )
 };
 

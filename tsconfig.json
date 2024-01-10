@@ -28,7 +28,7 @@
       "@components/*": ["./src/components/*", "./src/components/*/index"],
       "@hooks/*": ["./src/hooks/*", "./src/hooks/*/index"],
       "@const": ["./src/const"],
-      "@common-types": ["./src/types.d"],
+      "@common-types": ["./src/types"],
       "@store": ["./src/store"],
       "@store*": ["./src/store*", "./src/store*/index"],
       "@utils*": ["./src/utils*", "./src/utils*/index"]

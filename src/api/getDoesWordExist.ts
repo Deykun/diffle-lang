@@ -65,4 +65,23 @@ export const getDoesWordExist = async (word: string): Promise<getDoesWordExistRe
     };
 };
 
+export const getWordsIndexesChunks = (words: string[]) => {
+    const keysWithWords = words.map((word) => ({ word, key: getNormalizedKey(word) }));
+    const hasAllWordsFetched = keysWithWords.every(
+        ({ word, key }) => Array.isArray(cachedKeys[key]) && cachedKeys[key].includes(word)
+    );
+
+    if (!hasAllWordsFetched) {
+        return [];
+    }
+
+    return keysWithWords.map(({ word, key }) => {
+        return {
+            word,
+            key,
+            index: cachedKeys[key].findIndex((keyWords) => word === keyWords),
+        };
+    });
+};
+
 export default getDoesWordExist;

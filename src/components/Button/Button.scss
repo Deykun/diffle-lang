@@ -36,6 +36,14 @@
         }
     }
 
+    &.no-border,
+    &.inverted.no-border {
+        &,
+        &:hover {
+            border-color: transparent;
+        }
+    }
+
     &:hover {
         background-color: var(--blue-stronger);
         border-color: var(--blue-stronger);
@@ -92,6 +100,14 @@
             color: var(--blue-stronger);
             border-color: var(--blue);
             background-color: transparent;
+        }
+    }
+
+    &.text {
+        color: var(--text-weaker);
+
+        &:hover {
+            color: var(--text);
         }
     }
 }

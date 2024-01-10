@@ -53,10 +53,11 @@ export const LOCAL_STORAGE = {
     IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
     SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
     SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
+    SHOULD_SHARE_WORDS: 'diffle_should_share_words',
 };
 
 export const LOCAL_STORAGE_GAME_BY_MODE = {
-    [GameMode.Daily]: LOCAL_STORAGE.TYPE_DAILY,
-    [GameMode.Practice]: LOCAL_STORAGE.TYPE_PRACTICE,
-    [GameMode.Share]: LOCAL_STORAGE.TYPE_SHARE,
+    [GameMode?.Daily]: LOCAL_STORAGE.TYPE_DAILY,
+    [GameMode?.Practice]: LOCAL_STORAGE.TYPE_PRACTICE,
+    [GameMode?.Share]: LOCAL_STORAGE.TYPE_SHARE,
 };

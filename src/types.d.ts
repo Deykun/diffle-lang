@@ -50,6 +50,7 @@ export interface RootAppState {
     isSmallKeyboard: boolean,
     isEnterSwapped: boolean,
     shouldConfirmEnter: boolean,
+    shouldShareWords: boolean,
 }
 
 export enum GameMode {

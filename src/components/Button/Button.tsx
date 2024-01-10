@@ -17,7 +17,9 @@ interface Props {
     rel?: string,
     isLoading?: boolean,
     isInverted?: boolean,
+    isText?: boolean,
     isLarge?: boolean,
+    hasBorder?: boolean,
 }
 
 const Button = ({
@@ -30,7 +32,9 @@ const Button = ({
     rel,
     isLoading = false,
     isInverted = false,
+    isText = false,
     isLarge = false,
+    hasBorder = true,
 }: Props) => {
     const Tag = tagName || 'button';
 
@@ -46,7 +50,14 @@ const Button = ({
 
     return (
         <Tag
-          className={clsx('button', { 'inverted': isInverted, 'large': isLarge, [className]: className, 'loading': isLoading })}
+          className={clsx('button', {
+            'inverted': isInverted,
+            'text': isText,
+            'large': isLarge,
+            [className]: className,
+            'loading': isLoading,
+            'no-border': !hasBorder,
+          })}
           onClick={handleClick}
           href={href}
           rel={rel}

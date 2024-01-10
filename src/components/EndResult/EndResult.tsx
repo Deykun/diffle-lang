@@ -7,14 +7,10 @@ import { Word as WordInterface, AffixStatus, GameMode, GameStatus } from '@commo
 import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
-import { setToast } from '@store/appSlice';
 import { selectGuessesStatsForLetters } from '@store/selectors';
-
 import { setWordToGuess } from '@store/gameSlice'
 
 import getWordToGuess from '@api/getWordToGuess'
-
-import { copyMessage } from '@utils/copyMessage';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -23,11 +19,10 @@ import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconFancyThumbDown from '@components/Icons/IconFancyThumbDown';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconMagic from '@components/Icons/IconMagic';
-import IconShare from '@components/Icons/IconShare';
 
 import Word from '@components/Words/Word';
 import Button from '@components/Button/Button';
-import ShareModalSettings from '@components/Share/ShareModalSettings'
+import ShareButton from '@components/Share/ShareButton';
 
 import './EndResult.scss';
 
@@ -73,39 +68,11 @@ const EndResult = () => {
         }
     }, [dispatch, gameMode, isReseting]);
 
-    const handleCopy = useCallback(() => {
-        const diffleUrl = location.href.split('?')[0];
-        const { stamp } = getNow();
-
-        const isLost = endStatus === GameStatus.Lost;
-
-        const copyTitle = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 #diffle` : `« ${wordToGuess} » – 🇵🇱 #diffle`;
-        const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
-
-        if (isLost) {
-            copyMessage(`${copyTitle}
-
-🏳️ ${t('end.lostIn')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })} (${letters} ${t('end.lettersUsedShort')})
-${copySubtotals}
-            
-${diffleUrl}`);
-        } else {
-            copyMessage(`${copyTitle}
-
-${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
-${copySubtotals}
-
-${diffleUrl}`);
-        }
-
-        dispatch(setToast({ text: 'common.copied' }));
-    }, [gameMode, endStatus, letters, t, words, subtotals.correct, subtotals.position, subtotals.incorrect, subtotals.typedKnownIncorrect, wordToGuess, dispatch]);
-
     if (guesses.length === 0) {
         return null;
     }
 
-    const hoursToNext = 24 - getNow().nowUTC.getHours() + 1;
+    const hoursToNext = 24 - getNow().nowUTC.getHours();
 
     return (
         <>
@@ -174,15 +141,7 @@ ${diffleUrl}`);
                             <span>{t('common.newGame')}</span>
                         </Button>
                     )}
-                    <span>
-                        <Button
-                            onClick={handleCopy}
-                        >
-                            <IconShare />
-                            <span>{t('common.copyResult')}</span>
-                        </Button>
-                        <ShareModalSettings />
-                    </span>
+                    <ShareButton shouldShowSettings />
                 </div>
                 <Button
                     tagName="a"
