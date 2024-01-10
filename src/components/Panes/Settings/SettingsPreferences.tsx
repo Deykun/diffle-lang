@@ -10,10 +10,10 @@ import useVibrate from '@hooks/useVibrate';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
-import IconBackspaceAlt from '@components/Icons/IconBackspaceAlt';
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
+import IconSwap from '@components/Icons/IconSwap';
 import IconTranslation from '@components/Icons/IconTranslation';
 import IconVibrate from '@components/Icons/IconVibrate';
 import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
@@ -118,7 +118,7 @@ const SettingsPreferences = () => {
                 </li>
                 <li>
                     <button className={clsx('setting', { 'setting-active': isEnterSwapped })} onClick={handleToggleEnterSwap}>
-                        <IconBackspaceAlt />
+                        <IconSwap />
                         <span className="setting-title-small">{t('settings.swapEnterAndBackspace')}</span>
                     </button>
                 </li>
