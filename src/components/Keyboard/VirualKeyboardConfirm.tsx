@@ -10,8 +10,10 @@ import useVibrate from '@hooks/useVibrate';
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
+import IconSubmit from '@components/Icons/IconSubmit';
+import IconUndo from '@components/Icons/IconUndo';
 
-import KeyCap from './KeyCap';
+import Modal from '@components/Modal/Modal';
 
 import './VirualKeyboardConfirm.scss';
 
@@ -40,14 +42,24 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
     }, [closeConfirm, dispatch, vibrateKeyboard]);
 
     return (
-        <div className="keyboard-confirm">
-            {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
-            {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
-            <div className="line">
-                <KeyCap text="no" onClick={closeConfirm} />
-                <KeyCap text="yes" onClick={handleSubmit} />
-            </div>
-            <div className="keyboard-settings">
+        <Modal isOpen={true} onClose={() => closeConfirm()}>
+            <div className="settings">
+                {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
+                {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
+                <ul>
+                    <li>
+                        <button className="setting" onClick={closeConfirm}>
+                            <IconUndo />
+                            <span>{t('common.no')}</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button className="setting setting-active" onClick={handleSubmit}>
+                            <IconSubmit />
+                            <span>{t('common.yes')}</span>
+                        </button>
+                    </li>
+                </ul>
                 <button
                     className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
                     onClick={handleToggleConfirmEnter}
@@ -56,7 +68,7 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
                     <span>{t('settings.confirmSubmition')}</span>
                 </button>
             </div>
-        </div>
+      </Modal>
     );
 };
 
