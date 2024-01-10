@@ -18,8 +18,8 @@ import { getUrlHashForGameResult, maskValue } from '@utils/urlHash';
 
 import useVibrate from '@hooks/useVibrate';
 
-import IconCog from '@components/Icons/IconCog';
 import IconFingerprint from '@components/Icons/IconFingerprint';
+import IconPencil from '@components/Icons/IconPencil';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
@@ -111,7 +111,7 @@ ${shareUrl}`;
             isText
             hasBorder={false}
           >
-            <IconCog />
+            <IconPencil />
           </Button>
         )}
       </span>
