@@ -1,3 +1,28 @@
-.modal--shared-content {
-    
+.shared-content-header-button {
+    margin-right: 10px;
+
+    &.shared-content-header-button-active {
+        svg {
+            fill: var(--text);
+        }
+    }
+}
+
+.modal-wrapper.modal-wrapper--shared-content {
+    .modal {
+        .end-result {
+            .title {
+                transform: scale(0.7);
+            }
+        }
+    }
+}
+
+.shared-content-loader {
+    margin: 20px;
+    fill: var(--text-weaker);
+    width: 48px;
+    height: 48px;
+    transform-origin: 51% 50%;
+    animation: spin infinite linear 1s;
 }

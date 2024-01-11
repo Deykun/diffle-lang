@@ -11,6 +11,8 @@ import IconHelp from '@components/Icons/IconHelp';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconLayers from '@components/Icons/IconLayers';
 
+import SharedContent from '@components/Share/SharedContent';
+
 import './Header.scss';
 
 interface Props {
@@ -45,6 +47,7 @@ const Header = ({ pane, changePane }: Props) => {
             </div>
             <h1><button onClick={() => changePane(Pane.Game)}>Diffle{gameMode === GameMode.Practice && <IconInfinity />}</button></h1>
             <div className="header-right">
+                <SharedContent />
                 <button
                   className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-right', {
                     'button-active': pane === Pane.Settings

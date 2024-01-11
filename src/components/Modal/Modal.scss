@@ -34,7 +34,7 @@
     width: 100%;
     z-index: 2;
     background-color: var(--background-transparent);
-    backdrop-filter: saturate(0.8) hue-rotate(-5deg);
+    backdrop-filter: blur(1px) saturate(0.7) hue-rotate(-5deg);
 }
 
 .modal {
@@ -42,7 +42,7 @@
     bottom: 0;
     left: 50%;
     z-index: 5;
-    max-height: calc(100vh - 80px);
+    max-height: calc(100vh - 50px);
     overflow: auto;
     text-align: center;
     padding: 16px 7px 7px;

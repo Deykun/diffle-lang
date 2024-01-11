@@ -7,7 +7,7 @@
         "copyResult": "Skopiuj wynik",
         "copied": "Skopiowano.",
         "checkInDictionary": "Sprawdź \"{{word}}\" na SJP.PL",
-        "close": "zamknij",
+        "close": "Zamknij",
         "more": "więcej",
         "download": "Pobierz",
         "downloadError": "Błąd pobierania.",
@@ -108,6 +108,7 @@
         "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\".",
         "shareTitle": "Udostępnianie",
         "sharedContentTitle": "Udostępniony wynik",
+        "sharedWordsTitle": "Użyte słowa",
         "shareLinkWithUsedWords": "Linkuj do użytych słów"
     },
     "statistics": {

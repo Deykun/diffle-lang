@@ -9,7 +9,6 @@ import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
 import Words from '@components/Words/Words'
-import SharedContent from '@components/Share/SharedContent';
 
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconLoader from '@components/Icons/IconLoader';
@@ -49,7 +48,6 @@ const Game = () => {
             {wordToGuess ? <Words /> : <IconLoader className="game-loader" />}
             <UserKeyboardListner />
             <VirualKeyboard />
-            <SharedContent />
         </div>
     )
 };

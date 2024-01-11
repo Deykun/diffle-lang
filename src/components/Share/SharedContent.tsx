@@ -22,11 +22,14 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
 
 import useVibrate from '@hooks/useVibrate';
+import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
+import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
+import IconClose from '@components/Icons/IconClose';
 import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconLoader from '@components/Icons/IconLoader';
 import IconPencil from '@components/Icons/IconPencil';
-import IconShare from '@components/Icons/IconShare';
+import IconShareAlt from '@components/Icons/IconShareAlt';
 
 import Word from '@components/Words/Word';
 
@@ -35,7 +38,7 @@ import Modal from '@components/Modal/Modal';
 
 import EndResultSummary from '@components/EndResult/EndResultSummary';
 
-import './ShareButton.scss';
+import './SharedContent.scss';
 
 const SharedContent = ({ shouldShowSettings = false }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -54,6 +57,8 @@ const SharedContent = ({ shouldShowSettings = false }) => {
     });
 
   const { t } = useTranslation();
+
+  const { handleClickSummary } = useEnhancedDetails();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -131,34 +136,47 @@ const SharedContent = ({ shouldShowSettings = false }) => {
     }
   }, [hash]);
 
-  if (!isOpen) {
-    return null;
-  }
-
   return (
-    <Modal classNameWraper="modal-wrapper--shared-content" isOpen={isOpen} onClose={() => setIsOpen(false)}>
-      <h3>{t('settings.sharedContentTitle')}</h3>
-      {guesses.length === 0 ? <>
-        {hash ? <IconLoader /> : ''}
-      </> : <>
-      </>}
-        <EndResultSummary
-          status={isWon ? 'won' : 'lost'}
-          wordToGuess={wordToGuess}
-          guesses={guesses}
-          words={words}
-          letters={letters}
-          subtotals={subtotals}
-        />
-        <p>Słowa:</p>
-        <br />
-        {guesses.map((guess, index) => {            
-          return (
-              <Word key={`guess-${index}`} guess={guess} />
-          );
+    <>
+      <button
+        className={clsx('shared-content-header-button', 'header-button', 'has-tooltip', 'has-tooltip-from-right', {
+          'shared-content-header-button-active': isOpen
         })}
-
-    </Modal>
+        onClick={() => setIsOpen(value => !value)}
+      >
+          <IconShareAlt />
+          <span className="tooltip">{t(isOpen ? 'common.close' : 'settings.sharedContentTitle')}</span>
+      </button>
+      <Modal classNameWraper="modal-wrapper--shared-content" isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <h3>{t('settings.sharedContentTitle')}</h3>
+        {guesses.length === 0 ? <>
+          {hash ? <IconLoader className="shared-content-loader" /> : ''}
+        </> : <>
+          <EndResultSummary
+            status={isWon ? 'won' : 'lost'}
+            wordToGuess={wordToGuess}
+            guesses={guesses}
+            words={words}
+            letters={letters}
+            subtotals={subtotals}
+          />
+          <br />
+          <details>
+              <summary onClick={handleClickSummary}>
+                  <h2>{t('settings.sharedWordsTitle')}</h2>
+                  <IconAnimatedCaret className="details-icon" />
+              </summary>
+              <div className="details-content">
+                  {guesses.map((guess, index) => {            
+                    return (
+                        <Word key={`guess-${index}`} guess={guess} />
+                    );
+                  })}
+              </div>
+          </details>
+        </>}
+      </Modal>
+    </>
   )
 };
 
