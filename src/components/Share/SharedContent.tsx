@@ -136,6 +136,10 @@ const SharedContent = ({ shouldShowSettings = false }) => {
     }
   }, [hash]);
 
+  if (!hash) {
+    return null;
+  }
+
   return (
     <>
       <button
@@ -166,7 +170,7 @@ const SharedContent = ({ shouldShowSettings = false }) => {
                   <h2>{t('settings.sharedWordsTitle')}</h2>
                   <IconAnimatedCaret className="details-icon" />
               </summary>
-              <div className="details-content">
+              <div className="details-content shared-content-words">
                   {guesses.map((guess, index) => {            
                     return (
                         <Word key={`guess-${index}`} guess={guess} />

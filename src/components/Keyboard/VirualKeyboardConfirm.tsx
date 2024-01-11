@@ -13,6 +13,7 @@ import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
 import IconSubmit from '@components/Icons/IconSubmit';
 import IconUndo from '@components/Icons/IconUndo';
 
+import Button from '@components/Button/Button';
 import Modal from '@components/Modal/Modal';
 
 import './VirualKeyboardConfirm.scss';
@@ -43,31 +44,25 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
 
     return (
         <Modal isOpen={true} onClose={() => closeConfirm()}>
-            <div className="settings">
-                {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
-                {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
-                <ul>
-                    <li>
-                        <button className="setting" onClick={closeConfirm}>
-                            <IconUndo />
-                            <span>{t('common.no')}</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button className="setting setting-active" onClick={handleSubmit}>
-                            <IconSubmit />
-                            <span>{t('common.yes')}</span>
-                        </button>
-                    </li>
-                </ul>
-                <button
-                    className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
-                    onClick={handleToggleConfirmEnter}
-                >
-                    <IconCheckConfirm />
-                    <span>{t('settings.confirmSubmition')}</span>
-                </button>
+            {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
+            {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
+            <div className="keyboard-confirm-actions">
+                <Button className="setting" onClick={closeConfirm} isInverted isText hasBorder={false}>
+                    <IconUndo />
+                    <span>{t('common.no')}</span>
+                </Button>
+                <Button className="setting setting-active" onClick={handleSubmit}>
+                    <IconSubmit />
+                    <span>{t('common.yes')}</span>
+                </Button>
             </div>
+            <button
+                className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
+                onClick={handleToggleConfirmEnter}
+            >
+                <IconCheckConfirm />
+                <span>{t('settings.confirmSubmition')}</span>
+            </button>
       </Modal>
     );
 };

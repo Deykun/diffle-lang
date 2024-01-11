@@ -222,6 +222,12 @@
         text-align: left;
         font-size: 14px;
         font-weight: 600;
+
+        > svg {
+            height: 18px;
+            width: 18px;
+            margin-right: 12px;
+        }
     }
 
     .footer-filters {
