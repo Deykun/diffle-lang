@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { POLISH_CHARACTERS, ALLOWED_LETTERS } from '@const';
 
-import { RootState, AffixStatus, UsedLetters, GameStatus } from '@common-types';
+import { RootState, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -161,73 +161,75 @@ interface GuessesStackInterface extends AffixStackInterface {
     words: number,
 }
 
-export const selectGuessesStatsForLetters = createSelector(
-    selectGuesses,
-    selectHasWordToGuessSpecialCharacters,
-    (guesses, hasWordToGuessSpecialCharacters) => {
-        const { words, subtotals } = guesses.reduce((guessesStack: GuessesStackInterface, { affixes }) => {
-            const { subtotals: wordTotals, incorrectLetters: wordIncorrectLetters } = affixes.reduce((affixesStack: AffixStackInterface, affix) => {
-                if (affix.type === AffixStatus.Correct) {
-                    affixesStack.subtotals.correct += affix.text.length;
+export const getWordsAndLetters = (guesses: WordInterface[], hasWordToGuessSpecialCharacters: boolean) => {
+    const { words, subtotals } = guesses.reduce((guessesStack: GuessesStackInterface, { affixes }) => {
+        const { subtotals: wordTotals, incorrectLetters: wordIncorrectLetters } = affixes.reduce((affixesStack: AffixStackInterface, affix) => {
+            if (affix.type === AffixStatus.Correct) {
+                affixesStack.subtotals.correct += affix.text.length;
+            }
+
+            if (affix.type === AffixStatus.Position) {
+                affixesStack.subtotals.position += affix.text.length;
+            }
+
+            if (affix.type === AffixStatus.Incorrect) {
+                // Incorrect affixes are always length = 1
+                affixesStack.subtotals.incorrect += 1;
+
+                /*
+                    The letter can be either correct or incorrect; for example, if it exists in incorrectLetters,
+                    that means the user knows it occurs only once. In the future, more logic can be implemented
+                    to signal this better in code and to the end user.
+                */
+                const typedWhenWasKnownToBeIncorrect = guessesStack.incorrectLetters.includes(affix.text);
+                const isSpecialCharacterButWinningWordDonNotHaveThem = !hasWordToGuessSpecialCharacters && getHasSpecialCharacters(affix.text);
+
+                if (typedWhenWasKnownToBeIncorrect || isSpecialCharacterButWinningWordDonNotHaveThem) {
+                    affixesStack.subtotals.typedKnownIncorrect += 1;
+                } else {
+                    affixesStack.incorrectLetters = [...affixesStack.incorrectLetters, ...affix.text];
                 }
+            }
 
-                if (affix.type === AffixStatus.Position) {
-                    affixesStack.subtotals.position += affix.text.length;
-                }
-
-                if (affix.type === AffixStatus.Incorrect) {
-                    // Incorrect affixes are always length = 1
-                    affixesStack.subtotals.incorrect += 1;
-
-                    /*
-                        The letter can be either correct or incorrect; for example, if it exists in incorrectLetters,
-                        that means the user knows it occurs only once. In the future, more logic can be implemented
-                        to signal this better in code and to the end user.
-                    */
-                    const typedWhenWasKnownToBeIncorrect = guessesStack.incorrectLetters.includes(affix.text);
-                    const isSpecialCharacterButWinningWordDonNotHaveThem = !hasWordToGuessSpecialCharacters && getHasSpecialCharacters(affix.text);
-
-                    if (typedWhenWasKnownToBeIncorrect || isSpecialCharacterButWinningWordDonNotHaveThem) {
-                        affixesStack.subtotals.typedKnownIncorrect += 1;
-                    } else {
-                        affixesStack.incorrectLetters = [...affixesStack.incorrectLetters, ...affix.text];
-                    }
-                }
-
-                return affixesStack;
-            }, {
-                subtotals: {
-                    correct: 0,
-                    position: 0,
-                    incorrect: 0,
-                    typedKnownIncorrect: 0,
-                },
-                incorrectLetters: [],
-            });
-
-            guessesStack.words += 1;
-            guessesStack.subtotals.correct += wordTotals.correct;
-            guessesStack.subtotals.position += wordTotals.position;
-            guessesStack.subtotals.incorrect += wordTotals.incorrect;
-            guessesStack.subtotals.typedKnownIncorrect += wordTotals.typedKnownIncorrect;
-            guessesStack.incorrectLetters = [...guessesStack.incorrectLetters, ...wordIncorrectLetters];
-
-            return guessesStack;
+            return affixesStack;
         }, {
-            words: 0,
-            incorrectLetters: [],
             subtotals: {
                 correct: 0,
                 position: 0,
                 incorrect: 0,
                 typedKnownIncorrect: 0,
-            }
+            },
+            incorrectLetters: [],
         });
 
-        return {
-            words,
-            letters: subtotals.correct + subtotals.position + subtotals.incorrect,
-            subtotals,
-        };
-    },
+        guessesStack.words += 1;
+        guessesStack.subtotals.correct += wordTotals.correct;
+        guessesStack.subtotals.position += wordTotals.position;
+        guessesStack.subtotals.incorrect += wordTotals.incorrect;
+        guessesStack.subtotals.typedKnownIncorrect += wordTotals.typedKnownIncorrect;
+        guessesStack.incorrectLetters = [...guessesStack.incorrectLetters, ...wordIncorrectLetters];
+
+        return guessesStack;
+    }, {
+        words: 0,
+        incorrectLetters: [],
+        subtotals: {
+            correct: 0,
+            position: 0,
+            incorrect: 0,
+            typedKnownIncorrect: 0,
+        }
+    });
+
+    return {
+        words,
+        letters: subtotals.correct + subtotals.position + subtotals.incorrect,
+        subtotals,
+    };
+};
+
+export const selectGuessesStatsForLetters = createSelector(
+    selectGuesses,
+    selectHasWordToGuessSpecialCharacters,
+    getWordsAndLetters,
 );

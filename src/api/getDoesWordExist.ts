@@ -65,6 +65,44 @@ export const getDoesWordExist = async (word: string): Promise<getDoesWordExistRe
     };
 };
 
+interface KeyWithIndex {
+    key: string,
+    index: number,
+}
+
+export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[]): Promise<string[]> => {
+    const words = [];
+
+    for (const keyWithIndex of keysWithIndexes) {
+        const { key, index } = keyWithIndex;
+
+        try {
+            const response = await fetch(`./dictionary/${game_lang}/spelling/chunk-${key}.json`).catch(error => {
+                throw error;
+            });
+
+            if (response?.status === 404) {
+                cachedKeys[key] = [];
+            }
+
+            const result = await response.json();
+
+            cachedKeys[key] = result;
+        } catch (error) {
+            // 
+        }
+
+        const word = cachedKeys[key][index];
+
+        if (word) {
+            words.push(word);
+        }
+
+    }
+
+    return words;
+};
+
 export const getWordsIndexesChunks = (words: string[]) => {
     const keysWithWords = words.map((word) => ({ word, key: getNormalizedKey(word) }));
     const hasAllWordsFetched = keysWithWords.every(

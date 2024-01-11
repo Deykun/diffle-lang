@@ -87,7 +87,7 @@ describe('getUrlHashForGameResult', () => {
         });
     });
 
-    it('words indexes returns empty string', () => {
-        expect(getUrlHashForGameResult({ ...workingExample })).toEqual('test.5.0.kas-7b.tes-159');
+    it('right inputshould generate the correct hash', () => {
+        expect(getUrlHashForGameResult({ ...workingExample })).toEqual('?test.5.0.kas-7b.tes-159!');
     });
 });

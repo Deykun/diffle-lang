@@ -69,7 +69,7 @@ export const getUrlHashForGameResult = ({
     wordsWithIndexes = [],
     subtotals: {
         correct = 0,
-        typedKnownIncorrect = 0,
+        position = 0,
     },
 }: Params) => {
     const hasEnoughData = !(!wordToGuess || wordsWithIndexes.length === 0);
@@ -82,15 +82,36 @@ export const getUrlHashForGameResult = ({
         wordToGuess,
         // values below will be used as a checksum
         correct,
-        typedKnownIncorrect,
+        position,
     ];
 
     const compactedWords = transformChunkInfoIntoShortKey(wordsWithIndexes);
 
-    return [
+    const hashedValue = [
         ...partsToHash,
         compactedWords
     ].join('.');
+
+    // Cut base64 sometimes produces the right hash, with !()! we can confirm that entire has has been copied
+    return `!(${hashedValue})!`;
+};
+
+export const getGameResultFromUrlHash = async (urlHash: string) => {
+    const [
+        wordToGuess,
+        correctString,
+        positionString,
+        ...compactedWords
+    ] = urlHash.replace('!(', '').replace(')!', '').split('.');
+
+    const keysWithIndexes = transformShortKeyToChunkInfo(compactedWords.join('.'));
+
+    return {
+        wordToGuess,
+        correct: Number(correctString),
+        position:  Number(positionString),
+        keysWithIndexes,
+    };
 };
 
 export const maskValue = (value: string) => {
@@ -110,13 +131,21 @@ export const maskValue = (value: string) => {
 };
 
 export const demaskValue = (base64ReversedNoEqual: string) => {
-    const base64Reversed = `=${base64ReversedNoEqual}`;
-    const base64Value = Array.from(base64Reversed).reverse().join('');
+    try {
+        const base64Reversed = decodeURIComponent(base64ReversedNoEqual);
+        const base64Value = Array.from(base64Reversed).reverse().join('');
 
-    // const value = Buffer.from(base64Value, 'base64').toString('ascii');
-    const encodedValue = atob(base64Value);
+        console.log('base64Value', base64Value);
+    
+        // const value = Buffer.from(base64Value, 'base64').toString('ascii');
+        const encodedValue = atob(base64Value);
 
-    const value = decodeURIComponent(encodedValue);
-
-    return value;
+        console.log('encodedValue', encodedValue);
+    
+        const value = decodeURIComponent(encodedValue);
+    
+        return value;
+    } catch (error) {
+        return '';
+    }
 };

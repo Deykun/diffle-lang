@@ -107,6 +107,7 @@
         "lastDailyWordsTitle": "Wczoraj",
         "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\".",
         "shareTitle": "Udostępnianie",
+        "sharedContentTitle": "Udostępniony wynik",
         "shareLinkWithUsedWords": "Linkuj do użytych słów"
     },
     "statistics": {

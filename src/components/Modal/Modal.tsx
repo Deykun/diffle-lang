@@ -1,5 +1,4 @@
 import ReactDOM from 'react-dom';
-
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 
@@ -10,12 +9,13 @@ import IconClose from '@components/Icons/IconClose';
 import './Modal.scss';
 
 interface Props {
+    classNameWraper?: string,
     children: React.ReactNode,
     isOpen: boolean,
     onClose: () => void,
 }
 
-const Modal = ({ children, isOpen, onClose }: Props) => {
+const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
     const setTimeoutShowModalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [isClosing, setIsClosing] = useState(false);
 
@@ -51,7 +51,10 @@ const Modal = ({ children, isOpen, onClose }: Props) => {
     }
 
     return ReactDOM.createPortal(
-        <div className={clsx('modal-wrapper', { 'modal-wrapper--is-closing': isClosing })}>
+        <div className={clsx('modal-wrapper', {
+            [classNameWraper]: classNameWraper,
+            'modal-wrapper--is-closing': isClosing
+        })}>
             <button className="modal-overlay" onClick={handleClosing} />
             <div className="modal">
                 <button className="modal-close" onClick={handleClosing}>

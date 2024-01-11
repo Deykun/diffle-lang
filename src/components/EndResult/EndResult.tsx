@@ -24,6 +24,8 @@ import Word from '@components/Words/Word';
 import Button from '@components/Button/Button';
 import ShareButton from '@components/Share/ShareButton';
 
+import EndResultSummary from './EndResultSummary';
+
 import './EndResult.scss';
 
 const EndResult = () => {
@@ -76,93 +78,45 @@ const EndResult = () => {
 
     return (
         <>
-            <div className={clsx('end-result', endStatus)}>
-                <h3 className="title">
-                    {endStatus === GameStatus.Lost && (<>
-                        <span>{t('end.titleLost')}</span>
-                        <IconFancyThumbDown className="title-icon" />
-                    </>)}
-                    {endStatus === GameStatus.Won && (<>
-                        {guesses.length > 1 ? (<>
-                            <span>{t('end.titleWon')}</span>
-                            <IconFancyCheck className="title-icon" />
-                        </>): (<>
-                            <span>{t('end.titleCheater')}</span>
-                            <IconMagic className={clsx('title-icon', 'title-icon--magic')} />
-                        </>)}
-                    </>)}
-                </h3>
-                <div className="totals">
-                    <div className="total">
-                        {endStatus === GameStatus.Lost && (<>
-                            {t('end.winningWord')}
-                            <div className="lost-word-wrapper">
-                                <Word guess={lostWord} />
-                            </div>
-                        </>)}
-                        {endStatus === GameStatus.Won && (<>
-                            <strong>{letters}</strong>
-                            {' '}
-                            {t('end.lettersUsed', { postProcess: 'interval', count: letters })}
-                            {' '}
-                            {t('end.in')}
-                            {' '}
-                            <strong>{words}</strong>
-                            {' '}
-                            {t('end.inWordsUsed', { postProcess: 'interval', count: words })}
-                        </>)}
-                    </div>
-                </div>
-                <div className="subtotals">
-                    <p className="subtotal correct has-tooltip has-tooltip-from-left">
-                        <span>{subtotals.correct}</span>
-                        <span className="tooltip">{t('statistics.lettersCorrect')}</span>
-                    </p>
-                    <p className="subtotal position has-tooltip">
-                        <span>{subtotals.position}</span>
-                        <span className="tooltip">{t('statistics.lettersPosition')}</span>
-                    </p>
-                    <p className="subtotal incorrect has-tooltip">
-                        <span>{subtotals.incorrect}</span>
-                        <span className="tooltip">{t('statistics.lettersIncorrect')}</span>
-                    </p>
-                    <p className="subtotal incorrect typed has-tooltip has-tooltip-from-right">
-                        <span>{subtotals.typedKnownIncorrect}</span>
-                        <span className="tooltip">{t('statistics.lettersIncorrectAndTyped')}</span>
-                    </p>
-                </div>
-                <div className="actions">
-                    {gameMode === GameMode.Practice && (
-                        <Button
-                            onClick={handleNewGame}
-                            isLoading={isReseting}
-                        >
-                            <IconGamepad />
-                            <span>{t('common.newGame')}</span>
-                        </Button>
-                    )}
-                    <ShareButton shouldShowSettings />
-                </div>
-                <Button
-                    tagName="a"
-                    href={`https://sjp.pl/${wordToGuess}`}
-                    target="blank"
-                    rel="noopener noreferrer"
-                    isInverted
-                >
-                    <IconBook />
-                    <span>{t('common.checkInDictionary', { word: wordToGuess })}</span>
-                </Button>
-                {gameMode === GameMode.Daily && (
-                    <p
-                        className="next-word-tip"
-                        dangerouslySetInnerHTML={{ __html: t('end.nextDaily', {
-                            postProcess: 'interval',
-                            count: hoursToNext,
-                        })}}
-                    />
+            <EndResultSummary
+                status={endStatus}
+                wordToGuess={wordToGuess}
+                guesses={guesses}
+                words={words}
+                letters={letters}
+                subtotals={subtotals}
+            />
+            <div className="end-result-actions">
+                {gameMode === GameMode.Practice && (
+                    <Button
+                        onClick={handleNewGame}
+                        isLoading={isReseting}
+                    >
+                        <IconGamepad />
+                        <span>{t('common.newGame')}</span>
+                    </Button>
                 )}
+                <ShareButton shouldShowSettings />
             </div>
+            <Button
+                tagName="a"
+                href={`https://sjp.pl/${wordToGuess}`}
+                target="blank"
+                rel="noopener noreferrer"
+                isInverted
+            >
+                <IconBook />
+                <span>{t('common.checkInDictionary', { word: wordToGuess })}</span>
+            </Button>
+            {gameMode === GameMode.Daily && (
+                <p
+                    className="next-word-tip"
+                    dangerouslySetInnerHTML={{ __html: t('end.nextDaily', {
+                        postProcess: 'interval',
+                        count: hoursToNext,
+                    })}}
+                />
+            )}
         </>
     )
 };
