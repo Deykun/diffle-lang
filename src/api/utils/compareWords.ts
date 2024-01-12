@@ -37,7 +37,7 @@ export const compareWords = (answer: string, guess: string) => {
     let best_results: DiffleResult[] = [];
 
     table[answer.length][guess.length].paths.forEach(path => {
-        const start = path[0] == ">";
+        const iStart = path[0] == ">";
         const end = path[path.length - 1] == ">";
         const pattern: (0 | 1 | 2 | 3)[] = Array.from({ length: guess.length }, () => 0);
         const unused_letter: string[] = Array.from(answer);
@@ -45,8 +45,9 @@ export const compareWords = (answer: string, guess: string) => {
         let accept_count = 0;
         let streak_length = 0;
         let score = 0;
-        if (start) score += 1;
-        if (end) score += 1;
+        // Custom diffle-lang start and end should always win over coupling
+        if (start) score += 1000;
+        if (end) score += 500;
 
         let a = 0, b = 0;
         for (let i = 0; i < path.length; i++) {
