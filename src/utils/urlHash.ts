@@ -96,7 +96,7 @@ export const getUrlHashForGameResult = ({
         compactedWords
     ].join('.');
 
-    // Cut base64 sometimes produces the right hash, with !()! we can confirm that entire has has been copied
+    // Cut base64 sometimes produces the right hash, with !()! we can confirm that entire hash has been copied
     return `!(${hashedValue})!`;
 };
 

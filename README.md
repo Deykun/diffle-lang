@@ -4,7 +4,7 @@ Wordle bez limitu znaków. Każde użyte słowo podpowiada pozycje i kolejność
 
 Strona: https://deykun.github.io/diffle-lang/
 
-Największa społeczność polska społeczność: https://www.hejto.pl/tag/diffle
+Największa polska społeczność: https://www.hejto.pl/tag/diffle
 
 ---
 

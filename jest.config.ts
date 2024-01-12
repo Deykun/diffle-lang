@@ -1,6 +1,3 @@
-// import { resolve } from 'path';
-// '^@common-types(.*)$': resolve(__dirname, './src/types.d.ts$'),
-
 export default {
     testEnvironment: "jsdom",
     transform: {

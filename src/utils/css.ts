@@ -23,7 +23,6 @@ export const getCssVarMillisecondsValue = (propertyName: string) => {
         return 0;
     }
 
-
     const isMilliseconds = value.includes('ms');
 
     return isMilliseconds ? valueNumber : valueNumber * 1000;    
