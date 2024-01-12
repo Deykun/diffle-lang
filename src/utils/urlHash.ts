@@ -70,6 +70,8 @@ export const getUrlHashForGameResult = ({
     subtotals: {
         correct = 0,
         position = 0,
+        incorrect = 0,
+        typedKnownIncorrect,
     },
 }: Params) => {
     const hasEnoughData = !(!wordToGuess || wordsWithIndexes.length === 0);
@@ -83,6 +85,8 @@ export const getUrlHashForGameResult = ({
         // values below will be used as a checksum
         correct,
         position,
+        incorrect,
+        typedKnownIncorrect,
     ];
 
     const compactedWords = transformChunkInfoIntoShortKey(wordsWithIndexes);
@@ -101,6 +105,8 @@ export const getGameResultFromUrlHash = async (urlHash: string) => {
         wordToGuess,
         correctString,
         positionString,
+        incorrectString,
+        typedKnownIncorrectString,
         ...compactedWords
     ] = urlHash.replace('!(', '').replace(')!', '').split('.');
 
@@ -110,6 +116,8 @@ export const getGameResultFromUrlHash = async (urlHash: string) => {
         wordToGuess,
         correct: Number(correctString),
         position:  Number(positionString),
+        incorrect:  Number(incorrectString),
+        typedKnownIncorrect: Number(typedKnownIncorrectString),
         keysWithIndexes,
     };
 };

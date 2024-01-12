@@ -4,13 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
-import { GameMode, GameStatus } from '@common-types';
+import { Pane, GameStatus, GameMode } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast, toggleShareWords } from '@store/appSlice';
-import { selectGuessesStatsForLetters } from '@store/selectors';
+import { selectIsGameEnded } from '@store/selectors';
 import { getWordsAndLetters } from '@store/selectors';
 
+import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
 import { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 
@@ -26,8 +27,11 @@ import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconClose from '@components/Icons/IconClose';
+import IconDay from '@components/Icons/IconDay';
 import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconLoader from '@components/Icons/IconLoader';
+import IconLoaderError from '@components/Icons/IconLoaderError';
+
 import IconPencil from '@components/Icons/IconPencil';
 import IconShareAlt from '@components/Icons/IconShareAlt';
 
@@ -40,21 +44,25 @@ import EndResultSummary from '@components/EndResult/EndResultSummary';
 
 import './SharedContent.scss';
 
-const SharedContent = ({ shouldShowSettings = false }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [hash, setHash] = useState('');
-    const [{ isWon, wordToGuess, guesses,
-      words,
-      letters,
-      subtotals
-    }, setResult] = useState({
-      isWon: false,
-      wordToGuess: '',
-      guesses: [],
-      words: 0,
-      letters: 0,
-      subtotals: {}
-    });
+const SharedContent = () => {
+  const isGameEnded = useSelector(selectIsGameEnded);
+  const gameMode = useSelector(state => state.game.mode);
+  const canUserSeeUsedWords = (gameMode === GameMode.Daily && isGameEnded) || gameMode === GameMode.Practice;
+  const [isOpen, setIsOpen] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [hash, setHash] = useState('');
+  const [{ isWon, wordToGuess, guesses,
+    words,
+    letters,
+    subtotals
+  }, setResult] = useState({
+    isWon: false,
+    wordToGuess: '',
+    guesses: [],
+    words: 0,
+    letters: 0,
+    subtotals: {}
+  });
 
   const { t } = useTranslation();
 
@@ -71,18 +79,29 @@ const SharedContent = ({ shouldShowSettings = false }) => {
 
     const sharedResult = demaskValue(sharedMaskedResult);
 
+    console.log('sharedResult', sharedResult);
+
     const isValidHash =  !!sharedResult.match(/!\([a-z.0-9-]+\)!/gm);
 
     if (!isValidHash) {
       // Hash pattern is not correct
+      setErrorMessage('share.resultIsBroken');
+
       return;
     }
 
     setHash(sharedResult);
 
-    setTimeout(() => {
+    const isFirstGame = getInitPane() === Pane.Help;
+
+    console.log('canUserSeeUsedWords', canUserSeeUsedWords);
+    const shouldAutoOpenSharedResult = !isFirstGame && canUserSeeUsedWords;
+
+    if (shouldAutoOpenSharedResult) {
+      setTimeout(() => {
         setIsOpen(true);
-    }, 1)
+      }, 1)
+    }
   }, []);
 
   useEffect(() => {
@@ -91,20 +110,14 @@ const SharedContent = ({ shouldShowSettings = false }) => {
         // try {
           const {
             wordToGuess,
-            correct,
-            position,
+            correct: hashCorrect,
+            position: hashPosition,
+            incorrect: hashIncorrect,
+            typedKnownIncorrect: hashTypedKnowIncorrect,
             keysWithIndexes,
           } = await getGameResultFromUrlHash(hash);
 
           const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes);
-
-          console.log({
-            wordToGuess,
-            correct,
-            position,
-            keysWithIndexes,
-          });
-          console.log('words', wordsFromIndexes);
 
           const {
             isWon,
@@ -119,6 +132,20 @@ const SharedContent = ({ shouldShowSettings = false }) => {
             letters,
             subtotals,
           } = getWordsAndLetters(guesses, hasSpecialCharacters);
+
+          const isHashResultSameToCalculated = hashCorrect === subtotals.correct
+            && hashPosition === subtotals.position
+            && hashIncorrect === subtotals.incorrect
+            && hashTypedKnowIncorrect === subtotals.typedKnownIncorrect;
+
+          if (!isHashResultSameToCalculated) {
+            // Probably dictionary changed and we can't recover the result
+
+            setErrorMessage('share.resultHasExpired');
+            // setIsOpen(false);
+
+            return;
+          }
 
           setResult({
             wordToGuess,
@@ -136,7 +163,7 @@ const SharedContent = ({ shouldShowSettings = false }) => {
     }
   }, [hash]);
 
-  if (!hash) {
+  if (!hash && !errorMessage) {
     return null;
   }
 
@@ -144,17 +171,19 @@ const SharedContent = ({ shouldShowSettings = false }) => {
     <>
       <button
         className={clsx('shared-content-header-button', 'header-button', 'has-tooltip', 'has-tooltip-from-right', {
-          'shared-content-header-button-active': isOpen
+          'shared-content-header-button-active': isOpen,
+          'has-tooltip-activated': !isOpen && !errorMessage && canUserSeeUsedWords,
         })}
         onClick={() => setIsOpen(value => !value)}
       >
           <IconShareAlt />
-          <span className="tooltip">{t(isOpen ? 'common.close' : 'settings.sharedContentTitle')}</span>
+          <span className="tooltip">{t('share.titleSharedResult')}</span>
       </button>
       <Modal classNameWraper="modal-wrapper--shared-content" isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <h3>{t('settings.sharedContentTitle')}</h3>
+        <h3>{t('share.titleSharedResult')}</h3>
         {guesses.length === 0 ? <>
-          {hash ? <IconLoader className="shared-content-loader" /> : ''}
+          {hash && !errorMessage ? <p><IconLoader className="shared-content-loader" /></p> : ''}
+          {errorMessage ? <p className="shared-content-error">{t(errorMessage)}</p> : ''}
         </> : <>
           <EndResultSummary
             status={isWon ? 'won' : 'lost'}
@@ -166,8 +195,10 @@ const SharedContent = ({ shouldShowSettings = false }) => {
           />
           <br />
           <details>
-              <summary onClick={handleClickSummary}>
-                  <h2>{t('settings.sharedWordsTitle')}</h2>
+              <summary className={clsx({
+                'summary-disabled': !canUserSeeUsedWords,
+              })} onClick={handleClickSummary}>
+                  <h2>{t('share.titleUsedWords')}</h2>
                   <IconAnimatedCaret className="details-icon" />
               </summary>
               <div className="details-content shared-content-words">
@@ -178,6 +209,7 @@ const SharedContent = ({ shouldShowSettings = false }) => {
                   })}
               </div>
           </details>
+          {!canUserSeeUsedWords && <p className="shared-content-words-why-blocked"><IconFingerprint /><span>{t('settings.labelFinishGameLonger')}</span></p>}
         </>}
       </Modal>
     </>

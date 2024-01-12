@@ -180,6 +180,10 @@ details {
                 @include hover-effect;
             }
         }
+
+        &.summary-disabled {
+            pointer-events: none;
+        }
     }
 
     .details-icon {

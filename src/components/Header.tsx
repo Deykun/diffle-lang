@@ -22,6 +22,7 @@ interface Props {
 
 const Header = ({ pane, changePane }: Props) => {
     const isGameEnded = useSelector(selectIsGameEnded);
+    const wordToGuess = useSelector(state => state.game.wordToGuess);
     const gameMode = useSelector(state => state.game.mode);
     const guesses = useSelector((state) => state.game.guesses);
 
@@ -47,7 +48,7 @@ const Header = ({ pane, changePane }: Props) => {
             </div>
             <h1><button onClick={() => changePane(Pane.Game)}>Diffle{gameMode === GameMode.Practice && <IconInfinity />}</button></h1>
             <div className="header-right">
-                <SharedContent />
+                {wordToGuess && <SharedContent />}
                 <button
                   className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-right', {
                     'button-active': pane === Pane.Settings

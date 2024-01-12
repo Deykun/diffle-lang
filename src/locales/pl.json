@@ -79,12 +79,13 @@
     },
     "settings": {
         "title": "Ustawienia",
-        "inDevelopment": "w budowie",
-        "onlyIn": "tylko w",
-        "considered": "rozważane",
+        "inDevelopment": "W budowie",
+        "onlyIn": "Tylko w",
+        "considered": "Rozważane",
         "statisticsTitle": "Statystyki",
         "gameModeTitle": "Rodzaj gry",
-        "labelFinishGame": "ukończ",
+        "labelFinishGame": "Ukończ",
+        "labelFinishGameLonger": "Odgadnij dzisiejsze hasło, żeby odblokować.",
         "preferencesTitle": "Preferencje",
         "currentLanguage": "Polski",
         "highContrastMode": "Wysoki kontrast",
@@ -104,12 +105,16 @@
         "sourceWordle": "oryginalne wordle",
         "sourceDiffle": "oryginalne diffle",
         "sourceGithub": "repozytorium strony",
-        "lastDailyWordsTitle": "Wczoraj",
-        "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\".",
-        "shareTitle": "Udostępnianie",
-        "sharedContentTitle": "Udostępniony wynik",
-        "sharedWordsTitle": "Użyte słowa",
-        "shareLinkWithUsedWords": "Linkuj do użytych słów"
+        "lastDailyWordsTitle": "Wczorajsze słowo",
+        "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\"."
+    },
+    "share": {
+        "titleSettings": "Udostępnianie",
+        "linkWithUsedWords": "Linkuj do użytych słów",
+        "titleSharedResult": "Udostępniony wynik",
+        "resultIsBroken": "Niestety ten link wygasł lub jest uszkodzony.",
+        "resultHasExpired": "Niestety ten link wygasł.",
+        "titleUsedWords": "Użyte słowa"
     },
     "statistics": {
         "filters": "Filtry",

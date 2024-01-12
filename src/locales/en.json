@@ -69,12 +69,13 @@
     },
     "settings": {
         "title": "Settings",
-        "inDevelopment": "in development",
-        "onlyIn": "only in",
+        "inDevelopment": "In development",
+        "onlyIn": "Only in",
         "considered": "considered",
         "statisticsTitle": "Statistics",
         "gameModeTitle": "Game modes",
-        "labelFinishGame": "finish",
+        "labelFinishGame": "Finish",
+        "labelFinishGameLonger": "Guess today's password to unlock.",
         "preferencesTitle": "Preferences",
         "currentLanguage": "English",
         "highContrastMode": "High contrast",
@@ -94,8 +95,16 @@
         "sourceWordle": "original wordle",
         "sourceDiffle": "original diffle",
         "sourceGithub": "site repository",
-        "lastDailyWordsTitle": "Yesterday",
+        "lastDailyWordsTitle": "Yesterday's word",
         "lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\"."
+    },
+    "share": {
+        "titleSettings": "Sharing",
+        "linkWithUsedWords": "Link to used words",
+        "titleSharedResult": "Shared result",
+        "resultIsBroken": "Unfortunately, this link has expired or is broken.",
+        "resultHasExpired": "Unfortunately, this link has expired.",
+        "titleUsedWords": "Used words"
     },
     "statistics": {
         "filters": "Filters",

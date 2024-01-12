@@ -117,12 +117,12 @@ ${shareUrl}`;
       </span>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className="settings">
-          <h3>{t('settings.shareTitle')}</h3>
+          <h3>{t('share.titleSettings')}</h3>
           <ul>
               <li>
                   <button className={clsx('setting', { 'setting-active': shouldShareWords })} onClick={handleToggleShareWords}>
                       <IconFingerprint />
-                      <span>{t('settings.shareLinkWithUsedWords')}</span>
+                      <span>{t('share.linkWithUsedWords')}</span>
                   </button>
               </li>
               <li>

@@ -42,9 +42,11 @@ describe('ChunkInfo and ShortedKey', () => {
         /*
             So this is compacted:
             emo-3e8.aa6.515.test-d7b.emo-9c5.11f9.715.kre-321
+            In Base64 -> ZW1vLTNlOC5hYTYuNTE1LnRlc3QtZDdiLmVtby05YzUuMTFmOS43MTUua3JlLTMyMQ==
 
             And it could be:
             emo-1000.emo-2726.emo-1301.test-3451.emo-2501.emo-4601.emo-1813.kre-801
+            In Base64 -> ZW1vLTEwMDAuZW1vLTI3MjYuZW1vLTEzMDEudGVzdC0zNDUxLmVtby0yNTAxLmVtby00NjAxLmVtby0xODEzLmtyZS04MDE=
         */
         const shortKey = 'emo-3e8.aa6.515.test-d7b.emo-9c5.11f9.715.kre-321';
 
@@ -88,6 +90,6 @@ describe('getUrlHashForGameResult', () => {
     });
 
     it('right inputshould generate the correct hash', () => {
-        expect(getUrlHashForGameResult({ ...workingExample })).toEqual('?test.5.0.kas-7b.tes-159!');
+        expect(getUrlHashForGameResult({ ...workingExample })).toEqual('!(test.5.0.3.0.kas-7b.tes-159)!');
     });
 });
