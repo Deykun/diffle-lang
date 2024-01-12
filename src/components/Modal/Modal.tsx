@@ -42,7 +42,7 @@ const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
         }, cssTimeoutMs);
     }
 
-    const handleClickOverlay = () => {
+    const handleClickClose = () => {
         vibrate();
 
         handleClosing();
@@ -65,9 +65,9 @@ const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
             [classNameWraper]: classNameWraper,
             'modal-wrapper--is-closing': isClosing
         })}>
-            <button className="modal-overlay" onClick={handleClickOverlay} />
+            <button className="modal-overlay" onClick={handleClickClose} />
             <div className="modal">
-                <button className="modal-close" onClick={handleClosing}>
+                <button className="modal-close" onClick={handleClickClose}>
                     <IconClose />
                 </button>
                 {children}
