@@ -1,0 +1,82 @@
+.modal-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+
+    .modal-overlay {
+        animation: fadeIn var(--modal-duration-open) ease-out forwards;
+    }
+
+    .modal {
+        animation: slideInFromBottomModal var(--modal-duration-open) cubic-bezier(0.68, -0.55, 0.265, 1.3);
+    }
+}
+
+.modal-wrapper.modal-wrapper--is-closing {
+    .modal-overlay {
+        animation: fadeOut var(--modal-duration-close) ease-out forwards;
+    }
+
+    .modal {
+        animation: slideOutToBottomModal var(--modal-duration-close) ease-in-out forwards;
+    }
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: var(--background-transparent);
+    backdrop-filter: blur(1px) saturate(0.7) hue-rotate(-5deg);
+}
+
+.modal {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 5;
+    max-height: calc(100vh - 50px);
+    overflow: auto;
+    text-align: center;
+    padding: 16px 7px 7px;
+    width: min(500px, 100%);
+    transform: translateX(-50%);
+    background: var(--background);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -7px 15px var(--background-transparent);
+}
+
+.modal-close {
+    position: absolute;
+    right: 7px;
+    top: 12px;
+    height: 24px;
+    width: 24px;
+    color: var(--text-weaker);
+
+    svg {
+        fill: currentColor;
+        transition: 0.3s all ease-in-out;
+    }
+
+    &:hover {
+        color: var(--text);
+    }
+}
+
+@keyframes slideInFromBottomModal {
+    0% { transform: translateY(100%) translateX(-50%); }
+    100% { transform: translateY(0) translateX(-50%); }
+}
+
+@keyframes slideOutToBottomModal {
+    0% { transform: translateY(0) translateX(-50%); }
+    100% { transform: translateY(100%) translateX(-50%); }
+}

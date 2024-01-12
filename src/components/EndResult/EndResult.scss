@@ -114,23 +114,23 @@
             background-color: var(--incorrect-red-contrast);
         }
     }
+}
 
-    .next-word-tip {
-        margin-top: 10px;
-        margin-bottom: 0;
-        font-size: 70%;
-        color: var(--text-alt);
+.end-result-actions {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 12px;
+    margin-bottom: 12px;
+}
 
-        strong {
-            color: var(--text);
-        }
-    }
+.next-word-tip {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 70%;
+    color: var(--text-alt);
 
-    .actions {
-        display: flex;
-        justify-content: center;
-        flex-flow: row wrap;
-        gap: 12px;
-        margin-bottom: 12px;
+    strong {
+        color: var(--text);
     }
 }

@@ -82,6 +82,8 @@ h3 {
 }
 
 .has-tooltip {
+    z-index: 1;
+
     &.has-tooltip-activated,
     &:hover {
         z-index: 4;
@@ -177,6 +179,10 @@ details {
             &:active {
                 @include hover-effect;
             }
+        }
+
+        &.summary-disabled {
+            pointer-events: none;
         }
     }
 

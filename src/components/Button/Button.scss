@@ -30,7 +30,18 @@
         vertical-align: middle;
         width: 20px;
         height: 20px;
-        margin-right: 12px;
+
+        &:first-child:not(:last-child) {
+            margin-right: 12px;
+        }
+    }
+
+    &.no-border,
+    &.inverted.no-border {
+        &,
+        &:hover {
+            border-color: transparent;
+        }
     }
 
     &:hover {
@@ -89,6 +100,14 @@
             color: var(--blue-stronger);
             border-color: var(--blue);
             background-color: transparent;
+        }
+    }
+
+    &.text {
+        color: var(--text-weaker);
+
+        &:hover {
+            color: var(--text);
         }
     }
 }

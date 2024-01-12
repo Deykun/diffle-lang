@@ -1,4 +1,9 @@
-2.1:
+2.2:
+  - new - copying result with a link to words
+  - fix - better text for 0.0 not found words in dictionary
+  - fix - a incorrectly typed letter is blurred below the confirmation screen, not above it
+  - fix - "25 hours to the next daily word" adjusted
+2.1 08.01.2024:
   - new - game will return soon
 2.0 08.01.2024:
   - new - high contrast mode

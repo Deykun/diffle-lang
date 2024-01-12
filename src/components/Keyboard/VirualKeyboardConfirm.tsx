@@ -10,8 +10,11 @@ import useVibrate from '@hooks/useVibrate';
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
+import IconSubmit from '@components/Icons/IconSubmit';
+import IconUndo from '@components/Icons/IconUndo';
 
-import KeyCap from './KeyCap';
+import Button from '@components/Button/Button';
+import Modal from '@components/Modal/Modal';
 
 import './VirualKeyboardConfirm.scss';
 
@@ -40,23 +43,27 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
     }, [closeConfirm, dispatch, vibrateKeyboard]);
 
     return (
-        <div className="keyboard-confirm">
+        <Modal isOpen={true} onClose={() => closeConfirm()}>
             {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
             {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
-            <div className="line">
-                <KeyCap text="no" onClick={closeConfirm} />
-                <KeyCap text="yes" onClick={handleSubmit} />
+            <div className="keyboard-confirm-actions">
+                <Button className="setting" onClick={closeConfirm} isInverted isText hasBorder={false}>
+                    <IconUndo />
+                    <span>{t('common.no')}</span>
+                </Button>
+                <Button className="setting setting-active" onClick={handleSubmit}>
+                    <IconSubmit />
+                    <span>{t('common.yes')}</span>
+                </Button>
             </div>
-            <div className="keyboard-settings">
-                <button
-                    className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
-                    onClick={handleToggleConfirmEnter}
-                >
-                    <IconCheckConfirm />
-                    <span>{t('settings.confirmSubmition')}</span>
-                </button>
-            </div>
-        </div>
+            <button
+                className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
+                onClick={handleToggleConfirmEnter}
+            >
+                <IconCheckConfirm />
+                <span>{t('settings.confirmSubmition')}</span>
+            </button>
+      </Modal>
     );
 };
 

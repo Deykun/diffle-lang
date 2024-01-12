@@ -12,6 +12,7 @@ import { StatisticDataForCard, Filters, CharactersFilter, LengthFilter } from '@
 import { getNow } from '@utils/date';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
+import IconGithub from '@components/Icons/IconGithub';
 import IconPicture from '@components/Icons/IconPicture';
 
 import Button from '@components/Button/Button';
@@ -91,6 +92,8 @@ const StatisticsCard = ({
         }
     };
 
+    const diffleURL = location.href.replace('http://', '').replace('https://', '').split('?')[0];
+
     const canShowStreak = charactersFilter === CharactersFilter.All && lengthFilter === LengthFilter.All;
 
     return (
@@ -165,7 +168,7 @@ const StatisticsCard = ({
                             {totalTime.seconds > 0 && <><strong>{totalTime.seconds}</strong> s</>}
                         </span>
                     </p>
-                    {rejectedWordsWorstWonInGame > 0 && (
+                    {rejectedWordsPerGame > 0 && (
                         <p className="has-tooltip tooltip-relative">
                             <span dangerouslySetInnerHTML={{
                                 __html: t('statistics.averageWordsNotFound', { value: rejectedWordsPerGame.toFixed(1) })
@@ -176,6 +179,13 @@ const StatisticsCard = ({
                                         __html: t('statistics.worstWordsNotFound', { value: rejectedWordsWorstWonInGame })
                                 }} />
                             </span>
+                        </p>
+                    )}
+                    {rejectedWordsPerGame === 0 && rejectedWordsWorstWonInGame > 0 && (
+                        <p>
+                            <span dangerouslySetInnerHTML={{
+                                __html: t('statistics.worstWordsNotFoundLonger', { value: rejectedWordsWorstWonInGame })
+                            }} />
                         </p>
                     )}
                 </div>
@@ -240,7 +250,8 @@ const StatisticsCard = ({
                     </p>}
                 </div>
                 <footer>
-                    {location.href.replace('http://', '').replace('https://', '')}
+                    {diffleURL.includes('github') && <IconGithub />}
+                    {diffleURL}
                     {' '}
                     <StatisticsCardActiveFilters modeFilter={modeFilter} charactersFilter={charactersFilter} lengthFilter={lengthFilter} />
                 </footer>

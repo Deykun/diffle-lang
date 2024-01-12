@@ -5,7 +5,7 @@ import { KEY_LINES, ALLOWED_KEYS } from '@const';
 
 import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
-import { selectIsWon, selectKeyboardState } from '@store/selectors';
+import { selectIsGameEnded, selectKeyboardState } from '@store/selectors';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -19,7 +19,7 @@ const VirualKeyboard = () => {
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
     const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
-    const isWon = useSelector(selectIsWon);
+    const isGameEnded = useSelector(selectIsGameEnded);
     const type = useSelector(selectKeyboardState);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
@@ -52,7 +52,7 @@ const VirualKeyboard = () => {
 
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
-    const shouldShowConfirm = isConfirmOpen && !isWon;
+    const shouldShowConfirm = isConfirmOpen && !isGameEnded;
 
     const keyLines = !isEnterSwapped ? KEY_LINES : KEY_LINES.map((line) => line.map((keyText) => {
         if (keyText === 'enter') {

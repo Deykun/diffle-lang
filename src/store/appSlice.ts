@@ -8,6 +8,7 @@ import {
     getInitIsSmallKeyboard,
     getIsEnterSwapped,
     getShouldConfirmEnter,
+    getShouldShareWords,
 } from '@api/getInit';
 
 const initialState: RootAppState = {
@@ -22,6 +23,7 @@ const initialState: RootAppState = {
     isSmallKeyboard: getInitIsSmallKeyboard(),
     isEnterSwapped: getIsEnterSwapped(),
     shouldConfirmEnter: getShouldConfirmEnter(),
+    shouldShareWords: getShouldShareWords(),
 };
 
 const appSlice = createSlice({
@@ -62,6 +64,9 @@ const appSlice = createSlice({
         },
         toggleConfirmEnter(state) {
             state.shouldConfirmEnter = !state.shouldConfirmEnter;
+        },
+        toggleShareWords(state) {
+            state.shouldShareWords = !state.shouldShareWords;
         }
     },
     extraReducers: (builder) => {
@@ -74,5 +79,14 @@ const appSlice = createSlice({
       },
 })
 
-export const { setToast, clearToast, toggleVibration, toggleKeyboardVibration, toggleKeyboardSize, toggleEnterSwap, toggleConfirmEnter } = appSlice.actions;
+export const {
+    setToast,
+    clearToast,
+    toggleVibration,
+    toggleKeyboardVibration,
+    toggleKeyboardSize,
+    toggleEnterSwap,
+    toggleConfirmEnter,
+    toggleShareWords,
+} = appSlice.actions;
 export default appSlice.reducer;

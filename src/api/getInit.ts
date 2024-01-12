@@ -55,7 +55,14 @@ export const getIsEnterSwapped = () => {
 
 export const getShouldConfirmEnter = () => {
     const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_CONFIRM_ENTER) === 'false';
+
     // By default returns true
     return !shouldBlock;
 };
 
+export const getShouldShareWords = () => {
+    const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_SHARE_WORDS) === 'false';
+
+    // By default returns true
+    return !shouldBlock;
+};
