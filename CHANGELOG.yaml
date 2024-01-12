@@ -1,3 +1,5 @@
+2.3:
+  - fix - first and last letter markers are more important than coupling
 2.2:
   - new - copying result with a link to words
   - fix - better text for 0.0 not found words in dictionary
