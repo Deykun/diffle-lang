@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import { getCssVarMillisecondsValue } from '@utils/css';
 
+import useVibrate from '@hooks/useVibrate';
+
 import IconClose from '@components/Icons/IconClose';
 
 import './Modal.scss';
@@ -18,6 +20,8 @@ interface Props {
 const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
     const setTimeoutShowModalRef = useRef<ReturnType<typeof setInterval> | null>(null);
     const [isClosing, setIsClosing] = useState(false);
+
+    const { vibrate } = useVibrate();
 
     const handleClosing = () => {
         if (isClosing) {
@@ -38,6 +42,12 @@ const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
         }, cssTimeoutMs);
     }
 
+    const handleClickOverlay = () => {
+        vibrate();
+
+        handleClosing();
+    }
+
     useEffect(() => () => {
         if (setTimeoutShowModalRef.current) {
             clearTimeout(setTimeoutShowModalRef.current);
@@ -55,7 +65,7 @@ const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
             [classNameWraper]: classNameWraper,
             'modal-wrapper--is-closing': isClosing
         })}>
-            <button className="modal-overlay" onClick={handleClosing} />
+            <button className="modal-overlay" onClick={handleClickOverlay} />
             <div className="modal">
                 <button className="modal-close" onClick={handleClosing}>
                     <IconClose />
