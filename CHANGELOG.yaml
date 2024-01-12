@@ -1,4 +1,6 @@
-2.3:
+2.4:
+  - new - button - remove shared result
+2.3 12.01.2024:
   - fix - first and last letter markers are more important than coupling
 2.2 12.01.2024:
   - new - copying result with a link to words

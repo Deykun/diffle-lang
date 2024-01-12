@@ -114,7 +114,8 @@
         "titleSharedResult": "Udostępniony wynik",
         "resultIsBroken": "Niestety ten link wygasł lub jest uszkodzony.",
         "resultHasExpired": "Niestety ten link wygasł.",
-        "titleUsedWords": "Użyte słowa"
+        "titleUsedWords": "Użyte słowa",
+        "dontShowThisResult": "Nie pokazuj już tego wyniku"
     },
     "statistics": {
         "filters": "Filtry",

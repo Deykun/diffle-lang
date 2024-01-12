@@ -18,6 +18,7 @@ import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
+import IconEraser from '@components/Icons/IconEraser';
 import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconLoader from '@components/Icons/IconLoader';
 
@@ -25,6 +26,7 @@ import IconShareAlt from '@components/Icons/IconShareAlt';
 
 import Word from '@components/Words/Word';
 
+import Button from '@components/Button/Button';
 import Modal from '@components/Modal/Modal';
 
 import EndResultSummary from '@components/EndResult/EndResultSummary';
@@ -45,6 +47,20 @@ interface SharedContentResult {
   }
 }
 
+const EMPTY_SHARED_CONTENT_RESULT = {
+  isWon: false,
+  wordToGuess: '',
+  guesses: [],
+  words: 0,
+  letters: 0,
+  subtotals: {
+    correct: 0,
+    position: 0,
+    incorrect: 0,
+    typedKnownIncorrect: 0,
+  }
+}
+
 const SharedContent = () => {
   const isGameEnded = useSelector(selectIsGameEnded);
   const gameMode = useSelector(state => state.game.mode);
@@ -59,19 +75,7 @@ const SharedContent = () => {
     words,
     letters,
     subtotals
-  }, setResult] = useState<SharedContentResult>({
-    isWon: false,
-    wordToGuess: '',
-    guesses: [],
-    words: 0,
-    letters: 0,
-    subtotals: {
-      correct: 0,
-      position: 0,
-      incorrect: 0,
-      typedKnownIncorrect: 0,
-    }
-  });
+  }, setResult] = useState<SharedContentResult>(EMPTY_SHARED_CONTENT_RESULT);
 
   const { t } = useTranslation();
 
@@ -170,6 +174,14 @@ const SharedContent = () => {
     }
   }, [hash]);
 
+  const removeSharedContent = () => {
+    window.history.replaceState(null, document.title, location.href.replace(location.search, ''));
+    setIsOpen(false);
+    setErrorMessage('');
+    setHash('');
+    setResult(EMPTY_SHARED_CONTENT_RESULT);
+  }
+
   if (!hash && !errorMessage) {
     return null;
   }
@@ -218,6 +230,9 @@ const SharedContent = () => {
           </details>
           {!canUserSeeUsedWords && <p className="shared-content-words-why-blocked"><IconFingerprint /><span>{t('settings.labelFinishGameLonger')}</span></p>}
         </>}
+        <Button onClick={removeSharedContent} isInverted isText hasBorder={false}>
+          <IconEraser /><span>{t('share.dontShowThisResult')}</span>
+        </Button>
       </Modal>
     </>
   )

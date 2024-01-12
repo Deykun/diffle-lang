@@ -104,7 +104,8 @@
         "titleSharedResult": "Shared result",
         "resultIsBroken": "Unfortunately, this link has expired or is broken.",
         "resultHasExpired": "Unfortunately, this link has expired.",
-        "titleUsedWords": "Used words"
+        "titleUsedWords": "Used words",
+        "dontShowThisResult": "Don't show this result anymore"
     },
     "statistics": {
         "filters": "Filters",
