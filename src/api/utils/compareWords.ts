@@ -37,7 +37,7 @@ export const compareWords = (answer: string, guess: string) => {
     let best_results: DiffleResult[] = [];
 
     table[answer.length][guess.length].paths.forEach(path => {
-        const iStart = path[0] == ">";
+        const start = path[0] == ">";
         const end = path[path.length - 1] == ">";
         const pattern: (0 | 1 | 2 | 3)[] = Array.from({ length: guess.length }, () => 0);
         const unused_letter: string[] = Array.from(answer);
