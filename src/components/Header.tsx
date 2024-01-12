@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { GameMode, Pane, PaneChange } from '@common-types';
@@ -21,12 +22,19 @@ interface Props {
 }
 
 const Header = ({ pane, changePane }: Props) => {
+    const [shouldShowShared, setShouldShowShared] = useState(false);
     const isGameEnded = useSelector(selectIsGameEnded);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const gameMode = useSelector(state => state.game.mode);
     const guesses = useSelector((state) => state.game.guesses);
 
     const { t } = useTranslation();
+
+    useEffect(() => {
+      if (wordToGuess) {
+        setShouldShowShared(true);
+      }
+    }, [wordToGuess]);
 
     const isQuiteBadGameShouldHintHelp = pane === Pane.Game && guesses.length >= 8 && !isGameEnded;
 
@@ -48,7 +56,7 @@ const Header = ({ pane, changePane }: Props) => {
             </div>
             <h1><button onClick={() => changePane(Pane.Game)}>Diffle{gameMode === GameMode.Practice && <IconInfinity />}</button></h1>
             <div className="header-right">
-                {wordToGuess && <SharedContent />}
+                {shouldShowShared && <SharedContent />}
                 <button
                   className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-right', {
                     'button-active': pane === Pane.Settings

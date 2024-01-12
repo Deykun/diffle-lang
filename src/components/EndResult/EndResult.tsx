@@ -1,8 +1,7 @@
-import clsx from 'clsx';
-import { useCallback, useMemo, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Word as WordInterface, AffixStatus, GameMode, GameStatus } from '@common-types';
+import { GameMode } from '@common-types';
 
 import { getNow } from '@utils/date';
 
@@ -15,12 +14,8 @@ import getWordToGuess from '@api/getWordToGuess'
 import useVibrate from '@hooks/useVibrate';
 
 import IconBook from '@components/Icons/IconBook';
-import IconFancyCheck from '@components/Icons/IconFancyCheck';
-import IconFancyThumbDown from '@components/Icons/IconFancyThumbDown';
 import IconGamepad from '@components/Icons/IconGamepad';
-import IconMagic from '@components/Icons/IconMagic';
 
-import Word from '@components/Words/Word';
 import Button from '@components/Button/Button';
 import ShareButton from '@components/Share/ShareButton';
 
@@ -44,20 +39,6 @@ const EndResult = () => {
     useEffect(() => {
         vibrate({ duration: 100 });
     }, [vibrate]);
-
-    const lostWord: WordInterface = useMemo(() => {
-        const affixes = [{
-            type: AffixStatus.Incorrect,
-            text: wordToGuess,
-            isStart: true,
-            isEnd: true,
-        }];
-
-        return {
-            word: wordToGuess,
-            affixes,
-        };
-    }, [wordToGuess]);
 
     const handleNewGame = useCallback(() => {
         if (!isReseting) {

@@ -1,30 +1,30 @@
 import clsx from 'clsx';
-import { useCallback, useMemo, useEffect, useState } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Word as WordInterface, AffixStatus, GameMode, GameStatus } from '@common-types';
+import { Word as WordInterface, AffixStatus, GameStatus } from '@common-types';
 
-import { getNow } from '@utils/date';
-
-import { useSelector, useDispatch } from '@store';
-import { selectGuessesStatsForLetters } from '@store/selectors';
-import { setWordToGuess } from '@store/gameSlice'
-
-import getWordToGuess from '@api/getWordToGuess'
-
-import useVibrate from '@hooks/useVibrate';
-
-import IconBook from '@components/Icons/IconBook';
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconFancyThumbDown from '@components/Icons/IconFancyThumbDown';
-import IconGamepad from '@components/Icons/IconGamepad';
 import IconMagic from '@components/Icons/IconMagic';
 
 import Word from '@components/Words/Word';
-import Button from '@components/Button/Button';
-import ShareButton from '@components/Share/ShareButton';
 
 import './EndResult.scss';
+
+interface Props {
+    status: GameStatus,
+    wordToGuess: string,
+    guesses: WordInterface[],
+    words: number,
+    letters: number,
+    subtotals: {
+        correct: number,
+        position: number,
+        incorrect: number,
+        typedKnownIncorrect: number,
+    },
+}
 
 const EndResultSummary = ({
     status,
@@ -33,7 +33,7 @@ const EndResultSummary = ({
     words,
     letters,
     subtotals,
-}) => {
+}: Props) => {
     const { t } = useTranslation();
 
     const lostWord: WordInterface = useMemo(() => {

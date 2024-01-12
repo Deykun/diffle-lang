@@ -142,13 +142,9 @@ export const demaskValue = (base64ReversedNoEqual: string) => {
     try {
         const base64Reversed = decodeURIComponent(base64ReversedNoEqual);
         const base64Value = Array.from(base64Reversed).reverse().join('');
-
-        console.log('base64Value', base64Value);
     
         // const value = Buffer.from(base64Value, 'base64').toString('ascii');
         const encodedValue = atob(base64Value);
-
-        console.log('encodedValue', encodedValue);
     
         const value = decodeURIComponent(encodedValue);
     
