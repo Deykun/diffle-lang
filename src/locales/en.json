@@ -96,7 +96,10 @@
         "sourceDiffle": "original diffle",
         "sourceGithub": "site repository",
         "lastDailyWordsTitle": "Yesterday's word",
-        "lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\"."
+        "lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\".",
+        "confirmInSeconds_one": "Cilck in one second to confirm",
+        "confirmInSeconds_other": "Click in {{count}} seconds to confirm",
+        "confirmAfterWaiting": "Click to confirm"
     },
     "share": {
         "titleSettings": "Sharing",
@@ -139,6 +142,8 @@
         "lettersCorrect": "correct",
         "lettersPosition": "wrong position",
         "lettersIncorrect": "incorrect",
-        "lettersIncorrectAndTyped": "typed incorrect"
+        "lettersIncorrectAndTyped": "typed incorrect",
+        "titleRemoveStatistics": "Remove statistics",
+        "statisticsWasRemoved": "Statistics were removed"
     }
 }

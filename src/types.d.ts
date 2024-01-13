@@ -44,6 +44,7 @@ export interface Toast {
 }
 
 export interface RootAppState {
+    pane: Pane,
     toast: Toast,
     shouldVibrate: boolean,
     shouldKeyboardVibrate: boolean,

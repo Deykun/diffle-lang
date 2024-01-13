@@ -156,6 +156,28 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
     localStorage.setItem(key, statisticToSave);
 };
 
+export const removeStatisticsByGameMode = ({ gameLanguage = 'pl', gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
+    const keysToRemove = getStatisticFiltersForKeys({
+        modeFilter: gameMode,
+        lengthFilter: LengthFilter.All,
+        charactersFilter: CharactersFilter.All,
+    });
+
+    keysToRemove.forEach((keyToRemove) => {
+        localStorage.removeItem(keyToRemove);
+    })
+
+    // If we remove Daily filter mode all should be equal to Practice (same is aplied for the opposite)
+    const streakModeToSetAsAll = gameMode === ModeFilter.Daily ? ModeFilter.Practice : ModeFilter.Daily;
+
+    const streakToUseForAll = getStreak({ gameLanguage, gameMode: streakModeToSetAsAll });
+
+    saveStreak({ gameLanguage, gameMode: ModeFilter.All }, streakToUseForAll);
+
+    const keyOfStreakToRemove = getLocalStorageKeyForStreak({ gameLanguage, gameMode });
+    localStorage.removeItem(keyOfStreakToRemove);
+};
+
 export interface Streak {
     wonStreak: number,
     lostStreak: number,
@@ -321,7 +343,7 @@ export interface Filters {
     lengthFilter: LengthFilter,
 }
 
-export const getStatisticForFilter = ({
+export const getStatisticFiltersForKeys = ({
     modeFilter,
     charactersFilter,
     lengthFilter,
@@ -348,6 +370,20 @@ export const getStatisticForFilter = ({
 
         return true;
     }).map(({ key }) => key);
+
+    return keysToUse;
+}
+
+export const getStatisticForFilter = ({
+    modeFilter,
+    charactersFilter,
+    lengthFilter,
+}: Filters) => {
+    const keysToUse = getStatisticFiltersForKeys({
+        modeFilter,
+        charactersFilter,
+        lengthFilter,
+    });
 
     const arrayOfStatistics = keysToUse.map(keyToUse => getStatisticForKey(keyToUse));
 

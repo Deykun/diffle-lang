@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { RootAppState, ToastType } from '@common-types';
+import { Pane, RootAppState, ToastType } from '@common-types';
 
 import {
+    getInitPane,
     getInitShouldVibrate,
     getInitShouldKeyboardVibrate,
     getInitIsSmallKeyboard,
@@ -12,6 +13,7 @@ import {
 } from '@api/getInit';
 
 const initialState: RootAppState = {
+    pane: getInitPane(),
     toast: {
         text: '',
         type: ToastType.Default,
@@ -30,6 +32,11 @@ const appSlice = createSlice({
     name: 'app',
     initialState,
     reducers: {
+        setPane(state, action) {
+            const isCloseAction = state.pane === action.payload;
+
+            state.pane = isCloseAction ? Pane.Game : action.payload;
+        },
         setToast(state, action) {
             const { type = ToastType.Default, text = '', timeoutSeconds = 3 } = action.payload;
             const toastTime = (new Date()).getTime();
@@ -80,6 +87,7 @@ const appSlice = createSlice({
 })
 
 export const {
+    setPane,
     setToast,
     clearToast,
     toggleVibration,

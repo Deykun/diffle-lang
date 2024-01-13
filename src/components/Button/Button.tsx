@@ -63,8 +63,8 @@ const Button = ({
           rel={rel}
           target={target}
         >
-            {isLoading && <IconLoader className="button-loader" />}
             {children}
+            {isLoading && <IconLoader className="button-loader" />}
         </Tag>
     )
 };

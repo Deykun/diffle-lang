@@ -1,4 +1,4 @@
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect } from 'react';
 
 import { Pane as PaneInterface } from '@common-types';
 
@@ -6,10 +6,7 @@ import { LOCAL_STORAGE } from '@const';
 
 import { useSelector } from '@store';
 
-import { getInitPane } from '@api/getInit';
-
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
-import useVibrate from '@hooks/useVibrate';
 
 import Header from '@components/Header'
 
@@ -23,10 +20,8 @@ import Toast from '@components/Toast/Toast';
 import './App.scss'
 
 const App = () => {
-    const [pane, setPane] = useState(getInitPane());
+    const pane = useSelector(state => state.app.pane);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
-
-    const { vibrate } = useVibrate();
 
     useAppUpdateIfNeeded();
 
@@ -45,26 +40,14 @@ const App = () => {
         }
     }, []);
 
-    const handlePaneChange = useCallback((pickedPane: PaneInterface) => {
-        const isClose = pickedPane === pane;
-
-        if (isClose && pickedPane === PaneInterface.Game) {
-            return;
-        }
-
-        vibrate();
-
-        setPane(isClose ? PaneInterface.Game : pickedPane);
-    }, [pane, vibrate]);
-
     return (
         <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
-            <Header pane={pane} changePane={handlePaneChange} />
+            <Header />
             <main>
                 <Toast />
-                {pane === PaneInterface.Help && <Help changePane={handlePaneChange} />}
+                {pane === PaneInterface.Help && <Help />}
                 {pane === PaneInterface.Game && <Game />}
-                {pane === PaneInterface.Settings && <Settings changePane={handlePaneChange} />}
+                {pane === PaneInterface.Settings && <Settings />}
                 {pane === PaneInterface.Statistics && <Statistics />}
             </main>
         </div>

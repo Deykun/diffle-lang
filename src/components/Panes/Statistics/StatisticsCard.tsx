@@ -1,21 +1,10 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
-import * as htmlToImage from 'html-to-image';
-import download from 'downloadjs';
-
-import { ToastType } from '@common-types';
-
-import { useDispatch } from '@store';
-import { setToast } from '@store/appSlice';
 
 import { StatisticDataForCard, Filters, CharactersFilter, LengthFilter } from '@utils/statistics';
-import { getNow } from '@utils/date';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGithub from '@components/Icons/IconGithub';
-import IconPicture from '@components/Icons/IconPicture';
-
-import Button from '@components/Button/Button';
 
 import CircleScale from './CircleScale';
 
@@ -68,29 +57,7 @@ const StatisticsCard = ({
     charactersFilter,
     lengthFilter,
 }: StatisticForCard) => {
-    const dispatch = useDispatch();
     const { t } = useTranslation();
-
-    const handleDownload = async () => {
-        const  domElement = document.getElementById('sharable-card');
-
-        if (!domElement) {
-            return;
-        }
-    
-        try {
-            const dataUrl = await htmlToImage.toJpeg(domElement);
-
-            const { stamp, stampOnlyTime } = getNow();
-            const fullStamp = `${stamp} ${stampOnlyTime}`;
-            
-            download(dataUrl, `DIFFLE ${fullStamp}.jpeg`);
-        } catch (error) {
-            console.error(error);
-
-            dispatch(setToast({ type: ToastType.Incorrect, text: `common.downloadError` }));
-        }
-    };
 
     const diffleURL = location.href.replace('http://', '').replace('https://', '').split('?')[0];
 
@@ -255,12 +222,6 @@ const StatisticsCard = ({
                     {' '}
                     <StatisticsCardActiveFilters modeFilter={modeFilter} charactersFilter={charactersFilter} lengthFilter={lengthFilter} />
                 </footer>
-            </div>
-            <div className="statistics-card-actions">
-                <Button onClick={handleDownload} isInverted>
-                    <IconPicture />
-                    <span>{t('common.download')}</span>
-                </Button>
             </div>
         </>
     )

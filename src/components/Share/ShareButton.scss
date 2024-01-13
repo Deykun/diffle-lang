@@ -1,4 +1,30 @@
+.share-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-flow: row nowrap;
+
+    button:first-child:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    button:last-child:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+}
+
 .share-settings {
-    padding-left: 8px;
-    padding-right: 8px;
+    &::before {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: 5px;
+        bottom: 5px;
+        width: 2px;
+        border-radius: 2px;
+        background-color: var(--blue-contrast);
+    }
 }

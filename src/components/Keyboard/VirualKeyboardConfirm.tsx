@@ -56,13 +56,16 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
                     <span>{t('common.yes')}</span>
                 </Button>
             </div>
-            <button
+            <Button
                 className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
                 onClick={handleToggleConfirmEnter}
+                isInverted
+                isText
+                hasBorder={false}
             >
                 <IconCheckConfirm />
                 <span>{t('settings.confirmSubmition')}</span>
-            </button>
+            </Button>
       </Modal>
     );
 };

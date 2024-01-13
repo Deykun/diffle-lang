@@ -106,7 +106,12 @@
         "sourceDiffle": "oryginalne diffle",
         "sourceGithub": "repozytorium strony",
         "lastDailyWordsTitle": "Wczorajsze słowo",
-        "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\"."
+        "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\".",
+        "confirmInSeconds_zero": "Kliknij za {{count}} sekund by potwierdzić",
+        "confirmInSeconds_one": "Kliknij za sekundę by potwierdzić",
+        "confirmInSeconds_few": "Kliknij za {{count}} sekundy by potwierdzić",
+        "confirmInSeconds_many": "Kliknij za {{count}} sekund by potwierdzić",
+        "confirmAfterWaiting": "Kliknij by potwierdzić"
     },
     "share": {
         "titleSettings": "Udostępnianie",
@@ -157,6 +162,8 @@
         "lettersCorrect": "dobre",
         "lettersPosition": "w złej pozycji",
         "lettersIncorrect": "niepoprawne",
-        "lettersIncorrectAndTyped": "niepoprawne powtórzone"
+        "lettersIncorrectAndTyped": "niepoprawne powtórzone",
+        "titleRemoveStatistics": "Usuń statystyki",
+        "statisticsWasRemoved": "Usunięto statystyki."
     }
 }
