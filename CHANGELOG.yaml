@@ -1,5 +1,6 @@
 2.4.1:
   - fix - fixed shared content for wining ords that have polish characters
+  - fix - unnecessary $ removed from "$1 h 37 m 20 s"
 2.4 12.01.2024:
   - new - button - remove shared result
 2.3 12.01.2024:

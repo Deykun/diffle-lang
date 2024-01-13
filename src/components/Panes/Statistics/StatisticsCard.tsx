@@ -161,7 +161,7 @@ const StatisticsCard = ({
                         <span className="tooltip">
                             {t('statistics.totalGameTime')}
                             {' '}
-                            {totalTime.hours > 0 && <><strong>${totalTime.hours}</strong> h</>}
+                            {totalTime.hours > 0 && <><strong>{totalTime.hours}</strong> h</>}
                             {' '}
                             {totalTime.minutes > 0 && <><strong>{totalTime.minutes}</strong> m</>}
                             {' '}
