@@ -167,7 +167,7 @@ export const removeStatisticsByGameMode = ({ gameLanguage = 'pl', gameMode }: { 
         localStorage.removeItem(keyToRemove);
     })
 
-    // If we remove Daily filter mode all should be equal to Practice (same is aplied inreverse)
+    // If we remove Daily filter mode all should be equal to Practice (same is aplied for the opposite)
     const streakModeToSetAsAll = gameMode === ModeFilter.Daily ? ModeFilter.Practice : ModeFilter.Daily;
 
     const streakToUseForAll = getStreak({ gameLanguage, gameMode: streakModeToSetAsAll });

@@ -24,7 +24,6 @@ const ButtonSettingWithConfirm = ({
     const [secondsLeft, setSecondsLeft] = useState(secondsToConfirm);
     const [shouldStartTimer, setShouldStartTimer] = useState(false);
     const setIntervalUnlockActionRef = useRef<ReturnType<typeof setInterval> | null>(null);
-    // const Tag = tagName || 'button';
 
     const { t } = useTranslation();
     const { vibrate } = useVibrate();

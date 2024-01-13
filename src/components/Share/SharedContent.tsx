@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Pane, GameStatus, GameMode, Word as WordInterface } from '@common-types';
 
+import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+
 import { useSelector } from '@store';
 import { selectIsGameEnded } from '@store/selectors';
 import { getWordsAndLetters } from '@store/selectors';
@@ -37,6 +39,7 @@ interface SharedContentResult {
   isWon: boolean,
   wordToGuess: string,
   guesses: WordInterface[],
+  hasLongGuesses: boolean,
   words: number,
   letters: number,
   subtotals: {
@@ -51,6 +54,7 @@ const EMPTY_SHARED_CONTENT_RESULT = {
   isWon: false,
   wordToGuess: '',
   guesses: [],
+  hasLongGuesses: false,
   words: 0,
   letters: 0,
   subtotals: {
@@ -72,6 +76,7 @@ const SharedContent = () => {
     isWon,
     wordToGuess,
     guesses,
+    hasLongGuesses,
     words,
     letters,
     subtotals
@@ -138,6 +143,8 @@ const SharedContent = () => {
             affixes,
           }));
 
+          const hasLongGuesses = guesses.some(({ word }) => word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS);
+
           const hasSpecialCharacters = getHasSpecialCharacters(wordToGuess);
 
           const {
@@ -162,6 +169,7 @@ const SharedContent = () => {
             wordToGuess,
             isWon,
             guesses,
+            hasLongGuesses,
             words,
             letters,
             subtotals,
@@ -185,6 +193,9 @@ const SharedContent = () => {
   if (!hash && !errorMessage) {
     return null;
   }
+
+  const shouldBeNarrower = hasLongGuesses;
+  const shouldBeShorter = guesses.length > 8;
 
   return (
     <>
@@ -221,11 +232,13 @@ const SharedContent = () => {
                   <IconAnimatedCaret className="details-icon" />
               </summary>
               <div className="details-content shared-content-words">
+                <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
                   {guesses.map((guess, index) => {            
                     return (
                         <Word key={`guess-${index}`} guess={guess} />
                     );
                   })}
+                </div>
               </div>
           </details>
           {!canUserSeeUsedWords && <p className="shared-content-words-why-blocked"><IconFingerprint /><span>{t('settings.labelFinishGameLonger')}</span></p>}
