@@ -1,37 +1,22 @@
-import clsx from 'clsx';
-import { useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import * as htmlToImage from 'html-to-image';
 import download from 'downloadjs';
 
-import { ToastType, GameMode } from '@common-types';
+import { ToastType } from '@common-types';
 
+import { useDispatch } from '@store';
+import { setToast } from '@store/appSlice';
 
-
-import { useSelector, useDispatch } from '@store';
-import { setToast, toggleShareWords } from '@store/appSlice';
-import { selectGuessesStatsForLetters } from '@store/selectors';
-
-import { getWordsIndexesChunks } from '@api/getDoesWordExist';
-
-import { copyMessage } from '@utils/copyMessage';
 import { getNow } from '@utils/date';
 
 import { ModeFilter, removeStatisticsByGameMode } from '@utils/statistics';
 
-
-import { getUrlHashForGameResult, maskValue } from '@utils/urlHash';
-
-import useVibrate from '@hooks/useVibrate';
-
 import IconDay from '@components/Icons/IconDay';
 import IconEraser from '@components/Icons/IconEraser';
-import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconInfinity from '@components/Icons/IconInfinity';
-import IconPencil from '@components/Icons/IconPencil';
 import IconPicture from '@components/Icons/IconPicture';
-import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
 import ButtonSettingWithConfirm from '@components/Button/ButtonSettingWithConfirm';
@@ -39,7 +24,12 @@ import Modal from '@components/Modal/Modal';
 
 import './StatisticsActions.scss';
 
-const StatisticsActions = () => {
+interface Props {
+    refreshStatitics: () => void,
+    modeFilter: ModeFilter,
+}
+
+const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -67,14 +57,20 @@ const StatisticsActions = () => {
   };
 
   const handleRemoveGameModeStatitics = (gameMode: ModeFilter ) => {
-    removeStatisticsByGameMode({ gameLanguage: 'pl', gameMode});
+    removeStatisticsByGameMode({ gameLanguage: 'pl', gameMode });
+
+    refreshStatitics();
+
+    setIsOpen(false);
+
+    dispatch(setToast({ text: `statistics.statisticsWasRemoved` }));
   };
 
   return (
     <>
       <div className="statistics-actions">
           <Button className="statistics-action-edit" onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
-              <IconPencil />
+              <IconEraser />
           </Button>
           <Button onClick={handleDownload} isInverted>
               <IconPicture />
@@ -88,6 +84,7 @@ const StatisticsActions = () => {
                 <li>
                     <ButtonSettingWithConfirm
                         onClick={() => handleRemoveGameModeStatitics(ModeFilter.Daily)}
+                        isDisabled={modeFilter === ModeFilter.Practice}
                     >
                         <IconDay />
                         <span>{t('game.modeDaily')}</span>
@@ -96,6 +93,7 @@ const StatisticsActions = () => {
                 <li>
                     <ButtonSettingWithConfirm
                         onClick={() => handleRemoveGameModeStatitics(ModeFilter.Practice)}
+                        isDisabled={modeFilter === ModeFilter.Daily}
                     >
                         <IconInfinity />
                         <span>{t('game.modePractice')}</span>

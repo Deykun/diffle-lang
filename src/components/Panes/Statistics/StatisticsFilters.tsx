@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { StatisticDataForCard, Streak } from '@utils/statistics';
 import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
 import {
@@ -10,9 +9,6 @@ import {
     ModeFilter,
     CharactersFilter,
     LengthFilter,
-    getStatisticForFilter,
-    getStreakForFilter,
-    getStatisticCardDataFromStatistics,
 } from '@utils/statistics';
 
 import useVibrate from '@hooks/useVibrate';
@@ -33,14 +29,10 @@ import { INITIAL_FILTERS } from './constants';
 import '../Settings/Settings.scss'
 
 interface Props {
-    setData: Dispatch<SetStateAction<{
-        filtersData: Filters,
-        statisticsData: StatisticDataForCard | undefined,
-        streakData: Streak | undefined,
-    }>>
+    setFiltersData: Dispatch<SetStateAction<Filters>>
 }
 
-const StatisticsFilters = ({ setData }: Props) => {
+const StatisticsFilters = ({ setFiltersData }: Props) => {
     const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
@@ -62,17 +54,8 @@ const StatisticsFilters = ({ setData }: Props) => {
             lengthFilter,
         };
 
-        const statistics = getStatisticForFilter(filtersData);
-        const streakData = getStreakForFilter(filtersData);
-
-        const statisticsData = getStatisticCardDataFromStatistics(statistics);
-
-        setData({
-            filtersData,
-            statisticsData,
-            streakData,
-        });
-    }, [modeFilter, charactersFilter, lengthFilter, setData]);
+        setFiltersData(filtersData);
+    }, [modeFilter, charactersFilter, lengthFilter, setFiltersData]);
     
     return (
         <details className="statistics-filters">

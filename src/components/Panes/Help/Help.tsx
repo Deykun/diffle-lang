@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane, PaneChange } from '@common-types';
+import { Pane } from '@common-types';
 
+import usePanes from '@hooks/usePanes';
 import useScrollEffect from '@hooks/useScrollEffect';
 
 import Word from '@components/Words/Word'
@@ -13,13 +14,10 @@ import { HELP_WORDS, HELP_WORDS_ALT } from './constants';
 
 import './Help.scss'
 
-interface Props {
-    changePane: PaneChange,
-}
-
-const Help = ({ changePane }: Props) => {
+const Help = () => {
     const [isAlt, setIsAlt] = useState(false);
     const { t } = useTranslation();
+    const { changePane } = usePanes();
 
     const words = isAlt ? HELP_WORDS_ALT : HELP_WORDS;
     const tEnd = isAlt ? `Alt` : '';

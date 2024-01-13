@@ -2,10 +2,12 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GameMode, Pane, PaneChange } from '@common-types';
+import { GameMode, Pane } from '@common-types';
 
 import { useSelector } from '@store';
 import { selectIsGameEnded } from '@store/selectors';
+
+import usePanes from '@hooks/usePanes';
 
 import IconClose from '@components/Icons/IconClose';
 import IconHelp from '@components/Icons/IconHelp';
@@ -16,12 +18,9 @@ import SharedContent from '@components/Share/SharedContent';
 
 import './Header.scss';
 
-interface Props {
-    pane: Pane,
-    changePane: PaneChange,
-}
 
-const Header = ({ pane, changePane }: Props) => {
+
+const Header = () => {
     const [shouldShowShared, setShouldShowShared] = useState(false);
     const isGameEnded = useSelector(selectIsGameEnded);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
@@ -29,6 +28,8 @@ const Header = ({ pane, changePane }: Props) => {
     const guesses = useSelector((state) => state.game.guesses);
 
     const { t } = useTranslation();
+
+    const { pane, changePane } = usePanes();
 
     useEffect(() => {
       if (wordToGuess) {

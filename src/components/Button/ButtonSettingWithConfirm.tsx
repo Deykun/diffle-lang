@@ -10,6 +10,7 @@ interface Props {
     className?: string,
     children: React.ReactNode,
     onClick: () => void,
+    isDisabled?: boolean,
     secondsToConfirm?: number,
 }
 
@@ -17,6 +18,7 @@ const ButtonSettingWithConfirm = ({
     className = '',
     children,
     onClick,
+    isDisabled = false,
     secondsToConfirm = 5,
 }: Props) => {
     const [secondsLeft, setSecondsLeft] = useState(secondsToConfirm);
@@ -85,9 +87,13 @@ const ButtonSettingWithConfirm = ({
             'setting-confirm-allowed': isConfirmAllowed,
           })}
           onClick={handleClick}
+          disabled={isDisabled}
         >
             {children}
-            {isCountingToAllowConfirm && <p className="setting-confirm">{t('settings.confirmInSeconds', { seconds: secondsLeft })}</p>}
+            {isCountingToAllowConfirm && <p className="setting-confirm">{t('settings.confirmInSeconds', {
+                postProcess: 'interval',
+                count: secondsLeft,
+            })}</p>}
             {isConfirmAllowed && <p className="setting-confirm">{t('settings.confirmAfterWaiting')}</p>}
         </button>
     )
