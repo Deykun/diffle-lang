@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Modal = ({ classNameWraper = '', children, isOpen, onClose }: Props) => {
-    const setTimeoutShowModalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const setTimeoutShowModalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [isClosing, setIsClosing] = useState(false);
 
     const { vibrate } = useVibrate();

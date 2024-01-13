@@ -8,6 +8,7 @@ import IconGamepad from '@components/Icons/IconGamepad';
 
 import StatisticsCard from './StatisticsCard';
 import StatisticsFilters from './StatisticsFilters';
+import StatisticsActions from './StatisticsActions';
 
 import { INITIAL_FILTERS } from './constants';
 
@@ -42,7 +43,10 @@ const Statistics = () => {
                 </h2>
                 {isMissingData
                     ? <div className="missing-data"><IconChartWithMarkedPart className="missing-data-icon" /><p>{t('statistics.noData')}</p></div>
-                    : <StatisticsCard {...statisticsData} {...streakData} {...filtersData} />
+                    : <>
+                        <StatisticsCard {...statisticsData} {...streakData} {...filtersData} />
+                        <StatisticsActions />
+                    </>
                 }
             </div>
         </div>

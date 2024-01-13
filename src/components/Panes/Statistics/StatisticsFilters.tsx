@@ -20,10 +20,10 @@ import useEnhancedDetails from '@hooks/useEnhancedDetails';
 import useEffectChange from "@hooks/useEffectChange";
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
-import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
 import IconFlag from '@components/Icons/IconFlag';
 import IconFlagAlt from '@components/Icons/IconFlagAlt';
+import IconInfinity from '@components/Icons/IconInfinity';
 import IconLayersAlt from '@components/Icons/IconLayersAlt';
 import IconRulerSmall from '@components/Icons/IconRulerSmall';
 import IconRulerBig from '@components/Icons/IconRulerBig';

@@ -4,7 +4,7 @@ import useVibrate from './useVibrate';
 
 // HTML Details is shitty and closing animation isn't possible without hacks
 export default function useEnhancedDetails() {
-    const setTimeoutRef = useRef<ReturnType<typeof setInterval> | null>(null);
+    const setTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const { vibrate } = useVibrate();
 

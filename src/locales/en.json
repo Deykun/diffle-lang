@@ -139,6 +139,7 @@
         "lettersCorrect": "correct",
         "lettersPosition": "wrong position",
         "lettersIncorrect": "incorrect",
-        "lettersIncorrectAndTyped": "typed incorrect"
+        "lettersIncorrectAndTyped": "typed incorrect",
+        "titleRemoveStatistics": "Usuń statystyki"
     }
 }

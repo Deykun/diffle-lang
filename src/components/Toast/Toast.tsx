@@ -8,8 +8,8 @@ import { clearToast } from '@store/appSlice';
 import './Toast.scss';
 
 const Toasts = () => {
-  const setTimeoutShowToastRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const setTimeoutShakeToastRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const setTimeoutShowToastRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const setTimeoutShakeToastRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dispatch = useDispatch();
   const [{ shouldShake, didShake }, setShake] = useState({ shouldShake: false, didShake: false });
   const { type, text, timeoutSeconds = 4, toastTime } = useSelector(state => state.app.toast);
