@@ -12,7 +12,7 @@ import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
 import { getWordReportForMultipleWords } from '@api/getWordReport';
 
-import { getHasSpecialCharacters } from '@utils/normilzeWord';
+import { normilzeWord, getHasSpecialCharacters } from '@utils/normilzeWord';
 import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
 
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
@@ -91,7 +91,7 @@ const SharedContent = () => {
 
     const sharedResult = demaskValue(sharedMaskedResult);
 
-    const isValidHash =  !!sharedResult.match(/!\([a-z.0-9-]+\)!/gm);
+    const isValidHash =  !!normilzeWord(sharedResult).match(/!\([a-z.0-9-]+\)!/gm);
 
     if (!isValidHash) {
       // Hash pattern is not correct
