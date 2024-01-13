@@ -96,7 +96,7 @@ ${shareUrl}`;
 
   return (
     <>
-      <span>
+      <span className="share-button">
         <Button
           onClick={handleCopy}
         >
@@ -107,9 +107,6 @@ ${shareUrl}`;
           <Button
             className="share-settings"
             onClick={onClick}
-            isInverted
-            isText
-            hasBorder={false}
           >
             <IconPencil />
           </Button>

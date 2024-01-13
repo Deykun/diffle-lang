@@ -18,6 +18,7 @@ import IconGamepad from '@components/Icons/IconGamepad';
 
 import Button from '@components/Button/Button';
 import ShareButton from '@components/Share/ShareButton';
+import StatisticsHint from '@components/Panes/Statistics/StatisticsHint';
 
 import EndResultSummary from './EndResultSummary';
 
@@ -98,6 +99,7 @@ const EndResult = () => {
                     })}}
                 />
             )}
+            <StatisticsHint />
         </>
     )
 };
