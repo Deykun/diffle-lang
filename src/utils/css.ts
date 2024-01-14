@@ -17,7 +17,7 @@ export const getCssVarMillisecondsValue = (propertyName: string) => {
         return 0;
     }
 
-    const valueNumber = Number(value?.replace(/\D/g,''));
+    const valueNumber = value.startsWith('.') ? Number(`0.${value.replace(/\D./g,'')}`) : Number(value?.replace(/\D/g,''));
 
     if (!valueNumber) {
         return 0;
