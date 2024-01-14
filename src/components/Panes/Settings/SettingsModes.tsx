@@ -57,7 +57,7 @@ const SettingsModes = ({ changePane }: Props) => {
                             <span>{t('end.completed')}</span><IconFancyCheck />
                         </span>}
                         {shouldShowTimeForDaily && <span className={clsx('setting-label', 'correct')}>
-                            <span>{t('end.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() + 1 })}</span>
+                            <span>{t('end.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() })}</span>
                             <IconFancyCheck />
                         </span>}
                     </button>
