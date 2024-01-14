@@ -1,4 +1,9 @@
-2.5:
+2.5.1:
+  - fix - the next daily password now displays the same number in both settings and game view
+  - fix - improved hover state for share buttons in dark mode
+  - fix - confirm screen active state improved for toggle
+  - fix - scroll is now visible alawys, ensuring that the content doesn't move on desktop in Chrome
+2.5 13.01.2024:
   - new - remove statistics by game moded added
   - new - hint about statistics for daily users with nice streak (5, 10, 25, 50, 75 etc.)
   - fix - a new practice game button marging fixed while loading

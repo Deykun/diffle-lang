@@ -60,7 +60,7 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
                 className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
                 onClick={handleToggleConfirmEnter}
                 isInverted
-                isText
+                isText={!shouldConfirmEnter}
                 hasBorder={false}
             >
                 <IconCheckConfirm />
