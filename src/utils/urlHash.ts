@@ -19,6 +19,39 @@ interface ChunkInfo {
     index: number,
 }
 
+export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey: string | undefined = '') => {
+    if (key.length !== 3) {
+        throw `Key must be 3 letters length. key: ${key}, previousKey: ${previousKey}`;
+    }
+
+    if (key === previousKey) {
+        return '';
+    }
+
+    if (key.slice(0, 2) === previousKey.slice(0, 2)) {
+        return key.slice(2, 3);
+    }
+
+    if (key.slice(0, 1) === previousKey.slice(0, 1)) {
+        return key.slice(1, 3);
+    }
+
+    return key;
+};
+
+export const getFullChunkKeyWithPreviousUsedAsShadow = (key: string | undefined = '', previousKey: string | undefined = '') => {
+    if (key.length === 3) {
+        return key;
+    }
+
+    if (previousKey.length !== 3) {
+        // If the first one is missing then this has to be filled
+        throw 'Shadow key must be 3 letters length';
+    }
+
+    return `${previousKey.slice(0, 3 - key.length)}${key}`;
+};
+
 /*
     Why?
     korzyść, korzeń, korytarz, kora, koran
@@ -33,9 +66,9 @@ interface ChunkInfo {
 
 export const transformChunkInfoIntoShortKey = (wordsWithIndexes: ChunkInfo[]): string => {
     return wordsWithIndexes.map(({ key, index }, arrayIndex) => {
-        const isTheSameKey = key === wordsWithIndexes[arrayIndex - 1]?.key;
+        const keyToUse = getChunkKeyPartWithPreviousUsedAsShadow(key, wordsWithIndexes[arrayIndex - 1]?.key);
 
-        return isTheSameKey ? `${index.toString(16)}` : `${key}-${index.toString(16)}`;
+        return !keyToUse ? index.toString(16) : `${keyToUse}-${index.toString(16)}`;
     }).join('.');
 };
 
@@ -48,7 +81,10 @@ export const transformShortKeyToChunkInfo = (shortKey: string): ChunkInfo[] => {
         const isRegularCompactedChunk = compactedChunk.includes('-');
 
         if (isRegularCompactedChunk) {
-            const [key, indexHex] = compactedChunk.split('-');
+            const [keyToUse, indexHex] = compactedChunk.split('-');
+
+            const key = getFullChunkKeyWithPreviousUsedAsShadow(keyToUse, chunksInfos[index - 1]?.key)
+
             const indexToSave = parseInt(indexHex, 16);
 
             chunksInfos[index] =  { key, index: indexToSave };

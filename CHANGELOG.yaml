@@ -1,4 +1,6 @@
-2.5.3:
+2.5.4:
+  - new - shared links are now shorter, as words starting with the same letter are compressed more efficiently
+2.5.3 15.01.2024:
   - new - fast deploy system
   - new - share button desing
 2.5.2 14.01.2024:
