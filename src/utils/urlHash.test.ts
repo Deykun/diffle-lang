@@ -103,7 +103,7 @@ describe('ChunkInfo and ShortedKey', () => {
     });
 
     it('should use only letter that are needed', () => {
-        // Reasonable game somone guessed p, then pu, then puc - and at puc... new chunks aren't really needed
+        // A reasonable game: someone guessed 'p,' then 'pu,' and finally 'puc.' However at 'puc,' new chunks aren't really needed.
         const chunkInfo = [
             { word: 'pies', key: 'pie', index: 1000 },
             { word: 'pustka', key: 'pus', index: 1001 },

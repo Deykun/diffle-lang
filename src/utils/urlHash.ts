@@ -49,6 +49,7 @@ export const getFullChunkKeyWithPreviousUsedAsShadow = (key: string | undefined 
         throw 'Shadow key must be 3 letters in length';
     }
 
+    // ('12', 'abc') -> 'a12'
     return `${previousKey.slice(0, 3 - key.length)}${key}`;
 };
 
