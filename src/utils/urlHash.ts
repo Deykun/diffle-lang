@@ -21,7 +21,7 @@ interface ChunkInfo {
 
 export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey: string | undefined = '') => {
     if (key.length !== 3) {
-        throw `Key must be 3 letters length. key: ${key}, previousKey: ${previousKey}`;
+        throw `Key must be 3 letters in length. key: ${key}, previousKey: ${previousKey}`;
     }
 
     if (key === previousKey) {
@@ -46,7 +46,7 @@ export const getFullChunkKeyWithPreviousUsedAsShadow = (key: string | undefined 
 
     if (previousKey.length !== 3) {
         // If the first one is missing then this has to be filled
-        throw 'Shadow key must be 3 letters length';
+        throw 'Shadow key must be 3 letters in length';
     }
 
     return `${previousKey.slice(0, 3 - key.length)}${key}`;
