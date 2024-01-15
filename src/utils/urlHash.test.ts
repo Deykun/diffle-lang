@@ -1,10 +1,53 @@
 import { describe, expect, it } from '@jest/globals';
 
 import {
+    getChunkKeyPartWithPreviousUsedAsShadow,
+    getFullChunkKeyWithPreviousUsedAsShadow,
     transformChunkInfoIntoShortKey,
     transformShortKeyToChunkInfo,
     getUrlHashForGameResult,
 } from './urlHash';
+
+describe('', () => {
+    describe('getChunkKeyPartWithPreviousUsedAsShadow', () => {
+        it('diffrent keys should be just returned', () => {
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('abc', 'kod')).toEqual('abc');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('tes', 'kod')).toEqual('tes');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('bot', 'kod')).toEqual('bot');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('pol', 'kod')).toEqual('pol');
+        });
+
+        it('first two letter are the same only the last should be returned', () => {
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kot', 'kod')).toEqual('t');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kos', 'kod')).toEqual('s');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kow', 'kod')).toEqual('w');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kop', 'kod')).toEqual('p');
+        });
+
+        it('first letter is the same should last two be returned', () => {
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kat', 'kod')).toEqual('at');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kas', 'kod')).toEqual('as');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kaw', 'kod')).toEqual('aw');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kap', 'kod')).toEqual('ap');
+        });
+
+        it('the key are the same so empty strin should be returned', () => {
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kod', 'kod')).toEqual('');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('mys', 'mys')).toEqual('');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kaw', 'kaw')).toEqual('');
+            expect(getChunkKeyPartWithPreviousUsedAsShadow('kap', 'kap')).toEqual('');
+        });
+    });
+
+    describe('getChunkKeyPartWithPreviousUsedAsShadow', () => {
+        it('should fill based on shadow', () => {
+            expect(getFullChunkKeyWithPreviousUsedAsShadow('', 'kod')).toEqual('kod');
+            expect(getFullChunkKeyWithPreviousUsedAsShadow('s', 'kod')).toEqual('kos');
+            expect(getFullChunkKeyWithPreviousUsedAsShadow('rz', 'kod')).toEqual('krz');
+            expect(getFullChunkKeyWithPreviousUsedAsShadow('kod', 'kod')).toEqual('kod');
+        });
+    });
+})
 
 describe('ChunkInfo and ShortedKey', () => {
     it('should transform to string and from string to array', () => {
@@ -14,7 +57,7 @@ describe('ChunkInfo and ShortedKey', () => {
             { word: 'kwota', key: 'kwo', index: 1034 },
         ];
 
-        const shortKey = 'any-7b.kos-232.kwo-40a';
+        const shortKey = 'any-7b.kos-232.wo-40a';
 
         const resultedShortedKey = transformChunkInfoIntoShortKey(chunkInfo);
 
@@ -27,12 +70,12 @@ describe('ChunkInfo and ShortedKey', () => {
         );
     });
 
-    it('should remove repeted keys in shorted version', () => {
+    it('should remove remove keys but restore them in string if diffrent word is used "test"', () => {
         const chunkInfo = [
             { word: 'emo', key: 'emo', index: 1000 },
             { word: 'emocja', key: 'emo', index: 2726 },
             { word: 'emocjach', key: 'emo', index: 1301 },
-            { word: 'test', key: 'test', index: 3451 },
+            { word: 'test', key: 'tes', index: 3451 },
             { word: 'emocją', key: 'emo', index: 2501 },
             { word: 'emocje', key: 'emo', index: 4601 },
             { word: 'emocję', key: 'emo', index: 1813 },
@@ -41,14 +84,34 @@ describe('ChunkInfo and ShortedKey', () => {
 
         /*
             So this is compacted:
-            emo-3e8.aa6.515.test-d7b.emo-9c5.11f9.715.kre-321
-            In Base64 -> ZW1vLTNlOC5hYTYuNTE1LnRlc3QtZDdiLmVtby05YzUuMTFmOS43MTUua3JlLTMyMQ==
+            emo-3e8.aa6.515.tes-d7b.emo-9c5.11f9.715.kre-321
 
             And it could be:
             emo-1000.emo-2726.emo-1301.test-3451.emo-2501.emo-4601.emo-1813.kre-801
-            In Base64 -> ZW1vLTEwMDAuZW1vLTI3MjYuZW1vLTEzMDEudGVzdC0zNDUxLmVtby0yNTAxLmVtby00NjAxLmVtby0xODEzLmtyZS04MDE=
         */
-        const shortKey = 'emo-3e8.aa6.515.test-d7b.emo-9c5.11f9.715.kre-321';
+        const shortKey = 'emo-3e8.aa6.515.tes-d7b.emo-9c5.11f9.715.kre-321';
+
+        const resultedShortedKey = transformChunkInfoIntoShortKey(chunkInfo);
+
+        expect(resultedShortedKey).toEqual(shortKey);
+
+        const resultedChunkInfo = transformShortKeyToChunkInfo(resultedShortedKey);
+
+        expect(resultedChunkInfo).toEqual(
+            chunkInfo.map(({ key, index }) => ({ key, index })),
+        );
+    });
+
+    it('should use only letter that are needed', () => {
+        // Reasonable game somone guessed p, then pu, then puc - and at puc... new chunks aren't really needed
+        const chunkInfo = [
+            { word: 'pies', key: 'pie', index: 1000 },
+            { word: 'pustka', key: 'pus', index: 1001 },
+            { word: 'puch', key: 'puc', index: 1002 },
+            { word: 'puchaty', key: 'puc', index: 1003 },
+        ];
+
+        const shortKey = 'pie-3e8.us-3e9.c-3ea.3eb';
 
         const resultedShortedKey = transformChunkInfoIntoShortKey(chunkInfo);
 
