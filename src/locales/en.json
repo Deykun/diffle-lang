@@ -104,7 +104,7 @@
     "share": {
         "titleSettings": "Sharing",
         "linkWithUsedWords": "Link to used words",
-        "titleSharedResult": "Shared result",
+        "titleSharedResult": "Shared result with you",
         "resultIsBroken": "Unfortunately, this link has expired or is broken.",
         "resultHasExpired": "Unfortunately, this link has expired.",
         "titleUsedWords": "Used words",
