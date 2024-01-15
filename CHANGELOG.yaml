@@ -1,4 +1,7 @@
-2.5.2:
+2.5.3:
+  - new - fast deploy system
+  - new - share button desing
+2.5.2 14.01.2024:
   - fix - fixed wrong reading of css var with time in builded release (.25s - was read as 25s)
 2.5.1 14.01.2024:
   - fix - the next daily password now displays the same number in both settings and game view

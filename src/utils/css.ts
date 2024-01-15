@@ -10,14 +10,10 @@ export const getCssVarValue = (propertyName: string) => {
     return rootComputedStyles.getPropertyValue(propertyName);
 };
 
-export const getCssVarMillisecondsValue = (propertyName: string) => {
-    const value = getCssVarValue(propertyName);
+const getMillisecondsFromTimeValue = (value: string) => {
+    value = value.startsWith('.') ? `0${value}` : value;
 
-    if (!value) {
-        return 0;
-    }
-
-    const valueNumber = value.startsWith('.') ? Number(`0.${value.replace(/\D./g,'')}`) : Number(value?.replace(/\D/g,''));
+    const valueNumber = Number(value.replace(/[a-z]+/g, ''));
 
     if (!valueNumber) {
         return 0;
@@ -26,4 +22,14 @@ export const getCssVarMillisecondsValue = (propertyName: string) => {
     const isMilliseconds = value.includes('ms');
 
     return isMilliseconds ? valueNumber : valueNumber * 1000;    
+};
+
+export const getCssVarMillisecondsValue = (propertyName: string) => {
+    const value = getCssVarValue(propertyName);
+
+    if (!value) {
+        return 0;
+    }
+
+    return getMillisecondsFromTimeValue(value);
 }
