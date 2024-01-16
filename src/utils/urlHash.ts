@@ -1,3 +1,5 @@
+import { getIsKeyValid } from '@api/helpers';
+
 interface Params {
     wordToGuess: string,
     wordsWithIndexes: {
@@ -20,12 +22,17 @@ interface ChunkInfo {
 }
 
 export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey: string | undefined = '') => {
-    if (key.length !== 3) {
-        throw `Key must be 3 letters in length. key: ${key}, previousKey: ${previousKey}`;
+    if (!getIsKeyValid(key)) {
+        throw `Key must be valid. key: ${key}, previousKey: ${previousKey}`;
     }
 
     if (key === previousKey) {
         return '';
+    }
+
+    // TODO: add shorting for key with "nie"
+    if (key.startsWith('nie')) {
+        return key;
     }
 
     if (key.slice(0, 2) === previousKey.slice(0, 2)) {
@@ -40,13 +47,13 @@ export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey
 };
 
 export const getFullChunkKeyWithPreviousUsedAsShadow = (key: string | undefined = '', previousKey: string | undefined = '') => {
-    if (key.length === 3) {
+    if (key.length === 3 || key.startsWith('nie')) {
         return key;
     }
 
-    if (previousKey.length !== 3) {
+    if (!getIsKeyValid(previousKey)) {
         // If the first one is missing then this has to be filled
-        throw 'Shadow key must be 3 letters in length';
+        throw `Shadow key must be valid. key: ${key}, previousKey: ${previousKey}`;
     }
 
     // ('12', 'abc') -> 'a12'

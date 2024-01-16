@@ -1,4 +1,6 @@
-2.5.4:
+2.6:
+  - fix - word starting with "nie" doesn't destroy a game
+2.5.4 16.01.2024:
   - new - shared links are now shorter, as words starting with the same letter are compressed more efficiently
 2.5.3 15.01.2024:
   - new - fast deploy system

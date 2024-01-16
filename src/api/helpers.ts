@@ -25,3 +25,15 @@ export const getNormalizedKey = (word: string): string => {
         .replaceAll('ź', 'z')
         .replaceAll('ż', 'z');
 };
+
+export const getIsKeyValid = (key: string = '') => {
+    if (key.length === 3) {
+        return true;
+    }
+
+    if (key.length >= 3 && key.length <= 6 && key.startsWith('nie')) {
+        return true;
+    }
+
+    return false;
+}

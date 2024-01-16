@@ -123,6 +123,52 @@ describe('ChunkInfo and ShortedKey', () => {
             chunkInfo.map(({ key, index }) => ({ key, index })),
         );
     });
+
+    it('should work with words starting with "nie" (it has longer keys)', () => {
+        const chunkInfo = [
+            { word: 'niebieski', key: 'niebie', index: 999 },
+            { word: 'pies', key: 'pie', index: 1000 },
+            { word: 'pustka', key: 'pus', index: 1001 },
+            { word: 'nietaki', key: 'nietak', index: 1003 },
+            { word: 'puch', key: 'puc', index: 1003 },
+            { word: 'puchaty', key: 'puc', index: 1004 },
+        ];
+
+        const shortKey = 'niebie-3e7.pie-3e8.us-3e9.nietak-3eb.puc-3eb.3ec';
+
+        const resultedShortedKey = transformChunkInfoIntoShortKey(chunkInfo);
+
+        expect(resultedShortedKey).toEqual(shortKey);
+
+        const resultedChunkInfo = transformShortKeyToChunkInfo(resultedShortedKey);
+
+        expect(resultedChunkInfo).toEqual(
+            chunkInfo.map(({ key, index }) => ({ key, index })),
+        );
+    });
+
+    it('Should work with a various number of lengths of "nie" keys.', () => {
+        const chunkInfo = [
+            { word: 'niebieski', key: 'niebie', index: 999 },
+            { word: 'niemy', key: 'niemy', index: 999 },
+            { word: 'domek', key: 'dom', index: 999 },
+            { word: 'nie', key: 'nie', index: 999 },
+            { word: 'niegra', key: 'niegra', index: 999 },
+            { word: 'niegry', key: 'niegry', index: 999 },
+        ];
+
+        const shortKey = 'niebie-3e7.niemy-3e7.dom-3e7.nie-3e7.niegra-3e7.niegry-3e7';
+
+        const resultedShortedKey = transformChunkInfoIntoShortKey(chunkInfo);
+
+        expect(resultedShortedKey).toEqual(shortKey);
+
+        const resultedChunkInfo = transformShortKeyToChunkInfo(resultedShortedKey);
+
+        expect(resultedChunkInfo).toEqual(
+            chunkInfo.map(({ key, index }) => ({ key, index })),
+        );
+    });
 });
 
 describe('getUrlHashForGameResult', () => {
