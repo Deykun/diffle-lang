@@ -123,6 +123,29 @@ describe('ChunkInfo and ShortedKey', () => {
             chunkInfo.map(({ key, index }) => ({ key, index })),
         );
     });
+
+    it('should wors with "nie" (it has 6 letters keys) work', () => {
+        const chunkInfo = [
+            { word: 'niebieski', key: 'nie', index: 999 },
+            { word: 'pies', key: 'pie', index: 1000 },
+            { word: 'pustka', key: 'pus', index: 1001 },
+            { word: 'nietaki', key: 'nie', index: 1003 },
+            { word: 'puch', key: 'puc', index: 1003 },
+            { word: 'puchaty', key: 'puc', index: 1004 },
+        ];
+
+        const shortKey = 'nie-3e7.pie-3e8.us-3e9.nie-3eb.puc-3eb.3ec';
+
+        const resultedShortedKey = transformChunkInfoIntoShortKey(chunkInfo);
+
+        expect(resultedShortedKey).toEqual(shortKey);
+
+        const resultedChunkInfo = transformShortKeyToChunkInfo(resultedShortedKey);
+
+        expect(resultedChunkInfo).toEqual(
+            chunkInfo.map(({ key, index }) => ({ key, index })),
+        );
+    });
 });
 
 describe('getUrlHashForGameResult', () => {
