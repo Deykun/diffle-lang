@@ -1,4 +1,5 @@
 import fs from 'fs';
+import * as fsExtra from "fs-extra";
 import chalk from 'chalk';
 
 import { BLOCKED_WORDS_PL as BLOCKED_WORDS, BLOCKED_PARTS_PL as BLOCKED_PARTS } from './../resources/pl/constants.js';
@@ -17,6 +18,9 @@ const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x', 'v'];
 
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/SJP/dictionary.txt`, 'utf-8');
 const winningDictionary = fs.readFileSync(`./resources/${LANG}/FreeDict/dictionary.txt`, 'utf-8');
+
+fsExtra.emptyDirSync(`./public/dictionary/${LANG}/spelling/`);
+fsExtra.emptyDirSync(`./public/dictionary/${LANG}/winning/`);
 
 const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean))].map(word => word.toLowerCase());
 const totalSpellcheckerWords = spellcheckerWords.length;
@@ -46,6 +50,10 @@ const getNormalizedKey = word => {
         return;
     }
 
+    if (word.length === 3) {
+        return '3ch';
+    }
+
     /*
         Nie" is the negation marker in Polish, and in Polish, negated adjectives have "nie" as a prefix.
 
@@ -56,11 +64,11 @@ const getNormalizedKey = word => {
     return removeDiacratics(key);
 }
 
+const getIsWordWithSpecialCharacters = (word) => removeDiacratics(word) !== word;
+
 let longestWord = '';
 let totalWithoutSpecialCharacters = 0;
 let totalWithSpecialCharacters = 0;
-
-// removeDiacratics
 
 console.log(' ');
 console.log(chalk.blue(`Creating spelling chunks index from ${totalSpellcheckerWords} words...`));
@@ -124,12 +132,23 @@ Object.keys(spellingIndex).forEach((key, index) => {
 console.log(' ');
 console.log(chalk.blue(`Creating winning chunks from ${totalWinningWords} words...`));
 
-let totalAccepted = 0;
-let totalTooLong = 0;
-let totalTooShort = 0;
-let totalBlocked = 0;
 
-let totalWrongLetters = 0;
+const winningTotals = {
+    all: totalWinningWords,
+    accepted: {
+        specialCharacters: 0,
+        noSpecialCharacters: 0,
+    },
+    rejected: {
+        tooLong: 0,
+        tooShort: 0,
+        censored: 0,
+        wrongLetters: 0,
+        missingInSpellingDictionary: 0,
+    },
+    withSpecialCharacters: 0,
+    totalWithoutSpecialCharacters: 0,
+};
 
 const winnigIndex = {};
 const winningWordsLengths = {};
@@ -141,11 +160,11 @@ winningWords.forEach((word, index) =>  {
     if (!isWithCorrectLength) {
         // Meets it so it's too long
         if (word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD) {
-            totalTooLong += 1;
+            winningTotals.rejected.tooLong += 1;
         }
 
         if (word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD) {
-            totalTooShort += 1;
+            winningTotals.rejected.tooShort += 1;
         }
 
         return;
@@ -153,24 +172,31 @@ winningWords.forEach((word, index) =>  {
 
     const isWordInSpellingDictionary = spellingIndex[key]?.words.includes(word);
     if (!isWordInSpellingDictionary) {
+        winningTotals.rejected.missingInSpellingDictionary += 1;
+
         return;
     }
  
     const hasNotAllowedLetterInWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD.some((notAllowedLetter) => word.includes(notAllowedLetter));
     if (hasNotAllowedLetterInWord) {
-        totalWrongLetters += 1;
+        winningTotals.rejected.wrongLetters += 1; 
 
         return;
     }
 
     const isBlockedWords = BLOCKED_WORDS.includes(word) || BLOCKED_PARTS.some((blockedPart) => word.includes(blockedPart));
     if (isBlockedWords) {
-        totalBlocked += 1;
+        winningTotals.rejected.censored += 1; 
 
         return;
     }
 
-    totalAccepted = totalAccepted + 1;
+    const isWordWithSpecialCharacters = getIsWordWithSpecialCharacters(word);
+    if (isWordWithSpecialCharacters) {
+        winningTotals.accepted.specialCharacters += 1;
+    } else {
+        winningTotals.accepted.noSpecialCharacters += 1;
+    }
 
     if (winnigIndex[key]) {
         winnigIndex[key].words.push(word);
@@ -193,33 +219,33 @@ winningWords.forEach((word, index) =>  {
     }
 });
 
-const totalRejected = totalWinningWords - totalAccepted;
-
-console.log(' ');
 console.log(chalk.blue(`Winning chunks created.`));
 // We can't accept words that are present in one dictionary and not in another
-console.log(` - accepted words: ${chalk.green(totalAccepted)}`);
-console.log(` - rejected words: ${chalk.red(totalRejected)}`);
-console.log(`   - too long: ${chalk.red(totalTooLong)}`);
-console.log(`   - too short: ${chalk.red(totalTooShort)}`);
-console.log(`   - probably a swear word: ${chalk.red(totalBlocked)}`);
-console.log(`   - not accepted letters (${LETTERS_NOT_ALLOWED_IN_WINNING_WORD.join(',')}): ${chalk.red(totalWrongLetters)} `);
+console.log(` - accepted words: ${chalk.green(winningTotals.accepted.noSpecialCharacters + winningTotals.accepted.specialCharacters)}`);
+console.log(`   - without special characters: ${chalk.green(winningTotals.accepted.noSpecialCharacters)}`);
+console.log(`   - with special characters: ${chalk.green(winningTotals.accepted.specialCharacters)}`);
+console.log(` - rejected words: ${chalk.red(winningTotals.all - winningTotals.accepted)}`);
+console.log(`   - too long: ${chalk.red(winningTotals.rejected.tooLong)}`);
+console.log(`   - too short: ${chalk.red(winningTotals.rejected.tooShort)}`);
+console.log(`   - probably a swear word: ${chalk.red(winningTotals.rejected.censored)}`);
+console.log(`   - not accepted letters (${LETTERS_NOT_ALLOWED_IN_WINNING_WORD.join(',')}): ${chalk.red(winningTotals.rejected.wrongLetters)} `);
 console.log(' ');
 console.log(chalk.blue(`Winning words lengths:`));
+
 Object.keys(winningWordsLengths).sort((a, b) => a - b).forEach((length) => {
     console.log(` - words with ${length} letters: ${chalk.green(winningWordsLengths[length])}`);
 });
 
 const catalog = {
-    words: 0,
-    items: [],
-    winningWordsLengths,
     dictionary: {
         winingWordMinLength: MINIMUM_LENGTH_FOR_A_WINNING_WORD,
         winingWordMaxLength: MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
-        totalTooLong,
-        totalTooShort,
-    }
+        accepted: winningTotals.accepted,
+        rejected: winningTotals.rejected,
+    },
+    words: 0,
+    items: [],
+    winningWordsLengths,
 };
 
 const totalNumberOfWinningChunks = Object.keys(winnigIndex).length;

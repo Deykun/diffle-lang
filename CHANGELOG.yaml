@@ -1,4 +1,7 @@
-2.6:
+future:
+  - fix - cleaning dictionary before updating added "oger" removed as polish supported word in spellchecker
+  - new - chunk ch3 added removed chunks with single words ex. chunk-kee.json or chunk-mee.json
+2.6 16.01.2024:
   - fix - word starting with "nie" doesn't destroy a game
 2.5.4 16.01.2024:
   - new - shared links are now shorter, as words starting with the same letter are compressed more efficiently
