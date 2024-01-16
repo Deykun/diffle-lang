@@ -7,6 +7,7 @@ import { LOCAL_STORAGE } from '@const';
 import { useSelector } from '@store';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
+import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
 
 import Header from '@components/Header'
 
@@ -24,6 +25,8 @@ const App = () => {
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
 
     useAppUpdateIfNeeded();
+
+    useLangugeChangeIfNeeded();
 
     useEffect(() => {
         const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';

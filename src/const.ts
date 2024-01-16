@@ -2,6 +2,30 @@ export const WORD_MAXLENGTH = 15;
 
 import { GameMode } from '@common-types';
 
+export const SUPORTED_LANGS_BY_LANG: {
+    [key: string]: {
+        code: string,
+        languages: string[],
+        hasSpecialCharacters: boolean,
+        title: string,
+    }
+} = {
+    en: {
+        code: 'en',
+        languages: ['en', 'en-US'],
+        hasSpecialCharacters: false,
+        title: 'DIFFLE - the game like Wordle (without character limit)',
+    },
+    pl: {
+        code: 'pl',
+        languages: ['pl', 'pl-PL'],
+        hasSpecialCharacters: true,
+        title: 'DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱',
+    },
+}
+
+export const SUPPORTED_LANGS = Object.keys(SUPORTED_LANGS_BY_LANG);
+
 export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
 
 export const PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS = 6;
