@@ -7,6 +7,10 @@ export const getNormalizedKey = (word: string): string => {
         return '';
     }
 
+    if (word.length === 3) {
+        return '3ch';
+    }
+
     /*
         Nie" is the negation marker in Polish, and in Polish, negated adjectives have "nie" as a prefix.
 
