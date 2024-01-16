@@ -31,7 +31,7 @@ export const getIsKeyValid = (key: string = '') => {
         return true;
     }
 
-    if (key.length === 6 && key.startsWith('nie')) {
+    if (key.length >= 3 && key.length <= 6 && key.startsWith('nie')) {
         return true;
     }
 

@@ -31,7 +31,7 @@ export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey
     }
 
     // TODO: add shorting for key with "nie"
-    if (key.length === 6) {
+    if (key.startsWith('nie')) {
         return key;
     }
 
@@ -47,7 +47,7 @@ export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey
 };
 
 export const getFullChunkKeyWithPreviousUsedAsShadow = (key: string | undefined = '', previousKey: string | undefined = '') => {
-    if (key.length === 3 || key.length === 6) {
+    if (key.length === 3 || key.startsWith('nie')) {
         return key;
     }
 
