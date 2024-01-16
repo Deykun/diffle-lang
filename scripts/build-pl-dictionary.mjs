@@ -1,7 +1,7 @@
 import fs from 'fs';
 import chalk from 'chalk';
 
-import { BLOCKED_WORDS_PL as BLOCKED_WORDS, BLOCKED_PARTS_PL as BLOCKED_PARTS } from './resources/pl/constants.js';
+import { BLOCKED_WORDS_PL as BLOCKED_WORDS, BLOCKED_PARTS_PL as BLOCKED_PARTS } from './../resources/pl/constants.js';
 
 const LANG = 'pl';
 
@@ -110,7 +110,7 @@ Object.keys(spellingIndex).forEach((key, index) => {
     // Unique words
     spellingIndex[key].words = [...new Set(spellingIndex[key].words)];
 
-    fs.writeFileSync(`public/dictionary/${LANG}/spelling/chunk-${key}.json`, JSON.stringify(spellingIndex[key].words));
+    fs.writeFileSync(`./public/dictionary/${LANG}/spelling/chunk-${key}.json`, JSON.stringify(spellingIndex[key].words));
 
     const shouldUpdate = index % 200 === 0;
 
@@ -231,7 +231,7 @@ Object.keys(winnigIndex).forEach((key, index) => {
     // Unique words
     winnigIndex[key].words = [...new Set(winnigIndex[key].words)];
 
-    fs.writeFileSync(`public/dictionary/${LANG}/winning/chunk-${key}.json`, JSON.stringify(winnigIndex[key].words));
+    fs.writeFileSync(`./public/dictionary/${LANG}/winning/chunk-${key}.json`, JSON.stringify(winnigIndex[key].words));
 
     const endIndex = catalog.words + winnigIndex[key].words.length;
 
@@ -252,7 +252,7 @@ Object.keys(winnigIndex).forEach((key, index) => {
     }
 });
 
-fs.writeFileSync(`public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
+fs.writeFileSync(`./public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
 
 console.log(' ');
 console.log(chalk.blue(`Winning catalog saved!`));
