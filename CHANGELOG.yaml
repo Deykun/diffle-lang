@@ -1,5 +1,7 @@
 3.0:
-  - new - English supported
+  - new - English game language supported
+2.7.1:
+  - fix - mobile rwd restored
 2.7 16.01.2024:
   - new - preparing landing pages for languages
   - fix - cleaning dictionary before updating added "oger" removed as polish supported word in spellchecker
