@@ -6,6 +6,7 @@ import { RootState, Word as WordInterface, AffixStatus, UsedLetters, GameStatus 
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
+export const selectGameLanguage = (state: RootState) => state.game.language;
 export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
 export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;

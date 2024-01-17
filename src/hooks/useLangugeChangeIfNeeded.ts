@@ -1,51 +1,75 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SUPPORTED_LANGS, SUPORTED_LANGS_BY_LANG } from '@const';
+import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
 
+import { useSelector, useDispatch } from '@store';
+import { selectGameLanguage } from '@store/selectors';
+import { setGameLanguage } from '@store/gameSlice';
+
+import { getLangFromUrl, getLangFromBrowser } from '@utils/lang';
+
+import useEffectChange from "@hooks/useEffectChange";
+
+/*
+    There are two languages used by the app: one for translations (i18n), and the other for the game.
+    After the app language is changed, the game follows.
+    
+    Once the language of the game is changed, the mechanism for restoring the game is triggered the same to the game mode change.
+*/
 export default function useLangugeChangeIfNeeded( ) {
-    const { language, i18n,  } = useTranslation();
+    const [wasAppLanguageDetected, setWasAppLanguageDetected] = useState(false);
+    const dispatch = useDispatch();
+    const gameLanguage = useSelector(selectGameLanguage);
+
+    const { i18n } = useTranslation();
+
+    useEffectChange(() => {
+        const { language: appLanguage } = i18n;
+        const langFromUrl = getLangFromUrl();
+
+        if (appLanguage !== langFromUrl) {
+            const currentUrl = location.href.replace(location.search, '');
+            const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
+            const newLocation = `${currentUrl.replace(`/${langFromUrl}`, '')}${partToAdd}`;
+
+            const { title } = SUPORTED_DICTIONARY_BY_LANG[appLanguage];
+            document.title = title;
+
+            window.history.replaceState(null, title, newLocation);
+        }
+    }, [i18n.language]);
 
     useEffect(() => {
-        const langFromUrl = SUPPORTED_LANGS.find(lang => location.pathname.endsWith(`/${lang}`));
+        if (wasAppLanguageDetected) {
+            const appLanguage = i18n.language;
 
-        console.log('langFromUrl', langFromUrl);
+            if (appLanguage !== gameLanguage) {
+                dispatch(setGameLanguage(appLanguage));
+            }
+        }
+    }, [dispatch, gameLanguage, i18n.language, wasAppLanguageDetected]);
+
+
+    useEffect(() => {
+        const langFromUrl = getLangFromUrl();
 
         if (langFromUrl) {
             i18n.changeLanguage(langFromUrl);
-            document.title = SUPORTED_LANGS_BY_LANG[langFromUrl].title;
+            setWasAppLanguageDetected(true);
 
             return;
         }
 
-        const { language: browserLanguage, languages: browserLanguages } = navigator;
-
-        const langFromBrowser = SUPPORTED_LANGS.find(lang => browserLanguage === lang)
-            || SUPPORTED_LANGS.find(lang => {
-                const { languages: langLanguages } = SUPORTED_LANGS_BY_LANG[lang];
-
-                const isThisLanguageSupported = langLanguages.some(
-                    oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages)
-                );
-
-                return isThisLanguageSupported;
-            });
-
-        console.log('langFromBrowser', langFromBrowser);
+        const langFromBrowser = getLangFromBrowser();
 
         if (langFromBrowser) {
-            // It was checked earlier, but just for clarity we set in url because it weren't there
-            if (!langFromUrl) {
-                const currentUrl = location.href.replace(location.search, '');
-                const partToAdd = currentUrl.endsWith('/') ? langFromBrowser : `/${langFromBrowser}`;
-
-                window.history.replaceState(null, document.title, `${currentUrl}${partToAdd}`);
-            }
-
-            document.title = SUPORTED_LANGS_BY_LANG[langFromBrowser].title;
             i18n.changeLanguage(langFromBrowser);
+            setWasAppLanguageDetected(true);
 
             return;
         }
+
+        setWasAppLanguageDetected(true);
     }, [i18n]);
 }

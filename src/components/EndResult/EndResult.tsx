@@ -6,8 +6,8 @@ import { GameMode } from '@common-types';
 import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
-import { selectGuessesStatsForLetters } from '@store/selectors';
 import { setWordToGuess } from '@store/gameSlice'
+import { selectGameLanguage, selectGuessesStatsForLetters } from '@store/selectors';
 
 import getWordToGuess from '@api/getWordToGuess'
 
@@ -27,6 +27,7 @@ import './EndResult.scss';
 const EndResult = () => {
     const dispatch = useDispatch();
     const endStatus = useSelector((state) => state.game.status);
+    const gameLanguage = useSelector(selectGameLanguage);
     const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);
@@ -42,15 +43,15 @@ const EndResult = () => {
     }, [vibrate]);
 
     const handleNewGame = useCallback(() => {
-        if (!isReseting) {
+        if (!isReseting && gameLanguage) {
             setIsReseting(true);
-            getWordToGuess({ gameMode }).then(word => {
+            getWordToGuess({ gameMode, gameLanguage }).then(word => {
                 return dispatch(setWordToGuess(word));  
             }).finally(() => {
                 setIsReseting(false);
             });
         }
-    }, [dispatch, gameMode, isReseting]);
+    }, [dispatch, gameLanguage, gameMode, isReseting]);
 
     if (guesses.length === 0) {
         return null;

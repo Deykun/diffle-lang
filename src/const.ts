@@ -2,12 +2,29 @@ export const WORD_MAXLENGTH = 15;
 
 import { GameMode } from '@common-types';
 
-export const SUPORTED_LANGS_BY_LANG: {
+const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [' ', 'delete', 'arrowleft', 'arrowright', 'arrowdown', 'arrowup'];
+
+const KEY_LINES_EN = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+];
+
+const KEY_LINES_PL = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['ą', 'ć', 'ę', 'ł', 'ń',  'ó', 'ś', 'ź', 'ż'],
+];
+
+export const SUPORTED_DICTIONARY_BY_LANG: {
     [key: string]: {
         code: string,
         languages: string[],
         hasSpecialCharacters: boolean,
         title: string,
+        keyLines: string[][],
+        alloweyKeys: string[],
     }
 } = {
     en: {
@@ -15,16 +32,20 @@ export const SUPORTED_LANGS_BY_LANG: {
         languages: ['en', 'en-US'],
         hasSpecialCharacters: false,
         title: 'DIFFLE - the game like Wordle (without character limit)',
+        keyLines: KEY_LINES_EN,
+        alloweyKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN.flatMap((key) => key)],
     },
     pl: {
         code: 'pl',
         languages: ['pl', 'pl-PL'],
         hasSpecialCharacters: true,
         title: 'DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱',
+        keyLines: KEY_LINES_PL,
+        alloweyKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL.flatMap((key) => key)],
     },
 }
 
-export const SUPPORTED_LANGS = Object.keys(SUPORTED_LANGS_BY_LANG);
+export const SUPPORTED_LANGS = Object.keys(SUPORTED_DICTIONARY_BY_LANG);
 
 export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
 
@@ -43,7 +64,6 @@ export const SEED_SHIFT = location.hostname === 'localhost' ? 0 : 1984;
 
 export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
 
-const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [' ', 'delete', 'arrowleft', 'arrowright', 'arrowdown', 'arrowup'];
 
 export const ALLOWED_KEYS = [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...ALLOWED_FROM_KEYLINES];
 
@@ -60,16 +80,11 @@ export const SUBMIT_ERRORS = {
 };
 
 export const GIVE_UP_ERRORS = {
+    NO_LANG: 'no_lang',
     WRONG_MODE: 'wrong_mode',
 };
 
 export const LOCAL_STORAGE = {
-    LAST_GAME_MODE: 'diffle_pl_last_game_mode',
-    LAST_DAILY_STAMP: 'diffle_pl_daily_stamp',
-    TYPE_DAILY: 'diffle_pl_mode_daily',
-    TYPE_PRACTICE: 'diffle_pl_mode_practice',
-    TYPE_SHARE: 'diffle_pl_mode_share',
-    // Not lang dependent
     THEME: 'diffle_theme',
     THEME_CONTRAST: 'diffle_theme_contrast',
     SHOULD_VIBRATE: 'diffle_should_vibrate',
@@ -78,10 +93,4 @@ export const LOCAL_STORAGE = {
     SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
     SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
     SHOULD_SHARE_WORDS: 'diffle_should_share_words',
-};
-
-export const LOCAL_STORAGE_GAME_BY_MODE = {
-    [GameMode?.Daily]: LOCAL_STORAGE.TYPE_DAILY,
-    [GameMode?.Practice]: LOCAL_STORAGE.TYPE_PRACTICE,
-    [GameMode?.Share]: LOCAL_STORAGE.TYPE_SHARE,
 };

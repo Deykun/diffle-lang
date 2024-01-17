@@ -34,10 +34,15 @@
         right: 7px;
     }
 
+    h1 {
+        margin-bottom: 0;
+    }
+
     h1 button {
         position: relative;
         font-size: 32px;
         line-height: 56px;
+        height: 50px;
         font-weight: 700;
         text-transform: uppercase;
         text-shadow: 0 0px 10px var(--background);
@@ -52,17 +57,16 @@
             fill: var(--green-stronger);
         }
 
-        &::after {
+        .header-flag {
+            position: absolute;
             content: '';
             height: 12px;
             width: 16px;
-            bottom: 16px;
-            right: -20px;
-            // Polish flag
-            background-image: linear-gradient(to top, #c30101, #c30101 50%, white 50%, white);
+            bottom: 7px;
+            right: -16px;
             border-radius: 3px;
-            position: absolute;
             box-shadow: 0 -1px 3px var(--flag-shadow);
+            animation: scaleIn 0.2s ease-in;
         }
     }
 

@@ -22,10 +22,9 @@ import IconDashedCircle from '@components/Icons/IconDashedCircle';
 import EndResult from '@components/EndResult/EndResult';
 
 import Word from './Word';
+import WordHint from './WordHint';
 
 import './Words.scss';
-
-const gameLanguage = 'pl';
 
 const Words = () => {
     const guesses = useSelector((state) => state.game.guesses);
@@ -34,7 +33,6 @@ const Words = () => {
     const isProcessing = useSelector(selectIsProcessing);
     const wordToSubmit = useSelector(selectWordToSubmit);
     const wordStatus = useSelector(selectWordState(wordToSubmit));
-    const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
     const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
     const isIncorrect = wordStatus === AffixStatus.Incorrect;
@@ -58,21 +56,7 @@ const Words = () => {
 
     return (
         <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
-            {hasSpecialCharacters ?
-                <p 
-                    className={clsx('word-tip', 'has-polish')}
-                    dangerouslySetInnerHTML={{
-                        __html: t('game.withSpecialCharacters', { specialCharacter: t(`game.${gameLanguage}SpecialCharacter`) })
-                    }}
-                />
-                :
-                <p 
-                    className="word-tip"
-                    dangerouslySetInnerHTML={{
-                        __html: t('game.withoutSpecialCharacters', { specialCharacters: t(`game.${gameLanguage}SpecialCharacters`) })
-                    }}
-                />
-            }
+            <WordHint />
             {guesses.map((guess, index) => {            
                 return (
                     <Word key={`guess-${index}`} guess={guess} />

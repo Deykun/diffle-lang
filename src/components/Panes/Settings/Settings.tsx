@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { GameMode, Pane } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
-import { selectIsGameEnded } from '@store/selectors';
 import { loseGame } from '@store/gameSlice';
+import { selectGameLanguage, selectIsGameEnded } from '@store/selectors';
 
 import { getYesterdaysSeed } from '@utils/date';
 
@@ -35,6 +35,7 @@ import SettingsSources from './SettingsSources';
 const Settings = () => {
     const dispatch = useDispatch();
     const [yesterdayWord, setYesterdayWord] = useState('');
+    const gameLanguage = useSelector(selectGameLanguage);
     const gameMode = useSelector(state => state.game.mode);
     const isGameEnded = useSelector(selectIsGameEnded);
 
@@ -48,12 +49,14 @@ const Settings = () => {
     const { handleClickSummary } = useEnhancedDetails();
 
     useEffect(() => {
-        const yesterdaysSeed = getYesterdaysSeed();
+        if (gameLanguage) {
+            const yesterdaysSeed = getYesterdaysSeed();
 
-        getWordToGuess({ gameMode: GameMode.Daily, seedNumber: yesterdaysSeed }).then((dayWord) => {
-            setYesterdayWord(dayWord);
-        });
-    }, []);
+            getWordToGuess({ gameMode: GameMode.Daily, gameLanguage, seedNumber: yesterdaysSeed }).then((dayWord) => {
+                setYesterdayWord(dayWord);
+            });
+        }
+    }, [gameLanguage]);
 
     const handleGiveUp = () => {
         dispatch(loseGame());

@@ -19,10 +19,8 @@ type getDoesWordExistReport = {
 
 const cachedKeys: fetchedWordsListByKeys = {};
 
-export const getDoesWordExist = async (word: string): Promise<getDoesWordExistReport> => {
-    const gameLang = 'pl';
-
-    const key = getNormalizedKey(word, gameLang);
+export const getDoesWordExist = async (word: string, lang: string): Promise<getDoesWordExistReport> => {
+    const key = getNormalizedKey(word, lang);
 
     if (!key) {
         return {
@@ -34,7 +32,7 @@ export const getDoesWordExist = async (word: string): Promise<getDoesWordExistRe
 
     if (!cachedKeys[key]) {
         try {
-            const response = await fetch(`./dictionary/${game_lang}/spelling/chunk-${key}.json`).catch(error => {
+            const response = await fetch(`./dictionary/${lang}/spelling/chunk-${key}.json`).catch(error => {
                 throw error;
             });
 

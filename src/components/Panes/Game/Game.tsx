@@ -3,6 +3,7 @@ import clsx from 'clsx';
 
 import { useSelector, useDispatch } from '@store';
 import { loadGame } from '@store/gameSlice'
+import { selectGameLanguage } from '@store/selectors';
 
 import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 
@@ -17,6 +18,7 @@ import './Game.scss'
 
 const Game = () => {
     const dispatch = useDispatch();
+    const gameLanguage = useSelector(selectGameLanguage);
     const gameMode = useSelector((state) => state.game.mode);
     const todayStamp = useSelector((state) => state.game.today);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
@@ -24,7 +26,7 @@ const Game = () => {
 
     useEffect(() => {
         dispatch(loadGame());
-    }, [dispatch, gameMode, wordToGuess, todayStamp]);
+    }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp]);
 
     useSaveProgressLocally();
 

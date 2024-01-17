@@ -87,8 +87,8 @@ export interface WordReport {
     },
 }
 
-export const getWordReport = async (wordToGuess: string, wordToSubmit: string) => {
-    const doesWordExistReport = await getDoesWordExist(wordToSubmit);
+export const getWordReport = async (wordToGuess: string, wordToSubmit: string, { lang }: { lang: string}) => {
+    const doesWordExistReport = await getDoesWordExist(wordToSubmit, lang);
 
     if (doesWordExistReport.isError) {
         if (doesWordExistReport.errorType === DoesWordExistErrorType.Fetch) {
@@ -124,7 +124,7 @@ export const getWordReport = async (wordToGuess: string, wordToSubmit: string) =
 
 export default getWordReport;
 
-export const getWordReportForMultipleWords = async (wordToGuess: string, wordsToSubmit: string[]) => {
+export const getWordReportForMultipleWords = async (wordToGuess: string, wordsToSubmit: string[], { lang }: { lang: string }) => {
     const response: {
         hasError: boolean,
         isWon: boolean,
@@ -144,9 +144,11 @@ export const getWordReportForMultipleWords = async (wordToGuess: string, wordsTo
             position: {},
         },
     };
+
+    // lang
     
     for (const wordToSubmit of wordsToSubmit) {
-        const wordReport = await getWordReport(wordToGuess, wordToSubmit);
+        const wordReport = await getWordReport(wordToGuess, wordToSubmit, { lang });
         response.results.push(wordReport);
 
         response.wordsLetters.correct = {

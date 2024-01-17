@@ -3,27 +3,47 @@ import { GameMode, Pane } from '@common-types';
 import { LOCAL_STORAGE } from '@const';
 
 import { getNow } from '@utils/date';
+import { getLangFromUrl } from '@utils/lang';
+import {
+    getLocalStorageKeyForDailyStamp,
+    getLocalStorageKeyForLastGameMode,
+ } from '@utils/game';
 
 export const getInitPane = () => {
-    const lastGameMode = localStorage.getItem(LOCAL_STORAGE.LAST_GAME_MODE);
+    const langFromUrl = getLangFromUrl();
 
-    return !lastGameMode ? Pane.Help : Pane.Game;
+    if (langFromUrl) {
+        const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: langFromUrl });
+        const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
+
+        return !lastGameMode ? Pane.Help : Pane.Game;
+    }
+
+    return Pane.Help;
 };
 
 export const getInitMode = () => {
-    const lastGameMode = localStorage.getItem(LOCAL_STORAGE.LAST_GAME_MODE) as GameMode;
-    const lastStamp = localStorage.getItem(LOCAL_STORAGE.LAST_DAILY_STAMP);
-    const { stamp } = getNow();
+    const langFromUrl = getLangFromUrl();
 
-    // Player should complete daily game before starting practice 
-    const shouldForceDaily = lastGameMode === GameMode.Practice && lastStamp !== stamp;
-    const initGameModeFromStored = shouldForceDaily ? GameMode.Daily : lastGameMode;
+    if (langFromUrl) {
+        const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: langFromUrl });
+        const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
 
-    if (!initGameModeFromStored) {
-        return GameMode.Daily;
+        const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage: langFromUrl });
+        const lastStamp = localStorage.getItem(localStorageKeyForDailyStamp);
+
+        const { stamp } = getNow();
+    
+        // Player should complete daily game before starting practice 
+        const shouldForceDaily = lastGameMode === GameMode.Practice && lastStamp !== stamp;
+        const initGameModeFromStored = shouldForceDaily ? GameMode.Daily : lastGameMode;
+
+        if (initGameModeFromStored) {
+            return initGameModeFromStored;
+        }
     }
 
-    return initGameModeFromStored;
+    return GameMode.Daily;
 };
 
 export const getInitIsSmallKeyboard = () => {

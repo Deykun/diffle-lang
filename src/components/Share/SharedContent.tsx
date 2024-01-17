@@ -4,11 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Pane, GameStatus, GameMode, Word as WordInterface } from '@common-types';
 
-import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { SUPPORTED_LANGS, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { useSelector } from '@store';
-import { selectIsGameEnded } from '@store/selectors';
-import { getWordsAndLetters } from '@store/selectors';
+import { selectIsGameEnded, getWordsAndLetters } from '@store/selectors';
 
 import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
@@ -133,10 +132,13 @@ const SharedContent = () => {
 
           const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes);
 
+          // That should always be right for shared content
+          const langFromUrl = SUPPORTED_LANGS.find(lang => location.pathname.endsWith(`/${lang}`));
+
           const {
             isWon,
             results,
-          } = await getWordReportForMultipleWords(wordToGuess, wordsFromIndexes);
+          } = await getWordReportForMultipleWords(wordToGuess, wordsFromIndexes, { lang: langFromUrl });
 
           const guesses = results.map(({ word = '', affixes = [] }) => ({
             word,

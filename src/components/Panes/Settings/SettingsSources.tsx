@@ -2,6 +2,9 @@ import { useTranslation } from 'react-i18next';
 
 import IconBook from '@components/Icons/IconBook';
 import IconBookAlt from '@components/Icons/IconBookAlt';
+import IconBookAlt2 from '@components/Icons/IconBookAlt2';
+
+import IconGlobWithFlag from '@components/Icons/IconGlobWithFlag';
 
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconGamepadAlt from '@components/Icons/IconGamepadAlt';
@@ -19,12 +22,19 @@ const SettingsSources = () => {
             <h2>{t('settings.sourcesTitle')}</h2>
             <p>{t('settings.sourcesDescription')}</p>
             <ul>
-                <li><a href="https://sjp.pl" target="blank" rel="noopener noreferrer">
-                    <IconBookAlt /><span>{t('settings.sourceSJP')}</span></a>
+                <li>
+                    <a href="https://sjp.pl" target="blank" rel="noopener noreferrer">
+                        <IconBookAlt /><span>{t('settings.sourceSJP')}</span>
+                    </a>
                 </li>
                 <li>
                     <a href="https://freedict.org/" target="blank" rel="noopener noreferrer">
                         <IconBook /><span>{t('settings.sourceFreeDict')}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/dwyl" target="blank" rel="noopener noreferrer">
+                        <IconBookAlt2/><span>{t('settings.sourceDwyl')}</span>
                     </a>
                 </li>
                 <li>
@@ -35,6 +45,11 @@ const SettingsSources = () => {
                 <li>
                     <a href="https://www.nytimes.com/games/wordle/index.html" target="blank" rel="noopener noreferrer">
                         <IconGamepadAlt /><span>{t('settings.sourceWordle')}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/lipis/flag-icons" target="blank" rel="noopener noreferrer">
+                        <IconGlobWithFlag /><span>{t('settings.sourceFlagIcons')}</span>
                     </a>
                 </li>
                 <li>

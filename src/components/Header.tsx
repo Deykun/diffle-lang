@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { GameMode, Pane } from '@common-types';
 
 import { useSelector } from '@store';
-import { selectIsGameEnded } from '@store/selectors';
+import { selectGameLanguage, selectIsGameEnded } from '@store/selectors';
 
 import usePanes from '@hooks/usePanes';
 
@@ -22,6 +22,7 @@ import './Header.scss';
 
 const Header = () => {
     const [shouldShowShared, setShouldShowShared] = useState(false);
+    const gameLanguage = useSelector(selectGameLanguage);
     const isGameEnded = useSelector(selectIsGameEnded);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const gameMode = useSelector(state => state.game.mode);
@@ -55,7 +56,12 @@ const Header = () => {
                     </span>
                 </button>
             </div>
-            <h1><button onClick={() => changePane(Pane.Game)}>Diffle{gameMode === GameMode.Practice && <IconInfinity />}</button></h1>
+            <h1>
+              <button onClick={() => changePane(Pane.Game)}>
+                Diffle{gameMode === GameMode.Practice && <IconInfinity />}
+                {gameLanguage && <img key={gameLanguage} className="header-flag" src={`/flags/${gameLanguage}.svg`} alt={gameLanguage} /> }
+              </button>
+            </h1>
             <div className="header-right">
                 {shouldShowShared && <SharedContent />}
                 <button
