@@ -31,6 +31,7 @@ const winningDictionary = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTION
 const statistics = INITAL_DICTIONARY_STATISTICS;
 statistics.winning.lettersNotAcceptedInWinningWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD;
 
+console.log(' ');
 console.log(chalk.red('Removing dictionaries to genereted the new ones...'));
 
 fsExtra.emptyDirSync(`./public/dictionary/${LANG}/spelling/`);
@@ -244,6 +245,7 @@ Object.keys(winnigIndex).forEach((key, index) => {
 });
 
 fs.writeFileSync(`./public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
+fs.writeFileSync(`./public/dictionary/${LANG}/info.json`, JSON.stringify(statistics, null, '\t'));
 
 console.log(' ');
 console.log(chalk.blue(`Winning catalog saved!`));

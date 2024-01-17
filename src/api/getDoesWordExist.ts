@@ -20,7 +20,9 @@ type getDoesWordExistReport = {
 const cachedKeys: fetchedWordsListByKeys = {};
 
 export const getDoesWordExist = async (word: string): Promise<getDoesWordExistReport> => {
-    const key = getNormalizedKey(word);
+    const gameLang = 'pl';
+
+    const key = getNormalizedKey(word, gameLang);
 
     if (!key) {
         return {
@@ -104,9 +106,11 @@ export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[
 };
 
 export const getWordsIndexesChunks = (words: string[]) => {
-    const keysWithWords = words.map((word) => ({ word, key: getNormalizedKey(word) }));
+    const gameLang = 'pl';
+
+    const keysWithWords = words.map((word) => ({ word, key: getNormalizedKey(word, gameLang) }));
     const hasAllWordsFetched = keysWithWords.every(
-        ({ word, key }) => Array.isArray(cachedKeys[key]) && cachedKeys[key].includes(word)
+        ({ word, key }) => key && Array.isArray(cachedKeys[key]) && cachedKeys[key].includes(word)
     );
 
     if (!hasAllWordsFetched) {
@@ -117,7 +121,7 @@ export const getWordsIndexesChunks = (words: string[]) => {
         return {
             word,
             key,
-            index: cachedKeys[key].findIndex((keyWords) => word === keyWords),
+            index: key ? cachedKeys[key].findIndex((keyWords) => word === keyWords) : undefined,
         };
     });
 };

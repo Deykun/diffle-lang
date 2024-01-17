@@ -1,0 +1,65 @@
+{
+	"spellchecker": {
+		"all": 3211348,
+		"accepted": {
+			"all": 3211348,
+			"withSpecialCharacters": 1684394,
+			"withoutSpecialCharacters": 1526954
+		},
+		"rejected": 0,
+		"letters": {
+			"a": 70102,
+			"ą": 11,
+			"b": 82767,
+			"c": 68876,
+			"ć": 1713,
+			"d": 124591,
+			"e": 32952,
+			"ę": 1,
+			"f": 42117,
+			"g": 55110,
+			"h": 32977,
+			"i": 27196,
+			"j": 21463,
+			"k": 140896,
+			"l": 38626,
+			"ł": 12811,
+			"m": 90652,
+			"n": 724318,
+			"o": 194771,
+			"ó": 168,
+			"p": 476009,
+			"r": 125713,
+			"s": 198240,
+			"ś": 15524,
+			"t": 72099,
+			"u": 90089,
+			"w": 230195,
+			"y": 280,
+			"z": 228457,
+			"ź": 620,
+			"ż": 12004
+		}
+	},
+	"winning": {
+		"all": 32363,
+		"accepted": {
+			"all": 18072,
+			"withSpecialCharacters": 5913,
+			"withoutSpecialCharacters": 12159
+		},
+		"rejected": {
+			"all": 14291,
+			"tooLong": 10205,
+			"tooShort": 791,
+			"censored": 14,
+			"wrongLetters": 10,
+			"missingInSpellingDictionary": 3271
+		},
+		"lettersNotAcceptedInWinningWord": [
+			"q",
+			"x",
+			"v"
+		]
+	}
+}

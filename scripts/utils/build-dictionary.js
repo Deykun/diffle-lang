@@ -13,7 +13,9 @@ export const removeDiacratics = (word) => word
 
 export const getIsWordWithSpecialCharacters = (word) => removeDiacratics(word) !== word;
 
-export const getNormalizedKey = (word, language) => {
+export const getNormalizedKey = (wordRaw, language) => {
+    const word = removeDiacratics(wordRaw);
+
     if (word.length === 2) {
         return '2ch';
     }
@@ -33,9 +35,17 @@ export const getNormalizedKey = (word, language) => {
             
             So it gets its own subkey.
         */
-        const key = word.startsWith('nie') ? word.slice(0, 6) : word.slice(0, 3);
+        if (word.startsWith('nie')) {
+            if (word.length === 4) {
+                return `nie1ch`;
+            }
 
-        return removeDiacratics(key);
+            if (word.length === 5) {
+                return `nie2ch`;
+            }
+
+            return word.slice(0, 6);
+        }
     }
 
     return word.slice(0, 3);
