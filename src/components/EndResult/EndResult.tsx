@@ -27,7 +27,7 @@ import './EndResult.scss';
 const EndResult = () => {
     const dispatch = useDispatch();
     const endStatus = useSelector((state) => state.game.status);
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector((state) => state.game.mode);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const guesses = useSelector((state) => state.game.guesses);

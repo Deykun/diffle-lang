@@ -92,7 +92,11 @@ export const submitAnswer = createAsyncThunk(
     async (_, { dispatch, getState }) => {
         const state  = getState() as RootState;
 
-        if (state.game.isProcessing) {
+        const lang = state.game.language;
+
+        const isLoading = !lang || state.game.isProcessing || state.game.isLoadingGame
+
+        if (isLoading) {
             return { isError: true, type: SUBMIT_ERRORS.ALREADY_PROCESSING };
         }
 
@@ -117,14 +121,6 @@ export const submitAnswer = createAsyncThunk(
         dispatch(gameSlice.actions.setProcessing(true));
 
         const wordToGuess = state.game.wordToGuess;
-        const lang = state.game.language;
-
-        // TODO add error for submit without
-        // if (!lang)) {
-        //     dispatch(setToast({ text: 'game.wordAlreadyUsed' }));
-
-        //     return { isError: true, type: SUBMIT_ERRORS.ALREADY_SUBMITED };
-        // }
 
         const result = await getWordReport(wordToGuess, wordToSubmit, { lang });
 
@@ -168,7 +164,7 @@ export const restoreGameState = createAsyncThunk(
         const { hasError, isWon, results, wordsLetters } = await getWordReportForMultipleWords(wordToGuess, guessesWords, { lang: gameLanguage });
 
         if (hasError) {
-            dispatch(setToast({ type: ToastType.Incorrect, text: 'Wystąpił błąd podczas przywracania stanu gry.' }));
+            dispatch(setToast({ type: ToastType.Incorrect, text: 'game.restoreError' }));
 
             return { isError: true, type: SUBMIT_ERRORS.RESTORING_ERROR };
         }
@@ -231,6 +227,11 @@ export const loadGame = createAsyncThunk(
         const wordToGuess = selectWordToGuess(state);
         const gameLanguage = selectGameLanguage(state);
 
+        console.log({
+            wordToGuess,
+            gameLanguage,
+        });
+
         if (!gameLanguage) {
             return;
         }
@@ -246,6 +247,8 @@ export const loadGame = createAsyncThunk(
         if (!wordToGuess) {
             const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
             const storedState = localStorage.getItem(localStorageKeyForGame);
+
+            console.log(localStorageKeyForGame, storedState);
 
             if (storedState) {
                 const {
@@ -263,6 +266,13 @@ export const loadGame = createAsyncThunk(
                 const lastDailyStamp = localStorage.getItem(localStorageKeyForDailyStamp);
 
                 const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
+
+                console.log({
+                    isDailyMode,
+                    lastDailyStamp,
+                    todayStamp,
+                    isExpiredDailyGame,
+                })
 
                 if (lastWordToGuess) {
                     if (isExpiredDailyGame) {
@@ -326,7 +336,6 @@ export const loadGame = createAsyncThunk(
 export const saveEndedGame = createAsyncThunk(
     'game/saveEndedGame',
     async (_, { getState }) => {
-        const gameLanguage = 'pl';
         const state = getState() as RootState;
         
         const isWon = selectIsWon(state);
@@ -334,6 +343,12 @@ export const saveEndedGame = createAsyncThunk(
         const wordToGuess = selectWordToGuess(state);
         const isGameEnded = wordToGuess.length > 0 && (isWon || isLost);
         if (!isGameEnded) {
+            return;
+        }
+
+        const gameLanguage = selectGameLanguage(state);
+
+        if (!gameLanguage) {
             return;
         }
 
@@ -463,8 +478,6 @@ const gameSlice = createSlice({
             state.language = action.payload;
 
             resetGame(state, '');
-
-            state.mode = GameMode.Daily;
         },
         setGameMode(state, action) {
             const gameMode = action.payload;

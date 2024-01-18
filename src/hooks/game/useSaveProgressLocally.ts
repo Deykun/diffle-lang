@@ -17,7 +17,7 @@ import useEffectChange from "@hooks/useEffectChange";
 
 function useSaveProgressLocally() {
     const dispatch = useDispatch();
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameStatus = useSelector(state => state.game.status);
     const gameMode = useSelector(state => state.game.mode);
     const todayStamp = useSelector(state => state.game.today);
@@ -29,7 +29,7 @@ function useSaveProgressLocally() {
 
     useEffect(() => {
         dispatch(saveEndedGame())
-    }, [dispatch, gameStatus]);
+    }, [dispatch, gameLanguage, gameStatus]);
 
     useEffect(() => {
         if (gameLanguage) {
@@ -42,7 +42,7 @@ function useSaveProgressLocally() {
     }, [gameLanguage, gameMode, todayStamp]);
 
     useEffectChange(() => {
-        if (gameLanguage) {
+        if (gameLanguage && wordToGuess) {
             const guessesWords = guesses.map(({ word }) => word);
 
             const recoveryState = {

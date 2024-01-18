@@ -26,7 +26,7 @@ interface Props {
 
 const SettingsModes = ({ changePane }: Props) => {
     const dispatch = useDispatch();
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector(state => state.game.mode);
     const isWon = useSelector(selectIsWon);
 

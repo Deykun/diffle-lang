@@ -16,7 +16,7 @@ import './VirualKeyboard.scss';
 
 const VirualKeyboard = () => {
     const dispatch = useDispatch();
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
     const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);

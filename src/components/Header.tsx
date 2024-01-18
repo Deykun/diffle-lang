@@ -22,7 +22,7 @@ import './Header.scss';
 
 const Header = () => {
     const [shouldShowShared, setShouldShowShared] = useState(false);
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const isGameEnded = useSelector(selectIsGameEnded);
     const wordToGuess = useSelector(state => state.game.wordToGuess);
     const gameMode = useSelector(state => state.game.mode);

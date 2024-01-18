@@ -1,4 +1,7 @@
 import { GameMode } from '@common-types';
+
+import { SUPPORTED_LANGS } from '@const';
+
 import  { convertMillisecondsToTime } from './date';
 
 export enum ModeFilter {
@@ -158,6 +161,7 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
 
 export const removeStatisticsByGameMode = ({ gameLanguage = 'pl', gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
     const keysToRemove = getStatisticFiltersForKeys({
+        gameLanguage,
         modeFilter: gameMode,
         lengthFilter: LengthFilter.All,
         charactersFilter: CharactersFilter.All,
@@ -304,7 +308,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
 };
 
 interface KeyForFilters {
-    gameLanguage: 'pl',
+    gameLanguage: string,
     keyModeFilter: ModeFilter,
     keyCharactersFilter: CharactersFilter,
     keyLengthFilter: LengthFilter,
@@ -317,20 +321,23 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
         [LengthFilter.Short, LengthFilter.Long].forEach(keyLengthFilter => {
             const isShort = keyLengthFilter === LengthFilter.Short;
 
-            const key = getLocalStorageKeyForStat({
-                gameLanguage: 'pl',
-                gameMode: keyModeFilter,
-                hasSpecialCharacters,
-                isShort,
-            });
+            SUPPORTED_LANGS.forEach(gameLanguage => {
+                const key = getLocalStorageKeyForStat({
+                    gameLanguage,
+                    gameMode: keyModeFilter,
+                    hasSpecialCharacters,
+                    isShort,
+                });
 
-            stack.push({
-                gameLanguage: 'pl',
-                keyModeFilter,
-                keyCharactersFilter,
-                keyLengthFilter,
-                key,
-            })
+                stack.push({
+                    gameLanguage,
+                    keyModeFilter,
+                    keyCharactersFilter,
+                    keyLengthFilter,
+                    key,
+                });
+                
+            });
         })
     });
 
@@ -338,21 +345,28 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
 }, []);
 
 export interface Filters {
+    gameLanguage: string,
     modeFilter: ModeFilter,
     charactersFilter: CharactersFilter,
     lengthFilter: LengthFilter,
 }
 
 export const getStatisticFiltersForKeys = ({
+    gameLanguage,
     modeFilter,
     charactersFilter,
     lengthFilter,
 }: Filters) => {
     const keysToUse = KEYS_FOR_FILTERS.filter(({
+        gameLanguage: filterLanguage,
         keyModeFilter,
         keyCharactersFilter,
         keyLengthFilter,
     }) => {
+        if (filterLanguage !== gameLanguage) {
+            return false;
+        }
+
         const isStrictModeFilter = [ModeFilter.Daily, ModeFilter.Practice].includes(modeFilter);
         if (isStrictModeFilter && keyModeFilter !== modeFilter) {
             return false;
@@ -374,12 +388,16 @@ export const getStatisticFiltersForKeys = ({
     return keysToUse;
 }
 
-export const getStatisticForFilter = ({
-    modeFilter,
-    charactersFilter,
-    lengthFilter,
-}: Filters) => {
+export const getStatisticForFilter = (
+    gameLanguage: string,
+    {
+        modeFilter,
+        charactersFilter,
+        lengthFilter,
+    }: Filters
+) => {
     const keysToUse = getStatisticFiltersForKeys({
+        gameLanguage,
         modeFilter,
         charactersFilter,
         lengthFilter,
@@ -390,10 +408,13 @@ export const getStatisticForFilter = ({
     return mergeStatistics(arrayOfStatistics);
 };
 
-export const getStreakForFilter = ({
-    modeFilter,
-}: { modeFilter: ModeFilter | GameMode }): Streak => {
-    return getStreak({ gameLanguage: 'pl', gameMode: modeFilter });
+export const getStreakForFilter = (
+    gameLanguage: string,
+    {
+        modeFilter,
+    }: { modeFilter: ModeFilter | GameMode }
+): Streak => {
+    return getStreak({ gameLanguage, gameMode: modeFilter });
 };
 
 export interface StatisticDataForCard {

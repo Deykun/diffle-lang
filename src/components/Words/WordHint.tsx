@@ -12,7 +12,7 @@ import {
 import './Words.scss';
 
 const Words = () => {
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
 
     const { t } = useTranslation();

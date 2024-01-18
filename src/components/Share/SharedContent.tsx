@@ -15,6 +15,7 @@ import { getWordReportForMultipleWords } from '@api/getWordReport';
 
 import { normilzeWord, getHasSpecialCharacters } from '@utils/normilzeWord';
 import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
+import { getLangFromUrl } from '@utils/lang';
 
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
@@ -130,10 +131,16 @@ const SharedContent = () => {
             keysWithIndexes,
           } = await getGameResultFromUrlHash(hash);
 
-          const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes);
-
           // That should always be right for shared content
-          const langFromUrl = SUPPORTED_LANGS.find(lang => location.pathname.endsWith(`/${lang}`));
+          const langFromUrl = getLangFromUrl();
+
+          if (!langFromUrl) {
+            setErrorMessage('share.resultIsBroken');
+
+            return;
+          }
+
+          const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes, langFromUrl);
 
           const {
             isWon,

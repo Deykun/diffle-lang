@@ -68,7 +68,7 @@ const SettingsPreferences = () => {
 
         i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl');
 
-        changePane(Pane.Game);
+        // changePane(Pane.Game);
     }, [changePane, i18n, vibrate]);
 
     return (

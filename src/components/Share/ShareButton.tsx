@@ -8,7 +8,7 @@ import { GameMode, GameStatus } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast, toggleShareWords } from '@store/appSlice';
-import { selectGuessesStatsForLetters } from '@store/selectors';
+import { selectGameLanguage, selectGuessesStatsForLetters } from '@store/selectors';
 
 import { getWordsIndexesChunks } from '@api/getDoesWordExist';
 
@@ -29,6 +29,7 @@ import './ShareButton.scss';
 
 const ShareButton = ({ shouldShowSettings = false }) => {
   const dispatch = useDispatch();
+  const gameLanguage = useSelector((state) => state.game.language);
   const shouldShareWords = useSelector((state) => state.app.shouldShareWords);
   const guesses = useSelector((state) => state.game.guesses);
   const guessedWords = guesses.map(({ word }) => word);
@@ -49,7 +50,8 @@ const ShareButton = ({ shouldShowSettings = false }) => {
 
     let resultParam = '';
     if (shouldShareWords) {
-      const wordsWithIndexes = getWordsIndexesChunks(guessedWords);
+      
+      const wordsWithIndexes = getWordsIndexesChunks(guessedWords, gameLanguage);
       const hashedValue = getUrlHashForGameResult({ subtotals, wordToGuess, wordsWithIndexes });
 
       resultParam = maskValue(hashedValue);

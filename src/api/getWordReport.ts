@@ -144,11 +144,10 @@ export const getWordReportForMultipleWords = async (wordToGuess: string, wordsTo
             position: {},
         },
     };
-
-    // lang
     
     for (const wordToSubmit of wordsToSubmit) {
         const wordReport = await getWordReport(wordToGuess, wordToSubmit, { lang });
+
         response.results.push(wordReport);
 
         response.wordsLetters.correct = {

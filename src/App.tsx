@@ -4,7 +4,9 @@ import { Pane as PaneInterface } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
+import { selectGameLanguage } from '@store/selectors';
+import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
@@ -21,8 +23,16 @@ import Toast from '@components/Toast/Toast';
 import './App.scss'
 
 const App = () => {
+    const dispatch = useDispatch();
     const pane = useSelector(state => state.app.pane);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
+    const gameLanguage = useSelector((state) => state.game.language);
+    const gameMode = useSelector((state) => state.game.mode);
+    const todayStamp = useSelector((state) => state.game.today);
+
+    useEffect(() => {
+        dispatch(loadGame());
+    }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp]);
 
     useAppUpdateIfNeeded();
 

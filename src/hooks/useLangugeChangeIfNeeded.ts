@@ -20,7 +20,7 @@ import useEffectChange from "@hooks/useEffectChange";
 export default function useLangugeChangeIfNeeded( ) {
     const [wasAppLanguageDetected, setWasAppLanguageDetected] = useState(false);
     const dispatch = useDispatch();
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
 
     const { i18n } = useTranslation();
 

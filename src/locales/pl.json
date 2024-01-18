@@ -30,7 +30,8 @@
         "youCanUseSpace": "Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).",
         "spacesRemoved": "Usunięto spacje.",
         "isNotInDictionary": "Brak słowa w słowniku.",
-        "wordAlreadyUsed": "To słowo zostało już wykorzystane."
+        "wordAlreadyUsed": "To słowo zostało już wykorzystane.",
+        "restoreError": "Wystąpił błąd podczas przywracania stanu gry."
     },
     "end": {
         "titleWon": "Sukces",

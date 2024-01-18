@@ -35,7 +35,7 @@ import SettingsSources from './SettingsSources';
 const Settings = () => {
     const dispatch = useDispatch();
     const [yesterdayWord, setYesterdayWord] = useState('');
-    const gameLanguage = useSelector(selectGameLanguage);
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector(state => state.game.mode);
     const isGameEnded = useSelector(selectIsGameEnded);
 

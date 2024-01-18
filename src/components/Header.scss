@@ -60,13 +60,17 @@
         .header-flag {
             position: absolute;
             content: '';
-            height: 12px;
-            width: 16px;
-            bottom: 7px;
-            right: -16px;
-            border-radius: 3px;
-            box-shadow: 0 -1px 3px var(--flag-shadow);
-            animation: scaleIn 0.2s ease-in;
+            height: 18px;
+            width: 18px;
+            bottom: 10px;
+            right: -20px;
+            border-radius: 20px;
+            filter: saturate(0.7);
+            object-fit: cover;
+            object-position: center;
+            transform-origin: center bottom;
+            box-shadow: 0 -1px 4px var(--flag-shadow);
+            animation: scaleIn 0.3s ease-in-out;
         }
     }
 

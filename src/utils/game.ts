@@ -1,7 +1,7 @@
 import { GameMode } from '@common-types';
 
 export const getLocalStorageKeyForGame = ({ gameLanguage, gameMode }: { gameLanguage: string, gameMode: GameMode }) => {
-    return `diffle_${gameLanguage}_mode_${gameMode}'}`;
+    return `diffle_${gameLanguage}_mode_${gameMode}`;
 };
 
 export const getLocalStorageKeyForDailyStamp = ({ gameLanguage }: { gameLanguage: string }) => {

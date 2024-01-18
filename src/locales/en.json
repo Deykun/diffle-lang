@@ -28,7 +28,8 @@
         "youCanUseSpace": "Words <strong>don't</strong> have spaces, but you can use them (they will be removed).",
         "spacesRemoved": "The spaces were removed.",
         "isNotInDictionary": "The word was not found in the dictionary.",
-        "wordAlreadyUsed": "The word had already been used."
+        "wordAlreadyUsed": "The word had already been used.",
+        "restoreError": "The error occurred while restoring the game state."
     },
     "help": {
         "title": "Help",

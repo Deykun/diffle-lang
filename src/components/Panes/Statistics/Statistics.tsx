@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useSelector } from '@store';
+import { selectGameLanguage } from '@store/selectors';
+
 import {
     Filters,
     StatisticDataForCard,
@@ -24,6 +27,7 @@ import { INITIAL_FILTERS } from './constants';
 import './Statistics.scss'
 
 const Statistics = () => {
+    const gameLanguage = useSelector((state) => state.game.language);
     const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
     const [{ statisticsData, streakData }, setData] = useState<{
         statisticsData: StatisticDataForCard | undefined,
@@ -38,8 +42,12 @@ const Statistics = () => {
     useScrollEffect('top', []);
 
     const refreshStatitics = useCallback(() => {
-        const statistics = getStatisticForFilter(filtersData);
-        const streakData = getStreakForFilter(filtersData);
+        if (!gameLanguage) {
+            return;
+        }
+
+        const statistics = getStatisticForFilter(gameLanguage, filtersData);
+        const streakData = getStreakForFilter(gameLanguage, filtersData);
 
         const statisticsData = getStatisticCardDataFromStatistics(statistics);
 
