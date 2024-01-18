@@ -5,7 +5,6 @@ import { Pane as PaneInterface } from '@common-types';
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
-import { selectGameLanguage } from '@store/selectors';
 import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';

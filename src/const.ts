@@ -21,27 +21,33 @@ export const SUPORTED_DICTIONARY_BY_LANG: {
     [key: string]: {
         code: string,
         languages: string[],
-        hasSpecialCharacters: boolean,
         title: string,
         keyLines: string[][],
-        alloweyKeys: string[],
+        allowedKeys: string[],
+        characters: string[],
+        specialCharacters: string[],
+        hasSpecialCharacters: boolean,
     }
 } = {
     en: {
         code: 'en',
         languages: ['en', 'en-US'],
-        hasSpecialCharacters: false,
         title: 'DIFFLE - the game like Wordle (without character limit)',
         keyLines: KEY_LINES_EN,
-        alloweyKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN.flatMap((key) => key)],
+        allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN.flatMap((key) => key)],
+        characters: KEY_LINES_EN.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        specialCharacters: [],
+        hasSpecialCharacters: false,
     },
     pl: {
         code: 'pl',
         languages: ['pl', 'pl-PL'],
-        hasSpecialCharacters: true,
         title: 'DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱',
         keyLines: KEY_LINES_PL,
-        alloweyKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL.flatMap((key) => key)],
+        allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL.flatMap((key) => key)],
+        characters: KEY_LINES_PL.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        specialCharacters: KEY_LINES_PL.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        hasSpecialCharacters: false,
     },
 }
 

@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from '@store';
-import { selectGameLanguage } from '@store/selectors';
 
 import {
     Filters,
@@ -55,7 +54,7 @@ const Statistics = () => {
             statisticsData,
             streakData,
         });
-    }, [filtersData]);
+    }, [filtersData, gameLanguage]);
 
     useEffect(() => {
         refreshStatitics();
@@ -77,7 +76,9 @@ const Statistics = () => {
                     </span>
                 </h2>
                 {isMissingData
-                    ? <div className="missing-data"><IconChartWithMarkedPart className="missing-data-icon" /><p>{t('statistics.noData')}</p></div>
+                    ? <p className="missing-data">
+                        {t('statistics.noData')}
+                    </p>
                     : <>
                         <StatisticsCard {...statisticsData} {...streakData} {...filtersData} />
                         <StatisticsActions refreshStatitics={refreshStatitics} modeFilter={filtersData.modeFilter} />

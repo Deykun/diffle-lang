@@ -8,7 +8,6 @@ import { useSelector } from '@store';
 import {
     selectIsGameEnded,
     selectIsProcessing,
-    selectHasWordToGuessSpecialCharacters,
     selectWordToSubmit,
     selectWordState,
 } from '@store/selectors';
@@ -22,7 +21,7 @@ import IconDashedCircle from '@components/Icons/IconDashedCircle';
 import EndResult from '@components/EndResult/EndResult';
 
 import Word from './Word';
-import WordHint from './WordHint';
+import WordTip from './WordTip';
 
 import './Words.scss';
 
@@ -56,7 +55,7 @@ const Words = () => {
 
     return (
         <div className={clsx('words', { 'narrow': shouldBeNarrower, 'shorter': shouldBeShorter })}>
-            <WordHint />
+            <WordTip />
             {guesses.map((guess, index) => {            
                 return (
                     <Word key={`guess-${index}`} guess={guess} />

@@ -160,8 +160,7 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
 };
 
 export const removeStatisticsByGameMode = ({ gameLanguage = 'pl', gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
-    const keysToRemove = getStatisticFiltersForKeys({
-        gameLanguage,
+    const keysToRemove = getStatisticFiltersForKeys(gameLanguage, {
         modeFilter: gameMode,
         lengthFilter: LengthFilter.All,
         charactersFilter: CharactersFilter.All,
@@ -345,18 +344,20 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
 }, []);
 
 export interface Filters {
-    gameLanguage: string,
+    gameLanguage?: string,
     modeFilter: ModeFilter,
     charactersFilter: CharactersFilter,
     lengthFilter: LengthFilter,
 }
 
-export const getStatisticFiltersForKeys = ({
-    gameLanguage,
-    modeFilter,
-    charactersFilter,
-    lengthFilter,
-}: Filters) => {
+export const getStatisticFiltersForKeys = (
+    gameLanguage: string,
+    {
+        modeFilter,
+        charactersFilter,
+        lengthFilter,
+    }: Filters
+) => {
     const keysToUse = KEYS_FOR_FILTERS.filter(({
         gameLanguage: filterLanguage,
         keyModeFilter,
@@ -396,8 +397,7 @@ export const getStatisticForFilter = (
         lengthFilter,
     }: Filters
 ) => {
-    const keysToUse = getStatisticFiltersForKeys({
-        gameLanguage,
+    const keysToUse = getStatisticFiltersForKeys(gameLanguage, {
         modeFilter,
         charactersFilter,
         lengthFilter,

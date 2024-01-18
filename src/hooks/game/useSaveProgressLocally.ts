@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from '@store';
 import { saveEndedGame } from '@store/gameSlice';
 import {
-    selectGameLanguage,
     selectWordToGuess,
 } from '@store/selectors';
 

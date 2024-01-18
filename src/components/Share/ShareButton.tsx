@@ -8,7 +8,7 @@ import { GameMode, GameStatus } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
 import { setToast, toggleShareWords } from '@store/appSlice';
-import { selectGameLanguage, selectGuessesStatsForLetters } from '@store/selectors';
+import { selectGuessesStatsForLetters } from '@store/selectors';
 
 import { getWordsIndexesChunks } from '@api/getDoesWordExist';
 

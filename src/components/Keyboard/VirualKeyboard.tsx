@@ -1,11 +1,9 @@
 import clsx from 'clsx';
-import { useCallback, useMemo, useState } from 'react';
-
-import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
+import { useCallback, useState } from 'react';
 
 import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
-import { selectGameLanguage, selectIsGameEnded, selectKeyboardState } from '@store/selectors';
+import { selectIsGameEnded, selectKeyboardState, selectGameLanguageKeyboardInfo } from '@store/selectors';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -16,10 +14,9 @@ import './VirualKeyboard.scss';
 
 const VirualKeyboard = () => {
     const dispatch = useDispatch();
-    const gameLanguage = useSelector((state) => state.game.language);
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
-    const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
+    const { keyLines, allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
     const isGameEnded = useSelector(selectIsGameEnded);
     const type = useSelector(selectKeyboardState);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
@@ -40,31 +37,6 @@ const VirualKeyboard = () => {
 
         setIsConfirmOpen((prevValue) => !prevValue);
     }, [vibrateKeyboard]);
-
-    const {
-        keyLines,
-        allowedKeys
-    } = useMemo(() => {
-        if (!gameLanguage || !SUPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
-            return { keyLines: [], allowedKeys: [] };
-        }
-        const dictionary = SUPORTED_DICTIONARY_BY_LANG[gameLanguage];
-        
-        return {
-            allowedKeys: dictionary.alloweyKeys,
-            keyLines: !isEnterSwapped ? dictionary.keyLines : dictionary.keyLines.map((line) => line.map((keyText) => {
-                if (keyText === 'enter') {
-                    return 'backspace';
-                }
-        
-                if (keyText === 'backspace') {
-                    return 'enter';
-                }
-        
-                return keyText;
-            }))
-        };
-    }, [gameLanguage, isEnterSwapped]);
 
     const handleType = useCallback((keyTyped: string) => {
         const isAllowedKey = allowedKeys.includes(keyTyped);

@@ -126,7 +126,7 @@
     "statistics": {
         "filters": "Filtry",
         "filterAll": "Połącz",
-        "noData": "Brak danych.",
+        "noData": "Brak danych dla wybranych filtrów.",
         "specialCharactersWithout": "<strong>bez</strong> znaków specjalnych",
         "specialCharactersWith": "<strong>ze</strong> znakami specjalnymi",
         "wordLengthShort": "do <strong>{{to}}</strong> znaków",

@@ -1,31 +1,28 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
-import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
-
 import { useSelector } from '@store';
 import {
-    selectGameLanguage,
+    selectGameLanguageKeyboardInfo,
     selectHasWordToGuessSpecialCharacters,
 } from '@store/selectors';
 
 import './Words.scss';
 
-const Words = () => {
+const WordTip = () => {
     const gameLanguage = useSelector((state) => state.game.language);
-    const hasSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
+    const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
+    const hasWordToGuessSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
 
     const { t } = useTranslation();
-
-    const hasLanguageSpecialCharacters = gameLanguage ? SUPORTED_DICTIONARY_BY_LANG[gameLanguage].hasSpecialCharacters : false ?? false;
 
     if (!hasLanguageSpecialCharacters) {
         return null;
     }
 
-    if (hasSpecialCharacters) {
+    if (hasWordToGuessSpecialCharacters) {
         return (<p 
-            className={clsx('word-tip', 'has-polish')}
+            className={clsx('word-tip', 'has-special-character')}
             dangerouslySetInnerHTML={{
                 __html: t('game.withSpecialCharacters', { specialCharacter: t(`game.${gameLanguage}SpecialCharacter`) })
             }}
@@ -42,4 +39,4 @@ const Words = () => {
     )
 };
 
-export default Words;
+export default WordTip;

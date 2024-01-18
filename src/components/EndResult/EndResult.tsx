@@ -7,7 +7,7 @@ import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
 import { setWordToGuess } from '@store/gameSlice'
-import { selectGameLanguage, selectGuessesStatsForLetters } from '@store/selectors';
+import { selectGuessesStatsForLetters } from '@store/selectors';
 
 import getWordToGuess from '@api/getWordToGuess'
 
@@ -81,6 +81,7 @@ const EndResult = () => {
                 )}
                 <ShareButton shouldShowSettings />
             </div>
+            {/* https://dictionary.cambridge.org/dictionary/english/drudge */}
             <Button
                 tagName="a"
                 href={`https://sjp.pl/${wordToGuess}`}

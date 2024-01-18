@@ -114,7 +114,7 @@
     "statistics": {
         "filters": "Filters",
         "filterAll": "Merge",
-        "noData": "No data.",
+        "noData": "No data for the selected filters.",
         "specialCharactersWithout": "<strong>without</strong> special characters",
         "specialCharactersWith": "<strong>with</strong> special characters",
         "wordLengthShort": "to <strong>{{to}}</strong> characters",

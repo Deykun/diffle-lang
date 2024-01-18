@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useSelector, useDispatch } from '@store';
-import { selectGameLanguage } from '@store/selectors';
 import { setGameLanguage } from '@store/gameSlice';
 
 import { getLangFromUrl, getLangFromBrowser } from '@utils/lang';

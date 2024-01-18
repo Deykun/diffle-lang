@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { GameMode, Pane } from '@common-types';
 
 import { useSelector } from '@store';
-import { selectGameLanguage, selectIsGameEnded } from '@store/selectors';
+import { selectIsGameEnded } from '@store/selectors';
 
 import usePanes from '@hooks/usePanes';
 

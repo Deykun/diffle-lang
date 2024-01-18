@@ -6,7 +6,7 @@ import { GameMode, Pane } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
 import { loseGame } from '@store/gameSlice';
-import { selectGameLanguage, selectIsGameEnded } from '@store/selectors';
+import { selectIsGameEnded } from '@store/selectors';
 
 import { getYesterdaysSeed } from '@utils/date';
 

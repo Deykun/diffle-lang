@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { Pane, GameMode } from '@common-types';
 
 import { useSelector } from '@store';
-import { selectGameLanguage } from '@store/selectors';
 
 import { getStreakForFilter } from '@utils/statistics';
 

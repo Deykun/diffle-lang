@@ -7,7 +7,6 @@ import { GameMode, Pane, PaneChange } from '@common-types';
 import { useSelector, useDispatch } from '@store';
 import { selectIsWon } from '@store/selectors';
 import { setGameMode, setWordToGuess } from '@store/gameSlice';
-import { selectGameLanguage } from '@store/selectors';
 
 import { getNow } from '@utils/date';
 import { getLocalStorageKeyForLastGameMode } from '@utils/game';

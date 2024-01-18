@@ -29,7 +29,6 @@ import {
     selectIsWon,
     selectIsLost,
     selectGuesses,
-    selectGameLanguage,
     selectWordToGuess,
     selectKeyboardUsagePercentage,
     selectGuessesStatsForLetters,
@@ -188,7 +187,7 @@ export const loseGame = createAsyncThunk(
     async (_, { dispatch, getState, rejectWithValue }) => {
         const state  = getState() as RootState;
 
-        const gameLanguage = selectGameLanguage(state);
+        const gameLanguage = state.game.language;
         if (!gameLanguage) {
             return rejectWithValue(GIVE_UP_ERRORS.NO_LANG);
         }
@@ -225,7 +224,7 @@ export const loadGame = createAsyncThunk(
     async (_, { dispatch, getState }) => {
         const state = getState() as RootState;
         const wordToGuess = selectWordToGuess(state);
-        const gameLanguage = selectGameLanguage(state);
+        const gameLanguage = state.game.language;
 
         console.log({
             wordToGuess,
@@ -243,12 +242,24 @@ export const loadGame = createAsyncThunk(
 
         const gameMode = state.game.mode;
         const todayStamp = state.game.today;
+
+        console.log({
+            gameMode,
+        });
         
         if (!wordToGuess) {
             const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
             const storedState = localStorage.getItem(localStorageKeyForGame);
 
             console.log(localStorageKeyForGame, storedState);
+
+            const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
+            const lastDailyStamp = localStorage.getItem(localStorageKeyForDailyStamp);
+
+            const wasSwitchedFromOtherLanguagePracticeAndDoesntHasHistory = gameMode === GameMode.Practice && !storedState;
+            if (wasSwitchedFromOtherLanguagePracticeAndDoesntHasHistory) {
+                // TODO change to practice
+            }
 
             if (storedState) {
                 const {
@@ -261,9 +272,6 @@ export const loadGame = createAsyncThunk(
                 } = JSON.parse(storedState);
 
                 const isDailyMode = gameMode === GameMode.Daily;
-
-                const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
-                const lastDailyStamp = localStorage.getItem(localStorageKeyForDailyStamp);
 
                 const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
 
@@ -346,7 +354,7 @@ export const saveEndedGame = createAsyncThunk(
             return;
         }
 
-        const gameLanguage = selectGameLanguage(state);
+        const gameLanguage = state.game.language;
 
         if (!gameLanguage) {
             return;

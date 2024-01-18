@@ -1,12 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { POLISH_CHARACTERS, ALLOWED_LETTERS } from '@const';
+import { SUPORTED_DICTIONARY_BY_LANG, POLISH_CHARACTERS } from '@const';
 
 import { RootState, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
-export const selectGameLanguage = (state: RootState) => state.game.language;
 export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
 export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;
@@ -14,6 +13,41 @@ export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;
 export const selectIsWon = (state: RootState) => state.game.status === GameStatus.Won;
 export const selectIsLost = (state: RootState) => state.game.status === GameStatus.Lost;
 export const selectIsGameEnded = (state: RootState) => state.game.status !== GameStatus.Guessing;
+
+export const selectGameLanguageKeyboardInfo =  createSelector(
+    (state: RootState) => state.game.language,
+    (state: RootState) => state.app.isEnterSwapped,
+    (gameLanguage, isEnterSwapped) => {
+        if (!gameLanguage || !SUPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
+            return {
+                keyLines: [],
+                allowedKeys: [],
+                characters: [],
+                specialCharacters: [],
+                hasSpecialCharacters: false,
+            };
+        }
+        const {
+            keyLines,
+            ...dictionary
+        } = SUPORTED_DICTIONARY_BY_LANG[gameLanguage];
+        
+        return {
+            ...dictionary,
+            keyLines: !isEnterSwapped ? keyLines : keyLines.map((line) => line.map((keyText) => {
+                if (keyText === 'enter') {
+                    return 'backspace';
+                }
+        
+                if (keyText === 'backspace') {
+                    return 'enter';
+                }
+        
+                return keyText;
+            }))
+        };
+    }
+);
 
 export const selectHasWordToGuessSpecialCharacters = createSelector(
     selectWordToGuess,
@@ -32,12 +66,13 @@ const getLetterState = (
     correctLetters: UsedLetters,
     incorrectLetter: UsedLetters,
     positionLetters: UsedLetters,
+    specialCharacters: string[],
 ) => {
-    const isPolishCharacter = POLISH_CHARACTERS.includes(letter);
-    if (isPolishCharacter) {
-        const hasPolishCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
+    const isSpecialCharacter = specialCharacters.includes(letter);
+    if (isSpecialCharacter) {
+        const hasWordToGuessSpecialCharacter = wordToGuess && getHasSpecialCharacters(wordToGuess);
 
-        if (!hasPolishCharacters) {
+        if (!hasWordToGuessSpecialCharacter) {
             // All special characters are marked as incorrect if word to guess dosen't have one
             return AffixStatus.Incorrect;
         }
@@ -60,24 +95,26 @@ const getLetterState = (
 
 export const selectLetterState = (letter: string) => createSelector(
     selectWordToGuess,
+    selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, correctLetters, incorrectLetter, positionLetters) => {
-        return getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters);
+    (wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+        return getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters);
     },
 );
 
 export const selectWordState = (word: string) => createSelector(
     selectWordToGuess,
+    selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, correctLetters, incorrectLetter, positionLetters) => {
+    (wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
         const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
         const hasIncorrectLetterTyped = uniqueLettersInWord.some(
-            (letter) => getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters) === AffixStatus.Incorrect,
+            (letter) => getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.Incorrect,
         );
 
         if (hasIncorrectLetterTyped) {
@@ -135,11 +172,12 @@ export const selectKeyboardState = createSelector(
 );
 
 export const selectKeyboardUsagePercentage = createSelector(
+    selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (correctLetters, incorrectLetter, positionLetters) => {
-        const totalNumberOfLetters = ALLOWED_LETTERS.length;
+    ({ characters }, correctLetters, incorrectLetter, positionLetters) => {
+        const totalNumberOfLetters = characters.length;
 
         const usedLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(incorrectLetter), ...Object.keys(positionLetters)])];
         const totalNumberOfUsedLetters = usedLetters.length;

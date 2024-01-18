@@ -6,7 +6,7 @@ import download from 'downloadjs';
 
 import { ToastType } from '@common-types';
 
-import { useDispatch } from '@store';
+import { useDispatch, useSelector } from '@store';
 import { setToast } from '@store/appSlice';
 
 import { getNow } from '@utils/date';
@@ -32,6 +32,7 @@ interface Props {
 const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
+  const gameLanguage = useSelector((state) => state.game.language);
 
   const { t } = useTranslation();
 
@@ -57,7 +58,11 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   };
 
   const handleRemoveGameModeStatitics = (gameMode: ModeFilter ) => {
-    removeStatisticsByGameMode({ gameLanguage: 'pl', gameMode });
+    if (!gameLanguage) {
+        return;
+    }
+
+    removeStatisticsByGameMode({ gameLanguage, gameMode });
 
     refreshStatitics();
 
