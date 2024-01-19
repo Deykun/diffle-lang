@@ -13,13 +13,15 @@
         "more": "więcej",
         "download": "Pobierz",
         "downloadError": "Błąd pobierania.",
-        "fetchError": "Błąd pobierania, spróbuj ponownie."
+        "fetchError": "Błąd pobierania, spróbuj ponownie.",
+        "unknownError": "Wystąpił nieznany błąd"
     },
     "game": {
         "modeDaily": "Codzienny",
         "modePractice": "Ćwiczenia",
         "modeShare": "Udostępniony",
         "iGiveUp": "Poddaje się",
+        "dailyGameLostToast": "\"{{word}}\" to nieodgadnięte słowo z {{dailyStamp}}",
         "givingUpIsNotPossible": "Zacznij grę by móc się poddać ;)",
         "confirmCheckTheWord": "Wysłać \"{{word}}\"?",
         "wordToSubmitIsMissing": "Wysłać?",
@@ -83,6 +85,7 @@
     "settings": {
         "title": "Ustawienia",
         "inDevelopment": "W budowie",
+        "inBetaNow": "Wydane teraz jako beta",
         "onlyIn": "Tylko w",
         "considered": "Rozważane",
         "statisticsTitle": "Statystyki",
@@ -101,10 +104,12 @@
         "keyboardVibration": "Wibracje klawiatury",
         "smallerKeyboard": "Mniejsza klawiatura",
         "sourcesTitle": "Źródła",
-        "sourcesDescription": "Specjalne podziękowania dla SJP i FreeDict.",
+        "sourcesDescription": "Specjalne podziękowania dla dwyl, SJP i FreeDict.",
         "sourceSJP": "sjp.pl - używany do sprawdzania słów",
         "sourceFreeDict": "freedict.org - do ustalenia lepszych haseł",
+        "sourceDwyl": "github.com/dwyl - używany do sprawdzania słów",
         "sourceIconmonstr": "iconmonstr.com - ikonki",
+        "sourceFlagIcons": "github.com/lipis/flag-icons - flagi",
         "sourceWordle": "oryginalne wordle",
         "sourceDiffle": "oryginalne diffle",
         "sourceGithub": "repozytorium strony",

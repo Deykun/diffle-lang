@@ -1,8 +1,10 @@
 type getAppStatusReport = {
     shouldUpdate: boolean,
+    shouldResetStore: boolean,
 }
 
 const LAST_BREAKING_CHANGES_APP = '2.0';
+const LAST_BREAKING_CHANGES_STORE = '2.0';
 
 export const getAppStatus = async (): Promise<getAppStatusReport> => {
 
@@ -14,6 +16,7 @@ export const getAppStatus = async (): Promise<getAppStatusReport> => {
 
         if (response?.status === 404) {
             return {
+                shouldResetStore: false,
                 shouldUpdate: false,
             };
         }
@@ -21,8 +24,11 @@ export const getAppStatus = async (): Promise<getAppStatusReport> => {
         const result = await response.json();
 
         const shouldUpdate = result?.lastBreakingChangesApp !== LAST_BREAKING_CHANGES_APP;
-        
+
+            const shouldResetStore = result?.lastBreakingChangesStore !== LAST_BREAKING_CHANGES_STORE;
+
         return {
+            shouldResetStore,
             shouldUpdate,
         };
     } catch (error) {
@@ -30,6 +36,7 @@ export const getAppStatus = async (): Promise<getAppStatusReport> => {
     }
 
     return {
+        shouldResetStore: false,
         shouldUpdate: false,
     };
 };

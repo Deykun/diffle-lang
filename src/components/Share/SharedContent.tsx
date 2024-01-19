@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Pane, GameStatus, GameMode, Word as WordInterface } from '@common-types';
 
-import { SUPPORTED_LANGS, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { useSelector } from '@store';
 import { selectIsGameEnded, getWordsAndLetters } from '@store/selectors';

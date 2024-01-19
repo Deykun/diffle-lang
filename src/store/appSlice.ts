@@ -19,6 +19,7 @@ const initialState: RootAppState = {
         type: ToastType.Default,
         timeoutSeconds: 5,
         toastTime: null,
+        params: {},
     },
     shouldVibrate: getInitShouldVibrate(),
     shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
@@ -38,13 +39,13 @@ const appSlice = createSlice({
             state.pane = isCloseAction ? Pane.Game : action.payload;
         },
         setToast(state, action) {
-            const { type = ToastType.Default, text = '', timeoutSeconds = 3 } = action.payload;
+            const { type = ToastType.Default, text = '', timeoutSeconds = 3, params = {} } = action.payload;
             const toastTime = (new Date()).getTime();
 
-            state.toast = { type, text, timeoutSeconds, toastTime };
+            state.toast = { type, text, timeoutSeconds, toastTime, params };
         },
         clearToast(state) {
-            state.toast = { type: ToastType.Default, text: '', timeoutSeconds: 3, toastTime: null };
+            state.toast = { type: ToastType.Default, text: '', timeoutSeconds: 3, toastTime: null, params: {} };
         },
         toggleVibration(state) {
             // Turning off app vibrations turns off keyboard vibration
@@ -81,7 +82,7 @@ const appSlice = createSlice({
           .addCase('game/submitAnswer/rejected', (state) => {
             const toastTime = (new Date()).getTime();
 
-            state.toast = { type: ToastType.Error, text: 'Nieznany błąd.', timeoutSeconds: 5, toastTime };
+            state.toast = { type: ToastType.Error, text: 'unknownError', timeoutSeconds: 5, toastTime, params: {} };
           });
       },
 })

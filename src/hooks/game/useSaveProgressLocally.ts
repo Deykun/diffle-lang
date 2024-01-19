@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import { GameMode } from '@common-types';
+
 import { useDispatch, useSelector } from '@store';
 import { saveEndedGame } from '@store/gameSlice';
 import {
@@ -31,14 +33,16 @@ function useSaveProgressLocally() {
     }, [dispatch, gameLanguage, gameStatus]);
 
     useEffect(() => {
-        if (gameLanguage) {
+        if (gameLanguage && wordToGuess) {
             const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage });
             localStorage.setItem(localStorageKeyForLastGameMode, gameMode);
 
-            const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
-            localStorage.setItem(localStorageKeyForDailyStamp, todayStamp);  
+            if (gameMode === GameMode.Daily) {
+                const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
+                localStorage.setItem(localStorageKeyForDailyStamp, todayStamp);
+            }
         }
-    }, [gameLanguage, gameMode, todayStamp]);
+    }, [gameLanguage, gameMode, todayStamp, wordToGuess]);
 
     useEffectChange(() => {
         if (gameLanguage && wordToGuess) {

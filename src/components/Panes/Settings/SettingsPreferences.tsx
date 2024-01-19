@@ -96,9 +96,10 @@ const SettingsPreferences = () => {
                     <button className="setting" onClick={handleLanguageChange}>
                         <IconTranslation />
                         <span>{t('settings.currentLanguage')}</span>
-                        {i18n.language === 'en'&& <span className={clsx('setting-label', 'position', 'construction')}>
-                            <span>{t('settings.inDevelopment')}</span> <IconConstruction /></span>
-                        }
+                        <span className={clsx('setting-label', 'position', 'construction')}>
+                            <span>{t('settings.inBetaNow')}</span>
+                            <IconConstruction />
+                        </span>
                     </button>
                 </li>
             </ul>

@@ -229,11 +229,6 @@ export const loadGame = createAsyncThunk(
         const wordToGuess = selectWordToGuess(state);
         const gameLanguage = state.game.language;
 
-        console.log({
-            wordToGuess,
-            gameLanguage,
-        });
-
         if (!gameLanguage) {
             return;
         }
@@ -247,10 +242,6 @@ export const loadGame = createAsyncThunk(
         let gameMode = stateGameMode;
         const todayStamp = state.game.today;
 
-        console.log({
-            gameMode,
-        });
-        
         if (!wordToGuess) {
             const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
             let storedState = localStorage.getItem(localStorageKeyForGame);
@@ -271,23 +262,12 @@ export const loadGame = createAsyncThunk(
 
                 const shouldForceDaily = isFirstTimePlayingThisLanguage || wasPlayingEarlierButExpired || wasPlayingTodayButDidNotWin;
 
-                console.log({
-                    isFirstTimePlayingThisLanguage,
-                    wasPlayingEarlierButExpired,
-                    wasPlayingTodayButDidNotWin,
-                });
-
                 if (shouldForceDaily) {
-                    console.log('FORCING DAILY');
-                    gameMode = GameMode.Daily;
-                    storedState = storedStateDaily ? storedStateDaily : null;
+                    dispatch(setGameMode(GameMode.Daily));
+
+                    return;
                 }
             }
-
-            console.log({
-                gameMode,
-                storedState,
-            })
 
             if (storedState) {
                 const {
@@ -303,17 +283,10 @@ export const loadGame = createAsyncThunk(
 
                 const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
 
-                console.log({
-                    isDailyMode,
-                    lastDailyStamp,
-                    todayStamp,
-                    isExpiredDailyGame,
-                })
+                console.log('isExpiredDailyGame', isExpiredDailyGame);
 
                 if (lastWordToGuess) {
                     if (isExpiredDailyGame) {
-                        console.log('isExpiredDailyGame', isExpiredDailyGame);
-
                         const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
                         localStorage.removeItem(localStorageKeyForGame);
 
@@ -322,7 +295,11 @@ export const loadGame = createAsyncThunk(
 
                             if (isLostGame) {
                                 dispatch(setToast({
-                                    text: `"${lastWordToGuess.toUpperCase()}" to nieodgadnięte słowo z ${lastDailyStamp}`,
+                                    text: 'game.dailyGameLostToast',
+                                    params: {
+                                        dailyStamp: lastDailyStamp,
+                                        word: lastWordToGuess.toUpperCase(),
+                                    }
                                 }));
 
                                 /*
@@ -364,6 +341,13 @@ export const loadGame = createAsyncThunk(
 
                     return;
                 }
+            }
+
+            const shouldForceDaily = gameMode !== GameMode.Daily;
+            if (shouldForceDaily) {
+                dispatch(setGameMode(GameMode.Daily));
+
+                return;
             }
 
             await getWordToGuess({ gameMode, gameLanguage }).then(word => {
@@ -752,18 +736,6 @@ const gameSlice = createSlice({
                 lastUpdateTime: number,
                 durationMS: number,
             };
-
-            console.log('Restoring...')
-            console.log({
-                gameMode,
-                status,
-                results,
-                rejectedWords,
-                wordToGuess,
-                wordsLetters,
-                lastUpdateTime,
-                durationMS,
-            });
 
             const guesses = results.map(({ word = '', affixes = [] }) => ({
                 word,

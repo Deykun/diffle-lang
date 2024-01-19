@@ -58,6 +58,9 @@ export interface Toast {
     type: ToastType,
     timeoutSeconds: number,
     toastTime: number | null,
+    params: {
+        [key: string]: string | number,
+    },
 }
 
 export interface RootAppState {
