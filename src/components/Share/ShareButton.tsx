@@ -25,6 +25,8 @@ import IconShare from '@components/Icons/IconShare';
 import Button from '@components/Button/Button';
 import Modal from '@components/Modal/Modal';
 
+import './ShareButton.scss';
+
 const ShareButton = ({ shouldShowSettings = false }) => {
   const dispatch = useDispatch();
   const gameLanguage = useSelector((state) => state.game.language);
@@ -119,7 +121,11 @@ ${shareUrl}`;
               <li>
                   <button className={clsx('setting', { 'setting-active': shouldShareWords })} onClick={handleToggleShareWords}>
                       <IconFingerprint />
-                      <span>{t('share.linkWithUsedWords')}</span>
+                      <span>
+                        {t('share.linkWithUsedWords')}
+                        <br />
+                        <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
+                      </span>
                   </button>
               </li>
               <li>

@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { UPDATE_BLOCK_DAILY } from '@const';
+
 import { useSelector } from '@store';
 
 import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
@@ -10,6 +12,8 @@ import Words from '@components/Words/Words'
 
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconLoader from '@components/Icons/IconLoader';
+
+import GameUpdateScreen from './GameUpdateScreen';
 
 import './Game.scss'
 
@@ -24,14 +28,9 @@ const Game = () => {
         return (<IconLoader className="game-loader" />);
     }
 
-    if (todayStamp === '08.01.2024') {
+    if (todayStamp === UPDATE_BLOCK_DAILY) {
         return (
-            <div className={clsx('game', { 'isSmallKeyboard': isSmallKeyboard })}>
-                <IconConstruction className="icon-soon" />
-                <p>
-                    Gra wraca wraz z nowym słowem <strong>09.01.2024</strong>.
-                </p>
-            </div>
+            <GameUpdateScreen today={todayStamp} />
         );
     }
 

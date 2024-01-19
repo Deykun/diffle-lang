@@ -14,7 +14,8 @@
         "download": "Download",
         "downloadError": "An fetching error.",
         "fetchError": "An fetching error, try again.",
-        "unknownError": "An unknown error occurred."
+        "unknownError": "An unknown error occurred.",
+        "gameWillReturnAfter": "Service maintenance <strong>{{today}}</strong>.<br />We'll be back tomorrow!"
     },
     "game": {
         "modeDaily": "Daily",
@@ -114,6 +115,7 @@
     "share": {
         "titleSettings": "Sharing",
         "linkWithUsedWords": "Link to used words",
+        "linkWithUsedWordsNoSpoilers": "(without spoilers)",
         "titleSharedResult": "Shared result with you",
         "resultIsBroken": "Unfortunately, this link has expired or is broken.",
         "resultHasExpired": "Unfortunately, this link has expired.",

@@ -14,7 +14,8 @@
         "download": "Pobierz",
         "downloadError": "Błąd pobierania.",
         "fetchError": "Błąd pobierania, spróbuj ponownie.",
-        "unknownError": "Wystąpił nieznany błąd"
+        "unknownError": "Wystąpił nieznany błąd",
+        "gameWillReturnAfter": "Przerwa techniczna <strong>{{today}}</strong>.<br />Wracamy jutro!"
     },
     "game": {
         "modeDaily": "Codzienny",
@@ -124,6 +125,7 @@
     "share": {
         "titleSettings": "Udostępnianie",
         "linkWithUsedWords": "Linkuj do użytych słów",
+        "linkWithUsedWordsNoSpoilers": "(bez spoilerów)",
         "titleSharedResult": "Udostępniony Ci wynik",
         "resultIsBroken": "Niestety ten link wygasł lub jest uszkodzony.",
         "resultHasExpired": "Niestety ten link wygasł.",
