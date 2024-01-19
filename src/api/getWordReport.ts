@@ -87,20 +87,22 @@ export interface WordReport {
     },
 }
 
-export const getWordReport = async (wordToGuess: string, wordToSubmit: string, { lang }: { lang: string}) => {
-    const doesWordExistReport = await getDoesWordExist(wordToSubmit, lang);
+export const getWordReport = async (wordToGuess: string, wordToSubmit: string, { lang, shouldCheckIfExist = true }: { lang: string, shouldCheckIfExist?: boolean }) => {
+    if (shouldCheckIfExist) {
+        const doesWordExistReport = await getDoesWordExist(wordToSubmit, lang);
 
-    if (doesWordExistReport.isError) {
-        if (doesWordExistReport.errorType === DoesWordExistErrorType.Fetch) {
-            return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_FETCH_ERROR };
+        if (doesWordExistReport.isError) {
+            if (doesWordExistReport.errorType === DoesWordExistErrorType.Fetch) {
+                return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_FETCH_ERROR };
+            }
+    
+            // Too short the same massage as
+            return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
         }
-
-        // Too short the same massage as
-        return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
-    }
-
-    if (!doesWordExistReport.doesWordExist) {
-        return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
+    
+        if (!doesWordExistReport.doesWordExist) {
+            return { isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_DOES_NOT_EXIST };
+        }
     }
 
     const result = compareWords(wordToGuess, wordToSubmit);
@@ -124,7 +126,7 @@ export const getWordReport = async (wordToGuess: string, wordToSubmit: string, {
 
 export default getWordReport;
 
-export const getWordReportForMultipleWords = async (wordToGuess: string, wordsToSubmit: string[], { lang }: { lang: string }) => {
+export const getWordReportForMultipleWords = async (wordToGuess: string, wordsToSubmit: string[], { lang, shouldCheckIfExist = true }: { lang: string, shouldCheckIfExist?: boolean }) => {
     const response: {
         hasError: boolean,
         isWon: boolean,
@@ -146,7 +148,7 @@ export const getWordReportForMultipleWords = async (wordToGuess: string, wordsTo
     };
     
     for (const wordToSubmit of wordsToSubmit) {
-        const wordReport = await getWordReport(wordToGuess, wordToSubmit, { lang });
+        const wordReport = await getWordReport(wordToGuess, wordToSubmit, { lang, shouldCheckIfExist });
 
         response.results.push(wordReport);
 

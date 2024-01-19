@@ -4,6 +4,7 @@
 - **New**: English game language supported
 - **New**: Information about longest game in letters and words added to statistics
 - **Fix**: A downloaded statistic card has proper paddings
+- **Fix**: Statistics for people who gathered them before rejected words median data was introduced
 
 ---
 

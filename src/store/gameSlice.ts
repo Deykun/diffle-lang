@@ -239,12 +239,12 @@ export const loadGame = createAsyncThunk(
         }
 
         const stateGameMode = state.game.mode;
-        let gameMode = stateGameMode;
+        const gameMode = stateGameMode;
         const todayStamp = state.game.today;
 
         if (!wordToGuess) {
             const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
-            let storedState = localStorage.getItem(localStorageKeyForGame);
+            const storedState = localStorage.getItem(localStorageKeyForGame);
 
             const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
             const lastDailyStamp = localStorage.getItem(localStorageKeyForDailyStamp);

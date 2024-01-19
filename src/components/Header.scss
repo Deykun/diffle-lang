@@ -73,7 +73,7 @@
         }
 
         .header-flag--animation {
-            animation: scaleInFlag 0.3s ease-in;
+            animation: scaleInFlag 0.5s ease-in;
         }
     }
 
@@ -110,11 +110,11 @@
 @keyframes scaleInFlag {
     0% {
         opacity: 0;
-        transform: rotate(95deg) translateY(-100px) scale(0);
+        transform: rotate(-95deg) translateY(-100px) scale(0);
     }
 
     80% {
-        opacity: 0.1;
+        opacity: 0.3;
     }
 
     100% {

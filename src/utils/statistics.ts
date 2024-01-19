@@ -126,6 +126,10 @@ const getStatisticForKey = (key: string): Statistic => {
     if (savedState) {
         const state = JSON.parse(savedState) as Statistic;
 
+        if (!state.medianData?.rejectedWords) {
+            state.medianData.rejectedWords = {};
+        }
+
         return state;
     }
 
@@ -265,7 +269,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
 
         const uniqueMedianDataRejectedWords = [...new Set([
             ...Object.keys(stack.medianData.rejectedWords),
-            ...Object.keys(statistic.medianData.rejectedWords),
+            ...Object.keys(statistic.medianData.rejectedWords || []), // if someone didn't have it saved earlier
         ])].map(Number);
 
         const medianDataRejectedWords = uniqueMedianDataRejectedWords.reduce((medianStack: { [key: number]: number}, key: number) => {
