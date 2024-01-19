@@ -2,8 +2,9 @@
 
 ## Version 3.0.1
 - **Fix**: Path to flag image fixed
+- **Fix**: Setting /en for the english browser
 
-## Version 3.0
+## Version 3.0 (19.01.2024)
 - **New**: English game language supported
 - **New**: Information about longest game in letters and words added to statistics
 - **Fix**: A downloaded statistic card has proper paddings

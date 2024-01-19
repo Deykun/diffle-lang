@@ -38,7 +38,7 @@ export default function useLangugeChangeIfNeeded( ) {
 
             window.history.replaceState(null, title, newLocation);
         }
-    }, [i18n.language]);
+    }, [wasAppLanguageDetected, i18n.language]);
 
     useEffect(() => {
         if (wasAppLanguageDetected) {
