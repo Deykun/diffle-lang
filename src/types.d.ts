@@ -11,6 +11,22 @@ export enum Pane {
     Statistics = 'Statistics',
 }
 
+export interface Dictionary {
+    code?: string,
+    languages: string[],
+    title: string,
+    keyLines: string[][],
+    allowedKeys: string[],
+    characters: string[],
+    specialCharacters: string[],
+    hasSpecialCharacters: boolean,
+    urls: {
+        url: string,
+        name: string,
+        hasExactMatchAlways: boolean, // exact means that there have to be exact match
+    }[],
+}
+
 export type PaneChange = (Pane) => void;
 
 export enum AffixStatus {

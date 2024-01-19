@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { SUPORTED_DICTIONARY_BY_LANG, POLISH_CHARACTERS } from '@const';
+import { RootState, Dictionary, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
 
-import { RootState, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
+import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -17,14 +17,18 @@ export const selectIsGameEnded = (state: RootState) => state.game.status !== Gam
 export const selectGameLanguageKeyboardInfo =  createSelector(
     (state: RootState) => state.game.language,
     (state: RootState) => state.app.isEnterSwapped,
-    (gameLanguage, isEnterSwapped) => {
+    (gameLanguage, isEnterSwapped): Dictionary => {
         if (!gameLanguage || !SUPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
             return {
+                code: undefined,
+                title: '',
+                languages: [],
                 keyLines: [],
                 allowedKeys: [],
                 characters: [],
                 specialCharacters: [],
                 hasSpecialCharacters: false,
+                urls: [],
             };
         }
         const {
@@ -69,6 +73,7 @@ const getLetterState = (
     specialCharacters: string[],
 ) => {
     const isSpecialCharacter = specialCharacters.includes(letter);
+
     if (isSpecialCharacter) {
         const hasWordToGuessSpecialCharacter = wordToGuess && getHasSpecialCharacters(wordToGuess);
 
@@ -155,8 +160,8 @@ export const selectKeyboardState = createSelector(
 
         const hasWordToGuessSpecialCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
         const hasWordToSubmitSpecialCharacters = wordToSubmit && getHasSpecialCharacters(wordToSubmit);
-        const polishCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
-        if (polishCharacterTypedWhenNotNeeded) {
+        const specialCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
+        if (specialCharacterTypedWhenNotNeeded) {
             return  AffixStatus.Incorrect;
         }
 

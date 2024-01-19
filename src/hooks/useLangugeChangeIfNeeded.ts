@@ -27,13 +27,14 @@ export default function useLangugeChangeIfNeeded( ) {
         const { language: appLanguage } = i18n;
         const langFromUrl = getLangFromUrl();
 
-        if (appLanguage !== langFromUrl) {
+        if (!langFromUrl || appLanguage !== langFromUrl) {
             const currentUrl = location.href.replace(location.search, '');
             const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
             const newLocation = `${currentUrl.replace(`/${langFromUrl}`, '')}${partToAdd}`;
 
             const { title } = SUPORTED_DICTIONARY_BY_LANG[appLanguage];
             document.title = title;
+            document.documentElement.lang = appLanguage;
 
             window.history.replaceState(null, title, newLocation);
         }

@@ -6,9 +6,13 @@
         "newGame": "New game",
         "copyResult": "Copy result",
         "copied": "Copied.",
-        "checkInDictionary": "Check \"{{word}}\" on SJP.PL",
+        "checkInDictionary": "Search \"{{word}}\"",
+        "checkInDictionaryWithName": "Search \"{{word}}\" on {{name}}",
+        "dictionaryIsNotExactMatch": "The dictionary of winning words doesn't have an easily accessible online version, so you can try one of those dictionaries.",
         "close": "Close",
         "more": "more",
+        "download": "Download",
+        "downloadError": "An fetching error.",
         "fetchError": "An fetching error, try again."
     },
     "game": {

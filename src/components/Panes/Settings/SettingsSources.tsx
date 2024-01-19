@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
 import IconBook from '@components/Icons/IconBook';
-import IconBookAlt from '@components/Icons/IconBookAlt';
-import IconBookAlt2 from '@components/Icons/IconBookAlt2';
+import IconDictionary from '@components/Icons/IconDictionary';
+import IconDictionaryAlt from '@components/Icons/IconDictionaryAlt';
 
 import IconGlobWithFlag from '@components/Icons/IconGlobWithFlag';
 
@@ -24,17 +24,17 @@ const SettingsSources = () => {
             <ul>
                 <li>
                     <a href="https://sjp.pl" target="blank" rel="noopener noreferrer">
-                        <IconBookAlt /><span>{t('settings.sourceSJP')}</span>
+                        <IconBook /><span>{t('settings.sourceSJP')}</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://freedict.org/" target="blank" rel="noopener noreferrer">
-                        <IconBook /><span>{t('settings.sourceFreeDict')}</span>
+                        <IconDictionary /><span>{t('settings.sourceFreeDict')}</span>
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/dwyl" target="blank" rel="noopener noreferrer">
-                        <IconBookAlt2/><span>{t('settings.sourceDwyl')}</span>
+                        <IconDictionaryAlt/><span>{t('settings.sourceDwyl')}</span>
                     </a>
                 </li>
                 <li>

@@ -1,6 +1,6 @@
 export const WORD_MAXLENGTH = 15;
 
-import { GameMode } from '@common-types';
+import { Dictionary } from '@common-types';
 
 const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [' ', 'delete', 'arrowleft', 'arrowright', 'arrowdown', 'arrowup'];
 
@@ -18,16 +18,7 @@ const KEY_LINES_PL = [
 ];
 
 export const SUPORTED_DICTIONARY_BY_LANG: {
-    [key: string]: {
-        code: string,
-        languages: string[],
-        title: string,
-        keyLines: string[][],
-        allowedKeys: string[],
-        characters: string[],
-        specialCharacters: string[],
-        hasSpecialCharacters: boolean,
-    }
+    [key: string]: Dictionary,
 } = {
     en: {
         code: 'en',
@@ -38,6 +29,10 @@ export const SUPORTED_DICTIONARY_BY_LANG: {
         characters: KEY_LINES_EN.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
         specialCharacters: [],
         hasSpecialCharacters: false,
+        urls: [
+            { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
+            { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
+        ],
     },
     pl: {
         code: 'pl',
@@ -46,8 +41,11 @@ export const SUPORTED_DICTIONARY_BY_LANG: {
         keyLines: KEY_LINES_PL,
         allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL.flatMap((key) => key)],
         characters: KEY_LINES_PL.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
-        specialCharacters: KEY_LINES_PL.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
-        hasSpecialCharacters: false,
+        specialCharacters: ['ą', 'ć', 'ę', 'ł', 'ń',  'ó', 'ś', 'ź', 'ż'],
+        hasSpecialCharacters: true,
+        urls: [
+            { url: 'https://sjp.pl/{{word}}', name: 'SJP.pl', hasExactMatchAlways: true },
+        ],
     },
 }
 
@@ -68,12 +66,7 @@ const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...li
 
 export const SEED_SHIFT = location.hostname === 'localhost' ? 0 : 1984;
 
-export const POLISH_CHARACTERS = ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'];
-
-
 export const ALLOWED_KEYS = [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...ALLOWED_FROM_KEYLINES];
-
-export const ALLOWED_LETTERS = KEY_LINES.flatMap((line) => line).filter((key => !['backspace', 'enter', 'spacebar'].includes(key)));
 
 export const SUBMIT_ERRORS = {
     ALREADY_PROCESSING: 'already_processing',

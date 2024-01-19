@@ -25,8 +25,6 @@ import IconShare from '@components/Icons/IconShare';
 import Button from '@components/Button/Button';
 import Modal from '@components/Modal/Modal';
 
-import './ShareButton.scss';
-
 const ShareButton = ({ shouldShowSettings = false }) => {
   const dispatch = useDispatch();
   const gameLanguage = useSelector((state) => state.game.language);
@@ -77,7 +75,7 @@ ${copySubtotals}
 
 ${shareUrl}`;
 
-}, [endStatus, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words])
+}, [endStatus, gameLanguage, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words])
 
   const handleCopy = useCallback(() => {
     setIsOpen(false);
@@ -98,7 +96,7 @@ ${shareUrl}`;
 
   return (
     <>
-      <span className="share-button">
+      <span className="buttons-connected">
         <Button
           onClick={handleCopy}
         >
@@ -106,10 +104,7 @@ ${shareUrl}`;
             <span>{t('common.copyResult')}</span>
         </Button>
         {shouldShowSettings && (
-          <Button
-            className="share-settings"
-            onClick={onClick}
-          >
+          <Button onClick={onClick}>
             <IconPencil />
           </Button>
         )}

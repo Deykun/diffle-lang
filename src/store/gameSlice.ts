@@ -140,6 +140,7 @@ export const submitAnswer = createAsyncThunk(
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
     async ({
+        gameMode,
         gameLanguage,
         status,
         wordToGuess,
@@ -148,6 +149,7 @@ export const restoreGameState = createAsyncThunk(
         lastUpdateTime,
         durationMS,
     }: {
+        gameMode: GameMode,
         gameLanguage: string,
         status?: GameStatus,
         wordToGuess: string, 
@@ -171,6 +173,7 @@ export const restoreGameState = createAsyncThunk(
         const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
 
         return {
+            gameMode,
             status: statusToReturn,
             results,
             wordToGuess,
@@ -240,7 +243,8 @@ export const loadGame = createAsyncThunk(
             return;
         }
 
-        const gameMode = state.game.mode;
+        const stateGameMode = state.game.mode;
+        let gameMode = stateGameMode;
         const todayStamp = state.game.today;
 
         console.log({
@@ -249,17 +253,41 @@ export const loadGame = createAsyncThunk(
         
         if (!wordToGuess) {
             const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
-            const storedState = localStorage.getItem(localStorageKeyForGame);
-
-            console.log(localStorageKeyForGame, storedState);
+            let storedState = localStorage.getItem(localStorageKeyForGame);
 
             const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
             const lastDailyStamp = localStorage.getItem(localStorageKeyForDailyStamp);
 
-            const wasSwitchedFromOtherLanguagePracticeAndDoesntHasHistory = gameMode === GameMode.Practice && !storedState;
-            if (wasSwitchedFromOtherLanguagePracticeAndDoesntHasHistory) {
-                // TODO change to practice
+            const wasRestoredWhileInNotInDefaultMode = gameMode !== GameMode.Daily
+            if (wasRestoredWhileInNotInDefaultMode) {
+                const localStorageKeyForDailyGame = getLocalStorageKeyForGame({ gameLanguage, gameMode: GameMode.Daily });
+                const storedStateDaily = localStorage.getItem(localStorageKeyForDailyGame);
+                const storedStateDailyParsed = storedStateDaily ? JSON.parse(storedStateDaily) : {};
+
+                // ex. daily finished in en, user switches to unlocked practice mode and changes language to pl with daily never filled
+                const isFirstTimePlayingThisLanguage = !storedStateDaily;
+                const wasPlayingEarlierButExpired = lastDailyStamp !== todayStamp;
+                const wasPlayingTodayButDidNotWin = storedStateDaily && storedStateDailyParsed.status !== GameStatus.Won;
+
+                const shouldForceDaily = isFirstTimePlayingThisLanguage || wasPlayingEarlierButExpired || wasPlayingTodayButDidNotWin;
+
+                console.log({
+                    isFirstTimePlayingThisLanguage,
+                    wasPlayingEarlierButExpired,
+                    wasPlayingTodayButDidNotWin,
+                });
+
+                if (shouldForceDaily) {
+                    console.log('FORCING DAILY');
+                    gameMode = GameMode.Daily;
+                    storedState = storedStateDaily ? storedStateDaily : null;
+                }
             }
+
+            console.log({
+                gameMode,
+                storedState,
+            })
 
             if (storedState) {
                 const {
@@ -284,6 +312,8 @@ export const loadGame = createAsyncThunk(
 
                 if (lastWordToGuess) {
                     if (isExpiredDailyGame) {
+                        console.log('isExpiredDailyGame', isExpiredDailyGame);
+
                         const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
                         localStorage.removeItem(localStorageKeyForGame);
 
@@ -300,6 +330,7 @@ export const loadGame = createAsyncThunk(
                                     so we set the state, save the stats, and reset the state.
                                 */
                                 await dispatch(restoreGameState({
+                                    gameMode,
                                     gameLanguage,
                                     status: GameStatus.Lost,
                                     wordToGuess: lastWordToGuess,
@@ -321,6 +352,7 @@ export const loadGame = createAsyncThunk(
                     }
 
                     await dispatch(restoreGameState({
+                        gameMode,
                         gameLanguage,
                         wordToGuess: lastWordToGuess,
                         status,
@@ -698,6 +730,7 @@ const gameSlice = createSlice({
             state.isLoadingGame = false;
         }).addCase(restoreGameState.fulfilled, (state, action) => {
             const {
+                gameMode,
                 status = GameStatus.Guessing,
                 results,
                 rejectedWords = [],
@@ -706,6 +739,7 @@ const gameSlice = createSlice({
                 lastUpdateTime,
                 durationMS,
             } = action.payload as {
+                gameMode: GameMode,
                 status: GameStatus,
                 results: WordReport[],
                 rejectedWords: string[],
@@ -719,11 +753,24 @@ const gameSlice = createSlice({
                 durationMS: number,
             };
 
+            console.log('Restoring...')
+            console.log({
+                gameMode,
+                status,
+                results,
+                rejectedWords,
+                wordToGuess,
+                wordsLetters,
+                lastUpdateTime,
+                durationMS,
+            });
+
             const guesses = results.map(({ word = '', affixes = [] }) => ({
                 word,
                 affixes,
             }));
 
+            state.mode = gameMode;
             state.status = status;
             state.wordToGuess = wordToGuess;
             state.guesses = guesses;

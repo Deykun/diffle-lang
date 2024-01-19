@@ -159,7 +159,7 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
     localStorage.setItem(key, statisticToSave);
 };
 
-export const removeStatisticsByGameMode = ({ gameLanguage = 'pl', gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
+export const removeStatisticsByGameMode = ({ gameLanguage, gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
     const keysToRemove = getStatisticFiltersForKeys(gameLanguage, {
         modeFilter: gameMode,
         lengthFilter: LengthFilter.All,
@@ -420,6 +420,7 @@ export const getStreakForFilter = (
 export interface StatisticDataForCard {
     totalGames: number,
     totalWon: number,
+    totalLost: number,
     rejectedWordsPerGame: number,
     rejectedWordsWorstWonInGame: number,
     lettersPerGame: number,
@@ -483,12 +484,14 @@ const getMaxFromFromMedianData = (medianData: { [value: number]: number }) => {
 export const getStatisticCardDataFromStatistics = (statistic: Statistic): StatisticDataForCard => {
     const totalGames = statistic.totals.won + statistic.totals.lost;
     const totalWon = statistic.totals.won;
+    const totalLost = statistic.totals.lost;
 
     const averageLettersPerGame = statistic.totals.letters / totalWon; // Lost games are not included in detailed games
     
     return {
         totalGames,
         totalWon,
+        totalLost,
         rejectedWordsPerGame: getMedianFromMedianData(statistic.medianData.rejectedWords),
         rejectedWordsWorstWonInGame: getMaxFromFromMedianData(statistic.medianData.rejectedWords),
         lettersPerGame: getMedianFromMedianData(statistic.medianData.letters),

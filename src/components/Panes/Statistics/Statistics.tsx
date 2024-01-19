@@ -14,7 +14,6 @@ import {
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
-import IconChartWithMarkedPart from '@components/Icons/IconChartWithMarkedPart';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import StatisticsCard from './StatisticsCard';

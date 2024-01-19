@@ -2,8 +2,6 @@ import { GameMode } from '@common-types';
 
 import { getNow } from '@utils/date';
 
-const game_lang = 'pl';
-
 const getRandomInt = (min: number, max: number): number => {
     min = Math.ceil(min);
     max = Math.floor(max);

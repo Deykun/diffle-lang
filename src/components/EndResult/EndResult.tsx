@@ -13,10 +13,10 @@ import getWordToGuess from '@api/getWordToGuess'
 
 import useVibrate from '@hooks/useVibrate';
 
-import IconBook from '@components/Icons/IconBook';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import Button from '@components/Button/Button';
+import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 import ShareButton from '@components/Share/ShareButton';
 import StatisticsHint from '@components/Panes/Statistics/StatisticsHint';
 
@@ -81,17 +81,7 @@ const EndResult = () => {
                 )}
                 <ShareButton shouldShowSettings />
             </div>
-            {/* https://dictionary.cambridge.org/dictionary/english/drudge */}
-            <Button
-                tagName="a"
-                href={`https://sjp.pl/${wordToGuess}`}
-                target="blank"
-                rel="noopener noreferrer"
-                isInverted
-            >
-                <IconBook />
-                <span>{t('common.checkInDictionary', { word: wordToGuess })}</span>
-            </Button>
+            <GoToDictionaryButton word={wordToGuess} />
             {gameMode === GameMode.Daily && (
                 <p
                     className="next-word-tip"

@@ -18,12 +18,11 @@ import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconBandage from '@components/Icons/IconBandage';
-import IconBook from '@components/Icons/IconBook';
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconInfinity from '@components/Icons/IconInfinity';
 
-import Button from '@components/Button/Button';
+import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
 import './Settings.scss'
 
@@ -100,16 +99,7 @@ const Settings = () => {
                     <p>
                         {t('settings.lastDailyWordsYesterday', { word: yesterdayWord })}
                     </p>
-                    <Button
-                        tagName="a"
-                        href={`https://sjp.pl/${yesterdayWord}`}
-                        target="blank"
-                        rel="noopener noreferrer"
-                        isInverted
-                    >
-                        <IconBook />
-                        <span>{t('common.checkInDictionary', { word: yesterdayWord })}</span>
-                    </Button>
+                    <GoToDictionaryButton word={yesterdayWord} />
                 </div>)}
             </details>
             <SettingsPreferences />
