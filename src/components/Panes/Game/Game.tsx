@@ -10,7 +10,6 @@ import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
 import Words from '@components/Words/Words'
 
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconLoader from '@components/Icons/IconLoader';
 
 import GameUpdateScreen from './GameUpdateScreen';
@@ -28,7 +27,12 @@ const Game = () => {
         return (<IconLoader className="game-loader" />);
     }
 
-    if (todayStamp === UPDATE_BLOCK_DAILY) {
+    const isUpdateScreenActive = todayStamp === UPDATE_BLOCK_DAILY;
+
+    // To allow: sessionStorage.setItem('allowDate', '01.01.2000');
+    const isUpdateScreenActiveButBypassed = isUpdateScreenActive && sessionStorage.getItem('allowDate') === UPDATE_BLOCK_DAILY;
+
+    if (isUpdateScreenActive && !isUpdateScreenActiveButBypassed) {
         return (
             <GameUpdateScreen today={todayStamp} />
         );

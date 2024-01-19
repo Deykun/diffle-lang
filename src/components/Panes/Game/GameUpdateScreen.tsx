@@ -17,6 +17,9 @@ const GameUpdateScreen = ({ today }: Props) => {
             <p dangerouslySetInnerHTML={{
                 __html: t('common.gameWillReturnAfter', { today })
             }} />
+            <div className='game-update-unlock-hide'>
+                {`sessionStorage.setItem('allowDate', '${today}')`}
+            </div>
         </div>
     );
 };
