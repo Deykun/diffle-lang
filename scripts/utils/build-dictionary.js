@@ -21,7 +21,7 @@ export const getNormalizedKey = (wordRaw, language) => {
     }
 
     if (word.length < 3) {
-        return;
+        return '';
     }
 
     if (word.length === 3) {

@@ -17,7 +17,7 @@ const KEY_LINES_PL = [
     ['ą', 'ć', 'ę', 'ł', 'ń',  'ó', 'ś', 'ź', 'ż'],
 ];
 
-export const SUPORTED_DICTIONARY_BY_LANG: {
+export const SUPPORTED_DICTIONARY_BY_LANG: {
     [key: string]: Dictionary,
 } = {
     en: {
@@ -33,6 +33,7 @@ export const SUPORTED_DICTIONARY_BY_LANG: {
             { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
             { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
         ],
+        shareMarker: '#diffle #diffle_en',
     },
     pl: {
         code: 'pl',
@@ -46,10 +47,11 @@ export const SUPORTED_DICTIONARY_BY_LANG: {
         urls: [
             { url: 'https://sjp.pl/{{word}}', name: 'SJP.pl', hasExactMatchAlways: true },
         ],
+        shareMarker: '🇵🇱 #diffle #diffle_pl',
     },
 }
 
-export const SUPPORTED_LANGS = Object.keys(SUPORTED_DICTIONARY_BY_LANG);
+export const SUPPORTED_LANGS = Object.keys(SUPPORTED_DICTIONARY_BY_LANG);
 
 export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
 

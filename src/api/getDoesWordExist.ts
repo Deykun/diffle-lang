@@ -126,16 +126,12 @@ export const getWordsIndexesChunks = (words: string[], lang: string) => {
     }
 
     return keysWithWords.map(({ word, key }) => {
-        if (!key) {
-            return;
-        }
-    
         const cacheKey = getCacheKey(lang, key);
 
         return {
             word,
             key,
-            index: cachedKeys && cachedKeys[cacheKey] ? cachedKeys[cacheKey].findIndex((keyWords) => word === keyWords) : undefined,
+            index: cachedKeys && cachedKeys[cacheKey] ? cachedKeys[cacheKey].findIndex((keyWords) => word === keyWords) : -1,
         };
     });
 };

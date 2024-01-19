@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
+import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { setGameLanguage } from '@store/gameSlice';
@@ -32,7 +32,7 @@ export default function useLangugeChangeIfNeeded( ) {
             const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
             const newLocation = `${currentUrl.replace(`/${langFromUrl}`, '')}${partToAdd}`;
 
-            const { title } = SUPORTED_DICTIONARY_BY_LANG[appLanguage];
+            const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
             document.title = title;
             document.documentElement.lang = appLanguage;
 

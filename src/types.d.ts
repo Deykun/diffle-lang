@@ -25,6 +25,7 @@ export interface Dictionary {
         name: string,
         hasExactMatchAlways: boolean, // exact means that there have to be exact match
     }[],
+    shareMarker?: string,
 }
 
 export type PaneChange = (Pane) => void;

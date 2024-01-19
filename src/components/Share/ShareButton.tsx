@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LOCAL_STORAGE } from '@const';
+import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { GameMode, GameStatus } from '@common-types';
 
@@ -47,17 +47,20 @@ const ShareButton = ({ shouldShowSettings = false }) => {
     const isLost = endStatus === GameStatus.Lost;
 
     let resultParam = '';
-    if (shouldShareWords) {
-      
+    let langShareMarker = '';
+    if (shouldShareWords && gameLanguage) {
       const wordsWithIndexes = getWordsIndexesChunks(guessedWords, gameLanguage);
+
       const hashedValue = getUrlHashForGameResult({ subtotals, wordToGuess, wordsWithIndexes });
 
       resultParam = maskValue(hashedValue);
+
+      langShareMarker = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker || '#diffle';
     }
 
     const shareUrl = `${diffleUrl}${resultParam ? `?r=${resultParam}` : ''}`;
 
-    const copyTitle = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 #diffle` : `« ${wordToGuess} » – 🇵🇱 #diffle`;
+    const copyTitle = gameMode === GameMode.Daily ? `${stamp} – ${langShareMarker}` : `« ${wordToGuess} » – ${langShareMarker}`;
     const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
 
     if (isLost) {

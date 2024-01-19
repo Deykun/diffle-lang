@@ -41,8 +41,10 @@ const StatisticsCard = ({
     rejectedWordsPerGame,
     lettersPerGame,
     averageLettersPerGame,
+    maxLettersInGame,
     wordsPerGame,
     averageWordsPerGame,
+    maxWordsInGame,
     timePerGame,
     totalTime,
     lettersPerWord,
@@ -84,27 +86,35 @@ const StatisticsCard = ({
                         <span>{t('statistics.medianWords')}</span>
                     </p>
                 </div>
-                <p className={clsx('statistics-letters', 'has-tooltip')}>
+                <p className={clsx('statistics-letters', 'has-tooltip', 'has-tooltip-from-left')}>
                     <strong>
                         {lettersPerGame.toFixed(1)}
                     </strong>
                     <span>{t('statistics.letters')}</span>
                     <span className="tooltip">
-                        {t('statistics.medianTooltipWithAverage')}
-                        {' '}
+                        {t('statistics.median')}
+                        {', '}
+                        {t('statistics.average')}
                         <strong>{averageLettersPerGame.toFixed(1)}</strong>
+                        {', '}
+                        {t('statistics.maximum')}
+                        <strong>{maxLettersInGame}</strong>
                     </span>
                 </p>
-                <p className={clsx('statistics-words', 'has-tooltip')}>
+                <p className={clsx('statistics-words', 'has-tooltip', 'has-tooltip-from-right')}>
                     <span>{t('statistics.medianWordsBefore')}</span>
                     <strong>
                         {wordsPerGame.toFixed(1)}
                     </strong>
                     <span>{t('statistics.medianWords')}</span>
                     <span className="tooltip">
-                        {t('statistics.medianTooltipWithAverage')}
-                        {' '}
+                        {t('statistics.median')}
+                        {', '}
+                        {t('statistics.average')}
                         <strong>{averageWordsPerGame.toFixed(1)}</strong>
+                        {', '}
+                        {t('statistics.maximum')}
+                        <strong>{maxWordsInGame}</strong>
                     </span>
                 </p>
                 <div className="statistics-text">

@@ -9,7 +9,7 @@ export const removeDiacratics = (word: string) => word
     .replaceAll('ź', 'z')
     .replaceAll('ż', 'z');
 
-export const getNormalizedKey = (wordRaw: string, language: string): string | undefined => {
+export const getNormalizedKey = (wordRaw: string, language: string): string => {
     const word = removeDiacratics(wordRaw);
 
     if (word.length === 2) {
@@ -17,7 +17,7 @@ export const getNormalizedKey = (wordRaw: string, language: string): string | un
     }
 
     if (word.length < 3) {
-        return;
+        return '';
     }
 
     if (word.length === 3) {

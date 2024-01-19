@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 
 import { RootState, Dictionary, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
 
-import { SUPORTED_DICTIONARY_BY_LANG } from '@const';
+import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -18,7 +18,7 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
     (state: RootState) => state.game.language,
     (state: RootState) => state.app.isEnterSwapped,
     (gameLanguage, isEnterSwapped): Dictionary => {
-        if (!gameLanguage || !SUPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
+        if (!gameLanguage || !SUPPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
             return {
                 code: undefined,
                 title: '',
@@ -29,12 +29,13 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
                 specialCharacters: [],
                 hasSpecialCharacters: false,
                 urls: [],
+                shareMarker: '',
             };
         }
         const {
             keyLines,
             ...dictionary
-        } = SUPORTED_DICTIONARY_BY_LANG[gameLanguage];
+        } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage];
         
         return {
             ...dictionary,

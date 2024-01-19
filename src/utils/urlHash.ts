@@ -1,20 +1,5 @@
 import { getIsKeyValid } from '@api/helpers';
 
-interface Params {
-    wordToGuess: string,
-    wordsWithIndexes: {
-        word?: string,
-        key: string,
-        index: number,
-    }[],
-    subtotals: {
-        correct: number,
-        position: number,
-        incorrect: number,
-        typedKnownIncorrect: number,
-    },
-}
-
 interface ChunkInfo {
     word?: string,
     key: string,
@@ -107,6 +92,21 @@ export const transformShortKeyToChunkInfo = (shortKey: string): ChunkInfo[] => {
 
     return chunksInfos;
 };
+
+interface Params {
+    wordToGuess: string,
+    wordsWithIndexes: {
+        word: string,
+        key: string,
+        index: number,
+    }[],
+    subtotals: {
+        correct: number,
+        position: number,
+        incorrect: number,
+        typedKnownIncorrect: number,
+    },
+}
 
 export const getUrlHashForGameResult = ({
     wordToGuess = '',
