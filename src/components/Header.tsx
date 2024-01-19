@@ -74,7 +74,7 @@ const Header = () => {
                 {gameLanguage && <img
                   key={flagKey}
                   className={clsx('header-flag', { 'header-flag--animation': flagKey })}
-                  src={`/flags/${flagKey || gameLanguage}.svg`}
+                  src={`./flags/${flagKey || gameLanguage}.svg`}
                   alt={flagKey || gameLanguage}
                 />}
               </button>

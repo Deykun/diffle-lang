@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 3.0.1
+- **Fix**: Path to flag image fixed
+
 ## Version 3.0
 - **New**: English game language supported
 - **New**: Information about longest game in letters and words added to statistics
