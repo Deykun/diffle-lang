@@ -283,8 +283,6 @@ export const loadGame = createAsyncThunk(
 
                 const isExpiredDailyGame = isDailyMode && lastDailyStamp !== todayStamp;
 
-                console.log('isExpiredDailyGame', isExpiredDailyGame);
-
                 if (lastWordToGuess) {
                     if (isExpiredDailyGame) {
                         const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
