@@ -5,6 +5,12 @@
     text-align: center;
 }
 
+.wrapper-padding-escape {
+    margin-left: -7px;
+    margin-right: -7px;
+    width: calc(100% + 14px);
+}
+
 body p {
     line-height: 1.4;
 }

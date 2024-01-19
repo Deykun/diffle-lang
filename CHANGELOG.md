@@ -3,6 +3,7 @@
 ## Version 3.0
 - **New**: English game language supported
 - **New**: Information about longest game in letters and words added to statistics
+- **Fix**: A downloaded statistic card has proper paddings
 
 ---
 
