@@ -5,7 +5,6 @@ import { letterChangeInAnswer, submitAnswer } from '@store/gameSlice';
 
 import useEventListener from '@hooks/useEventListener';
 
-
 import { ALLOWED_KEYS } from '@const';
 
 const UserKeyboardListner = () => {

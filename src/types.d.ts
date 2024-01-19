@@ -11,6 +11,23 @@ export enum Pane {
     Statistics = 'Statistics',
 }
 
+export interface Dictionary {
+    code?: string,
+    languages: string[],
+    title: string,
+    keyLines: string[][],
+    allowedKeys: string[],
+    characters: string[],
+    specialCharacters: string[],
+    hasSpecialCharacters: boolean,
+    urls: {
+        url: string,
+        name: string,
+        hasExactMatchAlways: boolean, // exact means that there have to be exact match
+    }[],
+    shareMarker?: string,
+}
+
 export type PaneChange = (Pane) => void;
 
 export enum AffixStatus {
@@ -41,6 +58,9 @@ export interface Toast {
     type: ToastType,
     timeoutSeconds: number,
     toastTime: number | null,
+    params: {
+        [key: string]: string | number,
+    },
 }
 
 export interface RootAppState {
@@ -68,6 +88,7 @@ export enum GameStatus {
 }
 
 export interface RootGameState {
+    language: 'en' | 'pl' | undefined,
     mode: GameMode,
     today: string,
     wordToGuess: string,

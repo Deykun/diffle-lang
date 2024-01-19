@@ -1,11 +1,9 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 
-import { KEY_LINES, ALLOWED_KEYS } from '@const';
-
 import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
-import { selectIsGameEnded, selectKeyboardState } from '@store/selectors';
+import { selectIsGameEnded, selectKeyboardState, selectGameLanguageKeyboardInfo } from '@store/selectors';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -17,8 +15,8 @@ import './VirualKeyboard.scss';
 const VirualKeyboard = () => {
     const dispatch = useDispatch();
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
-    const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
+    const { keyLines, allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
     const isGameEnded = useSelector(selectIsGameEnded);
     const type = useSelector(selectKeyboardState);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
@@ -41,30 +39,22 @@ const VirualKeyboard = () => {
     }, [vibrateKeyboard]);
 
     const handleType = useCallback((keyTyped: string) => {
-        const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
+        const isAllowedKey = allowedKeys.includes(keyTyped);
 
         if (isAllowedKey) {
             vibrateKeyboard();
 
             dispatch(letterChangeInAnswer(keyTyped));
         }
-    }, [dispatch, vibrateKeyboard]);
+    }, [allowedKeys, dispatch, vibrateKeyboard]);
 
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
     const shouldShowConfirm = isConfirmOpen && !isGameEnded;
 
-    const keyLines = !isEnterSwapped ? KEY_LINES : KEY_LINES.map((line) => line.map((keyText) => {
-        if (keyText === 'enter') {
-            return 'backspace';
-        }
-
-        if (keyText === 'backspace') {
-            return 'enter';
-        }
-
-        return keyText;
-    }))
+    if (keyLines.length === 0) {
+        return null;
+    }
 
     return (
         <aside className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>

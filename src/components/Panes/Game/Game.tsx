@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
 import clsx from 'clsx';
 
-import { useSelector, useDispatch } from '@store';
-import { loadGame } from '@store/gameSlice'
+import { UPDATE_BLOCK_DAILY } from '@const';
+
+import { useSelector } from '@store';
 
 import useSaveProgressLocally from '@hooks/game/useSaveProgressLocally';
 
@@ -10,21 +10,16 @@ import UserKeyboardListner from '@components/Keyboard/UserKeyboardListner'
 import VirualKeyboard from '@components/Keyboard/VirualKeyboard'
 import Words from '@components/Words/Words'
 
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconLoader from '@components/Icons/IconLoader';
+
+import GameServiceMode from './GameServiceMode';
 
 import './Game.scss'
 
 const Game = () => {
-    const dispatch = useDispatch();
-    const gameMode = useSelector((state) => state.game.mode);
     const todayStamp = useSelector((state) => state.game.today);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
-
-    useEffect(() => {
-        dispatch(loadGame());
-    }, [dispatch, gameMode, wordToGuess, todayStamp]);
 
     useSaveProgressLocally();
 
@@ -32,14 +27,14 @@ const Game = () => {
         return (<IconLoader className="game-loader" />);
     }
 
-    if (todayStamp === '08.01.2024') {
+    const isUpdateScreenActive = todayStamp === UPDATE_BLOCK_DAILY;
+
+    // To allow: sessionStorage.setItem('allowDate', '01.01.2000');
+    const isUpdateScreenActiveButBypassed = isUpdateScreenActive && sessionStorage.getItem('allowDate') === UPDATE_BLOCK_DAILY;
+
+    if (isUpdateScreenActive && !isUpdateScreenActiveButBypassed) {
         return (
-            <div className={clsx('game', { 'isSmallKeyboard': isSmallKeyboard })}>
-                <IconConstruction className="icon-soon" />
-                <p>
-                    Gra wraca wraz z nowym słowem <strong>09.01.2024</strong>.
-                </p>
-            </div>
+            <GameServiceMode today={todayStamp} />
         );
     }
 

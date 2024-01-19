@@ -1,5 +1,10 @@
 import { Fragment } from 'react';
 
+import { useSelector } from '@store';
+import {
+    selectGameLanguageKeyboardInfo,
+} from '@store/selectors';
+
 import { ModeFilter, CharactersFilter, LengthFilter, Filters } from '@utils/statistics';
 
 import IconInfinity from '@components/Icons/IconInfinity';
@@ -37,7 +42,12 @@ const StatisticsCardActiveFilters = ({
     charactersFilter,
     lengthFilter,
 }: Filters) => {
-    const totalOfAll = [modeFilter, charactersFilter, lengthFilter].filter(filter => filter === 'all').length;
+    const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
+    const totalOfAll = [
+        modeFilter,
+        hasLanguageSpecialCharacters ? charactersFilter : '', // It's all but does not apply
+        lengthFilter
+    ].filter(filter => filter === 'all').length;
     const hasManyAll = totalOfAll > 1;
 
     const IconMode = hasManyAll && modeFilter === 'all' ? Fragment : IconPerMode[modeFilter];
@@ -48,7 +58,7 @@ const StatisticsCardActiveFilters = ({
     return (
         <span className="footer-filters">
             <IconMode />
-            <IconCharacters />
+            {hasLanguageSpecialCharacters && <IconCharacters />}
             <IconLength />
             {hasManyAll && <span><span>{totalOfAll}x</span> <IconLayersAlt /></span>}
         </span>

@@ -4,14 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import { GameMode, Pane, PaneChange } from '@common-types';
 
-import { LOCAL_STORAGE } from '@const';
-
 import { useSelector, useDispatch } from '@store';
 import { selectIsWon } from '@store/selectors';
+import { setGameMode, setWordToGuess } from '@store/gameSlice';
 
 import { getNow } from '@utils/date';
-
-import { setGameMode, setWordToGuess } from '@store/gameSlice'
+import { getLocalStorageKeyForLastGameMode } from '@utils/game';
 
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconDay from '@components/Icons/IconDay';
@@ -27,17 +25,24 @@ interface Props {
 
 const SettingsModes = ({ changePane }: Props) => {
     const dispatch = useDispatch();
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector(state => state.game.mode);
     const isWon = useSelector(selectIsWon);
 
     const { t } = useTranslation();
 
     const handleChangeGameMode = useCallback((newGameMode: GameMode) => {
-        localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, newGameMode);
+        if (!gameLanguage) {
+            return;
+        }
+
+        const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage });
+        localStorage.setItem(localStorageKeyForLastGameMode, newGameMode);
+
         dispatch(setGameMode(newGameMode));
         dispatch(setWordToGuess(''));
         changePane(Pane.Game);
-    }, [changePane, dispatch]);
+    }, [changePane, dispatch, gameLanguage]);
 
     const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
     const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;

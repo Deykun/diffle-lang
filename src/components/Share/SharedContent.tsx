@@ -7,8 +7,7 @@ import { Pane, GameStatus, GameMode, Word as WordInterface } from '@common-types
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 import { useSelector } from '@store';
-import { selectIsGameEnded } from '@store/selectors';
-import { getWordsAndLetters } from '@store/selectors';
+import { selectIsGameEnded, getWordsAndLetters } from '@store/selectors';
 
 import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
@@ -16,6 +15,7 @@ import { getWordReportForMultipleWords } from '@api/getWordReport';
 
 import { normilzeWord, getHasSpecialCharacters } from '@utils/normilzeWord';
 import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
+import { getLangFromUrl } from '@utils/lang';
 
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
@@ -131,12 +131,21 @@ const SharedContent = () => {
             keysWithIndexes,
           } = await getGameResultFromUrlHash(hash);
 
-          const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes);
+          // That should always be right for shared content
+          const langFromUrl = getLangFromUrl();
+
+          if (!langFromUrl) {
+            setErrorMessage('share.resultIsBroken');
+
+            return;
+          }
+
+          const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes, langFromUrl);
 
           const {
             isWon,
             results,
-          } = await getWordReportForMultipleWords(wordToGuess, wordsFromIndexes);
+          } = await getWordReportForMultipleWords(wordToGuess, wordsFromIndexes, { lang: langFromUrl });
 
           const guesses = results.map(({ word = '', affixes = [] }) => ({
             word,

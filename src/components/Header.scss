@@ -34,10 +34,15 @@
         right: 7px;
     }
 
+    h1 {
+        margin-bottom: 0;
+    }
+
     h1 button {
         position: relative;
         font-size: 32px;
         line-height: 56px;
+        height: 50px;
         font-weight: 700;
         text-transform: uppercase;
         text-shadow: 0 0px 10px var(--background);
@@ -52,17 +57,23 @@
             fill: var(--green-stronger);
         }
 
-        &::after {
-            content: '';
-            height: 12px;
-            width: 16px;
-            bottom: 16px;
-            right: -20px;
-            // Polish flag
-            background-image: linear-gradient(to top, #c30101, #c30101 50%, white 50%, white);
-            border-radius: 3px;
+        .header-flag {
             position: absolute;
-            box-shadow: 0 -1px 3px var(--flag-shadow);
+            content: '';
+            height: 18px;
+            width: 18px;
+            top: calc(50% - 9px);
+            right: -20px;
+            border-radius: 20px;
+            filter: saturate(0.6);
+            object-fit: cover;
+            object-position: center;
+            transform-origin: center center;
+            box-shadow: 0 -1px 4px var(--flag-shadow);
+        }
+
+        .header-flag--animation {
+            animation: scaleInFlag 0.5s ease-in;
         }
     }
 
@@ -93,6 +104,22 @@
         }
 
         animation: scaleIn 0.5s ease-in-out;
+    }
+}
+
+@keyframes scaleInFlag {
+    0% {
+        opacity: 0;
+        transform: rotate(-95deg) translateY(-100px) scale(0);
+    }
+
+    80% {
+        opacity: 0.3;
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0) translateY(0) scale(1);
     }
 }
 

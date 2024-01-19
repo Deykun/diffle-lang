@@ -1,17 +1,24 @@
 import { useEffect } from 'react';
 
-import { LOCAL_STORAGE, LOCAL_STORAGE_GAME_BY_MODE } from '@const';
-import { saveEndedGame } from '@store/gameSlice';
+import { GameMode } from '@common-types';
 
 import { useDispatch, useSelector } from '@store';
+import { saveEndedGame } from '@store/gameSlice';
 import {
     selectWordToGuess,
 } from '@store/selectors';
+
+import {
+    getLocalStorageKeyForGame,
+    getLocalStorageKeyForDailyStamp,
+    getLocalStorageKeyForLastGameMode,
+ } from '@utils/game';
 
 import useEffectChange from "@hooks/useEffectChange";
 
 function useSaveProgressLocally() {
     const dispatch = useDispatch();
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameStatus = useSelector(state => state.game.status);
     const gameMode = useSelector(state => state.game.mode);
     const todayStamp = useSelector(state => state.game.today);
@@ -23,27 +30,38 @@ function useSaveProgressLocally() {
 
     useEffect(() => {
         dispatch(saveEndedGame())
-    }, [dispatch, gameStatus]);
+    }, [dispatch, gameLanguage, gameStatus]);
 
     useEffect(() => {
-        localStorage.setItem(LOCAL_STORAGE.LAST_GAME_MODE, gameMode);
-        localStorage.setItem(LOCAL_STORAGE.LAST_DAILY_STAMP, todayStamp);  
-    }, [gameMode, todayStamp]);
+        if (gameLanguage && wordToGuess) {
+            const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage });
+            localStorage.setItem(localStorageKeyForLastGameMode, gameMode);
+
+            if (gameMode === GameMode.Daily) {
+                const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
+                localStorage.setItem(localStorageKeyForDailyStamp, todayStamp);
+            }
+        }
+    }, [gameLanguage, gameMode, todayStamp, wordToGuess]);
 
     useEffectChange(() => {
-        const guessesWords = guesses.map(({ word }) => word);
+        if (gameLanguage && wordToGuess) {
+            const guessesWords = guesses.map(({ word }) => word);
 
-        const recoveryState = {
-            status: gameStatus,
-            wordToGuess,
-            guessesWords,
-            rejectedWords,
-            lastUpdateTime,
-            durationMS,
-        };
+            const recoveryState = {
+                status: gameStatus,
+                wordToGuess,
+                guessesWords,
+                rejectedWords,
+                lastUpdateTime,
+                durationMS,
+            };
 
-        localStorage.setItem(LOCAL_STORAGE_GAME_BY_MODE[gameMode], JSON.stringify(recoveryState));
-    }, [wordToGuess, gameStatus, guesses, rejectedWords, durationMS]);
+            const localStorageKeyForLastGameMode = getLocalStorageKeyForGame({ gameLanguage, gameMode });
+
+            localStorage.setItem(localStorageKeyForLastGameMode, JSON.stringify(recoveryState));
+        }
+    }, [gameLanguage, wordToGuess, gameStatus, guesses, rejectedWords, durationMS]);
 }
 
 export default useSaveProgressLocally;

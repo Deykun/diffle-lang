@@ -17,6 +17,7 @@ import IconHeartStreak from '@components/Icons/IconHeartStreak';
 import './StatisticsHint.scss';
 
 const StatisticsHint = () => {
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector((state) => state.game.mode);
 
     const { t } = useTranslation();
@@ -24,8 +25,12 @@ const StatisticsHint = () => {
     const { changePane } = usePanes();
 
     const { wonStreak } = useMemo(() => {
-        return getStreakForFilter({ modeFilter: gameMode })
-    }, [gameMode]);
+        if (!gameLanguage) {
+            return { wonStreak: 0 };
+        }
+
+        return getStreakForFilter(gameLanguage, { modeFilter: gameMode })
+    }, [gameLanguage, gameMode]);
 
     const handleClick = useCallback(() => {
         changePane(Pane.Statistics);
@@ -33,7 +38,7 @@ const StatisticsHint = () => {
 
     const isDailyMode = gameMode === GameMode.Daily;
     const isNiceNumberToHint = [5, 10].includes(wonStreak) || (wonStreak % 25 === 0 && wonStreak !== 0);
-    const shouldRender = isDailyMode && isNiceNumberToHint;
+    const shouldRender = gameLanguage && isDailyMode && isNiceNumberToHint;
 
     if (!shouldRender) {
         return null;

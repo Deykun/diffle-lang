@@ -109,8 +109,34 @@
     &.inverted.no-border,
     &.text.no-border {
         &,
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
             border-color: transparent;
+            outline: none !important;
         }
+    }
+}
+
+.buttons-connected {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    flex-flow: row nowrap;
+
+    .button:first-child:not(:last-child) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .button:last-child:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-left: 2px;
+    }
+
+    .button.inverted:last-child:not(:first-child) {
+        margin-left: -2px;
     }
 }

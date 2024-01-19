@@ -5,6 +5,12 @@
     text-align: center;
 }
 
+.wrapper-padding-escape {
+    margin-left: -7px;
+    margin-right: -7px;
+    width: calc(100% + 14px);
+}
+
 body p {
     line-height: 1.4;
 }
@@ -20,7 +26,7 @@ body p {
     --toast-text: black;
     --toast-bacground: rgba(255, 255, 255, 1);
 
-    --flag-shadow: rgb(255, 255, 255, 0.1);
+    --flag-shadow: rgb(255, 255, 255, 0.2);
 
     --blue: #26c;
     --blue-weaker: #7392c1;
@@ -68,7 +74,7 @@ body p {
     --toast-text: white;
     --toast-bacground: rgba(0, 0, 0, 1);
 
-    --flag-shadow: rgba(0, 0, 0, 0.1);
+    --flag-shadow: rgba(0, 0, 0, 0.2);
 
     --blue: #26c;
     --blue-stronger: #275fb3;

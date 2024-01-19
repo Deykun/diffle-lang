@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { GameMode, Pane } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
-import { selectIsGameEnded } from '@store/selectors';
 import { loseGame } from '@store/gameSlice';
+import { selectIsGameEnded } from '@store/selectors';
 
 import { getYesterdaysSeed } from '@utils/date';
 
@@ -18,12 +18,11 @@ import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconBandage from '@components/Icons/IconBandage';
-import IconBook from '@components/Icons/IconBook';
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconInfinity from '@components/Icons/IconInfinity';
 
-import Button from '@components/Button/Button';
+import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
 import './Settings.scss'
 
@@ -35,6 +34,7 @@ import SettingsSources from './SettingsSources';
 const Settings = () => {
     const dispatch = useDispatch();
     const [yesterdayWord, setYesterdayWord] = useState('');
+    const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector(state => state.game.mode);
     const isGameEnded = useSelector(selectIsGameEnded);
 
@@ -48,12 +48,14 @@ const Settings = () => {
     const { handleClickSummary } = useEnhancedDetails();
 
     useEffect(() => {
-        const yesterdaysSeed = getYesterdaysSeed();
+        if (gameLanguage) {
+            const yesterdaysSeed = getYesterdaysSeed();
 
-        getWordToGuess({ gameMode: GameMode.Daily, seedNumber: yesterdaysSeed }).then((dayWord) => {
-            setYesterdayWord(dayWord);
-        });
-    }, []);
+            getWordToGuess({ gameMode: GameMode.Daily, gameLanguage, seedNumber: yesterdaysSeed }).then((dayWord) => {
+                setYesterdayWord(dayWord);
+            });
+        }
+    }, [gameLanguage]);
 
     const handleGiveUp = () => {
         dispatch(loseGame());
@@ -97,16 +99,7 @@ const Settings = () => {
                     <p>
                         {t('settings.lastDailyWordsYesterday', { word: yesterdayWord })}
                     </p>
-                    <Button
-                        tagName="a"
-                        href={`https://sjp.pl/${yesterdayWord}`}
-                        target="blank"
-                        rel="noopener noreferrer"
-                        isInverted
-                    >
-                        <IconBook />
-                        <span>{t('common.checkInDictionary', { word: yesterdayWord })}</span>
-                    </Button>
+                    <GoToDictionaryButton word={yesterdayWord} />
                 </div>)}
             </details>
             <SettingsPreferences />

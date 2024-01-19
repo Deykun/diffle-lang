@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useSelector } from '@store';
+
 import {
     Filters,
     StatisticDataForCard,
@@ -12,7 +14,6 @@ import {
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
-import IconChartWithMarkedPart from '@components/Icons/IconChartWithMarkedPart';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import StatisticsCard from './StatisticsCard';
@@ -24,6 +25,7 @@ import { INITIAL_FILTERS } from './constants';
 import './Statistics.scss'
 
 const Statistics = () => {
+    const gameLanguage = useSelector((state) => state.game.language);
     const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
     const [{ statisticsData, streakData }, setData] = useState<{
         statisticsData: StatisticDataForCard | undefined,
@@ -38,8 +40,12 @@ const Statistics = () => {
     useScrollEffect('top', []);
 
     const refreshStatitics = useCallback(() => {
-        const statistics = getStatisticForFilter(filtersData);
-        const streakData = getStreakForFilter(filtersData);
+        if (!gameLanguage) {
+            return;
+        }
+
+        const statistics = getStatisticForFilter(gameLanguage, filtersData);
+        const streakData = getStreakForFilter(gameLanguage, filtersData);
 
         const statisticsData = getStatisticCardDataFromStatistics(statistics);
 
@@ -47,7 +53,7 @@ const Statistics = () => {
             statisticsData,
             streakData,
         });
-    }, [filtersData]);
+    }, [filtersData, gameLanguage]);
 
     useEffect(() => {
         refreshStatitics();
@@ -69,7 +75,9 @@ const Statistics = () => {
                     </span>
                 </h2>
                 {isMissingData
-                    ? <div className="missing-data"><IconChartWithMarkedPart className="missing-data-icon" /><p>{t('statistics.noData')}</p></div>
+                    ? <p className="missing-data">
+                        {t('statistics.noData')}
+                    </p>
                     : <>
                         <StatisticsCard {...statisticsData} {...streakData} {...filtersData} />
                         <StatisticsActions refreshStatitics={refreshStatitics} modeFilter={filtersData.modeFilter} />

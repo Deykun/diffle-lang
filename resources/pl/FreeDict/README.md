@@ -2,6 +2,6 @@
 
 Special thanks to: https://freedict.org/
 
-A dictionary used: https://freedict.org/downloads/#dictionary-downloads - Polish - English, version 2022.11.18 with 36373 headwords
+A dictionary used: https://freedict.org/downloads/#dictionary-downloads - Polish - English, version 2023.05.29 with 37202 headwords
 
-Words in total: 36 373
+Words in total: 37 202

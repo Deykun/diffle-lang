@@ -1,4 +1,17 @@
-export const getNormalizedKey = (word: string): string => {
+export const removeDiacratics = (word: string) => word
+    .replaceAll('ą', 'a')
+    .replaceAll('ć', 'c')
+    .replaceAll('ę', 'e')
+    .replaceAll('ł', 'l')
+    .replaceAll('ń', 'n')
+    .replaceAll('ó', 'o')
+    .replaceAll('ś', 's')
+    .replaceAll('ź', 'z')
+    .replaceAll('ż', 'z');
+
+export const getNormalizedKey = (wordRaw: string, language: string): string => {
+    const word = removeDiacratics(wordRaw);
+
     if (word.length === 2) {
         return '2ch';
     }
@@ -11,23 +24,27 @@ export const getNormalizedKey = (word: string): string => {
         return '3ch';
     }
 
-    /*
-        Nie" is the negation marker in Polish, and in Polish, negated adjectives have "nie" as a prefix.
+    if (language === 'pl') {
+        /* 
+            "Nie" means no/not and in Polish you connect those for a lot of words ex:
+            nieżyje - not alive, nieładny - not pretty etc.
+            
+            So it gets its own subkey.
+        */
+        if (word.startsWith('nie')) {
+            if (word.length === 4) {
+                return `nie1ch`;
+            }
 
-        So it has it's own subkey system.
-    */
-    const key = word.startsWith('nie') ? word.slice(0, 6) : word.slice(0, 3);
+            if (word.length === 5) {
+                return `nie2ch`;
+            }
 
-    return key
-        .replaceAll('ą', 'a')
-        .replaceAll('ć', 'c')
-        .replaceAll('ę', 'e')
-        .replaceAll('ł', 'l')
-        .replaceAll('ń', 'n')
-        .replaceAll('ó', 'o')
-        .replaceAll('ś', 's')
-        .replaceAll('ź', 'z')
-        .replaceAll('ż', 'z');
+            return word.slice(0, 6);
+        }
+    }
+
+    return word.slice(0, 3);
 };
 
 export const getIsKeyValid = (key: string = '') => {

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LOCAL_STORAGE } from '@const';
+import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { GameMode, GameStatus } from '@common-types';
 
@@ -29,6 +29,7 @@ import './ShareButton.scss';
 
 const ShareButton = ({ shouldShowSettings = false }) => {
   const dispatch = useDispatch();
+  const gameLanguage = useSelector((state) => state.game.language);
   const shouldShareWords = useSelector((state) => state.app.shouldShareWords);
   const guesses = useSelector((state) => state.game.guesses);
   const guessedWords = guesses.map(({ word }) => word);
@@ -48,16 +49,20 @@ const ShareButton = ({ shouldShowSettings = false }) => {
     const isLost = endStatus === GameStatus.Lost;
 
     let resultParam = '';
-    if (shouldShareWords) {
-      const wordsWithIndexes = getWordsIndexesChunks(guessedWords);
+    let langShareMarker = '';
+    if (shouldShareWords && gameLanguage) {
+      const wordsWithIndexes = getWordsIndexesChunks(guessedWords, gameLanguage);
+
       const hashedValue = getUrlHashForGameResult({ subtotals, wordToGuess, wordsWithIndexes });
 
       resultParam = maskValue(hashedValue);
+
+      langShareMarker = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker || '#diffle';
     }
 
     const shareUrl = `${diffleUrl}${resultParam ? `?r=${resultParam}` : ''}`;
 
-    const copyTitle = gameMode === GameMode.Daily ? `${stamp} – 🇵🇱 #diffle` : `« ${wordToGuess} » – 🇵🇱 #diffle`;
+    const copyTitle = gameMode === GameMode.Daily ? `${stamp} – ${langShareMarker}` : `« ${wordToGuess} » – ${langShareMarker}`;
     const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
 
     if (isLost) {
@@ -75,7 +80,7 @@ ${copySubtotals}
 
 ${shareUrl}`;
 
-}, [endStatus, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words])
+}, [endStatus, gameLanguage, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words])
 
   const handleCopy = useCallback(() => {
     setIsOpen(false);
@@ -96,7 +101,7 @@ ${shareUrl}`;
 
   return (
     <>
-      <span className="share-button">
+      <span className="buttons-connected">
         <Button
           onClick={handleCopy}
         >
@@ -104,10 +109,7 @@ ${shareUrl}`;
             <span>{t('common.copyResult')}</span>
         </Button>
         {shouldShowSettings && (
-          <Button
-            className="share-settings"
-            onClick={onClick}
-          >
+          <Button onClick={onClick}>
             <IconPencil />
           </Button>
         )}
@@ -119,7 +121,11 @@ ${shareUrl}`;
               <li>
                   <button className={clsx('setting', { 'setting-active': shouldShareWords })} onClick={handleToggleShareWords}>
                       <IconFingerprint />
-                      <span>{t('share.linkWithUsedWords')}</span>
+                      <span>
+                        {t('share.linkWithUsedWords')}
+                        <br />
+                        <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
+                      </span>
                   </button>
               </li>
               <li>

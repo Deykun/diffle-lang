@@ -4,6 +4,11 @@ import { useTranslation } from 'react-i18next';
 
 import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
+import { useSelector } from '@store';
+import {
+    selectGameLanguageKeyboardInfo,
+} from '@store/selectors';
+
 import {
     Filters,
     ModeFilter,
@@ -33,6 +38,7 @@ interface Props {
 }
 
 const StatisticsFilters = ({ setFiltersData }: Props) => {
+    const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
     const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
@@ -93,39 +99,41 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                         </button>
                     </li>
                 </ul>
-                <ul className="list-col-3">
-                    <li>
-                        <button
-                            className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.All })}
-                            onClick={() => setModeCharactersFilter(CharactersFilter.All)}
-                        >
-                            <IconLayersAlt />
-                            <span>{t('statistics.filterAll')}</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.NoSpecial })}
-                            onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
-                        >
-                            <IconFlag />
-                            <span dangerouslySetInnerHTML={{
-                                __html: t('statistics.specialCharactersWithout')
-                            }} />
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.Special })}
-                            onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
-                        >
-                            <IconFlagAlt />
-                            <span dangerouslySetInnerHTML={{
-                                __html: t('statistics.specialCharactersWith')
-                            }} />
-                        </button>
-                    </li>
-                </ul>
+                {hasLanguageSpecialCharacters && (
+                    <ul className="list-col-3">
+                        <li>
+                            <button
+                                className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.All })}
+                                onClick={() => setModeCharactersFilter(CharactersFilter.All)}
+                            >
+                                <IconLayersAlt />
+                                <span>{t('statistics.filterAll')}</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.NoSpecial })}
+                                onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
+                            >
+                                <IconFlag />
+                                <span dangerouslySetInnerHTML={{
+                                    __html: t('statistics.specialCharactersWithout')
+                                }} />
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.Special })}
+                                onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
+                            >
+                                <IconFlagAlt />
+                                <span dangerouslySetInnerHTML={{
+                                    __html: t('statistics.specialCharactersWith')
+                                }} />
+                            </button>
+                        </li>
+                    </ul>
+                )}
                 <ul className="list-col-3">
                     <li>
                         <button

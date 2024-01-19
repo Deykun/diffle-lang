@@ -2,8 +2,6 @@ import { GameMode } from '@common-types';
 
 import { getNow } from '@utils/date';
 
-const game_lang = 'pl';
-
 const getRandomInt = (min: number, max: number): number => {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -22,8 +20,8 @@ const getRandomIntForDaily = () => {
     return dateSeed;
 };
 
-export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameMode, seedNumber?: number }): Promise<string> => {
-    const catalogResponse = await fetch(`./dictionary/${game_lang}/catalog.json`);
+export const getWordToGuess = async ({ gameMode, gameLanguage, seedNumber }: { gameMode: GameMode, gameLanguage: string, seedNumber?: number }): Promise<string> => {
+    const catalogResponse = await fetch(`./dictionary/${gameLanguage}/catalog.json`);
 
     const cataolgResult: { words: number, items: catalogItem[] } = await catalogResponse.json();
 
@@ -50,7 +48,7 @@ export const getWordToGuess = async ({ gameMode, seedNumber }: { gameMode: GameM
 
     const { key, endIndex } = keyItem;
 
-    const winingKeyResponse = await fetch(`./dictionary/${game_lang}/winning/chunk-${key}.json`);
+    const winingKeyResponse = await fetch(`./dictionary/${gameLanguage}/winning/chunk-${key}.json`);
 
     const winingKeyResult = await winingKeyResponse.json();
 

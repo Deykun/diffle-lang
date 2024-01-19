@@ -1,4 +1,7 @@
 import { GameMode } from '@common-types';
+
+import { SUPPORTED_LANGS } from '@const';
+
 import  { convertMillisecondsToTime } from './date';
 
 export enum ModeFilter {
@@ -123,6 +126,10 @@ const getStatisticForKey = (key: string): Statistic => {
     if (savedState) {
         const state = JSON.parse(savedState) as Statistic;
 
+        if (!state.medianData?.rejectedWords) {
+            state.medianData.rejectedWords = {};
+        }
+
         return state;
     }
 
@@ -156,8 +163,8 @@ export const saveStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, is
     localStorage.setItem(key, statisticToSave);
 };
 
-export const removeStatisticsByGameMode = ({ gameLanguage = 'pl', gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
-    const keysToRemove = getStatisticFiltersForKeys({
+export const removeStatisticsByGameMode = ({ gameLanguage, gameMode }: { gameLanguage: string, gameMode: ModeFilter }) => {
+    const keysToRemove = getStatisticFiltersForKeys(gameLanguage, {
         modeFilter: gameMode,
         lengthFilter: LengthFilter.All,
         charactersFilter: CharactersFilter.All,
@@ -262,7 +269,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
 
         const uniqueMedianDataRejectedWords = [...new Set([
             ...Object.keys(stack.medianData.rejectedWords),
-            ...Object.keys(statistic.medianData.rejectedWords),
+            ...Object.keys(statistic.medianData.rejectedWords || []), // if someone didn't have it saved earlier
         ])].map(Number);
 
         const medianDataRejectedWords = uniqueMedianDataRejectedWords.reduce((medianStack: { [key: number]: number}, key: number) => {
@@ -304,7 +311,7 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
 };
 
 interface KeyForFilters {
-    gameLanguage: 'pl',
+    gameLanguage: string,
     keyModeFilter: ModeFilter,
     keyCharactersFilter: CharactersFilter,
     keyLengthFilter: LengthFilter,
@@ -317,20 +324,23 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
         [LengthFilter.Short, LengthFilter.Long].forEach(keyLengthFilter => {
             const isShort = keyLengthFilter === LengthFilter.Short;
 
-            const key = getLocalStorageKeyForStat({
-                gameLanguage: 'pl',
-                gameMode: keyModeFilter,
-                hasSpecialCharacters,
-                isShort,
-            });
+            SUPPORTED_LANGS.forEach(gameLanguage => {
+                const key = getLocalStorageKeyForStat({
+                    gameLanguage,
+                    gameMode: keyModeFilter,
+                    hasSpecialCharacters,
+                    isShort,
+                });
 
-            stack.push({
-                gameLanguage: 'pl',
-                keyModeFilter,
-                keyCharactersFilter,
-                keyLengthFilter,
-                key,
-            })
+                stack.push({
+                    gameLanguage,
+                    keyModeFilter,
+                    keyCharactersFilter,
+                    keyLengthFilter,
+                    key,
+                });
+                
+            });
         })
     });
 
@@ -338,21 +348,30 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
 }, []);
 
 export interface Filters {
+    gameLanguage?: string,
     modeFilter: ModeFilter,
     charactersFilter: CharactersFilter,
     lengthFilter: LengthFilter,
 }
 
-export const getStatisticFiltersForKeys = ({
-    modeFilter,
-    charactersFilter,
-    lengthFilter,
-}: Filters) => {
+export const getStatisticFiltersForKeys = (
+    gameLanguage: string,
+    {
+        modeFilter,
+        charactersFilter,
+        lengthFilter,
+    }: Filters
+) => {
     const keysToUse = KEYS_FOR_FILTERS.filter(({
+        gameLanguage: filterLanguage,
         keyModeFilter,
         keyCharactersFilter,
         keyLengthFilter,
     }) => {
+        if (filterLanguage !== gameLanguage) {
+            return false;
+        }
+
         const isStrictModeFilter = [ModeFilter.Daily, ModeFilter.Practice].includes(modeFilter);
         if (isStrictModeFilter && keyModeFilter !== modeFilter) {
             return false;
@@ -374,12 +393,15 @@ export const getStatisticFiltersForKeys = ({
     return keysToUse;
 }
 
-export const getStatisticForFilter = ({
-    modeFilter,
-    charactersFilter,
-    lengthFilter,
-}: Filters) => {
-    const keysToUse = getStatisticFiltersForKeys({
+export const getStatisticForFilter = (
+    gameLanguage: string,
+    {
+        modeFilter,
+        charactersFilter,
+        lengthFilter,
+    }: Filters
+) => {
+    const keysToUse = getStatisticFiltersForKeys(gameLanguage, {
         modeFilter,
         charactersFilter,
         lengthFilter,
@@ -390,20 +412,26 @@ export const getStatisticForFilter = ({
     return mergeStatistics(arrayOfStatistics);
 };
 
-export const getStreakForFilter = ({
-    modeFilter,
-}: { modeFilter: ModeFilter | GameMode }): Streak => {
-    return getStreak({ gameLanguage: 'pl', gameMode: modeFilter });
+export const getStreakForFilter = (
+    gameLanguage: string,
+    {
+        modeFilter,
+    }: { modeFilter: ModeFilter | GameMode }
+): Streak => {
+    return getStreak({ gameLanguage, gameMode: modeFilter });
 };
 
 export interface StatisticDataForCard {
     totalGames: number,
     totalWon: number,
+    totalLost: number,
     rejectedWordsPerGame: number,
     rejectedWordsWorstWonInGame: number,
     lettersPerGame: number,
+    maxLettersInGame: number,
     averageLettersPerGame: number,
     wordsPerGame: number,
+    maxWordsInGame: number,
     averageWordsPerGame: number,
     timePerGame: {
         hours: number,
@@ -462,17 +490,21 @@ const getMaxFromFromMedianData = (medianData: { [value: number]: number }) => {
 export const getStatisticCardDataFromStatistics = (statistic: Statistic): StatisticDataForCard => {
     const totalGames = statistic.totals.won + statistic.totals.lost;
     const totalWon = statistic.totals.won;
+    const totalLost = statistic.totals.lost;
 
     const averageLettersPerGame = statistic.totals.letters / totalWon; // Lost games are not included in detailed games
     
     return {
         totalGames,
         totalWon,
+        totalLost,
         rejectedWordsPerGame: getMedianFromMedianData(statistic.medianData.rejectedWords),
         rejectedWordsWorstWonInGame: getMaxFromFromMedianData(statistic.medianData.rejectedWords),
         lettersPerGame: getMedianFromMedianData(statistic.medianData.letters),
+        maxLettersInGame: getMaxFromFromMedianData(statistic.medianData.letters),
         averageLettersPerGame,
         wordsPerGame: getMedianFromMedianData(statistic.medianData.words),
+        maxWordsInGame: getMaxFromFromMedianData(statistic.medianData.words),
         averageWordsPerGame: statistic.totals.words / totalWon,
         timePerGame: convertMillisecondsToTime(statistic.totals.durationMS / totalWon),
         totalTime: convertMillisecondsToTime(statistic.totals.durationMS),
