@@ -8,6 +8,8 @@ import { useSelector } from '@store';
 import { selectIsGameEnded } from '@store/selectors';
 
 import usePanes from '@hooks/usePanes';
+import useEffectChange from "@hooks/useEffectChange";
+import usePrevious from "@hooks/usePrevious";
 
 import IconClose from '@components/Icons/IconClose';
 import IconHelp from '@components/Icons/IconHelp';
@@ -21,6 +23,7 @@ import './Header.scss';
 
 
 const Header = () => {
+    const [flagKey, setFlagKey] = useState('');
     const [shouldShowShared, setShouldShowShared] = useState(false);
     const gameLanguage = useSelector((state) => state.game.language);
     const isGameEnded = useSelector(selectIsGameEnded);
@@ -31,6 +34,14 @@ const Header = () => {
     const { t } = useTranslation();
 
     const { pane, changePane } = usePanes();
+
+    const prevGameLanguage = usePrevious(gameLanguage);
+
+    useEffectChange(() => {
+      if (prevGameLanguage && gameLanguage && prevGameLanguage !== gameLanguage) {
+        setFlagKey(gameLanguage);
+      }
+    }, [gameLanguage]);
 
     useEffect(() => {
       if (wordToGuess) {
@@ -58,8 +69,14 @@ const Header = () => {
             </div>
             <h1>
               <button onClick={() => changePane(Pane.Game)}>
-                Diffle{gameMode === GameMode.Practice && <IconInfinity />}
-                {gameLanguage && <img key={gameLanguage} className="header-flag" src={`/flags/${gameLanguage}.svg`} alt={gameLanguage} /> }
+                Diffle
+                {gameMode === GameMode.Practice && <IconInfinity />}
+                {gameLanguage && <img
+                  key={flagKey}
+                  className={clsx('header-flag', { 'header-flag--animation': flagKey })}
+                  src={`/flags/${flagKey || gameLanguage}.svg`}
+                  alt={flagKey || gameLanguage}
+                />}
               </button>
             </h1>
             <div className="header-right">

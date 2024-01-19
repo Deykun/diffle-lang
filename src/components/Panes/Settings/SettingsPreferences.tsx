@@ -2,13 +2,10 @@ import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane } from '@common-types';
-
 import { LOCAL_STORAGE } from '@const';
 
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 import useVibrate from '@hooks/useVibrate';
-import usePanes from '@hooks/usePanes';
 
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconContrast from '@components/Icons/IconContrast';
@@ -25,8 +22,6 @@ import './Settings.scss'
 
 const SettingsPreferences = () => {
     const { t, i18n } = useTranslation();
-
-    const { changePane } = usePanes();
 
     const {
         shouldVibrate,
@@ -67,9 +62,7 @@ const SettingsPreferences = () => {
         vibrate();
 
         i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl');
-
-        // changePane(Pane.Game);
-    }, [changePane, i18n, vibrate]);
+    }, [i18n, vibrate]);
 
     return (
         <>

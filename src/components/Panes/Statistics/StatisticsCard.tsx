@@ -93,12 +93,13 @@ const StatisticsCard = ({
                     <span>{t('statistics.letters')}</span>
                     <span className="tooltip">
                         {t('statistics.median')}
-                        {', '}
+                        {' ('}
                         {t('statistics.average')}
                         <strong>{averageLettersPerGame.toFixed(1)}</strong>
                         {', '}
                         {t('statistics.maximum')}
                         <strong>{maxLettersInGame}</strong>
+                        {')'}
                     </span>
                 </p>
                 <p className={clsx('statistics-words', 'has-tooltip', 'has-tooltip-from-right')}>
@@ -109,12 +110,13 @@ const StatisticsCard = ({
                     <span>{t('statistics.medianWords')}</span>
                     <span className="tooltip">
                         {t('statistics.median')}
-                        {', '}
+                        {' ('}
                         {t('statistics.average')}
                         <strong>{averageWordsPerGame.toFixed(1)}</strong>
                         {', '}
                         {t('statistics.maximum')}
                         <strong>{maxWordsInGame}</strong>
+                        {')'}
                     </span>
                 </p>
                 <div className="statistics-text">

@@ -1,18 +1,25 @@
-#  🇵🇱 Polskie DIFFLE
+# DIFFLE 🇬🇧 🇵🇱
 
-Wordle bez limitu znaków. Każde użyte słowo podpowiada pozycje i kolejność liter w haśle.
+A Wordle-like game without a character limit, where every used word gives hints about the position and order of letters in the solution.
 
-Strona: https://deykun.github.io/diffle-lang/
+The website: https://deykun.github.io/diffle-lang/
 
-Największa polska społeczność: https://www.hejto.pl/tag/diffle
+Supported languages:
+ - English 🇬🇧
+ - Polish 🇵🇱
+    - the biggest Polish community: https://www.hejto.pl/tag/diffle
 
----
+# Resources
 
-## Original DIFFLE
+### Original DIFFLE
  - https://hedalu244.github.io/diffle/
  - https://github.com/hedalu244/diffle
 
-## Sources
- - https://sjp.pl - a spellechecker dictionary
- - https://freedict.org - a winning words dictionary
+### Dictionaries
+ - https://sjp.pl - the Polish spellechecker dictionary
+ - https://github.com/dwyl - the English spellchecker dictionary
+ - https://freedict.org - the Polish & English winning words dictionary
+
+### Other
  - https://iconmonstr.com/ - icons
+ - https://github.com/lipis/flag-icons - flags

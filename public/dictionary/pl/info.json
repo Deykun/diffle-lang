@@ -46,7 +46,15 @@
 		"accepted": {
 			"all": 18072,
 			"withSpecialCharacters": 5913,
-			"withoutSpecialCharacters": 12159
+			"withoutSpecialCharacters": 12159,
+			"length": {
+				"4": 1211,
+				"5": 2421,
+				"6": 3304,
+				"7": 3580,
+				"8": 3981,
+				"9": 3575
+			}
 		},
 		"rejected": {
 			"all": 14291,

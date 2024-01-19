@@ -497,7 +497,7 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
         rejectedWordsPerGame: getMedianFromMedianData(statistic.medianData.rejectedWords),
         rejectedWordsWorstWonInGame: getMaxFromFromMedianData(statistic.medianData.rejectedWords),
         lettersPerGame: getMedianFromMedianData(statistic.medianData.letters),
-        maxLettersInGame: getMedianFromMedianData(statistic.medianData.letters),
+        maxLettersInGame: getMaxFromFromMedianData(statistic.medianData.letters),
         averageLettersPerGame,
         wordsPerGame: getMedianFromMedianData(statistic.medianData.words),
         maxWordsInGame: getMaxFromFromMedianData(statistic.medianData.words),

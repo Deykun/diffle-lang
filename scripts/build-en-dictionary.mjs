@@ -26,7 +26,8 @@ import {
 const LANG = 'en';
 
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${SPELLCHECKER_DICTIONARY_NAME}/dictionary.txt`, 'utf-8');
-const winningDictionary = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTIONARY_NAME}/dictionary.txt`, 'utf-8');
+const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTIONARY_NAME}/ara/dictionary.txt`, 'utf-8');
+const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTIONARY_NAME}/jap/dictionary.txt`, 'utf-8');
 
 const statistics = INITAL_DICTIONARY_STATISTICS;
 statistics.winning.lettersNotAcceptedInWinningWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD;
@@ -40,7 +41,13 @@ fsExtra.emptyDirSync(`./public/dictionary/${LANG}/winning/`);
 const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean))].map(word => word.toLowerCase());
 statistics.spellchecker.all = spellcheckerWords.length;
 
-const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords1st = [...new Set(winningDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords2nd = [...new Set(winningDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords = winningWords1st.length > winningWords2nd.length
+    ? winningWords1st.filter(word => winningWords2nd.includes(word))
+    : winningWords2nd.filter(word => winningWords1st.includes(word));
+
+
 statistics.winning.all = winningWords.length;
 
 let spellingIndex = {};
@@ -180,6 +187,7 @@ winningWords.forEach((word, index) =>  {
 
     const wordLength = word.length;
     winningWordsLengths[wordLength] = winningWordsLengths[wordLength] ? winningWordsLengths[wordLength] + 1 : 1;
+    statistics.winning.accepted.length[wordLength] = statistics.winning.accepted.length[wordLength] ? statistics.winning.accepted.length[wordLength] + 1 : 1;
 
     const shouldUpdate = index % 2500 === 0;
 

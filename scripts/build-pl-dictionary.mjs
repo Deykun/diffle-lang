@@ -180,6 +180,7 @@ winningWords.forEach((word, index) =>  {
 
     const wordLength = word.length;
     winningWordsLengths[wordLength] = winningWordsLengths[wordLength] ? winningWordsLengths[wordLength] + 1 : 1;
+    statistics.winning.accepted.length[wordLength] = statistics.winning.accepted.length[wordLength] ? statistics.winning.accepted.length[wordLength] + 1 : 1;
 
     const shouldUpdate = index % 2500 === 0;
 

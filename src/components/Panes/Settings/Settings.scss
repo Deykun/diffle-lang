@@ -141,6 +141,10 @@
 
                         svg {
                             color: var(--green);
+
+                            .icon-inside {
+                                fill: var(--green-contrast);
+                            }
                         }
                     }
 
@@ -189,6 +193,10 @@
 
                         svg {
                             filter: drop-shadow(0 0 5px var(--green));
+
+                            .icon-inside {
+                                fill: var(--green);
+                            }
                         }
                     }
 

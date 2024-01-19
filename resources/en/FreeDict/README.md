@@ -6,6 +6,10 @@ A dictionary used: https://freedict.org/downloads/#dictionary-downloads - Englis
 
 Words in total: 87 424
 
+A dictionary used: https://freedict.org/downloads/#dictionary-downloads - English - Japanes, version 2023.05.29 with 34289 headwords
+
+Words in total: 34 289
+
 # Reasoning
 
 Headwords look good, and a smaller dictionary helps with the detection of winning words.

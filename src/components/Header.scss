@@ -62,15 +62,18 @@
             content: '';
             height: 18px;
             width: 18px;
-            bottom: 10px;
+            top: calc(50% - 9px);
             right: -20px;
             border-radius: 20px;
-            filter: saturate(0.7);
+            filter: saturate(0.6);
             object-fit: cover;
             object-position: center;
-            transform-origin: center bottom;
+            transform-origin: center center;
             box-shadow: 0 -1px 4px var(--flag-shadow);
-            animation: scaleIn 0.3s ease-in-out;
+        }
+
+        .header-flag--animation {
+            animation: scaleInFlag 0.3s ease-in;
         }
     }
 
@@ -101,6 +104,22 @@
         }
 
         animation: scaleIn 0.5s ease-in-out;
+    }
+}
+
+@keyframes scaleInFlag {
+    0% {
+        opacity: 0;
+        transform: rotate(95deg) translateY(-100px) scale(0);
+    }
+
+    80% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(0) translateY(0) scale(1);
     }
 }
 

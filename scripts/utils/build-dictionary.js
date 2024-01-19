@@ -32,6 +32,8 @@ export const getNormalizedKey = (wordRaw, language) => {
         /* 
             "Nie" means no/not and in Polish you connect those for a lot of words ex:
             nieżyje - not alive, nieładny - not pretty etc.
+
+            "n" has 724 318 words while the second one "p" has 476 009 words and third one "w" has 230 195.
             
             So it gets its own subkey.
         */
