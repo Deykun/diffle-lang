@@ -15,7 +15,8 @@
         "downloadError": "Błąd pobierania.",
         "fetchError": "Błąd pobierania, spróbuj ponownie.",
         "unknownError": "Wystąpił nieznany błąd",
-        "gameWillReturnAfter": "Przerwa techniczna <strong>{{today}}</strong>.<br />Wracamy jutro!"
+        "serviceMode": "Przerwa techniczna <strong>{{today}}</strong>.",
+        "serviceModeWeReturnSoon": "Wracamy jutro!"
     },
     "game": {
         "modeDaily": "Codzienny",
@@ -113,7 +114,7 @@
         "sourceFlagIcons": "github.com/lipis/flag-icons - flagi",
         "sourceWordle": "oryginalne wordle",
         "sourceDiffle": "oryginalne diffle",
-        "sourceGithub": "repozytorium strony",
+        "sourceGithub": "repozytorium tej strony",
         "lastDailyWordsTitle": "Wczorajsze słowo",
         "lastDailyWordsYesterday": "Wczorajsze hasło w trybie codziennym to \"{{word}}\".",
         "confirmInSeconds_zero": "Kliknij za {{count}} sekund by potwierdzić",

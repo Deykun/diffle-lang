@@ -1,0 +1,39 @@
+.game-update {
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px dashed var(--orange);
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 100px auto 0;
+
+    .icon-soon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+        fill: var(--orange);
+    }
+
+    p {
+        color: var(--text-weaker);
+
+        &:first-child {
+            margin-bottom: 15px;
+        }
+    }
+
+    strong {
+        color: var(--text);
+    }
+}
+
+.game-update-actions {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.game-update-unlock-hide {
+    display: none;
+}

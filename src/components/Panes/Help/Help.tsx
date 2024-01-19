@@ -47,9 +47,9 @@ const Help = () => {
                 </Button>
             </p>
             <p>
-                <button onClick={() => setIsAlt(value => !value)} className="help-alt-button">
+                <Button onClick={() => setIsAlt(value => !value)} isInverted isText hasBorder={false}>
                     <span>{t(isAlt ? 'help.previousExample' : 'help.altExample')}</span>
-                </button>
+                </Button>
             </p>
         </div>
     )

@@ -12,7 +12,7 @@ import Words from '@components/Words/Words'
 
 import IconLoader from '@components/Icons/IconLoader';
 
-import GameUpdateScreen from './GameUpdateScreen';
+import GameServiceMode from './GameServiceMode';
 
 import './Game.scss'
 
@@ -34,7 +34,7 @@ const Game = () => {
 
     if (isUpdateScreenActive && !isUpdateScreenActiveButBypassed) {
         return (
-            <GameUpdateScreen today={todayStamp} />
+            <GameServiceMode today={todayStamp} />
         );
     }
 

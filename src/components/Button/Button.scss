@@ -109,8 +109,11 @@
     &.inverted.no-border,
     &.text.no-border {
         &,
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
             border-color: transparent;
+            outline: none !important;
         }
     }
 }

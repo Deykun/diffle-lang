@@ -45,7 +45,7 @@ const GoToDictionaryButton = ({ word = '' }: Props) => {
         <Button
           tagName="a"
           href={mainUrl.replace('{{word}}', word)}
-          target="blank"
+          target="_blank"
           rel="noopener noreferrer"
           isInverted
         >
@@ -67,7 +67,7 @@ const GoToDictionaryButton = ({ word = '' }: Props) => {
           {!hasExactMatchAlways && <p className="dictionary-not-match">{t('common.dictionaryIsNotExactMatch')}</p>}
           <ul>
               {urls.map(({ url, name }, index) => (<li key={name}>
-                  <a className="setting" href={url.replace('{{word}}', word)} target="blank" rel="noopener noreferrer">
+                  <a className="setting" href={url.replace('{{word}}', word)} target="_blank" rel="noopener noreferrer">
                       {index % 2 === 0 ? <IconDictionary /> : <IconDictionaryAlt />}
                       <span className="setting-title-small">
                         {t('common.checkInDictionaryWithName', { word, name })}

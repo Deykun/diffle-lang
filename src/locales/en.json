@@ -15,7 +15,8 @@
         "downloadError": "An fetching error.",
         "fetchError": "An fetching error, try again.",
         "unknownError": "An unknown error occurred.",
-        "gameWillReturnAfter": "Service maintenance <strong>{{today}}</strong>.<br />We'll be back tomorrow!"
+        "serviceMode": "Service maintenance <strong>{{today}}</strong>.",
+        "serviceModeWeReturnSoon": "Back in action tomorrow!"
     },
     "game": {
         "modeDaily": "Daily",
@@ -105,7 +106,7 @@
         "sourceFlagIcons": "github.com/lipis/flag-icons - flags",
         "sourceWordle": "original wordle",
         "sourceDiffle": "original diffle",
-        "sourceGithub": "site repository",
+        "sourceGithub": "this site repository",
         "lastDailyWordsTitle": "Yesterday's word",
         "lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\".",
         "confirmInSeconds_one": "Cilck in one second to confirm",
