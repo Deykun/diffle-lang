@@ -36,7 +36,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
             { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
             { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
         ],
-        shareMarker: '#diffle #diffle_en',
+        shareMarker: '#diffle #diffleen',
     },
     pl: {
         code: 'pl',
@@ -50,7 +50,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
         urls: [
             { url: 'https://sjp.pl/{{word}}', name: 'SJP.pl', hasExactMatchAlways: true },
         ],
-        shareMarker: '🇵🇱 #diffle #diffle_pl',
+        shareMarker: '🇵🇱 #diffle #difflepl',
     },
 }
 

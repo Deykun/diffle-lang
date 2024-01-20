@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 3.0.2
+- **New**: #difflepl instead of #diffle_pl
+
 ## Version 3.0.1
 - **Fix**: Path to flag image fixed
 - **Fix**: Setting /en for the english browser
