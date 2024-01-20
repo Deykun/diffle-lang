@@ -27,7 +27,7 @@ export default function useLangugeChangeIfNeeded( ) {
         const { language: appLanguage } = i18n;
         const langFromUrl = getLangFromUrl();
 
-        if (!langFromUrl || (appLanguage && appLanguage !== langFromUrl)) {
+        if (!langFromUrl || appLanguage !== langFromUrl) {
             const currentUrl = location.href.replace(location.search, '');
             const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
             const newLocation = `${currentUrl.replace(`/${langFromUrl}`, '')}${partToAdd}`;
