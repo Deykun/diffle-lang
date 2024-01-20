@@ -17,7 +17,7 @@ const WordTip = () => {
     const { t } = useTranslation();
 
     if (!hasLanguageSpecialCharacters) {
-        return (<p className={clsx('word-tip', 'has-special-character')}>{' '}</p>)
+        return null;
     }
 
     if (hasWordToGuessSpecialCharacters) {

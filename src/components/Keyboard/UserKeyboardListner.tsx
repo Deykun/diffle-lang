@@ -1,14 +1,14 @@
 import { useCallback } from 'react';
 
-import { useDispatch } from '@store';
+import { useDispatch, useSelector } from '@store';
 import { letterChangeInAnswer, submitAnswer } from '@store/gameSlice';
+import { selectGameLanguageKeyboardInfo } from '@store/selectors';
 
 import useEventListener from '@hooks/useEventListener';
 
-import { ALLOWED_KEYS } from '@const';
-
 const UserKeyboardListner = () => {
     const dispatch = useDispatch();
+    const { allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
 
     const handleTyped = useCallback((event: KeyboardEvent) => {
         const keyTyped = (event?.key || '').toLowerCase();
@@ -24,12 +24,12 @@ const UserKeyboardListner = () => {
             return;
         }
 
-        const isAllowedKey = ALLOWED_KEYS.includes(keyTyped);
+        const isAllowedKey = allowedKeys.includes(keyTyped);
 
         if (isAllowedKey) {
             dispatch(letterChangeInAnswer(keyTyped));
         }
-    }, [dispatch]);
+    }, [allowedKeys, dispatch]);
 
     useEventListener('keydown', handleTyped);
 

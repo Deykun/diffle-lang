@@ -56,22 +56,12 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
 
 export const SUPPORTED_LANGS = Object.keys(SUPPORTED_DICTIONARY_BY_LANG);
 
-export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10;
+export const WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS = 10; 
 
-export const PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS = 6;
+export const WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS = 6;
 
-export const KEY_LINES = [
-    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
-    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-    ['ą', 'ć', 'ę', 'ł', 'ń',  'ó', 'ś', 'ź', 'ż'],
-];
-
-const ALLOWED_FROM_KEYLINES = KEY_LINES.reduce((stack, line) => [...stack, ...line], []);
-
+// localhost:3001 has diffrent winning word so you don't need to worry about spoilers
 export const SEED_SHIFT = location.hostname === 'localhost' ? 0 : 1984;
-
-export const ALLOWED_KEYS = [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...ALLOWED_FROM_KEYLINES];
 
 export const SUBMIT_ERRORS = {
     ALREADY_PROCESSING: 'already_processing',

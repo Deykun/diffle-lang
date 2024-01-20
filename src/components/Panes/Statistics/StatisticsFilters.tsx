@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
+import { WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
 import { useSelector } from '@store';
 import {
@@ -151,7 +151,7 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                         >
                             <IconRulerSmall />
                             <span dangerouslySetInnerHTML={{
-                                __html: t('statistics.wordLengthShort', { to: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
+                                __html: t('statistics.wordLengthShort', { to: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
                             }} />
                         </button>
                     </li>
@@ -162,7 +162,7 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                         >
                             <IconRulerBig />
                             <span dangerouslySetInnerHTML={{
-                                __html: t('statistics.wordLengthLong', { above: PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
+                                __html: t('statistics.wordLengthLong', { above: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS })
                             }} />
                         </button>
                     </li>
