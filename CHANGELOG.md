@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 3.0.4
+- **Fix**: Simplifying the game process restoration (changing the game language in settings always resets the game mode to daily)
+
 ## Version 3.0.3
 - **Fix**: Help isn't shown after redirecting if the user has already seen it
 - **Fix**: Changing language removes shared result

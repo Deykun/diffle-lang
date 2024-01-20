@@ -249,26 +249,6 @@ export const loadGame = createAsyncThunk(
             const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
             const lastDailyStamp = localStorage.getItem(localStorageKeyForDailyStamp);
 
-            const wasRestoredWhileInNotInDefaultMode = gameMode !== GameMode.Daily
-            if (wasRestoredWhileInNotInDefaultMode) {
-                const localStorageKeyForDailyGame = getLocalStorageKeyForGame({ gameLanguage, gameMode: GameMode.Daily });
-                const storedStateDaily = localStorage.getItem(localStorageKeyForDailyGame);
-                const storedStateDailyParsed = storedStateDaily ? JSON.parse(storedStateDaily) : {};
-
-                // ex. daily finished in en, user switches to unlocked practice mode and changes language to pl with daily never filled
-                const isFirstTimePlayingThisLanguage = !storedStateDaily;
-                const wasPlayingEarlierButExpired = lastDailyStamp !== todayStamp;
-                const wasPlayingTodayButDidNotWin = storedStateDaily && storedStateDailyParsed.status !== GameStatus.Won;
-
-                const shouldForceDaily = isFirstTimePlayingThisLanguage || wasPlayingEarlierButExpired || wasPlayingTodayButDidNotWin;
-
-                if (shouldForceDaily) {
-                    dispatch(setGameMode(GameMode.Daily));
-
-                    return;
-                }
-            }
-
             if (storedState) {
                 const {
                     wordToGuess: lastWordToGuess = '',
@@ -339,13 +319,6 @@ export const loadGame = createAsyncThunk(
 
                     return;
                 }
-            }
-
-            const shouldForceDaily = gameMode !== GameMode.Daily;
-            if (shouldForceDaily) {
-                dispatch(setGameMode(GameMode.Daily));
-
-                return;
             }
 
             await getWordToGuess({ gameMode, gameLanguage }).then(word => {
@@ -497,7 +470,13 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         setGameLanguage(state, action) {
+            const hadGameOfAGameSetAlready = !!state.language;
+
             state.language = action.payload;
+
+            if (hadGameOfAGameSetAlready) {
+                state.mode = GameMode.Daily;
+            }
 
             resetGame(state, '');
         },
