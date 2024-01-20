@@ -21,9 +21,16 @@ function useVibrate() {
         }
     }, [shouldKeyboardVibrate]);
 
+    const vibrateKeyboardIncorrect = useCallback(({ duration = 50 } = {}) => {
+        if (shouldKeyboardVibrate) {
+            navigator?.vibrate(duration);
+        }
+    }, [shouldKeyboardVibrate]);
+
     return {
         vibrate,
         vibrateKeyboard,
+        vibrateKeyboardIncorrect,
     }
 }
 
