@@ -1,6 +1,9 @@
 # Changelog
 
-## Version 3.0.4
+## Version 3.0.5
+- **Fix**: Better detection of language for Chrome
+
+## Version 3.0.4 (20.01.2024)
 - **Fix**: Simplifying the game process restoration (changing the game language in settings always resets the game mode to daily)
 - **Fix**: Polish characters can be typed only in Polish mode
 
