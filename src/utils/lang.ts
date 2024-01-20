@@ -9,16 +9,27 @@ export const getLangFromUrl = () => {
 export const getLangFromBrowser = () => {
     const { language: browserLanguage, languages: browserLanguages } = navigator;
 
-    const langFromBrowser = SUPPORTED_LANGS.find(lang => browserLanguage === lang)
-        || SUPPORTED_LANGS.find(lang => {
-            const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
+    const exactlangFromBrowser = SUPPORTED_LANGS.find(lang => {
+        const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
 
-            const isThisLanguageSupported = langLanguages.some(
-                oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages)
-            );
+        const isThisExactLanguage = langLanguages.includes(browserLanguage);
 
-            return isThisLanguageSupported;
-        });
+        return isThisExactLanguage;
+    });
 
-    return langFromBrowser;
+    if (exactlangFromBrowser) {
+        return exactlangFromBrowser;
+    }
+
+    const supportedLangFromBrowser = SUPPORTED_LANGS.find(lang => {
+        const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
+
+        const isThisLanguageSupported = langLanguages.some(
+            oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages)
+        );
+
+        return isThisLanguageSupported;
+    });
+
+    return supportedLangFromBrowser;
 }
