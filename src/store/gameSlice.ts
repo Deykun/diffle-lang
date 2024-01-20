@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 import { RootState, RootGameState, ToastType, UsedLetters, GameStatus, GameMode } from '@common-types';
 
-import { PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
+import { WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import {
     getNow,
@@ -34,7 +34,7 @@ import {
     selectGuessesStatsForLetters,
 } from '@store/selectors';
 
-import { SUBMIT_ERRORS, GIVE_UP_ERRORS, ALLOWED_KEYS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { SUBMIT_ERRORS, GIVE_UP_ERRORS, WORD_MAXLENGTH, WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
 const initialState: RootGameState = {
     language: undefined,
@@ -356,7 +356,7 @@ export const saveEndedGame = createAsyncThunk(
         }
 
         const gameMode = state.game.mode;
-        const isShort = wordToGuess.length <= PASSWORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
+        const isShort = wordToGuess.length <= WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
         const hasSpecialCharacters = getHasSpecialCharacters(wordToGuess);
 
         const statisticToUpdate = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort });
@@ -463,8 +463,6 @@ export const saveEndedGame = createAsyncThunk(
     },
 );
 
-//
-
 const gameSlice = createSlice({
     name: 'game',
     initialState,
@@ -518,8 +516,9 @@ const gameSlice = createSlice({
             updatePassedTimeInState(state);
         },
         letterChangeInAnswer(state, action) {
+            const gameLanguage = state.language;
             const isGameEnded = state.status !== GameStatus.Guessing;
-            if (isGameEnded || state.isProcessing) {
+            if (isGameEnded || state.isProcessing || !gameLanguage) {
                 return;
             }
 
@@ -597,7 +596,9 @@ const gameSlice = createSlice({
                 return;
             }
 
-            if (ALLOWED_KEYS.includes(typed)) {
+            const { allowedKeys = [] } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage] || {};
+
+            if (allowedKeys.includes(typed)) {
                 if (state.wordToSubmit.length > WORD_MAXLENGTH - 1) {
                     return;
                 }
