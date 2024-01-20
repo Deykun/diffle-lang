@@ -2,6 +2,7 @@
 
 ## Version 3.0.5
 - **Fix**: Better detection of language for Chrome
+- **New**: Typing incorrect letter has stronger vibration
 
 ## Version 3.0.4 (20.01.2024)
 - **Fix**: Simplifying the game process restoration (changing the game language in settings always resets the game mode to daily)

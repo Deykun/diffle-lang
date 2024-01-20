@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 
+import { AffixStatus} from '@common-types';
 import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 import { selectIsGameEnded, selectKeyboardState, selectGameLanguageKeyboardInfo } from '@store/selectors';
@@ -21,7 +22,7 @@ const VirualKeyboard = () => {
     const type = useSelector(selectKeyboardState);
     const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
-    const { vibrateKeyboard } = useVibrate();
+    const { vibrateKeyboard, vibrateKeyboardIncorrect } = useVibrate();
 
     const closeConfirm = () => setIsConfirmOpen(false);
 
@@ -38,15 +39,19 @@ const VirualKeyboard = () => {
         setIsConfirmOpen((prevValue) => !prevValue);
     }, [vibrateKeyboard]);
 
-    const handleType = useCallback((keyTyped: string) => {
+    const handleType = useCallback((keyTyped: string, type?: AffixStatus) => {
         const isAllowedKey = allowedKeys.includes(keyTyped);
 
         if (isAllowedKey) {
-            vibrateKeyboard();
+            if (type === AffixStatus.Incorrect) {
+                vibrateKeyboardIncorrect();
+            } else {
+                vibrateKeyboard();
+            }
 
             dispatch(letterChangeInAnswer(keyTyped));
         }
-    }, [allowedKeys, dispatch, vibrateKeyboard]);
+    }, [allowedKeys, dispatch, vibrateKeyboard, vibrateKeyboardIncorrect]);
 
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
@@ -63,10 +68,10 @@ const VirualKeyboard = () => {
                 return (
                     <div key={line[0]} className="line">
                         {line.map((keyText) => {
-                            let onClick = () => handleType(keyText);
+                            let onClick = (type?: AffixStatus) => handleType(keyText, type);
 
                             if (keyText === 'enter') {
-                                onClick = enterCallback;
+                                onClick = () => enterCallback();
                             }
 
                             return (<KeyCap key={keyText} text={keyText} onClick={onClick} />);

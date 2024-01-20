@@ -1,8 +1,13 @@
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
+import { AffixStatus} from '@common-types';
+
 import { useSelector } from '@store';
 import { selectLetterState, selectWordToSubmit } from '@store/selectors';
+
+
+import useVibrate from '@hooks/useVibrate';
 
 import IconBackspace from '@components/Icons/IconBackspace';
 import IconCheckEnter from '@components/Icons/IconCheckEnter';
@@ -13,7 +18,7 @@ import './KeyCap.scss';
 
 interface Props {
     text: string,
-    onClick: (event: React.MouseEvent<HTMLElement>) => void,
+    onClick: (type?: AffixStatus | undefined) => void,
 }
 
 const KeyCap = ({ text, onClick }: Props) => {
@@ -21,6 +26,16 @@ const KeyCap = ({ text, onClick }: Props) => {
     const wordToSubmit = useSelector(selectWordToSubmit);
 
     const isTyped = wordToSubmit.includes(text);
+
+    const { vibrateKeyboardIncorrect } = useVibrate();
+
+    const handleClick = () => {
+        onClick(type);
+
+        if (type === AffixStatus.Incorrect) {
+            vibrateKeyboardIncorrect();
+        }
+    }
 
     const { t } = useTranslation();
 
@@ -30,7 +45,7 @@ const KeyCap = ({ text, onClick }: Props) => {
 
     return (
         <button
-            onClick={onClick}
+            onClick={handleClick}
             className={clsx('key', `key-${text}`, type, { 'typed': isTyped })}>
                 {shouldShowText && <span>{textToShow}</span>}
                 {shouldUseIcon && <>
