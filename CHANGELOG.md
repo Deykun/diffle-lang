@@ -2,6 +2,7 @@
 
 ## Version 3.0.3
 - **Fix**: Help isn't shown after redirecting if the user has already seen it
+- **Fix**: Changing language removes shared result
 
 ## Version 3.0.2 (20.01.2024)
 - **New**: #difflepl instead of #diffle_pl
