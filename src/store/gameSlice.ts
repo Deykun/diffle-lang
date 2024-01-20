@@ -470,11 +470,11 @@ const gameSlice = createSlice({
     initialState,
     reducers: {
         setGameLanguage(state, action) {
-            const hadGameOfAGameSetAlready = !!state.language;
+            const hadGameLanguageSetEarilier = !!state.language;
 
             state.language = action.payload;
 
-            if (hadGameOfAGameSetAlready) {
+            if (hadGameLanguageSetEarilier) {
                 state.mode = GameMode.Daily;
             }
 
