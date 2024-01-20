@@ -18,6 +18,7 @@ import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
 import { getLangFromUrl } from '@utils/lang';
 
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
+import usePrevious from "@hooks/usePrevious";
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconEraser from '@components/Icons/IconEraser';
@@ -67,6 +68,7 @@ const EMPTY_SHARED_CONTENT_RESULT = {
 
 const SharedContent = () => {
   const isGameEnded = useSelector(selectIsGameEnded);
+  const gameLanguage = useSelector((state) => state.game.language);
   const gameMode = useSelector(state => state.game.mode);
   const canUserSeeUsedWords = (gameMode === GameMode.Daily && isGameEnded) || gameMode === GameMode.Practice;
   const [isOpen, setIsOpen] = useState(false);
@@ -82,9 +84,12 @@ const SharedContent = () => {
     subtotals
   }, setResult] = useState<SharedContentResult>(EMPTY_SHARED_CONTENT_RESULT);
 
+  const prevGameLanguage = usePrevious(gameLanguage);
+
   const { t } = useTranslation();
 
   const { handleClickSummary } = useEnhancedDetails();
+
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -198,6 +203,14 @@ const SharedContent = () => {
     setHash('');
     setResult(EMPTY_SHARED_CONTENT_RESULT);
   }
+
+  useEffect(() => {
+    const wasGameLanguageChanged = prevGameLanguage && gameLanguage !== prevGameLanguage;
+
+    if (wasGameLanguageChanged) {
+      removeSharedContent();
+    }
+  }, [gameLanguage, prevGameLanguage]);
 
   if (!hash && !errorMessage) {
     return null;
