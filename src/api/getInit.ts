@@ -19,7 +19,11 @@ export const getInitPane = () => {
         return !lastGameMode ? Pane.Help : Pane.Game;
     }
 
-    return Pane.Help;
+    // Legacy check
+    const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: 'pl' });
+    const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
+    
+    return !lastGameMode ? Pane.Help : Pane.Game;
 };
 
 export const getInitMode = () => {

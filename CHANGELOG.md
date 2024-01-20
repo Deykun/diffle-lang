@@ -1,9 +1,12 @@
 # Changelog
 
-## Version 3.0.2
+## Version 3.0.3
+- **Fix**: Help isn't shown after redirecting if the user has already seen it
+
+## Version 3.0.2 (20.01.2024)
 - **New**: #difflepl instead of #diffle_pl
 
-## Version 3.0.1
+## Version 3.0.1 (19.01.2024)
 - **Fix**: Path to flag image fixed
 - **Fix**: Setting /en for the english browser
 
