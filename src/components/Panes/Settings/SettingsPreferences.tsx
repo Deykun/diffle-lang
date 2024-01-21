@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
+import { useSelector } from '@store';
+
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 import useVibrate from '@hooks/useVibrate';
 
@@ -21,6 +23,7 @@ import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 import './Settings.scss'
 
 const SettingsPreferences = () => {
+    const isGameUpdating = useSelector((state) => state.game.isProcessing || state.game.isLoadingGame);
     const { t, i18n } = useTranslation();
 
     const {
@@ -93,7 +96,7 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" onClick={handleLanguageChange}>
+                    <button className="setting" onClick={handleLanguageChange} disabled={isGameUpdating}>
                         <IconTranslation />
                         <span>{t('settings.currentLanguage')}</span>
                         <span className={clsx('setting-label', 'position', 'construction')}>

@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 3.0.6
+- **Fix**: Language change is blocked when processing new words or restoring state
+
 ## Version 3.0.5
 - **Fix**: Better detection of language for Chrome
 - **New**: Typing incorrect letter has stronger vibration
