@@ -63,6 +63,7 @@ export enum LetterReportStatus {
 
 export interface LetterSubreport {
     status: LetterReportStatus,
+    isLimitKnown?: boolean,
     typedOccurrence?: number,
     confirmedOccurrence?: number,
 }

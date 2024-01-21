@@ -16,6 +16,7 @@ interface Props {
 const KeyCapOccurance = ({ text }: Props) => {
     const {
         status,
+        isLimitKnown,
         typedOccurrence,
         confirmedOccurrence,
     } = useSelector(selectLetterSubreport(text));
@@ -27,7 +28,7 @@ const KeyCapOccurance = ({ text }: Props) => {
     return <span className={clsx('key-occurance', {
         'key-occurance-too-many': status === LetterReportStatus.TooManyLetters,
     })}>
-        <span className="key-occurance-typed">{typedOccurrence === 0 ? '' : typedOccurrence}</span>
+        <span className="key-occurance-typed">{typedOccurrence === 0 ? '' : (isLimitKnown ? typedOccurrence : Math.min(typedOccurrence ?? 0, confirmedOccurrence ?? 0))}</span>
         <span className="key-occurance-separator">{typedOccurrence === 0 ? '×' : '/'}</span>
         <span className="key-occurance-known-limit">{confirmedOccurrence}</span>
     </span>;

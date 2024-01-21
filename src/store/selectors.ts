@@ -166,6 +166,7 @@ export const selectLetterSubreport = (letter: string) => createSelector(
 
         return {
             status,
+            isLimitKnown,
             typedOccurrence,
             confirmedOccurrence, 
         };
