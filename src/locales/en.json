@@ -33,6 +33,7 @@
         "plSpecialCharacter": "Polish",
         "plSpecialCharacters": "Polish",
         "youCanUseIncorrectLetters": "Your word <strong>can't</strong> win, but you can use it while searching for the winning word.",
+        "youCanUseLettersTypedTooManyTimes": "You can use this word, but <strong>can't</strong> win with it.<br />(a correct letter used too many times)",
         "youCanUseSpace": "Words <strong>don't</strong> have spaces, but you can use them (they will be removed).",
         "spacesRemoved": "The spaces were removed.",
         "isNotInDictionary": "Word not found in the dictionary.",

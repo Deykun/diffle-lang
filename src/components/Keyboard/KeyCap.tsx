@@ -6,13 +6,12 @@ import { AffixStatus} from '@common-types';
 import { useSelector } from '@store';
 import { selectLetterState, selectWordToSubmit } from '@store/selectors';
 
-
-import useVibrate from '@hooks/useVibrate';
-
 import IconBackspace from '@components/Icons/IconBackspace';
 import IconCheckEnter from '@components/Icons/IconCheckEnter';
 import IconClose from '@components/Icons/IconClose';
 import IconCircle from '@components/Icons/IconCircle';
+
+import KeyCapOccurance from './KeyCapOccurance';
 
 import './KeyCap.scss';
 
@@ -27,14 +26,8 @@ const KeyCap = ({ text, onClick }: Props) => {
 
     const isTyped = wordToSubmit.includes(text);
 
-    const { vibrateKeyboardIncorrect } = useVibrate();
-
     const handleClick = () => {
         onClick(type);
-
-        if (type === AffixStatus.Incorrect) {
-            vibrateKeyboardIncorrect();
-        }
     }
 
     const { t } = useTranslation();
@@ -55,6 +48,7 @@ const KeyCap = ({ text, onClick }: Props) => {
                     {text ==='no' && <IconClose />}
                     {text ==='yes' && <IconCheckEnter />}
                 </>}
+                <KeyCapOccurance text={text} />
         </button>
     );
 };

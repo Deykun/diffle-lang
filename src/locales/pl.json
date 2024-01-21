@@ -33,6 +33,7 @@
         "plSpecialCharacter": "polski",
         "plSpecialCharacters": "polskich",
         "youCanUseIncorrectLetters": "Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.",
+        "youCanUseLettersTypedTooManyTimes": "Możesz użyć tego słowa, ale <strong>nie może</strong> ono być hasłem.<br />(poprawna litera użyta zbyt wiele razy)",
         "youCanUseSpace": "Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).",
         "spacesRemoved": "Usunięto spacje.",
         "isNotInDictionary": "Brak słowa w słowniku.",

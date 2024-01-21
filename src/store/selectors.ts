@@ -1,6 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState, Dictionary, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
+import {
+    RootState,
+    Dictionary,
+    Word as WordInterface,
+    AffixStatus,
+    UsedLetters,
+    GameStatus,
+    LetterReportStatus,
+    LetterSubreport,
+} from '@common-types';
 
 import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
@@ -65,8 +74,13 @@ const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
 export const selectGuesses = (state: RootState) => state.game.guesses;
 
+// hello -> 2
+// https://stackoverflow.com/a/72347965/6743808 - claims is the fastest
+const getLetterOccuranceInWord = (letter: string, word: string) => word.length - word.replaceAll(letter, '').length;
+
 const getLetterState = (
     letter: string,
+    wordToSubmit: string,
     wordToGuess: string,
     correctLetters: UsedLetters,
     incorrectLetter: UsedLetters,
@@ -84,6 +98,21 @@ const getLetterState = (
         }
     }
 
+    if (incorrectLetter[letter]) {
+        const isCorrectSometimes = positionLetters[letter] > 0;
+        if (isCorrectSometimes) {
+            const occurrencesOfLetterInSubmitedWord = getLetterOccuranceInWord(letter, wordToSubmit);
+
+            const isCorrectSometimesButHereNumberOfOccuranceIsTooHigh = occurrencesOfLetterInSubmitedWord > positionLetters[letter];
+
+            if (isCorrectSometimesButHereNumberOfOccuranceIsTooHigh) {
+                return AffixStatus.IncorrectOccurance;
+            }
+        } else {
+            return AffixStatus.Incorrect;
+        }
+    }
+
     if (correctLetters[letter]) {
         return AffixStatus.Correct;
     }
@@ -92,39 +121,102 @@ const getLetterState = (
         return AffixStatus.Position;
     }
 
-    if (incorrectLetter[letter]) {
-        return AffixStatus.Incorrect;
-    }
-
     return AffixStatus.Unknown;
 }
 
 export const selectLetterState = (letter: string) => createSelector(
+    selectWordToSubmit,
     selectWordToGuess,
     selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
-        return getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters);
+    (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+        return getLetterState(letter,wordToSubmit,  wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters);
     },
 );
 
+export const selectLetterSubreport = (letter: string) => createSelector(
+    selectWordToSubmit,
+    selectIncorrectLetters,
+    selectPositionLetters,
+    (wordToSubmit, incorrectLetter, positionLetters): LetterSubreport => {
+        const isLimitKnown = Boolean(incorrectLetter[letter]);
+        const confirmedOccurrence = positionLetters[letter] ?? 0;
+
+        if (confirmedOccurrence === 0) {
+            return {
+                status: LetterReportStatus.Ignored,
+            }
+        }
+
+        const typedOccurrence = getLetterOccuranceInWord(letter, wordToSubmit);
+
+        const isLimitOne = isLimitKnown && confirmedOccurrence === 1;
+        const isLimitOneAndInRange = isLimitOne && typedOccurrence <= confirmedOccurrence;
+
+        if (isLimitOneAndInRange) {
+            return {
+                status: LetterReportStatus.Ignored,
+            }
+        }
+
+        const isLimitUnknownAndConfirmedLessThanOne = !isLimitKnown && confirmedOccurrence === 1;
+
+        if (isLimitUnknownAndConfirmedLessThanOne) {
+            return {
+                status: LetterReportStatus.Ignored,
+            }
+        }
+
+        // const isLimitKnownButOneAndNotTypedTooMutch = isLimitKnown && confirmedOccurrence <= 1 && typedOccurrence <= confirmedOccurrence;
+
+
+        let status = LetterReportStatus.Correct;
+    
+        const wasLimitPassed = isLimitKnown && typedOccurrence > confirmedOccurrence;
+        if (wasLimitPassed) {
+            status = LetterReportStatus.TooManyLetters
+        }
+
+        const wasLimitNotMet = typedOccurrence < confirmedOccurrence;
+        if (wasLimitNotMet) {
+            status = LetterReportStatus.NotEnoughLetters
+        }
+
+        return {
+            status,
+            isLimitKnown,
+            typedOccurrence,
+            confirmedOccurrence, 
+        };
+    }
+)
+
 export const selectWordState = (word: string) => createSelector(
+    selectWordToSubmit,
     selectWordToGuess,
     selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+    (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
         const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
         const hasIncorrectLetterTyped = uniqueLettersInWord.some(
-            (letter) => getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.Incorrect,
+            (letter) => getLetterState(letter, wordToSubmit, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.Incorrect,
         );
 
         if (hasIncorrectLetterTyped) {
             return AffixStatus.Incorrect;
+        }
+
+        const hasTypedTooMuch = uniqueLettersInWord.some(
+            (letter) => getLetterState(letter, wordToSubmit, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.IncorrectOccurance,
+        );
+
+        if (hasTypedTooMuch) {
+            return AffixStatus.IncorrectOccurance;
         }
 
         return AffixStatus.Unknown;
@@ -142,17 +234,22 @@ export const selectKeyboardState = createSelector(
             return AffixStatus.Unknown;
         }
 
-        const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))];
+        const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))].filter(letter => letter !== ' ');
 
         const hasIncorrectLetterTyped = uniqueWordLetters.some((uniqueLetter) => {
-            const isIncorrect = incorrectLetter[uniqueLetter] === true;
+            const isIncorrect = incorrectLetter[uniqueLetter] > 0;
             if (!isIncorrect) {
                 return false;
             }
 
-            const isNotCorrectInOtherContexts = correctLetters[uniqueLetter] !== true && positionLetters[uniqueLetter] !== true;
+            const isCorrectSometimes = positionLetters[uniqueLetter] > 0;
+            if (isCorrectSometimes) {
+                const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
 
-            return isNotCorrectInOtherContexts;
+                return occurrencesOfLetterInSubmitWord > positionLetters[uniqueLetter];
+            }
+
+            return true;
         });
 
         if (hasIncorrectLetterTyped) {
@@ -172,7 +269,7 @@ export const selectKeyboardState = createSelector(
             return AffixStatus.Correct;
         }
 
-        // Infact if not all know letter are typed we know that the word is incorrect, but we don't show it up
+        // If not all known letters are typed, we know that the word is incorrect, but we don't display it.
         return AffixStatus.Unknown;
     },
 );

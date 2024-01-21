@@ -1,4 +1,4 @@
-import { GameMode } from '@common-types';
+import { GameMode, UsedLetters } from '@common-types';
 
 import { SUPPORTED_LANGS } from '@const';
 
@@ -517,4 +517,19 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
         lettersTypedKnownIncorrect: (statistic.letters.typedKnownIncorrect / totalWon) / averageLettersPerGame,
         keyboardUsed: statistic.letters.keyboardUsed,
     }
+};
+
+export const mergeLettersData = (lettersA: UsedLetters, lettersB: UsedLetters = {}) => {
+    const uniqueLetters = [...new Set([
+        ...Object.keys(lettersA),
+        ...Object.keys(lettersB),
+    ])].filter(Boolean);
+
+    const mergedLettersData = uniqueLetters.reduce((lettersStack: UsedLetters, letter) => {
+        lettersStack[letter] = Math.max((lettersA[letter] ?? 0), (lettersB[letter] ?? 0));
+
+        return lettersStack;
+    }, {});
+
+    return mergedLettersData;
 };

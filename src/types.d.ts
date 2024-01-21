@@ -36,6 +36,7 @@ export enum AffixStatus {
     Correct = 'correct',
     Position = 'position',
     Incorrect = 'incorrect',
+    IncorrectOccurance = 'incorrect-occurrence',
 }
 
 export interface Affix {
@@ -51,6 +52,20 @@ export interface Word {
     word: string,
     affixes: Affix[],
     caretShift?: number,
+}
+
+export enum LetterReportStatus {
+    Ignored = 'ignored',
+    Correct = 'correct',
+    NotEnoughLetters = 'not-enough-letters',
+    TooManyLetters = 'too-many-letters',
+}
+
+export interface LetterSubreport {
+    status: LetterReportStatus,
+    isLimitKnown?: boolean,
+    typedOccurrence?: number,
+    confirmedOccurrence?: number,
 }
 
 export interface Toast {
@@ -115,5 +130,6 @@ export interface RootState {
 }
 
 export interface UsedLetters {
-    [key: string]: boolean,
+    [key: string]: number,
 }
+

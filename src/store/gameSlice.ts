@@ -17,6 +17,7 @@ import {
     saveStreak,
     getStatistic,
     saveStatistic,
+    mergeLettersData,
 } from '@utils/statistics';
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -659,18 +660,9 @@ const gameSlice = createSlice({
             state.caretShift = 0;
 
             state.letters = {
-                correct: {
-                    ...state.letters.correct,
-                    ...wordLetters?.correct,
-                },
-                incorrect: {
-                    ...state.letters.incorrect,
-                    ...wordLetters?.incorrect,
-                },
-                position: {
-                    ...state.letters.position,
-                    ...wordLetters?.position,
-                },
+                correct: mergeLettersData(state.letters.correct, wordLetters?.correct),
+                incorrect: mergeLettersData(state.letters.incorrect, wordLetters?.incorrect),
+                position: mergeLettersData(state.letters.position, wordLetters?.position),
             }
 
             if (word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS) {
