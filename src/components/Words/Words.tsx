@@ -37,8 +37,6 @@ const Words = () => {
     const isIncorrect = wordStatus === AffixStatus.Incorrect;
     const isTypedTooMuch = wordStatus === AffixStatus.IncorrectOccurance;
 
-    console.log('wordStatus', wordStatus);
-
     const { t } = useTranslation();
 
     const submitGuess: WordInterface = useMemo(() => {
@@ -87,8 +85,8 @@ const Words = () => {
             {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
             <p
                 className={clsx('status-tip', {
-                    'isProcessing': isProcessing,
-                    'isIncorrect': isIncorrect || isTypedTooMuch,
+                    'is-processing': isProcessing,
+                    'is-incorrect': isIncorrect || isTypedTooMuch,
                     'space': hasSpace,
                 })}
             >

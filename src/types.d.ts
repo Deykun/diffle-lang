@@ -54,6 +54,19 @@ export interface Word {
     caretShift?: number,
 }
 
+export enum LetterReportStatus {
+    Ignored = 'ignored',
+    Correct = 'correct',
+    NotEnoughLetters = 'not-enough-letters',
+    TooManyLetters = 'too-many-letters',
+}
+
+export interface LetterSubreport {
+    status: LetterReportStatus,
+    typedOccurrence?: number,
+    confirmedOccurrence?: number,
+}
+
 export interface Toast {
     text: string,
     type: ToastType,

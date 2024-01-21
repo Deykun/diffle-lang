@@ -43,7 +43,7 @@ const VirualKeyboard = () => {
         const isAllowedKey = allowedKeys.includes(keyTyped);
 
         if (isAllowedKey) {
-            if (type === AffixStatus.Incorrect) {
+            if (type && [AffixStatus.Incorrect, AffixStatus.IncorrectOccurance].includes(type)) {
                 vibrateKeyboardIncorrect();
             } else {
                 vibrateKeyboard();

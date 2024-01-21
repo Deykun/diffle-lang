@@ -1,5 +1,8 @@
 # Changelog
 
+## Version 3.1
+- **New**: Keyboard notes when the user discovers how many times the letter occurs in the word and displays it
+
 ## Version 3.0.6
 - **Fix**: Language change is blocked when processing new words or restoring state
 

@@ -1,6 +1,15 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { RootState, Dictionary, Word as WordInterface, AffixStatus, UsedLetters, GameStatus } from '@common-types';
+import {
+    RootState,
+    Dictionary,
+    Word as WordInterface,
+    AffixStatus,
+    UsedLetters,
+    GameStatus,
+    LetterReportStatus,
+    LetterSubreport,
+} from '@common-types';
 
 import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
@@ -127,6 +136,43 @@ export const selectLetterState = (letter: string) => createSelector(
     },
 );
 
+export const selectLetterSubreport = (letter: string) => createSelector(
+    selectWordToSubmit,
+    selectIncorrectLetters,
+    selectPositionLetters,
+    (wordToSubmit, incorrectLetter, positionLetters): LetterSubreport => {
+        const isLimitKnown = Boolean(incorrectLetter[letter]);
+        const confirmedOccurrence = positionLetters[letter] ?? 0;
+
+        if (confirmedOccurrence <= 1) {
+            return {
+                status: LetterReportStatus.Ignored,
+            }
+        }
+
+        const typedOccurrence = getLetterOccuranceInWord(letter, wordToSubmit);
+
+
+        let status = LetterReportStatus.Correct;
+    
+        const wasLimitPassed = isLimitKnown && typedOccurrence > confirmedOccurrence;
+        if (wasLimitPassed) {
+            status = LetterReportStatus.TooManyLetters
+        }
+
+        const wasLimitNotMet = typedOccurrence < confirmedOccurrence;
+        if (wasLimitNotMet) {
+            status = LetterReportStatus.NotEnoughLetters
+        }
+
+        return {
+            status,
+            typedOccurrence,
+            confirmedOccurrence, 
+        };
+    }
+)
+
 export const selectWordState = (word: string) => createSelector(
     selectWordToSubmit,
     selectWordToGuess,
@@ -178,9 +224,9 @@ export const selectKeyboardState = createSelector(
 
             const isCorrectSometimes = positionLetters[uniqueLetter] > 0;
             if (isCorrectSometimes) {
-                const occurrencesOfLetterInSubmitedWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
+                const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
 
-                return occurrencesOfLetterInSubmitedWord > positionLetters[uniqueLetter];
+                return occurrencesOfLetterInSubmitWord > positionLetters[uniqueLetter];
             }
 
             return true;

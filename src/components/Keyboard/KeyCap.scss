@@ -43,6 +43,7 @@
         }
     }
 
+    &.incorrect-occurrence,
     &.correct {
         color: var(--green-contrast);
         background-color: var(--green);
@@ -50,6 +51,12 @@
 
         &.typed {
             border-color: var(--green-stronger);
+        }
+    }
+
+    &.incorrect-occurrence {
+        &.typed {
+            border-color: var(--green);
         }
     }
 
@@ -138,6 +145,61 @@
         &:hover {
             background-color: var(--blue) !important;
             border-color: var(--blue) !important;
+        }
+    }
+
+    position: relative;
+
+    .key-occurance {
+        position: absolute;
+        bottom: 1px;
+        right: 1px;
+        text-transform: lowercase;
+        // font-weight: 500;
+        line-height: 8px;
+        font-size: 8px;
+        letter-spacing: 0.15em;
+
+        @media (min-width: 400px) {
+            font-size: 10px;
+        }
+
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s ease-in-out;
+
+        > span {
+            display: inline-block;
+            line-height: 1;
+        }
+
+        .key-occurance-typed {
+            transition: 0.2s ease-in-out;
+        }
+
+        .key-occurance-separator {
+            font-size: 8px;
+            line-height: 8px;
+        }
+
+        .key-occurance-known-limit {
+            transition: 0.2s ease-in-out;
+        }
+
+        opacity: 0.75;
+
+        &.key-occurance-too-many {
+            opacity: 1;
+
+            .key-occurance-typed {
+                color: var(--incorrect-on-green);
+                // text-shadow: 0 0 1px var(--red);
+            }
+
+            .key-occurance-known-limit {
+                font-size: 80%;
+            }
         }
     }
 }
