@@ -152,7 +152,6 @@ export const selectLetterSubreport = (letter: string) => createSelector(
 
         const typedOccurrence = getLetterOccuranceInWord(letter, wordToSubmit);
 
-
         let status = LetterReportStatus.Correct;
     
         const wasLimitPassed = isLimitKnown && typedOccurrence > confirmedOccurrence;
@@ -249,7 +248,7 @@ export const selectKeyboardState = createSelector(
             return AffixStatus.Correct;
         }
 
-        // Inact if not all know letter are typed we know that the word is incorrect, but we don't show it up
+        // If not all known letters are typed, we know that the word is incorrect, but we don't display it.
         return AffixStatus.Unknown;
     },
 );
