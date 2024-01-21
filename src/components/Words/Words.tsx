@@ -35,6 +35,9 @@ const Words = () => {
     const caretShift =  useSelector((state) => state.game.caretShift);
     const hasSpace = wordToSubmit.includes(' ');
     const isIncorrect = wordStatus === AffixStatus.Incorrect;
+    const isTypedTooMuch = wordStatus === AffixStatus.IncorrectOccurance;
+
+    console.log('wordStatus', wordStatus);
 
     const { t } = useTranslation();
 
@@ -48,7 +51,27 @@ const Words = () => {
         };
     }, [wordToSubmit, caretShift]);
 
-    useScrollEffect('bottom', [wordToSubmit])
+    useScrollEffect('bottom', [wordToSubmit]);
+
+    const tiptext = useMemo(() => {
+        if (isProcessing) {
+            return 'game.checking';
+        }
+
+        if (isIncorrect){
+            return 'game.youCanUseIncorrectLetters';
+        }
+
+        if (isTypedTooMuch){
+            return 'game.youCanUseLettersTypedTooManyTimes';
+        }
+
+        if (hasSpace) {
+            return 'game.youCanUseSpace';
+        }
+
+        return '';
+    }, [hasSpace, isIncorrect, isProcessing, isTypedTooMuch]);
 
     const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
     const shouldBeShorter = guesses.length > 8;
@@ -65,13 +88,12 @@ const Words = () => {
             <p
                 className={clsx('status-tip', {
                     'isProcessing': isProcessing,
-                    'isIncorrect': isIncorrect,
+                    'isIncorrect': isIncorrect || isTypedTooMuch,
                     'space': hasSpace,
                 })}
             >
-                {isProcessing && <><IconDashedCircle /> <span>{t('game.checking')}</span></>}
-                {!isProcessing && isIncorrect && <span dangerouslySetInnerHTML={{ __html: t('game.youCanUseIncorrectLetters') }} />}
-                {!isProcessing && !isIncorrect && hasSpace && <span dangerouslySetInnerHTML={{ __html: t('game.youCanUseSpace') }} />}
+                {isProcessing && <IconDashedCircle />}
+                {tiptext && <span dangerouslySetInnerHTML={{ __html: t(tiptext) }} />}
             </p>
         </div>
     )

@@ -36,6 +36,7 @@ export enum AffixStatus {
     Correct = 'correct',
     Position = 'position',
     Incorrect = 'incorrect',
+    IncorrectOccurance = 'incorrect-occurrence',
 }
 
 export interface Affix {
@@ -115,5 +116,6 @@ export interface RootState {
 }
 
 export interface UsedLetters {
-    [key: string]: boolean,
+    [key: string]: number,
 }
+

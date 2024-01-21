@@ -3,8 +3,9 @@ import { Affix, AffixStatus, UsedLetters } from '@common-types';
 import { SUBMIT_ERRORS } from '@const';
 
 import getDoesWordExist, { DoesWordExistErrorType } from '@api/getDoesWordExist';
-
 import compareWords from '@api/utils/compareWords';
+
+import { mergeLettersData } from '@utils/statistics';
 
 export interface PatternReport {
     affixes: Affix[],
@@ -33,24 +34,31 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
             }
         }
 
-        if (value === 0) {
-            stack.affixes.push({ type: AffixStatus.Incorrect, text: letter });
 
-            stack.wordLetters.incorrect[letter] = true;
-        }
-        
-        if (value === 1) {
-            stack.affixes.push({ type: AffixStatus.Position, text: letter });
-
-            stack.wordLetters.position[letter] = true;
-        }
 
         if (value === 2 || value === 3) {
             const { text } = stack.current || {};
 
             stack.current = ({ type: AffixStatus.Correct, text: `${text}${letter}` });
 
-            stack.wordLetters.correct[letter] = true;
+            stack.wordLetters.correct[letter] = stack.wordLetters.correct[letter] ? stack.wordLetters.correct[letter] + 1 : 1;
+            /*
+                All discovered letters from the winning word are added to the position counter (correct position is a position too),
+                which tells us how many occurrences of the letter are in the word.
+            */
+            stack.wordLetters.position[letter] = stack.wordLetters.position[letter] ? stack.wordLetters.position[letter] + 1 : 1;
+        }
+        
+        if (value === 1) {
+            stack.affixes.push({ type: AffixStatus.Position, text: letter });
+
+            stack.wordLetters.position[letter] = stack.wordLetters.position[letter] ? stack.wordLetters.position[letter] + 1 : 1;
+        }
+
+        if (value === 0) {
+            stack.affixes.push({ type: AffixStatus.Incorrect, text: letter });
+
+            stack.wordLetters.incorrect[letter] = stack.wordLetters.incorrect[letter] ? stack.wordLetters.incorrect[letter] + 1 : 1;
         }
 
         const isLast = index + 1 === length;
@@ -152,20 +160,11 @@ export const getWordReportForMultipleWords = async (wordToGuess: string, wordsTo
 
         response.results.push(wordReport);
 
-        response.wordsLetters.correct = {
-            ...response.wordsLetters.correct,
-            ...wordReport?.wordLetters?.correct
-        }
+        response.wordsLetters.correct = mergeLettersData(response.wordsLetters.correct, wordReport?.wordLetters?.correct);
 
-        response.wordsLetters.incorrect = {
-            ...response.wordsLetters.incorrect,
-            ...wordReport?.wordLetters?.incorrect
-        }
+        response.wordsLetters.incorrect = mergeLettersData(response.wordsLetters.incorrect, wordReport?.wordLetters?.incorrect);
 
-        response.wordsLetters.position = {
-            ...response.wordsLetters.position,
-            ...wordReport?.wordLetters?.position
-        }
+        response.wordsLetters.position = mergeLettersData(response.wordsLetters.position, wordReport?.wordLetters?.position);
     }
 
     response.hasError = response.results.some(({ isError }) => isError === true);

@@ -65,8 +65,13 @@ const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
 export const selectGuesses = (state: RootState) => state.game.guesses;
 
+// hello -> 2
+// https://stackoverflow.com/a/72347965/6743808 - claims is the fastest
+const getLetterOccuranceInWord = (letter: string, word: string) => word.length - word.replaceAll(letter, '').length;
+
 const getLetterState = (
     letter: string,
+    wordToSubmit: string,
     wordToGuess: string,
     correctLetters: UsedLetters,
     incorrectLetter: UsedLetters,
@@ -84,6 +89,21 @@ const getLetterState = (
         }
     }
 
+    if (incorrectLetter[letter]) {
+        const isCorrectSometimes = positionLetters[letter] > 0;
+        if (isCorrectSometimes) {
+            const occurrencesOfLetterInSubmitedWord = getLetterOccuranceInWord(letter, wordToSubmit);
+
+            const isCorrectSometimesButHereNumberOfOccuranceIsTooHigh = occurrencesOfLetterInSubmitedWord > positionLetters[letter];
+
+            if (isCorrectSometimesButHereNumberOfOccuranceIsTooHigh) {
+                return AffixStatus.IncorrectOccurance;
+            }
+        } else {
+            return AffixStatus.Incorrect;
+        }
+    }
+
     if (correctLetters[letter]) {
         return AffixStatus.Correct;
     }
@@ -92,39 +112,45 @@ const getLetterState = (
         return AffixStatus.Position;
     }
 
-    if (incorrectLetter[letter]) {
-        return AffixStatus.Incorrect;
-    }
-
     return AffixStatus.Unknown;
 }
 
 export const selectLetterState = (letter: string) => createSelector(
+    selectWordToSubmit,
     selectWordToGuess,
     selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
-        return getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters);
+    (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+        return getLetterState(letter,wordToSubmit,  wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters);
     },
 );
 
 export const selectWordState = (word: string) => createSelector(
+    selectWordToSubmit,
     selectWordToGuess,
     selectGameLanguageKeyboardInfo,
     selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+    (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
         const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
         const hasIncorrectLetterTyped = uniqueLettersInWord.some(
-            (letter) => getLetterState(letter, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.Incorrect,
+            (letter) => getLetterState(letter, wordToSubmit, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.Incorrect,
         );
 
         if (hasIncorrectLetterTyped) {
             return AffixStatus.Incorrect;
+        }
+
+        const hasTypedTooMuch = uniqueLettersInWord.some(
+            (letter) => getLetterState(letter, wordToSubmit, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters) === AffixStatus.IncorrectOccurance,
+        );
+
+        if (hasTypedTooMuch) {
+            return AffixStatus.IncorrectOccurance;
         }
 
         return AffixStatus.Unknown;
@@ -142,17 +168,22 @@ export const selectKeyboardState = createSelector(
             return AffixStatus.Unknown;
         }
 
-        const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))];
+        const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))].filter(letter => letter !== ' ');
 
         const hasIncorrectLetterTyped = uniqueWordLetters.some((uniqueLetter) => {
-            const isIncorrect = incorrectLetter[uniqueLetter] === true;
+            const isIncorrect = incorrectLetter[uniqueLetter] > 0;
             if (!isIncorrect) {
                 return false;
             }
 
-            const isNotCorrectInOtherContexts = correctLetters[uniqueLetter] !== true && positionLetters[uniqueLetter] !== true;
+            const isCorrectSometimes = positionLetters[uniqueLetter] > 0;
+            if (isCorrectSometimes) {
+                const occurrencesOfLetterInSubmitedWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
 
-            return isNotCorrectInOtherContexts;
+                return occurrencesOfLetterInSubmitedWord > positionLetters[uniqueLetter];
+            }
+
+            return true;
         });
 
         if (hasIncorrectLetterTyped) {
@@ -172,7 +203,7 @@ export const selectKeyboardState = createSelector(
             return AffixStatus.Correct;
         }
 
-        // Infact if not all know letter are typed we know that the word is incorrect, but we don't show it up
+        // Inact if not all know letter are typed we know that the word is incorrect, but we don't show it up
         return AffixStatus.Unknown;
     },
 );
