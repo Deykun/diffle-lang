@@ -144,13 +144,33 @@ export const selectLetterSubreport = (letter: string) => createSelector(
         const isLimitKnown = Boolean(incorrectLetter[letter]);
         const confirmedOccurrence = positionLetters[letter] ?? 0;
 
-        if (confirmedOccurrence <= 1) {
+        if (confirmedOccurrence === 0) {
             return {
                 status: LetterReportStatus.Ignored,
             }
         }
 
         const typedOccurrence = getLetterOccuranceInWord(letter, wordToSubmit);
+
+        const isLimitOne = isLimitKnown && confirmedOccurrence === 1;
+        const isLimitOneAndInRange = isLimitOne && typedOccurrence <= confirmedOccurrence;
+
+        if (isLimitOneAndInRange) {
+            return {
+                status: LetterReportStatus.Ignored,
+            }
+        }
+
+        const isLimitUnknownAndConfirmedLessThanOne = !isLimitKnown && confirmedOccurrence === 1;
+
+        if (isLimitUnknownAndConfirmedLessThanOne) {
+            return {
+                status: LetterReportStatus.Ignored,
+            }
+        }
+
+        // const isLimitKnownButOneAndNotTypedTooMutch = isLimitKnown && confirmedOccurrence <= 1 && typedOccurrence <= confirmedOccurrence;
+
 
         let status = LetterReportStatus.Correct;
     
