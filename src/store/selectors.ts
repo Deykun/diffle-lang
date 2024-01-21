@@ -223,10 +223,9 @@ export const selectWordState = (word: string) => createSelector(
 export const selectKeyboardState = createSelector(
     selectWordToGuess,
     selectWordToSubmit,
-    selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, wordToSubmit, correctLetters, incorrectLetter, positionLetters) => {
+    (wordToGuess, wordToSubmit, incorrectLetter, positionLetters) => {
         if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
             return AffixStatus.Unknown;
         }
