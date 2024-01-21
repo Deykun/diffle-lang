@@ -169,9 +169,6 @@ export const selectLetterSubreport = (letter: string) => createSelector(
             }
         }
 
-        // const isLimitKnownButOneAndNotTypedTooMutch = isLimitKnown && confirmedOccurrence <= 1 && typedOccurrence <= confirmedOccurrence;
-
-
         let status = LetterReportStatus.Correct;
     
         const wasLimitPassed = isLimitKnown && typedOccurrence > confirmedOccurrence;
@@ -226,10 +223,9 @@ export const selectWordState = (word: string) => createSelector(
 export const selectKeyboardState = createSelector(
     selectWordToGuess,
     selectWordToSubmit,
-    selectCorrectLetters,
     selectIncorrectLetters,
     selectPositionLetters,
-    (wordToGuess, wordToSubmit, correctLetters, incorrectLetter, positionLetters) => {
+    (wordToGuess, wordToSubmit, incorrectLetter, positionLetters) => {
         if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
             return AffixStatus.Unknown;
         }
@@ -263,8 +259,13 @@ export const selectKeyboardState = createSelector(
             return  AffixStatus.Incorrect;
         }
 
-        const uniqueCorrectAndPositionLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(positionLetters)])];
-        const allKnownLettersAreTyped = uniqueCorrectAndPositionLetters.every((letter) => wordToSubmit.includes(letter));
+        const uniqueRequiredLetters = Object.keys(positionLetters);
+        const allKnownLettersAreTyped = uniqueRequiredLetters.every((uniqueLetter) => {
+            const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
+
+            return occurrencesOfLetterInSubmitWord >= positionLetters[uniqueLetter];
+        });
+
         if (allKnownLettersAreTyped) {
             return AffixStatus.Correct;
         }
