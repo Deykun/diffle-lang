@@ -263,7 +263,6 @@ export const selectKeyboardState = createSelector(
         const uniqueRequiredLetters = Object.keys(positionLetters);
         const allKnownLettersAreTyped = uniqueRequiredLetters.every((uniqueLetter) => {
             const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
-            console.log(uniqueLetter, occurrencesOfLetterInSubmitWord);
 
             return occurrencesOfLetterInSubmitWord >= positionLetters[uniqueLetter];
         });
