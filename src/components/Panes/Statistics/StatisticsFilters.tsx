@@ -10,12 +10,16 @@ import {
 } from '@store/selectors';
 
 import {
+    keepIfInEnum
+} from '@utils/ts';
+import {
     Filters,
     ModeFilter,
     CharactersFilter,
     LengthFilter,
 } from '@utils/statistics';
 
+import usePanes from '@hooks/usePanes';
 import useVibrate from '@hooks/useVibrate';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 import useEffectChange from "@hooks/useEffectChange";
@@ -38,8 +42,14 @@ interface Props {
 }
 
 const StatisticsFilters = ({ setFiltersData }: Props) => {
+    const { paneParams: {
+            modeFilter: paneModeFilter = '',
+        }
+    } = usePanes();
+    const initialModeFilter = keepIfInEnum<ModeFilter>(paneModeFilter, ModeFilter) ?? INITIAL_FILTERS.modeFilter;
+
     const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
-    const [modeFilter, setModeFilter] = useState<ModeFilter>(INITIAL_FILTERS.modeFilter);
+    const [modeFilter, setModeFilter] = useState<ModeFilter>(initialModeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
     const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
 

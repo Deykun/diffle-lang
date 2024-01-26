@@ -1,11 +1,15 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane, GameMode } from '@common-types';
+import { Pane } from '@common-types';
 
 import { useSelector } from '@store';
 
-import { getStreakForFilter } from '@utils/statistics';
+import {
+    getStatistic,
+    getStatisticParamsForWord,
+    getStreakForFilter,
+} from '@utils/statistics';
 
 import Button from '@components/Button/Button';
 
@@ -17,7 +21,9 @@ import IconHeartStreak from '@components/Icons/IconHeartStreak';
 import './StatisticsHint.scss';
 
 const StatisticsHint = () => {
+    const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const gameLanguage = useSelector((state) => state.game.language);
+    const lastWordAddedToStatitstic = useSelector((state) => state.game.lastWordAddedToStatitstic);
     const gameMode = useSelector((state) => state.game.mode);
 
     const { t } = useTranslation();
@@ -25,20 +31,42 @@ const StatisticsHint = () => {
     const { changePane } = usePanes();
 
     const { wonStreak } = useMemo(() => {
-        if (!gameLanguage) {
-            return { wonStreak: 0 };
+        try {
+            if (!gameLanguage) {
+                return { wonStreak: 0 };
+            }
+
+            if (lastWordAddedToStatitstic ){
+                return getStreakForFilter(gameLanguage, { modeFilter: gameMode });
+            } else {
+                const {
+                    isShort,
+                    hasSpecialCharacters,
+                } = getStatisticParamsForWord(wordToGuess);
+
+                const {
+                    lastGame: {
+                        word: lastIndexeWord,
+                    } = {},
+                } = getStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort });
+        
+                if (lastIndexeWord === wordToGuess) {
+                    return getStreakForFilter(gameLanguage, { modeFilter: gameMode });
+                }
+            }
+        } catch {
+            //
         }
 
-        return getStreakForFilter(gameLanguage, { modeFilter: gameMode })
-    }, [gameLanguage, gameMode]);
+        return { wonStreak: 0 };
+    }, [gameLanguage, gameMode, wordToGuess, lastWordAddedToStatitstic]);
 
     const handleClick = useCallback(() => {
-        changePane(Pane.Statistics);
-    }, [changePane]);
+        changePane(Pane.Statistics, { modeFilter: gameMode });
+    }, [changePane, gameMode]);
 
-    const isDailyMode = gameMode === GameMode.Daily;
     const isNiceNumberToHint = [5, 10].includes(wonStreak) || (wonStreak % 25 === 0 && wonStreak !== 0);
-    const shouldRender = gameLanguage && isDailyMode && isNiceNumberToHint;
+    const shouldRender = gameLanguage && isNiceNumberToHint;
 
     if (!shouldRender) {
         return null;
