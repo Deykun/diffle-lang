@@ -735,7 +735,7 @@ const gameSlice = createSlice({
                     ...wordsLetters?.position,
                 },
             }
-        }).addCase(saveEndedGame.fulfilled, (state, action) => {
+        }).addCase(saveEndedGame.fulfilled, (state) => {
             state.lastWordAddedToStatitstic = state.wordToGuess;
         })
     },
