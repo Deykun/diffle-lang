@@ -9,18 +9,20 @@ import useVibrate from '@hooks/useVibrate';
 
 function usePanes() {
     const dispatch = useDispatch();
-    const pane = useSelector(state => state.app.pane);
+    const activePane = useSelector(state => state.app.pane.active);
+    const paneParams = useSelector(state => state.app.pane.params);
 
     const { vibrate } = useVibrate();
 
-    const changePane = useCallback((pane: Pane) => {
+    const changePane = useCallback((paneToSet: Pane, paneParamsToSet: { [key: string]: string } = {}) => {
         vibrate();
 
-        dispatch(setPane(pane))
+        dispatch(setPane({ pane: paneToSet, params: paneParamsToSet }));
     }, [dispatch, vibrate]);
 
     return {
-        pane,
+        pane: activePane,
+        paneParams,
         changePane,
     };
 };

@@ -13,7 +13,10 @@ import {
 } from '@api/getInit';
 
 const initialState: RootAppState = {
-    pane: getInitPane(),
+    pane: {
+        active: getInitPane(),
+        params: {},
+    },
     toast: {
         text: '',
         type: ToastType.Default,
@@ -34,9 +37,19 @@ const appSlice = createSlice({
     initialState,
     reducers: {
         setPane(state, action) {
-            const isCloseAction = state.pane === action.payload;
+            const {
+                pane: newActive,
+                params = {},
+            } = action.payload;
+            const isCloseAction = state.pane.active === newActive;
 
-            state.pane = isCloseAction ? Pane.Game : action.payload;
+            if (isCloseAction) {
+                state.pane.active = Pane.Game;
+                state.pane.params = {} ;
+            } else {
+                state.pane.active = newActive;
+                state.pane.params = params;
+            }
         },
         setToast(state, action) {
             const { type = ToastType.Default, text = '', timeoutSeconds = 3, params = {} } = action.payload;

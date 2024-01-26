@@ -53,6 +53,7 @@ const initialState: RootGameState = {
     isLoadingGame: false,
     lastUpdateTime: 0,
     durationMS: 0,
+    lastWordAddedToStatitstic: '',
 };
 
 const resetGame = (state: RootGameState, wordToGuess: string) => {
@@ -331,7 +332,7 @@ export const loadGame = createAsyncThunk(
 
 export const saveEndedGame = createAsyncThunk(
     'game/saveEndedGame',
-    async (_, { getState }) => {
+    async (_, { getState, rejectWithValue }) => {
         const state = getState() as RootState;
         
         const isWon = selectIsWon(state);
@@ -339,13 +340,13 @@ export const saveEndedGame = createAsyncThunk(
         const wordToGuess = selectWordToGuess(state);
         const isGameEnded = wordToGuess.length > 0 && (isWon || isLost);
         if (!isGameEnded) {
-            return;
+            return rejectWithValue(false);
         }
 
         const gameLanguage = state.game.language;
 
         if (!gameLanguage) {
-            return;
+            return rejectWithValue(false);
         }
 
         const guesses = selectGuesses(state);
@@ -353,7 +354,7 @@ export const saveEndedGame = createAsyncThunk(
         // Fortunetellers aren't counted
         const isImpossibleWin = isWon && guesses.length === 1;
         if (isImpossibleWin) {
-            return;
+            return rejectWithValue(false);
         }
 
         const gameMode = state.game.mode;
@@ -364,7 +365,7 @@ export const saveEndedGame = createAsyncThunk(
 
         const isAlreadySaved = wordToGuess === statisticToUpdate.lastGame?.word;
         if (isAlreadySaved) {
-            return;
+            return rejectWithValue(false);
         }
 
         const globalStreakToUpdate = getStreak({ gameLanguage });
@@ -461,6 +462,8 @@ export const saveEndedGame = createAsyncThunk(
         }
 
         saveStatistic({ gameLanguage, gameMode, hasSpecialCharacters, isShort }, statisticToUpdate);
+
+        return true;
     },
 );
 
@@ -732,6 +735,8 @@ const gameSlice = createSlice({
                     ...wordsLetters?.position,
                 },
             }
+        }).addCase(saveEndedGame.fulfilled, (state) => {
+            state.lastWordAddedToStatitstic = state.wordToGuess;
         })
     },
 })

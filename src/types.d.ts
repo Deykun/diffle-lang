@@ -79,7 +79,12 @@ export interface Toast {
 }
 
 export interface RootAppState {
-    pane: Pane,
+    pane: {
+        active: Pane,
+        params: {
+            [key: string]: string | number,
+        },
+    },
     toast: Toast,
     shouldVibrate: boolean,
     shouldKeyboardVibrate: boolean,
@@ -122,6 +127,7 @@ export interface RootGameState {
     isLoadingGame: boolean,
     lastUpdateTime: number,
     durationMS: number,
+    lastWordAddedToStatitstic: string,
 }
 
 export interface RootState {

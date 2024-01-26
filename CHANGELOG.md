@@ -13,6 +13,10 @@
 
 ---
 
+#### Version 3.1.2
+- **Fix**: Correct streak in a row number after winning
+- **New**: Hints about streaks in rows are displayed in practice mode
+
 #### Version 3.1.1 (21.01.2024)
 - **Fix**: The green light turned on too early for the keyboard. Only one of the two 'A's was typed
 

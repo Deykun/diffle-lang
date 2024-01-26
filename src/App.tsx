@@ -9,6 +9,7 @@ import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
+import usePanes from '@hooks/usePanes';
 
 import Header from '@components/Header'
 
@@ -23,11 +24,12 @@ import './App.scss'
 
 const App = () => {
     const dispatch = useDispatch();
-    const pane = useSelector(state => state.app.pane);
     const wordToGuess = useSelector((state) => state.game.wordToGuess);
     const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector((state) => state.game.mode);
     const todayStamp = useSelector((state) => state.game.today);
+
+    const { pane } = usePanes();
 
     useEffect(() => {
         dispatch(loadGame());

@@ -1,8 +1,9 @@
 import { GameMode, UsedLetters } from '@common-types';
 
-import { SUPPORTED_LANGS } from '@const';
+import { WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS, SUPPORTED_LANGS } from '@const';
 
-import  { convertMillisecondsToTime } from './date';
+import { convertMillisecondsToTime } from './date';
+import { getHasSpecialCharacters } from './normilzeWord';
 
 export enum ModeFilter {
     All = 'all',
@@ -135,6 +136,16 @@ const getStatisticForKey = (key: string): Statistic => {
 
     return JSON.parse(JSON.stringify(EMPTY_STATISTIC));
 };
+
+export const getStatisticParamsForWord = (word: string) => {
+    const isShort = word.length <= WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
+    const hasSpecialCharacters = getHasSpecialCharacters(word);
+
+    return {
+        isShort,
+        hasSpecialCharacters,
+    }
+}
 
 export const getStatistic = ({ gameLanguage, gameMode, hasSpecialCharacters, isShort }: LocalStorageStatisticInput): Statistic => {
     const key = getLocalStorageKeyForStat({
