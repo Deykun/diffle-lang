@@ -18,6 +18,7 @@
 - **Fix**: A doubled details caret removed for Safari
 - **New**: Better rwd for header
 - **Fix**: Better rwd for statistic card url
+- **Fix**: Missing tags for shared results without words restored
 
 #### Version 3.1.2 (26.01.2024)
 - **Fix**: Correct streak in a row number after winning
