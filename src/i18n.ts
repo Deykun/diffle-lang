@@ -2,11 +2,15 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import intervalPlural from 'i18next-intervalplural-postprocessor';
 
+import localeCs from './locales/cs.json';
 import localeEn from './locales/en.json';
 import localePl from './locales/pl.json';
 
 // TODO: manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
 const resources = {
+  cs: {
+    translation: localeCs,
+  },
   en: {
     translation: localeEn,
   },
