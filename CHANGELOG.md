@@ -13,7 +13,13 @@
 
 ---
 
-#### Version 3.1.2
+#### Version 3.1.3
+- **Fix**: Icons in header restored for Safari
+- **Fix**: A doubled details caret removed for Safari
+- **New**: Better rwd for header
+- **Fix**: Better rwd for statistic card url
+
+#### Version 3.1.2 (26.01.2024)
 - **Fix**: Correct streak in a row number after winning
 - **New**: Hints about streaks in rows are displayed in practice mode
 

@@ -223,7 +223,6 @@
         bottom: 0;
         left: 0;
         z-index: 6;
-        backdrop-filter: blur(4px);
         background-color: var(--green-stronger);
         background-color: color-mix(in srgb, black 80%, transparent);
         width: 100%;
@@ -232,6 +231,12 @@
         text-align: left;
         font-size: 14px;
         font-weight: 600;
+
+        .statistics-url {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
 
         > svg {
             height: 18px;

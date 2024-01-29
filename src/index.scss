@@ -156,6 +156,11 @@ details {
         list-style: none;
         user-select: none;
         -webkit-tap-highlight-color: transparent;
+
+        &::-webkit-details-marker {   
+            display:none; 
+        }
+
         position: relative;
         margin-bottom: 20px;
         border-bottom: 1px dashed var(--border);
