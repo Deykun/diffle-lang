@@ -230,8 +230,10 @@ const StatisticsCard = ({
                         </p>}
                     </div>
                     <footer>
-                        {diffleURL.includes('github') && <IconGithub />}
-                        {diffleURL}
+                        <span className="statistics-url">
+                            {diffleURL.includes('github') && <IconGithub />}
+                            {diffleURL}
+                        </span>
                         {' '}
                         <StatisticsCardActiveFilters modeFilter={modeFilter} charactersFilter={charactersFilter} lengthFilter={lengthFilter} />
                     </footer>

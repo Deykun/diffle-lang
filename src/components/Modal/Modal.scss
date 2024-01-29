@@ -34,6 +34,7 @@
     width: 100%;
     z-index: 2;
     background-color: var(--background-transparent);
+    -webkit-backdrop-filter: blur(1px) saturate(0.7) hue-rotate(-5deg);
     backdrop-filter: blur(1px) saturate(0.7) hue-rotate(-5deg);
 }
 

@@ -49,15 +49,13 @@ const ShareButton = ({ shouldShowSettings = false }) => {
     const isLost = endStatus === GameStatus.Lost;
 
     let resultParam = '';
-    let langShareMarker = '';
+    const langShareMarker = gameLanguage ? SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker : '#diffle';
     if (shouldShareWords && gameLanguage) {
       const wordsWithIndexes = getWordsIndexesChunks(guessedWords, gameLanguage);
 
       const hashedValue = getUrlHashForGameResult({ subtotals, wordToGuess, wordsWithIndexes });
 
       resultParam = maskValue(hashedValue);
-
-      langShareMarker = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker || '#diffle';
     }
 
     const shareUrl = `${diffleUrl}${resultParam ? `?r=${resultParam}` : ''}`;

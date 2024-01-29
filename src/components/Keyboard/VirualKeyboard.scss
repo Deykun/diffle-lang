@@ -7,6 +7,7 @@
     width: min(500px, 100%);
     padding: 7px;
     background-color: var(--background-transparent);
+    -webkit-backdrop-filter: blur(6px) saturate(1.2) hue-rotate(-15deg);
     backdrop-filter: blur(6px) saturate(1.2) hue-rotate(-15deg);
     border-top: 1px solid var(--border);
     box-shadow: 0 -7px 15px 0 var(--background-transparent);
