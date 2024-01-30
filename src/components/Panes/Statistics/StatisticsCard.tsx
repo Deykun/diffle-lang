@@ -230,8 +230,8 @@ const StatisticsCard = ({
                         </p>}
                     </div>
                     <footer>
+                        {diffleURL.includes('github') && <IconGithub />}
                         <span className="statistics-url">
-                            {diffleURL.includes('github') && <IconGithub />}
                             {diffleURL}
                         </span>
                         {' '}
