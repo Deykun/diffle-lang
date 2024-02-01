@@ -101,7 +101,6 @@
                     line-height: 1.2;
                     color: white;
                     background-color: rgba(#c13838, 0.9);
-                    backdrop-filter: blur(4px);
                 }
 
                 .setting-label {
@@ -117,6 +116,7 @@
                         font-size: 12px;
                         border-radius: 3px;
                         margin-right: 5px;
+                        white-space: nowrap;
                     }
 
                     svg {
