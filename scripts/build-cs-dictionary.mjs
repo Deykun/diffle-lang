@@ -10,6 +10,7 @@ import {
 } from './constants.js';
 
 import  {
+    getIsWordValid,
     consoleStatistics,
     getNormalizedKey,
     getIsWordWithSpecialCharacters,
@@ -37,7 +38,7 @@ console.log(chalk.red('Removing dictionaries to genereted the new ones...'));
 fsExtra.emptyDirSync(`./public/dictionary/${LANG}/spelling/`);
 fsExtra.emptyDirSync(`./public/dictionary/${LANG}/winning/`);
 
-const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean))].map(word => word.toLowerCase());
+const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean))].map(word => word.toLowerCase()).filter((word => getIsWordValid(word)));
 statistics.spellchecker.all = spellcheckerWords.length;
 
 const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
@@ -69,11 +70,19 @@ spellcheckerWords.forEach((word, index) =>  {
 
         const firstLetter = word.at(0);
 
-        if (statistics.spellchecker.letters[firstLetter]) {
-            statistics.spellchecker.letters[firstLetter] += 1;
+        if (statistics.spellchecker.letters.first[firstLetter]) {
+            statistics.spellchecker.letters.first[firstLetter] += 1;
         } else {
-            statistics.spellchecker.letters[firstLetter] = 1;
+            statistics.spellchecker.letters.first[firstLetter] = 1;
         }
+
+        word.split('').forEach((letters) => {
+            if (statistics.spellchecker.letters.occurance[letters]) {
+                statistics.spellchecker.letters.occurance[letters] += 1;
+            } else {
+                statistics.spellchecker.letters.occurance[letters] = 1;
+            }
+        });
 
         statistics.spellchecker.accepted.all += 1;
 

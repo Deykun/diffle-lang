@@ -2,14 +2,31 @@ import chalk from 'chalk';
 
 export const removeDiacratics = (word) => word
     .replaceAll('ą', 'a')
+    .replaceAll('á', 'a')
     .replaceAll('ć', 'c')
+    .replaceAll('č', 'c')
+    .replaceAll('ď', 'd')
     .replaceAll('ę', 'e')
+    .replaceAll('é', 'e')
+    .replaceAll('ě', 'e')
+    .replaceAll('í', 'i')
     .replaceAll('ł', 'l')
     .replaceAll('ń', 'n')
+    .replaceAll('ň', 'n')
     .replaceAll('ó', 'o')
+    .replaceAll('ř', 'r')
     .replaceAll('ś', 's')
+    .replaceAll('š', 's')
+    .replaceAll('ť', 't')
+    .replaceAll('ú', 'u')
+    .replaceAll('ů', 'u')
+    .replaceAll('ý', 'y')
     .replaceAll('ź', 'z')
-    .replaceAll('ż', 'z');
+    .replaceAll('ż', 'z')
+    .replaceAll('ž', 'z');
+
+// TODO: Should be better now Polish special character are aceppted in English.
+export const getIsWordValid = (word) => removeDiacratics(word).replace(/[^a-z]/g, '').length === word.length;
 
 export const getIsWordWithSpecialCharacters = (word) => removeDiacratics(word) !== word;
 
