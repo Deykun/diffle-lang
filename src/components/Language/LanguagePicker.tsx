@@ -1,16 +1,17 @@
 import clsx from 'clsx';
-import { useEffect, useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { SUPPORTED_LANGS } from '@const';
 
-import { useSelector } from '@store';
+import { useDispatch, useSelector } from '@store';
+import { setToast } from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
 
+import IconBug from '@components/Icons/IconBug';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconTranslation from '@components/Icons/IconTranslation';
-import IconQuestionMarkInBubble from '@components/Icons/IconQuestionMarkInBubble';
 
 import Button from '@components/Button/Button';
 import Modal from '@components/Modal/Modal';
@@ -18,10 +19,12 @@ import Modal from '@components/Modal/Modal';
 import './LanguagePicker.scss';
 
 interface Props {
-  className: string,
+  className?: string,
+  children?: React.ReactNode,
 }
 
 const LanguagePicker = ({ children, className }: Props) => {
+  const dispatch = useDispatch();
   const isGameUpdating = useSelector((state) => state.game.isProcessing || state.game.isLoadingGame);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,8 +35,10 @@ const LanguagePicker = ({ children, className }: Props) => {
     vibrate();
 
     i18n.changeLanguage(lang);
-};
- 
+
+    setIsOpen(false);
+    dispatch(setToast({ text: `settings.languageChanged` }));
+  };
 
   return (
     <>
@@ -48,7 +53,7 @@ const LanguagePicker = ({ children, className }: Props) => {
       </button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className="settings">
-          <h3>{t('ff.ff')}</h3>
+          <h3>{t('settings.language')}</h3>
           <ul className="list-col-3">
               {SUPPORTED_LANGS.map((lang) => <li key={lang}>
                 <button
@@ -72,12 +77,19 @@ const LanguagePicker = ({ children, className }: Props) => {
                 </button>
               </li>)}
           </ul>
-          <Button isInverted isText hasBorder={false}>
-            <IconQuestionMarkInBubble />
-            <span>
-              Chciałbyś nowy język?
-            </span>
-          </Button>
+          {/* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */}
+          {['localhost', 'deykun'].some((phrase) => location.href.includes(phrase)) && 
+            <Button
+              tagName="a"
+              href="https://forms.gle/AruMXjqf8MyUA4Qt8"
+              target='_blank'
+              isInverted
+              isText
+              hasBorder={false}
+            >
+              <IconBug /><span>{t('settings.reportTranslationBug')}</span>
+            </Button>
+          }
         </div>
       </Modal>
     </>
