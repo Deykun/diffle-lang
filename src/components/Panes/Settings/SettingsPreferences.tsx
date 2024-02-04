@@ -20,6 +20,8 @@ import IconTranslation from '@components/Icons/IconTranslation';
 import IconVibrate from '@components/Icons/IconVibrate';
 import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
+import LanguagePicker from '@components/Language/LanguagePicker';
+
 import './Settings.scss'
 
 const SettingsPreferences = () => {
@@ -96,14 +98,7 @@ const SettingsPreferences = () => {
                     </button>
                 </li>
                 <li>
-                    <button className="setting" onClick={handleLanguageChange} disabled={isGameUpdating}>
-                        <IconTranslation />
-                        <span>{t('settings.currentLanguage')}</span>
-                        <span className={clsx('setting-label', 'position', 'construction')}>
-                            <span>{t('settings.inBetaNow')}</span>
-                            <IconConstruction />
-                        </span>
-                    </button>
+                    <LanguagePicker className="setting" />
                 </li>
             </ul>
             <h3>{t('settings.keyboard')}</h3>

@@ -7,6 +7,14 @@ export const UPDATE_BLOCK_DAILY = '19.01.2024';
 
 const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [' ', 'delete', 'arrowleft', 'arrowright', 'arrowdown', 'arrowup'];
 
+const KEY_LINES_CS = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř'],
+    ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
+];
+
 const KEY_LINES_EN = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -23,6 +31,21 @@ const KEY_LINES_PL = [
 export const SUPPORTED_DICTIONARY_BY_LANG: {
     [key: string]: Dictionary,
 } = {
+    cs: {
+        code: 'cs',
+        languages: ['cs', 'cs-CZ'],
+        title: 'DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿',
+        keyLines: KEY_LINES_CS,
+        allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_CS.flatMap((key) => key)],
+        characters: KEY_LINES_CS.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        specialCharacters: ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř', 'š', 'ť', 'ú', 'ů', 'ý', 'ž'],
+        hasSpecialCharacters: true,
+        urls: [
+            { url: 'https://www.nechybujte.cz/slovnik-soucasne-cestiny/{{word}}', name: 'Slovník současné češtiny', hasExactMatchAlways: false },
+            { url: 'https://slovnikcestiny.cz/heslo/{{word}}/0', name: 'Akademický slovník současné češtiny', hasExactMatchAlways: false },
+        ],
+        shareMarker: '🇨🇿 #diffle #difflecs',
+    },
     en: {
         code: 'en',
         languages: ['en', 'en-US'],

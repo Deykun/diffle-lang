@@ -1,0 +1,18 @@
+.language-picker-flag {
+    // position: absolute;
+    height: 36px;
+    width: 48px;
+    // top: calc(50% - 9px);
+    // left: 50%;
+    // transform: translateX(-50%);
+    // right: -15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    filter: saturate(0.6);
+    font-size: 0;
+    color: transparent;
+    object-fit: cover;
+    object-position: center;
+    // transform-origin: center center;
+    box-shadow: 0 -1px 4px var(--flag-shadow);
+}
