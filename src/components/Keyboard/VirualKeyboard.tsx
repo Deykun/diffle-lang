@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import { useRef, useCallback, useState, useEffect } from 'react';
 
 import { AffixStatus} from '@common-types';
 import { useDispatch, useSelector } from '@store';
@@ -14,6 +14,7 @@ import VirualKeyboardConfirm from './VirualKeyboardConfirm';
 import './VirualKeyboard.scss';
 
 const VirualKeyboard = () => {
+    const keyboardRef = useRef<HTMLElement | null>(null);
     const dispatch = useDispatch();
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
@@ -53,6 +54,19 @@ const VirualKeyboard = () => {
         }
     }, [allowedKeys, dispatch, vibrateKeyboard, vibrateKeyboardIncorrect]);
 
+    // TODO add event for resizing
+    useEffect(() => {
+
+        if (keyboardRef.current) {
+            const keyboardHeight = keyboardRef.current.offsetHeight;
+            const root = document.querySelector<HTMLElement>(':root');
+
+            if (root && keyboardHeight > 0) {
+                root.style.setProperty('--keyboard-height', `${keyboardHeight}px`);
+            }
+          }
+    }, []);
+
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
     const shouldShowConfirm = isConfirmOpen && !isGameEnded;
@@ -62,7 +76,7 @@ const VirualKeyboard = () => {
     }
 
     return (
-        <aside className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
+        <aside ref={keyboardRef} className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
             {shouldShowConfirm && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
             {keyLines.map((line) => {
                 return (
