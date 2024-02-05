@@ -102,6 +102,7 @@ export const GIVE_UP_ERRORS = {
 };
 
 export const LOCAL_STORAGE = {
+    LAST_LANG: 'diffle_last_lang',
     THEME: 'diffle_theme',
     THEME_CONTRAST: 'diffle_theme_contrast',
     SHOULD_VIBRATE: 'diffle_should_vibrate',

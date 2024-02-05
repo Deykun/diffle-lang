@@ -32,6 +32,10 @@ const LanguagePicker = ({ children, className }: Props) => {
   const { vibrate } = useVibrate();
 
   const handleLanguageChange = (lang: string) => {
+    if (lang === i18n.language) {
+      return;
+    }
+
     vibrate();
 
     i18n.changeLanguage(lang);

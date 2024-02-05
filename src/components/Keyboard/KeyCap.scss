@@ -122,9 +122,12 @@
     }
 
     &-spacebar {
-        color: var(--untyped);
-        background-color: var(--untyped-contrast);
-        border-color: var(--untyped-contrast);
+        &,
+        &.typed {
+            color: var(--untyped-contrast);
+            background-color: var(--untyped);
+            border-color: var(--untyped-contrast);
+        }
     }
 
     &-enter {

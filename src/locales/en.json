@@ -79,6 +79,7 @@
     "end.nextDaily_zero": "",
     "end.nextDaily_one": "The new daily word will be available in <strong>an hour</strong>.",
     "end.nextDaily_few": "",
+    "end.nextDaily_many": "",
     "end.nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyShort": "next in {{count}}h",
     "end.completed": "completed",
