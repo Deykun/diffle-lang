@@ -14,6 +14,7 @@ import IconConstruction from '@components/Icons/IconConstruction';
 import IconTranslation from '@components/Icons/IconTranslation';
 
 import Button from '@components/Button/Button';
+import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
 import './LanguagePicker.scss';
@@ -65,7 +66,7 @@ const LanguagePicker = ({ children, className }: Props) => {
                   onClick={() => handleLanguageChange(lang)}
                   disabled={isGameUpdating}
                 >
-                  <img
+                  <Image
                     key={lang}
                     className="language-picker-flag"
                     src={`./flags/${lang}.svg`}

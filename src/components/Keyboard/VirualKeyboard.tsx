@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 import { selectIsGameEnded, selectKeyboardState, selectGameLanguageKeyboardInfo } from '@store/selectors';
 
+import useWindowResize from '@hooks/useWindowResize';
 import useVibrate from '@hooks/useVibrate';
 
 import KeyCap from './KeyCap';
@@ -54,9 +55,9 @@ const VirualKeyboard = () => {
         }
     }, [allowedKeys, dispatch, vibrateKeyboard, vibrateKeyboardIncorrect]);
 
-    // TODO add event for resizing
-    useEffect(() => {
+    const [width] = useWindowResize();
 
+    const setKeyboardHeightVar = useCallback(() => {
         if (keyboardRef.current) {
             const keyboardHeight = keyboardRef.current.offsetHeight;
             const root = document.querySelector<HTMLElement>(':root');
@@ -66,6 +67,10 @@ const VirualKeyboard = () => {
             }
           }
     }, []);
+
+    useEffect(() => {
+        setKeyboardHeightVar();
+    }, [setKeyboardHeightVar, width]);
 
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
