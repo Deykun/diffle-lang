@@ -1,13 +1,19 @@
-# DIFFLE 🇬🇧 🇵🇱
+# DIFFLE 🇨🇿 🇬🇧 🇵🇱
 
 A Wordle-like game without a character limit, where every used word gives hints about the position and order of letters in the solution.
 
 The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
+ - Czech 🇨🇿
  - English 🇬🇧
  - Polish 🇵🇱
     - the biggest Polish community: https://www.hejto.pl/tag/diffle
+
+## Polskie DIFFLE 🇵🇱
+Najwięlsza polska społeczność: https://www.hejto.pl/tag/diffle
+
+DIFFLE gra jak Wordle (po polsku, bez limitu znaków), każde użyte słowo podpowiada pozycję i kolejność liter w haśle.
 
 # Resources
 

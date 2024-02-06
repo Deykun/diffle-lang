@@ -13,7 +13,14 @@
 
 ---
 
-#### Version 3.1.3
+#### Version 3.2
+- **New**: Czech game language supported
+- **New**: When a user enters the site without a language marker, the last language used is saved, and this language is set
+- **New**: A flag in the header and language selection in the settings open a new dedicated modal with a language picker
+- **New**: A new button linking to a Google Form for reporting bad translations has been added
+- **Fix**: The space below the keyboard is set dynamically and calculated based on rows and size settings
+
+#### Version 3.1.3 (30.01.2024)
 - **Fix**: Icons in header restored for Safari
 - **Fix**: A doubled details caret removed for Safari
 - **New**: Better rwd for header
