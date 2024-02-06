@@ -31,4 +31,6 @@ export const useWindowResize = (): THook => {
 };
 
 // Example of usage
-// const [width, height] = useWindowResize();    
+// const [width, height] = useWindowResize();
+
+export default useWindowResize;

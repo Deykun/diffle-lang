@@ -8,5 +8,5 @@
 6. Add `build-[langCode]-dictionary.mjs` in `scripts` folder
 8. Add `build-[langCode]` to `package.json` `scripts`
 9. Add language to `SUPPORTED_DICTIONARY_BY_LANG` in `src/const.ts`
-10. Add flag to `public/flags` from (https://github.com/lipis/flag-icons (4x3)
-)
+10. Add flag to `public/flags` from (https://github.com/lipis/flag-icons (4x3) - use svg compressor
+11. Add [langCode] as a `language` allowed string in `RootGameState` in `types.d.ts`
