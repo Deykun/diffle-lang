@@ -9,13 +9,13 @@ import { setToast } from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
 
-import IconBug from '@components/Icons/IconBug';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconTranslation from '@components/Icons/IconTranslation';
 
-import Button from '@components/Button/Button';
 import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
+
+import ReportTranslationBugButton from './ReportTranslationBugButton';
 
 import './LanguagePicker.scss';
 
@@ -82,19 +82,7 @@ const LanguagePicker = ({ children, className }: Props) => {
                 </button>
               </li>)}
           </ul>
-          {/* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */}
-          {['localhost', 'deykun'].some((phrase) => location.href.includes(phrase)) && 
-            <Button
-              tagName="a"
-              href="https://forms.gle/AruMXjqf8MyUA4Qt8"
-              target='_blank'
-              isInverted
-              isText
-              hasBorder={false}
-            >
-              <IconBug /><span>{t('settings.reportTranslationBug')}</span>
-            </Button>
-          }
+          <ReportTranslationBugButton />
         </div>
       </Modal>
     </>

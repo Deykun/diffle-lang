@@ -11,6 +11,8 @@ import IconGamepad from '@components/Icons/IconGamepad';
 import IconGithub from '@components/Icons/IconGithub';
 import IconIconmonstr from '@components/Icons/IconIconmonstr';
 
+import ReportTranslationBugButton from '@components/Language/ReportTranslationBugButton';
+
 import './Settings.scss'
 
 const SettingsSources = () => {
@@ -19,6 +21,7 @@ const SettingsSources = () => {
 
     return (
         <>
+            <ReportTranslationBugButton />
             <h2>{t('settings.sourcesTitle')}</h2>
             <p>{t('settings.sourcesDescription')}</p>
             <ul>
