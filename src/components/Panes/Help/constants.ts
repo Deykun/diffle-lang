@@ -10,6 +10,16 @@ export const HELP_EXAMPLES_BY_LANG: {
     }
   }
 } = {
+  cs: {
+    first: {
+      wordToGuess: 'příklad',
+      words: ['hrát', 'shledanou', 'říká', 'pod', 'příklad'],
+    },
+    second: {
+      wordToGuess: 'zpívat',
+      words: ['kočky', 'vítej', 'netrpívá', 'zabit', 'zpívat'],
+    },
+  },
   en: {
     first: {
       wordToGuess: 'great',

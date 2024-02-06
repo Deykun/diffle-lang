@@ -21,6 +21,9 @@ const getRandomIntForDaily = () => {
 };
 
 export const getWordToGuess = async ({ gameMode, gameLanguage, seedNumber }: { gameMode: GameMode, gameLanguage: string, seedNumber?: number }): Promise<string> => {
+
+    return 'zpívat';
+
     const catalogResponse = await fetch(`./dictionary/${gameLanguage}/catalog.json`);
 
     const cataolgResult: { words: number, items: catalogItem[] } = await catalogResponse.json();

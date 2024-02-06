@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Pane, Word as WordInterface } from '@common-types';
 
+import { SUPPORTED_LANGS } from '@const';
+
 import { getWordReportForMultipleWords } from '@api/getWordReport';
 
 import usePanes from '@hooks/usePanes';
@@ -29,7 +31,7 @@ const Help = () => {
     useEffect(() => {
         (async () => {
             const language = i18n.language;
-            if (['pl', 'en'].includes(language)) {
+            if (SUPPORTED_LANGS.includes(language)) {
                 const keyToUse = isAlt ? 'second' : 'first';
                 const {
                     wordToGuess = '',
