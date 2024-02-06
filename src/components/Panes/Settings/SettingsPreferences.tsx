@@ -4,19 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
-import { useSelector } from '@store';
-
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 import useVibrate from '@hooks/useVibrate';
 
-import IconConstruction from '@components/Icons/IconConstruction';
 import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
 import IconSwap from '@components/Icons/IconSwap';
-import IconTranslation from '@components/Icons/IconTranslation';
 import IconVibrate from '@components/Icons/IconVibrate';
 import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
@@ -25,8 +21,7 @@ import LanguagePicker from '@components/Language/LanguagePicker';
 import './Settings.scss'
 
 const SettingsPreferences = () => {
-    const isGameUpdating = useSelector((state) => state.game.isProcessing || state.game.isLoadingGame);
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const {
         shouldVibrate,
@@ -62,12 +57,6 @@ const SettingsPreferences = () => {
 
         document.documentElement.classList.toggle('contrast');
     };
-
-    const handleLanguageChange = useCallback(() => {
-        vibrate();
-
-        i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl');
-    }, [i18n, vibrate]);
 
     return (
         <>
