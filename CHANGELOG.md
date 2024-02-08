@@ -11,7 +11,11 @@
 
 ---
 
-#### Version 3.2.1
+#### Version 3.2.2
+- **New**: The incorrectly typed letter shakes inside a keycap
+- **New**: A github start counter was added to github link
+
+#### Version 3.2.1 (08.02.2024)
 - **Fix**: Missing vibration restored for language picker trigger
 
 #### Version 3.2 (08.02.2024)

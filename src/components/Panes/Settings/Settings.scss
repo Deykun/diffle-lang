@@ -181,6 +181,37 @@
                 }
             }
 
+            .setting-inverse {
+                color: var(--background);
+                background-color: var(--text);
+                border-style: solid;
+
+                svg + span {
+                    display: block;
+                    line-height: 1.1;
+                    min-height: 30px;
+
+                    strong {
+                        color: var(--background);
+                        transition: all 0.3s ease-in;
+                    }
+                }
+
+                &:hover {
+                    color: var(--background);
+                }
+
+                .setting-label {
+                    svg {
+                        background-color: transparent;
+
+                        .icon-inside {
+                            fill: var(--orange-contrast);
+                        }
+                    }
+                }
+            }
+
             .contrast & .setting-active--contrast,
             .setting-active {
                 &,

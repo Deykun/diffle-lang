@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 import { useSelector } from '@store';
 
@@ -10,14 +12,37 @@ import IconGlobWithFlag from '@components/Icons/IconGlobWithFlag';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconGithub from '@components/Icons/IconGithub';
 import IconIconmonstr from '@components/Icons/IconIconmonstr';
+import IconStart from '@components/Icons/IconStart';
 
 import ReportTranslationBugButton from '@components/Language/ReportTranslationBugButton';
 
 import './Settings.scss'
 
 const SettingsSources = () => {
+    const [startCount, setStartCount] = useState<null | number>(null);
     const gameLanguage = useSelector((state) => state.game.language);
     const { t } = useTranslation();
+
+    useEffect(() => {
+        (async () => {
+            if (typeof startCount === 'number') {
+                return;
+            }
+
+            try {
+                const response = await fetch('https://api.github.com/repos/Deykun/diffle-lang');
+                const result = await response.json();
+
+                const { stargazers_count } = result;
+
+                if (typeof stargazers_count === 'number') {
+                    setStartCount(stargazers_count)
+                }
+            } catch {
+                setStartCount(0);
+            }
+        })();
+    }, [startCount])
 
     return (
         <>
@@ -26,8 +51,12 @@ const SettingsSources = () => {
             <p>{t('settings.sourcesDescription')}</p>
             <ul>
                 <li>
-                    <a href="https://github.com/Deykun/diffle-lang" target="_blank">
-                        <IconGithub /><span>{t('settings.sourceGithub')}</span>
+                    <a className="setting setting-inverse" href="https://github.com/Deykun/diffle-lang" title={t('settings.sourceGithub')} target="_blank">
+                        <IconGithub />
+                        <span>github.com/<strong>Deykun</strong>/diffle-lang</span>
+                        {typeof startCount === 'number' && startCount > 0 && <span className={clsx('setting-label', 'position')}>
+                            <span>{startCount}</span> <IconStart />
+                        </span>}
                     </a>
                 </li>
                 <li>
