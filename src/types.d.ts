@@ -125,6 +125,7 @@ export interface RootGameState {
     hasLongGuesses: boolean,
     isProcessing: boolean,
     isLoadingGame: boolean,
+    isErrorLoading: boolean,
     lastUpdateTime: number,
     durationMS: number,
     lastWordAddedToStatitstic: string,

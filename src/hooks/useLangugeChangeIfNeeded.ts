@@ -17,6 +17,7 @@ import useEffectChange from "@hooks/useEffectChange";
     Once the language of the game is changed, the mechanism for restoring the game is triggered the same to the game mode change.
 */
 export default function useLangugeChangeIfNeeded( ) {
+    const isGameUpdating = useSelector((state) => state.game.isProcessing || state.game.isLoadingGame);
     const [wasAppLanguageDetected, setWasAppLanguageDetected] = useState(false);
     const dispatch = useDispatch();
     const gameLanguage = useSelector((state) => state.game.language);
@@ -41,7 +42,7 @@ export default function useLangugeChangeIfNeeded( ) {
     }, [wasAppLanguageDetected, i18n.language]);
 
     useEffect(() => {
-        if (wasAppLanguageDetected) {
+        if (!isGameUpdating && wasAppLanguageDetected) {
             const appLanguage = i18n.language;
 
             if (appLanguage !== gameLanguage) {
@@ -50,7 +51,7 @@ export default function useLangugeChangeIfNeeded( ) {
 
             localStorage.setItem(LOCAL_STORAGE.LAST_LANG, appLanguage);
         }
-    }, [dispatch, gameLanguage, i18n.language, wasAppLanguageDetected]);
+    }, [dispatch, gameLanguage, i18n.language, isGameUpdating, wasAppLanguageDetected]);
 
 
     useEffect(() => {

@@ -51,6 +51,7 @@ const initialState: RootGameState = {
     hasLongGuesses: false,
     isProcessing: false,
     isLoadingGame: false,
+    isErrorLoading: false,
     lastUpdateTime: 0,
     durationMS: 0,
     lastWordAddedToStatitstic: '',
@@ -68,7 +69,8 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
         correct: {},
         incorrect: {},
         position: {},
-    }
+    };
+    state.isErrorLoading = false;
     state.lastUpdateTime = 0;
     state.durationMS = 0;
 };
@@ -142,6 +144,7 @@ export const submitAnswer = createAsyncThunk(
 export const restoreGameState = createAsyncThunk(
     'game/restoreGameState',
     async ({
+        localStorageKeyForGame,
         gameMode,
         gameLanguage,
         status,
@@ -151,6 +154,7 @@ export const restoreGameState = createAsyncThunk(
         lastUpdateTime,
         durationMS,
     }: {
+        localStorageKeyForGame: string,
         gameMode: GameMode,
         gameLanguage: string,
         status?: GameStatus,
@@ -159,7 +163,7 @@ export const restoreGameState = createAsyncThunk(
         rejectedWords: string[],
         lastUpdateTime: number,
         durationMS: number,
-    }, { dispatch }) => {
+    }, { dispatch, rejectWithValue }) => {
         if (!wordToGuess) {
             return;
         }
@@ -169,7 +173,11 @@ export const restoreGameState = createAsyncThunk(
         if (hasError) {
             dispatch(setToast({ type: ToastType.Incorrect, text: 'game.restoreError' }));
 
-            return { isError: true, type: SUBMIT_ERRORS.RESTORING_ERROR };
+            if (localStorageKeyForGame) {
+                localStorage.removeItem(localStorageKeyForGame);
+            }
+
+            return rejectWithValue(SUBMIT_ERRORS.RESTORING_ERROR);
         }
 
         const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
@@ -267,7 +275,6 @@ export const loadGame = createAsyncThunk(
 
                 if (lastWordToGuess) {
                     if (isExpiredDailyGame) {
-                        const localStorageKeyForGame = getLocalStorageKeyForGame({ gameLanguage, gameMode });
                         localStorage.removeItem(localStorageKeyForGame);
 
                         if (lastDailyStamp) {
@@ -287,6 +294,7 @@ export const loadGame = createAsyncThunk(
                                     so we set the state, save the stats, and reset the state.
                                 */
                                 await dispatch(restoreGameState({
+                                    localStorageKeyForGame,
                                     gameMode,
                                     gameLanguage,
                                     status: GameStatus.Lost,
@@ -309,6 +317,7 @@ export const loadGame = createAsyncThunk(
                     }
 
                     await dispatch(restoreGameState({
+                        localStorageKeyForGame,
                         gameMode,
                         gameLanguage,
                         wordToGuess: lastWordToGuess,
@@ -685,6 +694,10 @@ const gameSlice = createSlice({
             state.isLoadingGame = true;
         }).addCase(loadGame.fulfilled, (state) => {
             state.isLoadingGame = false;
+        }).addCase(restoreGameState.rejected, (state) => {
+            resetGame(state, '');
+
+            state.isErrorLoading = true;
         }).addCase(restoreGameState.fulfilled, (state, action) => {
             const {
                 gameMode,
@@ -723,6 +736,7 @@ const gameSlice = createSlice({
             state.hasLongGuesses = guesses.some(({ word }) => word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS);
             state.lastUpdateTime = lastUpdateTime;
             state.durationMS = durationMS;
+            state.isErrorLoading = false;
 
             state.letters = {
                 correct: {

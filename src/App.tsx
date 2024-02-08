@@ -28,12 +28,13 @@ const App = () => {
     const gameLanguage = useSelector((state) => state.game.language);
     const gameMode = useSelector((state) => state.game.mode);
     const todayStamp = useSelector((state) => state.game.today);
+    const isErrorLoading = useSelector(state => state.game.isErrorLoading);
 
     const { pane } = usePanes();
 
     useEffect(() => {
         dispatch(loadGame());
-    }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp]);
+    }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp, isErrorLoading]);
 
     useAppUpdateIfNeeded();
 
