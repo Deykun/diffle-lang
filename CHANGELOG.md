@@ -1,7 +1,6 @@
 ### Version 3.0 (19.01.2024)
 - Support for other languages (English added alongside Polish)
 
-
 ### Version 2.0 (08.01.2024)
 - Detailed local user statistics for the game.
 
