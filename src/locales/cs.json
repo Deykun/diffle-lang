@@ -45,7 +45,7 @@
     "help.exampleTitle": "Příklad",
     "help.exampleTitleAlt": "Jiný příklad",
     "help.incorrectLettersTip": "Šedá písmena nejsou ve slově.",
-    "help.correctLetters": "Dopisy <strong>{{correct1}}</strong> a <strong>{{correct2}}</strong> jsou ve slově v <strong> v tomto pořadí </strong>.",
+    "help.correctLetters": "Dopisy <strong>{{correct1}}</strong> a <strong>{{correct2}}</strong> jsou ve slově v <strong>v tomto pořadí</strong>.",
     "help.positionBefore": "Dopis <strong>{{position}}</strong> je ve slově, ale ne před <strong>{{closestCorrect}}</strong>.",
     "help.positionBetween": "Dopis <strong>{{position}}</strong> je ve slově, ale ne mezi nimi.",
     "help.positionAfter": "Dopis <strong>{{position}}</strong> je ve slově, ale ne po <strong>{{closestCorrect}}</strong>.",
