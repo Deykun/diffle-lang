@@ -5,7 +5,6 @@
 ### Version 2.0 (08.01.2024)
 - Detailed local user statistics for the game.
 
-
 ### Version 1.0 (30.07.2023)
 - Playable react clone of: https://github.com/hedalu244/diffle
 
