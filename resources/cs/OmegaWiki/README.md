@@ -1,10 +1,7 @@
 # Resources
 
-Special thanks to: https://freedict.org/
+Special thanks to https://www.dicts.info/uddl.php and https://omegawiki.org/ (currently down)
 
-A dictionary used: https://freedict.org/downloads/#dictionary-downloads - Polish - English, version 2023.05.29 with 37202 headwords
+A dictionary used: https://freedict.org/downloads/#dictionary-downloads - Czech-English dictionary created from OmegaWiki database
 
-Words in total: 37 202
-
-
-https://www.dicts.info/uddl.php
+Words in total: 5 192
