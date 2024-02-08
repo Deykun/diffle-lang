@@ -66,14 +66,14 @@ const ShareButton = ({ shouldShowSettings = false }) => {
     if (isLost) {
       return `${copyTitle}
 
-🏳️ ${t('end.lostIn')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })} (${letters} ${t('end.lettersUsedShort')})
+🏳️ ${t('end.in', { postProcess: 'interval', count: words })} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })} (${letters} ${t('end.lettersUsedShort')})
 ${copySubtotals}
       
 ${shareUrl}`;
   }
       return `${copyTitle}
 
-${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in')} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
+${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in', { postProcess: 'interval', count: words })} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
 ${copySubtotals}
 
 ${shareUrl}`;

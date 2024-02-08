@@ -16,6 +16,8 @@ import IconGamepad from '@components/Icons/IconGamepad';
 
 import { HELP_EXAMPLES_BY_LANG } from './constants';
 
+import HelpWords from './HelpWords';
+
 import './Help.scss'
 
 const Help = () => {
@@ -58,43 +60,23 @@ const Help = () => {
 
     useScrollEffect('top', [isAlt]);
 
-    const [
-        wordExampleNotMatch,
-        wordExampleOrder,
-        wordExampleInRow,
-        wordExampleStartAndEnd,
-        wordExampleWin,
-    ] = helpGuesses;
-
     return (
         <div className="help">
             <h2 className="title">{t('help.howToPlayTitle')}</h2>
             <p>{t('help.howToPlayText1')}</p>
             <p>{t('help.howToPlayText2')}</p>
-            {helpGuesses.length > 0 && <>
-            <h2 className="title">{t(`help.exampleTitle${tEnd}`)}</h2>
-                <Word guess={wordExampleNotMatch} />
-                <p>{t('help.incorrectLettersTip')}</p>
-                <Word guess={wordExampleOrder} />
-                <p dangerouslySetInnerHTML={{ __html: t(`help.correctLettersTip${tEnd}`) }}></p>
-                <Word guess={wordExampleInRow} />
-                <p dangerouslySetInnerHTML={{ __html: t(`help.sequenceOfLettersTip${tEnd}`) }}></p>
-                <Word guess={wordExampleStartAndEnd} />
-                <p dangerouslySetInnerHTML={{ __html: t(`help.firstAndLastLetterTip${tEnd}`) }}></p>
-                <Word guess={wordExampleWin} />
-                <p>{t('help.winingWordMessage')}</p>
-                <p>
-                    <Button onClick={() => changePane(Pane.Game)} isLarge>
-                        <IconGamepad />
-                        <span>{t('common.play')}</span>
-                    </Button>
-                </p>
-                <p>
-                    <Button onClick={() => setIsAlt(value => !value)} isInverted isText hasBorder={false}>
-                        <span>{t(isAlt ? 'help.previousExample' : 'help.altExample')}</span>
-                    </Button>
-                </p>            
-            </>}
+            <HelpWords helpGuesses={helpGuesses} tEnd={tEnd} />
+            <p>
+                <Button onClick={() => changePane(Pane.Game)} isLarge>
+                    <IconGamepad />
+                    <span>{t('common.play')}</span>
+                </Button>
+            </p>
+            {helpGuesses.length > 0 && <p>
+                <Button onClick={() => setIsAlt(value => !value)} isInverted isText hasBorder={false}>
+                    <span>{t(isAlt ? 'help.previousExample' : 'help.altExample')}</span>
+                </Button>
+            </p>}
         </div>
     )
 };
