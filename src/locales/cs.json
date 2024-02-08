@@ -150,7 +150,7 @@
     "statistics.averageLetters": "průměrná písmena",
     "statistics.averageGameTime": "Průměrná doba hry",
     "statistics.totalGameTime": "Celkový čas her",
-    "statistics.inWord": "slovem",
+    "statistics.inWord": "v slovem",
     "statistics.inFirstWord": "v prvním slově",
     "statistics.inSecondWord": "ve druhém slově",
     "statistics.keyboardUsed": "průměrný <strong> {{value}}%</strong> použité klávesnice",
