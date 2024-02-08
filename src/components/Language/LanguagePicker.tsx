@@ -45,11 +45,17 @@ const LanguagePicker = ({ children, className }: Props) => {
     dispatch(setToast({ text: `settings.languageChanged` }));
   };
 
+  const handleTriggerClick = () => {
+    vibrate();
+
+    setIsOpen(value => !value)
+  };
+
   return (
     <>
       <button
         className={className}
-        onClick={() => setIsOpen(value => !value)}
+        onClick={handleTriggerClick}
       >
           {children ? children : <>
             <IconTranslation />

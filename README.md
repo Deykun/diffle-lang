@@ -13,7 +13,7 @@ Supported languages:
 ## Polskie DIFFLE 🇵🇱
 DIFFLE gra jak Wordle (po polsku, bez limitu znaków), każde użyte słowo podpowiada pozycję i kolejność liter w haśle.
 
-Najwięlsza polska społeczność: https://www.hejto.pl/tag/diffle
+Największa polska społeczność: https://www.hejto.pl/tag/diffle
 
 # Cool features ✨
 

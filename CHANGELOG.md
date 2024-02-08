@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.2
+#### Version 3.2.1
+- **Fix**: Missing vibration restored for language picker trigger
+
+#### Version 3.2 (08.02.2024)
 - **New**: Czech game language supported
 - **New**: When a user enters the site without a language marker, the last language used is saved, and this language is set
 - **New**: A flag in the header and language selection in the settings open a new dedicated modal with a language picker
