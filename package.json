@@ -8,7 +8,7 @@
     "literalnie"
   ],
   "private": true,
-  "version": "3.1.3",
+  "version": "3.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -17,6 +17,7 @@
     "about ? post-build": "Creates pl.html, en.html, etc., with personalized Open Graph for those languages.",
     "post-build": "node scripts/post-build.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build-cs": "node scripts/build-cs-dictionary.mjs",
     "build-en": "node scripts/build-en-dictionary.mjs",
     "build-pl": "node scripts/build-pl-dictionary.mjs",
     "preview": "vite preview",

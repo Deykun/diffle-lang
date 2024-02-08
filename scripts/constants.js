@@ -18,7 +18,14 @@ export const INITAL_DICTIONARY_STATISTICS = {
             withoutSpecialCharacters: 0,
         },
         rejected: 0,
-        letters: {},
+        letters: {
+            first: {},
+            occurance: {},
+        },
+        substrings: {
+            ch2: {},
+            ch3: {},
+        },
     },
     winning: {
         all: 0,

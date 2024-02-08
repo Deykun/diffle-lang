@@ -85,20 +85,23 @@
 
     
     &-spacebar {
-        padding: 0 min(6px, 1vw);
-        min-width: 36px;
+        min-width: 50px;
 
         @media (min-width: 400px) {
-            min-width: 52px;
+            min-width: 100px;
         }
 
-        max-width: 7vw;
+        max-width: 12vw;
         width: 56px;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
     }
 
     &-backspace,
-    &-enter,
-    &-yes {
+    &-enter {
         flex-shrink: 0;
 
         svg {
@@ -107,23 +110,6 @@
         }
     }
 
-    &-no,
-    &-yes {
-        span {
-            margin-right: 10px;
-        }
-    }
-
-    &-no {
-        flex-shrink: 0;
-
-        svg {
-            width: 18px;
-            height: 18px;
-        }
-    }
-
-    &-no,
     &-backspace {
         color: var(--red-contrast) !important;
         background-color: var(--red-weaker) !important;
@@ -135,8 +121,15 @@
         }
     }
 
-    &-yes,
-    &-spacebar,
+    &-spacebar {
+        &,
+        &.typed {
+            color: var(--untyped-contrast);
+            background-color: var(--untyped);
+            border-color: var(--untyped-contrast);
+        }
+    }
+
     &-enter {
         color: var(--blue-contrast) !important;
         background-color: var(--blue-weaker) !important;

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
-import { useCallback, useState } from 'react';
+import { useRef, useCallback, useState, useEffect } from 'react';
 
 import { AffixStatus} from '@common-types';
 import { useDispatch, useSelector } from '@store';
 import { submitAnswer, letterChangeInAnswer } from '@store/gameSlice';
 import { selectIsGameEnded, selectKeyboardState, selectGameLanguageKeyboardInfo } from '@store/selectors';
 
+import useWindowResize from '@hooks/useWindowResize';
 import useVibrate from '@hooks/useVibrate';
 
 import KeyCap from './KeyCap';
@@ -14,6 +15,7 @@ import VirualKeyboardConfirm from './VirualKeyboardConfirm';
 import './VirualKeyboard.scss';
 
 const VirualKeyboard = () => {
+    const keyboardRef = useRef<HTMLElement | null>(null);
     const dispatch = useDispatch();
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
@@ -53,6 +55,23 @@ const VirualKeyboard = () => {
         }
     }, [allowedKeys, dispatch, vibrateKeyboard, vibrateKeyboardIncorrect]);
 
+    const [width] = useWindowResize();
+
+    const setKeyboardHeightVar = useCallback(() => {
+        if (keyboardRef.current) {
+            const keyboardHeight = keyboardRef.current.offsetHeight;
+            const root = document.querySelector<HTMLElement>(':root');
+
+            if (root && keyboardHeight > 0) {
+                root.style.setProperty('--keyboard-height', `${keyboardHeight}px`);
+            }
+          }
+    }, []);
+
+    useEffect(() => {
+        setKeyboardHeightVar();
+    }, [setKeyboardHeightVar, width]);
+
     const enterCallback = shouldConfirmEnter ? toggleConfirmModal : handleSubmit;
 
     const shouldShowConfirm = isConfirmOpen && !isGameEnded;
@@ -62,7 +81,7 @@ const VirualKeyboard = () => {
     }
 
     return (
-        <aside className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
+        <aside ref={keyboardRef} className={clsx('keyboard', type, { 'isSmall': isSmallKeyboard })}>
             {shouldShowConfirm && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
             {keyLines.map((line) => {
                 return (

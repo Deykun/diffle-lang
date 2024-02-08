@@ -9,7 +9,6 @@ import { selectLetterState, selectWordToSubmit } from '@store/selectors';
 import IconBackspace from '@components/Icons/IconBackspace';
 import IconCheckEnter from '@components/Icons/IconCheckEnter';
 import IconClose from '@components/Icons/IconClose';
-import IconCircle from '@components/Icons/IconCircle';
 
 import KeyCapOccurance from './KeyCapOccurance';
 
@@ -43,7 +42,7 @@ const KeyCap = ({ text, onClick }: Props) => {
                 {shouldShowText && <span>{textToShow}</span>}
                 {shouldUseIcon && <>
                     {text ==='backspace' && <IconBackspace />}
-                    {text ==='spacebar' && <IconCircle />}
+                    {text ==='spacebar' && ' '}
                     {text ==='enter' && <IconCheckEnter />}
                     {text ==='no' && <IconClose />}
                     {text ==='yes' && <IconCheckEnter />}

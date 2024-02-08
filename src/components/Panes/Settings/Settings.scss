@@ -110,6 +110,13 @@
                     display: flex;
                     align-items: center;
 
+                    &,
+                    span,
+                    svg,
+                    svg .icon-inside {
+                        transition: all 0.3s ease-in;
+                    }
+
                     span {
                         padding: 0;
                         font-weight: bold;
@@ -152,6 +159,16 @@
                         span,
                         svg {
                             color: var(--orange);
+                        }
+                    }
+
+                    &.construction {
+                        svg {
+                            background-color: transparent;
+
+                            .icon-inside {
+                                fill: var(--orange-contrast);
+                            }
                         }
                     }
 
@@ -211,6 +228,14 @@
                         }
                     }
 
+                    &.construction {
+                        svg {
+                            .icon-inside {
+                                fill: var(--orange);
+                            }
+                        }
+                    }
+
                     &.incorrect {
                         span,
                         svg {
@@ -227,6 +252,7 @@
     }
 
     > footer {
+        padding-top: 20px;
         margin-top: 40px;
         padding-bottom: 20px;
         font-size: 12px;

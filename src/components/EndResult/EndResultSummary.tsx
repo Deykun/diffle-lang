@@ -84,7 +84,7 @@ const EndResultSummary = ({
                         {' '}
                         {t('end.lettersUsed', { postProcess: 'interval', count: letters })}
                         {' '}
-                        {t('end.in')}
+                        {t('end.in', { postProcess: 'interval', count: words })}
                         {' '}
                         <strong>{words}</strong>
                         {' '}

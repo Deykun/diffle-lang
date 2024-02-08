@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
+import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { setGameLanguage } from '@store/gameSlice';
@@ -47,6 +47,8 @@ export default function useLangugeChangeIfNeeded( ) {
             if (appLanguage !== gameLanguage) {
                 dispatch(setGameLanguage(appLanguage));
             }
+
+            localStorage.setItem(LOCAL_STORAGE.LAST_LANG, appLanguage);
         }
     }, [dispatch, gameLanguage, i18n.language, wasAppLanguageDetected]);
 
@@ -61,6 +63,15 @@ export default function useLangugeChangeIfNeeded( ) {
             return;
         }
 
+        const lastLang = localStorage.getItem(LOCAL_STORAGE.LAST_LANG);
+
+        if (lastLang) {
+            i18n.changeLanguage(lastLang);
+            setWasAppLanguageDetected(true);
+
+            return;
+        }
+
         const langFromBrowser = getLangFromBrowser();
 
         if (langFromBrowser) {
@@ -70,6 +81,7 @@ export default function useLangugeChangeIfNeeded( ) {
             return;
         }
 
+        i18n.changeLanguage('en');
         setWasAppLanguageDetected(true);
     }, [i18n]);
 }

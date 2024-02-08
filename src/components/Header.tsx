@@ -16,11 +16,10 @@ import IconHelp from '@components/Icons/IconHelp';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconLayers from '@components/Icons/IconLayers';
 
+import LanguagePicker from '@components/Language/LanguagePicker';
 import SharedContent from '@components/Share/SharedContent';
 
 import './Header.scss';
-
-
 
 const Header = () => {
     const [flagKey, setFlagKey] = useState('');
@@ -68,16 +67,16 @@ const Header = () => {
                 </button>
             </div>
             <h1>
-              <button onClick={() => changePane(Pane.Game)}>
+              <button className="header-title" onClick={() => changePane(Pane.Game)}>
                 Diffle
                 {gameMode === GameMode.Practice && <IconInfinity />}
-                {gameLanguage && <img
-                  key={flagKey}
-                  className={clsx('header-flag', { 'header-flag--animation': flagKey })}
-                  src={`https://deykun.github.io/diffle-lang/flags/${flagKey || gameLanguage}.svg`}
-                  alt={flagKey || gameLanguage}
-                />}
               </button>
+              {gameLanguage && <LanguagePicker className="header-language-picker"><img
+                key={flagKey}
+                className={clsx('header-flag', { 'header-flag--animation': flagKey })}
+                src={`./flags/${flagKey || gameLanguage}.svg`}
+                alt={flagKey || gameLanguage}
+              /></LanguagePicker>}
             </h1>
             <div className="header-right">
                 {shouldShowShared && <SharedContent />}

@@ -38,38 +38,42 @@
 
     h1 {
         margin-bottom: 0;
-    }
-
-    h1 button {
         position: relative;
-        font-size: 32px;
-        line-height: 56px;
-        height: 50px;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-shadow: 0 0px 10px var(--background);
 
         @media (max-width: 360px) {
             transform: scale(0.8);
         }
 
-        svg {
-            position: absolute;
-            left: 50%;
-            top: 2px;
-            transform: translateX(-55%);
-            height: 0.4em;
-            fill: var(--green-stronger);
+        .header-title {
+            position: relative;
+            font-size: 32px;
+            line-height: 56px;
+            height: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 0 0px 10px var(--background);
+    
+            svg {
+                position: absolute;
+                left: 50%;
+                top: 2px;
+                transform: translateX(-55%);
+                height: 0.4em;
+                fill: var(--green-stronger);
+            }
+    
+            padding-right: 10px;
         }
 
-        padding-right: 10px;
-
-        .header-flag {
+        .header-language-picker {
             position: absolute;
-            height: 18px;
-            width: 18px;
             top: calc(50% - 9px);
             right: -15px;
+        }
+
+        .header-flag  {
+            height: 18px;
+            width: 18px;
             border-radius: 20px;
             filter: saturate(0.6);
             font-size: 0;
@@ -77,6 +81,7 @@
             object-fit: cover;
             object-position: center;
             transform-origin: center center;
+            background-color: var(--flag-shadow);
             box-shadow: 0 -1px 4px var(--flag-shadow);
         }
 

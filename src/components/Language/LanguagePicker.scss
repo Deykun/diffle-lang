@@ -1,0 +1,13 @@
+.language-picker-flag {
+    height: 36px;
+    width: 48px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    filter: saturate(0.6);
+    font-size: 0;
+    color: transparent;
+    object-fit: cover;
+    object-position: center;
+    background-color: var(--flag-shadow);
+    box-shadow: 0 -1px 4px var(--flag-shadow);
+}
