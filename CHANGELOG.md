@@ -12,7 +12,7 @@
 ---
 
 #### Version 3.2.3
-- **Fix**: Changing the language during game restoration doesn't block the restore process
+- **Fix**: Changing the language during game loading doesn't block the restore process
 
 #### Version 3.2.2
 - **New**: The incorrectly typed letter shakes inside a keycap
