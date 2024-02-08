@@ -22,6 +22,10 @@ export const INITAL_DICTIONARY_STATISTICS = {
             first: {},
             occurance: {},
         },
+        substrings: {
+            ch2: {},
+            ch3: {},
+        },
     },
     winning: {
         all: 0,

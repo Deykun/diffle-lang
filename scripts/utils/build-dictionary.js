@@ -79,6 +79,22 @@ export const getNormalizedKey = (wordRaw, language) => {
     return word.slice(0, 3);
 };
 
+export const getWordSubstrings = (word) => {
+    return word.split('').reduce((stack, _, index) => {
+        const ch2 = word.substr(index, 2);
+        if (ch2.length === 2) {
+            stack.ch2s.push(ch2);
+        }
+    
+        const ch3 = word.substr(index, 3);
+        if (ch3.length === 3) {
+            stack.ch3s.push(ch3);
+        }
+    
+        return stack;
+    }, { ch2s: [], ch3s: [] });
+};
+
 export const consoleStatistics = (statistics) => {
     console.log(`Spellchecker:`);
     console.log(` - accepted words: ${chalk.green(statistics.spellchecker.accepted.all)}`);
@@ -163,6 +179,24 @@ export const actionBuildDictionary = (
                 }
             });
 
+            const { ch2s, ch3s } = getWordSubstrings(word);
+
+            ch2s.forEach((substring) => {
+                if (statistics.spellchecker.substrings.ch2[substring]) {
+                    statistics.spellchecker.substrings.ch2[substring] += 1;
+                } else {
+                    statistics.spellchecker.substrings.ch2[substring] = 1;
+                }
+            });
+
+            ch3s.forEach((substring) => {
+                if (statistics.spellchecker.substrings.ch3[substring]) {
+                    statistics.spellchecker.substrings.ch3[substring] += 1;
+                } else {
+                    statistics.spellchecker.substrings.ch3[substring] = 1;
+                }
+            });
+
             statistics.spellchecker.accepted.all += 1;
 
             if (getIsWordWithSpecialCharacters(word)) {
@@ -182,6 +216,11 @@ export const actionBuildDictionary = (
             statistics.spellchecker.rejected += 1;
         }
     });
+
+    statistics.spellchecker.letters.first = Object.fromEntries(Object.entries(statistics.spellchecker.letters.first).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.letters.occurance = Object.fromEntries(Object.entries(statistics.spellchecker.letters.occurance).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.substrings.ch2 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch2).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.substrings.ch3 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch3).sort((a, b) => b[1] - a[1]))
 
     const totalNumberOfSpellingChunks = Object.keys(spellingIndex).length;
 
