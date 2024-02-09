@@ -10,6 +10,9 @@ import {
  } from '@utils/game';
 
 export const getInitPane = () => {
+    // TODO: remove after dictionary pane is finished;
+    return Pane.AboutLanguage;
+
     const langFromUrl = getLangFromUrl();
 
     if (langFromUrl) {

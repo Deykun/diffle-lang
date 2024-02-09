@@ -1,0 +1,49 @@
+.about-language-special-characters {
+    .about-language-progressbar-wrapper {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .about-language-progressbar-point {
+        width: 20%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+
+        &:first-child {
+            text-align: left;
+            align-items: flex-start;
+        }
+
+        &:last-child {
+            text-align: right;
+            align-items: flex-end;
+        }
+
+        gap: 5px;
+
+        svg {
+            width: 24px;
+        }
+    }
+
+    .about-language-progressbar {
+        flex: 1;
+        height: 18px;
+        background-color: var(--greee-contrast);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        position: relative;
+
+        .about-language-progressbar-active {
+            position: absolute;
+            top: -1px;
+            right: 0;
+            height: calc(100% + 2px);
+            background-color: var(--green);
+            border-radius: 10px;
+        }
+    }
+}

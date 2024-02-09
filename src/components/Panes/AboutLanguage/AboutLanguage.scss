@@ -1,0 +1,23 @@
+.about-language {
+    border: 1px solid yellow;
+    // width: 80vw;
+    // margin-left: calc(-40vw + 200px);
+
+    section {
+        padding: 10px;
+        border: 1px solid blue;
+    }
+
+    .to-do {
+        list-style: circle;
+        text-align: left;
+        margin-top: 5px;
+        padding-left: 20px;
+
+        li {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// about-language-special-characters

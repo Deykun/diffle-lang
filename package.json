@@ -24,6 +24,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.18.1",
     "downloadjs": "^1.4.7",
     "fs-extra": "^11.2.0",
     "html-to-image": "^1.11.11",

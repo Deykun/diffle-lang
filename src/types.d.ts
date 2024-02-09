@@ -9,6 +9,7 @@ export enum Pane {
     Game = 'Game',
     Settings = 'Settings',
     Statistics = 'Statistics',
+    AboutLanguage = 'AboutLanguage',
 }
 
 export interface Dictionary {
@@ -26,6 +27,24 @@ export interface Dictionary {
         hasExactMatchAlways: boolean, // exact means that there have to be exact match
     }[],
     shareMarker?: string,
+}
+
+export type DictionaryInfo = {
+    spellchecker: {
+        accepted: {
+            all: number,
+            withSpecialCharacters: number,
+            withoutSpecialCharacters: number,
+        }
+        letters: {
+            first: {
+                [letter: string]: number,
+            }
+            occurance: {
+                [letter: string]: number,
+            }
+        }
+    }
 }
 
 export type PaneChange = (Pane) => void;
