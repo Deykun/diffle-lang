@@ -20,7 +20,7 @@ const winningDictionary = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTION
 
 const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean))].map(word => word.toLowerCase()).filter((word => getIsWordValid(word)));
 
-const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.trim().replace(/\s+/g,' ').split(' ')).at(-1)).filter(Boolean))].map(word => word.toLowerCase());
 
 actionBuildDictionary(
     {
