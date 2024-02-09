@@ -1,8 +1,4 @@
-### Additional links for people looking for good Polish dictionaries to check:
-- http://www.math.uni.wroc.pl/~hebisch/prog/
-- https://sjp.pl/sl/en/
-
-## Previous dictionaries used by diffle-cs
+# Previous dictionaries used by diffle-cs
 
 Special thanks to https://www.dicts.info/uddl.php and https://omegawiki.org/ (currently down)
 

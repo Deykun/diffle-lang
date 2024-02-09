@@ -34,7 +34,7 @@ You can share your result with a hashed URL, which after winning your daily game
 
 ### Dictionaries
  - https://gitlab.com/strepon/czech-cc0-dictionaries - Czech spellchecker dictionary
- - https://omegawiki.org/ via https://www.dicts.info/uddl.php - Czech winning words dictionary
+ - http://slovniky.webz.cz via http://home.zcu.cz/~konopik/ppc/ - Czech winning words dictionary
  - https://sjp.pl - Polish spellechecker dictionary
  - https://github.com/dwyl - English spellchecker dictionary
  - https://freedict.org - Polish & English winning words dictionary
