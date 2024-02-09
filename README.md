@@ -26,10 +26,13 @@ I challenge you to find a better keyboard in any Wordle game. This keyboard reac
 ## Spoiler-Free sharing
 You can share your result with a hashed URL, which after winning your daily game will display the words from the result.
 
+# Screenshots 🖼️
+![diffle lang app screenshots](./app-screenshots.png)
+
 # Resources 🗃️
 
 ### Original DIFFLE
- - https://hedalu244.github.io/diffle/
+ - https://hedalu244.github.io/diffle/ 🟢
  - https://github.com/hedalu244/diffle
 
 ### Dictionaries
