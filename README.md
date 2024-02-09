@@ -10,24 +10,24 @@ Supported languages:
  - Polish 🇵🇱 (since 30.07.2023)
     - the biggest Polish community: https://www.hejto.pl/tag/diffle
 
-## Polskie DIFFLE 🇵🇱
+# App screenshots
+![diffle lang app screenshots](./app-screenshots.png)
+
+### Polskie DIFFLE 🇵🇱
 DIFFLE gra jak Wordle (po polsku, bez limitu znaków), każde użyte słowo podpowiada pozycję i kolejność liter w haśle.
 
 Największa polska społeczność: https://www.hejto.pl/tag/diffle
 
 # Cool features ✨
 
-## Spellchecker API
+### Spellchecker API
 This project is 100% GitHub-hosted, so it doesn't have a backend server. The spellchecker dictionary is usually over 45MB. In this repository, the dictionary is divided into thousands of JSON files. When someone searches for "łódź", the word is converted to "lodz", limited to 3 characters, and pl/chunk-lod.json is fetched to check if it's there. It's a lightweight, quick, and serverless-like solution.
 
-## A reactive keyboard
+### A reactive keyboard
 I challenge you to find a better keyboard in any Wordle game. This keyboard reacts and provides hints while typing, with optional vibrations (which are longer when an incorrect letter is typed).
 
-## Spoiler-Free sharing
+### Spoiler-Free sharing
 You can share your result with a hashed URL, which after winning your daily game will display the words from the result.
-
-# Screenshots 🖼️
-![diffle lang app screenshots](./app-screenshots.png)
 
 # Resources 🗃️
 
