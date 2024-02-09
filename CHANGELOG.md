@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.3
+- **New**: A larger dictionary of winning words is used in the Czech language
+
 #### Version 3.2.3
 - **Fix**: Changing the language during game loading doesn't block the restore process
 

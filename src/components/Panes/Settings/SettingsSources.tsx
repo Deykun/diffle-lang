@@ -74,8 +74,8 @@ const SettingsSources = () => {
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.dicts.info/uddl.php" target="_blank" rel="noopener noreferrer">
-                            <IconDictionary /><span><strong>OmegaWiki</strong> z <strong>Dicts.info</strong> {t('settings.sourceDictionaryWiningWords')}</span>
+                        <a href="http://home.zcu.cz/~konopik/ppc/" target="_blank" rel="noopener noreferrer">
+                            <IconDictionary /><span><strong>slovniky.webz.cz</strong> z <strong>home.zcu.cz</strong> {t('settings.sourceDictionaryWiningWords')}</span>
                         </a>
                     </li>
                 </>}

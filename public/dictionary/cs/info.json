@@ -15683,27 +15683,27 @@
 		}
 	},
 	"winning": {
-		"all": 3194,
+		"all": 11954,
 		"accepted": {
-			"all": 2168,
-			"withSpecialCharacters": 1193,
-			"withoutSpecialCharacters": 975,
+			"all": 9582,
+			"withSpecialCharacters": 5779,
+			"withoutSpecialCharacters": 3803,
 			"length": {
-				"4": 218,
-				"5": 383,
-				"6": 406,
-				"7": 469,
-				"8": 400,
-				"9": 292
+				"4": 826,
+				"5": 1678,
+				"6": 1963,
+				"7": 2080,
+				"8": 1786,
+				"9": 1249
 			}
 		},
 		"rejected": {
-			"all": 1026,
-			"tooLong": 714,
-			"tooShort": 91,
-			"censored": 0,
-			"wrongLetters": 25,
-			"missingInSpellingDictionary": 196
+			"all": 2372,
+			"tooLong": 1675,
+			"tooShort": 373,
+			"censored": 1,
+			"wrongLetters": 63,
+			"missingInSpellingDictionary": 260
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"q",
