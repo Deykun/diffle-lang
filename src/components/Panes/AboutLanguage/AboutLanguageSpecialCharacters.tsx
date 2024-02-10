@@ -29,7 +29,7 @@ const AboutLanguageSpecialCharacters = ({ data: {
         },
     },
 } }: Props) => {
-    const { specialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
+    const { keyLines, specialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
 
     const { t } = useTranslation();
 

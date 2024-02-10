@@ -171,6 +171,14 @@ export const actionBuildDictionary = (
                 statistics.spellchecker.letters.first[firstLetter] = 1;
             }
 
+            const lastLetter = word.at(-1);
+
+            if (statistics.spellchecker.letters.last[lastLetter]) {
+                statistics.spellchecker.letters.last[lastLetter] += 1;
+            } else {
+                statistics.spellchecker.letters.last[lastLetter] = 1;
+            }
+
             word.split('').forEach((letters) => {
                 if (statistics.spellchecker.letters.occurance[letters]) {
                     statistics.spellchecker.letters.occurance[letters] += 1;
@@ -218,6 +226,7 @@ export const actionBuildDictionary = (
     });
 
     statistics.spellchecker.letters.first = Object.fromEntries(Object.entries(statistics.spellchecker.letters.first).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]))
     statistics.spellchecker.letters.occurance = Object.fromEntries(Object.entries(statistics.spellchecker.letters.occurance).sort((a, b) => b[1] - a[1]))
     statistics.spellchecker.substrings.ch2 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch2).sort((a, b) => b[1] - a[1]))
     statistics.spellchecker.substrings.ch3 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch3).sort((a, b) => b[1] - a[1]))

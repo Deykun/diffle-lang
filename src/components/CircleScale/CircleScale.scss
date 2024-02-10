@@ -10,7 +10,6 @@
     color: #a4c870;
     font-weight: 300;
     letter-spacing: 0.05em;
-    
 
     .circle-scale-border {
         position: absolute;
@@ -62,6 +61,28 @@
 
             span {
                 color: transparent;
+            }
+        }
+    }
+
+    &.circle-scale-is-green {
+        .circle-scale-border {
+            border: 2px dashed rgba(#a4c870, 0.2);
+            border: 1px dashed rgba(119, 143, 85, 0.2);
+            border: 1px dashed transparent;
+    
+            span {
+                color: rgba(119, 143, 85, 0.2);
+                color: transparent;
+            }
+    
+            &.circle-scale-border-checked {
+                border-color: transparent;
+                background-color: color-mix(in srgb, var(--green) 30%, transparent);
+    
+                span {
+                    color: black;
+                }
             }
         }
     }

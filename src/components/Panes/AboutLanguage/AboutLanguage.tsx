@@ -7,11 +7,10 @@ import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconGamepad from '@components/Icons/IconGamepad';
 
+import AboutLanguageKeyboardHeatmap from './AboutLanguageKeyboardHeatmap';
 import AboutLanguageSpecialCharacters from './AboutLanguageSpecialCharacters';
 
 import './AboutLanguage.scss'
-
-
 
 const getDicitonaryData = async (lang: string | undefined) => {
     if (!lang) {
@@ -43,6 +42,7 @@ const AboutLanguage = () => {
     return (
         <div className="about-language">
             {isLoading && <p>Loading...</p>}
+            {data && <AboutLanguageKeyboardHeatmap data={data} />}
             {data && <AboutLanguageSpecialCharacters data={data} />}
             <h3>TODO:</h3>
             <ul className="to-do">

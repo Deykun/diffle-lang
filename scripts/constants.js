@@ -20,6 +20,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
         rejected: 0,
         letters: {
             first: {},
+            last: {},
             occurance: {},
         },
         substrings: {

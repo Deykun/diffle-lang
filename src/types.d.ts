@@ -40,6 +40,9 @@ export type DictionaryInfo = {
             first: {
                 [letter: string]: number,
             }
+            last: {
+                [letter: string]: number,
+            }
             occurance: {
                 [letter: string]: number,
             }
