@@ -21,7 +21,8 @@ export const INITAL_DICTIONARY_STATISTICS = {
         letters: {
             first: {},
             last: {},
-            occurance: {},
+            common: {},
+            inWords: {},
         },
         substrings: {
             ch2: {},

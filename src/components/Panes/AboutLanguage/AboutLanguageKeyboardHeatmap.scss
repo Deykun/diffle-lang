@@ -1,9 +1,47 @@
+.heatmap-keyboard-wrapper {
+    margin-top: 36px;
+    position: relative;
+
+    .heatmap-keyboard--background {
+        pointer-events: none;
+        
+        .heatmap-keyboard-cap {
+            color: transparent;
+            border-color: transparent;
+        }
+    }
+
+    .heatmap-keyboard--front {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+}
+
 .heatmap-keyboard {
     > div {
         display: flex;
         flex-flow: row;
         justify-content: center;
-        gap: 6px;
-        margin-bottom: 6px;
+        gap: min(6px, 1vw);
+        margin-bottom: min(6px, 1vw);
+    }
+}
+
+.heatmap-keyboard-filters {
+    margin-bottom: 30px;
+}
+
+.heatmap-keyboard-title {
+    font-size: 28px;
+}
+
+.heatmap-keyboard-description {
+    color: var(--text-alt);
+    font-size: 80%;
+    
+    strong {
+        color: var(--text);
     }
 }

@@ -29,6 +29,13 @@ export interface Dictionary {
     shareMarker?: string,
 }
 
+export enum DictionaryInfoLetters {
+    First = 'first',
+    Last = 'last',
+    Common = 'common',
+    InWords = 'inWords',
+} 
+
 export type DictionaryInfo = {
     spellchecker: {
         accepted: {
@@ -37,13 +44,16 @@ export type DictionaryInfo = {
             withoutSpecialCharacters: number,
         }
         letters: {
-            first: {
+            [DictionaryInfoLetters.First]: {
                 [letter: string]: number,
             }
-            last: {
+            [DictionaryInfoLetters.Last]: {
                 [letter: string]: number,
             }
-            occurance: {
+            [DictionaryInfoLetters.Common]: {
+                [letter: string]: number,
+            }
+            [DictionaryInfoLetters.InWords]: {
                 [letter: string]: number,
             }
         }

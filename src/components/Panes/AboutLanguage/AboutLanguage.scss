@@ -1,13 +1,10 @@
 .about-language {
-    border: 1px solid yellow;
-    // width: 80vw;
-    // margin-left: calc(-40vw + 200px);
-
     section {
-        padding: 10px;
-        border: 1px solid blue;
+        // padding: 10px;
+        margin-bottom: 50px;
     }
 
+    // TODO: remove
     .to-do {
         list-style: circle;
         text-align: left;
@@ -19,5 +16,3 @@
         }
     }
 }
-
-// about-language-special-characters

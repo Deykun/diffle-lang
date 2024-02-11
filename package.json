@@ -20,6 +20,7 @@
     "build-cs": "node scripts/build-cs-dictionary.mjs",
     "build-en": "node scripts/build-en-dictionary.mjs",
     "build-pl": "node scripts/build-pl-dictionary.mjs",
+    "build-lang": "yarn build-cs & yarn build-en & yarn build-pl",
     "preview": "vite preview",
     "test": "jest"
   },

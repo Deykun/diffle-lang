@@ -10,32 +10,35 @@ interface Props {
     min: number,
     max: number,
     middle: number,
+    all: number,
+    hasCircle?: boolean,
+    hasTooltip?: boolean,
 }
 
 const AboutLanguageKeyboardHeatmapKeyCap = ({
     text,
     value = 0,
-    min,
     max,
-    middle,
+    all,
+    hasCircle = false,
+    hasTooltip = false,
 }: Props) => {
-    const percentage = value / max;
-    const isHot = value >= middle;
-    const heatOpacity = isHot ?
-        ((max - middle + value - middle) / (2 * (max - middle)))
-        : (value / 2) / middle;
+    const percentageCircle = value / max;
+    const percentageText = value / all;
+
+    const precision = percentageText > 0.10 ?
+        1 : percentageText > 0.05 ?
+        2 : 3;
 
     return (
-        <span className={clsx('heatmap-keyboard-cap', 'has-tooltip', 'has-tooltip-from-left', {
-            'heatmap-keyboard-cap--hot': isHot,
-            'heatmap-keyboard-cap--cold': !isHot,
+        <span className={clsx('heatmap-keyboard-cap', {
+            'has-tooltip': hasTooltip,
         })}>
-            <span className="heatmap-keyboarc-cap-heat" style={{ opacity: heatOpacity }}></span>
             <span className="heatmap-keyboard-cap-content">
                 {text}
             </span>
-            <CircleScale startFrom={20} breakPoints={[5, 10, 15, 30, 60, 90, 100]} value={percentage * 100} shouldShowLabels={false} isGreen />
-            <span className="tooltip">{(percentage * 100).toFixed(percentage < 0.03 ? 2 : 1)}%</span>
+            {hasCircle && <CircleScale startFrom={10} breakPoints={[5, 10, 15, 30, 50, 75, 100]} value={percentageCircle * 100} shouldShowLabels={false} isGreen />}
+            {hasTooltip && <span className="tooltip">{(percentageText * 100).toFixed(precision)}%</span>}
         </span>
     )
 };

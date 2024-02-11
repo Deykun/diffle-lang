@@ -5,11 +5,12 @@
 .heatmap-keyboard-cap {
     display: inline-block;
     height: var(--heatmap-key-size);
-    min-width: var(--heatmap-key-size);
+    min-width: min(var(--heatmap-key-size), 8vw);
     line-height: var(--heatmap-key-size);
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--text) 5%, transparent);
-    border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);;
+    color: var(--text);
+    cursor: help;
+    border: 2px solid color-mix(in srgb, var(--text) 5%, transparent);
     border-radius: 6px;
     font-weight: 600;
 
@@ -22,39 +23,5 @@
 
     .circle-scale {
         width: 250%;
-    }
-
-    .heatmap-keyboarc-cap-heat {
-        // position: absolute;
-        // top: 0;
-        // left: 0;
-        // width: 100%;
-        // height: 100%;
-        // // z-index: ;
-        // pointer-events: none;
-        // border-radius: 6px;
-        // border-radius: 36px;
-        // transition: 0.5s ease-in-out;
-        // filter: blur(5px);
-    }
-
-    &.heatmap-keyboard-cap--hot {
-        // border-color: #eb5c24;
-        color: color-mix(in srgb, var(--text) 75%, transparent);
-
-        .heatmap-keyboarc-cap-heat {
-            background-color: #eb5c24;
-            // filter: blur(6px);
-        }
-    }
-
-    &.heatmap-keyboard-cap--cold {
-        // border-color: #eaaa12;
-        color: color-mix(in srgb, var(--text) 50%, transparent);
-
-        .heatmap-keyboarc-cap-heat {
-            background-color: #eaaa12;
-            // filter: blur(6px);
-        }
     }
 }

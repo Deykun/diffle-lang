@@ -108,7 +108,7 @@
     "settings.keyboardVibration": "Keyboard vibrations",
     "settings.smallerKeyboard": "Smaller keyboard",
     "settings.sourcesTitle": "Sources",
-    "settings.sourcesDescription": "All resources used by this app are under a free license. Kudos to the creators of those resources",
+    "settings.sourcesDescription": "All resources used by this app are under a free license. Kudos to the creators of those resources.",
     "settings.sourcesTitleDictionaries": "Dictionaries",
     "settings.sourcesTitleImages": "Icons",
     "settings.sourceGithub": "this site repository",
@@ -180,5 +180,9 @@
     "statistics.lettersIncorrect": "incorrect",
     "statistics.lettersIncorrectAndTyped": "typed incorrect",
     "statistics.titleRemoveStatistics": "Remove statistics",
-    "statistics.statisticsWasRemoved": "Statistics were removed"
+    "statistics.statisticsWasRemoved": "Statistics were removed",
+    "statistics.languageTitleHighestLetterForCommon": "The most popular letter",
+    "statistics.languageTitleHighestLetterForInWords": "Letter in the largest number of words",
+    "statistics.languageTitleHighestLetterForFirst": "Most popular first letter",
+    "statistics.languageTitleHighestLetterForLast": "Most popular last letter"
 }

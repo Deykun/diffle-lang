@@ -134,6 +134,9 @@ export const actionBuildDictionary = (
     statistics.winning.all = winningWords.length;
 
     console.log(' ');
+    console.log(`Building a new dictionary for ${chalk.green(LANG)}`);
+
+    console.log(' ');
     console.log(chalk.red('Removing dictionaries to genereted the new ones...'));
 
     fsExtra.emptyDirSync(`./public/dictionary/${LANG}/spelling/`);
@@ -179,11 +182,19 @@ export const actionBuildDictionary = (
                 statistics.spellchecker.letters.last[lastLetter] = 1;
             }
 
-            word.split('').forEach((letters) => {
-                if (statistics.spellchecker.letters.occurance[letters]) {
-                    statistics.spellchecker.letters.occurance[letters] += 1;
+            [...new Set(word.split(''))].forEach((letters) => {
+                if (statistics.spellchecker.letters.inWords[letters]) {
+                    statistics.spellchecker.letters.inWords[letters] += 1;
                 } else {
-                    statistics.spellchecker.letters.occurance[letters] = 1;
+                    statistics.spellchecker.letters.inWords[letters] = 1;
+                }
+            });
+
+            word.split('').forEach((letters) => {
+                if (statistics.spellchecker.letters.common[letters]) {
+                    statistics.spellchecker.letters.common[letters] += 1;
+                } else {
+                    statistics.spellchecker.letters.common[letters] = 1;
                 }
             });
 
@@ -227,7 +238,8 @@ export const actionBuildDictionary = (
 
     statistics.spellchecker.letters.first = Object.fromEntries(Object.entries(statistics.spellchecker.letters.first).sort((a, b) => b[1] - a[1]))
     statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]))
-    statistics.spellchecker.letters.occurance = Object.fromEntries(Object.entries(statistics.spellchecker.letters.occurance).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.letters.inWords = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWords).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.letters.common = Object.fromEntries(Object.entries(statistics.spellchecker.letters.common).sort((a, b) => b[1] - a[1]))
     statistics.spellchecker.substrings.ch2 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch2).sort((a, b) => b[1] - a[1]))
     statistics.spellchecker.substrings.ch3 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch3).sort((a, b) => b[1] - a[1]))
 

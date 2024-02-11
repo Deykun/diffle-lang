@@ -180,5 +180,13 @@
     "statistics.lettersIncorrect": "niepoprawne",
     "statistics.lettersIncorrectAndTyped": "niepoprawne powtórzone",
     "statistics.titleRemoveStatistics": "Usuń statystyki",
-    "statistics.statisticsWasRemoved": "Usunięto statystyki."
+    "statistics.statisticsWasRemoved": "Usunięto statystyki.",
+    "statistics.languageTitleHighestLetterForCommon": "Najpopularniejsza litera",
+    "statistics.languageDescriptionHighestLetterForCommon": "<strong>{{maxletter}}</strong> występuje <strong>{{maxLetterValue}}</strong> razy na słowo.",
+    "statistics.languageTitleHighestLetterForInWords": "Litera w największej liczbie słów",
+    "statistics.languageDescriptionHighestLetterForInWords": "<strong>{{maxletter}}</strong> występuje w <strong>{{maxLetterValue}}%</strong> słów.",
+    "statistics.languageTitleHighestLetterForFirst": "Najpopularniejsza pierwsza litera",
+    "statistics.languageDescriptionHighestLetterForFirst": "<strong>{{maxletter}}</strong> jest pierwszą literą w <strong>{{maxLetterValue}}%</strong>  słów.",
+    "statistics.languageTitleHighestLetterForLast": "Najpopularniejsza ostatnia litera",
+    "statistics.languageDescriptionHighestLetterForLast": "<strong>{{maxletter}}</strong> jest ostatnią literą w <strong>{{maxLetterValue}}%</strong> słów."
 }

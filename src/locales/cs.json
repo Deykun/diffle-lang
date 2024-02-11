@@ -180,5 +180,9 @@
     "statistics.lettersIncorrect": "nesprávný",
     "statistics.lettersIncorrectAndTyped": "napsané nesprávné",
     "statistics.titleRemoveStatistics": "Odebrat statistiky",
-    "statistics.statisticsWasRemoved": "Statistiky byly odstraněny"
+    "statistics.statisticsWasRemoved": "Statistiky byly odstraněny",
+    "statistics.languageTitleHighestLetterForCommon": "Nejoblíbenější písmeno",
+    "statistics.languageTitleHighestLetterForInWords": "Písmeno v největším počtu slov",
+    "statistics.languageTitleHighestLetterForFirst": "Nejoblíbenější první písmeno",
+    "statistics.languageTitleHighestLetterForLast": "Nejoblíbenější poslední písmeno"
 }

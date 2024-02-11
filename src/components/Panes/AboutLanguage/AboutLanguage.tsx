@@ -1,12 +1,13 @@
 import { useSelector } from '@store';
 import { useQuery } from '@tanstack/react-query';
 
-import { DictionaryInfo} from '@common-types';
+import { DictionaryInfo, DictionaryInfoLetters } from '@common-types';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconGamepad from '@components/Icons/IconGamepad';
 
+import AboutLanguageIntro from './AboutLanguageIntro';
 import AboutLanguageKeyboardHeatmap from './AboutLanguageKeyboardHeatmap';
 import AboutLanguageSpecialCharacters from './AboutLanguageSpecialCharacters';
 
@@ -42,20 +43,23 @@ const AboutLanguage = () => {
     return (
         <div className="about-language">
             {isLoading && <p>Loading...</p>}
-            {data && <AboutLanguageKeyboardHeatmap data={data} />}
-            {data && <AboutLanguageSpecialCharacters data={data} />}
+            {data && <>
+                <AboutLanguageIntro data={data} />
+                <AboutLanguageKeyboardHeatmap data={data} groupBy={DictionaryInfoLetters.InWords} />
+                <AboutLanguageSpecialCharacters data={data} />
+            </>}
             <h3>TODO:</h3>
             <ul className="to-do">
                 <li>About dicitonaries</li>
                 <li>Percentage of special characters</li>
-                <li>List of special characters</li>
+                <li>List of special characters <strong>x</strong></li>
                 <li>
-                    Most common letter
+                    Most common letter <strong>x</strong>
                     <ul>
-                        Keyboard heatmap
+                        Keyboard heatmap <strong>x</strong>
                     </ul>
                 </li>
-                <li>Most common first letter</li>
+                <li>Most common first letter <strong>x</strong></li>
                 <li>
                     Example words using
                     <ul>
