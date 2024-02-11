@@ -5,11 +5,8 @@ import { DictionaryInfo, DictionaryInfoLetters } from '@common-types';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
-import IconGamepad from '@components/Icons/IconGamepad';
-
 import AboutLanguageIntro from './AboutLanguageIntro';
-import AboutLanguageKeyboardHeatmap from './AboutLanguageKeyboardHeatmap';
-import AboutLanguageSpecialCharacters from './AboutLanguageSpecialCharacters';
+import AboutLanguageLetters from './AboutLanguageLetters';
 
 import './AboutLanguage.scss'
 
@@ -45,13 +42,12 @@ const AboutLanguage = () => {
             {isLoading && <p>Loading...</p>}
             {data && <>
                 <AboutLanguageIntro data={data} />
-                <AboutLanguageKeyboardHeatmap data={data} groupBy={DictionaryInfoLetters.InWords} />
-                <AboutLanguageSpecialCharacters data={data} />
+                <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
             </>}
             <h3>TODO:</h3>
             <ul className="to-do">
                 <li>About dicitonaries</li>
-                <li>Percentage of special characters</li>
+                <li>Percentage of special characters <strong>x</strong></li>
                 <li>List of special characters <strong>x</strong></li>
                 <li>
                     Most common letter <strong>x</strong>

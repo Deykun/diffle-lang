@@ -2,8 +2,13 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
+import { Pane } from '@common-types';
+
 import { useSelector } from '@store';
 
+import usePanes from '@hooks/usePanes';
+
+import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconDictionary from '@components/Icons/IconDictionary';
 import IconDictionaryAlt from '@components/Icons/IconDictionaryAlt';
 
@@ -22,6 +27,8 @@ const SettingsSources = () => {
     const [startCount, setStartCount] = useState<null | number>(null);
     const gameLanguage = useSelector((state) => state.game.language);
     const { t } = useTranslation();
+
+    const { changePane } = usePanes();
 
     useEffect(() => {
         (async () => {
@@ -42,7 +49,7 @@ const SettingsSources = () => {
                 setStartCount(0);
             }
         })();
-    }, [startCount])
+    }, [startCount]);
 
     return (
         <>
@@ -66,7 +73,13 @@ const SettingsSources = () => {
                 </li>
             </ul>
             <h2>{t('settings.sourcesTitleDictionaries')}: {t('settings.currentLanguage')}</h2>
-            <ul>
+            <ul className="list-col-3">
+                <li>
+                    <button className="setting" onClick={() => changePane(Pane.AboutLanguage)}>
+                        <IconBookOpen />
+                        <span>{t('settings.statisticsTitle')}</span>
+                    </button>
+                </li>
                 {gameLanguage === 'cs' && <>
                     <li>
                         <a href="https://gitlab.com/strepon/czech-cc0-dictionaries/" target="_blank" rel="noopener noreferrer">

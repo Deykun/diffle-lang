@@ -81,7 +81,7 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
               <IconPicture />
               <span>{t('common.download')}</span>
           </Button>
-      </div>
+        </div>
         <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
           <div className="settings">
             <h3>{t('statistics.titleRemoveStatistics')}</h3>

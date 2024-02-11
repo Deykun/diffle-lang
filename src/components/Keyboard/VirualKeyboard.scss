@@ -5,11 +5,20 @@
     z-index: 1;
     transform: translate(-50%, 100%);
     width: min(500px, 100%);
+    border-top: 1px solid var(--border);
+
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    @media (min-width: 502px) {
+        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+    }
+
     padding: 7px;
     background-color: var(--background-transparent);
     -webkit-backdrop-filter: blur(6px) saturate(1.2) hue-rotate(-15deg);
     backdrop-filter: blur(6px) saturate(1.2) hue-rotate(-15deg);
-    border-top: 1px solid var(--border);
     box-shadow: 0 -7px 15px 0 var(--background-transparent);
     transition: all 0.3s ease-in-out;
     animation: slideInFromBottom 0.4s ease-out forwards;

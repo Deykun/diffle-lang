@@ -182,11 +182,12 @@
     "statistics.titleRemoveStatistics": "Usuń statystyki",
     "statistics.statisticsWasRemoved": "Usunięto statystyki.",
     "statistics.languageTitleHighestLetterForCommon": "Najpopularniejsza litera",
-    "statistics.languageDescriptionHighestLetterForCommon": "<strong>{{maxletter}}</strong> występuje <strong>{{maxLetterValue}}</strong> razy na słowo.",
+    "statistics.languageDescriptionHighestLetterForCommon": "{{maxletter}} występuje {{maxLetterValue}} razy na słowo.",
     "statistics.languageTitleHighestLetterForInWords": "Litera w największej liczbie słów",
-    "statistics.languageDescriptionHighestLetterForInWords": "<strong>{{maxletter}}</strong> występuje w <strong>{{maxLetterValue}}%</strong> słów.",
+    "statistics.languageDescriptionHighestLetterForInWords": "{{maxletter}} występuje w {{maxLetterValue}} słowach.",
     "statistics.languageTitleHighestLetterForFirst": "Najpopularniejsza pierwsza litera",
-    "statistics.languageDescriptionHighestLetterForFirst": "<strong>{{maxletter}}</strong> jest pierwszą literą w <strong>{{maxLetterValue}}%</strong>  słów.",
+    "statistics.languageDescriptionHighestLetterForFirst": "{{maxletter}} jest pierwszą literą w {{maxLetterValue}} słowach.",
     "statistics.languageTitleHighestLetterForLast": "Najpopularniejsza ostatnia litera",
-    "statistics.languageDescriptionHighestLetterForLast": "<strong>{{maxletter}}</strong> jest ostatnią literą w <strong>{{maxLetterValue}}%</strong> słów."
+    "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} jest ostatnią literą w {{maxLetterValue}} słowach.",
+    "statistics.showOneChartWithFilters": "Jeden wykres z filtrami"
 }

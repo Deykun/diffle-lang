@@ -184,7 +184,7 @@
             .setting-inverse {
                 color: var(--background);
                 background-color: var(--text);
-                border-style: solid;
+                border: none;
 
                 svg + span {
                     display: block;

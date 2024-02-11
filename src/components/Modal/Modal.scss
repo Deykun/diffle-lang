@@ -48,9 +48,17 @@
     text-align: center;
     padding: 16px 7px 7px;
     width: min(500px, 100%);
+    border-top: 1px solid var(--border);
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+
+    @media (min-width: 502px) {
+        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+    }
+
     transform: translateX(-50%);
     background: var(--background);
-    border-top: 1px solid var(--border);
     box-shadow: 0 -7px 15px var(--background-transparent);
 }
 

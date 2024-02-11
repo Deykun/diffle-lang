@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import CircleScale from '@components/CircleScale/CircleScale';
 
-import './AboutLanguageKeyboardHeatmapKeyCap.scss'
+import './KeyboardHeatmapKeyCap.scss'
 
 interface Props {
     text: string,
@@ -15,7 +15,7 @@ interface Props {
     hasTooltip?: boolean,
 }
 
-const AboutLanguageKeyboardHeatmapKeyCap = ({
+const KeyboardHeatmapKeyCap = ({
     text,
     value = 0,
     max,
@@ -43,4 +43,4 @@ const AboutLanguageKeyboardHeatmapKeyCap = ({
     )
 };
 
-export default AboutLanguageKeyboardHeatmapKeyCap;
+export default KeyboardHeatmapKeyCap;

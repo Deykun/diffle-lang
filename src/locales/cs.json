@@ -181,8 +181,13 @@
     "statistics.lettersIncorrectAndTyped": "napsané nesprávné",
     "statistics.titleRemoveStatistics": "Odebrat statistiky",
     "statistics.statisticsWasRemoved": "Statistiky byly odstraněny",
-    "statistics.languageTitleHighestLetterForCommon": "Nejoblíbenější písmeno",
-    "statistics.languageTitleHighestLetterForInWords": "Písmeno v největším počtu slov",
-    "statistics.languageTitleHighestLetterForFirst": "Nejoblíbenější první písmeno",
-    "statistics.languageTitleHighestLetterForLast": "Nejoblíbenější poslední písmeno"
+    "statistics.languageTitleHighestLetterForCommon": "Nejběžnější oblíbený písmeno",
+    "statistics.languageDescriptionHighestLetterForCommon": "{{maxletter}} se vyskytuje {{maxLetterValue}} krát na slovo.",
+    "statistics.languageTitleHighestLetterForInWords": "Písmeno ve největším počtu slov",
+    "statistics.languageDescriptionHighestLetterForInWords": "{{maxletter}} se vyskytuje ve {{maxLetterValue}} slovech.",
+    "statistics.languageTitleHighestLetterForFirst": "Nejběžnější první písmeno",
+    "statistics.languageDescriptionHighestLetterForFirst": "{{maxletter}} je prvním písmenem ve {{maxLetterValue}} slovech.",
+    "statistics.languageTitleHighestLetterForLast": "Nejběžnější poslední písmeno",
+    "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} je posledním písmenem ve {{maxLetterValue}} slovech.",
+    "statistics.showOneChartWithFilters": "Jeden graf s filtry"
 }
