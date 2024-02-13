@@ -10,11 +10,22 @@
     text-transform: uppercase;
     color: var(--text);
     cursor: help;
-    border: 2px solid color-mix(in srgb, var(--text) 5%, transparent);
-    border-radius: 6px;
     font-weight: 600;
-
     position: relative;
+
+    /* Border doesn't mess up the circle's position on the downloaded image when placed like this */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid color-mix(in srgb, var(--text) 5%, transparent);
+        border-radius: 6px;
+        z-index: -1;
+        pointer-events: none;
+    }
 
     .heatmap-keyboard-cap-content {
         position: relative;
@@ -22,6 +33,6 @@
     }
 
     .circle-scale {
-        width: 250%;
+        width: 240%;
     }
 }

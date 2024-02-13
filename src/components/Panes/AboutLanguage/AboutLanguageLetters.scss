@@ -9,10 +9,15 @@
             }
         }
     }
+    
 
     .heatmap-share-content {
         margin: 0;
         padding: 7px;
+
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
     }
 }
 

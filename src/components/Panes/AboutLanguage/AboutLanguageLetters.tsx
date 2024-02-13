@@ -13,30 +13,17 @@ import { useDispatch, useSelector } from '@store';
 import { setToast } from '@store/appSlice';
 
 import { getNow } from '@utils/date';
-import { capitalize } from '@utils/format';
 
-import useScrollEffect from '@hooks/useScrollEffect';
-
-import IconCog from '@components/Icons/IconCog';
-import IconCount from '@components/Icons/IconCog';
-import IconFlagAlt from '@components/Icons/IconFlagAlt';
-import IconGamepad from '@components/Icons/IconGamepad';
-import IconLayersAlt from '@components/Icons/IconLayersAlt';
 import IconPencil from '@components/Icons/IconPencil';
 import IconPicture from '@components/Icons/IconPicture';
 import IconPictures from '@components/Icons/IconPictures';
 
 import Button from '@components/Button/Button';
 import Modal from '@components/Modal/Modal';
-import Word from '@components/Words/Word';
 
 import KeyboardHeatmap from '@components/Charts/KeyboardHeatmap';
 
 import { formatLargeNumber } from '@utils/format';
-
-// import IconGamepad from '@components/Icons/IconGamepad';
-// import KeyboardHeatmapActions from './KeyboardHeatmapActions';
-// import KeyboardHeatmapKeyCap from './KeyboardHeatmapKeyCap';
 
 import './AboutLanguageLetters.scss'
 

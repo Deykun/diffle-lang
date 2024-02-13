@@ -16,6 +16,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
             all: 0,
             withSpecialCharacters: 0,
             withoutSpecialCharacters: 0,
+            length: {},
         },
         rejected: 0,
         letters: {

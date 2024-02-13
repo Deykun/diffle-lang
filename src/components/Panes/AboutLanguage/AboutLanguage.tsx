@@ -7,6 +7,7 @@ import useScrollEffect from '@hooks/useScrollEffect';
 
 import AboutLanguageIntro from './AboutLanguageIntro';
 import AboutLanguageLetters from './AboutLanguageLetters';
+import AboutLenguageLengths from './AboutLenguageLengths';
 
 import './AboutLanguage.scss'
 
@@ -43,6 +44,7 @@ const AboutLanguage = () => {
             {data && <>
                 <AboutLanguageIntro data={data} />
                 <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
+                <AboutLenguageLengths data={data} />
             </>}
             <h3>TODO:</h3>
             <ul className="to-do">

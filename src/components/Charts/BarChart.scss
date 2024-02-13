@@ -1,0 +1,91 @@
+
+.bar-chart {
+    padding: 0 14px;
+    // text-align: center;
+}
+
+.bar-chart-row {
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding-right: 45px;
+
+    .bar-chart-axis {
+        position: relative;
+        width: 100%;
+
+        .bar-chart-point {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-shadow:
+                0 0 15px color-mix(in srgb, var(--background) 10%, transparent),
+                0 0 10px color-mix(in srgb, var(--background) 50%, transparent),
+                0 0 5px color-mix(in srgb, var(--background) 100%, transparent),
+                0 0 5px color-mix(in srgb, var(--background) 100%, transparent);
+
+            .circle-scale {
+                width: 150%;
+            }
+        }
+    }
+
+    @mixin hover-effect {
+        .bar-chart-label {
+            > span {
+                border-color: var(--green);
+            }
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            @include hover-effect;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @include hover-effect;
+        }
+    }
+}
+
+.bar-chart-label {
+    display: inline-flex;
+    flex-flow: row;
+    align-items: center;
+    margin-right: 10px;
+
+    > span {
+        display: inline-block;
+        margin-right: 3px;
+        text-align: center;
+        min-width: 20px;
+        height: 20px;
+        line-height: 18px;
+        border-radius: 6px;
+        padding: 0 4px;
+        border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
+        transition: 0.15s ease-in-out;
+
+        &[data-bar-letter=" "] {
+            border-color: transparent !important;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.bar-chart-value {
+    font-size: 70%;
+    color: green;
+    color: black;
+}

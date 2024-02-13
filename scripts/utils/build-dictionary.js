@@ -166,6 +166,13 @@ export const actionBuildDictionary = (
                 };
             }
 
+            const wordLength = word.length;
+            if (statistics.spellchecker.accepted.length[wordLength]) {
+                statistics.spellchecker.accepted.length[wordLength] += 1;
+            } else {
+                statistics.spellchecker.accepted.length[wordLength] = 1;
+            }
+
             const firstLetter = word.at(0);
 
             if (statistics.spellchecker.letters.first[firstLetter]) {

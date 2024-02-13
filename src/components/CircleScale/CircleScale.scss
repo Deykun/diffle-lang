@@ -19,8 +19,6 @@
         display: block;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
-        border: 2px dashed rgba(#a4c870, 0.2);
-        border: 1px dashed rgba(119, 143, 85, 0.2);
         border: 1px dashed transparent;
         pointer-events: none;
         user-select: none;
@@ -31,7 +29,6 @@
             top: calc(100% + 5px);
             left: 50%;
             transform: translateX(-50%) rotate(35deg);
-            color: rgba(119, 143, 85, 0.2);
             color: transparent;
         }
 
@@ -67,12 +64,9 @@
 
     &.circle-scale-is-green {
         .circle-scale-border {
-            border: 2px dashed rgba(#a4c870, 0.2);
-            border: 1px dashed rgba(119, 143, 85, 0.2);
             border: 1px dashed transparent;
     
             span {
-                color: rgba(119, 143, 85, 0.2);
                 color: transparent;
             }
     
