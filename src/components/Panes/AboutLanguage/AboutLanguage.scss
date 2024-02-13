@@ -15,4 +15,37 @@
             margin-bottom: 10px;
         }
     }
+
+    .about-language-chart-language {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .about-language-chart-language-flag {
+        height: 36px;
+        width: 48px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        filter: saturate(0.6);
+        font-size: 0;
+        color: transparent;
+        object-fit: cover;
+        object-position: center;
+        background-color: var(--flag-shadow);
+        box-shadow: 0 -1px 4px var(--flag-shadow);
+    }
+
+    .about-language-chart-language-title {
+        color: var(--red-weaker);
+        font-size: 36px;
+        margin-bottom: 40px;
+
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            width: 24px;
+        }
+    }
 }

@@ -134,7 +134,7 @@ export const actionBuildDictionary = (
     statistics.winning.all = winningWords.length;
 
     console.log(' ');
-    console.log(`Building a new dictionary for ${chalk.green(LANG)}`);
+    console.log(`Building a new dictionary for ${chalk.yellow(LANG.toUpperCase())}.`);
 
     console.log(' ');
     console.log(chalk.red('Removing dictionaries to genereted the new ones...'));

@@ -59,31 +59,51 @@ const BarChart = ({
             <p className="heatmap-keyboard-description">
                 Najpopularniejsza długość słowa to <strong className="keyboard-heatmap-max-letter">1</strong><strong className="keyboard-heatmap-max-letter">2</strong> liter.
             </p>
-            <div className="bar-chart">
-                {entriesData.map(({ label, value, percentageText, percentageMax }) => {
-                    return <div className="bar-chart-row">
-                        <strong className="bar-chart-label">
-                            {label.padStart(2, ' ').split('').map((letter) => (
-                                <span data-bar-letter={letter}>
-                                    {letter}
+            <div className="bar-chart-wrapper">
+                <div className="bar-chart bar-chart--background">
+                    {entriesData.map(({ label, value, percentageText, percentageMax }) => {
+                        return <div className="bar-chart-row">
+                            <strong className="bar-chart-label">
+                                {label.padStart(2, ' ').split('').map((letter) => (
+                                    <span data-bar-letter={letter}>
+                                        {letter}
+                                    </span>
+                                ))}
+                            </strong>
+                            <span className="bar-chart-axis">
+                                <span className="bar-chart-point" style={{ left: `${(percentageMax * 100).toFixed(1)}%` }}>
+                                    {(percentageText * 100).toFixed(1)}%
+                                    <CircleScale
+                                        startFrom={15}
+                                        breakPoints={[0, 5, 15, 30, 50, 75, 100]}
+                                        value={percentageMax * 100}
+                                        shouldShowLabels={false}
+                                        isGreen
+                                    />
                                 </span>
-                            ))}
-                        </strong>
-                        <span className="bar-chart-axis">
-                            <span className="bar-chart-point" style={{ left: `${(percentageMax * 100).toFixed(1)}%` }}>
-                                {(percentageText * 100).toFixed(1)}%
-                                <CircleScale
-                                    startFrom={20}
-                                    breakPoints={[0, 10, 50, 90]}
-                                    value={percentageMax * 100}
-                                    shouldShowLabels={false}
-                                    isGreen
-                                />
                             </span>
-                            {/* <span className="bar-chart-value">{(percentageText * 100).toFixed(1)}% {(percentageMax * 100).toFixed(1)}% {formatLargeNumber(value)}</span> */}
-                        </span>
-                    </div>
-                })}
+                        </div>
+                    })}
+                </div>
+                <div className="bar-chart bar-chart--front">
+                    {entriesData.map(({ label, value, percentageText, percentageMax }) => {
+                        return <div className="bar-chart-row">
+                            <strong className="bar-chart-label">
+                                {label.padStart(2, ' ').split('').map((letter) => (
+                                    <span data-bar-letter={letter}>
+                                        {letter}
+                                    </span>
+                                ))}
+                            </strong>
+                            <span className="bar-chart-axis">
+                                <span className="bar-chart-point" style={{ left: `${(percentageMax * 100).toFixed(1)}%` }}>
+                                    {(percentageText * 100).toFixed(1)}%
+                                </span>
+                                {/* <span className="bar-chart-value">{(percentageText * 100).toFixed(1)}% {(percentageMax * 100).toFixed(1)}% {formatLargeNumber(value)}</span> */}
+                            </span>
+                        </div>
+                    })}
+                </div>
             </div>
         </>
     );

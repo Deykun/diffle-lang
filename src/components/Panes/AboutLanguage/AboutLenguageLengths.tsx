@@ -38,6 +38,8 @@ import { formatLargeNumber } from '@utils/format';
 // import KeyboardHeatmapActions from './KeyboardHeatmapActions';
 // import KeyboardHeatmapKeyCap from './KeyboardHeatmapKeyCap';
 
+import AboutLanguageChartFooter from './AboutLanguageChartFooter';
+
 import './AboutLanguageLetters.scss'
 
 interface Props {
@@ -63,15 +65,19 @@ const AboutLenguageLengths = ({
     const [filterGroupBy, setFilterGroupBy] = useState(groupByInit);
     const [isOpen, setIsOpen] = useState(false);
 
+    // withSpecialCharacters: {},
+    // withoutSpecialCharacters: {},
 
     return (
         <section>
-
             <div className={clsx('wrapper-padding-escape')}>
-                {/* {Object.entries(length).map(([wordLength, total]) => <p>
-                    {wordLength}: {total || ''}
-                </p>)} */}
-                <BarChart entries={length} />
+                <div id="sharable-length">
+                    {/* {Object.entries(length).map(([wordLength, total]) => <p>
+                        {wordLength}: {total || ''}
+                    </p>)} */}
+                    <BarChart entries={length} />
+                    <AboutLanguageChartFooter />
+                </div>
             </div>
             {/* <div className="keyboard-heatmap-actions">
                 <Button className="keyboard-heatmap-action-edit" onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>

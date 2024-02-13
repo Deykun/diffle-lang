@@ -14,16 +14,20 @@ import { setToast } from '@store/appSlice';
 
 import { getNow } from '@utils/date';
 
+import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconPencil from '@components/Icons/IconPencil';
 import IconPicture from '@components/Icons/IconPicture';
 import IconPictures from '@components/Icons/IconPictures';
 
 import Button from '@components/Button/Button';
+import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
 import KeyboardHeatmap from '@components/Charts/KeyboardHeatmap';
 
 import { formatLargeNumber } from '@utils/format';
+
+import AboutLanguageChartFooter from './AboutLanguageChartFooter';
 
 import './AboutLanguageLetters.scss'
 
@@ -48,6 +52,7 @@ const AboutLanguageLetters = ({
 
     const [shouldShowFilter, setShouldShowFilter] = useState(true);
     const [filterGroupBy, setFilterGroupBy] = useState(groupByInit);
+    const [shouldShowLanguageTitle, setShouldShowLanguageTitle] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     const { t } = useTranslation();
@@ -71,8 +76,6 @@ const AboutLanguageLetters = ({
             dispatch(setToast({ type: ToastType.Incorrect, text: `common.downloadError` }));
         }
     };
-
-    const diffleURL = location.href.replace('http://', '').replace('https://', '').split('?')[0];
 
     return (
         <section>
@@ -112,6 +115,14 @@ const AboutLanguageLetters = ({
             </nav>}
             <div className={clsx('wrapper-padding-escape', 'heatmap-share-content-margins', { 'heatmap-share-content-margins--no-filters': !shouldShowFilter })}>
                 <div id="sharable-heatmap" className="heatmap-share-content">
+                    {shouldShowLanguageTitle && <div className="about-language-chart-language">
+                        <Image
+                            className="about-language-chart-language-flag"
+                            src={`./flags/${gameLanguage}.svg`}
+                            alt=""
+                        />
+                        <h2 className="about-language-chart-language-title">język polski</h2>
+                    </div>}
                     {shouldShowFilter
                         ? <>
                         <KeyboardHeatmap groupBy={filterGroupBy} data={data} />
@@ -122,9 +133,7 @@ const AboutLanguageLetters = ({
                         <KeyboardHeatmap groupBy={DictionaryInfoLetters.First} data={data} />
                         <KeyboardHeatmap groupBy={DictionaryInfoLetters.Last} data={data} />
                     </div>}
-                    <div className="heatmap-keyboard-source">
-                        <span>{diffleURL}</span> na podstawie <span>{formatLargeNumber(all)}</span> słów z <span>SJP.pl</span>
-                    </div>
+                    <AboutLanguageChartFooter />
                 </div>
             </div>
             <div className="keyboard-heatmap-actions">
@@ -144,6 +153,15 @@ const AboutLanguageLetters = ({
                             <button
                                 className={clsx('setting', { 'setting-active': shouldShowFilter })}
                                 onClick={() => setShouldShowFilter((value) => !value)}
+                            >
+                                <IconPictures />
+                                <span>{t('statistics.showOneChartWithFilters')}</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                className={clsx('setting', { 'setting-active': shouldShowFilter })}
+                                onClick={() => setShouldShowLanguageTitle((value) => !value)}
                             >
                                 <IconPictures />
                                 <span>{t('statistics.showOneChartWithFilters')}</span>

@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.4
+- **Fix**: Icon in corner background animaiton fix 
+
 #### Version 3.3
 - **New**: A larger dictionary of winning words is used in the Czech language
 

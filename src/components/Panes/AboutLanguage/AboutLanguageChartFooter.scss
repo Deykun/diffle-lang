@@ -1,0 +1,29 @@
+.chart-footer {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: var(--text-weaker);
+
+    > div {
+        text-align: left;
+    }
+
+    svg {
+        height: 24px;
+        width: 24px;
+        margin-right: 6px;
+        fill: var(--green-stronger);
+    }
+
+    span, strong {
+        // font-size: 10px;
+        font-weight: 600;
+    }
+
+    span, strong {
+        color: var(--text);
+    }
+}
