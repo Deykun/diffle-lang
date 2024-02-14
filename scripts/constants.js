@@ -26,9 +26,9 @@ export const INITAL_DICTIONARY_STATISTICS = {
             inWords: {},
         },
         substrings: {
-            ch2: {},
-            ch3: {},
-            ch4: {},
+            first: { 2: {}, 3: {}, 4: {} },
+            middle: { 2: {}, 3: {}, 4: {} },
+            last: { 2: {}, 3: {}, 4: {} },
         },
     },
     winning: {

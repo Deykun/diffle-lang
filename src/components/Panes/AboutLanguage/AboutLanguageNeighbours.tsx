@@ -1,6 +1,6 @@
 import { DictionaryInfo} from '@common-types';
 
-import AboutLanguageIntroSpecialCharacters from './AboutLanguageIntroSpecialCharacters';
+import './AboutLanguageNeighbours.scss';
 
 interface Props {
     data: DictionaryInfo
@@ -9,18 +9,29 @@ interface Props {
 const AboutLanguageNeighbours = ({ data: {
     spellchecker: {
         substrings: {
-            ch2,
-            ch3,
-            ch4,
+            first,
+            middle,
+            last,
         },
     },
 } }: Props) => {
     return (
-        <section>
-            <h2>Części sąsiedzi</h2>
-            <p>4 znaki: {Object.keys(ch4).join(', ')}.</p>
-            <p>3 znaki: {Object.keys(ch3).join(', ')}.</p>
-            <p>2 znaki: {Object.keys(ch2).join(', ')}.</p>
+        <section className="about-language-neighbours">
+            <h4>Części sąsiedzi</h4>
+            <div className="about-language-neighbours-columns">
+                {[2, 3, 4].map((chunkLength) => <div>
+                    <strong>{chunkLength} znaki:</strong>
+                    <ul className="about-language-neighbours-list--end">
+                        {Object.keys(first[chunkLength]).map((part) => <li>{part}</li>)}
+                    </ul>
+                    <ul className="about-language-neighbours-list--start about-language-neighbours-list--end">
+                        {Object.keys(middle[chunkLength]).map((part) => <li>{part}</li>)}
+                    </ul>
+                    <ul className="about-language-neighbours-list--start">
+                        {Object.keys(last[chunkLength]).map((part) => <li>{part}</li>)}
+                    </ul>
+                </div>)}
+            </div>
         </section>
     )
 };

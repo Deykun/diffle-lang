@@ -25,6 +25,7 @@ button {
 h1,
 h2,
 h3,
+h4,
 strong {
     font-weight: 600;       
 }
@@ -33,6 +34,11 @@ h1,
 h2,
 h3 {
     font-size: 20px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 18px;
     margin-bottom: 10px;
 }
 

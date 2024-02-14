@@ -52,31 +52,6 @@ const AboutLanguage = () => {
                 <AboutLenguageLengths data={data} />
                 <AboutLanguagePlayDiffle />
             </>}
-            <h3>TODO:</h3>
-            <ul className="to-do">
-                <li>About dicitonaries</li>
-                <li>Percentage of special characters <strong>x</strong></li>
-                <li>List of special characters <strong>x</strong></li>
-                <li>
-                    Most common letter <strong>x</strong>
-                    <ul>
-                        Keyboard heatmap <strong>x</strong>
-                    </ul>
-                </li>
-                <li>Most common first letter <strong>x</strong></li>
-                <li>
-                    Example words using
-                    <ul>
-                        <li>4 most common with special characters and without</li>
-                        <li>5 most common like above</li>
-                        <li>6 most common like above?</li>
-                    </ul>
-                </li>
-                <li>Most common 2ch chunk <strong>x</strong></li>
-                <li>Most common 3ch chunk <strong>x</strong></li>
-                <li>Diffle CTA <strong>x</strong></li>
-                <li>Number of spekaers from Wikipedia</li>
-            </ul>
         </div>
     )
 };

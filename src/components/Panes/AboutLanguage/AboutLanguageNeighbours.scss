@@ -1,0 +1,89 @@
+.about-language-neighbours {
+    h4 {
+        margin-bottom: 15px;
+    }
+}
+
+.about-language-neighbours-columns {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+
+    strong {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    ul {
+        margin-bottom: 20px;
+
+        li {
+            color: var(--text-alt);
+            margin-bottom: 3px;
+
+            &::before,
+            &::after {
+                filter: blur(3px);
+                pointer-events: none;
+                opacity: 0.5;
+            }
+        }
+
+        &.about-language-neighbours-list--start {
+            li {
+                &::before {
+                    content: '8) ';
+                }
+
+                &:nth-child(3n + 1) {
+                    &::before { content:  '(: '; }
+                }
+           
+                &:nth-child(3n + 2) {
+                    &::before { content:  ';/ '; }
+                }
+            }
+        }
+        
+        &.about-language-neighbours-list--end {
+            li {
+                &::after {
+                    content: ' <:';
+                }
+
+                &:nth-child(3n - 1) {
+                    &::after { content:  ' :*'; }
+                }
+           
+                &:nth-child(3n - 2) {
+                    &::after { content:  ' :|'; }
+                }
+            }
+        }
+
+
+        li {
+            // &::after {
+            //     content: '31';
+            // }
+
+            // &:nth-child(3n + 1) {
+            //     &::before { content:  '12 '; }
+            // }
+
+            // &:nth-child(4n + 1) {
+            //     &::before { content:  '00 '; }
+            // }
+
+            // &:nth-child(3n + 2) {
+            //     &::after { content:  ' 21'; }
+            // }
+
+            // &:nth-child(4n + 3) {
+            //     &::after { content:  ' 11'; }
+            // }
+        }
+    }
+}

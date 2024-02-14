@@ -79,25 +79,55 @@ export const getNormalizedKey = (wordRaw, language) => {
     return word.slice(0, 3);
 };
 
+const getAllPossibleSubstring = (word, substrLength) => word.split('').reduce((stack, _, index) => {
+    const sub = word.substr(index, substrLength);
+    if (sub.length === substrLength) {
+        stack.push(sub);
+    }
+
+    return stack;
+}, []);
+
 export const getWordSubstrings = (word) => {
-    return word.split('').reduce((stack, _, index) => {
-        const ch2 = word.substr(index, 2);
-        if (ch2.length === 2) {
-            stack.ch2s.push(ch2);
-        }
-    
-        const ch3 = word.substr(index, 3);
-        if (ch3.length === 3) {
-            stack.ch3s.push(ch3);
+    return [2, 3, 4].reduce((stack, chunkLength) => {
+        const firstChunk = word.substr(0, chunkLength);
+        if (firstChunk.length === chunkLength) {
+            stack.first[chunkLength][firstChunk] = stack.first[chunkLength][firstChunk] ? stack.first[chunkLength][firstChunk] + 1 : 1;
         }
 
-        const ch4 = word.substr(index, 4);
-        if (ch4.length === 4) {
-            stack.ch4s.push(ch4);
+        const lastChunk = word.substr(-chunkLength);
+        if (lastChunk.length === chunkLength) {
+            stack.last[chunkLength][lastChunk] = stack.last[chunkLength][lastChunk] ? stack.last[chunkLength][lastChunk] + 1 : 1;
         }
+
+        // We ignore 2 start and end letters;
+        // abcdefgh -> cdefgh
+        const middleOfTheWord = word.slice(2,-2);
+
+        const middleChunks = getAllPossibleSubstring(middleOfTheWord, chunkLength);
+
+        middleChunks.forEach((chunk) => {
+            stack.middle[chunkLength][chunk] = stack.middle[chunkLength][chunk] ? stack.middle[chunkLength][chunk] + 1 : 1;
+        });
     
         return stack;
-    }, { ch2s: [], ch3s: [], ch4s: [] });
+    }, {
+        first: {
+            2: {},
+            3: {},
+            4: {},
+        },
+        middle: {
+            2: {},
+            3: {},
+            4: {},
+        },
+        last: {
+            2: {},
+            3: {},
+            4: {},
+        },
+    });
 };
 
 export const consoleStatistics = (statistics) => {
@@ -211,31 +241,24 @@ export const actionBuildDictionary = (
                 }
             });
 
-            const { ch2s, ch3s, ch4s } = getWordSubstrings(word);
+            const chunks = getWordSubstrings(word);
 
-            ch2s.forEach((substring) => {
-                if (statistics.spellchecker.substrings.ch2[substring]) {
-                    statistics.spellchecker.substrings.ch2[substring] += 1;
-                } else {
-                    statistics.spellchecker.substrings.ch2[substring] = 1;
-                }
-            });
+            [2, 3, 4].forEach((chunkLength) => {
+                Object.keys(chunks.first[chunkLength]).forEach((chunk) => {
+                    statistics.spellchecker.substrings.first[chunkLength][chunk] = (statistics.spellchecker.substrings.first[chunkLength][chunk] || 0)
+                        + (chunks.first[chunkLength][chunk] || 0);
+                });
 
-            ch3s.forEach((substring) => {
-                if (statistics.spellchecker.substrings.ch3[substring]) {
-                    statistics.spellchecker.substrings.ch3[substring] += 1;
-                } else {
-                    statistics.spellchecker.substrings.ch3[substring] = 1;
-                }
-            });
+                Object.keys(chunks.last[chunkLength]).forEach((chunk) => {
+                    statistics.spellchecker.substrings.last[chunkLength][chunk] = (statistics.spellchecker.substrings.last[chunkLength][chunk] || 0)
+                        + (chunks.last[chunkLength][chunk] || 0);
+                });
 
-            ch4s.forEach((substring) => {
-                if (statistics.spellchecker.substrings.ch4[substring]) {
-                    statistics.spellchecker.substrings.ch4[substring] += 1;
-                } else {
-                    statistics.spellchecker.substrings.ch4[substring] = 1;
-                }
-            });
+                Object.keys(chunks.middle[chunkLength]).forEach((chunk) => {
+                    statistics.spellchecker.substrings.middle[chunkLength][chunk] = (statistics.spellchecker.substrings.middle[chunkLength][chunk] || 0)
+                        + (chunks.middle[chunkLength][chunk] || 0);
+                });
+            })
 
             statistics.spellchecker.accepted.all += 1;
 
@@ -261,9 +284,18 @@ export const actionBuildDictionary = (
     statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.inWords = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWords).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.common = Object.fromEntries(Object.entries(statistics.spellchecker.letters.common).sort((a, b) => b[1] - a[1]));
-    statistics.spellchecker.substrings.ch2 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch2).sort((a, b) => b[1] - a[1]).slice(0, 10));
-    statistics.spellchecker.substrings.ch3 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch3).sort((a, b) => b[1] - a[1]).slice(0, 10));
-    statistics.spellchecker.substrings.ch4 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch4).sort((a, b) => b[1] - a[1]).slice(0, 10));
+
+    [2, 3, 4].forEach((chunkLength) => {
+        statistics.spellchecker.substrings.first[chunkLength] = Object.fromEntries(
+            Object.entries(statistics.spellchecker.substrings.first[chunkLength],
+        ).sort((a, b) => b[1] - a[1]).slice(0, 5));
+        statistics.spellchecker.substrings.middle[chunkLength] = Object.fromEntries(
+            Object.entries(statistics.spellchecker.substrings.middle[chunkLength],
+        ).sort((a, b) => b[1] - a[1]).slice(0, 5));
+        statistics.spellchecker.substrings.last[chunkLength] = Object.fromEntries(
+            Object.entries(statistics.spellchecker.substrings.last[chunkLength],
+        ).sort((a, b) => b[1] - a[1]).slice(0, 5));
+    })
 
     const totalNumberOfSpellingChunks = Object.keys(spellingIndex).length;
 
