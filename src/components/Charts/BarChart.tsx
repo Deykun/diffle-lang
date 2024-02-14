@@ -1,67 +1,78 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import clsx from 'clsx';
-
-import { formatLargeNumber } from '@utils/format';
-
-import { DictionaryInfo, DictionaryInfoLetters } from '@common-types';
-
-import { useSelector } from '@store';
-import { selectGameLanguageKeyboardInfo } from '@store/selectors';
-
-import { capitalize } from '@utils/format';
 
 import CircleScale from '@components/CircleScale/CircleScale';
 
-import KeyboardHeatmapKeyCap from './KeyboardHeatmapKeyCap'
 import './BarChart.scss'
 
 interface Props {
+    lng?: string,
     entries: {
         [key: string]: number,
     }
 }
 
 const BarChart = ({
-    entries = [],
+    lng,
+    entries,
 }: Props) => {
     const { t } = useTranslation();
 
-    const entriesData = useMemo(() => {
+    const {
+        dominant,
+        entriesData,
+    } = useMemo(() => {
         const {
             total,
             max,
-        } = Object.entries(entries).reduce((stack, [_, value]) => {
+            dominant,
+        } = Object.entries(entries).reduce((stack, [key, value]) => {
+            stack.total = stack.total + value;
 
-            return {
-                total: stack.total + value,
-                max: value > stack.max ? value : stack.max,
-            };
+            if (value > stack.max) {
+                stack.max = value;
+                stack.dominant = key;
+            }
+            
+            stack.total = stack.total + value;
+
+            return stack;
         }, {
             total: 0,
             max: 0,
+            dominant: '',
         });
 
-        return Object.entries(entries).map(([label, value]) => ({
+        const entriesData = Object.entries(entries).map(([label, value]) => ({
             label,
             value,
             percentageText: (value / total),
             percentageMax: (value / max),
         }));
+
+        return {
+            max,
+            dominant,
+            entriesData,
+        }
     }, [entries]);
 
     return (
         <>
             <h2 className="heatmap-keyboard-title">
-                {/* {t(`statistics.languageTitleHighestLetterFor${capitalize(groupBy)}`)} */}
-                Popularność długości słowa
+                {t('statistics.languageTitleLength', { lng })}
             </h2>
-            <p className="heatmap-keyboard-description">
-                Najpopularniejsza długość słowa to <strong className="keyboard-heatmap-max-letter">1</strong><strong className="keyboard-heatmap-max-letter">2</strong> liter.
-            </p>
+            <p
+                dangerouslySetInnerHTML={{
+                    __html: t('statistics.languageDescriptionMostPopularLength', {
+                        lng,
+                        letters: dominant.split('').map((letter) => `<strong class="about-language-small-key-cap">${letter}</strong>`).join(' '),
+                    }),
+                }}
+            />
             <div className="bar-chart-wrapper">
                 <div className="bar-chart bar-chart--background">
-                    {entriesData.map(({ label, value, percentageText, percentageMax }) => {
+                    {entriesData.map(({ label, percentageText, percentageMax }) => {
                         return <div className="bar-chart-row">
                             <strong className="bar-chart-label">
                                 {label.padStart(2, ' ').split('').map((letter) => (
@@ -86,11 +97,11 @@ const BarChart = ({
                     })}
                 </div>
                 <div className="bar-chart bar-chart--front">
-                    {entriesData.map(({ label, value, percentageText, percentageMax }) => {
+                    {entriesData.map(({ label, percentageText, percentageMax }) => {
                         return <div className="bar-chart-row">
                             <strong className="bar-chart-label">
                                 {label.padStart(2, ' ').split('').map((letter) => (
-                                    <span data-bar-letter={letter}>
+                                    <span className="about-language-small-key-cap" data-bar-letter={letter}>
                                         {letter}
                                     </span>
                                 ))}
@@ -98,7 +109,7 @@ const BarChart = ({
                             <span className="bar-chart-axis">
                                 <span className="bar-chart-point has-tooltip" style={{ left: `${(percentageMax * 100).toFixed(1)}%` }}>
                                     <span>{(percentageText * 100).toFixed(1)}%</span>
-                                    <span className="tooltip">{label} {t('end.lettersUsed', { postProcess: 'interval', count: Number(label) })}</span>
+                                    <span className="tooltip">{label} {t('end.lettersUsed', { lng, postProcess: 'interval', count: Number(label) })}</span>
                                 </span>
                             </span>
                         </div>

@@ -42,6 +42,9 @@ export type DictionaryInfo = {
             all: number,
             withSpecialCharacters: number,
             withoutSpecialCharacters: number,
+            length: {
+                [lengt: string]: number,
+            }
         }
         letters: {
             [DictionaryInfoLetters.First]: {
@@ -57,8 +60,20 @@ export type DictionaryInfo = {
                 [letter: string]: number,
             }
         }
+        substrings: {
+            ch2: {
+                [letter: string]: number,
+            },
+            ch3: {
+                [letter: string]: number,
+            },
+            ch4: {
+                [letter: string]: number,
+            },
+        },
     }
     meta: {
+        nativeSpeakersFromWikipedia: number,
         spellchecker: {
             dir: string,
             shortName: string,

@@ -202,6 +202,7 @@
 		"lettersNotAcceptedInWinningWord": []
 	},
 	"meta": {
+		"nativeSpeakersFromWikipedia": 1457000000,
 		"spellchecker": {
 			"dir": "dwyl",
 			"shortName": "DWYL",

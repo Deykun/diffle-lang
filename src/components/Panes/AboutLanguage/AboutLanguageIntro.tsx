@@ -2,6 +2,8 @@ import { DictionaryInfo} from '@common-types';
 
 import { formatLargeNumber } from '@utils/format';
 
+import { useTranslation } from 'react-i18next';
+
 import AboutLanguageIntroSpecialCharacters from './AboutLanguageIntroSpecialCharacters';
 
 interface Props {
@@ -15,11 +17,17 @@ const AboutLanguageIntro = ({ data: {
             withSpecialCharacters,
         },
     },
+    meta: {
+        nativeSpeakersFromWikipedia,
+    },
 } }: Props) => {
+
+    const { t } = useTranslation();
+
     return (
         <section>
-            <h2>Słownik języka polskiego w liczbach</h2>
-            <p>Wszystkich słów <strong>{formatLargeNumber(all)}</strong></p>
+            <h2>{t('settings.statisticsTitle')}</h2>
+            <p>Native speakers <strong>{formatLargeNumber(nativeSpeakersFromWikipedia)}</strong></p>
             <AboutLanguageIntroSpecialCharacters all={all} withSpecialCharacters={withSpecialCharacters} />
         </section>
     )

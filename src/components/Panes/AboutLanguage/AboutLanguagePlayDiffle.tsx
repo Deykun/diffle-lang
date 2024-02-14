@@ -1,15 +1,16 @@
 import { useTranslation } from 'react-i18next';
 
-import { Pane } from '@common-types';
+import {
+    getInitPane,
+} from '@api/getInit';
 
 import usePanes from '@hooks/usePanes';
 
 import IconGamepad from '@components/Icons/IconGamepad';
-import IconHelp from '@components/Icons/IconHelp';
 
 import Button from '@components/Button/Button';
 
-// import AboutLanguageIntroSpecialCharacters from './AboutLanguageIntroSpecialCharacters';
+import './AboutLanguagePlayDiffle.scss';
 
 const AboutLanguagePlayDiffle = () => {    
     const { t } = useTranslation();
@@ -17,15 +18,10 @@ const AboutLanguagePlayDiffle = () => {
     const { changePane } = usePanes();
 
     return (
-        <section>
-            <h2>Diffle</h2>
-            <Button onClick={() => changePane(Pane.Game)} isText isInverted hasBorder={false}>
-                
-                <IconHelp />
-                <span>{t('help.title')}</span>
-            </Button>
-            {' '}
-            <Button onClick={() => changePane(Pane.Game)} isLarge>
+        <section className="about-language-play-diffle">
+            <h2>{t('help.whatIsDiffleTitle')}</h2>
+            <p>{t('help.whatIsDiffleDescription')}</p>
+            <Button onClick={() => changePane(getInitPane())} isLarge>
                 <IconGamepad />
                 <span>{t('common.play')}</span>
             </Button>

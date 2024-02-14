@@ -30,10 +30,6 @@
         top: 0;
         left: 0;
         width: 100%;
-
-        .bar-chart-point {
-
-        }
         
         .bar-chart-axis {
             &::before {
@@ -45,7 +41,6 @@
 
 .bar-chart {
     padding: 0 14px;
-    // text-align: center;
 }
 
 .bar-chart-row {
@@ -118,16 +113,12 @@
     margin-left: 25px;
 
     > span {
-        display: inline-block;
-        margin-right: 3px;
         text-align: center;
-        min-width: 20px;
+        width: 20px;
         height: 20px;
+        margin-right: 3px;
         font-size: 12px;
         line-height: 18px;
-        border-radius: 6px;
-        padding: 0 4px;
-        border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
         transition: 0.15s ease-in-out;
 
         &[data-bar-letter=" "] {
@@ -138,10 +129,4 @@
             margin-right: 0;
         }
     }
-}
-
-.bar-chart-value {
-    font-size: 70%;
-    color: green;
-    color: black;
 }

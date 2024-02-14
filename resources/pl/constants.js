@@ -5,6 +5,7 @@ export const BLOCKED_PARTS = ['jeb', 'gówn', 'kutas'];
 export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x', 'v'];
 
 export const DICTIONARIES = {
+    nativeSpeakersFromWikipedia: 40_670_000,
     spellchecker: {
         dir: 'SJP',
         shortName: 'SJP.pl',

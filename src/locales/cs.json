@@ -58,6 +58,9 @@
     "help.winingWordMessage": "Toto je slovo odpovědi.",
     "help.previousExample": "Předchozí příklad",
     "help.altExample": "Další příklad?",
+    "help.whatIsDiffleTitle": "Co je Diffle?",
+    "help.whatIsDiffleDescription": "Diffle je hra inspirovaná Wordle bez omezení počtu znaků. Pokud máte rádi Wordle, tato hra je pro vás.",
+    "help.gameRules": "Pravidla hry",
     "end.titleWon": "Úspěch",
     "end.titleLost": "Porazit",
     "end.titleCheater": "Jasnovid",
@@ -196,6 +199,8 @@
     "statistics.languageTitleHighestLetterForLast": "Nejběžnější poslední písmeno",
     "statistics.filterLast": "poslední",
     "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} je posledním písmenem ve {{maxLetterValue}} slovech.",
+    "statistics.languageTitleLength": "Počet písmen ve slově",
+    "statistics.languageDescriptionMostPopularLength": "Nejoblíbenější délka slova je {{letters}} písmen.",
     "statistics.showOneChartWithFilters": "Jeden graf s filtry",
     "statistics.showTitleWithLanguage": "Zobrazit název jazyka",
     "statistics.basedOn": "{{product}} na základě {{words}} slov z {{source}}"

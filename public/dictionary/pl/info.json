@@ -236,6 +236,7 @@
 		]
 	},
 	"meta": {
+		"nativeSpeakersFromWikipedia": 40670000,
 		"spellchecker": {
 			"dir": "SJP",
 			"shortName": "SJP.pl",

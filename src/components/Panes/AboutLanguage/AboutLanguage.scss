@@ -1,6 +1,5 @@
 .about-language {
     section {
-        // padding: 10px;
         margin-bottom: 50px;
     }
 
@@ -14,6 +13,23 @@
         li {
             margin-bottom: 10px;
         }
+    }
+
+    .about-language-content-loader {
+        margin-top: 100px;
+        fill: var(--text-weaker);
+        width: 96px;
+        height: 96px;
+        animation: spin infinite linear 1s;
+    }
+
+    .about-language-small-key-cap {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        line-height: 18px;
+        border-radius: 6px;
+        border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
     }
 
     .about-language-chart-language {

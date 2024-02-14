@@ -1,7 +1,5 @@
 import { DictionaryInfo} from '@common-types';
 
-import { formatLargeNumber } from '@utils/format';
-
 import AboutLanguageIntroSpecialCharacters from './AboutLanguageIntroSpecialCharacters';
 
 interface Props {

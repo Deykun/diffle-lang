@@ -5,6 +5,8 @@ import { DictionaryInfo, DictionaryInfoLetters } from '@common-types';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
+import IconLoader from '@components/Icons/IconLoader';
+
 import AboutLanguageIntro from './AboutLanguageIntro';
 import AboutLanguageLetters from './AboutLanguageLetters';
 import AboutLanguageNeighbours from './AboutLanguageNeighbours';
@@ -33,7 +35,7 @@ const AboutLanguage = () => {
 
     const {
         isLoading,
-        error,
+        // error,
         data,
     } = useQuery({
         queryFn: () => getDicitonaryData(gameLanguage),
@@ -42,7 +44,7 @@ const AboutLanguage = () => {
 
     return (
         <div className="about-language">
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <IconLoader className="about-language-content-loader" />}
             {data && <>
                 <AboutLanguageIntro data={data} />
                 <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
@@ -72,6 +74,7 @@ const AboutLanguage = () => {
                 </li>
                 <li>Most common 2ch chunk <strong>x</strong></li>
                 <li>Most common 3ch chunk <strong>x</strong></li>
+                <li>Diffle CTA <strong>x</strong></li>
                 <li>Number of spekaers from Wikipedia</li>
             </ul>
         </div>

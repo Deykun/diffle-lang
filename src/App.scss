@@ -18,6 +18,7 @@ body p {
 :root {
     --text: #fcfcfc; // 252, 252, 252
     --text-alt: #dbdbdb;
+    --text-extreme: white;
     --text-weaker: rgba(252, 252, 252, 0.5);
     --background: rgba(34, 34, 34, 1);;
     --background-transparent: rgba(34, 34, 34, 0.7);
@@ -67,6 +68,7 @@ body p {
 :root.light {
     --text: #222; // 34, 34, 34
     --text-alt: #8c8c8c;
+    --text-extreme: black;
     --text-weaker: rgba(34, 34, 34, 0.5);
     --background: rgba(252, 252, 252, 1);
     --background-transparent: rgba(252, 252, 252, 0.5);

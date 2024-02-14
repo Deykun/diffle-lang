@@ -58,6 +58,9 @@
     "help.winingWordMessage": "Podane słowo jest hasłem.",
     "help.previousExample": "Poprzedni przykład",
     "help.altExample": "Inny przykład?",
+    "help.whatIsDiffleTitle": "Czym jest Diffle?",
+    "help.whatIsDiffleDescription": "Diffle to gra inspirowana Wordle bez limitu znaków, jeśli lubisz polskie wersje Wordle to gra dla Ciebie.",
+    "help.gameRules": "Zasady gry",
     "end.titleWon": "Sukces",
     "end.titleLost": "Przegrana",
     "end.titleCheater": "Jasnowidz",
@@ -196,6 +199,8 @@
     "statistics.languageTitleHighestLetterForLast": "Najpopularniejsza ostatnia litera",
     "statistics.filterLast": "ostatnia",
     "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} jest ostatnią literą w {{maxLetterValue}} słów.",
+    "statistics.languageTitleLength": "Liczba liter w słowie",
+    "statistics.languageDescriptionMostPopularLength": "Najpopularniejsza długość słowa to {{letters}} liter.",
     "statistics.showOneChartWithFilters": "Jeden wykres z filtrami",
     "statistics.showTitleWithLanguage": "Pokaż tytuł języka",
     "statistics.basedOn": "{{product}} na podstawie {{words}} słów z {{source}}"

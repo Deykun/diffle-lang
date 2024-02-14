@@ -58,6 +58,9 @@
     "help.winingWordMessage": "This is the answer word.",
     "help.previousExample": "Previous example",
     "help.altExample": "Another example?",
+    "help.whatIsDiffleTitle": "What is Diffle?",
+    "help.whatIsDiffleDescription": "Diffle is a game inspired by Wordle without a character limit. If you enjoy wordle, this game is for you.",
+    "help.gameRules": "Game rules",
     "end.titleWon": "Success",
     "end.titleLost": "Defeat",
     "end.titleCheater": "A clairvoyant",
@@ -196,6 +199,8 @@
     "statistics.languageTitleHighestLetterForLast": "Most common last letter",
     "statistics.filterLast": "last",
     "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} is the last letter in {{maxLetterValue}} words.",
+    "statistics.languageTitleLength": "Number of letters in a word",
+    "statistics.languageDescriptionMostPopularLength": "The most popular word length is {{letters}} letters.",
     "statistics.showOneChartWithFilters": "One chart with filters",
     "statistics.showTitleWithLanguage": "Show language title",
     "statistics.basedOn": "{{product}} based on {{words}} words from {{source}}"

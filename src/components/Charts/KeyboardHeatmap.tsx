@@ -65,7 +65,7 @@ const KeyboardHeatmap = ({
                 dangerouslySetInnerHTML={{
                     __html: t(`statistics.languageDescriptionHighestLetterFor${capitalize(groupBy)}`, {
                         lng,
-                        maxletter: `<strong class="keyboard-heatmap-max-letter">${letterKeysByValue[0].toLocaleUpperCase()}</strong>`,
+                        maxletter: `<strong class="about-language-small-key-cap">${letterKeysByValue[0].toLocaleUpperCase()}</strong>`,
                         maxLetterValue: `<strong>${maxLetterValue.toFixed(isMaxPercentage ? 1 : 2)}${isMaxPercentage ? '%' : ''}</strong>`,
                 })}}
             />

@@ -5,6 +5,7 @@ export const BLOCKED_PARTS = ['fuck'];
 export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = [];
 
 export const DICTIONARIES = {
+    nativeSpeakersFromWikipedia: 1_457_000_000,
     spellchecker: {
         dir: 'dwyl',
         shortName: 'DWYL',

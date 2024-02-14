@@ -22,14 +22,12 @@ import IconPictures from '@components/Icons/IconPictures';
 import IconTranslation from '@components/Icons/IconTranslation';
 
 import Button from '@components/Button/Button';
-import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
 import KeyboardHeatmap from '@components/Charts/KeyboardHeatmap';
 
-import { formatLargeNumber } from '@utils/format';
-
 import AboutLanguageChartFooter from './AboutLanguageChartFooter';
+import AboutLanguageChartLanguageTitle from './AboutLanguageChartLanguageTitle';
 
 import './AboutLanguageLetters.scss'
 
@@ -42,13 +40,6 @@ const AboutLanguageLetters = ({
     groupBy: groupByInit = DictionaryInfoLetters.Common,
     data,
 }: Props) => {
-    const {
-        spellchecker: {
-            accepted: {
-                all,
-            },
-        },
-    } = data;
     const dispatch = useDispatch();
     const gameLanguage = useSelector((state) => state.game.language);
 
@@ -98,14 +89,7 @@ const AboutLanguageLetters = ({
             </nav>}
             <div className={clsx('wrapper-padding-escape', 'heatmap-share-content-margins', { 'heatmap-share-content-margins--no-filters': !shouldShowFilter })}>
                 <div id="sharable-heatmap" className="heatmap-share-content">
-                    {shouldShowLanguageTitle && <div className="about-language-chart-language">
-                        <Image
-                            className="about-language-chart-language-flag"
-                            src={`./flags/${gameLanguage}.svg`}
-                            alt=""
-                        />
-                        <h2 className="about-language-chart-language-title">{t(`language.${gameLanguage}`, { lng })}</h2>
-                    </div>}
+                    {shouldShowLanguageTitle && <AboutLanguageChartLanguageTitle lng={lng} />}
                     {shouldShowFilter
                         ? <>
                         <KeyboardHeatmap lng={lng} groupBy={filterGroupBy} data={data} />

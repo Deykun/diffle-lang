@@ -55,12 +55,4 @@
         display: inline-block;
         color: var(--text);
     }
-
-    .keyboard-heatmap-max-letter {
-        width: 20px;
-        height: 20px;
-        line-height: 18px;
-        border-radius: 6px;
-        border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
-    }
 }

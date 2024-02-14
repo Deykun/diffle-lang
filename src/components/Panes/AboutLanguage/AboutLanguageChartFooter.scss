@@ -9,18 +9,23 @@
     color: var(--text-weaker);
 
     > div {
-        // text-align: left;
+        text-align: left;
     }
 
     svg {
         height: 24px;
         width: 24px;
         margin-right: 12px;
-        fill: var(--green-stronger);
+        fill: var(--text-weaker);
     }
 
     a {
         text-decoration: none;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: var(--blue);
+        }
     }
 
     a, span, strong {

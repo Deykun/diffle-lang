@@ -261,6 +261,7 @@
 		]
 	},
 	"meta": {
+		"nativeSpeakersFromWikipedia": 10700000,
 		"spellchecker": {
 			"dir": "czech-cc0-dictionaries",
 			"shortName": "Czech CC0 dictionaries",
