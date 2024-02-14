@@ -19,15 +19,30 @@
     .about-language-chart-language {
         display: flex;
         justify-content: center;
-        gap: 20px;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: color-mix(in srgb, var(--text) 10%, transparent);
+        }
     }
 
     .about-language-chart-language-flag {
-        height: 36px;
-        width: 48px;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        filter: saturate(0.6);
+        height: 18px;
+        width: 24px;
+        border-radius: 4px;
+        filter: saturate(0.8);
         font-size: 0;
         color: transparent;
         object-fit: cover;
@@ -37,15 +52,29 @@
     }
 
     .about-language-chart-language-title {
-        color: var(--red-weaker);
-        font-size: 36px;
-        margin-bottom: 40px;
+        text-transform: capitalize;
+        color: var(--black);
+        font-size: 20px;
+        margin-bottom: 0;
+    }
 
-        svg {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-            width: 24px;
+    .heatmap-share-content-margins--no-filters {
+        @media (min-width: 1050px) {
+            .about-language-chart-language {
+                gap: 12px;
+                margin-top: 16px;
+                margin-bottom: 40px;
+            }
+
+            .about-language-chart-language-flag {
+                height: 36px;
+                width: 48px;
+                border-radius: 8px;
+            }
+        
+            .about-language-chart-language-title {
+                font-size: 36px;
+            }
         }
     }
 }

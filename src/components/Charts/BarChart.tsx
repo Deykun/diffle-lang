@@ -96,10 +96,10 @@ const BarChart = ({
                                 ))}
                             </strong>
                             <span className="bar-chart-axis">
-                                <span className="bar-chart-point" style={{ left: `${(percentageMax * 100).toFixed(1)}%` }}>
-                                    {(percentageText * 100).toFixed(1)}%
+                                <span className="bar-chart-point has-tooltip" style={{ left: `${(percentageMax * 100).toFixed(1)}%` }}>
+                                    <span>{(percentageText * 100).toFixed(1)}%</span>
+                                    <span className="tooltip">{label} {t('end.lettersUsed', { postProcess: 'interval', count: Number(label) })}</span>
                                 </span>
-                                {/* <span className="bar-chart-value">{(percentageText * 100).toFixed(1)}% {(percentageMax * 100).toFixed(1)}% {formatLargeNumber(value)}</span> */}
                             </span>
                         </div>
                     })}

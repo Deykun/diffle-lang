@@ -90,9 +90,14 @@ export const getWordSubstrings = (word) => {
         if (ch3.length === 3) {
             stack.ch3s.push(ch3);
         }
+
+        const ch4 = word.substr(index, 4);
+        if (ch4.length === 4) {
+            stack.ch4s.push(ch4);
+        }
     
         return stack;
-    }, { ch2s: [], ch3s: [] });
+    }, { ch2s: [], ch3s: [], ch4s: [] });
 };
 
 export const consoleStatistics = (statistics) => {
@@ -123,6 +128,7 @@ export const actionBuildDictionary = (
         BLOCKED_WORDS,
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
+        DICTIONARIES,
     },
     spellcheckerWords,
     winningWords,
@@ -205,7 +211,7 @@ export const actionBuildDictionary = (
                 }
             });
 
-            const { ch2s, ch3s } = getWordSubstrings(word);
+            const { ch2s, ch3s, ch4s } = getWordSubstrings(word);
 
             ch2s.forEach((substring) => {
                 if (statistics.spellchecker.substrings.ch2[substring]) {
@@ -220,6 +226,14 @@ export const actionBuildDictionary = (
                     statistics.spellchecker.substrings.ch3[substring] += 1;
                 } else {
                     statistics.spellchecker.substrings.ch3[substring] = 1;
+                }
+            });
+
+            ch4s.forEach((substring) => {
+                if (statistics.spellchecker.substrings.ch4[substring]) {
+                    statistics.spellchecker.substrings.ch4[substring] += 1;
+                } else {
+                    statistics.spellchecker.substrings.ch4[substring] = 1;
                 }
             });
 
@@ -243,12 +257,13 @@ export const actionBuildDictionary = (
         }
     });
 
-    statistics.spellchecker.letters.first = Object.fromEntries(Object.entries(statistics.spellchecker.letters.first).sort((a, b) => b[1] - a[1]))
-    statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]))
-    statistics.spellchecker.letters.inWords = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWords).sort((a, b) => b[1] - a[1]))
-    statistics.spellchecker.letters.common = Object.fromEntries(Object.entries(statistics.spellchecker.letters.common).sort((a, b) => b[1] - a[1]))
-    statistics.spellchecker.substrings.ch2 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch2).sort((a, b) => b[1] - a[1]))
-    statistics.spellchecker.substrings.ch3 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch3).sort((a, b) => b[1] - a[1]))
+    statistics.spellchecker.letters.first = Object.fromEntries(Object.entries(statistics.spellchecker.letters.first).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.inWords = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWords).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.common = Object.fromEntries(Object.entries(statistics.spellchecker.letters.common).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.substrings.ch2 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch2).sort((a, b) => b[1] - a[1]).slice(0, 10));
+    statistics.spellchecker.substrings.ch3 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch3).sort((a, b) => b[1] - a[1]).slice(0, 10));
+    statistics.spellchecker.substrings.ch4 = Object.fromEntries(Object.entries(statistics.spellchecker.substrings.ch4).sort((a, b) => b[1] - a[1]).slice(0, 10));
 
     const totalNumberOfSpellingChunks = Object.keys(spellingIndex).length;
 
@@ -399,6 +414,8 @@ export const actionBuildDictionary = (
             console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Saving winning chunks... - Chunk "${chalk.cyan(key)}" was saved`);
         }
     });
+
+    statistics.meta = DICTIONARIES;
 
     fs.writeFileSync(`./public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
     fs.writeFileSync(`./public/dictionary/${LANG}/info.json`, JSON.stringify(statistics, null, '\t'));

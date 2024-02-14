@@ -28,6 +28,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
         substrings: {
             ch2: {},
             ch3: {},
+            ch4: {},
         },
     },
     winning: {

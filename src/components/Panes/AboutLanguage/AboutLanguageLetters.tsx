@@ -13,11 +13,13 @@ import { useDispatch, useSelector } from '@store';
 import { setToast } from '@store/appSlice';
 
 import { getNow } from '@utils/date';
+import { capitalize } from '@utils/format';
 
-import IconBookOpen from '@components/Icons/IconBookOpen';
+import IconDictionary from '@components/Icons/IconDictionary';
 import IconPencil from '@components/Icons/IconPencil';
 import IconPicture from '@components/Icons/IconPicture';
 import IconPictures from '@components/Icons/IconPictures';
+import IconTranslation from '@components/Icons/IconTranslation';
 
 import Button from '@components/Button/Button';
 import Image from '@components/Image/Image';
@@ -53,6 +55,7 @@ const AboutLanguageLetters = ({
     const [shouldShowFilter, setShouldShowFilter] = useState(true);
     const [filterGroupBy, setFilterGroupBy] = useState(groupByInit);
     const [shouldShowLanguageTitle, setShouldShowLanguageTitle] = useState(false);
+    const [shouldForceEnglishChart, setShouldForceEnglishChart] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     const { t } = useTranslation();
@@ -77,41 +80,21 @@ const AboutLanguageLetters = ({
         }
     };
 
+    const lng = shouldForceEnglishChart ? 'en' : gameLanguage;
+
     return (
         <section>
             {shouldShowFilter && <nav className="heatmap-keyboard-filters">
-                <Button
-                    onClick={() => setFilterGroupBy(DictionaryInfoLetters.Common)}
-                    isInverted
-                    hasBorder={false}
-                    isText={filterGroupBy !== DictionaryInfoLetters.Common}
-                >
-                    popularność
-                </Button>
-                <Button
-                    onClick={() => setFilterGroupBy(DictionaryInfoLetters.InWords)}
-                    isInverted
-                    hasBorder={false}
-                    isText={filterGroupBy !== DictionaryInfoLetters.InWords}
-                >
-                    liczba słów
-                </Button>
-                <Button 
-                    onClick={() => setFilterGroupBy(DictionaryInfoLetters.First)} 
-                    isInverted 
-                    hasBorder={false} 
-                    isText={filterGroupBy !== DictionaryInfoLetters.First}
-                >
-                    pierwsza
-                </Button>
-                <Button 
-                    onClick={() => setFilterGroupBy(DictionaryInfoLetters.Last)} 
-                    isInverted 
-                    hasBorder={false} 
-                    isText={filterGroupBy !== DictionaryInfoLetters.Last}
-                >
-                    ostatnia
-                </Button>
+                {Object.values(DictionaryInfoLetters).map((infoLetter) => (
+                    <Button
+                        onClick={() => setFilterGroupBy(infoLetter)}
+                        isInverted
+                        hasBorder={false}
+                        isText={filterGroupBy !== infoLetter}
+                    >
+                        {t(`statistics.filter${capitalize(infoLetter)}`)}
+                    </Button>
+                ))}
             </nav>}
             <div className={clsx('wrapper-padding-escape', 'heatmap-share-content-margins', { 'heatmap-share-content-margins--no-filters': !shouldShowFilter })}>
                 <div id="sharable-heatmap" className="heatmap-share-content">
@@ -121,26 +104,26 @@ const AboutLanguageLetters = ({
                             src={`./flags/${gameLanguage}.svg`}
                             alt=""
                         />
-                        <h2 className="about-language-chart-language-title">język polski</h2>
+                        <h2 className="about-language-chart-language-title">{t(`language.${gameLanguage}`, { lng })}</h2>
                     </div>}
                     {shouldShowFilter
                         ? <>
-                        <KeyboardHeatmap groupBy={filterGroupBy} data={data} />
+                        <KeyboardHeatmap lng={lng} groupBy={filterGroupBy} data={data} />
                     </>
                         : <div className="about-language-keyboards">
-                        <KeyboardHeatmap groupBy={DictionaryInfoLetters.Common} data={data} />
-                        <KeyboardHeatmap groupBy={DictionaryInfoLetters.InWords} data={data} />
-                        <KeyboardHeatmap groupBy={DictionaryInfoLetters.First} data={data} />
-                        <KeyboardHeatmap groupBy={DictionaryInfoLetters.Last} data={data} />
+                        <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.Common} data={data} />
+                        <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.InWords} data={data} />
+                        <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.First} data={data} />
+                        <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.Last} data={data} />
                     </div>}
-                    <AboutLanguageChartFooter />
+                    <AboutLanguageChartFooter lng={lng} data={data} />
                 </div>
             </div>
             <div className="keyboard-heatmap-actions">
                 <Button className="keyboard-heatmap-action-edit" onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
                     <IconPencil />
                 </Button>
-                <Button onClick={handleDownload} isInverted>
+                <Button onClick={handleDownload} isInverted hasBorder={false}>
                     <IconPicture />
                     <span>{t('common.download')}</span>
                 </Button>
@@ -148,7 +131,7 @@ const AboutLanguageLetters = ({
             <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                 <div className="settings">
                     <h3>{t('settings.title')}</h3>
-                    <ul>
+                    <ul className={clsx({ 'list-col-3': gameLanguage !== 'en' })}>
                         <li>
                             <button
                                 className={clsx('setting', { 'setting-active': shouldShowFilter })}
@@ -160,13 +143,22 @@ const AboutLanguageLetters = ({
                         </li>
                         <li>
                             <button
-                                className={clsx('setting', { 'setting-active': shouldShowFilter })}
+                                className={clsx('setting', { 'setting-active': shouldShowLanguageTitle })}
                                 onClick={() => setShouldShowLanguageTitle((value) => !value)}
                             >
-                                <IconPictures />
-                                <span>{t('statistics.showOneChartWithFilters')}</span>
+                                <IconDictionary />
+                                <span>{t('statistics.showTitleWithLanguage')}</span>
                             </button>
                         </li>
+                        {gameLanguage !== 'en' && <li>
+                            <button
+                                className={clsx('setting', { 'setting-active': shouldForceEnglishChart })}
+                                onClick={() => setShouldForceEnglishChart((value) => !value)}
+                            >
+                                <IconTranslation />
+                                <span><small>Chart labels in English</small></span>
+                            </button>
+                        </li>}
                     </ul>
                 </div>
             </Modal>

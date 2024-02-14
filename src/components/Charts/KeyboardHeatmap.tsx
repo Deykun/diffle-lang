@@ -13,11 +13,13 @@ import './KeyboardHeatmap.scss'
 
 interface Props {
     groupBy: DictionaryInfoLetters,
+    lng?: string,
     data: DictionaryInfo
 }
 
 const KeyboardHeatmap = ({
     groupBy,
+    lng,
     data: {
         spellchecker: {
             accepted: {
@@ -56,12 +58,13 @@ const KeyboardHeatmap = ({
     return (
         <div> 
             <h2 className="heatmap-keyboard-title">
-                {t(`statistics.languageTitleHighestLetterFor${capitalize(groupBy)}`)}
+                {t(`statistics.languageTitleHighestLetterFor${capitalize(groupBy)}`, { lng })}
             </h2>
             <p
                 className="heatmap-keyboard-description"
                 dangerouslySetInnerHTML={{
                     __html: t(`statistics.languageDescriptionHighestLetterFor${capitalize(groupBy)}`, {
+                        lng,
                         maxletter: `<strong class="keyboard-heatmap-max-letter">${letterKeysByValue[0].toLocaleUpperCase()}</strong>`,
                         maxLetterValue: `<strong>${maxLetterValue.toFixed(isMaxPercentage ? 1 : 2)}${isMaxPercentage ? '%' : ''}</strong>`,
                 })}}

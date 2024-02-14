@@ -7,6 +7,8 @@ import useScrollEffect from '@hooks/useScrollEffect';
 
 import AboutLanguageIntro from './AboutLanguageIntro';
 import AboutLanguageLetters from './AboutLanguageLetters';
+import AboutLanguageNeighbours from './AboutLanguageNeighbours';
+import AboutLanguagePlayDiffle from './AboutLanguagePlayDiffle';
 import AboutLenguageLengths from './AboutLenguageLengths';
 
 import './AboutLanguage.scss'
@@ -44,7 +46,9 @@ const AboutLanguage = () => {
             {data && <>
                 <AboutLanguageIntro data={data} />
                 <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
+                <AboutLanguageNeighbours data={data} />
                 <AboutLenguageLengths data={data} />
+                <AboutLanguagePlayDiffle />
             </>}
             <h3>TODO:</h3>
             <ul className="to-do">
@@ -66,8 +70,8 @@ const AboutLanguage = () => {
                         <li>6 most common like above?</li>
                     </ul>
                 </li>
-                <li>Most common 2ch chunk</li>
-                <li>Most common 3ch chunk</li>
+                <li>Most common 2ch chunk <strong>x</strong></li>
+                <li>Most common 3ch chunk <strong>x</strong></li>
                 <li>Number of spekaers from Wikipedia</li>
             </ul>
         </div>

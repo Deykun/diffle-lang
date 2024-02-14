@@ -30,10 +30,10 @@ export interface Dictionary {
 }
 
 export enum DictionaryInfoLetters {
-    First = 'first',
-    Last = 'last',
     Common = 'common',
     InWords = 'inWords',
+    First = 'first',
+    Last = 'last',
 } 
 
 export type DictionaryInfo = {
@@ -56,6 +56,20 @@ export type DictionaryInfo = {
             [DictionaryInfoLetters.InWords]: {
                 [letter: string]: number,
             }
+        }
+    }
+    meta: {
+        spellchecker: {
+            dir: string,
+            shortName: string,
+            fullName: string,
+            url: string,
+        }
+        winning: {
+            dir: string,
+            shortName: string,
+            fullName: string,
+            url: string,
         }
     }
 }

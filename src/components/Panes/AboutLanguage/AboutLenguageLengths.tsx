@@ -76,7 +76,7 @@ const AboutLenguageLengths = ({
                         {wordLength}: {total || ''}
                     </p>)} */}
                     <BarChart entries={length} />
-                    <AboutLanguageChartFooter />
+                    <AboutLanguageChartFooter data={data} />
                 </div>
             </div>
             {/* <div className="keyboard-heatmap-actions">

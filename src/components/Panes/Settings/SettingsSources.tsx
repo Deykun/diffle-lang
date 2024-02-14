@@ -72,7 +72,7 @@ const SettingsSources = () => {
                     </a>
                 </li>
             </ul>
-            <h2>{t('settings.sourcesTitleDictionaries')}: {t('settings.currentLanguage')}</h2>
+            <h2>{t('settings.sourcesTitleDictionaries')}: {t('language.currentLanguage')}</h2>
             <ul className="list-col-3">
                 <li>
                     <button className="setting" onClick={() => changePane(Pane.AboutLanguage)}>

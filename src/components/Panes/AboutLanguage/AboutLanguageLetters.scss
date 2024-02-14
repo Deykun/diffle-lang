@@ -1,8 +1,8 @@
 .wrapper-padding-escape.heatmap-share-content-margins {
     &.heatmap-share-content-margins--no-filters {
         @media (min-width: 1050px) {
-            margin-left: -50%;
             width: calc(1000px + 14px);
+            transform: translateX(-25%);
     
             .heatmap-share-content {
                 padding: 7px 20px;

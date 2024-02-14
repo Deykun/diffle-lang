@@ -72,10 +72,14 @@
     
             &.circle-scale-border-checked {
                 border-color: transparent;
-                background-color: color-mix(in srgb, var(--green) 30%, transparent);
+                background-color: color-mix(in srgb, var(--green-stronger) 30%, transparent);
+
+                :root.light & {
+                    background-color: color-mix(in srgb, var(--green) 30%, transparent);        
+                }
     
                 span {
-                    color: black;
+                    color: var(--green-contrast);
                 }
             }
         }

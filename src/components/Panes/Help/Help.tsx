@@ -10,8 +10,9 @@ import { getWordReportForMultipleWords } from '@api/getWordReport';
 import usePanes from '@hooks/usePanes';
 import useScrollEffect from '@hooks/useScrollEffect';
 
-import Button from '@components/Button/Button';
 import IconGamepad from '@components/Icons/IconGamepad';
+
+import Button from '@components/Button/Button';
 
 import { HELP_EXAMPLES_BY_LANG } from './constants';
 

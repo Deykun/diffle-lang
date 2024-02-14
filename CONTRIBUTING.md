@@ -1,7 +1,7 @@
 # Adding a New Language
 1. Translate the app stting and create a new language file in `src/locales/[langCode].json` (refer to the `src/locales/README.md` and en.json for guidance).
 2. Import the new translations into `src/i18n.ts`.
-3. Search for open source dictionaries for the language (this step can be challenging). Useful search phrases include "dictionary," "wordlist," and "spellchecker." It is advisable to use non-English terms in your search to find dictionaries not documented in English. Personally, I recommend dictionaries with 200-500k words for spellchecking, with an additional dicitonary that produces 16k winning words (smaller dictionary). FreeDict is a reliable resource for this purpose.
+3. Search for open source dictionaries for the language (this step can be challenging). Useful search phrases include "dictionary", "wordlist", "hunspell" and "spellchecker". It is advisable to use non-English terms in your search to find dictionaries not documented in English. Personally, I recommend dictionaries with 200-500k words for spellchecking, with an additional dicitonary that produces 16k winning words (smaller dictionary). FreeDict is a reliable resource for this purpose.
 4. Create a new dictionary folder in `resources/[langCode]` with the acquired dictionaries.
 5. Create `public/dictionary/[langCode]` with subcatalogs.
 6. Enhance the `removeDiacritics` function to include special characters used in the new language.

@@ -4,6 +4,17 @@ export const BLOCKED_PARTS = [];
 
 export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x'];
 
-export const SPELLCHECKER_DICTIONARY_NAME = 'czech-cc0-dictionaries';
-
-export const WINNING_DICTIONARY_NAME = 'SlovinikWebzCz';
+export const DICTIONARIES = {
+    spellchecker: {
+        dir: 'czech-cc0-dictionaries',
+        shortName: 'Czech CC0 dictionaries',
+        fullName: 'Czech CC0 dictionaries',
+        url: 'https://gitlab.com/strepon/czech-cc0-dictionaries/',
+    },
+    winning: {
+        dir: 'SlovinikWebzCz',
+        shortName: 'slovniky.webz.cz',
+        fullName: 'slovniky.webz.cz',
+        url: 'http://home.zcu.cz/~konopik/ppc/',
+    },
+};
