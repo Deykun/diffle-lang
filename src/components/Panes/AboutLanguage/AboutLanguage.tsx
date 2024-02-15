@@ -23,8 +23,6 @@ const getDicitonaryData = async (lang: string | undefined) => {
     const response = await fetch(`./dictionary/${lang}/info.json`);
     const rawData = await response.json();
 
-    console.log(rawData);
-
     return rawData as DictionaryInfo;
 };
 

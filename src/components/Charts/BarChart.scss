@@ -55,6 +55,7 @@
 
     .bar-chart-axis {
         position: relative;
+        height: 21px;
         width: 100%;
         margin-left: 10px;
 
@@ -113,7 +114,7 @@
     align-items: center;
     margin-left: 25px;
 
-    > span {
+    .about-language-small-key-cap {
         text-align: center;
         width: 20px;
         height: 20px;

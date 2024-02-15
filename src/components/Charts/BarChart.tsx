@@ -76,7 +76,7 @@ const BarChart = ({
                         return <div key={label} className="bar-chart-row">
                             <strong className="bar-chart-label">
                                 {label.padStart(2, ' ').split('').map((digit, index) => (
-                                    <span key={index} data-bar-letter={digit}>
+                                    <span key={index} className="about-language-small-key-cap" data-bar-letter={digit}>
                                         {digit}
                                     </span>
                                 ))}

@@ -49,8 +49,6 @@ const AboutLanguageNeighbours = ({ data: {
         };
     }, [first, last, middle]);
 
-    console.log(last);
-
     const { t } = useTranslation();
 
     return (
@@ -67,7 +65,7 @@ const AboutLanguageNeighbours = ({ data: {
                                 <span className="tooltip">
                                     {t('end.in', { postProcess: 'interval', count: 100 })}
                                     {' '}
-                                    {(first[chunkLength][part] / all * 100).toFixed(2)}%
+                                    <strong>{(first[chunkLength][part] / all * 100).toFixed(2)}</strong>%
                                     {' '}
                                     {t('end.wordsUsed', { count: 100 })}
                                 </span>
@@ -87,13 +85,15 @@ const AboutLanguageNeighbours = ({ data: {
                                 'has-tooltip-from-left': chunkLength === 2,
                                 'has-tooltip-from-right': chunkLength === 4,
                             })}>
-                                {part}    
-                                <span className="tooltip">
-                                    {t('statistics.languageDescriptionHighestLetterForCommon', { // It works fine here
+                                {part}
+                                <span
+                                    className="tooltip"
+                                    dangerouslySetInnerHTML={{
+                                        __html: t(`statistics.languageDescriptionHighestLetterForCommon`, { // It works fine here
                                             maxletter: `"${part}"`,
-                                            maxLetterValue: (middle[chunkLength][part] / all).toFixed(4),
-                                    })}
-                                </span>
+                                            maxLetterValue: `<strong>${(middle[chunkLength][part] / all).toFixed(3)}</strong>`,
+                                    })}}
+                                />
                             </li>)}
                         </ul>
                     </div>);
@@ -111,7 +111,7 @@ const AboutLanguageNeighbours = ({ data: {
                                 <span className="tooltip">
                                     {t('end.in', { postProcess: 'interval', count: 100 })}
                                     {' '}
-                                    {(last[chunkLength][part] / all * 100).toFixed(2)}%
+                                    <strong>{(last[chunkLength][part] / all * 100).toFixed(2)}</strong>%
                                     {' '}
                                     {t('end.wordsUsed', { count: 100 })}
                                 </span>

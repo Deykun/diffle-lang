@@ -11,12 +11,35 @@
         animation: spin infinite linear 1s;
     }
 
+    .about-language-intro-title {
+        margin-bottom: 40px;
+
+        & + p {
+            margin-bottom: 80px;
+        }
+    }
+
+    .about-language-percentage {
+        position: relative;
+        text-shadow:
+            0 0 15px color-mix(in srgb, var(--background) 10%, transparent),
+            0 0 10px color-mix(in srgb, var(--background) 30%, transparent),
+            0 0 5px color-mix(in srgb, var(--background) 50%, transparent);
+
+        .circle-scale {
+            width: 180%;
+        }
+    }
+
     .about-language-small-key-cap {
         display: inline-block;
-        width: 20px;
-        height: 20px;
-        line-height: 18px;
+        vertical-align: middle;
+        width: 21px;
+        height: 21px;
+        font-size: 12px;
+        line-height: 17px;
         border-radius: 6px;
+        letter-spacing: 0;
         border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
     }
 

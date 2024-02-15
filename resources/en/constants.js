@@ -8,8 +8,8 @@ export const DICTIONARIES = {
     nativeSpeakersFromWikipedia: 1_457_000_000,
     spellchecker: {
         dir: 'dwyl',
-        shortName: 'DWYL',
-        fullName: 'Do What You Love',
+        shortName: 'dwyl',
+        fullName: 'dwyl - do what you love',
         url: 'https://github.com/dwyl/english-words',
     },
     winning: {

@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { useSelector } from '@store';
-import { selectGameLanguageKeyboardInfo } from '@store/selectors';
+import CircleScale from '@components/CircleScale/CircleScale';
 
 interface Props {
     all: number,
@@ -9,19 +8,22 @@ interface Props {
 }
 
 const AboutLanguageIntroSpecialCharacters = ({ all, withSpecialCharacters }: Props) => {
-    const { specialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
-
     const { t } = useTranslation();
 
     if (withSpecialCharacters === 0) {
         return null;
     }
 
-    const percentage = `${(withSpecialCharacters / all * 100).toFixed(2)}%`;
+    const percentage = withSpecialCharacters / all * 100;
 
     return (
         <p>
-            <strong>{specialCharacters.length}</strong> znaków specjalnych i słów z nimi <strong>{percentage}</strong>.
+            {t('statistics.wordsWithSpecialCharacters')}:
+            {' '}
+            <strong className="about-language-percentage">
+                {percentage.toFixed(2)}%
+                <CircleScale startFrom={5} breakPoints={[15, 30, 45, 60]} value={percentage} shouldShowLabels={true} isGreen isPercentage />
+            </strong>.
         </p>
     )
 };

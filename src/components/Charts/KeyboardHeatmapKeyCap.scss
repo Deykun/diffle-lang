@@ -5,7 +5,7 @@
 .heatmap-keyboard-cap {
     display: inline-block;
     height: var(--heatmap-key-size);
-    min-width: min(var(--heatmap-key-size), 8vw);
+    min-width: min(var(--heatmap-key-size), 7vw);
     line-height: var(--heatmap-key-size);
     text-transform: uppercase;
     color: var(--text-extreme);

@@ -5,11 +5,11 @@ export enum ToastType {
 }
 
 export enum Pane {
-    Help = 'Help',
-    Game = 'Game',
-    Settings = 'Settings',
-    Statistics = 'Statistics',
-    AboutLanguage = 'AboutLanguage',
+    Help = 'help',
+    Game = 'game',
+    Settings = 'settings',
+    Statistics = 'statistics',
+    AboutLanguage = 'about-language',
 }
 
 export interface Dictionary {

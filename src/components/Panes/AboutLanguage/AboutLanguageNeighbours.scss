@@ -6,19 +6,29 @@
 
 .about-language-neighbours-columns {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column;
     align-items: center;
-    justify-content: space-evenly;
-    gap: 50px;
+    margin-bottom: 20px;
+
+    @media (min-width: 400px) {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
 
     ul {
-        margin-bottom: 20px;
+        position: relative;
+        margin-bottom: 12px;
+
+        @media (min-width: 400px) {
+            margin-bottom: 20px;
+        }
 
         li {
             letter-spacing: 0.05em;
             color: var(--text-alt);
             margin-bottom: 3px;
-            position: relative;
             cursor: help;
 
             strong {
