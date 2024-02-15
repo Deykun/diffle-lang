@@ -17,6 +17,7 @@ import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
 import Settings from '@components/Panes/Settings/Settings';
 import Statistics from '@components/Panes/Statistics/Statistics';
+import AboutLanguage from '@components/Panes/AboutLanguage/AboutLanguage';
 
 import Toast from '@components/Toast/Toast';
 
@@ -64,6 +65,7 @@ const App = () => {
                 {pane === PaneInterface.Game && <Game />}
                 {pane === PaneInterface.Settings && <Settings />}
                 {pane === PaneInterface.Statistics && <Statistics />}
+                {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
             </main>
         </div>
     )

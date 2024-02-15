@@ -59,7 +59,7 @@ const LanguagePicker = ({ children, className }: Props) => {
       >
           {children ? children : <>
             <IconTranslation />
-            <span>{t('settings.currentLanguage')}</span>
+            <span>{t('language.currentLanguage')}</span>
           </>}
       </button>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
@@ -79,7 +79,7 @@ const LanguagePicker = ({ children, className }: Props) => {
                     alt=""
                   />
                   <span>
-                    {t('settings.currentLanguage', { lng: lang })}
+                    {t('language.currentLanguage', { lng: lang })}
                   </span>
                   {lang === 'cs' &&  <span className={clsx('setting-label', 'position', 'construction')}>
                       <span>{t('settings.inBetaNow')}</span>

@@ -1,0 +1,80 @@
+.about-language-neighbours {
+    h4 {
+        margin-bottom: 15px;
+    }
+}
+
+.about-language-neighbours-columns {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @media (min-width: 400px) {
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 50px;
+    }
+
+    ul {
+        position: relative;
+        margin-bottom: 12px;
+
+        @media (min-width: 400px) {
+            margin-bottom: 20px;
+        }
+
+        li {
+            letter-spacing: 0.05em;
+            color: var(--text-alt);
+            margin-bottom: 3px;
+            cursor: help;
+
+            strong {
+                color: var(--text);
+            }
+
+            &::before,
+            &::after {
+                color: var(--text);
+                filter: blur(3px);
+                user-select: none;
+                pointer-events: none;
+                opacity: 0.3;
+            }
+        }
+
+        &.about-language-neighbours-list--start {
+            li {
+                &::before {
+                    content: '8):d ';
+                }
+
+                &:nth-child(3n + 1) {
+                    &::before { content:  '(:21 '; }
+                }
+           
+                &:nth-child(3n + 2) {
+                    &::before { content:  ';/7: '; }
+                }
+            }
+        }
+        
+        &.about-language-neighbours-list--end {
+            li {
+                &::after {
+                    content: ' <:21';
+                }
+
+                &:nth-child(3n - 1) {
+                    &::after { content:  ' :*39'; }
+                }
+           
+                &:nth-child(3n - 2) {
+                    &::after { content:  ' :|11'; }
+                }
+            }
+        }
+    }
+}

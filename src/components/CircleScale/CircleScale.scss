@@ -10,7 +10,6 @@
     color: #a4c870;
     font-weight: 300;
     letter-spacing: 0.05em;
-    
 
     .circle-scale-border {
         position: absolute;
@@ -20,8 +19,6 @@
         display: block;
         border-radius: 50%;
         aspect-ratio: 1 / 1;
-        border: 2px dashed rgba(#a4c870, 0.2);
-        border: 1px dashed rgba(119, 143, 85, 0.2);
         border: 1px dashed transparent;
         pointer-events: none;
         user-select: none;
@@ -32,7 +29,6 @@
             top: calc(100% + 5px);
             left: 50%;
             transform: translateX(-50%) rotate(35deg);
-            color: rgba(119, 143, 85, 0.2);
             color: transparent;
         }
 
@@ -62,6 +58,29 @@
 
             span {
                 color: transparent;
+            }
+        }
+    }
+
+    &.circle-scale-is-green {
+        .circle-scale-border {
+            border: 1px dashed transparent;
+    
+            span {
+                color: transparent;
+            }
+    
+            &.circle-scale-border-checked {
+                border-color: transparent;
+                background-color: color-mix(in srgb, var(--green-stronger) 30%, transparent);
+
+                :root.light & {
+                    background-color: color-mix(in srgb, var(--green) 30%, transparent);        
+                }
+    
+                span {
+                    color: var(--text);
+                }
             }
         }
     }

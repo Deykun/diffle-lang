@@ -5,10 +5,11 @@ export enum ToastType {
 }
 
 export enum Pane {
-    Help = 'Help',
-    Game = 'Game',
-    Settings = 'Settings',
-    Statistics = 'Statistics',
+    Help = 'help',
+    Game = 'game',
+    Settings = 'settings',
+    Statistics = 'statistics',
+    AboutLanguage = 'about-language',
 }
 
 export interface Dictionary {
@@ -26,6 +27,72 @@ export interface Dictionary {
         hasExactMatchAlways: boolean, // exact means that there have to be exact match
     }[],
     shareMarker?: string,
+}
+
+export enum DictionaryInfoLetters {
+    Common = 'common',
+    InWords = 'inWords',
+    First = 'first',
+    Last = 'last',
+} 
+
+export type DictionaryInfo = {
+    spellchecker: {
+        accepted: {
+            all: number,
+            withSpecialCharacters: number,
+            withoutSpecialCharacters: number,
+            length: {
+                [lengt: string]: number,
+            }
+        }
+        letters: {
+            [DictionaryInfoLetters.First]: {
+                [letter: string]: number,
+            }
+            [DictionaryInfoLetters.Last]: {
+                [letter: string]: number,
+            }
+            [DictionaryInfoLetters.Common]: {
+                [letter: string]: number,
+            }
+            [DictionaryInfoLetters.InWords]: {
+                [letter: string]: number,
+            }
+        }
+        substrings: {
+            first: {
+                [length: string]: {
+                    [text: string]: number,
+                },
+            },
+            middle: {
+                [length: string]: {
+                    [text: string]: number,
+                },
+            },
+            last: {
+                [length: string]: {
+                    [text: string]: number,
+                },
+            },
+        },
+    }
+    meta: {
+        nativeSpeakersFromWikipedia: number,
+        spellchecker: {
+            dir: string,
+            shortName: string,
+            fullName: string,
+            url: string,
+        }
+        winning: {
+            dir: string,
+            shortName: string,
+            fullName: string,
+            url: string,
+        }
+    }
 }
 
 export type PaneChange = (Pane) => void;

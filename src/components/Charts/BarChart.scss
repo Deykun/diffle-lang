@@ -1,0 +1,134 @@
+.bar-chart-wrapper {
+    margin-top: 16px;
+    position: relative;
+
+    .bar-chart--background {
+        position: relative;
+        z-index: 0;
+        pointer-events: none;
+
+        .bar-chart-label {
+            opacity: 0;
+        }
+
+        .bar-chart-point {
+            color: transparent;
+            text-shadow:
+                0 0 15px color-mix(in srgb, var(--background) 10%, transparent),
+                0 0 10px color-mix(in srgb, var(--background) 50%, transparent),
+                0 0 5px color-mix(in srgb, var(--background) 100%, transparent),
+                0 0 5px color-mix(in srgb, var(--background) 100%, transparent);
+
+            &::before {
+                border-color: transparent;
+            }
+        }
+    }
+
+    .bar-chart--front {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        
+        .bar-chart-axis {
+            &::before {
+                border-bottom-color: transparent !important
+            }
+        }
+    }
+}
+
+.bar-chart {
+    padding: 0 14px;
+}
+
+.bar-chart-row {
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 4px;
+    padding: 3px 0;
+    padding-right: 45px;
+
+    .bar-chart-axis {
+        position: relative;
+        height: 21px;
+        width: 100%;
+        margin-left: 10px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            height: 0px;
+            border-bottom: 2px dashed var(--border);
+            transition: 0.15s ease-in-out;
+        }
+
+        .bar-chart-point {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            user-select: none;
+            cursor: help;
+
+            .circle-scale {
+                width: 175%;
+            }
+        }
+    }
+
+    @mixin hover-effect {
+        .bar-chart-label {
+            > span {
+                border-color: color-mix(in srgb, var(--green) 45%, transparent);
+            }
+        }
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            @include hover-effect;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @include hover-effect;
+        }
+    }
+}
+
+.bar-chart-label {
+    display: inline-flex;
+    flex-flow: row;
+    align-items: center;
+    margin-left: 25px;
+
+    .about-language-small-key-cap {
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+        font-size: 12px;
+        line-height: 18px;
+        transition: 0.15s ease-in-out;
+
+        &[data-bar-letter=" "] {
+            border-color: transparent !important;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

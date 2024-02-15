@@ -1,0 +1,39 @@
+:root {
+    --heatmap-key-size: 40px;
+}
+
+.heatmap-keyboard-cap {
+    display: inline-block;
+    height: var(--heatmap-key-size);
+    min-width: min(var(--heatmap-key-size), 7vw);
+    line-height: var(--heatmap-key-size);
+    text-transform: uppercase;
+    color: var(--text-extreme);
+    user-select: none;
+    cursor: help;
+    font-weight: 600;
+    position: relative;
+
+    /* Border doesn't mess up the circle's position on the downloaded image when placed like this */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 2px solid color-mix(in srgb, var(--text) 7%, transparent);
+        border-radius: 6px;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    .heatmap-keyboard-cap-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .circle-scale {
+        width: 240%;
+    }
+}

@@ -5,11 +5,26 @@ import { LOCAL_STORAGE } from '@const';
 import { getNow } from '@utils/date';
 import { getLangFromUrl } from '@utils/lang';
 import {
+    keepIfInEnum
+} from '@utils/ts';
+import {
     getLocalStorageKeyForDailyStamp,
     getLocalStorageKeyForLastGameMode,
  } from '@utils/game';
 
-export const getInitPane = () => {
+export const getInitPane = ({ withUrlParam }: { withUrlParam: boolean } = { withUrlParam: true }) => {
+    if (withUrlParam) {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const urlPaneRaw = urlParams.get('p');
+        if (urlPaneRaw) {
+            const urlPane = keepIfInEnum<Pane>(urlPaneRaw, Pane);
+            if (urlPane) {
+                return urlPane;
+            }
+        }
+    }
+
     const langFromUrl = getLangFromUrl();
 
     if (langFromUrl) {

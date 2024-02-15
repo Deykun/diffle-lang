@@ -4,6 +4,18 @@ export const BLOCKED_PARTS = ['jeb', 'gówn', 'kutas'];
 
 export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['q', 'x', 'v'];
 
-export const SPELLCHECKER_DICTIONARY_NAME = 'SJP';
-
-export const WINNING_DICTIONARY_NAME = 'FreeDict';
+export const DICTIONARIES = {
+    nativeSpeakersFromWikipedia: 40_670_000,
+    spellchecker: {
+        dir: 'SJP',
+        shortName: 'SJP.pl',
+        fullName: 'Słownik SJP.pl',
+        url: 'https://sjp.pl/',
+    },
+    winning: {
+        dir: 'FreeDict',
+        shortName: 'FreeDict',
+        fullName: 'FreeDict',
+        url: 'https://freedict.org/',
+    },
+};

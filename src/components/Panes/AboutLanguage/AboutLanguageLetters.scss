@@ -1,0 +1,57 @@
+.wrapper-padding-escape.heatmap-share-content-margins {
+    &.heatmap-share-content-margins--no-filters {
+        @media (min-width: 1050px) {
+            width: calc(1000px + 14px);
+            transform: translateX(-25%);
+    
+            .heatmap-share-content {
+                padding: 7px 20px;
+            }
+        }
+    }
+
+    .heatmap-share-content {
+        margin: 0;
+        padding: 7px;
+
+        *, ::after, ::before {
+            box-sizing: border-box;
+        }
+    }
+}
+
+.about-language-keyboards {
+    > div {
+        margin-bottom: 50px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (min-width: 1050px) {
+        display: flex;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        gap: 50px;
+
+        > div {
+            max-width: calc(1050px / 2 - 50px);
+            margin-bottom: 0;
+        }
+    }
+}
+
+.heatmap-share-content {
+    background-color: var(--background);
+}
+
+.keyboard-heatmap-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.keyboard-heatmap-action-edit {
+    margin-right: auto;
+}

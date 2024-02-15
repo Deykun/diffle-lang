@@ -9,15 +9,14 @@ import {
     BLOCKED_WORDS,
     BLOCKED_PARTS,
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
-    SPELLCHECKER_DICTIONARY_NAME,
-    WINNING_DICTIONARY_NAME,
+    DICTIONARIES,
 } from './../resources/en/constants.js';
 
 const LANG = 'en';
 
-const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${SPELLCHECKER_DICTIONARY_NAME}/dictionary.txt`, 'utf-8');
-const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTIONARY_NAME}/ara/dictionary.txt`, 'utf-8');
-const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${WINNING_DICTIONARY_NAME}/jap/dictionary.txt`, 'utf-8');
+const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
+const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ara/dictionary.txt`, 'utf-8');
+const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/jap/dictionary.txt`, 'utf-8');
 
 const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean))].map(word => word.toLowerCase()).filter((word => getIsWordValid(word)));
 
@@ -33,6 +32,7 @@ actionBuildDictionary(
         BLOCKED_WORDS,
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
+        DICTIONARIES,
     },
     spellcheckerWords,
     winningWords,

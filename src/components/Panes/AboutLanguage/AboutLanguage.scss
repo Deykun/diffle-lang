@@ -1,0 +1,107 @@
+.about-language {
+    section {
+        margin-bottom: 50px;
+    }
+
+    .about-language-content-loader {
+        margin-top: 100px;
+        fill: var(--text-weaker);
+        width: 96px;
+        height: 96px;
+        animation: spin infinite linear 1s;
+    }
+
+    .about-language-intro-title {
+        margin-bottom: 40px;
+
+        & + p {
+            margin-bottom: 80px;
+        }
+    }
+
+    .about-language-percentage {
+        position: relative;
+        text-shadow:
+            0 0 15px color-mix(in srgb, var(--background) 10%, transparent),
+            0 0 10px color-mix(in srgb, var(--background) 30%, transparent),
+            0 0 5px color-mix(in srgb, var(--background) 50%, transparent);
+
+        .circle-scale {
+            width: 180%;
+        }
+    }
+
+    .about-language-small-key-cap {
+        display: inline-block;
+        vertical-align: middle;
+        width: 21px;
+        height: 21px;
+        font-size: 12px;
+        line-height: 17px;
+        border-radius: 6px;
+        letter-spacing: 0;
+        border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
+    }
+
+    .about-language-chart-language {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: color-mix(in srgb, var(--text) 10%, transparent);
+        }
+    }
+
+    .about-language-chart-language-flag {
+        height: 18px;
+        width: 24px;
+        border-radius: 4px;
+        filter: saturate(0.8);
+        font-size: 0;
+        color: transparent;
+        object-fit: cover;
+        object-position: center;
+        background-color: var(--flag-shadow);
+        box-shadow: 0 -1px 4px var(--flag-shadow);
+    }
+
+    .about-language-chart-language-title {
+        text-transform: capitalize;
+        color: var(--black);
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+
+    .heatmap-share-content-margins--no-filters {
+        @media (min-width: 1050px) {
+            .about-language-chart-language {
+                gap: 12px;
+                margin-top: 16px;
+                margin-bottom: 40px;
+            }
+
+            .about-language-chart-language-flag {
+                height: 36px;
+                width: 48px;
+                border-radius: 8px;
+            }
+        
+            .about-language-chart-language-title {
+                font-size: 36px;
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ import { StatisticDataForCard, Filters, CharactersFilter, LengthFilter } from '@
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGithub from '@components/Icons/IconGithub';
 
-import CircleScale from './CircleScale';
+import CircleScale from '@components/CircleScale/CircleScale';
 
 import StatisticsCardActiveFilters from './StatisticsCardActiveFilters';
 

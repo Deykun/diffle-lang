@@ -112,7 +112,6 @@
 
                     &,
                     span,
-                    svg,
                     svg .icon-inside {
                         transition: all 0.3s ease-in;
                     }
@@ -184,7 +183,7 @@
             .setting-inverse {
                 color: var(--background);
                 background-color: var(--text);
-                border-style: solid;
+                border: none;
 
                 svg + span {
                     display: block;

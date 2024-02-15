@@ -1,0 +1,48 @@
+.chart-footer {
+    margin: 25px auto 0;
+    max-width: calc(100% - 16px);
+
+    @media (min-width: 400px) {
+        max-width: 70%;
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    color: var(--text-weaker);
+
+    > div {
+        text-align: left;
+    }
+
+    svg {
+        flex-shrink: 0;
+        height: 18px;
+        width: 18px;
+        margin-right: 8px;
+
+        @media (min-width: 400px) {
+            height: 24px;
+            width: 24px;
+            margin-right: 12px;
+        }
+
+        fill: var(--text-weaker);
+    }
+
+    a {
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+
+        &:hover {
+            color: var(--blue-on-background);
+        }
+    }
+
+    a, span, strong {
+        font-weight: 600;
+        color: var(--text);
+    }
+}
