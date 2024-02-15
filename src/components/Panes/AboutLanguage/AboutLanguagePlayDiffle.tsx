@@ -28,7 +28,7 @@ const AboutLanguagePlayDiffle = () => {
     const { changePane } = usePanes();
 
     const handleCopy = useCallback(() => {
-        const diffleURL = location.href.replace('http://', '').replace('https://', '').split('?')[0];
+        const diffleURL = location.href.split('?')[0];
         const textToCopy = `${diffleURL}?p=${Pane.AboutLanguage}`;
         
         copyMessage(textToCopy);
