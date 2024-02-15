@@ -61,14 +61,20 @@ export type DictionaryInfo = {
             }
         }
         substrings: {
-            ch2: {
-                [letter: string]: number,
+            first: {
+                [length: string]: {
+                    [text: string]: number,
+                },
             },
-            ch3: {
-                [letter: string]: number,
+            middle: {
+                [length: string]: {
+                    [text: string]: number,
+                },
             },
-            ch4: {
-                [letter: string]: number,
+            last: {
+                [length: string]: {
+                    [text: string]: number,
+                },
             },
         },
     }

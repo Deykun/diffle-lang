@@ -201,6 +201,9 @@
     "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} is the last letter in {{maxLetterValue}} words.",
     "statistics.languageTitleLength": "Number of letters in a word",
     "statistics.languageDescriptionMostPopularLength": "The most popular word length is {{letters}} letters.",
+    "statistics.languageTitleAtTheBeginning": "Most often at the beginning",
+    "statistics.languageTitleInTheMiddle": "Most often in the middle",
+    "statistics.languageTitleInTheEnd": "Most often at the end",
     "statistics.showOneChartWithFilters": "One chart with filters",
     "statistics.showTitleWithLanguage": "Show language title",
     "statistics.basedOn": "{{product}} based on {{words}} words from {{source}}"

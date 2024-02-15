@@ -100,9 +100,9 @@ export const getWordSubstrings = (word) => {
             stack.last[chunkLength][lastChunk] = stack.last[chunkLength][lastChunk] ? stack.last[chunkLength][lastChunk] + 1 : 1;
         }
 
-        // We ignore 2 start and end letters;
-        // abcdefgh -> cdefgh
-        const middleOfTheWord = word.slice(2,-2);
+        // We ignore 1 start and end letters;
+        // abcdefgh -> bcdefghg
+        const middleOfTheWord = word.slice(1,-1);
 
         const middleChunks = getAllPossibleSubstring(middleOfTheWord, chunkLength);
 

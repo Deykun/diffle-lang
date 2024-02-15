@@ -201,6 +201,9 @@
     "statistics.languageDescriptionHighestLetterForLast": "{{maxletter}} je posledním písmenem ve {{maxLetterValue}} slovech.",
     "statistics.languageTitleLength": "Počet písmen ve slově",
     "statistics.languageDescriptionMostPopularLength": "Nejoblíbenější délka slova je {{letters}} písmen.",
+    "statistics.languageTitleAtTheBeginning": "Nejčastěji na začátku",
+    "statistics.languageTitleInTheMiddle": "Nejčastěji uprostřed",
+    "statistics.languageTitleInTheEnd": "Nejčastěji na konci",
     "statistics.showOneChartWithFilters": "Jeden graf s filtry",
     "statistics.showTitleWithLanguage": "Zobrazit název jazyka",
     "statistics.basedOn": "{{product}} na základě {{words}} slov z {{source}}"

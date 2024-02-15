@@ -78,6 +78,7 @@ const AboutLanguageLetters = ({
             {shouldShowFilter && <nav className="heatmap-keyboard-filters">
                 {Object.values(DictionaryInfoLetters).map((infoLetter) => (
                     <Button
+                        key={infoLetter}
                         onClick={() => setFilterGroupBy(infoLetter)}
                         isInverted
                         hasBorder={false}

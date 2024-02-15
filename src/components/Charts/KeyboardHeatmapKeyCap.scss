@@ -9,6 +9,7 @@
     line-height: var(--heatmap-key-size);
     text-transform: uppercase;
     color: var(--text-extreme);
+    user-select: none;
     cursor: help;
     font-weight: 600;
     position: relative;

@@ -73,11 +73,11 @@ const BarChart = ({
             <div className="bar-chart-wrapper">
                 <div className="bar-chart bar-chart--background">
                     {entriesData.map(({ label, percentageText, percentageMax }) => {
-                        return <div className="bar-chart-row">
+                        return <div key={label} className="bar-chart-row">
                             <strong className="bar-chart-label">
-                                {label.padStart(2, ' ').split('').map((letter) => (
-                                    <span data-bar-letter={letter}>
-                                        {letter}
+                                {label.padStart(2, ' ').split('').map((digit, index) => (
+                                    <span key={index} data-bar-letter={digit}>
+                                        {digit}
                                     </span>
                                 ))}
                             </strong>
@@ -98,11 +98,11 @@ const BarChart = ({
                 </div>
                 <div className="bar-chart bar-chart--front">
                     {entriesData.map(({ label, percentageText, percentageMax }) => {
-                        return <div className="bar-chart-row">
+                        return <div key={label} className="bar-chart-row">
                             <strong className="bar-chart-label">
-                                {label.padStart(2, ' ').split('').map((letter) => (
-                                    <span className="about-language-small-key-cap" data-bar-letter={letter}>
-                                        {letter}
+                                {label.padStart(2, ' ').split('').map((digit, index) => (
+                                    <span key={index} className="about-language-small-key-cap" data-bar-letter={digit}>
+                                        {digit}
                                     </span>
                                 ))}
                             </strong>

@@ -11,38 +11,42 @@
     justify-content: space-evenly;
     gap: 50px;
 
-    strong {
-        display: block;
-        margin-bottom: 5px;
-    }
-
     ul {
         margin-bottom: 20px;
 
         li {
+            letter-spacing: 0.05em;
             color: var(--text-alt);
             margin-bottom: 3px;
+            position: relative;
+            cursor: help;
+
+            strong {
+                color: var(--text);
+            }
 
             &::before,
             &::after {
+                color: var(--text);
                 filter: blur(3px);
+                user-select: none;
                 pointer-events: none;
-                opacity: 0.5;
+                opacity: 0.3;
             }
         }
 
         &.about-language-neighbours-list--start {
             li {
                 &::before {
-                    content: '8) ';
+                    content: '8):d ';
                 }
 
                 &:nth-child(3n + 1) {
-                    &::before { content:  '(: '; }
+                    &::before { content:  '(:21 '; }
                 }
            
                 &:nth-child(3n + 2) {
-                    &::before { content:  ';/ '; }
+                    &::before { content:  ';/7: '; }
                 }
             }
         }
@@ -50,40 +54,17 @@
         &.about-language-neighbours-list--end {
             li {
                 &::after {
-                    content: ' <:';
+                    content: ' <:21';
                 }
 
                 &:nth-child(3n - 1) {
-                    &::after { content:  ' :*'; }
+                    &::after { content:  ' :*39'; }
                 }
            
                 &:nth-child(3n - 2) {
-                    &::after { content:  ' :|'; }
+                    &::after { content:  ' :|11'; }
                 }
             }
-        }
-
-
-        li {
-            // &::after {
-            //     content: '31';
-            // }
-
-            // &:nth-child(3n + 1) {
-            //     &::before { content:  '12 '; }
-            // }
-
-            // &:nth-child(4n + 1) {
-            //     &::before { content:  '00 '; }
-            // }
-
-            // &:nth-child(3n + 2) {
-            //     &::after { content:  ' 21'; }
-            // }
-
-            // &:nth-child(4n + 3) {
-            //     &::after { content:  ' 11'; }
-            // }
         }
     }
 }
