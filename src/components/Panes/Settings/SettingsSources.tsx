@@ -30,6 +30,7 @@ const SettingsSources = () => {
 
     const { changePane } = usePanes();
 
+    // TODO: move to useQuery()
     useEffect(() => {
         (async () => {
             if (typeof startCount === 'number') {
