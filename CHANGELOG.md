@@ -11,6 +11,10 @@
 
 ---
 
+#### Version 3.4.1
+- **Fix**: Reset of special characters filters after changing the language to one without them
+- **Fix**: Improvements to the language statistics page
+
 #### Version 3.4
 - **New**: Language statistics subpage added
 - **Fix**: Icon in corner background animaiton fix 

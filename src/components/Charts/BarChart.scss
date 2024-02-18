@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .bar-chart-wrapper {
     margin-top: 16px;
     position: relative;
@@ -87,23 +89,11 @@
         }
     }
 
-    @mixin hover-effect {
+    @include hoverOnDesktopActiveOnMobile {
         .bar-chart-label {
             > span {
                 border-color: color-mix(in srgb, var(--green) 45%, transparent);
             }
-        }
-    }
-
-    @media (hover: hover) {
-        &:hover {
-            @include hover-effect;
-        }
-    }
-
-    @media (hover: none) {
-        &:active {
-            @include hover-effect;
         }
     }
 }

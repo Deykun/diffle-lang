@@ -171,24 +171,12 @@ details {
         border-bottom: 1px dashed var(--border);
         transition: 0.3s ease-in-out;
 
-        @mixin hover-effect {
+        @include hoverOnDesktopActiveOnMobile {
             .details-icon {
                 &::before,
                 &::after {
                     border-bottom-color: var(--text);
                 }
-            }
-        }
-    
-        @media (hover: hover) {
-            &:hover {
-                @include hover-effect;
-            }
-        }
-    
-        @media (hover: none) {
-            &:active {
-                @include hover-effect;
             }
         }
 

@@ -63,6 +63,9 @@ const AboutLanguageNeighbours = ({ data: {
                             {firstKeys[key].map((part) => <li key={part} className="has-tooltip">
                                 {capitalize(part)}
                                 <span className="tooltip">
+                                    {' "'}
+                                    {part}
+                                    {'" '}
                                     {t('end.in', { postProcess: 'interval', count: 100 })}
                                     {' '}
                                     <strong>{(first[chunkLength][part] / all * 100).toFixed(2)}</strong>%
@@ -109,6 +112,9 @@ const AboutLanguageNeighbours = ({ data: {
                             {lastKeys[key].map((part) => <li key={part} className="has-tooltip">
                                 {part}.
                                 <span className="tooltip">
+                                    {' "'}
+                                    {part}
+                                    {'" '}
                                     {t('end.in', { postProcess: 'interval', count: 100 })}
                                     {' '}
                                     <strong>{(last[chunkLength][part] / all * 100).toFixed(2)}</strong>%

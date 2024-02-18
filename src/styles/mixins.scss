@@ -1,3 +1,17 @@
+@mixin hoverOnDesktopActiveOnMobile {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @content;
+        }
+    }
+}
+
 @mixin tooltip {
     font-size: 10px;
     line-height: 15px;

@@ -1,3 +1,5 @@
+@import '../../styles/mixins.scss';
+
 .affix {
     position: relative;
     display: inline-block;
@@ -53,24 +55,13 @@
         }
 
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
 
-        @mixin hover-effect {
+        @include hoverOnDesktopActiveOnMobile {
             --blue-transparentized: color-mix(in srgb, transparent 75%, var(--blue));
 
             box-shadow: 3px 0 3px var(--blue-weaker);
             box-shadow: 3px 0 3px var(--blue-transparentized);
-        }
-    
-        @media (hover: hover) {
-            &:hover {
-                @include hover-effect;
-            }
-        }
-    
-        @media (hover: none) {
-            &:active {
-                @include hover-effect;
-            }
         }
 
         &.known-incorect,
