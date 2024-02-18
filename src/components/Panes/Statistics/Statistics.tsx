@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane as PaneInterface } from '@common-types';
-
 import { useSelector } from '@store';
 
 import {
@@ -14,13 +12,9 @@ import {
     getStatisticCardDataFromStatistics,
 } from '@utils/statistics';
 
-import usePanes from '@hooks/usePanes';
 import useScrollEffect from '@hooks/useScrollEffect';
 
-import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconGamepad from '@components/Icons/IconGamepad';
-
-import Button from '@components/Button/Button';
 
 import StatisticsCard from './StatisticsCard';
 import StatisticsFilters from './StatisticsFilters';
@@ -42,7 +36,6 @@ const Statistics = () => {
     });
 
     const { t } = useTranslation();
-    const { changePane } = usePanes();
 
     useScrollEffect('top', []);
 

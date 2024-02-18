@@ -48,7 +48,6 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
     } = usePanes();
     const initialModeFilter = keepIfInEnum<ModeFilter>(paneModeFilter, ModeFilter) ?? INITIAL_FILTERS.modeFilter;
 
-    const gameLanguage = useSelector((state) => state.game.language);
     const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
     const [modeFilter, setModeFilter] = useState<ModeFilter>(initialModeFilter);
     const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
