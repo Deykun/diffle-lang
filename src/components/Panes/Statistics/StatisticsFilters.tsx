@@ -72,6 +72,14 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
 
         setFiltersData(filtersData);
     }, [modeFilter, charactersFilter, lengthFilter, setFiltersData]);
+
+    useEffect(() => {
+        // After changing language
+        const shouldResetSpecialCharacters = !hasLanguageSpecialCharacters && charactersFilter !== CharactersFilter.All;
+        if (shouldResetSpecialCharacters) {
+            setModeCharactersFilter(CharactersFilter.All);
+        }
+    }, [charactersFilter, hasLanguageSpecialCharacters]);
     
     return (
         <details className="statistics-filters">

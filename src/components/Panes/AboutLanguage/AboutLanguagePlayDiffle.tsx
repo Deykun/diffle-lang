@@ -40,14 +40,10 @@ const AboutLanguagePlayDiffle = () => {
         <section className="about-language-play-diffle">
             <h4>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</h4>
             <div>
-                <Button onClick={handleCopy} hasBorder={false}>
+                <Button onClick={handleCopy}>
                     <IconShare />
                     <span>{t('common.copyLink')}</span>
                 </Button>
-                <br />
-                <br />
-                <br />
-                <br />
             </div>
             <h2>{t('help.whatIsDiffleTitle')}</h2>
             <p>{t('help.whatIsDiffleDescription')}</p>

@@ -86,7 +86,7 @@ const Header = () => {
                   })}
                   onClick={() => changePane(Pane.Settings)}
                 >
-                    {pane === Pane.Settings ? <IconClose /> : <IconLayers />}
+                    {[Pane.Settings, Pane.Statistics, Pane.AboutLanguage].includes(pane) ? <IconClose /> : <IconLayers />}
                     <span className="tooltip">{t(pane === Pane.Settings ? 'common.close' : 'settings.title')}</span>
                 </button>
             </div>

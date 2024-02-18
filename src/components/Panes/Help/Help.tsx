@@ -10,6 +10,7 @@ import { getWordReportForMultipleWords } from '@api/getWordReport';
 import usePanes from '@hooks/usePanes';
 import useScrollEffect from '@hooks/useScrollEffect';
 
+import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import Button from '@components/Button/Button';
@@ -77,6 +78,12 @@ const Help = () => {
                     <span>{t(isAlt ? 'help.previousExample' : 'help.altExample')}</span>
                 </Button>
             </p>}
+            <p>
+                <Button onClick={() => changePane(Pane.AboutLanguage)} isInverted isText>
+                    <IconBookOpen />
+                    <span>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</span>
+                </Button>
+            </p>
         </div>
     )
 };
