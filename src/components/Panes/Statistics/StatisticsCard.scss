@@ -208,8 +208,14 @@
 
         .statistics-other-percentage {
             strong {
-                font-size: 42px;
-                letter-spacing: -0.05em;
+                font-size: 26px;
+                font-weight: 700;
+
+                @media (min-width: 380px) {
+                    font-size: 42px;
+                    font-weight: 600;
+                    letter-spacing: -0.05em;
+                }
             }
         }
     }

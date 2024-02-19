@@ -65,7 +65,7 @@ const AboutLenguageLengths = ({
 
             const { stampOnlyTime } = getNow();
             
-            download(dataUrl, `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(' ', '')}.jpeg`);
+            download(dataUrl, `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
         } catch (error) {
             console.error(error);
   

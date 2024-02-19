@@ -9,19 +9,19 @@
     letter-spacing: 0.3em;
     text-transform: uppercase;
     vertical-align: middle;
-    min-width: min(42px, 7vw);
+    min-width: min(42px, 8vw);
     opacity: 1;
     transition: all 0.1s linear;
     transition-delay: 0s;
 
     &.letter {
-        max-width:  min(42px, 7vw);
+        max-width:  min(42px, 8vw);
         padding: 0;
         letter-spacing: 0;
     }
 
-    height: min(42px, 7vw);
-    line-height: min(42px, 7vw);
+    height: min(42px, 8vw);
+    line-height: min(42px, 8vw);
     margin: 0 2px;
     font-size: min(24px, 5vw);
     border-radius: 21px;
@@ -154,13 +154,13 @@
 
 .words.narrow {
     .affix {
-        min-width: min(28px, 5vw);
-        height: min(28px, 5vw);
-        line-height: min(28px, 5vw);
-        font-size: min(18px, 3vw);
+        min-width: min(28px, 6.5vw);
+        height: min(28px, 6.5vw);
+        line-height: min(28px, 6.5vw);
+        font-size: min(18px, 4vw);
 
         &.letter {
-            max-width: min(28px, 5vw);
+            max-width: min(28px, 6.5vw);
             padding: 0;
             letter-spacing: 0;
         }

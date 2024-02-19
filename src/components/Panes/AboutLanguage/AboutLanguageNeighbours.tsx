@@ -89,6 +89,7 @@ const AboutLanguageNeighbours = ({ data: {
                                 'has-tooltip-from-right': chunkLength === 4,
                             })}>
                                 {part}
+                                {' '}
                                 <span
                                     className="tooltip"
                                     dangerouslySetInnerHTML={{

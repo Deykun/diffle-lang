@@ -25,7 +25,7 @@ export const getLangFromBrowser = () => {
         const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
 
         const isThisLanguageSupported = langLanguages.some(
-            oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages)
+            oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages) || oneOfBrowserLanguages.startsWith(`${lang}-`) || oneOfBrowserLanguages.startsWith(`${lang}_`)
         );
 
         return isThisLanguageSupported;

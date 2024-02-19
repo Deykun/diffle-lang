@@ -39,7 +39,8 @@ const KeyCap = ({ text, onClick }: Props) => {
         <button
             onClick={handleClick}
             className={clsx('key', `key-${text}`, type, { 'typed': isTyped })}>
-                {shouldShowText && <span>{textToShow}</span>}
+                {shouldShowText && <span>{textToShow.replace('ß', 'ẞ')}</span>} 
+                {/* Both text-transform: uppercase and .toUppercase() replace ß with SS */}
                 {shouldUseIcon && <>
                     {text ==='backspace' && <IconBackspace />}
                     {text ==='spacebar' && ' '}

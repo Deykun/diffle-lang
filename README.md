@@ -6,6 +6,7 @@ The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
  - Czech 🇨🇿 (since 08.02.2024)
+ - German 🇩🇪 (since 19.02.2024)
  - English 🇬🇧 (since 19.01.2024)
  - Polish 🇵🇱 (since 30.07.2023)
     - the biggest Polish community: https://www.hejto.pl/tag/diffle
@@ -27,6 +28,7 @@ This project is 100% GitHub-hosted, so it doesn't have a backend server. The spe
 This app has a dedicated subpage with a meta-analysis of the dictionary, including information on the most common letters, length of words, etc.
 
 - https://deykun.github.io/diffle-lang/cs?p=about-language 🇨🇿 
+- https://deykun.github.io/diffle-lang/de?p=about-language 🇩🇪 
 - https://deykun.github.io/diffle-lang/en?p=about-language 🇬🇧
 - https://deykun.github.io/diffle-lang/pl?p=about-language 🇵🇱
 

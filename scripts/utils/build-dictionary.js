@@ -12,6 +12,7 @@ import {
 export const removeDiacratics = (word) => word
     .replaceAll('ą', 'a')
     .replaceAll('á', 'a')
+    .replaceAll('ä', 'a')
     .replaceAll('ć', 'c')
     .replaceAll('č', 'c')
     .replaceAll('ď', 'd')
@@ -23,12 +24,15 @@ export const removeDiacratics = (word) => word
     .replaceAll('ń', 'n')
     .replaceAll('ň', 'n')
     .replaceAll('ó', 'o')
+    .replaceAll('ö', 'o')
     .replaceAll('ř', 'r')
+    .replaceAll('ß', 's')
     .replaceAll('ś', 's')
     .replaceAll('š', 's')
     .replaceAll('ť', 't')
     .replaceAll('ú', 'u')
     .replaceAll('ů', 'u')
+    .replaceAll('ü', 'u')
     .replaceAll('ý', 'y')
     .replaceAll('ź', 'z')
     .replaceAll('ż', 'z')
@@ -59,7 +63,7 @@ export const getNormalizedKey = (wordRaw, language) => {
             "Nie" means no/not and in Polish you connect those for a lot of words ex:
             nieżyje - not alive, nieładny - not pretty etc.
 
-            "n" has 724 318 words while the second one "p" has 476 009 words and third one "w" has 230 195.
+            "Nie" is the beginning of 18.93% of words.
             
             So it gets its own subkey.
         */

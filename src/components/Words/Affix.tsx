@@ -24,7 +24,8 @@ const Affix = ({ type, text, isStart, isEnd, hasCaretBefore, onClick }: AffixInt
             })}
             onClick={onClick}
         >
-            {text}
+            {/* Both text-transform: uppercase and .toUppercase() replace ß with SS */}
+            {text.replace('ß', 'ẞ')}
         </span>
     );
 };

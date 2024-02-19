@@ -4,7 +4,7 @@
 3. Search for open source dictionaries for the language (this step can be challenging). Useful search phrases include "dictionary", "wordlist", "hunspell" and "spellchecker". It is advisable to use non-English terms in your search to find dictionaries not documented in English. Personally, I recommend dictionaries with 200-500k words for spellchecking, with an additional dicitonary that produces 16k winning words (smaller dictionary). FreeDict is a reliable resource for this purpose.
 4. Create a new dictionary folder in `resources/[langCode]` with the acquired dictionaries.
 5. Create `public/dictionary/[langCode]` with subcatalogs.
-6. Enhance the `removeDiacritics` function to include special characters used in the new language.
+6. Enhance the `removeDiacratics` function to include special characters used in the new language.
 7. Create the `build-[langCode]-dictionary.mjs` script in the `scripts` folder.
 8. Include `build-[langCode]` in the `scripts` section of `package.json`.
 9. Add the new language to `SUPPORTED_DICTIONARY_BY_LANG` in `src/const.ts`.

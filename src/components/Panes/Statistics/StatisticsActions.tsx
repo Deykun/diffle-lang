@@ -49,7 +49,7 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
           const { stamp, stampOnlyTime } = getNow();
           const fullStamp = `${stamp} ${stampOnlyTime}`;
           
-          download(dataUrl, `DIFFLE ${fullStamp}.jpeg`);
+          download(dataUrl, `diffle-${fullStamp.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
       } catch (error) {
           console.error(error);
 

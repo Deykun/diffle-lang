@@ -19,6 +19,7 @@
     "common.serviceModeWeReturnSoon": "Back in action tomorrow!",
     "language.currentLanguage": "English",
     "language.cs": "Czech",
+    "language.de": "German",
     "language.en": "English",
     "language.pl": "Polish",
     "game.modeDaily": "Daily",
@@ -32,10 +33,12 @@
     "game.checking": "checking...",
     "game.withSpecialCharacters": "The winning word <strong>contains</strong> at least one {{specialCharacter}} character.",
     "game.withoutSpecialCharacters": "The winning word <strong>doesn't</strong> contain {{specialCharacters}} characters.",
-    "game.csSpecialCharacter": "Czech",
-    "game.csSpecialCharacters": "Czech",
-    "game.plSpecialCharacter": "Polish",
-    "game.plSpecialCharacters": "Polish",
+    "game.csSpecialCharacter": "special",
+    "game.csSpecialCharacters": "special",
+    "game.deSpecialCharacter": "special",
+    "game.deSpecialCharacters": "special",
+    "game.plSpecialCharacter": "special",
+    "game.plSpecialCharacters": "special",
     "game.youCanUseIncorrectLetters": "Your word <strong>can't</strong> win, but you can use it while searching for the winning word.",
     "game.youCanUseLettersTypedTooManyTimes": "You can use this word, but <strong>can't</strong> win with it.<br />(a correct letter used too many times)",
     "game.youCanUseSpace": "Words <strong>don't</strong> have spaces, but you can use them (they will be removed).",
@@ -66,32 +69,32 @@
     "end.titleLost": "Defeat",
     "end.titleCheater": "A clairvoyant",
     "end.winningWord": "The answer:",
-    "end.wordsUsed_zero": "",
+   
     "end.wordsUsed_one": "word",
-    "end.wordsUsed_few": "",
-    "end.wordsUsed_many": "",
+   
+   
     "end.wordsUsed_other": "words",
-    "end.inWordsUsed_zero": "",
+   
     "end.inWordsUsed_one": "word",
-    "end.inWordsUsed_few": "",
-    "end.inWordsUsed_many": "",
+   
+   
     "end.inWordsUsed_other": "words",
-    "end.in_zero": "in",
+   
     "end.in_one": "in",
-    "end.in_few": "in",
-    "end.in_many": "in",
+   
+   
     "end.in_other": "in",
     "end.lostIn": "lost",
     "end.lettersUsedShort": "ch.",
-    "end.lettersUsed_zero": "",
+   
     "end.lettersUsed_one": "letter",
-    "end.lettersUsed_few": "",
-    "end.lettersUsed_many": "",
+   
+   
     "end.lettersUsed_other": "letters",
-    "end.nextDaily_zero": "",
+   
     "end.nextDaily_one": "The new daily word will be available in <strong>an hour</strong>.",
-    "end.nextDaily_few": "",
-    "end.nextDaily_many": "",
+   
+   
     "end.nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyShort": "next in {{count}}h",
     "end.completed": "completed",
@@ -99,7 +102,7 @@
     "settings.inDevelopment": "In development",
     "settings.inBetaNow": "Beta",
     "settings.onlyIn": "Only in",
-    "settings.considered": "considered",
+    "settings.considered": "Considered",
     "settings.statisticsTitle": "Statistics",
     "settings.gameModeTitle": "Game modes",
     "settings.labelFinishGame": "Finish",
@@ -124,10 +127,10 @@
     "settings.sourceDictionaryWiningWords": "as winning words finder",
     "settings.lastDailyWordsTitle": "Yesterday's word",
     "settings.lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\".",
-    "settings.confirmInSeconds_zero": "",
+   
     "settings.confirmInSeconds_one": "Cilck in one second to confirm",
-    "settings.confirmInSeconds_few": "",
-    "settings.confirmInSeconds_many": "",
+   
+   
     "settings.confirmInSeconds_other": "Click in {{count}} seconds to confirm",
     "settings.confirmAfterWaiting": "Click to confirm",
     "settings.language": "Language",
@@ -164,22 +167,22 @@
     "statistics.averageWordsNotFound": "<strong>{{value}}</strong> words not found in a dictionary",
     "statistics.worstWordsNotFound": "worst <strong>{{value}}</strong> in one game",
     "statistics.worstWordsNotFoundLonger": "worst words not found in a dictionary <strong>{{value}}</strong> in a game",
-    "statistics.totalGames_zero": "",
+   
     "statistics.totalGames_one": "<strong>1</strong> game",
-    "statistics.totalGames_few": "",
-    "statistics.totalGames_many": "",
+   
+   
     "statistics.totalGames_other": "<strong>{{count}}</strong> games",
     "statistics.totalWon": "won",
     "statistics.totalWonStreak": "won in a row",
-    "statistics.totalWonStreak_zero": "",
-    "statistics.totalWonStreak_one": "",
-    "statistics.totalWonStreak_few": "",
-    "statistics.totalWonStreak_many": "",
+   
+   
+   
+   
     "statistics.totalLostStreak": "lost in a row",
-    "statistics.totalLostStreak_zero": "",
-    "statistics.totalLostStreak_one": "",
-    "statistics.totalLostStreak_few": "",
-    "statistics.totalLostStreak_many": "",
+   
+   
+   
+   
     "statistics.totalBestStreak": "best won in a row",
     "statistics.streakTooltipWithWorstStreak": "the worst lost in a row:",
     "statistics.lettersCorrect": "correct",

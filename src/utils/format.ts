@@ -1,4 +1,4 @@
-export const capitalize = (text: string) => text[0].toUpperCase() + text.slice(1);
+export const capitalize = (text: string | undefined) => text ? text[0].toUpperCase() + text.slice(1) : text;
 
 export const formatLargeNumber = (value: number) => {
     // It isn't a currecy and Polish format looks nice ex. 3 211 300

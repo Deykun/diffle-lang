@@ -38,7 +38,7 @@ const LanguagePicker = ({ children, className }: Props) => {
 
   const { t, i18n } = useTranslation();
   const { vibrate } = useVibrate();
-  const { changePane } = usePanes();
+  const { pane, changePane } = usePanes();
 
   const handleLanguageChange = (lang: string) => {
     if (lang === i18n.language) {
@@ -78,7 +78,7 @@ const LanguagePicker = ({ children, className }: Props) => {
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <div className="settings">
           <h3>{t('settings.language')}</h3>
-          <ul className="list-col-3">
+          <ul>
               {SUPPORTED_LANGS.map((lang) => <li key={lang}>
                 <button
                   className={clsx('setting', { 'setting-active': lang === i18n.language })}
@@ -94,20 +94,22 @@ const LanguagePicker = ({ children, className }: Props) => {
                   <span>
                     {t('language.currentLanguage', { lng: lang })}
                   </span>
-                  {lang === 'cs' &&  <span className={clsx('setting-label', 'position', 'construction')}>
+                  {lang === 'de' &&  <span className={clsx('setting-label', 'position', 'construction')}>
                       <span>{t('settings.inBetaNow')}</span>
                       <IconConstruction />
                   </span>}
                 </button>
               </li>)}
           </ul>
-          <h2>{capitalize(t('common.more'))}</h2>
-          <Button onClick={handleGoToAboutLanguage} isInverted isText>
-            <IconBookOpen />
-            <span>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</span>
-          </Button>
-          <br />
-          <br />
+          {pane !== PaneInterface.AboutLanguage && <>
+            <h2>{capitalize(t('common.more'))}</h2>
+            <Button onClick={handleGoToAboutLanguage} isInverted isText>
+              <IconBookOpen />
+              <span>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</span>
+            </Button>
+            <br />
+            <br />
+          </>}
           <ReportTranslationBugButton />
         </div>
       </Modal>

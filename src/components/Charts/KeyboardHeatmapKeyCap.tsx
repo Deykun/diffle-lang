@@ -35,7 +35,8 @@ const KeyboardHeatmapKeyCap = ({
             'has-tooltip': hasTooltip,
         })}>
             <span className="heatmap-keyboard-cap-content">
-                {text}
+                {/* Both text-transform: uppercase and .toUppercase() replace ß with SS */}
+                {text.replace('ß', 'ẞ')}
             </span>
             {hasCircle && <CircleScale startFrom={10} breakPoints={[5, 10, 15, 30, 50, 75, 100]} value={percentageCircle * 100} shouldShowLabels={false} isGreen />}
             {hasTooltip && <span className="tooltip">{(percentageText * 100).toFixed(precision)}%</span>}

@@ -15,6 +15,13 @@ const KEY_LINES_CS = [
     ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
 ];
 
+const KEY_LINES_DE = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['ä', 'ö', 'spacebar', 'ß', 'ü'],
+];
+
 const KEY_LINES_EN = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -25,7 +32,7 @@ const KEY_LINES_PL = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
     ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-    ['ą', 'ć', 'ę', 'ł', 'ń',  'ó', 'ś', 'ź', 'ż'],
+    ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
 ];
 
 export const SUPPORTED_DICTIONARY_BY_LANG: {
@@ -46,9 +53,25 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
         ],
         shareMarker: '🇨🇿 #diffle #difflecs',
     },
+    de: {
+        code: 'de',
+        languages: ['de', 'de-DE'],
+        // Update
+        title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
+        keyLines: KEY_LINES_DE,
+        allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE.flatMap((key) => key)],
+        characters: KEY_LINES_DE.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        specialCharacters: ['ä', 'ö', 'ß', 'ü'],
+        hasSpecialCharacters: true,
+        urls: [
+            { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
+            { url: 'https://de.pons.com/%C3%BCbersetzung/deutsche-rechtschreibung/{{word}}', name: 'PONS Rechtschreibung und Fremdwörter', hasExactMatchAlways: false },
+        ],
+        shareMarker: '🇩🇪 #diffle #difflede',
+    },
     en: {
         code: 'en',
-        languages: ['en', 'en-US'],
+        languages: ['en', 'en-UK'],
         title: 'DIFFLE - the game like Wordle (without character limit)',
         keyLines: KEY_LINES_EN,
         allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN.flatMap((key) => key)],
