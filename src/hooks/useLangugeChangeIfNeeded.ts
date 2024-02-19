@@ -30,9 +30,7 @@ export default function useLangugeChangeIfNeeded( ) {
 
         if (!langFromUrl || appLanguage !== langFromUrl || gameLanguage !== document.documentElement.lang) {
             const currentUrl = location.href.replace(location.search, '');
-            const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
-            const newPathName = `${location.pathname.replace(`/${langFromUrl}`, '')}${partToAdd}`
-            const newLocation = `${location.origin}${newPathName}`.replaceAll('//', '/').replace('https:/', 'https://');
+            const newLocation = `${currentUrl.replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}`;
 
             const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
             document.title = title;
