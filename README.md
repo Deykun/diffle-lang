@@ -1,4 +1,4 @@
-# DIFFLE 🇨🇿 🇬🇧 🇵🇱
+# DIFFLE 🇨🇿 🇩🇪 🇬🇧 🇵🇱
 
 A Wordle-like game without a character limit, where every used word gives hints about the position and order of letters in the solution.
 
