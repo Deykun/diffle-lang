@@ -28,15 +28,19 @@ export default function useLangugeChangeIfNeeded( ) {
         const { language: appLanguage } = i18n;
         const langFromUrl = getLangFromUrl();
 
-        if (!langFromUrl || appLanguage !== langFromUrl || gameLanguage !== document.documentElement.lang) {
+        if (!langFromUrl || appLanguage !== langFromUrl) {
             const currentUrl = location.href.replace(location.search, '');
             const newLocation = `${currentUrl.replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}`;
 
             const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
-            document.title = title;
-            document.documentElement.lang = appLanguage;
 
             window.history.replaceState(null, title, newLocation);
+        }
+
+        if (appLanguage && appLanguage !== document.documentElement.lang) {
+            const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
+            document.title = title;
+            document.documentElement.lang = appLanguage;
         }
     }, [wasAppLanguageDetected, i18n.language]);
 
