@@ -95,8 +95,13 @@ const SettingsSources = () => {
                 </>}
                 {gameLanguage === 'de' && <>
                     <li>
+                        <a href="http://www.aaabbb.de/WordList/WordList.php" target="_blank" rel="noopener noreferrer">
+                            <IconDictionaryAlt /><span><strong>wikipedia.org</strong> via <strong>aaabbb.de</strong> {t('settings.sourceDictionarySpellchecker')}</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
-                            <IconDictionary /><span><strong>freedict.org</strong> {t('settings.sourceDictionarySpellchecker')}</span>
+                            <IconDictionary /><span><strong>freedict.org</strong> {t('settings.sourceDictionaryWiningWords')}</span>
                         </a>
                     </li>
                 </>}

@@ -7,9 +7,6 @@
     width: min(500px, 100%);
     border-top: 1px solid var(--border);
 
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-
     @media (min-width: 502px) {
         border-left: 1px solid color-mix(in srgb, var(--border) 20%, transparent);
         border-right: 1px solid color-mix(in srgb, var(--border) 20%, transparent);

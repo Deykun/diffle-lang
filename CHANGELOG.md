@@ -11,21 +11,25 @@
 
 ---
 
-#### Version 3.4.1
+#### Version 3.5
+- **New**: German game language supported
+- **New**: Better RWD for really small screens
+
+#### Version 3.4.1 (19.02.2024)
 - **Fix**: Reset of special characters filters after changing the language to one without them
 - **Fix**: Improvements to the language statistics page
 
-#### Version 3.4
+#### Version 3.4 (13.02.2024)
 - **New**: Language statistics subpage added
 - **Fix**: Icon in corner background animaiton fix 
 
 #### Version 3.3
 - **New**: A larger dictionary of winning words is used in the Czech language
 
-#### Version 3.2.3
+#### Version 3.2.3 (08.02.2024)
 - **Fix**: Changing the language during game loading doesn't block the restore process
 
-#### Version 3.2.2
+#### Version 3.2.2 (08.02.2024)
 - **New**: The incorrectly typed letter shakes inside a keycap
 - **New**: A github start counter was added to github link
 

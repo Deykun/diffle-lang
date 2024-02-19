@@ -41,6 +41,10 @@
 
 .heatmap-keyboard-filters {
     margin-bottom: 30px;
+
+    button {
+        text-transform: capitalize;
+    }
 }
 
 .heatmap-keyboard-title {
