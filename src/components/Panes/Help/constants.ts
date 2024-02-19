@@ -20,6 +20,16 @@ export const HELP_EXAMPLES_BY_LANG: {
       words: ['kočky', 'vítej', 'netrpívá', 'zabit', 'zpívat'],
     },
   },
+  de: {
+    first: {
+      wordToGuess: 'schmetterling',
+      words: ['pfad', 'volant', 'pfuscht', 'samstag', 'schmetterling'],
+    },
+    second: {
+      wordToGuess: 'schnecke',
+      words: ['pirat', 'kaudern', 'kecker', 'setze', 'schnecke'],
+    },
+  },
   en: {
     first: {
       wordToGuess: 'great',

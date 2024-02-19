@@ -95,13 +95,13 @@ const SettingsPreferences = () => {
                 <li>
                     <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>
                         <IconVibrateKeyboard />
-                        <span className="setting-title-small">{t('settings.keyboardVibration')}</span>
+                        <span>{t('settings.keyboardVibration')}</span>
                     </button>
                 </li>
                 <li>
                     <button className={clsx('setting', { 'setting-active': isSmallKeyboard })} onClick={handleToggleKeyboardSize}>
                         <IconKeyboardDown />
-                        <span className="setting-title-small">{t('settings.smallerKeyboard')}</span>
+                        <span>{t('settings.smallerKeyboard')}</span>
                     </button>
                 </li>
                 <li>
