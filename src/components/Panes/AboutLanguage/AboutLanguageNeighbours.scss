@@ -1,3 +1,5 @@
+@import '../../../styles/mixins.scss';
+
 .about-language-neighbours {
     h4 {
         margin-bottom: 15px;
@@ -29,9 +31,10 @@
             letter-spacing: 0.05em;
             color: var(--text-alt);
             margin-bottom: 3px;
+            transition: 0.3s ease-in-out;
             cursor: help;
 
-            strong {
+            @include hoverOnDesktopActiveOnMobile {
                 color: var(--text);
             }
 

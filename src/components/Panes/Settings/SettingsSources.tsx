@@ -93,6 +93,13 @@ const SettingsSources = () => {
                         </a>
                     </li>
                 </>}
+                {gameLanguage === 'de' && <>
+                    <li>
+                        <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
+                            <IconDictionary /><span><strong>freedict.org</strong> {t('settings.sourceDictionarySpellchecker')}</span>
+                        </a>
+                    </li>
+                </>}
                 {gameLanguage === 'en' && <>
                     <li>
                         <a href="https://github.com/dwyl" target="_blank" rel="noopener noreferrer">

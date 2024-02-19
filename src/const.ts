@@ -57,16 +57,15 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
         code: 'de',
         languages: ['de', 'de-DE'],
         // Update
-        title: 'DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇩🇪',
+        title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
         keyLines: KEY_LINES_DE,
         allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE.flatMap((key) => key)],
         characters: KEY_LINES_DE.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
         specialCharacters: ['ä', 'ö', 'ß', 'ü'],
         hasSpecialCharacters: true,
         urls: [
-            // TODO: update
-            { url: 'https://www.nechybujte.cz/slovnik-soucasne-cestiny/{{word}}', name: 'Slovník současné češtiny', hasExactMatchAlways: false },
-            // { url: 'https://slovnikcestiny.cz/heslo/{{word}}/0', name: 'Akademický slovník současné češtiny', hasExactMatchAlways: false },
+            { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
+            { url: 'https://de.pons.com/%C3%BCbersetzung/deutsche-rechtschreibung/{{word}}', name: 'PONS Rechtschreibung und Fremdwörter', hasExactMatchAlways: false },
         ],
         shareMarker: '🇩🇪 #diffle #difflede',
     },

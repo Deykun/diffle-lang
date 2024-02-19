@@ -29,7 +29,7 @@ const getDicitonaryData = async (lang: string | undefined) => {
 const AboutLanguage = () => {
     const gameLanguage = useSelector((state) => state.game.language);
 
-    useScrollEffect('top', [gameLanguage]);
+    useScrollEffect('top', []);
 
     const {
         isLoading,
