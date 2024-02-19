@@ -32,7 +32,7 @@ export default function useLangugeChangeIfNeeded( ) {
             const currentUrl = location.href.replace(location.search, '');
             const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
             const newPathName = `${location.pathname.replace(`/${langFromUrl}`, '')}${partToAdd}`
-            const newLocation = `${location.origin}${newPathName}`;
+            const newLocation = `${location.origin}${newPathName}`.replaceAll('//', '/').replace('https:/', 'https://');
 
             const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
             document.title = title;
