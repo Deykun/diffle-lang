@@ -2,8 +2,6 @@
 <html lang="cs">
     <head>
         <meta charset="UTF-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <title>DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿</title>
@@ -34,7 +32,21 @@
                 background-color: #222222;
             }
 
+            .help-no-js {
+                max-width: 400px;
+                margin: 30px auto;
+                text-align: center;
+                font-family: 'Baloo 2', sans-serif;
+                color: #3e3e3e;
+            }
+
+            .help-no-js h1 {
+                color: #3c3c3c;
+                margin-bottom: 20px;
+            }
+
             .help-no-js p {
+                font-size: 14px;
                 line-height: 1.5;
                 margin-bottom: 10px;
             }
@@ -47,26 +59,69 @@
             }
 
             .help-no-js a {
-                color: #646464;
+                display: inline-block;
+                color: #3c3c3c;
                 text-decoration: none;
+                letter-spacing: 0.05em;
+                margin-bottom: 12px;
+                transition: 0.1s ease-in-out;
+            }
+
+            .help-no-js a img {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                width: 12px;
+                height: 12px;
+                object-fit: cover;
+                border-radius: 50%;
+                filter: contrast(0.8) saturate(0.7);
             }
 
             .help-no-js a:hover {
-                color: white;
+                color: #646464;
+            }
+
+            .help-no-js .about-short {
+                margin-top: 50px;
+                border-top: 1px dashed #5bff1045;
+                padding-top: 20px;
+                text-align: justify;
+            }
+
+            .help-no-js .about-short p {
+                color: #585e5645;
+                font-size: 12px;
+                line-height: 1.4;
+                margin-top: 0;
+                margin-bottom: 5px;
             }
         </style>
-      <script type="module" crossorigin src="/diffle-lang/assets/index-feaf5326.js"></script>
-      <link rel="stylesheet" href="/diffle-lang/assets/index-c726f4bb.css">
+      <script type="module" crossorigin src="/diffle-lang/assets/index-64afb423.js"></script>
+      <link rel="stylesheet" href="/diffle-lang/assets/index-699e495b.css">
     </head>
     <body>
         <div id="root">
-            <div class="help-no-js" style="max-width: 400px; margin: 30px auto; text-align: center; font-family: 'Baloo 2', sans-serif; color: #43483d;">
+            <div class="help-no-js">
                 <h2>Co je Diffle?</h2>
                 <p>Diffle je hra inspirovaná Wordle bez omezení počtu znaků. Pokud máte rádi Wordle, tato hra je pro vás</p>
                 <h2>Jak se hraje Diffle?</h2>
                 <p>Cílem je uhodnout heslo s co nejmenším počtem písmen a slov.</p>
                 <p>Po každém pokusu budou písmena označena odpovídající barvou.</p>
-	
+                <div class="about-short">
+                    <p>
+                        "Diffle", poutavá hra na hádání slov, připomínající Wordle, získala obrovskou popularitu díky své jednoduchosti a intelektuální výzvě. V této hře mají hráči za úkol odhalit tajné slovo v určeném počtu pokusů. To, co odlišuje Diffle, je unikátní otočka klasické formule – hráči nejen musí uhodnout správná písmena a jejich pozice, ale musí se vypořádat i s přidanou složitostí písmen, která jsou vedle sebe, ale ne ve správném pořadí. Tato jemná variace proměňuje hru v očarující kombinaci známého a nového pro milovníky slovních her.
+                    </p>
+                    <p>
+                        Přitažlivost Diffle spočívá v její dostupnosti a všestrannosti. Hráči všech věkových kategorií a jazykových pozadí mohou vychutnat tuto hru, protože překračuje jazykové bariéry, spoléhající se pouze na univerzální přitažlivost hry se slovy. Jednoduchá pravidla a minimalistický design přispívají k jejímu širokému zájmu, čímž se stává ideální volbou pro příležitostné hráče a nadšence do slov.
+                    </p>
+                    <p>
+                        Dále Diffle přijímá propojenou povahu digitální éry, podporující pocit komunity mezi hráči. Ať už se hraje osobně nebo online, hra rozvíjí pocit sounáležitosti a spolupráce, když hráči společně pracují na rozluštění kódu. Sdílená radost z odhalení tajemného slova buduje spojení a poskytuje příjemnou platformu pro sdílenou intelektuální činnost. V podstatě se Diffle stává kulturním fenoménem, který nejen baví, ale také spojuje lidi prostřednictvím univerzální radosti ze slov.
+                    </p>
+                    <p>
+                        Wordle, poutavá hra na hádání slov, si získala srdce hráčů svou jednoduchostí a zábavnou výzvou pro jejich mysl. Cílem hry je odhalit tajné pětileté slovo v co nejmenším počtu pokusů. Každý tip odhaluje, zda jsou určitá písmena na správném místě a zda se vyskytují ve slově vůbec. Tato minimalistická hra vyžaduje kombinaci dedukce a náhody, což ji činí vhodnou pro hráče všech věkových skupin. S jednoduchým rozhraním a návykovým konceptem se Wordle stala oblíbeným způsobem, jak procvičovat slovní zásobu a kreativní myšlení. Je to nejen výzva pro individuální hráče, ale také způsob, jak sdílet radost ze slov a propojit komunitu prostřednictvím lingvistické zábavy.
+                    </p>
+                </div>	
             </div>
         </div>
         <div id="root-modal"></div>

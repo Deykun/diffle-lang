@@ -2,8 +2,6 @@
 <html lang="pl">
     <head>
         <meta charset="UTF-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
         <title>DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱</title>
@@ -34,7 +32,21 @@
                 background-color: #222222;
             }
 
+            .help-no-js {
+                max-width: 400px;
+                margin: 30px auto;
+                text-align: center;
+                font-family: 'Baloo 2', sans-serif;
+                color: #3e3e3e;
+            }
+
+            .help-no-js h1 {
+                color: #3c3c3c;
+                margin-bottom: 20px;
+            }
+
             .help-no-js p {
+                font-size: 14px;
                 line-height: 1.5;
                 margin-bottom: 10px;
             }
@@ -47,26 +59,67 @@
             }
 
             .help-no-js a {
-                color: #646464;
+                display: inline-block;
+                color: #3c3c3c;
                 text-decoration: none;
+                letter-spacing: 0.05em;
+                margin-bottom: 12px;
+                transition: 0.1s ease-in-out;
+            }
+
+            .help-no-js a img {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                width: 12px;
+                height: 12px;
+                object-fit: cover;
+                border-radius: 50%;
+                filter: contrast(0.8) saturate(0.7);
             }
 
             .help-no-js a:hover {
-                color: white;
+                color: #646464;
+            }
+
+            .help-no-js .about-short {
+                margin-top: 50px;
+                border-top: 1px dashed #5bff1045;
+                padding-top: 20px;
+                text-align: justify;
+            }
+
+            .help-no-js .about-short p {
+                color: #585e5645;
+                font-size: 12px;
+                line-height: 1.4;
+                margin-top: 0;
+                margin-bottom: 5px;
             }
         </style>
-      <script type="module" crossorigin src="/diffle-lang/assets/index-feaf5326.js"></script>
-      <link rel="stylesheet" href="/diffle-lang/assets/index-c726f4bb.css">
+      <script type="module" crossorigin src="/diffle-lang/assets/index-64afb423.js"></script>
+      <link rel="stylesheet" href="/diffle-lang/assets/index-699e495b.css">
     </head>
     <body>
         <div id="root">
-            <div class="help-no-js" style="max-width: 400px; margin: 30px auto; text-align: center; font-family: 'Baloo 2', sans-serif; color: #43483d;">
+            <div class="help-no-js">
                 <h1>DIFFLE</h1>
                 <h2>Czym jest Diffle?</h2>
                 <p>Diffle to gra inspirowana Wordle bez limitu znaków, jeśli lubisz polskie wersje Wordle to gra dla Ciebie.</p>
                 <h2>Jak gra się w diffle?</h2>
                 <p>Cel to odgadnięcie hasła używając jak najmniejszej liczby liter i słów.</p>
-                <p>Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.</p>	
+                <p>Po każdej próbie litery zostaną oznaczone odpowiednim kolorem.</p>
+                <div class="about-short">
+                    <p>
+                        "Diffle", fascynująca gra w odgadywanie słów, zbliżająca się do Wordle, zyskała uznanie jako świeże i innowacyjne wyzwanie w świecie lingwistycznych gier. W tej grze gracze mają za zadanie odszyfrować tajemne słowo w określonej liczbie prób. To, co wyróżnia Diffle, to unikalny zwrot w klasycznej formule – gracze muszą nie tylko odgadnąć poprawne litery i ich pozycje, ale także zmierzyć się z dodatkową złożonością liter, które są obok siebie, ale nie w poprawnej kolejności. Ta subtelna różnica nadaje grze urok, oferując przyjemne połączenie znajomego i nowatorskiego dla miłośników słów.
+                    </p>
+                    <p>
+                        Magnesem Diffle jest strategiczna głębia i umysłowe akrobatyka, jaką wymaga od graczy. Każde odgadnięcie staje się starannie przemyślanym ruchem, wymagając delikatnej równowagi między dedukcją a próbą błędów. W miarę jak gracze przemierzają lingwistyczny labirynt, gra rozwija się jako dynamiczne wyzwanie, dostosowujące się do poziomu umiejętności gracza. Diffle zaspokaja różnorodną publiczność, oferując stymulujące doświadczenie zarówno dla casualowych graczy szukających szybkiego treningu umysłowego, jak i doświadczonych słowników poszukujących bardziej złożonego łamigłówki.
+                    </p>
+                    <p>
+                        Co więcej, Diffle przyjmuje zinterkonektowaną naturę ery cyfrowej, wspierając poczucie wspólnoty między graczami. Czy to rywalizacja z przyjaciółmi, czy zaangażowanie w globalną społeczność graczy, wspólne wyzwanie gry wywołuje rozmowy i przyjacielskie rywalizacje. Diffle przekształca akt odszyfrowywania słów w społeczne przedsięwzięcie, pokazując, jak nowoczesne doświadczenia z grami mogą płynnie łączyć rozrywkę z intelektualną stymulacją. W istocie, Diffle stanowi dowód na trwałe przyciąganie gier opartych na słowach, oferując nowy i angażujący rozdział w nieustannie ewoluującym krajobrazie gier lingwistycznych.
+                    </p>
+                </div>	
             </div>
         </div>
         <div id="root-modal"></div>

@@ -2,8 +2,6 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <!-- langHead -->
@@ -36,7 +34,21 @@
                 background-color: #222222;
             }
 
+            .help-no-js {
+                max-width: 400px;
+                margin: 30px auto;
+                text-align: center;
+                font-family: 'Baloo 2', sans-serif;
+                color: #3e3e3e;
+            }
+
+            .help-no-js h1 {
+                color: #3c3c3c;
+                margin-bottom: 20px;
+            }
+
             .help-no-js p {
+                font-size: 14px;
                 line-height: 1.5;
                 margin-bottom: 10px;
             }
@@ -49,34 +61,96 @@
             }
 
             .help-no-js a {
-                color: #646464;
+                display: inline-block;
+                color: #3c3c3c;
                 text-decoration: none;
+                letter-spacing: 0.05em;
+                margin-bottom: 12px;
+                transition: 0.1s ease-in-out;
+            }
+
+            .help-no-js a img {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                width: 12px;
+                height: 12px;
+                object-fit: cover;
+                border-radius: 50%;
+                filter: contrast(0.8) saturate(0.7);
             }
 
             .help-no-js a:hover {
-                color: white;
+                color: #646464;
+            }
+
+            .help-no-js .about-short {
+                margin-top: 50px;
+                border-top: 1px dashed #5bff1045;
+                padding-top: 20px;
+                text-align: justify;
+            }
+
+            .help-no-js .about-short p {
+                color: #585e5645;
+                font-size: 12px;
+                line-height: 1.4;
+                margin-top: 0;
+                margin-bottom: 5px;
             }
         </style>
-      <script type="module" crossorigin src="/diffle-lang/assets/index-feaf5326.js"></script>
-      <link rel="stylesheet" href="/diffle-lang/assets/index-c726f4bb.css">
+      <script type="module" crossorigin src="/diffle-lang/assets/index-64afb423.js"></script>
+      <link rel="stylesheet" href="/diffle-lang/assets/index-699e495b.css">
     </head>
     <body>
         <div id="root">
-            <div class="help-no-js" style="max-width: 400px; margin: 30px auto; text-align: center; font-family: 'Baloo 2', sans-serif; color: #43483d;">
+            <div class="help-no-js">
 <!-- langNoJsContent -->
-                <h1>DIFFLE</h1>
-                <h2>What is Diffle?</h2>
+                <strong>DIFFLE</strong>
+                <h1>What is Diffle?</h1>
                 <p>Diffle is a game inspired by Wordle without a character limit. If you enjoy wordle, this game is for you.</p>
-                <h2>How to play Diffle?</h2>
+                <h1>How to play Diffle?</h1>
                 <p>The goal is to guess the password using the fewest number of letters and words possible.</p>
                 <p>After each attempt, the letters will be marked with the appropriate color.</p>
                 <nav>
                     <ul>
-                        <li><a href="https://deykun.github.io/diffle-lang/cs" title="Hra jako Wordle">DIFFLE v češtině</a></li>
-                        <li><a href="https://deykun.github.io/diffle-lang/en" title="Wordle-like game">DIFFLE in English</a></li>
-                        <li><a href="https://deykun.github.io/diffle-lang/pl" title="Graj jak wordle">DIFFLE po polsku</a></li>
+                        <li>
+                            <a href="https://deykun.github.io/diffle-lang/cs" title="Hra jako Wordle">
+                                <img src="./flags/cs.svg" alt="">
+                                DIFFLE v češtině
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://deykun.github.io/diffle-lang/de" title="Das Spiel wie Wordle">
+                                <img src="./flags/de.svg" alt="">
+                                DIFFLE auf Deutsch
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://deykun.github.io/diffle-lang/en" title="Wordle-like game">
+                                <img src="./flags/en.svg" alt="">
+                                DIFFLE in English
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://deykun.github.io/diffle-lang/pl" title="Gra jak wordle">
+                                <img src="./flags/pl.svg" alt="">
+                                DIFFLE po polsku
+                            </a>
+                        </li>
                     </ul>
                 </nav>
+                <div class="about-short">
+                    <p>
+                       "Diffle" a versatile and multilingual word-guessing game, offers an engaging linguistic challenge for players across different language backgrounds. With support for German, Polish, Czech, and English, Diffle transcends linguistic boundaries, providing an inclusive gaming experience. Players can seamlessly switch between languages, making it an ideal choice for a diverse player base. The game's interface and clues are thoughtfully crafted in each language, ensuring that players can enjoy the same immersive experience regardless of the language they choose.
+                    </p>
+                    <p lang="de">
+                        Die Vielseitigkeit von "Diffle", einem mehrsprachigen Worträtselspiel, bietet eine fesselnde sprachliche Herausforderung für Spieler unterschiedlicher Sprachhintergründe. Mit Unterstützung für Deutsch, Polnisch, Tschechisch und Englisch überwindet Diffle sprachliche Grenzen und bietet eine inklusive Spielerfahrung. Spieler können nahtlos zwischen den Sprachen wechseln, was es zu einer idealen Wahl für eine vielfältige Spielerbasis macht. Die Benutzeroberfläche und Hinweise des Spiels sind sorgfältig in jeder Sprache gestaltet, um sicherzustellen, dass Spieler das gleiche eindringliche Erlebnis genießen können, unabhängig von der gewählten Sprache.
+                    </p>
+                    <p lang="pl">
+                        "Diffle" to wszechstronna i wielojęzyczna gra w odgadywanie słów, oferująca fascynujące wyzwanie językowe dla graczy z różnych tła językowych. Z obsługą niemieckiego, polskiego, czeskiego i angielskiego Diffle przekracza granice językowe, zapewniając inkludencyjne doświadczenie gamingowe. Gracze mogą płynnie przełączać się między językami, co czyni ją idealnym wyborem dla zróżnicowanej bazy graczy. Interfejs gry oraz wskazówki są starannie opracowane w każdym języku, zapewniając, że gracze mogą cieszyć się tą samą immersyjną rozgrywką bez względu na wybrany język.
+                    </p>
+                </div>
 <!-- /langNoJsContent -->	
             </div>
         </div>
