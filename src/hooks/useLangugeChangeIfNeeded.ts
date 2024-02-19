@@ -33,14 +33,10 @@ export default function useLangugeChangeIfNeeded( ) {
             const newLocation = `${currentUrl.replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}`;
 
             const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
-
-            window.history.replaceState(null, title, newLocation);
-        }
-
-        if (appLanguage && appLanguage !== document.documentElement.lang) {
-            const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
             document.title = title;
             document.documentElement.lang = appLanguage;
+
+            window.history.replaceState(null, title, newLocation);
         }
     }, [wasAppLanguageDetected, i18n.language]);
 
