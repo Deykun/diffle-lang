@@ -18,9 +18,10 @@
     "post-build": "node scripts/post-build.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build-cs": "node scripts/build-cs-dictionary.mjs",
+    "build-de": "node scripts/build-de-dictionary.mjs",
     "build-en": "node scripts/build-en-dictionary.mjs",
     "build-pl": "node scripts/build-pl-dictionary.mjs",
-    "build-langs": "yarn build-cs & yarn build-en & yarn build-pl",
+    "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-pl",
     "preview": "vite preview",
     "test": "jest"
   },

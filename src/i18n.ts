@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import intervalPlural from 'i18next-intervalplural-postprocessor';
 
 import localeCs from './locales/cs.json';
+import localeDe from './locales/de.json';
 import localeEn from './locales/en.json';
 import localePl from './locales/pl.json';
 
@@ -10,6 +11,9 @@ import localePl from './locales/pl.json';
 const resources = {
   cs: {
     translation: localeCs,
+  },
+  de: {
+    translation: localeDe,
   },
   en: {
     translation: localeEn,
