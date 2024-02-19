@@ -28,7 +28,7 @@ export default function useLangugeChangeIfNeeded( ) {
         const { language: appLanguage } = i18n;
         const langFromUrl = getLangFromUrl();
 
-        if (!langFromUrl || appLanguage !== langFromUrl) {
+        if (!langFromUrl || appLanguage !== langFromUrl || gameLanguage !== document.documentElement.lang) {
             const currentUrl = location.href.replace(location.search, '');
             const partToAdd = currentUrl.endsWith('/') ? appLanguage : `/${appLanguage}`;
             const newLocation = `${currentUrl.replace(`/${langFromUrl}`, '')}${partToAdd}`;
