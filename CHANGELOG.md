@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.5.1
+- **Fix**: German /de redirection fix (https://deykun.github.io/ykun.github.io/ykun.github.io/diffle-lang/de/de/de)
+
 #### Version 3.5
 - **New**: German game language supported
 - **New**: Better RWD for really small screens
