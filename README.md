@@ -1,16 +1,18 @@
-# DIFFLE 🇨🇿 🇩🇪 🇬🇧 🇵🇱
+# 🕹️ DIFFLE-LANG - word game
 
 A Wordle-like game without a character limit, where every used word gives hints about the position and order of letters in the solution.
 
 The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
- - Czech 🇨🇿 (since 08.02.2024)
- - English 🇬🇧 (since 19.01.2024)
- - German 🇩🇪 (since 19.02.2024)
- - Polish 🇵🇱 (since 30.07.2023)
-    - the biggest Polish community: https://www.hejto.pl/tag/diffle
- - Spanish 🇪🇸 (since 21.02.2024)
+|       	|     🇨🇿     	|      🇬🇧     	|     🇩🇪     	|     🇵🇱     	|      🇪🇸     	|
+|:-----:	|:----------:	|:-----------:	|:----------:	|:----------:	|:-----------:	|
+|       	|  **Czech** 	| **English** 	| **German** 	| **Polish** 	| **Spanish** 	|
+| Since 	| 02.02.2024 	|  19.01.2024 	| 19.02.2024 	| 30.07.2023 	|  21.02.2024 	|
+
+<!---
+   https://www.tablesgenerator.com/markdown_tables
+-->
 
 # App screenshots
 ![diffle lang app screenshots](./app-screenshots.png)
