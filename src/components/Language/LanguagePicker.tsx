@@ -9,8 +9,6 @@ import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 import { useDispatch, useSelector } from '@store';
 import { setToast } from '@store/appSlice';
 
-import { capitalize } from '@utils/format';
-
 import useVibrate from '@hooks/useVibrate';
 import usePanes from '@hooks/usePanes';
 
@@ -18,7 +16,6 @@ import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconTranslation from '@components/Icons/IconTranslation';
 
-import Button from '@components/Button/Button';
 import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
@@ -38,7 +35,7 @@ const LanguagePicker = ({ children, className }: Props) => {
 
   const { t, i18n } = useTranslation();
   const { vibrate } = useVibrate();
-  const { pane, changePane } = usePanes();
+  const { changePane } = usePanes();
 
   const handleLanguageChange = (lang: string) => {
     if (lang === i18n.language) {
