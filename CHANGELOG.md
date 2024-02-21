@@ -11,10 +11,13 @@
 
 ---
 
-#### Version 3.5.1
+#### Version 3.6
+- **New**: Support for QWERTZ added
+
+#### Version 3.5.1 (19.02.2024)
 - **Fix**: German /de redirection fix (https://deykun.github.io/ykun.github.io/ykun.github.io/diffle-lang/de/de/de)
 
-#### Version 3.5
+#### Version 3.5 (19.02.2024)
 - **New**: German game language supported
 - **New**: Better RWD for really small screens
 
@@ -26,7 +29,7 @@
 - **New**: Language statistics subpage added
 - **Fix**: Icon in corner background animaiton fix 
 
-#### Version 3.3
+#### Version 3.3 (09.02.2024)
 - **New**: A larger dictionary of winning words is used in the Czech language
 
 #### Version 3.2.3 (08.02.2024)

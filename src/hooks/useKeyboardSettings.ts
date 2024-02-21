@@ -1,9 +1,18 @@
 import { useCallback } from 'react';
 
+import { KeyboardQWERTYMode } from '@common-types';
+
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
-import { toggleVibration, toggleKeyboardVibration, toggleKeyboardSize, toggleEnterSwap, toggleConfirmEnter } from '@store/appSlice';
+import {
+    toggleVibration,
+    toggleKeyboardVibration,
+    toggleKeyboardSize,
+    toggleEnterSwap,
+    toggleKeyboardQWERTYMode,
+    toggleConfirmEnter,
+} from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -11,6 +20,7 @@ function useKeyboardSettings() {
     const dispatch = useDispatch();
     const shouldVibrate = useSelector(state => state.app.shouldVibrate);
     const shouldKeyboardVibrate = useSelector(state => state.app.shouldKeyboardVibrate);
+    const keyboardQWERTYMode = useSelector(state => state.app.keyboardQWERTYMode);
     const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
     const isEnterSwapped = useSelector(state => state.app.isEnterSwapped);
     const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
@@ -63,6 +73,23 @@ function useKeyboardSettings() {
         dispatch(toggleConfirmEnter());
     }, [dispatch, shouldConfirmEnter, vibrate]);
 
+    const handleSetNextQWERTYMode = useCallback(() => {
+        vibrate();
+
+        let modeToSet = keyboardQWERTYMode;
+        if (keyboardQWERTYMode === KeyboardQWERTYMode.FROM_LANG) {
+            modeToSet = KeyboardQWERTYMode.QWERTY;
+        } else if (keyboardQWERTYMode === KeyboardQWERTYMode.QWERTY) {
+            modeToSet = KeyboardQWERTYMode.QWERTZ;
+        } else {
+            modeToSet = KeyboardQWERTYMode.FROM_LANG;
+        }
+
+        localStorage.setItem(LOCAL_STORAGE.QWERTY_MODE, modeToSet);
+
+        dispatch(toggleKeyboardQWERTYMode(modeToSet));
+    }, [dispatch, keyboardQWERTYMode, vibrate]);
+
     return {
         shouldVibrate,
         handleToggleVibrate,
@@ -74,6 +101,8 @@ function useKeyboardSettings() {
         handleToggleConfirmEnter,
         isEnterSwapped,
         handleToggleEnterSwap,
+        keyboardQWERTYMode,
+        handleSetNextQWERTYMode,
     }
 }
 

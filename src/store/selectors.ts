@@ -3,6 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import {
     RootState,
     Dictionary,
+    KeyboardQWERTYMode,
     Word as WordInterface,
     AffixStatus,
     UsedLetters,
@@ -25,13 +26,15 @@ export const selectIsGameEnded = (state: RootState) => state.game.status !== Gam
 
 export const selectGameLanguageKeyboardInfo =  createSelector(
     (state: RootState) => state.game.language,
+    (state: RootState) => state.app.keyboardQWERTYMode,
     (state: RootState) => state.app.isEnterSwapped,
-    (gameLanguage, isEnterSwapped): Dictionary => {
+    (gameLanguage, userQWERTYPreferedMode, isEnterSwapped): Dictionary => {
         if (!gameLanguage || !SUPPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
             return {
                 code: undefined,
                 title: '',
                 languages: [],
+                shouldPreferQWERZ: false,
                 keyLines: [],
                 allowedKeys: [],
                 characters: [],
@@ -43,12 +46,31 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
         }
         const {
             keyLines,
+            shouldPreferQWERZ,
             ...dictionary
         } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage];
+
+        let keyLinesToUse = keyLines;
+
+        const shouldSwapZwithY = userQWERTYPreferedMode === KeyboardQWERTYMode.QWERTZ
+            || (userQWERTYPreferedMode === KeyboardQWERTYMode.FROM_LANG && shouldPreferQWERZ)
+
+        if (shouldSwapZwithY) {
+            keyLinesToUse = keyLinesToUse.map((line) => line.map((keyText) => {
+                if (keyText === 'y') {
+                    return 'z';
+                }
         
-        return {
-            ...dictionary,
-            keyLines: !isEnterSwapped ? keyLines : keyLines.map((line) => line.map((keyText) => {
+                if (keyText === 'z') {
+                    return 'y';
+                }
+        
+                return keyText;
+            }));
+        }
+
+        if (isEnterSwapped) {
+            keyLinesToUse = keyLinesToUse.map((line) => line.map((keyText) => {
                 if (keyText === 'enter') {
                     return 'backspace';
                 }
@@ -58,7 +80,13 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
                 }
         
                 return keyText;
-            }))
+            }));
+        }
+
+        return {
+            ...dictionary,
+            shouldPreferQWERZ,
+            keyLines: keyLinesToUse,
         };
     }
 );
