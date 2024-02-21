@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const SUPPORTED_LANGS = ['cs', 'de', 'en', 'pl'];
+const SUPPORTED_LANGS = ['cs', 'de', 'en', 'es', 'pl'];
 
 SUPPORTED_LANGS.forEach((lang) => {
     let html = fs.readFileSync(`./dist/index.html`, 'utf-8');
