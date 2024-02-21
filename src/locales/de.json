@@ -80,10 +80,10 @@
    
     "end.inWordsUsed_other": "Wörtern",
    
-    "end.in_one": "in",
+    "end.in_one": "im",
    
    
-    "end.in_other": "in",
+    "end.in_other": "im",
     "end.lostIn": "Niederlage",
     "end.lettersUsedShort": "B.",
    
@@ -96,7 +96,7 @@
    
    
     "end.nextDaily_other": "Das neue Tageswort wird in <strong>{{count}} Stunden</strong> verfügbar sein.",
-    "end.nextDailyShort": "nächster in {{count}}S",
+    "end.nextDailyShort": "nächster im {{count}}S",
     "end.completed": "abgeschlossen",
     "settings.title": "Einstellungen",
     "settings.inDevelopment": "In Entwicklung",
@@ -115,6 +115,7 @@
     "settings.keyboard": "Tastatur",
     "settings.confirmSubmition": "Wörter bestätigen",
     "settings.swapEnterAndBackspace": "Backspace mit Enter tauschen",
+    "settings.languageDefault": "aus der Sprache",
     "settings.keyboardVibration": "Tastaturvibrationen",
     "settings.smallerKeyboard": "Kleinere Tastatur",
     "settings.sourcesTitle": "Quellen",

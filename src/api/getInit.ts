@@ -1,4 +1,4 @@
-import { GameMode, Pane } from '@common-types';
+import { GameMode, Pane, KeyboardQWERTYMode } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
@@ -73,6 +73,15 @@ export const getInitIsSmallKeyboard = () => {
     const isWideScreen = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024;
 
     return isWideScreen;
+};
+
+export const getInitKeyboardMode = () => {
+    const savedMode = keepIfInEnum<KeyboardQWERTYMode>(localStorage.getItem(LOCAL_STORAGE.QWERTY_MODE) || '', KeyboardQWERTYMode);
+    if (savedMode) {
+        return savedMode;
+    }
+
+    return KeyboardQWERTYMode.FROM_LANG;
 };
 
 export const getInitShouldVibrate = () => {

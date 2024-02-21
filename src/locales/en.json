@@ -115,6 +115,7 @@
     "settings.keyboard": "Keyboard",
     "settings.confirmSubmition": "Confirm words",
     "settings.swapEnterAndBackspace": "Swap Backspace with Enter",
+    "settings.languageDefault": "from language",
     "settings.keyboardVibration": "Keyboard vibrations",
     "settings.smallerKeyboard": "Smaller keyboard",
     "settings.sourcesTitle": "Sources",

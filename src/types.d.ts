@@ -16,6 +16,7 @@ export interface Dictionary {
     code?: string,
     languages: string[],
     title: string,
+    shouldPreferQWERTZ: boolean,
     keyLines: string[][],
     allowedKeys: string[],
     characters: string[],
@@ -145,6 +146,12 @@ export interface Toast {
     },
 }
 
+export enum KeyboardQWERTYMode {
+    FROM_LANG = 'language',
+    QWERTY = 'qwerty',
+    QWERTZ = 'qwertz',
+}
+
 export interface RootAppState {
     pane: {
         active: Pane,
@@ -156,6 +163,7 @@ export interface RootAppState {
     shouldVibrate: boolean,
     shouldKeyboardVibrate: boolean,
     isSmallKeyboard: boolean,
+    keyboardQWERTYMode: KeyboardQWERTYMode,
     isEnterSwapped: boolean,
     shouldConfirmEnter: boolean,
     shouldShareWords: boolean,

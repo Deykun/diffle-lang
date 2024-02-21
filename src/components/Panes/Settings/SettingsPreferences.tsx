@@ -4,11 +4,17 @@ import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
+import { useSelector } from '@store';
+import {
+    selectGameLanguageKeyboardInfo,
+} from '@store/selectors';
+
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 import useVibrate from '@hooks/useVibrate';
 
 import IconContrast from '@components/Icons/IconContrast';
-import IconCheckConfirm from '@components/Icons/IconCheckConfirm'; 
+import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
+import IconKeyboard from '@components/Icons/IconKeyboard'; 
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
@@ -21,6 +27,7 @@ import LanguagePicker from '@components/Language/LanguagePicker';
 import './Settings.scss'
 
 const SettingsPreferences = () => {
+    const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
     const { t } = useTranslation();
 
     const {
@@ -34,6 +41,8 @@ const SettingsPreferences = () => {
         handleToggleEnterSwap,
         shouldConfirmEnter,
         handleToggleConfirmEnter,
+        keyboardQWERTYMode,
+        handleSetNextQWERTYMode,
      } = useKeyboardSettings();
 
     const { vibrate } = useVibrate();
@@ -102,6 +111,16 @@ const SettingsPreferences = () => {
                     <button className={clsx('setting', { 'setting-active': isSmallKeyboard })} onClick={handleToggleKeyboardSize}>
                         <IconKeyboardDown />
                         <span>{t('settings.smallerKeyboard')}</span>
+                    </button>
+                </li>
+                <li>
+                    <button className={clsx('setting', 'setting-active')} onClick={handleSetNextQWERTYMode}>
+                        <IconKeyboard />
+                        <span className="setting-title-small">
+                            {keyboardQWERTYMode === 'language'
+                            ? <>{shouldPreferQWERTZ ? 'QWERTZ' : 'QWERTY'} <small>({t('settings.languageDefault')})</small></>
+                            : keyboardQWERTYMode.toUpperCase()}
+                        </span>
                     </button>
                 </li>
                 <li>

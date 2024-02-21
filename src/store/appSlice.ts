@@ -7,6 +7,7 @@ import {
     getInitShouldVibrate,
     getInitShouldKeyboardVibrate,
     getInitIsSmallKeyboard,
+    getInitKeyboardMode,
     getIsEnterSwapped,
     getShouldConfirmEnter,
     getShouldShareWords,
@@ -27,6 +28,7 @@ const initialState: RootAppState = {
     shouldVibrate: getInitShouldVibrate(),
     shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
     isSmallKeyboard: getInitIsSmallKeyboard(),
+    keyboardQWERTYMode: getInitKeyboardMode(),
     isEnterSwapped: getIsEnterSwapped(),
     shouldConfirmEnter: getShouldConfirmEnter(),
     shouldShareWords: getShouldShareWords(),
@@ -80,6 +82,9 @@ const appSlice = createSlice({
         toggleKeyboardSize(state) {
             state.isSmallKeyboard = !state.isSmallKeyboard;
         },
+        toggleKeyboardQWERTYMode(state, action) {
+           state.keyboardQWERTYMode = action.payload;
+        },
         toggleEnterSwap(state) {
             state.isEnterSwapped = !state.isEnterSwapped;
         },
@@ -107,6 +112,7 @@ export const {
     toggleVibration,
     toggleKeyboardVibration,
     toggleKeyboardSize,
+    toggleKeyboardQWERTYMode,
     toggleEnterSwap,
     toggleConfirmEnter,
     toggleShareWords,
