@@ -16,7 +16,7 @@ export interface Dictionary {
     code?: string,
     languages: string[],
     title: string,
-    shouldPreferQWERZ: boolean,
+    shouldPreferQWERTZ: boolean,
     keyLines: string[][],
     allowedKeys: string[],
     characters: string[],

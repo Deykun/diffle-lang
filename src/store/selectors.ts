@@ -34,7 +34,7 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
                 code: undefined,
                 title: '',
                 languages: [],
-                shouldPreferQWERZ: false,
+                shouldPreferQWERTZ: false,
                 keyLines: [],
                 allowedKeys: [],
                 characters: [],
@@ -46,14 +46,14 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
         }
         const {
             keyLines,
-            shouldPreferQWERZ,
+            shouldPreferQWERTZ,
             ...dictionary
         } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage];
 
         let keyLinesToUse = keyLines;
 
         const shouldSwapZwithY = userQWERTYPreferedMode === KeyboardQWERTYMode.QWERTZ
-            || (userQWERTYPreferedMode === KeyboardQWERTYMode.FROM_LANG && shouldPreferQWERZ)
+            || (userQWERTYPreferedMode === KeyboardQWERTYMode.FROM_LANG && shouldPreferQWERTZ)
 
         if (shouldSwapZwithY) {
             keyLinesToUse = keyLinesToUse.map((line) => line.map((keyText) => {
@@ -85,7 +85,7 @@ export const selectGameLanguageKeyboardInfo =  createSelector(
 
         return {
             ...dictionary,
-            shouldPreferQWERZ,
+            shouldPreferQWERTZ,
             keyLines: keyLinesToUse,
         };
     }

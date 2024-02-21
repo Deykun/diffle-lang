@@ -83,7 +83,6 @@ const appSlice = createSlice({
             state.isSmallKeyboard = !state.isSmallKeyboard;
         },
         toggleKeyboardQWERTYMode(state, action) {
-            console.log(' action.payload;',  action.payload);
            state.keyboardQWERTYMode = action.payload;
         },
         toggleEnterSwap(state) {

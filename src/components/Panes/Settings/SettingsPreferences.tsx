@@ -27,7 +27,7 @@ import LanguagePicker from '@components/Language/LanguagePicker';
 import './Settings.scss'
 
 const SettingsPreferences = () => {
-    const { shouldPreferQWERZ } = useSelector(selectGameLanguageKeyboardInfo);
+    const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
     const { t } = useTranslation();
 
     const {
@@ -118,7 +118,7 @@ const SettingsPreferences = () => {
                         <IconKeyboard />
                         <span className="setting-title-small">
                             {keyboardQWERTYMode === 'language'
-                            ? <>{shouldPreferQWERZ ? 'QWERTZ' : 'QWERTY'} <small>({t('settings.languageDefault')})</small></>
+                            ? <>{shouldPreferQWERTZ ? 'QWERTZ' : 'QWERTY'} <small>({t('settings.languageDefault')})</small></>
                             : keyboardQWERTYMode.toUpperCase()}
                         </span>
                     </button>
