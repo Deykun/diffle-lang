@@ -107,8 +107,8 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
         specialCharacters: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
         hasSpecialCharacters: true,
         urls: [
-            { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
-            { url: 'https://de.pons.com/%C3%BCbersetzung/deutsche-rechtschreibung/{{word}}', name: 'PONS Rechtschreibung und Fremdwörter', hasExactMatchAlways: false },
+            { url: 'https://dle.rae.es/{{word}}', name: 'RAE - Diccionario de la lengua español', hasExactMatchAlways: false },
+            { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
         ],
         shareMarker: '🇪🇸 #diffle #difflede',
     },

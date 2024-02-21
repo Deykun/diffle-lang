@@ -31,7 +31,7 @@
     "game.givingUpIsNotPossible": "Comienza una partida para poder rendirte ;)",
     "game.confirmCheckTheWord": "¿Es \"{{word}}\" aceptable?",
     "game.wordToSubmitIsMissing": "¿Deberíamos verificar la palabra?",
-    "game.checking": "vVerificando...",
+    "game.checking": "verificando...",
     "game.withSpecialCharacters": "La palabra ganadora <strong>contiene</strong> al menos un carácter en {{specialCharacter}}.",
     "game.withoutSpecialCharacters": "La palabra ganadora <strong>no</strong> contiene caracteres en {{specialCharacters}}.",
 
