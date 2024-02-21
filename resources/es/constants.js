@@ -1,4 +1,4 @@
-export const BLOCKED_WORDS = [];
+export const BLOCKED_WORDS = ['carajo', 'chingar', 'coño', 'joder', 'madre'];
 
 export const BLOCKED_PARTS = [];
 

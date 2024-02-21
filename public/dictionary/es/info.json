@@ -233,23 +233,23 @@
 	"winning": {
 		"all": 14783,
 		"accepted": {
-			"all": 10450,
-			"withSpecialCharacters": 1715,
-			"withoutSpecialCharacters": 8735,
+			"all": 10445,
+			"withSpecialCharacters": 1714,
+			"withoutSpecialCharacters": 8731,
 			"length": {
-				"4": 647,
-				"5": 1329,
-				"6": 1912,
-				"7": 2306,
+				"4": 646,
+				"5": 1327,
+				"6": 1911,
+				"7": 2305,
 				"8": 2344,
 				"9": 1912
 			}
 		},
 		"rejected": {
-			"all": 4333,
+			"all": 4338,
 			"tooLong": 3571,
 			"tooShort": 173,
-			"censored": 0,
+			"censored": 5,
 			"wrongLetters": 0,
 			"missingInSpellingDictionary": 589
 		},
