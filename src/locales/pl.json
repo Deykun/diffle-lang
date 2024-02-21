@@ -21,6 +21,7 @@
     "language.cs": "Czeski",
     "language.de": "Niemiecki",
     "language.en": "Angielski",
+    "language.es": "Hiszpański",
     "language.pl": "Polski",
     "game.modeDaily": "Codzienny",
     "game.modePractice": "Ćwiczenia",
@@ -33,6 +34,8 @@
     "game.checking": "sprawdzanie...",
     "game.withSpecialCharacters": "Hasło <strong>zawiera</strong> chociaż jeden {{specialCharacter}} znak.",
     "game.withoutSpecialCharacters": "Hasło <strong>nie zawiera</strong> {{specialCharacters}} znaków.",
+   
+   
    
    
    

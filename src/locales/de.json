@@ -21,6 +21,7 @@
     "language.cs": "Tschechisch",
     "language.de": "Deutsch",
     "language.en": "Englisch",
+    "language.es": "Spanisch",
     "language.pl": "Polnisch",
     "game.modeDaily": "Täglich",
     "game.modePractice": "Übungen",
@@ -37,6 +38,8 @@
    
     "game.deSpecialCharacter": "deutsches",
     "game.deSpecialCharacters": "deutschen",
+   
+   
    
    
     "game.youCanUseIncorrectLetters": "Dein Wort kann <strong>nicht</strong> gewinnen, aber du kannst es beim Suchen nach dem Siegerwort verwenden.",

@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.6
+#### Version 3.7
+- **New**: Spanish game language added
+
+#### Version 3.6 (21.02.2024)
 - **New**: Support for QWERTZ added
 
 #### Version 3.5.1 (19.02.2024)

@@ -28,6 +28,13 @@ const KEY_LINES_EN = [
     ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
 ];
 
+const KEY_LINES_ES = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ']
+];
+
 const KEY_LINES_PL = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -57,7 +64,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     de: {
         code: 'de',
         languages: ['de', 'de-DE'],
-        // Update
+        isBeta: true,
         title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
         shouldPreferQWERTZ: true,
         keyLines: KEY_LINES_DE,
@@ -85,7 +92,24 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
             { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
             { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
         ],
-        shareMarker: '#diffle #diffleen',
+        shareMarker: '#diffle #difflees',
+    },
+    es: {
+        code: 'es',
+        languages: ['es'],
+        isBeta: true,
+        title: 'DIFFLE - el juego similar a Wordle (sin límite de caracteres) 🇪🇸',
+        shouldPreferQWERTZ: false,
+        keyLines: KEY_LINES_ES,
+        allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES.flatMap((key) => key)],
+        characters: KEY_LINES_ES.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        specialCharacters: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
+        hasSpecialCharacters: true,
+        urls: [
+            { url: 'https://dle.rae.es/{{word}}', name: 'RAE - Diccionario de la lengua español', hasExactMatchAlways: false },
+            { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
+        ],
+        shareMarker: '🇪🇸 #diffle #difflees',
     },
     pl: {
         code: 'pl',

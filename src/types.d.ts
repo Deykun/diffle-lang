@@ -16,6 +16,7 @@ export interface Dictionary {
     code?: string,
     languages: string[],
     title: string,
+    isBeta?: boolean,
     shouldPreferQWERTZ: boolean,
     keyLines: string[][],
     allowedKeys: string[],
@@ -87,6 +88,12 @@ export type DictionaryInfo = {
             fullName: string,
             url: string,
         }
+        spellcheckerAlt?: {
+            dir: string,
+            shortName: string,
+            fullName: string,
+            url: string,
+        },
         winning: {
             dir: string,
             shortName: string,
@@ -183,7 +190,7 @@ export enum GameStatus {
 }
 
 export interface RootGameState {
-    language: 'cs' | 'de' | 'en' | 'pl' | undefined,
+    language: 'cs' | 'de' | 'en' | 'es' | 'pl' | undefined,
     mode: GameMode,
     today: string,
     wordToGuess: string,

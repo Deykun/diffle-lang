@@ -22,13 +22,17 @@ const AboutLanguageChartFooter = ({
             }
         },
         meta: {
-            spellchecker: {
-                fullName,
-                url,
-            }
+            spellchecker,
+            spellcheckerAlt,
         }
 }}: Props) => {
     const { t } = useTranslation();
+
+    let sourceHTML = `<a target="_blank" rel="noopener noreferrer" href="${spellchecker.url}">${spellchecker.fullName}</a>`;
+
+    if (spellcheckerAlt?.url) {
+        sourceHTML += ` & <a target="_blank" rel="noopener noreferrer" href="${spellcheckerAlt.url}">${spellcheckerAlt.fullName}</a>`;
+    }
 
     const diffleURL = location.href.replace('http://', '').replace('https://', '').split('?')[0];
 
@@ -40,7 +44,7 @@ const AboutLanguageChartFooter = ({
                     lng,
                     product: `<span>${diffleURL}</span>`,
                     words: `<span>${formatLargeNumber(all)}</span>`,
-                    source: `<a target="_blank" rel="noopener noreferrer" href="${url}">${fullName}</a>`,
+                    source: sourceHTML,
                 })
             }} />
         </div>
