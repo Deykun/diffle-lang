@@ -74,7 +74,7 @@ const SettingsSources = () => {
                 </li>
             </ul>
             <h2>{t('settings.sourcesTitleDictionaries')}: {t('language.currentLanguage')}</h2>
-            <ul className="list-col-3">
+            <ul className={clsx({ 'list-col-3': gameLanguage !== 'es' })}>
                 <li>
                     <button className="setting" onClick={() => changePane(Pane.AboutLanguage)}>
                         <IconBookOpen />
@@ -109,6 +109,23 @@ const SettingsSources = () => {
                     <li>
                         <a href="https://github.com/dwyl" target="_blank" rel="noopener noreferrer">
                             <IconDictionaryAlt /><span>github.com/<strong>dwyl</strong> {t('settings.sourceDictionarySpellchecker')}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
+                            <IconDictionary /><span><strong>freedict.org</strong> {t('settings.sourceDictionaryWiningWords')}</span>
+                        </a>
+                    </li>
+                </>}
+                {gameLanguage === 'es' && <>
+                    <li>
+                        <a href="https://github.com/lorenbrichter/Words" target="_blank" rel="noopener noreferrer">
+                            <IconDictionaryAlt /><span><strong>Letterpress</strong> {t('settings.sourceDictionarySpellchecker')}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ManiacDC/TypingAid/" target="_blank" rel="noopener noreferrer">
+                            <IconDictionaryAlt /><span>github.com/ManiacDC/<strong>TypingAid</strong> {t('settings.sourceDictionarySpellchecker')}</span>
                         </a>
                     </li>
                     <li>
