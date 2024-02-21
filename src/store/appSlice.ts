@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import { KeyboardQWERTYMode, Pane, RootAppState, ToastType } from '@common-types';
+import { Pane, RootAppState, ToastType } from '@common-types';
 
 import {
     getInitPane,

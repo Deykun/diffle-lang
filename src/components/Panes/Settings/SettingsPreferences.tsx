@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { KeyboardQWERTYMode } from '@common-types';
-
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector } from '@store';
