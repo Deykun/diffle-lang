@@ -30,8 +30,9 @@ const KEY_LINES_EN = [
 
 const KEY_LINES_ES = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
-    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
     ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ']
 ];
 
 const KEY_LINES_PL = [
@@ -63,6 +64,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     de: {
         code: 'de',
         languages: ['de', 'de-DE'],
+        isBeta: true,
         title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
         shouldPreferQWERTZ: true,
         keyLines: KEY_LINES_DE,
@@ -95,13 +97,14 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     es: {
         code: 'es',
         languages: ['es'],
+        isBeta: true,
         // Update
         title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇪🇸',
         shouldPreferQWERTZ: false,
         keyLines: KEY_LINES_ES,
         allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES.flatMap((key) => key)],
         characters: KEY_LINES_ES.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
-        specialCharacters: ['ñ'],
+        specialCharacters: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
         hasSpecialCharacters: true,
         urls: [
             { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },

@@ -12,6 +12,12 @@ export const DICTIONARIES = {
         fullName: 'Letterpress',
         url: 'https://github.com/lorenbrichter/Words',
     },
+    spellcheckerAlt: {
+        dir: 'TypingAid',
+        shortName: 'TypingAid',
+        fullName: 'TypingAid',
+        url: 'https://github.com/ManiacDC/TypingAid/',
+    },
     winning: {
         dir: 'FreeDict',
         shortName: 'FreeDict',

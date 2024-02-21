@@ -21,6 +21,7 @@
     "language.cs": "čeština",
     "language.de": "němčina",
     "language.en": "angličtina",
+    "language.es": "spanělština",
     "language.pl": "polština",
     "game.modeDaily": "Denně",
     "game.modePractice": "Praxe",
@@ -35,6 +36,8 @@
     "game.withoutSpecialCharacters": "Vítězné slovo <strong>neobsahuje</strong> {{specialCharacters}} znaky.",
     "game.csSpecialCharacter": "český",
     "game.csSpecialCharacters": "českých",
+   
+   
    
    
    

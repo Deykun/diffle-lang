@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Pane as PaneInterface } from '@common-types';
 
-import { SUPPORTED_LANGS } from '@const';
+import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useDispatch, useSelector } from '@store';
 import { setToast } from '@store/appSlice';
@@ -94,7 +94,7 @@ const LanguagePicker = ({ children, className }: Props) => {
                   <span>
                     {t('language.currentLanguage', { lng: lang })}
                   </span>
-                  {lang === 'de' &&  <span className={clsx('setting-label', 'position', 'construction')}>
+                  {SUPPORTED_DICTIONARY_BY_LANG[lang].isBeta === true &&  <span className={clsx('setting-label', 'position', 'construction')}>
                       <span>{t('settings.inBetaNow')}</span>
                       <IconConstruction />
                   </span>}
