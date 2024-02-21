@@ -98,8 +98,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
         code: 'es',
         languages: ['es'],
         isBeta: true,
-        // Update
-        title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇪🇸',
+        title: 'DIFFLE - el juego similar a Wordle (sin límite de caracteres) 🇪🇸',
         shouldPreferQWERTZ: false,
         keyLines: KEY_LINES_ES,
         allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES.flatMap((key) => key)],
@@ -110,7 +109,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
             { url: 'https://dle.rae.es/{{word}}', name: 'RAE - Diccionario de la lengua español', hasExactMatchAlways: false },
             { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
         ],
-        shareMarker: '🇪🇸 #diffle #difflede',
+        shareMarker: '🇪🇸 #diffle #difflees',
     },
     pl: {
         code: 'pl',

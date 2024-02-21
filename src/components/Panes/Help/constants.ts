@@ -40,6 +40,16 @@ export const HELP_EXAMPLES_BY_LANG: {
       words: ['word', 'great', 'balls', 'curve', 'challenge'],
     },
   },
+  es: {
+    first: {
+      wordToGuess: 'jugando',
+      words: ['teyú', 'adivinar', 'pandilla', 'jorobo', 'jugando'],
+    },
+    second: {
+      wordToGuess: 'perrito',
+      words: ['ablandad', 'etica', 'gatos', 'pairo', 'perrito'],
+    },
+  },
   pl: {
     first: {
       wordToGuess: 'super',

@@ -79,6 +79,12 @@ const LanguagePicker = ({ children, className }: Props) => {
         <div className="settings">
           <h3>{t('settings.language')}</h3>
           <ul>
+              <li>
+                <button className="setting" onClick={handleGoToAboutLanguage}>
+                    <IconBookOpen />
+                    <span>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</span>
+                </button>
+              </li>
               {SUPPORTED_LANGS.map((lang) => <li key={lang}>
                 <button
                   className={clsx('setting', { 'setting-active': lang === i18n.language })}
@@ -101,15 +107,6 @@ const LanguagePicker = ({ children, className }: Props) => {
                 </button>
               </li>)}
           </ul>
-          {pane !== PaneInterface.AboutLanguage && <>
-            <h2>{capitalize(t('common.more'))}</h2>
-            <Button onClick={handleGoToAboutLanguage} isInverted isText>
-              <IconBookOpen />
-              <span>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</span>
-            </Button>
-            <br />
-            <br />
-          </>}
           <ReportTranslationBugButton />
         </div>
       </Modal>
