@@ -28,6 +28,12 @@ const KEY_LINES_EN = [
     ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
 ];
 
+const KEY_LINES_ES = [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ñ'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+];
+
 const KEY_LINES_PL = [
     ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p' ],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -57,7 +63,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     de: {
         code: 'de',
         languages: ['de', 'de-DE'],
-        // Update
         title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
         shouldPreferQWERTZ: true,
         keyLines: KEY_LINES_DE,
@@ -85,7 +90,24 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
             { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
             { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
         ],
-        shareMarker: '#diffle #diffleen',
+        shareMarker: '#diffle #difflees',
+    },
+    es: {
+        code: 'es',
+        languages: ['es'],
+        // Update
+        title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇪🇸',
+        shouldPreferQWERTZ: false,
+        keyLines: KEY_LINES_ES,
+        allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES.flatMap((key) => key)],
+        characters: KEY_LINES_ES.flatMap((key) => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+        specialCharacters: ['ñ'],
+        hasSpecialCharacters: true,
+        urls: [
+            { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
+            { url: 'https://de.pons.com/%C3%BCbersetzung/deutsche-rechtschreibung/{{word}}', name: 'PONS Rechtschreibung und Fremdwörter', hasExactMatchAlways: false },
+        ],
+        shareMarker: '🇪🇸 #diffle #difflede',
     },
     pl: {
         code: 'pl',

@@ -183,7 +183,7 @@ export enum GameStatus {
 }
 
 export interface RootGameState {
-    language: 'cs' | 'de' | 'en' | 'pl' | undefined,
+    language: 'cs' | 'de' | 'en' | 'es' | 'pl' | undefined,
     mode: GameMode,
     today: string,
     wordToGuess: string,

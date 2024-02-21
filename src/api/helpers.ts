@@ -12,6 +12,7 @@ export const removeDiacratics = (word: string) => word
     .replaceAll('ł', 'l')
     .replaceAll('ń', 'n')
     .replaceAll('ň', 'n')
+    .replaceAll('ñ', 'n')
     .replaceAll('ó', 'o')
     .replaceAll('ö', 'o')
     .replaceAll('ř', 'r')
