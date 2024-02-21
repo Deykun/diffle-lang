@@ -6,10 +6,11 @@ The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
  - Czech 🇨🇿 (since 08.02.2024)
- - German 🇩🇪 (since 19.02.2024)
  - English 🇬🇧 (since 19.01.2024)
+ - German 🇩🇪 (since 19.02.2024)
  - Polish 🇵🇱 (since 30.07.2023)
     - the biggest Polish community: https://www.hejto.pl/tag/diffle
+ - Spanish 🇪🇸 (since 21.02.2024)
 
 # App screenshots
 ![diffle lang app screenshots](./app-screenshots.png)
@@ -31,6 +32,7 @@ This app has a dedicated subpage with a meta-analysis of the dictionary, includi
 - https://deykun.github.io/diffle-lang/de?p=about-language 🇩🇪 
 - https://deykun.github.io/diffle-lang/en?p=about-language 🇬🇧
 - https://deykun.github.io/diffle-lang/pl?p=about-language 🇵🇱
+- https://deykun.github.io/diffle-lang/es?p=about-language 🇪🇸
 
 ### A reactive keyboard
 I challenge you to find a better keyboard in any Wordle game. This keyboard reacts and provides hints while typing, with optional vibrations (which are longer when an incorrect letter is typed).
@@ -47,9 +49,12 @@ You can share your result with a hashed URL, which after winning your daily game
 ### Dictionaries
  - https://gitlab.com/strepon/czech-cc0-dictionaries - Czech spellchecker dictionary
  - http://slovniky.webz.cz via http://home.zcu.cz/~konopik/ppc/ - Czech winning words dictionary
- - https://sjp.pl - Polish spellechecker dictionary
+ - http://www.aaabbb.de/WordList/WordList.php - German spellchecker dictionary (from Wikipedia)
  - https://github.com/dwyl - English spellchecker dictionary
- - https://freedict.org - Polish & English winning words dictionary
+ - https://sjp.pl - Polish spellchecker dictionary
+ - https://github.com/lorenbrichter/Words - Spanish spellchecker
+ - https://github.com/ManiacDC/TypingAid - Spanish spellchecker
+ - https://freedict.org - English & German & Polish & Spanish winning words dictionary
 
 ### Other
  - https://iconmonstr.com/ - icons
