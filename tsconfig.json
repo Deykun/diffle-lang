@@ -34,6 +34,9 @@
       "@utils*": ["./src/utils*", "./src/utils*/index"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "..eslintrc.cjs",
+    "src"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
