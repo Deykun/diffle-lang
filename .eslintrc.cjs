@@ -17,22 +17,42 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    'arrow-body-style': 'off',
+    'react/jsx-indent': ['error', 4],
     "react/jsx-no-undef": [ "error", { "allowGlobals": true } ],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
     ],
-    "import/extensions": 0
+    'max-len': ['warn', {
+      'code': 140,
+      'ignoreUrls': true,
+      'ignorePattern': '(^import|\\srequire\\()',
+      'ignoreTrailingComments': true,
+    }],
+    'no-param-reassign': ['error', {
+      ignorePropertyModificationsFor: ['stack'], // Mutating the stack in reduce() is usually more performant
+    }],
+    'react/react-in-jsx-scope': 0,
+    'import/extensions': 0,
+    'import/no-extraneous-dependencies': ['warn', {
+        /* We list everything that Webpack can bundle into pure JS as deAvDependencies
+          for performance reasons, to keep a Docker image as small as possible. */
+        devDependencies: true,
+        /** Imports should only be validated against top-level package.json */
+        packageDir: '.',
+    }],
   },
   settings: {
     'import/resolver': {
       'alias-array': {
+        alias: true,
         map: [
           ['@api', resolve(__dirname, './src/api/')],
           ['@components', resolve(__dirname, './src/components/')],
           ['@store', resolve(__dirname, './src/store/')],
           ['@utils', resolve(__dirname, './src/utils/')],
-        ]
+        ],
       }
     }
   },

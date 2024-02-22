@@ -43,7 +43,8 @@ function App() {
 
   useEffect(() => {
     const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
-    const isNotSavedAndSystemUsesLightTheme = !localStorage.getItem(LOCAL_STORAGE.THEME) && window?.matchMedia('(prefers-color-scheme: light)');
+    const isNotSavedAndSystemUsesLightTheme = !localStorage.getItem(LOCAL_STORAGE.THEME)
+        && window?.matchMedia('(prefers-color-scheme: light)');
     const isLightTheme = isSavedLightTheme || isNotSavedAndSystemUsesLightTheme;
 
     if (isLightTheme) {
@@ -57,17 +58,17 @@ function App() {
   }, []);
 
   return (
-    <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
-      <Header />
-      <main>
-        <Toast />
-        {pane === PaneInterface.Help && <Help />}
-        {pane === PaneInterface.Game && <Game />}
-        {pane === PaneInterface.Settings && <Settings />}
-        {pane === PaneInterface.Statistics && <Statistics />}
-        {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
-      </main>
-    </div>
+      <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
+          <Header />
+          <main>
+              <Toast />
+              {pane === PaneInterface.Help && <Help />}
+              {pane === PaneInterface.Game && <Game />}
+              {pane === PaneInterface.Settings && <Settings />}
+              {pane === PaneInterface.Statistics && <Statistics />}
+              {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
+          </main>
+      </div>
   );
 }
 

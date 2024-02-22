@@ -5,112 +5,112 @@ import { LOCAL_STORAGE } from '@const';
 import { getNow } from '@utils/date';
 import { getLangFromUrl } from '@utils/lang';
 import {
-    keepIfInEnum
+  keepIfInEnum,
 } from '@utils/ts';
 import {
-    getLocalStorageKeyForDailyStamp,
-    getLocalStorageKeyForLastGameMode,
- } from '@utils/game';
+  getLocalStorageKeyForDailyStamp,
+  getLocalStorageKeyForLastGameMode,
+} from '@utils/game';
 
 export const getInitPane = ({ withUrlParam }: { withUrlParam: boolean } = { withUrlParam: true }) => {
-    if (withUrlParam) {
-        const urlParams = new URLSearchParams(window.location.search);
+  if (withUrlParam) {
+    const urlParams = new URLSearchParams(window.location.search);
 
-        const urlPaneRaw = urlParams.get('p');
-        if (urlPaneRaw) {
-            const urlPane = keepIfInEnum<Pane>(urlPaneRaw, Pane);
-            if (urlPane) {
-                return urlPane;
-            }
-        }
+    const urlPaneRaw = urlParams.get('p');
+    if (urlPaneRaw) {
+      const urlPane = keepIfInEnum<Pane>(urlPaneRaw, Pane);
+      if (urlPane) {
+        return urlPane;
+      }
     }
+  }
 
-    const langFromUrl = getLangFromUrl();
+  const langFromUrl = getLangFromUrl();
 
-    if (langFromUrl) {
-        const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: langFromUrl });
-        const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
-
-        return !lastGameMode ? Pane.Help : Pane.Game;
-    }
-
-    // Legacy check
-    const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: 'pl' });
+  if (langFromUrl) {
+    const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: langFromUrl });
     const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
-    
+
     return !lastGameMode ? Pane.Help : Pane.Game;
+  }
+
+  // Legacy check
+  const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: 'pl' });
+  const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
+
+  return !lastGameMode ? Pane.Help : Pane.Game;
 };
 
 export const getInitMode = () => {
-    const langFromUrl = getLangFromUrl();
+  const langFromUrl = getLangFromUrl();
 
-    if (langFromUrl) {
-        const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: langFromUrl });
-        const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
+  if (langFromUrl) {
+    const localStorageKeyForLastGameMode = getLocalStorageKeyForLastGameMode({ gameLanguage: langFromUrl });
+    const lastGameMode = localStorage.getItem(localStorageKeyForLastGameMode) as GameMode;
 
-        const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage: langFromUrl });
-        const lastStamp = localStorage.getItem(localStorageKeyForDailyStamp);
+    const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage: langFromUrl });
+    const lastStamp = localStorage.getItem(localStorageKeyForDailyStamp);
 
-        const { stamp } = getNow();
-    
-        // Player should complete daily game before starting practice 
-        const shouldForceDaily = lastGameMode === GameMode.Practice && lastStamp !== stamp;
-        const initGameModeFromStored = shouldForceDaily ? GameMode.Daily : lastGameMode;
+    const { stamp } = getNow();
 
-        if (initGameModeFromStored) {
-            return initGameModeFromStored;
-        }
+    // Player should complete daily game before starting practice
+    const shouldForceDaily = lastGameMode === GameMode.Practice && lastStamp !== stamp;
+    const initGameModeFromStored = shouldForceDaily ? GameMode.Daily : lastGameMode;
+
+    if (initGameModeFromStored) {
+      return initGameModeFromStored;
     }
+  }
 
-    return GameMode.Daily;
+  return GameMode.Daily;
 };
 
 export const getInitIsSmallKeyboard = () => {
-    if (localStorage.getItem(LOCAL_STORAGE.IS_SMALL_KEYBOARD) === 'true') {
-        return true;
-    }
+  if (localStorage.getItem(LOCAL_STORAGE.IS_SMALL_KEYBOARD) === 'true') {
+    return true;
+  }
 
-    const isWideScreen = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024;
+  const isWideScreen = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024;
 
-    return isWideScreen;
+  return isWideScreen;
 };
 
 export const getInitKeyboardMode = () => {
-    const savedMode = keepIfInEnum<KeyboardQWERTYMode>(localStorage.getItem(LOCAL_STORAGE.QWERTY_MODE) || '', KeyboardQWERTYMode);
-    if (savedMode) {
-        return savedMode;
-    }
+  const savedMode = keepIfInEnum<KeyboardQWERTYMode>(localStorage.getItem(LOCAL_STORAGE.QWERTY_MODE) || '', KeyboardQWERTYMode);
+  if (savedMode) {
+    return savedMode;
+  }
 
-    return KeyboardQWERTYMode.FROM_LANG;
+  return KeyboardQWERTYMode.FROM_LANG;
 };
 
 export const getInitShouldVibrate = () => {
-    // By default returns false
-    return localStorage.getItem(LOCAL_STORAGE.SHOULD_VIBRATE) === 'true';
+  // By default returns false
+  return localStorage.getItem(LOCAL_STORAGE.SHOULD_VIBRATE) === 'true';
 };
 
 export const getInitShouldKeyboardVibrate = () => {
-    const shouldVibrateAtAll = getInitShouldVibrate();
+  const shouldVibrateAtAll = getInitShouldVibrate();
 
-    return shouldVibrateAtAll && localStorage.getItem(LOCAL_STORAGE.SHOULD_VIBRATE_KEYBOARD) === 'true';
+  return shouldVibrateAtAll && localStorage.getItem(LOCAL_STORAGE.SHOULD_VIBRATE_KEYBOARD) === 'true';
 };
 
 export const getIsEnterSwapped = () => {
-    const shouldSwapEnter = localStorage.getItem(LOCAL_STORAGE.SHOULD_SWAP_ENTER) === 'true';
+  const shouldSwapEnter = localStorage.getItem(LOCAL_STORAGE.SHOULD_SWAP_ENTER) === 'true';
 
-    return shouldSwapEnter;
+  return shouldSwapEnter;
 };
 
 export const getShouldConfirmEnter = () => {
-    const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_CONFIRM_ENTER) === 'false';
+  const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_CONFIRM_ENTER) === 'false';
 
-    // By default returns true
-    return !shouldBlock;
+  // By default returns true
+  return !shouldBlock;
 };
 
 export const getShouldShareWords = () => {
-    const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_SHARE_WORDS) === 'false';
+  const shouldBlock = localStorage.getItem(LOCAL_STORAGE.SHOULD_SHARE_WORDS) === 'false';
 
-    // By default returns true
-    return !shouldBlock;
+  // By default returns true
+  return !shouldBlock;
 };

@@ -23,6 +23,8 @@
 
     "esModuleInterop": true,
 
+    "baseUrl": ".",
+
     "paths": {
       "@api*": ["./src/api*", "./src/api*/index"],
       "@components/*": ["./src/components/*", "./src/components/*/index"],
