@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.7.1
+- **Fix**: Percentages are no longer cut in half
+
 #### Version 3.7
 - **New**: Spanish game language added
 
