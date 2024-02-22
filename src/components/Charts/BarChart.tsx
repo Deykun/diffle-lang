@@ -33,8 +33,6 @@ const BarChart = ({
                 stack.max = value;
                 stack.dominant = key;
             }
-            
-            stack.total = stack.total + value;
 
             return stack;
         }, {
