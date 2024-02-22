@@ -10,7 +10,7 @@ export const DICTIONARIES = {
         dir: 'Wikipedia',
         shortName: 'Wikipedia',
         fullName: 'Wikipedia',
-        url: 'https://de.wikipedia.org/',
+        url: 'http://www.aaabbb.de/WordList/WordList.php',
     },
     winning: {
         dir: 'FreeDict',
