@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.8
+- **New**: Airbnb eslint rules added
+
 #### Version 3.7.1
 - **Fix**: Percentages are no longer cut in half
 
