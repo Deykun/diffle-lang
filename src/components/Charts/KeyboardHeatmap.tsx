@@ -37,23 +37,21 @@ function KeyboardHeatmap({
 
   const {
     letterKeysByValue,
-    min,
     max,
-    middle,
   } = useMemo(() => {
-    const letterKeysByValue = Object.keys(lettersData);
-    const middleIndex = Math.floor(letterKeysByValue.length / 2);
+    const letterKeysByValueToPass = Object.keys(lettersData);
+    const middleIndex = Math.floor(letterKeysByValueToPass.length / 2);
 
     return {
-      letterKeysByValue,
-      min: lettersData[letterKeysByValue.at(-1) || ''] || 0,
-      max: lettersData[letterKeysByValue[0] || ''] || 0,
-      middle: lettersData[letterKeysByValue[middleIndex]] || 0,
+      letterKeysByValue: letterKeysByValueToPass,
+      min: lettersData[letterKeysByValueToPass.at(-1) || ''] || 0,
+      max: lettersData[letterKeysByValueToPass[0] || ''] || 0,
+      middle: lettersData[letterKeysByValueToPass[middleIndex]] || 0,
     };
   }, [lettersData]);
 
   const isMaxPercentage = groupBy !== 'common';
-  const maxLetterValue = lettersData[letterKeysByValue[0]] / all * (isMaxPercentage ? 100 : 1);
+  const maxLetterValue = (lettersData[letterKeysByValue[0]] / all) * (isMaxPercentage ? 100 : 1);
 
   return (
       <div>
@@ -85,9 +83,7 @@ function KeyboardHeatmap({
                                   <KeyboardHeatmapKeyCap
                                     key={keyText}
                                     text={keyText}
-                                    min={min}
                                     max={max}
-                                    middle={middle}
                                     all={all}
                                     value={lettersData[keyText]}
                                     hasCircle
@@ -111,9 +107,7 @@ function KeyboardHeatmap({
                                   <KeyboardHeatmapKeyCap
                                     key={keyText}
                                     text={keyText}
-                                    min={min}
                                     max={max}
-                                    middle={middle}
                                     all={all}
                                     value={lettersData[keyText]}
                                     hasTooltip
