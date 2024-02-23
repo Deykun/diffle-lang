@@ -24,12 +24,12 @@ function KeyboardHeatmapKeyCap({
   const percentageCircle = value / max;
   const percentageText = value / all;
 
-  let precision = 3;
+  let precision = 1;
 
   if (percentageText < 0.05) {
-    precision = 2;
+    precision = 3;
   } else if (percentageText < 0.10) {
-    precision = 1;
+    precision = 2;
   }
 
   return (
