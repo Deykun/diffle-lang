@@ -15,6 +15,7 @@
 - **New**: Airbnb eslint rules added
 - **New**: Greener green for light mode language statistics
 - **New**: German uses PONS as the default dictionary and DWDS when linking to a definition
+- **Fix**: English hastag fixed #difflees -> #diffleen
 
 #### Version 3.7.1
 - **Fix**: Percentages are no longer cut in half

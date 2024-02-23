@@ -92,7 +92,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
       { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
       { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
     ],
-    shareMarker: '#diffle #difflees',
+    shareMarker: '#diffle #diffleen',
   },
   es: {
     code: 'es',

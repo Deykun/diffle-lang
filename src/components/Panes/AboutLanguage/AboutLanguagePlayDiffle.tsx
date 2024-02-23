@@ -15,6 +15,7 @@ import { setToast } from '@store/appSlice';
 import usePanes from '@hooks/usePanes';
 
 import IconGamepad from '@components/Icons/IconGamepad';
+import IconGithub from '@components/Icons/IconGithub';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
@@ -55,6 +56,21 @@ const AboutLanguagePlayDiffle = () => {
           <Button onClick={() => changePane(getInitPane({ withUrlParam: false }))} isLarge>
               <IconGamepad />
               <span>{t('common.play')}</span>
+          </Button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <Button
+            tagName="a"
+            href="https://github.com/Deykun/diffle-lang"
+            target="_blank"
+            isInverted
+            isText
+            hasBorder={false}
+          >
+              <IconGithub />
+              <span>{t('settings.sourceGithub')}</span>
           </Button>
       </section>
   );

@@ -38,7 +38,8 @@ const Word = ({ guess }: { guess: WordInterface }) => {
 
             return (
                 <Affix
-                  key={text}
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={`text-${index}`}
                   text={text}
                   type={type}
                   isStart={isStart}

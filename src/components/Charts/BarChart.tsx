@@ -71,10 +71,15 @@ function BarChart({
               <div className="bar-chart bar-chart--background">
                   {entriesData.map(({ label, percentageText, percentageMax }) => {
                     return (
-                        <div key={label} className="bar-chart-row">
+                        <div key={`${label}-${percentageText}`} className="bar-chart-row">
                             <strong className="bar-chart-label">
-                                {label.padStart(2, ' ').split('').map(digit => (
-                                    <span key={digit} className="about-language-small-key-cap" data-bar-letter={digit}>
+                                {label.padStart(2, ' ').split('').map((digit, index) => (
+                                    <span
+                                      // eslint-disable-next-line react/no-array-index-key
+                                      key={`${index}-${digit}`}
+                                      className="about-language-small-key-cap"
+                                      data-bar-letter={digit}
+                                    >
                                         {digit}
                                     </span>
                                 ))}
@@ -99,10 +104,15 @@ function BarChart({
               <div className="bar-chart bar-chart--front">
                   {entriesData.map(({ label, percentageText, percentageMax }) => {
                     return (
-                        <div key={label} className="bar-chart-row">
+                        <div key={`${label}-${percentageText}`} className="bar-chart-row">
                             <strong className="bar-chart-label">
-                                {label.padStart(2, ' ').split('').map(digit => (
-                                    <span key={digit} className="about-language-small-key-cap" data-bar-letter={digit}>
+                                {label.padStart(2, ' ').split('').map((digit, index) => (
+                                    <span
+                                     // eslint-disable-next-line react/no-array-index-key
+                                      key={`${index}-${digit}`}
+                                      className="about-language-small-key-cap"
+                                      data-bar-letter={digit}
+                                    >
                                         {digit}
                                     </span>
                                 ))}
