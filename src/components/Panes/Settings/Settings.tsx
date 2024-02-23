@@ -22,6 +22,7 @@ import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconInfinity from '@components/Icons/IconInfinity';
 
+import ButtonTile from '@components/Button/ButtonTile';
 import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
 import './Settings.scss';
@@ -65,30 +66,30 @@ const Settings = () => {
       <div className="settings">
           <ul>
               <li>
-                  <button className="setting" onClick={() => changePane(Pane.Statistics)} type="button">
+                  <ButtonTile onClick={() => changePane(Pane.Statistics)}>
                       <IconDiffleChart />
                       <span>{t('settings.statisticsTitle')}</span>
-                  </button>
+                  </ButtonTile>
               </li>
               {gameMode === GameMode.Practice && isGivingUpDisabled ? (
                   <li>
-                      <button className="setting" onClick={() => changePane(Pane.Game)} type="button">
+                      <ButtonTile onClick={() => changePane(Pane.Game)}>
                           <IconGamepad />
                           <span>{t('common.play')}</span>
-                      </button>
+                      </ButtonTile>
                   </li>
               ) : (
                   <li>
-                      <button className="setting" onClick={handleGiveUp} disabled={isGivingUpDisabled} type="button">
+                      <ButtonTile onClick={handleGiveUp} isDisabled={isGivingUpDisabled}>
                           <IconBandage />
                           <span>{t('game.iGiveUp')}</span>
                           {gameMode !== GameMode.Practice && (
-                          <span className={clsx('setting-label', 'info', 'mode')}>
+                          <span className={clsx('button-tile-label', 'info', 'mode')}>
                               <span>{t('settings.onlyIn')}</span>
                               <IconInfinity />
                           </span>
                           )}
-                      </button>
+                      </ButtonTile>
                   </li>
               )}
           </ul>

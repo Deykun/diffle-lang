@@ -16,6 +16,7 @@ import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconTranslation from '@components/Icons/IconTranslation';
 
+import ButtonTile from '@components/Button/ButtonTile';
 import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
@@ -35,7 +36,7 @@ const LanguagePicker = ({ children, className }: Props) => {
 
   const { t, i18n } = useTranslation();
   const { vibrate } = useVibrate();
-  const { changePane } = usePanes();
+  const { pane, changePane } = usePanes();
 
   const handleLanguageChange = (lang: string) => {
     if (lang === i18n.language) {
@@ -57,7 +58,10 @@ const LanguagePicker = ({ children, className }: Props) => {
   };
 
   const handleGoToAboutLanguage = () => {
-    changePane(PaneInterface.AboutLanguage);
+    if (pane !== PaneInterface.AboutLanguage) {
+      changePane(PaneInterface.AboutLanguage);
+    }
+
     setIsOpen(value => !value);
   };
 
@@ -67,6 +71,7 @@ const LanguagePicker = ({ children, className }: Props) => {
             className={className}
             onClick={handleTriggerClick}
             type="button"
+            disabled={isGameUpdating}
           >
               {children || (
               <>
@@ -78,25 +83,24 @@ const LanguagePicker = ({ children, className }: Props) => {
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('settings.language')}</h3>
-                  <ul>
+                  <ul className="list-col-3">
                       <li>
-                          <button className="setting" onClick={handleGoToAboutLanguage} type="button">
+                          <ButtonTile isInverted onClick={handleGoToAboutLanguage}>
                               <IconBookOpen />
                               <span>
                                   {t('settings.statisticsTitle')}
                                   :
                                   {' '}
-                                  {t('language.currentLanguage')}
+                                  <strong>{t('language.currentLanguage')}</strong>
                               </span>
-                          </button>
+                          </ButtonTile>
                       </li>
                       {SUPPORTED_LANGS.map(lang => (
                           <li key={lang}>
-                              <button
-                                className={clsx('setting', { 'setting-active': lang === i18n.language })}
+                              <ButtonTile
+                                isActive={lang === i18n.language}
                                 onClick={() => handleLanguageChange(lang)}
-                                disabled={isGameUpdating}
-                                type="button"
+                                isDisabled={isGameUpdating}
                               >
                                   <Image
                                     key={lang}
@@ -108,12 +112,12 @@ const LanguagePicker = ({ children, className }: Props) => {
                                       {t('language.currentLanguage', { lng: lang })}
                                   </span>
                                   {SUPPORTED_DICTIONARY_BY_LANG[lang].isBeta === true && (
-                                  <span className={clsx('setting-label', 'position', 'construction')}>
+                                  <span className={clsx('button-tile-label', 'position', 'construction')}>
                                       <span>{t('settings.inBetaNow')}</span>
                                       <IconConstruction />
                                   </span>
                                   )}
-                              </button>
+                              </ButtonTile>
                           </li>
                       ))}
                   </ul>

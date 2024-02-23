@@ -1,5 +1,4 @@
 /* eslint-disable max-len */
-import clsx from 'clsx';
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -24,6 +23,7 @@ import IconPencil from '@components/Icons/IconPencil';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
+import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import './ShareButton.scss';
@@ -121,10 +121,9 @@ ${shareUrl}`;
                   <h3>{t('share.titleSettings')}</h3>
                   <ul>
                       <li>
-                          <button
-                            className={clsx('setting', { 'setting-active': shouldShareWords })}
+                          <ButtonTile
+                            isActive={shouldShareWords}
                             onClick={handleToggleShareWords}
-                            type="button"
                           >
                               <IconFingerprint />
                               <span>
@@ -132,17 +131,15 @@ ${shareUrl}`;
                                   <br />
                                   <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
                               </span>
-                          </button>
+                          </ButtonTile>
                       </li>
                       <li>
-                          <button
-                            className="setting"
+                          <ButtonTile
                             onClick={handleCopy}
-                            type="button"
                           >
                               <IconShare />
                               <span>{t('common.copyResult')}</span>
-                          </button>
+                          </ButtonTile>
                       </li>
                   </ul>
               </div>

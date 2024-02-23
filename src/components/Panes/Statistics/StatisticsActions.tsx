@@ -19,7 +19,7 @@ import IconInfinity from '@components/Icons/IconInfinity';
 import IconPicture from '@components/Icons/IconPicture';
 
 import Button from '@components/Button/Button';
-import ButtonSettingWithConfirm from '@components/Button/ButtonSettingWithConfirm';
+import ButtonTileWithConfirm from '@components/Button/ButtonTileWithConfirm';
 import Modal from '@components/Modal/Modal';
 
 import './StatisticsActions.scss';
@@ -88,22 +88,22 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
                   <h3>{t('statistics.titleRemoveStatistics')}</h3>
                   <ul>
                       <li>
-                          <ButtonSettingWithConfirm
+                          <ButtonTileWithConfirm
                             onClick={() => handleRemoveGameModeStatitics(ModeFilter.Daily)}
                             isDisabled={modeFilter === ModeFilter.Practice}
                           >
                               <IconDay />
                               <span>{t('game.modeDaily')}</span>
-                          </ButtonSettingWithConfirm>
+                          </ButtonTileWithConfirm>
                       </li>
                       <li>
-                          <ButtonSettingWithConfirm
+                          <ButtonTileWithConfirm
                             onClick={() => handleRemoveGameModeStatitics(ModeFilter.Practice)}
                             isDisabled={modeFilter === ModeFilter.Daily}
                           >
                               <IconInfinity />
                               <span>{t('game.modePractice')}</span>
-                          </ButtonSettingWithConfirm>
+                          </ButtonTileWithConfirm>
                       </li>
                   </ul>
               </div>

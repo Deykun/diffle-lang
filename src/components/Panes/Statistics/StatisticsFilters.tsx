@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import {
   useEffect, useState, Dispatch, SetStateAction,
 } from 'react';
@@ -34,6 +33,8 @@ import IconInfinity from '@components/Icons/IconInfinity';
 import IconLayersAlt from '@components/Icons/IconLayersAlt';
 import IconRulerSmall from '@components/Icons/IconRulerSmall';
 import IconRulerBig from '@components/Icons/IconRulerBig';
+
+import ButtonTile from '@components/Button/ButtonTile';
 
 import { INITIAL_FILTERS } from './constants';
 
@@ -93,53 +94,48 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
           <div className="details-content">
               <ul className="list-col-3">
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.All })}
+                      <ButtonTile
+                        isActive={modeFilter === ModeFilter.All}
                         onClick={() => setModeFilter(ModeFilter.All)}
-                        type="button"
                       >
                           <IconLayersAlt />
                           <span>{t('statistics.filterAll')}</span>
-                      </button>
+                      </ButtonTile>
                   </li>
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.Daily })}
+                      <ButtonTile
+                        isActive={modeFilter === ModeFilter.Daily}
                         onClick={() => setModeFilter(ModeFilter.Daily)}
-                        type="button"
                       >
                           <IconDay />
                           <span>{t('game.modeDaily')}</span>
-                      </button>
+                      </ButtonTile>
                   </li>
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': modeFilter === ModeFilter.Practice })}
+                      <ButtonTile
+                        isActive={modeFilter === ModeFilter.Practice}
                         onClick={() => setModeFilter(ModeFilter.Practice)}
-                        type="button"
                       >
                           <IconInfinity />
                           <span>{t('game.modePractice')}</span>
-                      </button>
+                      </ButtonTile>
                   </li>
               </ul>
               {hasLanguageSpecialCharacters && (
               <ul className="list-col-3">
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.All })}
+                      <ButtonTile
+                        isActive={charactersFilter === CharactersFilter.All}
                         onClick={() => setModeCharactersFilter(CharactersFilter.All)}
-                        type="button"
                       >
                           <IconLayersAlt />
                           <span>{t('statistics.filterAll')}</span>
-                      </button>
+                      </ButtonTile>
                   </li>
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.NoSpecial })}
+                      <ButtonTile
+                        isActive={charactersFilter === CharactersFilter.NoSpecial}
                         onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
-                        type="button"
                       >
                           <IconFlag />
                           <span
@@ -148,13 +144,12 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                               __html: t('statistics.specialCharactersWithout'),
                             }}
                           />
-                      </button>
+                      </ButtonTile>
                   </li>
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': charactersFilter === CharactersFilter.Special })}
+                      <ButtonTile
+                        isActive={charactersFilter === CharactersFilter.Special}
                         onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
-                        type="button"
                       >
                           <IconFlagAlt />
                           <span
@@ -163,26 +158,24 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                               __html: t('statistics.specialCharactersWith'),
                             }}
                           />
-                      </button>
+                      </ButtonTile>
                   </li>
               </ul>
               )}
               <ul className="list-col-3">
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.All })}
+                      <ButtonTile
+                        isActive={lengthFilter === LengthFilter.All}
                         onClick={() => setLengthFilter(LengthFilter.All)}
-                        type="button"
                       >
                           <IconLayersAlt />
                           <span>{t('statistics.filterAll')}</span>
-                      </button>
+                      </ButtonTile>
                   </li>
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Short })}
+                      <ButtonTile
+                        isActive={lengthFilter === LengthFilter.Short}
                         onClick={() => setLengthFilter(LengthFilter.Short)}
-                        type="button"
                       >
                           <IconRulerSmall />
                           <span
@@ -191,13 +184,12 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                               __html: t('statistics.wordLengthShort', { to: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS }),
                             }}
                           />
-                      </button>
+                      </ButtonTile>
                   </li>
                   <li>
-                      <button
-                        className={clsx('setting', { 'setting-active': lengthFilter === LengthFilter.Long })}
+                      <ButtonTile
+                        isActive={lengthFilter === LengthFilter.Long}
                         onClick={() => setLengthFilter(LengthFilter.Long)}
-                        type="button"
                       >
                           <IconRulerBig />
                           <span
@@ -206,7 +198,7 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
                               __html: t('statistics.wordLengthLong', { above: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS }),
                             }}
                           />
-                      </button>
+                      </ButtonTile>
                   </li>
               </ul>
           </div>

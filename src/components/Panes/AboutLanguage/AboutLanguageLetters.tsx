@@ -20,6 +20,7 @@ import IconPictures from '@components/Icons/IconPictures';
 import IconTranslation from '@components/Icons/IconTranslation';
 
 import Button from '@components/Button/Button';
+import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import KeyboardHeatmap from '@components/Charts/KeyboardHeatmap';
@@ -123,39 +124,34 @@ const AboutLanguageLetters = ({
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('settings.title')}</h3>
-                  <ul className={clsx({ 'list-col-3': gameLanguage !== 'en' })}>
+                  <ul className="list-col-3">
                       <li>
-                          <button
-                            className={clsx('setting', { 'setting-active': shouldShowFilter })}
+                          <ButtonTile
+                            isActive={shouldShowFilter}
                             onClick={() => setShouldShowFilter(value => !value)}
-                            type="button"
                           >
                               <IconPictures />
                               <span>{t('statistics.showOneChartWithFilters')}</span>
-                          </button>
+                          </ButtonTile>
                       </li>
                       <li>
-                          <button
-                            className={clsx('setting', { 'setting-active': shouldShowLanguageTitle })}
+                          <ButtonTile
+                            isActive={shouldShowLanguageTitle}
                             onClick={() => setShouldShowLanguageTitle(value => !value)}
-                            type="button"
                           >
                               <IconDictionary />
                               <span>{t('statistics.showTitleWithLanguage')}</span>
-                          </button>
+                          </ButtonTile>
                       </li>
-                      {gameLanguage !== 'en' && (
                       <li>
-                          <button
-                            className={clsx('setting', { 'setting-active': shouldForceEnglishChart })}
+                          <ButtonTile
+                            isActive={shouldForceEnglishChart || gameLanguage === 'en'}
                             onClick={() => setShouldForceEnglishChart(value => !value)}
-                            type="button"
                           >
                               <IconTranslation />
                               <span><small>Chart labels in English</small></span>
-                          </button>
+                          </ButtonTile>
                       </li>
-                      )}
                   </ul>
               </div>
           </Modal>

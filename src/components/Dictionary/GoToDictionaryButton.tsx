@@ -10,6 +10,7 @@ import IconDictionary from '@components/Icons/IconDictionary';
 import IconDictionaryAlt from '@components/Icons/IconDictionaryAlt';
 
 import Button from '@components/Button/Button';
+import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import './GoToDictionaryButton.scss';
@@ -69,12 +70,17 @@ function GoToDictionaryButton({ word = '' }: Props) {
                   <ul>
                       {urls.map(({ url, name }, index) => (
                           <li key={name}>
-                              <a className="setting" href={url.replace('{{word}}', word)} target="_blank" rel="noopener noreferrer">
+                              <ButtonTile
+                                tagName="a"
+                                href={url.replace('{{word}}', word)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
                                   {index % 2 === 0 ? <IconDictionary /> : <IconDictionaryAlt />}
-                                  <span className="setting-title-small">
+                                  <span className="button-tile-title-small">
                                       {t('common.checkInDictionaryWithName', { word, name })}
                                   </span>
-                              </a>
+                              </ButtonTile>
                           </li>
                       ))}
                   </ul>

@@ -17,6 +17,8 @@ import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconFlask from '@components/Icons/IconFlask';
 import IconShare from '@components/Icons/IconShare';
 
+import ButtonTile from '@components/Button/ButtonTile';
+
 import './Settings.scss';
 
 interface Props {
@@ -52,55 +54,57 @@ const SettingsModes = ({ changePane }: Props) => {
           <h2>{t('settings.gameModeTitle')}</h2>
           <ul>
               <li>
-                  <button
-                    className={clsx('setting', { 'setting-active': gameMode === GameMode.Daily })}
+                  <ButtonTile
+                    isActive={gameMode === GameMode.Daily}
                     onClick={() => handleChangeGameMode(GameMode.Daily)}
-                    type="button"
                   >
                       <IconDay />
                       <span>{t('game.modeDaily')}</span>
                       {shouldShowCheckedDaily && !shouldShowTimeForDaily && (
-                      <span className={clsx('setting-label', 'correct')}>
+                      <span className={clsx('button-tile-label', 'correct')}>
                           <span>{t('end.completed')}</span>
                           <IconFancyCheck />
                       </span>
                       )}
                       {shouldShowTimeForDaily && (
-                      <span className={clsx('setting-label', 'correct')}>
+                      <span className={clsx('button-tile-label', 'correct')}>
                           <span>{t('end.nextDailyShort', { count: 24 - getNow().nowUTC.getHours() })}</span>
                           <IconFancyCheck />
                       </span>
                       )}
-                  </button>
+                  </ButtonTile>
               </li>
               <li>
-                  <button
-                    className={clsx('setting', { 'setting-active': gameMode === GameMode.Practice })}
-                    disabled={!shouldShowCheckedDaily}
+                  <ButtonTile
+                    isActive={gameMode === GameMode.Practice}
+                    isDisabled={!shouldShowCheckedDaily}
                     onClick={() => handleChangeGameMode(GameMode.Practice)}
-                    type="button"
                   >
                       <IconInfinity />
                       <span>{t('game.modePractice')}</span>
                       {!shouldShowCheckedDaily && (
-                      <span className={clsx('setting-label', 'incorrect')}>
+                      <span className={clsx('button-tile-label', 'incorrect')}>
                           <span>{t('settings.labelFinishGame')}</span>
                           {' '}
                           <IconDay />
                       </span>
                       )}
-                  </button>
+                  </ButtonTile>
               </li>
               <li style={{ display: 'none' }}>
-                  <button className={clsx('setting', { 'setting-active': gameMode === GameMode.Share })} type="button" disabled>
+                  <ButtonTile
+                    isActive={gameMode === GameMode.Share}
+                    isDisabled
+                    onClick={() => handleChangeGameMode(GameMode.Share)}
+                  >
                       <IconShare />
                       <span>{t('game.modeShare')}</span>
-                      <span className={clsx('setting-label', 'info', 'lab')}>
+                      <span className={clsx('button-tile-label', 'info', 'lab')}>
                           <span>{t('settings.considered')}</span>
                           {' '}
                           <IconFlask />
                       </span>
-                  </button>
+                  </ButtonTile>
               </li>
           </ul>
       </>

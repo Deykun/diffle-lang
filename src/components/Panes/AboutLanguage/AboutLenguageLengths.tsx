@@ -18,6 +18,7 @@ import IconPicture from '@components/Icons/IconPicture';
 import IconTranslation from '@components/Icons/IconTranslation';
 
 import Button from '@components/Button/Button';
+import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import BarChart from '@components/Charts/BarChart';
@@ -96,27 +97,23 @@ const AboutLenguageLengths = ({
                   <h3>{t('settings.title')}</h3>
                   <ul>
                       <li>
-                          <button
-                            className={clsx('setting', { 'setting-active': shouldShowLanguageTitle })}
+                          <ButtonTile
+                            isActive={shouldShowLanguageTitle}
                             onClick={() => setShouldShowLanguageTitle(value => !value)}
-                            type="button"
                           >
                               <IconDictionary />
                               <span>{t('statistics.showTitleWithLanguage')}</span>
-                          </button>
+                          </ButtonTile>
                       </li>
-                      {gameLanguage !== 'en' && (
                       <li>
-                          <button
-                            className={clsx('setting', { 'setting-active': shouldForceEnglishChart })}
+                          <ButtonTile
+                            isActive={shouldForceEnglishChart}
                             onClick={() => setShouldForceEnglishChart(value => !value)}
-                            type="button"
                           >
                               <IconTranslation />
                               <span><small>Chart labels in English</small></span>
-                          </button>
+                          </ButtonTile>
                       </li>
-                      )}
                   </ul>
               </div>
           </Modal>

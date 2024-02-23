@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
@@ -19,7 +19,11 @@ import IconGithub from '@components/Icons/IconGithub';
 import IconIconmonstr from '@components/Icons/IconIconmonstr';
 import IconStart from '@components/Icons/IconStart';
 
+import ButtonTile from '@components/Button/ButtonTile';
+
 import ReportTranslationBugButton from '@components/Language/ReportTranslationBugButton';
+
+import { DICTIONARIES_BY_LANG } from './constants';
 
 import './Settings.scss';
 
@@ -29,6 +33,14 @@ const SettingsSources = () => {
   const { t } = useTranslation();
 
   const { changePane } = usePanes();
+
+  const dictionaries = useMemo(() => {
+    if (!gameLanguage) {
+      return [];
+    }
+
+    return DICTIONARIES_BY_LANG[gameLanguage];
+  }, [gameLanguage]);
 
   // TODO: move to useQuery()
   useEffect(() => {
@@ -59,7 +71,14 @@ const SettingsSources = () => {
           <p>{t('settings.sourcesDescription')}</p>
           <ul>
               <li>
-                  <a className="setting setting-inverse" href="https://github.com/Deykun/diffle-lang" title={t('settings.sourceGithub')} target="_blank" rel="noreferrer">
+                  <ButtonTile
+                    tagName="a"
+                    isInverted
+                    href="https://github.com/Deykun/diffle-lang"
+                    title={t('settings.sourceGithub')}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                       <IconGithub />
                       <span>
                           github.com/
@@ -67,19 +86,24 @@ const SettingsSources = () => {
                           /diffle-lang
                       </span>
                       {typeof startCount === 'number' && startCount > 0 && (
-                      <span className={clsx('setting-label', 'position')}>
+                      <span className={clsx('button-tile-label', 'position')}>
                           <span>{startCount}</span>
                           {' '}
                           <IconStart />
                       </span>
                       )}
-                  </a>
+                  </ButtonTile>
               </li>
               <li>
-                  <a href="https://hedalu244.github.io/diffle/" target="_blank" rel="noopener noreferrer">
+                  <ButtonTile
+                    tagName="a"
+                    href="https://hedalu244.github.io/diffle/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                       <IconGamepad />
                       <span>{t('settings.sourceDiffle')}</span>
-                  </a>
+                  </ButtonTile>
               </li>
           </ul>
           <h2>
@@ -88,174 +112,67 @@ const SettingsSources = () => {
               {' '}
               {t('language.currentLanguage')}
           </h2>
-          <ul className={clsx({ 'list-col-3': gameLanguage !== 'es' })}>
+          <ul className={clsx({ 'list-col-3': (dictionaries.length + 1) % 3 === 0 })}>
               <li>
-                  <button className="setting" onClick={() => changePane(Pane.AboutLanguage)} type="button">
+                  <ButtonTile onClick={() => changePane(Pane.AboutLanguage)}>
                       <IconBookOpen />
                       <span>{t('settings.statisticsTitle')}</span>
-                  </button>
+                  </ButtonTile>
               </li>
-              {gameLanguage === 'cs' && (
-              <>
-                  <li>
-                      <a href="https://gitlab.com/strepon/czech-cc0-dictionaries/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionaryAlt />
+              {dictionaries.map(({ isSpeelchecker = false, href, labelHTML }, index) => (
+                  <li key={href}>
+                      <ButtonTile
+                        tagName="a"
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                          {index % 2 === 0 && <IconDictionary />}
+                          {index % 2 === 1 && <IconDictionaryAlt />}
                           <span>
-                              <strong>Czech CC0 dictionaries</strong>
+                              <span
+                                // eslint-disable-next-line react/no-danger
+                                dangerouslySetInnerHTML={{
+                                  __html: labelHTML,
+                                }}
+                              />
                               {' '}
-                              {t('settings.sourceDictionarySpellchecker')}
+                              {isSpeelchecker ? t('settings.sourceDictionarySpellchecker') : t('settings.sourceDictionaryWiningWords')}
                           </span>
-                      </a>
+                      </ButtonTile>
                   </li>
-                  <li>
-                      <a href="http://home.zcu.cz/~konopik/ppc/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionary />
-                          <span>
-                              <strong>slovniky.webz.cz</strong>
-                              {' '}
-                              z
-                              {' '}
-                              <strong>home.zcu.cz</strong>
-                              {' '}
-                              {t('settings.sourceDictionaryWiningWords')}
-                          </span>
-                      </a>
-                  </li>
-              </>
-              )}
-              {gameLanguage === 'de' && (
-              <>
-                  <li>
-                      <a href="http://www.aaabbb.de/WordList/WordList.php" target="_blank" rel="noopener noreferrer">
-                          <IconDictionaryAlt />
-                          <span>
-                              <strong>wikipedia.org</strong>
-                              {' '}
-                              via
-                              {' '}
-                              <strong>aaabbb.de</strong>
-                              {' '}
-                              {t('settings.sourceDictionarySpellchecker')}
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionary />
-                          <span>
-                              <strong>freedict.org</strong>
-                              {' '}
-                              {t('settings.sourceDictionaryWiningWords')}
-                          </span>
-                      </a>
-                  </li>
-              </>
-              )}
-              {gameLanguage === 'en' && (
-              <>
-                  <li>
-                      <a href="https://github.com/dwyl" target="_blank" rel="noopener noreferrer">
-                          <IconDictionaryAlt />
-                          <span>
-                              github.com/
-                              <strong>dwyl</strong>
-                              {' '}
-                              {t('settings.sourceDictionarySpellchecker')}
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionary />
-                          <span>
-                              <strong>freedict.org</strong>
-                              {' '}
-                              {t('settings.sourceDictionaryWiningWords')}
-                          </span>
-                      </a>
-                  </li>
-              </>
-              )}
-              {gameLanguage === 'es' && (
-              <>
-                  <li>
-                      <a href="https://github.com/lorenbrichter/Words" target="_blank" rel="noopener noreferrer">
-                          <IconDictionaryAlt />
-                          <span>
-                              <strong>Letterpress</strong>
-                              {' '}
-                              {t('settings.sourceDictionarySpellchecker')}
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://github.com/ManiacDC/TypingAid/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionaryAlt />
-                          <span>
-                              github.com/ManiacDC/
-                              <strong>TypingAid</strong>
-                              {' '}
-                              {t('settings.sourceDictionarySpellchecker')}
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionary />
-                          <span>
-                              <strong>freedict.org</strong>
-                              {' '}
-                              {t('settings.sourceDictionaryWiningWords')}
-                          </span>
-                      </a>
-                  </li>
-              </>
-              )}
-              {gameLanguage === 'pl' && (
-              <>
-                  <li>
-                      <a href="https://sjp.pl" target="_blank" rel="noopener noreferrer">
-                          <IconDictionaryAlt />
-                          <span>
-                              <strong>sjp.pl</strong>
-                              {' '}
-                              {t('settings.sourceDictionarySpellchecker')}
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="https://freedict.org/" target="_blank" rel="noopener noreferrer">
-                          <IconDictionary />
-                          <span>
-                              <strong>freedict.org</strong>
-                              {' '}
-                              {t('settings.sourceDictionaryWiningWords')}
-                          </span>
-                      </a>
-                  </li>
-              </>
-              )}
+              ))}
           </ul>
           <h2>{t('settings.sourcesTitleImages')}</h2>
           <ul>
               <li>
-                  <a href="https://iconmonstr.com/" target="_blank" rel="noopener noreferrer">
+                  <ButtonTile
+                    tagName="a"
+                    href="https://iconmonstr.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                       <IconIconmonstr />
                       <span>
                           <strong>iconmonstr</strong>
                           .com
                       </span>
-                  </a>
+                  </ButtonTile>
               </li>
               <li>
-                  <a href="https://github.com/lipis/flag-icons" target="_blank" rel="noopener noreferrer">
+                  <ButtonTile
+                    tagName="a"
+                    href="https://github.com/lipis/flag-icons"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                       <IconGlobWithFlag />
                       <span>
                           github.com/
                           <strong>lipis</strong>
                           /flag-icons
                       </span>
-                  </a>
+                  </ButtonTile>
               </li>
           </ul>
       </>

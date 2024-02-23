@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 
 import useVibrate from '@hooks/useVibrate';
 
-import './ButtonSetting.scss';
+import ButtonTile from '@components/Button/ButtonTile';
 
 interface Props {
   className?: string,
@@ -16,13 +16,13 @@ interface Props {
   secondsToConfirm?: number,
 }
 
-function ButtonSettingWithConfirm({
+const ButtonTileWithConfirm = ({
   className = '',
   children,
   onClick,
   isDisabled = false,
   secondsToConfirm = 5,
-}: Props) {
+}: Props) => {
   const [secondsLeft, setSecondsLeft] = useState(secondsToConfirm);
   const [shouldStartTimer, setShouldStartTimer] = useState(false);
   const setIntervalUnlockActionRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -62,7 +62,7 @@ function ButtonSettingWithConfirm({
 
     if (shouldStartTimer) {
       setIntervalUnlockActionRef.current = setInterval(() => {
-        setSecondsLeft((previousSeconds) => previousSeconds - 1);
+        setSecondsLeft(previousSeconds => previousSeconds - 1);
       }, 1000);
     } else {
       setSecondsLeft(secondsToConfirm);
@@ -81,28 +81,27 @@ function ButtonSettingWithConfirm({
   const isConfirmAllowed = shouldStartTimer && !isCountingToAllowConfirm;
 
   return (
-      <button
-        className={clsx('setting', {
+      <ButtonTile
+        className={clsx({
           [className]: className,
-          'setting-confirm-timer': isCountingToAllowConfirm,
-          'setting-confirm-allowed': isConfirmAllowed,
+          'button-tile-confirm-timer': isCountingToAllowConfirm,
+          'button-tile-confirm-allowed': isConfirmAllowed,
         })}
         onClick={handleClick}
-        disabled={isDisabled}
-        type="button"
+        isDisabled={isDisabled}
       >
           {children}
           {isCountingToAllowConfirm && (
-          <p className="setting-confirm">
+          <p className="button-tile-confirm">
               {t('settings.confirmInSeconds', {
                 postProcess: 'interval',
                 count: secondsLeft,
               })}
           </p>
           )}
-          {isConfirmAllowed && <p className="setting-confirm">{t('settings.confirmAfterWaiting')}</p>}
-      </button>
+          {isConfirmAllowed && <p className="button-tile-confirm">{t('settings.confirmAfterWaiting')}</p>}
+      </ButtonTile>
   );
-}
+};
 
-export default ButtonSettingWithConfirm;
+export default ButtonTileWithConfirm;
