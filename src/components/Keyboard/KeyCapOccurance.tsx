@@ -31,7 +31,8 @@ const KeyCapOccurance = ({ text }: Props) => {
       })}
       >
           <span className="key-occurance-typed">
-              {typedOccurrence !== 0 && isLimitKnown ? typedOccurrence : Math.min(typedOccurrence, confirmedOccurrence)}
+              {typedOccurrence !== 0 && isLimitKnown && typedOccurrence}
+              {typedOccurrence !== 0 && !isLimitKnown && Math.min(typedOccurrence, confirmedOccurrence)}
           </span>
           <span className="key-occurance-separator">{typedOccurrence === 0 ? '×' : '/'}</span>
           <span className="key-occurance-known-limit">{confirmedOccurrence}</span>

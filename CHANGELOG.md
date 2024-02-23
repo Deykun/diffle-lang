@@ -11,16 +11,19 @@
 
 ---
 
-#### Version 3.8
+#### Version 3.8.1 (23.02.2024)
+- **Fix**: Wrong "O" removed from key cap
+
+#### Version 3.8 (23.02.2024)
 - **New**: Airbnb eslint rules added
 - **New**: Greener green for light mode language statistics
 - **New**: German uses PONS as the default dictionary and DWDS when linking to a definition
 - **Fix**: English hastag fixed #difflees -> #diffleen
 
-#### Version 3.7.1
+#### Version 3.7.1 (22.02.2024)
 - **Fix**: Percentages are no longer cut in half
 
-#### Version 3.7
+#### Version 3.7 (21.02.2024)
 - **New**: Spanish game language added
 
 #### Version 3.6 (21.02.2024)
