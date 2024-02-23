@@ -1,35 +1,37 @@
 import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 export const getLangFromUrl = () => {
-    const langFromUrl = SUPPORTED_LANGS.find(lang => location.pathname.endsWith(`/${lang}`));
+  const langFromUrl = SUPPORTED_LANGS.find(lang => window.location.pathname.endsWith(`/${lang}`));
 
-    return langFromUrl;
+  return langFromUrl;
 };
 
 export const getLangFromBrowser = () => {
-    const { language: browserLanguage, languages: browserLanguages } = navigator;
+  const { language: browserLanguage, languages: browserLanguages } = navigator;
 
-    const exactlangFromBrowser = SUPPORTED_LANGS.find(lang => {
-        const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
+  const exactlangFromBrowser = SUPPORTED_LANGS.find((lang) => {
+    const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
 
-        const isThisExactLanguage = langLanguages.includes(browserLanguage);
+    const isThisExactLanguage = langLanguages.includes(browserLanguage);
 
-        return isThisExactLanguage;
-    });
+    return isThisExactLanguage;
+  });
 
-    if (exactlangFromBrowser) {
-        return exactlangFromBrowser;
-    }
+  if (exactlangFromBrowser) {
+    return exactlangFromBrowser;
+  }
 
-    const supportedLangFromBrowser = SUPPORTED_LANGS.find(lang => {
-        const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
+  const supportedLangFromBrowser = SUPPORTED_LANGS.find((lang) => {
+    const { languages: langLanguages } = SUPPORTED_DICTIONARY_BY_LANG[lang];
 
-        const isThisLanguageSupported = langLanguages.some(
-            oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages) || oneOfBrowserLanguages.startsWith(`${lang}-`) || oneOfBrowserLanguages.startsWith(`${lang}_`)
-        );
+    const isThisLanguageSupported = langLanguages.some(
+      oneOfBrowserLanguages => browserLanguages.includes(oneOfBrowserLanguages)
+        || oneOfBrowserLanguages.startsWith(`${lang}-`)
+        || oneOfBrowserLanguages.startsWith(`${lang}_`),
+    );
 
-        return isThisLanguageSupported;
-    });
+    return isThisLanguageSupported;
+  });
 
-    return supportedLangFromBrowser;
-}
+  return supportedLangFromBrowser;
+};

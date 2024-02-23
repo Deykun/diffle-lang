@@ -4,29 +4,29 @@ import { useSelector } from '@store';
 
 import Image from '@components/Image/Image';
 
-import './AboutLanguageChartFooter.scss'
+import './AboutLanguageChartFooter.scss';
 
 interface Props {
-    lng?: string,
+  lng?: string,
 }
 
 const AboutLanguageChartFooter = ({
-    lng,
+  lng,
 }: Props) => {
-    const gameLanguage = useSelector((state) => state.game.language);
+  const gameLanguage = useSelector(state => state.game.language);
 
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    return (
-        <div className="about-language-chart-language">
-            <Image
-                className="about-language-chart-language-flag"
-                src={`./flags/${gameLanguage}.svg`}
-                alt=""
-            />
-            <h2 className="about-language-chart-language-title">{t(`language.${gameLanguage}`, { lng })}</h2>
-        </div>
-    )
+  return (
+      <div className="about-language-chart-language">
+          <Image
+            className="about-language-chart-language-flag"
+            src={`./flags/${gameLanguage}.svg`}
+            alt=""
+          />
+          <h2 className="about-language-chart-language-title">{t(`language.${gameLanguage}`, { lng })}</h2>
+      </div>
+  );
 };
 
 export default AboutLanguageChartFooter;

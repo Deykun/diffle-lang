@@ -5,7 +5,7 @@ import useVibrate from '@hooks/useVibrate';
 
 import IconLoader from '@components/Icons/IconLoader';
 
-import './Button.scss';
+import './ButtonTile.scss';
 
 interface Props {
   tagName?: ('button' | 'a')
@@ -13,29 +13,29 @@ interface Props {
   children: React.ReactNode,
   onClick?: (e: React.MouseEvent<HTMLElement>) => void,
   href?: string,
+  title?: string,
   target?: string,
   rel?: string,
+  isActive?: boolean,
+  isDisabled?: boolean,
   isLoading?: boolean,
   isInverted?: boolean,
-  isText?: boolean,
-  isLarge?: boolean,
-  hasBorder?: boolean,
 }
 
-function Button({
+const ButtonTile = ({
   className = '',
   tagName,
   children,
   onClick,
   href,
+  title,
   target,
   rel,
+  isActive = false,
+  isDisabled = false,
   isLoading = false,
   isInverted = false,
-  isText = false,
-  isLarge = false,
-  hasBorder = true,
-}: Props) {
+}: Props) => {
   const Tag = tagName || 'button';
 
   const { vibrate } = useVibrate();
@@ -50,23 +50,28 @@ function Button({
 
   return (
       <Tag
-        className={clsx('button', {
-          inverted: isInverted,
-          text: isText,
-          large: isLarge,
+        className={clsx('button-tile', {
+          'button-tile-active': isActive,
+          'button-tile-inverse': isInverted,
+          // isActive
+          // inverted: isInverted,
+          // text: isText,
+          // large: isLarge,
           [className]: className,
-          loading: isLoading,
-          'no-border': !hasBorder,
+          // loading: isLoading,
+          // 'no-border': !hasBorder,
         })}
         onClick={handleClick}
         href={href}
+        title={title}
         rel={rel}
         target={target}
+        disabled={isDisabled}
       >
           {children}
           {isLoading && <IconLoader className="button-loader" />}
       </Tag>
   );
-}
+};
 
-export default Button;
+export default ButtonTile;

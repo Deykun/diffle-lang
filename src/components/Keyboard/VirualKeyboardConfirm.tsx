@@ -19,55 +19,55 @@ import Modal from '@components/Modal/Modal';
 import './VirualKeyboardConfirm.scss';
 
 interface Props {
-    closeConfirm: () => void;
+  closeConfirm: () => void;
 }
 
 const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
-    const dispatch = useDispatch();
-    const wordToSubmit = useSelector(selectWordToSubmit);
+  const dispatch = useDispatch();
+  const wordToSubmit = useSelector(selectWordToSubmit);
 
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    const {
-        shouldConfirmEnter,
-        handleToggleConfirmEnter,
-     } = useKeyboardSettings();
+  const {
+    shouldConfirmEnter,
+    handleToggleConfirmEnter,
+  } = useKeyboardSettings();
 
-    const { vibrateKeyboard } = useVibrate();
+  const { vibrateKeyboard } = useVibrate();
 
-    const handleSubmit = useCallback(() => {
-        vibrateKeyboard();
+  const handleSubmit = useCallback(() => {
+    vibrateKeyboard();
 
-        dispatch(submitAnswer());
-        closeConfirm();
-    }, [closeConfirm, dispatch, vibrateKeyboard]);
+    dispatch(submitAnswer());
+    closeConfirm();
+  }, [closeConfirm, dispatch, vibrateKeyboard]);
 
-    return (
-        <Modal isOpen={true} onClose={() => closeConfirm()}>
-            {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
-            {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
-            <div className="keyboard-confirm-actions">
-                <Button className="setting" onClick={closeConfirm} isInverted isText hasBorder={false}>
-                    <IconUndo />
-                    <span>{t('common.no')}</span>
-                </Button>
-                <Button className="setting setting-active" onClick={handleSubmit}>
-                    <IconSubmit />
-                    <span>{t('common.yes')}</span>
-                </Button>
-            </div>
-            <Button
-                className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
-                onClick={handleToggleConfirmEnter}
-                isInverted
-                isText={!shouldConfirmEnter}
-                hasBorder={false}
-            >
-                <IconCheckConfirm />
-                <span>{t('settings.confirmSubmition')}</span>
-            </Button>
+  return (
+      <Modal isOpen onClose={() => closeConfirm()}>
+          {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
+          {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
+          <div className="keyboard-confirm-actions">
+              <Button onClick={closeConfirm} isInverted isText hasBorder={false}>
+                  <IconUndo />
+                  <span>{t('common.no')}</span>
+              </Button>
+              <Button onClick={handleSubmit}>
+                  <IconSubmit />
+                  <span>{t('common.yes')}</span>
+              </Button>
+          </div>
+          <Button
+            className={clsx('keyboard-setting', { 'keyboard-setting-active': shouldConfirmEnter })}
+            onClick={handleToggleConfirmEnter}
+            isInverted
+            isText={!shouldConfirmEnter}
+            hasBorder={false}
+          >
+              <IconCheckConfirm />
+              <span>{t('settings.confirmSubmition')}</span>
+          </Button>
       </Modal>
-    );
+  );
 };
 
 export default VirualKeyboardConfirm;

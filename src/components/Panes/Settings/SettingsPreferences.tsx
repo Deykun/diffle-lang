@@ -1,143 +1,155 @@
-import clsx from 'clsx';
-import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector } from '@store';
 import {
-    selectGameLanguageKeyboardInfo,
+  selectGameLanguageKeyboardInfo,
 } from '@store/selectors';
 
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
-import useVibrate from '@hooks/useVibrate';
 
 import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
-import IconKeyboard from '@components/Icons/IconKeyboard'; 
-import IconKeyboardDown from '@components/Icons/IconKeyboardDown'; 
+import IconKeyboard from '@components/Icons/IconKeyboard';
+import IconKeyboardDown from '@components/Icons/IconKeyboardDown';
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
 import IconSwap from '@components/Icons/IconSwap';
 import IconVibrate from '@components/Icons/IconVibrate';
 import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
+import ButtonTile from '@components/Button/ButtonTile';
+
 import LanguagePicker from '@components/Language/LanguagePicker';
 
-import './Settings.scss'
+import './Settings.scss';
 
 const SettingsPreferences = () => {
-    const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
-    const { t } = useTranslation();
+  const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
+  const { t } = useTranslation();
 
-    const {
-        shouldVibrate,
-        handleToggleVibrate,
-        shouldKeyboardVibrate,
-        handleTogglKeyboardVibrate,
-        isSmallKeyboard,
-        handleToggleKeyboardSize,
-        isEnterSwapped,
-        handleToggleEnterSwap,
-        shouldConfirmEnter,
-        handleToggleConfirmEnter,
-        keyboardQWERTYMode,
-        handleSetNextQWERTYMode,
-     } = useKeyboardSettings();
+  const {
+    shouldVibrate,
+    handleToggleVibrate,
+    shouldKeyboardVibrate,
+    handleTogglKeyboardVibrate,
+    isSmallKeyboard,
+    handleToggleKeyboardSize,
+    isEnterSwapped,
+    handleToggleEnterSwap,
+    shouldConfirmEnter,
+    handleToggleConfirmEnter,
+    keyboardQWERTYMode,
+    handleSetNextQWERTYMode,
+  } = useKeyboardSettings();
 
-    const { vibrate } = useVibrate();
+  const handleToggleDarkLightMode = () => {
+    const isLightThemeBeforeToggle = document.documentElement.classList.contains('light');
 
-    const handleToggleDarkLightMode = useCallback(() => {
-        vibrate();
+    localStorage.setItem(LOCAL_STORAGE.THEME, isLightThemeBeforeToggle ? 'dark' : 'light');
 
-        const isLightThemeBeforeToggle = document.documentElement.classList.contains('light');
+    document.documentElement.classList.toggle('light');
+  };
 
-        localStorage.setItem(LOCAL_STORAGE.THEME, isLightThemeBeforeToggle ? 'dark' : 'light');
+  const handleToggleHighContrastMode = () => {
+    const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
 
-        document.documentElement.classList.toggle('light');
-    }, [vibrate]);
+    localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
 
-    const handleToggleHighContrastMode = () => {
-        vibrate();
+    document.documentElement.classList.toggle('contrast');
+  };
 
-        const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
-
-        localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
-
-        document.documentElement.classList.toggle('contrast');
-    };
-
-    return (
-        <>
-            <h2>{t('settings.preferencesTitle')}</h2>
-            <ul>
-                <li>
-                    <button className="setting setting-active" onClick={handleToggleDarkLightMode}>
-                        <span className="only-dark">
-                            <IconMoon />
-                            <span>{t('settings.darkMode')}</span>
-                        </span>
-                        <span className="only-light">
-                            <IconSun />
-                            <span>{t('settings.lightMode')}</span>
-                        </span>
-                    </button>
-                </li>
-                <li>
-                    <button className="setting setting-active--contrast" onClick={handleToggleHighContrastMode}>
-                        <IconContrast />
-                        <span>{t('settings.highContrastMode')}</span>
-                    </button>
-                </li>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': shouldVibrate })} onClick={handleToggleVibrate}>
-                        <IconVibrate />
-                        <span>{t('settings.appVibration')}</span>
-                    </button>
-                </li>
-                <li>
-                    <LanguagePicker className="setting" />
-                </li>
-            </ul>
-            <h3>{t('settings.keyboard')}</h3>
-            <ul>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': shouldKeyboardVibrate })} onClick={handleTogglKeyboardVibrate}>
-                        <IconVibrateKeyboard />
-                        <span>{t('settings.keyboardVibration')}</span>
-                    </button>
-                </li>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': isSmallKeyboard })} onClick={handleToggleKeyboardSize}>
-                        <IconKeyboardDown />
-                        <span>{t('settings.smallerKeyboard')}</span>
-                    </button>
-                </li>
-                <li>
-                    <button className={clsx('setting', 'setting-active')} onClick={handleSetNextQWERTYMode}>
-                        <IconKeyboard />
-                        <span className="setting-title-small">
-                            {keyboardQWERTYMode === 'language'
-                            ? <>{shouldPreferQWERTZ ? 'QWERTZ' : 'QWERTY'} <small>({t('settings.languageDefault')})</small></>
+  return (
+      <>
+          <h2>{t('settings.preferencesTitle')}</h2>
+          <ul>
+              <li>
+                  <ButtonTile isActive onClick={handleToggleDarkLightMode}>
+                      <span className="only-dark">
+                          <IconMoon />
+                          <span>{t('settings.darkMode')}</span>
+                      </span>
+                      <span className="only-light">
+                          <IconSun />
+                          <span>{t('settings.lightMode')}</span>
+                      </span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile className="button-tile-active--contrast" onClick={handleToggleHighContrastMode}>
+                      <IconContrast />
+                      <span>{t('settings.highContrastMode')}</span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile isActive={shouldVibrate} onClick={handleToggleVibrate}>
+                      <IconVibrate />
+                      <span>{t('settings.appVibration')}</span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <LanguagePicker className="button-tile" />
+              </li>
+          </ul>
+          <h3>{t('settings.keyboard')}</h3>
+          <ul>
+              <li>
+                  <ButtonTile
+                    isActive={shouldKeyboardVibrate}
+                    onClick={handleTogglKeyboardVibrate}
+                  >
+                      <IconVibrateKeyboard />
+                      <span>{t('settings.keyboardVibration')}</span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile
+                    isActive={isSmallKeyboard}
+                    onClick={handleToggleKeyboardSize}
+                  >
+                      <IconKeyboardDown />
+                      <span>{t('settings.smallerKeyboard')}</span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile isActive onClick={handleSetNextQWERTYMode}>
+                      <IconKeyboard />
+                      <span className="button-tile-title-small">
+                          {keyboardQWERTYMode === 'language'
+                            ? (
+                                <>
+                                    {shouldPreferQWERTZ ? 'QWERTZ' : 'QWERTY'}
+                                    {' '}
+                                    <small>
+                                        (
+                                        {t('settings.languageDefault')}
+                                        )
+                                    </small>
+                                </>
+                            )
                             : keyboardQWERTYMode.toUpperCase()}
-                        </span>
-                    </button>
-                </li>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': isEnterSwapped })} onClick={handleToggleEnterSwap}>
-                        <IconSwap />
-                        <span className="setting-title-small">{t('settings.swapEnterAndBackspace')}</span>
-                    </button>
-                </li>
-                <li>
-                    <button className={clsx('setting', { 'setting-active': shouldConfirmEnter })} onClick={handleToggleConfirmEnter}>
-                        <IconCheckConfirm />
-                        <span className="setting-title-small">{t('settings.confirmSubmition')}</span>
-                    </button>
-                </li>
-            </ul>
-        </>
-    )
+                      </span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile isActive={isEnterSwapped} onClick={handleToggleEnterSwap}>
+                      <IconSwap />
+                      <span className="setting-title-small">{t('settings.swapEnterAndBackspace')}</span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile
+                    isActive={shouldConfirmEnter}
+                    onClick={handleToggleConfirmEnter}
+                  >
+                      <IconCheckConfirm />
+                      <span className="setting-title-small">{t('settings.confirmSubmition')}</span>
+                  </ButtonTile>
+              </li>
+          </ul>
+      </>
+  );
 };
 
 export default SettingsPreferences;

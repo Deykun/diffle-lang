@@ -11,7 +11,7 @@ import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
 import usePanes from '@hooks/usePanes';
 
-import Header from '@components/Header'
+import Header from '@components/Header';
 
 import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
@@ -21,54 +21,55 @@ import AboutLanguage from '@components/Panes/AboutLanguage/AboutLanguage';
 
 import Toast from '@components/Toast/Toast';
 
-import './App.scss'
+import './App.scss';
 
-const App = () => {
-    const dispatch = useDispatch();
-    const wordToGuess = useSelector((state) => state.game.wordToGuess);
-    const gameLanguage = useSelector((state) => state.game.language);
-    const gameMode = useSelector((state) => state.game.mode);
-    const todayStamp = useSelector((state) => state.game.today);
-    const isErrorLoading = useSelector(state => state.game.isErrorLoading);
+function App() {
+  const dispatch = useDispatch();
+  const wordToGuess = useSelector(state => state.game.wordToGuess);
+  const gameLanguage = useSelector(state => state.game.language);
+  const gameMode = useSelector(state => state.game.mode);
+  const todayStamp = useSelector(state => state.game.today);
+  const isErrorLoading = useSelector(state => state.game.isErrorLoading);
 
-    const { pane } = usePanes();
+  const { pane } = usePanes();
 
-    useEffect(() => {
-        dispatch(loadGame());
-    }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp, isErrorLoading]);
+  useEffect(() => {
+    dispatch(loadGame());
+  }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp, isErrorLoading]);
 
-    useAppUpdateIfNeeded();
+  useAppUpdateIfNeeded();
 
-    useLangugeChangeIfNeeded();
+  useLangugeChangeIfNeeded();
 
-    useEffect(() => {
-        const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
-        const isNotSavedAndSystemUsesLightTheme = !localStorage.getItem(LOCAL_STORAGE.THEME) && window?.matchMedia('(prefers-color-scheme: light)');
-        const isLightTheme = isSavedLightTheme || isNotSavedAndSystemUsesLightTheme;
+  useEffect(() => {
+    const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
+    const isNotSavedAndSystemUsesLightTheme = !localStorage.getItem(LOCAL_STORAGE.THEME)
+        && window?.matchMedia('(prefers-color-scheme: light)');
+    const isLightTheme = isSavedLightTheme || isNotSavedAndSystemUsesLightTheme;
 
-        if (isLightTheme) {
-            document.documentElement.classList.add('light');
-        }
+    if (isLightTheme) {
+      document.documentElement.classList.add('light');
+    }
 
-        const isSavedContrastTheme = localStorage.getItem(LOCAL_STORAGE.THEME_CONTRAST) === 'true';
-        if (isSavedContrastTheme) {
-            document.documentElement.classList.add('contrast');
-        }
-    }, []);
+    const isSavedContrastTheme = localStorage.getItem(LOCAL_STORAGE.THEME_CONTRAST) === 'true';
+    if (isSavedContrastTheme) {
+      document.documentElement.classList.add('contrast');
+    }
+  }, []);
 
-    return (
-        <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
-            <Header />
-            <main>
-                <Toast />
-                {pane === PaneInterface.Help && <Help />}
-                {pane === PaneInterface.Game && <Game />}
-                {pane === PaneInterface.Settings && <Settings />}
-                {pane === PaneInterface.Statistics && <Statistics />}
-                {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
-            </main>
-        </div>
-    )
-};
+  return (
+      <div className="wrapper" data-word-to-guess-for-cheaters={wordToGuess}>
+          <Header />
+          <main>
+              <Toast />
+              {pane === PaneInterface.Help && <Help />}
+              {pane === PaneInterface.Game && <Game />}
+              {pane === PaneInterface.Settings && <Settings />}
+              {pane === PaneInterface.Statistics && <Statistics />}
+              {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
+          </main>
+      </div>
+  );
+}
 
 export default App;

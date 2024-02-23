@@ -23,6 +23,8 @@
 
     "esModuleInterop": true,
 
+    "baseUrl": ".",
+
     "paths": {
       "@api*": ["./src/api*", "./src/api*/index"],
       "@components/*": ["./src/components/*", "./src/components/*/index"],
@@ -34,6 +36,9 @@
       "@utils*": ["./src/utils*", "./src/utils*/index"]
     }
   },
-  "include": ["src"],
+  "include": [
+    "..eslintrc.cjs",
+    "src"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

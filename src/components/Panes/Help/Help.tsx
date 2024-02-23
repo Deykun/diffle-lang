@@ -19,73 +19,80 @@ import { HELP_EXAMPLES_BY_LANG } from './constants';
 
 import HelpWords from './HelpWords';
 
-import './Help.scss'
+import './Help.scss';
 
 const Help = () => {
-    const [helpGuesses, setHelpGuesses]= useState<WordInterface[]>([]);
-    const [isAlt, setIsAlt] = useState(false);
+  const [helpGuesses, setHelpGuesses] = useState<WordInterface[]>([]);
+  const [isAlt, setIsAlt] = useState(false);
 
-    const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-    const { changePane } = usePanes();
+  const { changePane } = usePanes();
 
-    const tEnd = isAlt ? `Alt` : '';
+  const tEnd = isAlt ? 'Alt' : '';
 
-    useEffect(() => {
-        (async () => {
-            const language = i18n.language;
-            if (SUPPORTED_LANGS.includes(language)) {
-                const keyToUse = isAlt ? 'second' : 'first';
-                const {
-                    wordToGuess = '',
-                    words = [],
-                } = HELP_EXAMPLES_BY_LANG[language] ? HELP_EXAMPLES_BY_LANG[language][keyToUse] : {};
+  useEffect(() => {
+    (async () => {
+      const { language } = i18n;
+      if (SUPPORTED_LANGS.includes(language)) {
+        const keyToUse = isAlt ? 'second' : 'first';
+        const {
+          wordToGuess = '',
+          words = [],
+        } = HELP_EXAMPLES_BY_LANG[language] ? HELP_EXAMPLES_BY_LANG[language][keyToUse] : {};
 
-                if (words) {
-                    const { results } = await getWordReportForMultipleWords(wordToGuess, words, { lang: language, shouldCheckIfExist: false });
+        if (words) {
+          const { results } = await getWordReportForMultipleWords(wordToGuess, words, { lang: language, shouldCheckIfExist: false });
 
-                    const guesses = results.map(({ word = '', affixes = [] }) => ({
-                        word,
-                        affixes,
-                    }));
-    
-                    setHelpGuesses(guesses);
+          const guesses = results.map(({ word = '', affixes = [] }) => ({
+            word,
+            affixes,
+          }));
 
-                    return;
-                }   
-            }
-            
-            setHelpGuesses([]);
-        })();
-    }, [isAlt, i18n.language]);
+          setHelpGuesses(guesses);
 
-    useScrollEffect('top', [isAlt]);
+          return;
+        }
+      }
 
-    return (
-        <div className="help">
-            <h2 className="title">{t('help.howToPlayTitle')}</h2>
-            <p>{t('help.howToPlayText1')}</p>
-            <p>{t('help.howToPlayText2')}</p>
-            <HelpWords helpGuesses={helpGuesses} tEnd={tEnd} />
-            <p>
-                <Button onClick={() => changePane(Pane.Game)} isLarge>
-                    <IconGamepad />
-                    <span>{t('common.play')}</span>
-                </Button>
-            </p>
-            {helpGuesses.length > 0 && <p>
-                <Button onClick={() => setIsAlt(value => !value)} isInverted isText hasBorder={false}>
-                    <span>{t(isAlt ? 'help.previousExample' : 'help.altExample')}</span>
-                </Button>
-            </p>}
-            <p>
-                <Button onClick={() => changePane(Pane.AboutLanguage)} isInverted isText>
-                    <IconBookOpen />
-                    <span>{t('settings.statisticsTitle')}: {t('language.currentLanguage')}</span>
-                </Button>
-            </p>
-        </div>
-    )
+      setHelpGuesses([]);
+    })();
+  }, [isAlt, i18n.language, i18n]);
+
+  useScrollEffect('top', [isAlt]);
+
+  return (
+      <div className="help">
+          <h2 className="title">{t('help.howToPlayTitle')}</h2>
+          <p>{t('help.howToPlayText1')}</p>
+          <p>{t('help.howToPlayText2')}</p>
+          <HelpWords helpGuesses={helpGuesses} tEnd={tEnd} />
+          <p>
+              <Button onClick={() => changePane(Pane.Game)} isLarge>
+                  <IconGamepad />
+                  <span>{t('common.play')}</span>
+              </Button>
+          </p>
+          {helpGuesses.length > 0 && (
+          <p>
+              <Button onClick={() => setIsAlt(value => !value)} isInverted isText hasBorder={false}>
+                  <span>{t(isAlt ? 'help.previousExample' : 'help.altExample')}</span>
+              </Button>
+          </p>
+          )}
+          <p>
+              <Button onClick={() => changePane(Pane.AboutLanguage)} isInverted isText>
+                  <IconBookOpen />
+                  <span>
+                      {t('settings.statisticsTitle')}
+                      :
+                      {' '}
+                      {t('language.currentLanguage')}
+                  </span>
+              </Button>
+          </p>
+      </div>
+  );
 };
 
 export default Help;

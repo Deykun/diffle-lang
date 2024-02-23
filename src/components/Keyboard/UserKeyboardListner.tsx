@@ -7,33 +7,33 @@ import { selectGameLanguageKeyboardInfo } from '@store/selectors';
 import useEventListener from '@hooks/useEventListener';
 
 const UserKeyboardListner = () => {
-    const dispatch = useDispatch();
-    const { allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
+  const dispatch = useDispatch();
+  const { allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
 
-    const handleTyped = useCallback((event: KeyboardEvent) => {
-        const keyTyped = (event?.key || '').toLowerCase();
+  const handleTyped = useCallback((event: KeyboardEvent) => {
+    const keyTyped = (event?.key || '').toLowerCase();
 
-        if ([' ', 'enter'].includes(keyTyped)) {
-            // Last focused button is not triggered by that
-            event.preventDefault();
-        }
+    if ([' ', 'enter'].includes(keyTyped)) {
+      // Last focused button is not triggered by that
+      event.preventDefault();
+    }
 
-        if (keyTyped === 'enter') {
-            dispatch(submitAnswer());
+    if (keyTyped === 'enter') {
+      dispatch(submitAnswer());
 
-            return;
-        }
+      return;
+    }
 
-        const isAllowedKey = allowedKeys.includes(keyTyped);
+    const isAllowedKey = allowedKeys.includes(keyTyped);
 
-        if (isAllowedKey) {
-            dispatch(letterChangeInAnswer(keyTyped));
-        }
-    }, [allowedKeys, dispatch]);
+    if (isAllowedKey) {
+      dispatch(letterChangeInAnswer(keyTyped));
+    }
+  }, [allowedKeys, dispatch]);
 
-    useEventListener('keydown', handleTyped);
+  useEventListener('keydown', handleTyped);
 
-    return null;
+  return null;
 };
 
 export default UserKeyboardListner;

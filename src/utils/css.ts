@@ -1,35 +1,35 @@
 export const getCssVarValue = (propertyName: string) => {
-    const root = document.querySelector(':root');
+  const root = document.querySelector(':root');
 
-    if (!root) {
-        return;
-    }
+  if (!root) {
+    return undefined;
+  }
 
-    const rootComputedStyles = getComputedStyle(root);
+  const rootComputedStyles = getComputedStyle(root);
 
-    return rootComputedStyles.getPropertyValue(propertyName);
+  return rootComputedStyles.getPropertyValue(propertyName);
 };
 
 const getMillisecondsFromTimeValue = (value: string) => {
-    value = value.startsWith('.') ? `0${value}` : value;
+  const numberFormatValue = value.startsWith('.') ? `0${value}` : value;
 
-    const valueNumber = Number(value.replace(/[a-z]+/g, ''));
+  const valueNumber = Number(numberFormatValue.replace(/[a-z]+/g, ''));
 
-    if (!valueNumber) {
-        return 0;
-    }
+  if (!valueNumber) {
+    return 0;
+  }
 
-    const isMilliseconds = value.includes('ms');
+  const isMilliseconds = numberFormatValue.includes('ms');
 
-    return isMilliseconds ? valueNumber : valueNumber * 1000;    
+  return isMilliseconds ? valueNumber : valueNumber * 1000;
 };
 
 export const getCssVarMillisecondsValue = (propertyName: string) => {
-    const value = getCssVarValue(propertyName);
+  const value = getCssVarValue(propertyName);
 
-    if (!value) {
-        return 0;
-    }
+  if (!value) {
+    return 0;
+  }
 
-    return getMillisecondsFromTimeValue(value);
-}
+  return getMillisecondsFromTimeValue(value);
+};

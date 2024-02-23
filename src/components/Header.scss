@@ -78,6 +78,10 @@
             position: absolute;
             top: calc(50% - 9px);
             right: -15px;
+
+            &[disabled] {
+                animation: imageBlink 2s linear infinite;
+            }
         }
 
         .header-flag  {

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+/* eslint-disable max-len */
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -23,27 +23,32 @@ import IconPencil from '@components/Icons/IconPencil';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
+import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import './ShareButton.scss';
 
-const ShareButton = ({ shouldShowSettings = false }) => {
+interface Props {
+  shouldShowSettings?: boolean,
+}
+
+const ShareButton = ({ shouldShowSettings = false }: Props) => {
   const dispatch = useDispatch();
-  const gameLanguage = useSelector((state) => state.game.language);
-  const shouldShareWords = useSelector((state) => state.app.shouldShareWords);
-  const guesses = useSelector((state) => state.game.guesses);
+  const gameLanguage = useSelector(state => state.game.language);
+  const shouldShareWords = useSelector(state => state.app.shouldShareWords);
+  const guesses = useSelector(state => state.game.guesses);
   const guessedWords = guesses.map(({ word }) => word);
   const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
-  const endStatus = useSelector((state) => state.game.status);
-  const wordToGuess = useSelector((state) => state.game.wordToGuess);
-  const gameMode = useSelector((state) => state.game.mode);
+  const endStatus = useSelector(state => state.game.status);
+  const wordToGuess = useSelector(state => state.game.wordToGuess);
+  const gameMode = useSelector(state => state.game.mode);
   const [isOpen, setIsOpen] = useState(false);
 
   const { t } = useTranslation();
   const { vibrate } = useVibrate();
 
   const textToCopy = useMemo(() => {
-    const diffleUrl = location.href.split('?')[0];
+    const diffleUrl = window.location.href.split('?')[0];
     const { stamp } = getNow();
 
     const isLost = endStatus === GameStatus.Lost;
@@ -70,15 +75,14 @@ const ShareButton = ({ shouldShowSettings = false }) => {
 ${copySubtotals}
       
 ${shareUrl}`;
-  }
-      return `${copyTitle}
+    }
+    return `${copyTitle}
 
 ${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in', { postProcess: 'interval', count: words })} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
 ${copySubtotals}
 
 ${shareUrl}`;
-
-}, [endStatus, gameLanguage, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words])
+  }, [endStatus, gameLanguage, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words]);
 
   const handleCopy = useCallback(() => {
     setIsOpen(false);
@@ -93,50 +97,55 @@ ${shareUrl}`;
     localStorage.setItem(LOCAL_STORAGE.SHOULD_SHARE_WORDS, shouldShareWords ? 'false' : 'true');
 
     dispatch(toggleShareWords());
-}, [dispatch, shouldShareWords, vibrate]);
+  }, [dispatch, shouldShareWords, vibrate]);
 
   const onClick = () => setIsOpen(value => !value);
 
   return (
-    <>
-      <span className="buttons-connected">
-        <Button
-          onClick={handleCopy}
-        >
-            <IconShare />
-            <span>{t('common.copyResult')}</span>
-        </Button>
-        {shouldShowSettings && (
-          <Button onClick={onClick}>
-            <IconPencil />
-          </Button>
-        )}
-      </span>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div className="settings">
-          <h3>{t('share.titleSettings')}</h3>
-          <ul>
-              <li>
-                  <button className={clsx('setting', { 'setting-active': shouldShareWords })} onClick={handleToggleShareWords}>
-                      <IconFingerprint />
-                      <span>
-                        {t('share.linkWithUsedWords')}
-                        <br />
-                        <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
-                      </span>
-                  </button>
-              </li>
-              <li>
-                  <button className="setting" onClick={handleCopy}>
-                    <IconShare />
-                    <span>{t('common.copyResult')}</span>
-                  </button>
-              </li>
-          </ul>
-        </div>
-      </Modal>
-    </>
-  )
+      <>
+          <span className="buttons-connected">
+              <Button
+                onClick={handleCopy}
+              >
+                  <IconShare />
+                  <span>{t('common.copyResult')}</span>
+              </Button>
+              {shouldShowSettings && (
+              <Button onClick={onClick}>
+                  <IconPencil />
+              </Button>
+              )}
+          </span>
+          <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+              <div className="settings">
+                  <h3>{t('share.titleSettings')}</h3>
+                  <ul>
+                      <li>
+                          <ButtonTile
+                            isActive={shouldShareWords}
+                            onClick={handleToggleShareWords}
+                          >
+                              <IconFingerprint />
+                              <span>
+                                  {t('share.linkWithUsedWords')}
+                                  <br />
+                                  <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
+                              </span>
+                          </ButtonTile>
+                      </li>
+                      <li>
+                          <ButtonTile
+                            onClick={handleCopy}
+                          >
+                              <IconShare />
+                              <span>{t('common.copyResult')}</span>
+                          </ButtonTile>
+                      </li>
+                  </ul>
+              </div>
+          </Modal>
+      </>
+  );
 };
 
 export default ShareButton;
