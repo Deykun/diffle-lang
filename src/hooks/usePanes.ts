@@ -8,23 +8,23 @@ import { setPane } from '@store/appSlice';
 import useVibrate from '@hooks/useVibrate';
 
 function usePanes() {
-    const dispatch = useDispatch();
-    const activePane = useSelector(state => state.app.pane.active);
-    const paneParams = useSelector(state => state.app.pane.params);
+  const dispatch = useDispatch();
+  const activePane = useSelector(state => state.app.pane.active);
+  const paneParams = useSelector(state => state.app.pane.params);
 
-    const { vibrate } = useVibrate();
+  const { vibrate } = useVibrate();
 
-    const changePane = useCallback((paneToSet: Pane, paneParamsToSet: { [key: string]: string } = {}) => {
-        vibrate();
+  const changePane = useCallback((paneToSet: Pane, paneParamsToSet: { [key: string]: string } = {}) => {
+    vibrate();
 
-        dispatch(setPane({ pane: paneToSet, params: paneParamsToSet }));
-    }, [dispatch, vibrate]);
+    dispatch(setPane({ pane: paneToSet, params: paneParamsToSet }));
+  }, [dispatch, vibrate]);
 
-    return {
-        pane: activePane,
-        paneParams,
-        changePane,
-    };
-};
+  return {
+    pane: activePane,
+    paneParams,
+    changePane,
+  };
+}
 
 export default usePanes;

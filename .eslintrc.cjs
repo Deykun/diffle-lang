@@ -17,9 +17,15 @@ module.exports = {
   },
   plugins: ['react-refresh'],
   rules: {
+    'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
+    'arrow-parens': ['error', 'as-needed', {
+      requireForBlockBody: true,
+    }],
     'react/jsx-indent': ['error', 4],
-    "react/jsx-no-undef": [ "error", { "allowGlobals": true } ],
+    'react/jsx-no-undef': [ "error", { "allowGlobals": true } ],
+    'react/require-default-props': 0,
+    'react/function-component-definition': 0,
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -27,7 +33,7 @@ module.exports = {
     'max-len': ['warn', {
       'code': 140,
       'ignoreUrls': true,
-      'ignorePattern': '(^import|\\srequire\\()',
+      'ignorePattern': '(^import|d="([\\s\\S]*?)|\\srequire\\()',
       'ignoreTrailingComments': true,
     }],
     'no-param-reassign': ['error', {

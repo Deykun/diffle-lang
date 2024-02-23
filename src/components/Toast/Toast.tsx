@@ -1,5 +1,7 @@
 import clsx from 'clsx';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  useCallback, useEffect, useRef, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector, useDispatch } from '@store';
@@ -12,7 +14,9 @@ const Toasts = () => {
   const setTimeoutShakeToastRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const dispatch = useDispatch();
   const [{ shouldShake, didShake }, setShake] = useState({ shouldShake: false, didShake: false });
-  const { type, text, timeoutSeconds = 4, toastTime, params = {} } = useSelector(state => state.app.toast);
+  const {
+    type, text, timeoutSeconds = 4, toastTime, params = {},
+  } = useSelector(state => state.app.toast);
 
   const { t } = useTranslation();
 
@@ -41,11 +45,11 @@ const Toasts = () => {
       }, 0.5 * 1000);
     }
 
-    () => {
-        if (setTimeoutShakeToastRef.current) {
-          clearTimeout(setTimeoutShakeToastRef.current);
-        }
-    }
+    return () => {
+      if (setTimeoutShakeToastRef.current) {
+        clearTimeout(setTimeoutShakeToastRef.current);
+      }
+    };
   }, [resetToast, toastTime]);
 
   useEffect(() => {
@@ -55,11 +59,11 @@ const Toasts = () => {
       resetToast();
     }
 
-    () => {
+    return () => {
       if (setTimeoutShowToastRef.current) {
         clearTimeout(setTimeoutShowToastRef.current);
       }
-    }
+    };
   }, [dispatch, resetToast, text]);
 
   if (!text) {
@@ -67,10 +71,10 @@ const Toasts = () => {
   }
 
   return (
-    <p className={clsx('toast', `toast-${type}`, { 'toast-shake': shouldShake, 'toast-shaked': didShake })} key={text}>
-        {t(text, params)}
-    </p>
-  )
+      <p className={clsx('toast', `toast-${type}`, { 'toast-shake': shouldShake, 'toast-shaked': didShake })} key={text}>
+          {t(text, params)}
+      </p>
+  );
 };
 
 export default Toasts;

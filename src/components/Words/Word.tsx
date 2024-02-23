@@ -19,37 +19,36 @@ const Word = ({ guess }: { guess: WordInterface }) => {
     return null;
   }
 
-  const length = guess.word.length;
+  const { length } = guess.word;
   const indexWithCaretBefore = guess.caretShift !== undefined && guess.caretShift < 0 ? guess.word.length + guess.caretShift : undefined;
 
   return (
-    <div className={clsx('word', { 'isExtraLong': length > 12 })}>
-        {guess.affixes.map((
+      <div className={clsx('word', { isExtraLong: length > 12 })}>
+          {guess.affixes.map((
             {
-                text,
-                type,
-                isStart,
-                isEnd,
+              text,
+              type,
+              isStart,
+              isEnd,
             },
-                index
-            ) => {
-                const isNew = type === AffixStatus.New;
-                const hasCaretBefore = index === indexWithCaretBefore;
+            index,
+          ) => {
+            const isNew = type === AffixStatus.New;
+            const hasCaretBefore = index === indexWithCaretBefore;
 
-                return (
-                    <Affix
-                      key={`${index}-${text}`}
-                      text={text}
-                      type={type}
-                      isStart={isStart}
-                      isEnd={isEnd}
-                      hasCaretBefore={hasCaretBefore}
-                      onClick={isNew ? handleClickGenerator(index) : undefined}
-                    />
-                );
-            }
-        )}
-    </div>
+            return (
+                <Affix
+                  key={text}
+                  text={text}
+                  type={type}
+                  isStart={isStart}
+                  isEnd={isEnd}
+                  hasCaretBefore={hasCaretBefore}
+                  onClick={isNew ? handleClickGenerator(index) : undefined}
+                />
+            );
+          })}
+      </div>
   );
 };
 

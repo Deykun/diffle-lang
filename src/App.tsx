@@ -25,11 +25,11 @@ import './App.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const wordToGuess = useSelector((state) => state.game.wordToGuess);
-  const gameLanguage = useSelector((state) => state.game.language);
-  const gameMode = useSelector((state) => state.game.mode);
-  const todayStamp = useSelector((state) => state.game.today);
-  const isErrorLoading = useSelector((state) => state.game.isErrorLoading);
+  const wordToGuess = useSelector(state => state.game.wordToGuess);
+  const gameLanguage = useSelector(state => state.game.language);
+  const gameMode = useSelector(state => state.game.mode);
+  const todayStamp = useSelector(state => state.game.today);
+  const isErrorLoading = useSelector(state => state.game.isErrorLoading);
 
   const { pane } = usePanes();
 

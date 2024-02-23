@@ -1,7 +1,8 @@
-import { useSelector } from '@store';
 import { useQuery } from '@tanstack/react-query';
 
 import { DictionaryInfo, DictionaryInfoLetters } from '@common-types';
+
+import { useSelector } from '@store';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
@@ -13,45 +14,47 @@ import AboutLanguageNeighbours from './AboutLanguageNeighbours';
 import AboutLanguagePlayDiffle from './AboutLanguagePlayDiffle';
 import AboutLenguageLengths from './AboutLenguageLengths';
 
-import './AboutLanguage.scss'
+import './AboutLanguage.scss';
 
-const getDicitonaryData = async (lang: string | undefined) => {
-    if (!lang) {
-        return;
-    }
-    
-    const response = await fetch(`./dictionary/${lang}/info.json`);
-    const rawData = await response.json();
+const getDicitonaryData = async (lang: string | undefined): Promise<DictionaryInfo | undefined> => {
+  if (!lang) {
+    return undefined;
+  }
 
-    return rawData as DictionaryInfo;
+  const response = await fetch(`./dictionary/${lang}/info.json`);
+  const rawData = await response.json();
+
+  return rawData;
 };
 
 const AboutLanguage = () => {
-    const gameLanguage = useSelector((state) => state.game.language);
+  const gameLanguage = useSelector(state => state.game.language);
 
-    useScrollEffect('top', []);
+  useScrollEffect('top', []);
 
-    const {
-        isLoading,
-        // error,
-        data,
-    } = useQuery({
-        queryFn: () => getDicitonaryData(gameLanguage),
-        queryKey: [`about-${gameLanguage}`, gameLanguage],
-    });
+  const {
+    isLoading,
+    // error,
+    data,
+  } = useQuery({
+    queryFn: () => getDicitonaryData(gameLanguage),
+    queryKey: [`about-${gameLanguage}`, gameLanguage],
+  });
 
-    return (
-        <div className="about-language">
-            {isLoading && <IconLoader className="about-language-content-loader" />}
-            {data && <>
-                <AboutLanguageIntro data={data} />
-                <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
-                <AboutLanguageNeighbours data={data} />
-                <AboutLenguageLengths data={data} />
-                <AboutLanguagePlayDiffle />
-            </>}
-        </div>
-    )
+  return (
+      <div className="about-language">
+          {isLoading && <IconLoader className="about-language-content-loader" />}
+          {data && (
+          <>
+              <AboutLanguageIntro data={data} />
+              <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
+              <AboutLanguageNeighbours data={data} />
+              <AboutLenguageLengths data={data} />
+              <AboutLanguagePlayDiffle />
+          </>
+          )}
+      </div>
+  );
 };
 
 export default AboutLanguage;

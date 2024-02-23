@@ -58,7 +58,6 @@ export const HELP_EXAMPLES_BY_LANG: {
     second: {
       wordToGuess: 'przykład',
       words: ['hej', 'kraj', 'łatwo', 'pęd', 'przykład'],
-    }
-  }
+    },
+  },
 };
-
