@@ -73,8 +73,8 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     specialCharacters: ['ä', 'ö', 'ß', 'ü'],
     hasSpecialCharacters: true,
     urls: [
-      { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
       { url: 'https://de.pons.com/%C3%BCbersetzung/deutsche-rechtschreibung/{{word}}', name: 'PONS Rechtschreibung und Fremdwörter', hasExactMatchAlways: false },
+      { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
     ],
     shareMarker: '🇩🇪 #diffle #difflede',
   },
