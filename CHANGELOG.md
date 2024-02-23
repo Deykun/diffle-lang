@@ -13,6 +13,7 @@
 
 #### Version 3.8
 - **New**: Airbnb eslint rules added
+- **New**: Greener green for light mode language statistics
 
 #### Version 3.7.1
 - **Fix**: Percentages are no longer cut in half

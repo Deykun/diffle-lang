@@ -63,7 +63,7 @@ function BarChart({
             dangerouslySetInnerHTML={{
               __html: t('statistics.languageDescriptionMostPopularLength', {
                 lng,
-                letters: dominant.split('').map((letter) => `<strong class="about-language-small-key-cap">${letter}</strong>`).join(' '),
+                letters: dominant.split('').map(letter => `<strong class="about-language-small-key-cap">${letter}</strong>`).join(' '),
               }),
             }}
           />
@@ -73,7 +73,7 @@ function BarChart({
                     return (
                         <div key={label} className="bar-chart-row">
                             <strong className="bar-chart-label">
-                                {label.padStart(2, ' ').split('').map((digit) => (
+                                {label.padStart(2, ' ').split('').map(digit => (
                                     <span key={digit} className="about-language-small-key-cap" data-bar-letter={digit}>
                                         {digit}
                                     </span>
@@ -101,7 +101,7 @@ function BarChart({
                     return (
                         <div key={label} className="bar-chart-row">
                             <strong className="bar-chart-label">
-                                {label.padStart(2, ' ').split('').map((digit) => (
+                                {label.padStart(2, ' ').split('').map(digit => (
                                     <span key={digit} className="about-language-small-key-cap" data-bar-letter={digit}>
                                         {digit}
                                     </span>
