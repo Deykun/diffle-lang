@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.8.2 (24.02.2024)
+- **Fix**: Shared content is displayed again
+
 #### Version 3.8.1 (23.02.2024)
 - **Fix**: Wrong "O" removed from key cap
 - **Fix**: Keyboard heatmap precision has been fixed (it now shows 99.838% and 8.7%)

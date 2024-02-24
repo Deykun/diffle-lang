@@ -169,10 +169,10 @@ const SharedContent = () => {
             subtotals: sharedSubtotals,
           } = getWordsAndLetters(sharedGuesses, hasSpecialCharacters);
 
-          const isHashResultSameToCalculated = hashCorrect === subtotals.correct
-            && hashPosition === subtotals.position
-            && hashIncorrect === subtotals.incorrect
-            && hashTypedKnowIncorrect === subtotals.typedKnownIncorrect;
+          const isHashResultSameToCalculated = hashCorrect === sharedSubtotals.correct
+            && hashPosition === sharedSubtotals.position
+            && hashIncorrect === sharedSubtotals.incorrect
+            && hashTypedKnowIncorrect === sharedSubtotals.typedKnownIncorrect;
 
           if (!isHashResultSameToCalculated) {
             // Probably dictionary has been changed and we can't recover the result
