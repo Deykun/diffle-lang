@@ -2,7 +2,9 @@
 	"spellchecker": {
 		"all": 654893,
 		"accepted": {
+			"allUsedInGame": 652458,
 			"all": 654855,
+			"allWordleWords": 11846,
 			"withSpecialCharacters": 31922,
 			"withoutSpecialCharacters": 622933,
 			"length": {
@@ -27,7 +29,7 @@
 				"20": 22
 			}
 		},
-		"rejected": 38,
+		"rejected": 2435,
 		"letters": {
 			"first": {
 				"a": 98487,
@@ -127,6 +129,40 @@
 				"ú": 557,
 				"k": 195,
 				"w": 46
+			},
+			"inWordsWordle": {
+				"a": 7381,
+				"o": 4950,
+				"e": 4869,
+				"s": 3696,
+				"r": 3636,
+				"i": 3387,
+				"n": 2983,
+				"l": 2640,
+				"u": 2483,
+				"c": 2404,
+				"t": 2184,
+				"m": 1676,
+				"d": 1673,
+				"p": 1632,
+				"b": 1368,
+				"g": 1126,
+				"j": 891,
+				"f": 844,
+				"h": 771,
+				"v": 716,
+				"z": 633,
+				"ñ": 443,
+				"y": 403,
+				"ó": 297,
+				"í": 248,
+				"á": 160,
+				"x": 132,
+				"q": 118,
+				"é": 116,
+				"ú": 81,
+				"k": 23,
+				"w": 2
 			},
 			"inWords": {
 				"a": 569216,
@@ -233,7 +269,69 @@
 					"iais": 11559
 				}
 			}
-		}
+		},
+		"wordle": [
+			{
+				"word": "orase",
+				"score": 24532
+			},
+			{
+				"word": "oreas",
+				"score": 24532
+			},
+			{
+				"word": "osare",
+				"score": 24532
+			},
+			{
+				"word": "osear",
+				"score": 24532
+			},
+			{
+				"word": "osera",
+				"score": 24532
+			},
+			{
+				"word": "rosea",
+				"score": 24532
+			},
+			{
+				"word": "seora",
+				"score": 24532
+			},
+			{
+				"word": "aireo",
+				"score": 24223
+			},
+			{
+				"word": "asone",
+				"score": 23879
+			},
+			{
+				"word": "osean",
+				"score": 23879
+			},
+			{
+				"word": "saneo",
+				"score": 23879
+			},
+			{
+				"word": "areno",
+				"score": 23819
+			},
+			{
+				"word": "orean",
+				"score": 23819
+			},
+			{
+				"word": "ornea",
+				"score": 23819
+			},
+			{
+				"word": "aloes",
+				"score": 23536
+			}
+		]
 	},
 	"winning": {
 		"all": 14783,

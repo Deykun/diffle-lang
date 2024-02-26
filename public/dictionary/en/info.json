@@ -2,7 +2,9 @@
 	"spellchecker": {
 		"all": 370105,
 		"accepted": {
+			"allUsedInGame": 359039,
 			"all": 369778,
+			"allWordleWords": 15920,
 			"withSpecialCharacters": 0,
 			"withoutSpecialCharacters": 369778,
 			"length": {
@@ -27,7 +29,7 @@
 				"20": 359
 			}
 		},
-		"rejected": 327,
+		"rejected": 11066,
 		"letters": {
 			"first": {
 				"s": 38740,
@@ -112,6 +114,34 @@
 				"x": 10475,
 				"q": 5881,
 				"j": 5452
+			},
+			"inWordsWordle": {
+				"a": 7248,
+				"e": 6730,
+				"s": 5871,
+				"r": 4865,
+				"i": 4767,
+				"o": 4613,
+				"l": 3924,
+				"t": 3866,
+				"n": 3774,
+				"u": 3241,
+				"d": 2641,
+				"c": 2588,
+				"y": 2477,
+				"m": 2361,
+				"h": 2223,
+				"p": 2148,
+				"b": 1937,
+				"g": 1867,
+				"k": 1663,
+				"w": 1160,
+				"f": 1115,
+				"v": 853,
+				"z": 435,
+				"j": 372,
+				"x": 357,
+				"q": 139
 			},
 			"inWords": {
 				"e": 252638,
@@ -212,7 +242,69 @@
 					"ting": 3731
 				}
 			}
-		}
+		},
+		"wordle": [
+			{
+				"word": "aesir",
+				"score": 29481
+			},
+			{
+				"word": "aries",
+				"score": 29481
+			},
+			{
+				"word": "arise",
+				"score": 29481
+			},
+			{
+				"word": "raise",
+				"score": 29481
+			},
+			{
+				"word": "serai",
+				"score": 29481
+			},
+			{
+				"word": "arose",
+				"score": 29327
+			},
+			{
+				"word": "oreas",
+				"score": 29327
+			},
+			{
+				"word": "seora",
+				"score": 29327
+			},
+			{
+				"word": "arles",
+				"score": 28638
+			},
+			{
+				"word": "arsle",
+				"score": 28638
+			},
+			{
+				"word": "earls",
+				"score": 28638
+			},
+			{
+				"word": "lares",
+				"score": 28638
+			},
+			{
+				"word": "laser",
+				"score": 28638
+			},
+			{
+				"word": "lears",
+				"score": 28638
+			},
+			{
+				"word": "rales",
+				"score": 28638
+			}
+		]
 	},
 	"winning": {
 		"all": 10386,

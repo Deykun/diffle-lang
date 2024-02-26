@@ -174,12 +174,15 @@ export const actionBuildDictionary = (
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
+        MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD = MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
         MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD = MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
     },
     spellcheckerWords,
     winningWords,
 ) => {
     const statistics = INITAL_DICTIONARY_STATISTICS;
+    // Used to finde the best wordle word
+    const wordleWords = [];
 
     statistics.winning.lettersNotAcceptedInWinningWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD;
     statistics.spellchecker.all = spellcheckerWords.length;
@@ -203,47 +206,34 @@ export const actionBuildDictionary = (
         const key = getNormalizedKey(word, LANG);
 
         if (key) {
-            if (word.length <= MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE) {
+            if (word.length <= MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD) {
                 statistics.spellchecker.accepted.all += 1;
+
+                const isWordleLengthWord = word.length === 5;
+                if (isWordleLengthWord) {
+                    wordleWords.push(word);
+                }
 
                 const wordLength = word.length;
                 incrementValueForStat(statistics.spellchecker.accepted.length, wordLength);
-                // if (statistics.spellchecker.accepted.length[wordLength]) {
-                //     statistics.spellchecker.accepted.length[wordLength] += 1;
-                // } else {
-                //     statistics.spellchecker.accepted.length[wordLength] = 1;
-                // }
     
                 const firstLetter = word.at(0);
-    
-                if (statistics.spellchecker.letters.first[firstLetter]) {
-                    statistics.spellchecker.letters.first[firstLetter] += 1;
-                } else {
-                    statistics.spellchecker.letters.first[firstLetter] = 1;
-                }
+                incrementValueForStat(statistics.spellchecker.letters.first, firstLetter);
     
                 const lastLetter = word.at(-1);
+                incrementValueForStat(statistics.spellchecker.letters.last, lastLetter);
     
-                if (statistics.spellchecker.letters.last[lastLetter]) {
-                    statistics.spellchecker.letters.last[lastLetter] += 1;
-                } else {
-                    statistics.spellchecker.letters.last[lastLetter] = 1;
-                }
-    
-                [...new Set(word.split(''))].forEach((letters) => {
-                    if (statistics.spellchecker.letters.inWords[letters]) {
-                        statistics.spellchecker.letters.inWords[letters] += 1;
-                    } else {
-                        statistics.spellchecker.letters.inWords[letters] = 1;
+                // Pizza (z -> inWords +1, common +2)
+                [...new Set(word.split(''))].forEach((letter) => {
+                    incrementValueForStat(statistics.spellchecker.letters.inWords, letter);
+                    
+                    if (isWordleLengthWord) {
+                        incrementValueForStat(statistics.spellchecker.letters.inWordsWordle, letter);
                     }
                 });
     
-                word.split('').forEach((letters) => {
-                    if (statistics.spellchecker.letters.common[letters]) {
-                        statistics.spellchecker.letters.common[letters] += 1;
-                    } else {
-                        statistics.spellchecker.letters.common[letters] = 1;
-                    }
+                word.split('').forEach((letter) => {
+                    incrementValueForStat(statistics.spellchecker.letters.common, letter);
                 });
     
                 const chunks = getWordSubstrings(word);
@@ -301,9 +291,12 @@ export const actionBuildDictionary = (
         }
     });
 
+    statistics.spellchecker.accepted.allWordleWords = wordleWords.length;
+
     statistics.spellchecker.letters.first = Object.fromEntries(Object.entries(statistics.spellchecker.letters.first).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.inWords = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWords).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.inWordsWordle = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWordsWordle).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.common = Object.fromEntries(Object.entries(statistics.spellchecker.letters.common).sort((a, b) => b[1] - a[1]));
 
     [2, 3, 4].forEach((chunkLength) => {
@@ -319,6 +312,21 @@ export const actionBuildDictionary = (
     })
 
     const totalNumberOfSpellingChunks = Object.keys(spellingIndex).length;
+
+    console.log(' ');
+    console.log(chalk.blue(`Looking for best Wordle starting words from ${ wordleWords.length} words...`));
+
+    const bestWordleWords = wordleWords.map((word) => {
+        // We favor a diverse use of letters
+        const uniqueLetters = [...new Set(word.split(''))];
+
+        return {
+            word,
+            score: uniqueLetters.reduce((total, letter) => total + statistics.spellchecker.letters.inWordsWordle[letter], 0),
+        };
+    }).sort((a, b) => b.score - a.score).slice(0, 15);
+
+    statistics.spellchecker.wordle = bestWordleWords;
 
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfSpellingChunks} created chunks...`));

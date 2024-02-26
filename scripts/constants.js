@@ -9,7 +9,7 @@ export const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 9;
 
 export const MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD = 15;
 
-export const MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE = 18;
+export const MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE = 20;
 
 export const INITAL_DICTIONARY_STATISTICS = {
     spellchecker: {
@@ -17,6 +17,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
         accepted: {
             allUsedInGame: 0,
             all: 0,
+            allWordleWords: 0,
             withSpecialCharacters: 0,
             withoutSpecialCharacters: 0,
             length: {},
@@ -26,6 +27,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
             first: {},
             last: {},
             common: {},
+            inWordsWordle: {},
             inWords: {},
         },
         substrings: {
@@ -33,6 +35,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
             middle: { 2: {}, 3: {}, 4: {} },
             last: { 2: {}, 3: {}, 4: {} },
         },
+        wordle: {},
     },
     winning: {
         all: 0,

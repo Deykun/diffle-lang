@@ -4,6 +4,7 @@
 		"accepted": {
 			"allUsedInGame": 3211348,
 			"all": 3211348,
+			"allWordleWords": 28361,
 			"withSpecialCharacters": 1684394,
 			"withoutSpecialCharacters": 1526954,
 			"length": {
@@ -130,6 +131,42 @@
 				"v": 222,
 				"q": 1
 			},
+			"inWordsWordle": {
+				"a": 11492,
+				"o": 9052,
+				"i": 8238,
+				"e": 7310,
+				"k": 6888,
+				"r": 6750,
+				"u": 6708,
+				"m": 5412,
+				"l": 5330,
+				"n": 5306,
+				"s": 5220,
+				"y": 5169,
+				"t": 4787,
+				"p": 4338,
+				"w": 4273,
+				"z": 4195,
+				"c": 3990,
+				"d": 3777,
+				"b": 3290,
+				"ą": 3218,
+				"ł": 2999,
+				"g": 2846,
+				"ę": 2814,
+				"j": 2756,
+				"ż": 1817,
+				"f": 1519,
+				"h": 1367,
+				"ó": 1237,
+				"ć": 799,
+				"ś": 625,
+				"ń": 512,
+				"ź": 287,
+				"x": 40,
+				"v": 8
+			},
 			"inWords": {
 				"a": 2269121,
 				"i": 2188571,
@@ -238,7 +275,69 @@
 					"nych": 37577
 				}
 			}
-		}
+		},
+		"wordle": [
+			{
+				"word": "okrai",
+				"score": 42420
+			},
+			{
+				"word": "areko",
+				"score": 41492
+			},
+			{
+				"word": "eonia",
+				"score": 41398
+			},
+			{
+				"word": "akiom",
+				"score": 41082
+			},
+			{
+				"word": "amoki",
+				"score": 41082
+			},
+			{
+				"word": "makio",
+				"score": 41082
+			},
+			{
+				"word": "okami",
+				"score": 41082
+			},
+			{
+				"word": "kalio",
+				"score": 41000
+			},
+			{
+				"word": "koali",
+				"score": 41000
+			},
+			{
+				"word": "kolia",
+				"score": 41000
+			},
+			{
+				"word": "lokai",
+				"score": 41000
+			},
+			{
+				"word": "ikona",
+				"score": 40976
+			},
+			{
+				"word": "kanio",
+				"score": 40976
+			},
+			{
+				"word": "konia",
+				"score": 40976
+			},
+			{
+				"word": "ariom",
+				"score": 40944
+			}
+		]
 	},
 	"winning": {
 		"all": 32363,

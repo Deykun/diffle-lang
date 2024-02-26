@@ -13,6 +13,7 @@ import AboutLanguageLetters from './AboutLanguageLetters';
 import AboutLanguageNeighbours from './AboutLanguageNeighbours';
 import AboutLanguagePlayDiffle from './AboutLanguagePlayDiffle';
 import AboutLenguageLengths from './AboutLenguageLengths';
+import AboutLenguageWordleStartingWord from './AboutLenguageWordleStartingWord';
 
 import './AboutLanguage.scss';
 
@@ -50,6 +51,7 @@ const AboutLanguage = () => {
               <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
               <AboutLanguageNeighbours data={data} />
               <AboutLenguageLengths data={data} />
+              <AboutLenguageWordleStartingWord data={data} />
               <AboutLanguagePlayDiffle />
           </>
           )}

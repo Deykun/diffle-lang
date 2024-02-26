@@ -36,12 +36,14 @@ export enum DictionaryInfoLetters {
   InWords = 'inWords',
   First = 'first',
   Last = 'last',
+  InWordsWordle = 'inWordsWordle',
 }
 
 export type DictionaryInfo = {
   spellchecker: {
     accepted: {
       all: number,
+      allWordleWords: number,
       withSpecialCharacters: number,
       withoutSpecialCharacters: number,
       length: {
@@ -51,14 +53,17 @@ export type DictionaryInfo = {
     letters: {
       [DictionaryInfoLetters.First]: {
         [letter: string]: number,
-      }
+      },
       [DictionaryInfoLetters.Last]: {
         [letter: string]: number,
-      }
+      },
       [DictionaryInfoLetters.Common]: {
         [letter: string]: number,
-      }
+      },
       [DictionaryInfoLetters.InWords]: {
+        [letter: string]: number,
+      },
+      [DictionaryInfoLetters.InWordsWordle]: {
         [letter: string]: number,
       }
     }
@@ -79,6 +84,10 @@ export type DictionaryInfo = {
         },
       },
     },
+    wordle: {
+      word: string,
+      score: number,
+    }[],
   }
   meta: {
     nativeSpeakersFromWikipedia: number,
