@@ -9,10 +9,13 @@ export const MAXIMUM_LENGTH_FOR_A_WINNING_WORD = 9;
 
 export const MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD = 15;
 
+export const MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE = 18;
+
 export const INITAL_DICTIONARY_STATISTICS = {
     spellchecker: {
         all: 0,
         accepted: {
+            allUsedInGame: 0,
             all: 0,
             withSpecialCharacters: 0,
             withoutSpecialCharacters: 0,

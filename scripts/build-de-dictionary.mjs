@@ -28,6 +28,7 @@ actionBuildDictionary(
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
+        MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD: 25,
     },
     spellcheckerWords,
     winningWords,

@@ -2,6 +2,7 @@
 	"spellchecker": {
 		"all": 3211348,
 		"accepted": {
+			"allUsedInGame": 3211348,
 			"all": 3211348,
 			"withSpecialCharacters": 1684394,
 			"withoutSpecialCharacters": 1526954,

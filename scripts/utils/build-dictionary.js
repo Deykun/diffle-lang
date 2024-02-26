@@ -5,6 +5,7 @@ import chalk from 'chalk';
 import {
     INITAL_DICTIONARY_STATISTICS,
     MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
+    MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
     MINIMUM_LENGTH_FOR_A_WINNING_WORD,
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants.js';
@@ -140,6 +141,7 @@ export const consoleStatistics = (statistics) => {
     console.log(` - accepted words: ${chalk.green(statistics.spellchecker.accepted.all)}`);
     console.log(`   - without special characters: ${chalk.green(statistics.spellchecker.accepted.withSpecialCharacters)}`);
     console.log(`   - with special characters: ${chalk.green(statistics.spellchecker.accepted.withoutSpecialCharacters)}`);
+    console.log(`   - used in game: ${chalk.green(statistics.spellchecker.accepted.allUsedInGame)}`);
     console.log(' ');
     console.log(`Winning:`);
     console.log(` - accepted words: ${chalk.green(statistics.winning.accepted.all)}`);
@@ -157,6 +159,14 @@ export const consoleStatistics = (statistics) => {
     console.log(' ');
 }
 
+const incrementValueForStat = (statistics, key) => {
+    if (statistics[key]) {
+        statistics[key] += 1;
+    } else {
+        statistics[key] = 1;
+    }
+}
+
 export const actionBuildDictionary = (
     {
         LANG,
@@ -164,6 +174,7 @@ export const actionBuildDictionary = (
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
+        MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD = MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
     },
     spellcheckerWords,
     winningWords,
@@ -192,7 +203,76 @@ export const actionBuildDictionary = (
         const key = getNormalizedKey(word, LANG);
 
         if (key) {
-            if (word.length > MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD) {
+            if (word.length <= MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE) {
+                statistics.spellchecker.accepted.all += 1;
+
+                const wordLength = word.length;
+                incrementValueForStat(statistics.spellchecker.accepted.length, wordLength);
+                // if (statistics.spellchecker.accepted.length[wordLength]) {
+                //     statistics.spellchecker.accepted.length[wordLength] += 1;
+                // } else {
+                //     statistics.spellchecker.accepted.length[wordLength] = 1;
+                // }
+    
+                const firstLetter = word.at(0);
+    
+                if (statistics.spellchecker.letters.first[firstLetter]) {
+                    statistics.spellchecker.letters.first[firstLetter] += 1;
+                } else {
+                    statistics.spellchecker.letters.first[firstLetter] = 1;
+                }
+    
+                const lastLetter = word.at(-1);
+    
+                if (statistics.spellchecker.letters.last[lastLetter]) {
+                    statistics.spellchecker.letters.last[lastLetter] += 1;
+                } else {
+                    statistics.spellchecker.letters.last[lastLetter] = 1;
+                }
+    
+                [...new Set(word.split(''))].forEach((letters) => {
+                    if (statistics.spellchecker.letters.inWords[letters]) {
+                        statistics.spellchecker.letters.inWords[letters] += 1;
+                    } else {
+                        statistics.spellchecker.letters.inWords[letters] = 1;
+                    }
+                });
+    
+                word.split('').forEach((letters) => {
+                    if (statistics.spellchecker.letters.common[letters]) {
+                        statistics.spellchecker.letters.common[letters] += 1;
+                    } else {
+                        statistics.spellchecker.letters.common[letters] = 1;
+                    }
+                });
+    
+                const chunks = getWordSubstrings(word);
+    
+                [2, 3, 4].forEach((chunkLength) => {
+                    Object.keys(chunks.first[chunkLength]).forEach((chunk) => {
+                        statistics.spellchecker.substrings.first[chunkLength][chunk] = (statistics.spellchecker.substrings.first[chunkLength][chunk] || 0)
+                            + (chunks.first[chunkLength][chunk] || 0);
+                    });
+    
+                    Object.keys(chunks.last[chunkLength]).forEach((chunk) => {
+                        statistics.spellchecker.substrings.last[chunkLength][chunk] = (statistics.spellchecker.substrings.last[chunkLength][chunk] || 0)
+                            + (chunks.last[chunkLength][chunk] || 0);
+                    });
+    
+                    Object.keys(chunks.middle[chunkLength]).forEach((chunk) => {
+                        statistics.spellchecker.substrings.middle[chunkLength][chunk] = (statistics.spellchecker.substrings.middle[chunkLength][chunk] || 0)
+                            + (chunks.middle[chunkLength][chunk] || 0);
+                    });
+                })
+    
+                if (getIsWordWithSpecialCharacters(word)) {
+                    statistics.spellchecker.accepted.withSpecialCharacters += 1;
+                } else {
+                    statistics.spellchecker.accepted.withoutSpecialCharacters += 1;
+                }
+            }
+
+            if (word.length > MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD) {
                 statistics.spellchecker.rejected += 1;
 
                 return;
@@ -207,78 +287,14 @@ export const actionBuildDictionary = (
                 };
             }
 
-            const wordLength = word.length;
-            if (statistics.spellchecker.accepted.length[wordLength]) {
-                statistics.spellchecker.accepted.length[wordLength] += 1;
-            } else {
-                statistics.spellchecker.accepted.length[wordLength] = 1;
-            }
+            statistics.spellchecker.accepted.allUsedInGame += 1;
 
-            const firstLetter = word.at(0);
-
-            if (statistics.spellchecker.letters.first[firstLetter]) {
-                statistics.spellchecker.letters.first[firstLetter] += 1;
-            } else {
-                statistics.spellchecker.letters.first[firstLetter] = 1;
-            }
-
-            const lastLetter = word.at(-1);
-
-            if (statistics.spellchecker.letters.last[lastLetter]) {
-                statistics.spellchecker.letters.last[lastLetter] += 1;
-            } else {
-                statistics.spellchecker.letters.last[lastLetter] = 1;
-            }
-
-            [...new Set(word.split(''))].forEach((letters) => {
-                if (statistics.spellchecker.letters.inWords[letters]) {
-                    statistics.spellchecker.letters.inWords[letters] += 1;
-                } else {
-                    statistics.spellchecker.letters.inWords[letters] = 1;
-                }
-            });
-
-            word.split('').forEach((letters) => {
-                if (statistics.spellchecker.letters.common[letters]) {
-                    statistics.spellchecker.letters.common[letters] += 1;
-                } else {
-                    statistics.spellchecker.letters.common[letters] = 1;
-                }
-            });
-
-            const chunks = getWordSubstrings(word);
-
-            [2, 3, 4].forEach((chunkLength) => {
-                Object.keys(chunks.first[chunkLength]).forEach((chunk) => {
-                    statistics.spellchecker.substrings.first[chunkLength][chunk] = (statistics.spellchecker.substrings.first[chunkLength][chunk] || 0)
-                        + (chunks.first[chunkLength][chunk] || 0);
-                });
-
-                Object.keys(chunks.last[chunkLength]).forEach((chunk) => {
-                    statistics.spellchecker.substrings.last[chunkLength][chunk] = (statistics.spellchecker.substrings.last[chunkLength][chunk] || 0)
-                        + (chunks.last[chunkLength][chunk] || 0);
-                });
-
-                Object.keys(chunks.middle[chunkLength]).forEach((chunk) => {
-                    statistics.spellchecker.substrings.middle[chunkLength][chunk] = (statistics.spellchecker.substrings.middle[chunkLength][chunk] || 0)
-                        + (chunks.middle[chunkLength][chunk] || 0);
-                });
-            })
-
-            statistics.spellchecker.accepted.all += 1;
-
-            if (getIsWordWithSpecialCharacters(word)) {
-                statistics.spellchecker.accepted.withSpecialCharacters += 1;
-            } else {
-                statistics.spellchecker.accepted.withoutSpecialCharacters += 1;
-            }
-
-            const shouldUpdate = index % 75000 === 0;
+            const shouldUpdate = index % 40000 === 0;
 
             if (shouldUpdate) {
                 const progressPercent = (index / statistics.spellchecker.all) * 100;
 
-                console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Creating spelling chunks... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
+                console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Creating spelling chunks and word stasts... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
             }
         } else {
             statistics.spellchecker.rejected += 1;
