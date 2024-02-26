@@ -164,6 +164,167 @@
 				"k": 23,
 				"w": 2
 			},
+			"wordle": {
+				"0": {
+					"a": 1383,
+					"c": 1231,
+					"p": 942,
+					"t": 809,
+					"m": 795,
+					"r": 723,
+					"b": 662,
+					"s": 620,
+					"l": 592,
+					"f": 524,
+					"g": 435,
+					"h": 374,
+					"v": 373,
+					"d": 363,
+					"o": 336,
+					"j": 317,
+					"e": 276,
+					"n": 276,
+					"z": 175,
+					"u": 152,
+					"i": 135,
+					"y": 124,
+					"á": 57,
+					"ñ": 53,
+					"q": 51,
+					"é": 18,
+					"ó": 15,
+					"k": 13,
+					"í": 8,
+					"x": 7,
+					"ú": 6,
+					"w": 1
+				},
+				"1": {
+					"a": 2502,
+					"o": 1721,
+					"u": 1542,
+					"e": 1475,
+					"i": 1416,
+					"r": 772,
+					"l": 432,
+					"n": 224,
+					"s": 186,
+					"h": 184,
+					"c": 155,
+					"m": 141,
+					"p": 140,
+					"t": 139,
+					"b": 125,
+					"d": 93,
+					"v": 91,
+					"j": 72,
+					"f": 71,
+					"g": 69,
+					"z": 54,
+					"ñ": 50,
+					"x": 39,
+					"í": 32,
+					"ó": 28,
+					"á": 27,
+					"y": 24,
+					"ú": 21,
+					"é": 16,
+					"q": 4,
+					"k": 1
+				},
+				"2": {
+					"r": 1154,
+					"l": 931,
+					"n": 807,
+					"a": 791,
+					"i": 782,
+					"e": 747,
+					"c": 710,
+					"t": 690,
+					"s": 641,
+					"u": 512,
+					"m": 497,
+					"o": 463,
+					"p": 418,
+					"b": 407,
+					"d": 401,
+					"g": 368,
+					"j": 332,
+					"ñ": 262,
+					"z": 206,
+					"f": 200,
+					"y": 164,
+					"v": 148,
+					"h": 68,
+					"q": 63,
+					"x": 57,
+					"í": 21,
+					"ú": 6
+				},
+				"3": {
+					"a": 2199,
+					"e": 1730,
+					"i": 1033,
+					"o": 966,
+					"r": 615,
+					"t": 608,
+					"l": 536,
+					"d": 493,
+					"c": 440,
+					"n": 354,
+					"u": 307,
+					"s": 303,
+					"m": 278,
+					"g": 264,
+					"ó": 236,
+					"b": 223,
+					"p": 217,
+					"j": 179,
+					"h": 150,
+					"z": 132,
+					"v": 129,
+					"í": 122,
+					"ñ": 83,
+					"f": 72,
+					"á": 52,
+					"y": 45,
+					"é": 39,
+					"ú": 29,
+					"x": 6,
+					"k": 5,
+					"w": 1
+				},
+				"4": {
+					"a": 2469,
+					"s": 2280,
+					"o": 2162,
+					"n": 1438,
+					"e": 1411,
+					"r": 659,
+					"d": 403,
+					"l": 354,
+					"i": 231,
+					"z": 85,
+					"í": 65,
+					"y": 55,
+					"é": 43,
+					"t": 29,
+					"u": 27,
+					"á": 24,
+					"x": 23,
+					"ú": 19,
+					"ó": 18,
+					"m": 15,
+					"c": 9,
+					"j": 6,
+					"k": 6,
+					"b": 5,
+					"p": 4,
+					"h": 3,
+					"g": 2,
+					"f": 1
+				}
+			},
 			"inWords": {
 				"a": 569216,
 				"e": 483874,
@@ -270,68 +431,272 @@
 				}
 			}
 		},
-		"wordle": [
-			{
-				"word": "orase",
-				"score": 24532
-			},
-			{
-				"word": "oreas",
-				"score": 24532
-			},
-			{
-				"word": "osare",
-				"score": 24532
-			},
-			{
-				"word": "osear",
-				"score": 24532
-			},
-			{
-				"word": "osera",
-				"score": 24532
-			},
-			{
-				"word": "rosea",
-				"score": 24532
-			},
-			{
-				"word": "seora",
-				"score": 24532
-			},
-			{
-				"word": "aireo",
-				"score": 24223
-			},
-			{
-				"word": "asone",
-				"score": 23879
-			},
-			{
-				"word": "osean",
-				"score": 23879
-			},
-			{
-				"word": "saneo",
-				"score": 23879
-			},
-			{
-				"word": "areno",
-				"score": 23819
-			},
-			{
-				"word": "orean",
-				"score": 23819
-			},
-			{
-				"word": "ornea",
-				"score": 23819
-			},
-			{
-				"word": "aloes",
-				"score": 23536
-			}
-		]
+		"wordle": {
+			"inWords": [
+				{
+					"word": "orase",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 3613
+					},
+					"result": {
+						"total": 11846,
+						"green": 3613,
+						"orange": 20919,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "oreas",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 6334
+					},
+					"result": {
+						"total": 11846,
+						"green": 6334,
+						"orange": 18198,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "osare",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 3339
+					},
+					"result": {
+						"total": 11846,
+						"green": 3339,
+						"orange": 21193,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "osear",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 4127
+					},
+					"result": {
+						"total": 11846,
+						"green": 4127,
+						"orange": 20405,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "osera",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 4353
+					},
+					"result": {
+						"total": 11846,
+						"green": 4353,
+						"orange": 20179,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "rosea",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 7284
+					},
+					"result": {
+						"total": 11846,
+						"green": 7284,
+						"orange": 17248,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "seora",
+					"score": {
+						"inWords": 24532,
+						"letterPosition": 5642
+					},
+					"result": {
+						"total": 11846,
+						"green": 5642,
+						"orange": 18890,
+						"gray": 34698
+					}
+				},
+				{
+					"word": "aireo",
+					"score": {
+						"inWords": 24223,
+						"letterPosition": 7845
+					},
+					"result": {
+						"total": 11846,
+						"green": 7845,
+						"orange": 16378,
+						"gray": 35007
+					}
+				},
+				{
+					"word": "asone",
+					"score": {
+						"inWords": 23879,
+						"letterPosition": 3797
+					},
+					"result": {
+						"total": 11846,
+						"green": 3797,
+						"orange": 20082,
+						"gray": 35351
+					}
+				},
+				{
+					"word": "osean",
+					"score": {
+						"inWords": 23879,
+						"letterPosition": 4906
+					},
+					"result": {
+						"total": 11846,
+						"green": 4906,
+						"orange": 18973,
+						"gray": 35351
+					}
+				}
+			],
+			"letterPosition": [
+				{
+					"word": "cares",
+					"score": {
+						"inWords": 21986,
+						"letterPosition": 8897
+					},
+					"result": {
+						"total": 11846,
+						"green": 8897,
+						"orange": 13089,
+						"gray": 37244
+					}
+				},
+				{
+					"word": "careo",
+					"score": {
+						"inWords": 23240,
+						"letterPosition": 8779
+					},
+					"result": {
+						"total": 11846,
+						"green": 8779,
+						"orange": 14461,
+						"gray": 35990
+					}
+				},
+				{
+					"word": "cales",
+					"score": {
+						"inWords": 20990,
+						"letterPosition": 8674
+					},
+					"result": {
+						"total": 11846,
+						"green": 8674,
+						"orange": 12316,
+						"gray": 38240
+					}
+				},
+				{
+					"word": "pares",
+					"score": {
+						"inWords": 21214,
+						"letterPosition": 8608
+					},
+					"result": {
+						"total": 11846,
+						"green": 8608,
+						"orange": 12606,
+						"gray": 38016
+					}
+				},
+				{
+					"word": "coras",
+					"score": {
+						"inWords": 22067,
+						"letterPosition": 8585
+					},
+					"result": {
+						"total": 11846,
+						"green": 8585,
+						"orange": 13482,
+						"gray": 37163
+					}
+				},
+				{
+					"word": "canes",
+					"score": {
+						"inWords": 21333,
+						"letterPosition": 8550
+					},
+					"result": {
+						"total": 11846,
+						"green": 8550,
+						"orange": 12783,
+						"gray": 37897
+					}
+				},
+				{
+					"word": "caies",
+					"score": {
+						"inWords": 21737,
+						"letterPosition": 8525
+					},
+					"result": {
+						"total": 11846,
+						"green": 8525,
+						"orange": 13212,
+						"gray": 37493
+					}
+				},
+				{
+					"word": "pareo",
+					"score": {
+						"inWords": 22468,
+						"letterPosition": 8490
+					},
+					"result": {
+						"total": 11846,
+						"green": 8490,
+						"orange": 13978,
+						"gray": 36762
+					}
+				},
+				{
+					"word": "tares",
+					"score": {
+						"inWords": 21766,
+						"letterPosition": 8475
+					},
+					"result": {
+						"total": 11846,
+						"green": 8475,
+						"orange": 13291,
+						"gray": 37464
+					}
+				},
+				{
+					"word": "mares",
+					"score": {
+						"inWords": 21258,
+						"letterPosition": 8461
+					},
+					"result": {
+						"total": 11846,
+						"green": 8461,
+						"orange": 12797,
+						"gray": 37972
+					}
+				}
+			]
+		}
 	},
 	"winning": {
 		"all": 14783,

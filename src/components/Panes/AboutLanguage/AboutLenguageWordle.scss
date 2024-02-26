@@ -1,0 +1,112 @@
+.about-language {
+  .about-language-wordle-best-word {
+    display: inline-flex;
+    gap: 8px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    transform: scale(1.5);
+
+    .about-language-small-key-cap {
+      color: var(--text);
+    }
+  }
+
+  .about-language-wordle-explanation {
+    font-size: 14px;
+    margin-bottom: 24px;
+
+    p {
+      margin-bottom: 12px;
+    }
+  }
+
+  .about-language-wordle-positions-list {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    margin: 20px auto 40px;
+
+    li {
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+      position: relative;
+
+      > strong {
+        color: var(--text-alt);
+      }
+    }
+
+    .about-language-small-key-cap {
+      color: var(--text-weaker);
+      cursor: help;
+    }
+
+    .about-language-wordle-positions-active-letter {
+      color: var(--text);
+      border-color: var(--text);
+    }
+  }
+
+  .about-language-words-list {
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+
+      .about-language-wordle-word {
+        display: inline-flex;
+        gap: 8px;
+        margin-right: 8px;
+
+        .about-language-wordle-letter-active {
+          color: var(--text);
+          border-color: var(--text);
+        }
+      }
+
+      .about-language-small-key-cap {
+        color: var(--text-weaker);
+      }
+    }
+  }
+}
+
+.about-language-word-value {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 5px;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 2px;
+    background-color: pink;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+
+  span {
+    color: var(--text);
+    font-size: 12px;
+    // font-weight: 600;
+    line-height: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  &.about-language-word-value--correct::before {
+    background-color: var(--green);
+  }
+
+  &.about-language-word-value--position::before {
+    background-color: var(--orange);
+  }
+
+  // &.about-language-word-value--incorrect::before {
+  //   background-color: var(--untyped);
+  // }
+}

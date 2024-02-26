@@ -143,6 +143,148 @@
 				"x": 357,
 				"q": 139
 			},
+			"wordle": {
+				"0": {
+					"s": 1813,
+					"c": 1196,
+					"a": 1174,
+					"b": 1141,
+					"t": 981,
+					"p": 944,
+					"m": 849,
+					"d": 801,
+					"g": 737,
+					"f": 684,
+					"r": 681,
+					"l": 679,
+					"h": 571,
+					"k": 473,
+					"w": 468,
+					"e": 421,
+					"n": 406,
+					"o": 334,
+					"u": 328,
+					"i": 301,
+					"v": 287,
+					"j": 260,
+					"y": 167,
+					"z": 112,
+					"q": 85,
+					"x": 27
+				},
+				"1": {
+					"a": 2871,
+					"o": 2281,
+					"e": 1971,
+					"i": 1669,
+					"u": 1403,
+					"r": 1151,
+					"l": 866,
+					"h": 720,
+					"n": 557,
+					"t": 316,
+					"p": 283,
+					"y": 279,
+					"c": 254,
+					"m": 233,
+					"w": 174,
+					"s": 173,
+					"d": 136,
+					"b": 109,
+					"g": 102,
+					"k": 101,
+					"v": 81,
+					"x": 74,
+					"f": 40,
+					"z": 36,
+					"q": 21,
+					"j": 19
+				},
+				"2": {
+					"r": 1545,
+					"a": 1481,
+					"i": 1267,
+					"n": 1238,
+					"o": 1154,
+					"l": 1061,
+					"e": 1027,
+					"u": 787,
+					"t": 783,
+					"s": 682,
+					"m": 649,
+					"c": 531,
+					"d": 514,
+					"g": 461,
+					"b": 446,
+					"p": 434,
+					"k": 309,
+					"v": 287,
+					"w": 276,
+					"y": 229,
+					"h": 208,
+					"f": 198,
+					"z": 143,
+					"x": 126,
+					"j": 57,
+					"q": 27
+				},
+				"3": {
+					"e": 2510,
+					"a": 1585,
+					"i": 1321,
+					"t": 1019,
+					"n": 934,
+					"l": 923,
+					"o": 903,
+					"r": 872,
+					"s": 721,
+					"u": 686,
+					"d": 545,
+					"c": 542,
+					"k": 484,
+					"g": 477,
+					"m": 466,
+					"p": 424,
+					"b": 297,
+					"h": 288,
+					"f": 215,
+					"v": 200,
+					"y": 161,
+					"w": 159,
+					"z": 129,
+					"j": 38,
+					"x": 18,
+					"q": 3
+				},
+				"4": {
+					"s": 3148,
+					"e": 1873,
+					"y": 1686,
+					"a": 1282,
+					"t": 1090,
+					"n": 909,
+					"r": 895,
+					"d": 817,
+					"l": 718,
+					"o": 547,
+					"i": 509,
+					"h": 497,
+					"k": 376,
+					"m": 297,
+					"c": 221,
+					"p": 214,
+					"g": 194,
+					"u": 157,
+					"x": 116,
+					"f": 101,
+					"b": 97,
+					"w": 94,
+					"z": 54,
+					"v": 23,
+					"q": 3,
+					"j": 2
+				}
+			},
 			"inWords": {
 				"e": 252638,
 				"i": 225666,
@@ -243,68 +385,272 @@
 				}
 			}
 		},
-		"wordle": [
-			{
-				"word": "aesir",
-				"score": 29481
-			},
-			{
-				"word": "aries",
-				"score": 29481
-			},
-			{
-				"word": "arise",
-				"score": 29481
-			},
-			{
-				"word": "raise",
-				"score": 29481
-			},
-			{
-				"word": "serai",
-				"score": 29481
-			},
-			{
-				"word": "arose",
-				"score": 29327
-			},
-			{
-				"word": "oreas",
-				"score": 29327
-			},
-			{
-				"word": "seora",
-				"score": 29327
-			},
-			{
-				"word": "arles",
-				"score": 28638
-			},
-			{
-				"word": "arsle",
-				"score": 28638
-			},
-			{
-				"word": "earls",
-				"score": 28638
-			},
-			{
-				"word": "lares",
-				"score": 28638
-			},
-			{
-				"word": "laser",
-				"score": 28638
-			},
-			{
-				"word": "lears",
-				"score": 28638
-			},
-			{
-				"word": "rales",
-				"score": 28638
-			}
-		]
+		"wordle": {
+			"inWords": [
+				{
+					"word": "aesir",
+					"score": {
+						"inWords": 29481,
+						"letterPosition": 6043
+					},
+					"result": {
+						"total": 15920,
+						"green": 6043,
+						"orange": 23438,
+						"gray": 50119
+					}
+				},
+				{
+					"word": "aries",
+					"score": {
+						"inWords": 29481,
+						"letterPosition": 9250
+					},
+					"result": {
+						"total": 15920,
+						"green": 9250,
+						"orange": 20231,
+						"gray": 50119
+					}
+				},
+				{
+					"word": "arise",
+					"score": {
+						"inWords": 29481,
+						"letterPosition": 6186
+					},
+					"result": {
+						"total": 15920,
+						"green": 6186,
+						"orange": 23295,
+						"gray": 50119
+					}
+				},
+				{
+					"word": "raise",
+					"score": {
+						"inWords": 29481,
+						"letterPosition": 7413
+					},
+					"result": {
+						"total": 15920,
+						"green": 7413,
+						"orange": 22068,
+						"gray": 50119
+					}
+				},
+				{
+					"word": "serai",
+					"score": {
+						"inWords": 29481,
+						"letterPosition": 7423
+					},
+					"result": {
+						"total": 15920,
+						"green": 7423,
+						"orange": 22058,
+						"gray": 50119
+					}
+				},
+				{
+					"word": "arose",
+					"score": {
+						"inWords": 29327,
+						"letterPosition": 6073
+					},
+					"result": {
+						"total": 15920,
+						"green": 6073,
+						"orange": 23254,
+						"gray": 50273
+					}
+				},
+				{
+					"word": "oreas",
+					"score": {
+						"inWords": 29327,
+						"letterPosition": 7245
+					},
+					"result": {
+						"total": 15920,
+						"green": 7245,
+						"orange": 22082,
+						"gray": 50273
+					}
+				},
+				{
+					"word": "seora",
+					"score": {
+						"inWords": 29327,
+						"letterPosition": 7092
+					},
+					"result": {
+						"total": 15920,
+						"green": 7092,
+						"orange": 22235,
+						"gray": 50273
+					}
+				},
+				{
+					"word": "arles",
+					"score": {
+						"inWords": 28638,
+						"letterPosition": 9044
+					},
+					"result": {
+						"total": 15920,
+						"green": 9044,
+						"orange": 19594,
+						"gray": 50962
+					}
+				},
+				{
+					"word": "arsle",
+					"score": {
+						"inWords": 28638,
+						"letterPosition": 5803
+					},
+					"result": {
+						"total": 15920,
+						"green": 5803,
+						"orange": 22835,
+						"gray": 50962
+					}
+				}
+			],
+			"letterPosition": [
+				{
+					"word": "cares",
+					"score": {
+						"inWords": 27302,
+						"letterPosition": 11270
+					},
+					"result": {
+						"total": 15920,
+						"green": 11270,
+						"orange": 16032,
+						"gray": 52298
+					}
+				},
+				{
+					"word": "bares",
+					"score": {
+						"inWords": 26651,
+						"letterPosition": 11215
+					},
+					"result": {
+						"total": 15920,
+						"green": 11215,
+						"orange": 15436,
+						"gray": 52949
+					}
+				},
+				{
+					"word": "tares",
+					"score": {
+						"inWords": 28580,
+						"letterPosition": 11055
+					},
+					"result": {
+						"total": 15920,
+						"green": 11055,
+						"orange": 17525,
+						"gray": 51020
+					}
+				},
+				{
+					"word": "pares",
+					"score": {
+						"inWords": 26862,
+						"letterPosition": 11018
+					},
+					"result": {
+						"total": 15920,
+						"green": 11018,
+						"orange": 15844,
+						"gray": 52738
+					}
+				},
+				{
+					"word": "canes",
+					"score": {
+						"inWords": 26211,
+						"letterPosition": 10963
+					},
+					"result": {
+						"total": 15920,
+						"green": 10963,
+						"orange": 15248,
+						"gray": 53389
+					}
+				},
+				{
+					"word": "mares",
+					"score": {
+						"inWords": 27075,
+						"letterPosition": 10923
+					},
+					"result": {
+						"total": 15920,
+						"green": 10923,
+						"orange": 16152,
+						"gray": 52525
+					}
+				},
+				{
+					"word": "banes",
+					"score": {
+						"inWords": 25560,
+						"letterPosition": 10908
+					},
+					"result": {
+						"total": 15920,
+						"green": 10908,
+						"orange": 14652,
+						"gray": 54040
+					}
+				},
+				{
+					"word": "dares",
+					"score": {
+						"inWords": 27355,
+						"letterPosition": 10875
+					},
+					"result": {
+						"total": 15920,
+						"green": 10875,
+						"orange": 16480,
+						"gray": 52245
+					}
+				},
+				{
+					"word": "fares",
+					"score": {
+						"inWords": 25829,
+						"letterPosition": 10758
+					},
+					"result": {
+						"total": 15920,
+						"green": 10758,
+						"orange": 15071,
+						"gray": 53771
+					}
+				},
+				{
+					"word": "lares",
+					"score": {
+						"inWords": 28638,
+						"letterPosition": 10753
+					},
+					"result": {
+						"total": 15920,
+						"green": 10753,
+						"orange": 17885,
+						"gray": 50962
+					}
+				}
+			]
+		}
 	},
 	"winning": {
 		"all": 10386,

@@ -28,6 +28,13 @@ export const INITAL_DICTIONARY_STATISTICS = {
             last: {},
             common: {},
             inWordsWordle: {},
+            wordle: {
+                0: {},
+                1: {},
+                2: {},
+                3: {},
+                4: {},
+            },
             inWords: {},
         },
         substrings: {
@@ -35,7 +42,10 @@ export const INITAL_DICTIONARY_STATISTICS = {
             middle: { 2: {}, 3: {}, 4: {} },
             last: { 2: {}, 3: {}, 4: {} },
         },
-        wordle: {},
+        wordle: {
+            inWords: {},
+            letterPosition: {},
+        },
     },
     winning: {
         all: 0,

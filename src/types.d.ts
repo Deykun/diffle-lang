@@ -66,6 +66,11 @@ export type DictionaryInfo = {
       [DictionaryInfoLetters.InWordsWordle]: {
         [letter: string]: number,
       }
+      wordle: {
+        [position: string]: {
+          [letter: string]: number,
+        }
+      }
     }
     substrings: {
       first: {
@@ -85,9 +90,15 @@ export type DictionaryInfo = {
       },
     },
     wordle: {
-      word: string,
-      score: number,
-    }[],
+      inWords: {
+        word: string,
+        score: number,
+      }[],
+      letterPosition: {
+        word: string,
+        score: number,
+      }[],
+    },
   }
   meta: {
     nativeSpeakersFromWikipedia: number,

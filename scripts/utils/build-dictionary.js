@@ -167,6 +167,77 @@ const incrementValueForStat = (statistics, key) => {
     }
 }
 
+const getFlatWordleResult = (wordToGuess, wordToCheck) => {
+    const {
+        green,
+        possibleOrange: possibleOrangeFromWordToGuess,
+    } = wordToGuess.split('').reduce((stack, letter, index) => {
+        if (wordToCheck[index] === letter) {
+            stack.green += 1;
+        } else {
+            stack.possibleOrange.push(letter);
+        }
+
+        return stack;
+    }, { green: 0, possibleOrange: [] });
+
+    const possibleOrangeFromWordToCheck = wordToCheck.split('').reduce((stack, letter, index) => {
+        if (wordToGuess[index] !== letter) {
+            stack.push(letter);
+        }
+
+        return stack;
+    }, []);
+
+
+    const {
+        orange,
+    } = possibleOrangeFromWordToGuess.reduce((stack, letter) => {
+        const indexToCount = stack.possibleOrange.findIndex((orangeLetter) => letter === orangeLetter);
+
+        if (indexToCount >= 0) {
+            stack.possibleOrange[indexToCount] = 'counted';
+            stack.orange += 1;
+        }
+
+        return stack;
+    }, { orange: 0, possibleOrange: possibleOrangeFromWordToCheck });
+
+
+    const gray = 5 - green - orange;
+
+    return {
+        green,
+        orange,
+        gray,
+    }
+};
+
+const getMassWordleMassResult = (wordToCheck, words) => {
+    return words.reduce((stack, wordToGuess, index) => {
+        const  {
+            green,
+            orange,
+            gray,
+        } = getFlatWordleResult(wordToGuess, wordToCheck);
+
+        stack.total += 1;
+        stack.green += green;
+        stack.orange += orange;
+        stack.gray += gray;
+
+        const shouldUpdate = index % 7000 === 0;
+
+        if (shouldUpdate) {
+            const progressPercent = (index / words.length) * 100;
+
+            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Validating Wordle best results - Word "${chalk.cyan(wordToCheck)}"`);
+        }
+
+        return stack;
+    }, { total: 0, green: 0, orange: 0, gray: 0 });
+};
+
 export const actionBuildDictionary = (
     {
         LANG,
@@ -202,7 +273,8 @@ export const actionBuildDictionary = (
     console.log(' ');
     console.log(chalk.blue(`Creating spelling chunks index from ${statistics.spellchecker.all} words...`));
 
-    spellcheckerWords.forEach((word, index) =>  {
+    spellcheckerWords.forEach((rawWord, index) =>  {
+        const word = rawWord.trim();
         const key = getNormalizedKey(word, LANG);
 
         if (key) {
@@ -212,6 +284,10 @@ export const actionBuildDictionary = (
                 const isWordleLengthWord = word.length === 5;
                 if (isWordleLengthWord) {
                     wordleWords.push(word);
+
+                    word.split('').forEach((letter, index) => {
+                        incrementValueForStat(statistics.spellchecker.letters.wordle[index], letter);
+                    });
                 }
 
                 const wordLength = word.length;
@@ -297,6 +373,11 @@ export const actionBuildDictionary = (
     statistics.spellchecker.letters.last = Object.fromEntries(Object.entries(statistics.spellchecker.letters.last).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.inWords = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWords).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.inWordsWordle = Object.fromEntries(Object.entries(statistics.spellchecker.letters.inWordsWordle).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.wordle[0] = Object.fromEntries(Object.entries(statistics.spellchecker.letters.wordle[0]).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.wordle[1] = Object.fromEntries(Object.entries(statistics.spellchecker.letters.wordle[1]).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.wordle[2] = Object.fromEntries(Object.entries(statistics.spellchecker.letters.wordle[2]).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.wordle[3] = Object.fromEntries(Object.entries(statistics.spellchecker.letters.wordle[3]).sort((a, b) => b[1] - a[1]));
+    statistics.spellchecker.letters.wordle[4] = Object.fromEntries(Object.entries(statistics.spellchecker.letters.wordle[4]).sort((a, b) => b[1] - a[1]));
     statistics.spellchecker.letters.common = Object.fromEntries(Object.entries(statistics.spellchecker.letters.common).sort((a, b) => b[1] - a[1]));
 
     [2, 3, 4].forEach((chunkLength) => {
@@ -317,16 +398,41 @@ export const actionBuildDictionary = (
     console.log(chalk.blue(`Looking for best Wordle starting words from ${ wordleWords.length} words...`));
 
     const bestWordleWords = wordleWords.map((word) => {
-        // We favor a diverse use of letters
         const uniqueLetters = [...new Set(word.split(''))];
+
+        // We favor a diverse use of letters
+        if (uniqueLetters.length !== 5) {
+            return {
+                word,
+                score: {
+                    inWords: 0,
+                    letterPosition: 0,
+                },
+            };
+        }
+        
+        const score = {
+            inWords: uniqueLetters.reduce((total, letter) => total + statistics.spellchecker.letters.inWordsWordle[letter], 0),
+            letterPosition: word.split('').reduce((total, letter, index) => total + statistics.spellchecker.letters.wordle[index][letter], 0),
+        };
 
         return {
             word,
-            score: uniqueLetters.reduce((total, letter) => total + statistics.spellchecker.letters.inWordsWordle[letter], 0),
+            score,
         };
-    }).sort((a, b) => b.score - a.score).slice(0, 15);
+    });
 
-    statistics.spellchecker.wordle = bestWordleWords;
+    statistics.spellchecker.wordle.inWords = bestWordleWords.sort((a, b) => b.score.inWords - a.score.inWords).slice(0, 10).map((item) => {
+        item.result = getMassWordleMassResult(item.word, wordleWords);
+
+        return item;
+    });
+
+    statistics.spellchecker.wordle.letterPosition = bestWordleWords.sort((a, b) => b.score.letterPosition - a.score.letterPosition).slice(0, 10).map((item) => {
+        item.result = getMassWordleMassResult(item.word, wordleWords);
+
+        return item;
+    });
 
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfSpellingChunks} created chunks...`));
@@ -352,7 +458,8 @@ export const actionBuildDictionary = (
     const winnigIndex = {};
     const winningWordsLengths = {};
 
-    winningWords.forEach((word, index) =>  {
+    winningWords.forEach((rawWord, index) => {
+        const word = rawWord.trim();
         const key = getNormalizedKey(word, LANG);
 
         const isWithCorrectLength = key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD && word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD;

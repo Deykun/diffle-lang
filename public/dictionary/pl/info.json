@@ -167,6 +167,179 @@
 				"x": 40,
 				"v": 8
 			},
+			"wordle": {
+				"0": {
+					"s": 2358,
+					"k": 2274,
+					"p": 2186,
+					"w": 1785,
+					"m": 1658,
+					"b": 1516,
+					"o": 1422,
+					"d": 1388,
+					"z": 1331,
+					"t": 1328,
+					"g": 1290,
+					"r": 1248,
+					"c": 1065,
+					"l": 1036,
+					"u": 950,
+					"n": 867,
+					"f": 849,
+					"a": 763,
+					"h": 599,
+					"ł": 540,
+					"j": 524,
+					"ż": 443,
+					"e": 322,
+					"i": 312,
+					"ś": 172,
+					"ć": 77,
+					"y": 30,
+					"ź": 23,
+					"ó": 3,
+					"ą": 2
+				},
+				"1": {
+					"a": 4952,
+					"o": 3285,
+					"i": 2719,
+					"u": 2644,
+					"e": 2254,
+					"r": 1707,
+					"y": 1567,
+					"l": 1040,
+					"z": 766,
+					"k": 609,
+					"m": 552,
+					"p": 547,
+					"s": 540,
+					"n": 524,
+					"w": 515,
+					"ł": 499,
+					"t": 460,
+					"ę": 442,
+					"b": 413,
+					"d": 372,
+					"g": 349,
+					"ą": 312,
+					"ó": 272,
+					"ż": 262,
+					"c": 257,
+					"h": 231,
+					"j": 100,
+					"f": 89,
+					"ś": 54,
+					"ź": 11,
+					"ć": 11,
+					"ń": 6
+				},
+				"2": {
+					"r": 2288,
+					"a": 2229,
+					"l": 1632,
+					"o": 1609,
+					"n": 1554,
+					"i": 1453,
+					"t": 1419,
+					"s": 1409,
+					"c": 1215,
+					"e": 1103,
+					"u": 1087,
+					"d": 1084,
+					"p": 1055,
+					"k": 1026,
+					"m": 915,
+					"b": 885,
+					"j": 800,
+					"y": 748,
+					"z": 722,
+					"w": 706,
+					"ł": 659,
+					"g": 601,
+					"f": 447,
+					"ż": 430,
+					"ę": 300,
+					"ą": 248,
+					"ś": 163,
+					"ó": 149,
+					"h": 125,
+					"ń": 118,
+					"ź": 82,
+					"ć": 65,
+					"x": 30,
+					"v": 5
+				},
+				"3": {
+					"k": 2590,
+					"i": 2275,
+					"n": 2073,
+					"e": 2011,
+					"a": 1832,
+					"o": 1642,
+					"c": 1392,
+					"l": 1385,
+					"t": 1268,
+					"z": 1122,
+					"r": 1111,
+					"s": 862,
+					"d": 831,
+					"ó": 815,
+					"m": 814,
+					"u": 811,
+					"ł": 716,
+					"w": 653,
+					"j": 639,
+					"g": 552,
+					"y": 550,
+					"ż": 550,
+					"p": 501,
+					"b": 443,
+					"ą": 291,
+					"h": 275,
+					"f": 156,
+					"ę": 119,
+					"ś": 59,
+					"ź": 17,
+					"v": 3,
+					"ń": 2,
+					"ć": 1
+				},
+				"4": {
+					"a": 3237,
+					"y": 2513,
+					"ą": 2433,
+					"e": 2201,
+					"i": 2155,
+					"ę": 2006,
+					"o": 1996,
+					"m": 1828,
+					"u": 1606,
+					"k": 783,
+					"w": 766,
+					"j": 750,
+					"ł": 650,
+					"ć": 647,
+					"t": 575,
+					"n": 541,
+					"r": 486,
+					"z": 424,
+					"l": 409,
+					"ń": 386,
+					"s": 332,
+					"c": 245,
+					"d": 215,
+					"p": 191,
+					"ś": 178,
+					"ż": 170,
+					"b": 157,
+					"ź": 156,
+					"h": 150,
+					"g": 121,
+					"f": 44,
+					"x": 10
+				}
+			},
 			"inWords": {
 				"a": 2269121,
 				"i": 2188571,
@@ -276,68 +449,272 @@
 				}
 			}
 		},
-		"wordle": [
-			{
-				"word": "okrai",
-				"score": 42420
-			},
-			{
-				"word": "areko",
-				"score": 41492
-			},
-			{
-				"word": "eonia",
-				"score": 41398
-			},
-			{
-				"word": "akiom",
-				"score": 41082
-			},
-			{
-				"word": "amoki",
-				"score": 41082
-			},
-			{
-				"word": "makio",
-				"score": 41082
-			},
-			{
-				"word": "okami",
-				"score": 41082
-			},
-			{
-				"word": "kalio",
-				"score": 41000
-			},
-			{
-				"word": "koali",
-				"score": 41000
-			},
-			{
-				"word": "kolia",
-				"score": 41000
-			},
-			{
-				"word": "lokai",
-				"score": 41000
-			},
-			{
-				"word": "ikona",
-				"score": 40976
-			},
-			{
-				"word": "kanio",
-				"score": 40976
-			},
-			{
-				"word": "konia",
-				"score": 40976
-			},
-			{
-				"word": "ariom",
-				"score": 40944
-			}
-		]
+		"wordle": {
+			"inWords": [
+				{
+					"word": "okrai",
+					"score": {
+						"inWords": 42420,
+						"letterPosition": 8306
+					},
+					"result": {
+						"total": 28361,
+						"green": 8306,
+						"orange": 34114,
+						"gray": 99385
+					}
+				},
+				{
+					"word": "areko",
+					"score": {
+						"inWords": 41492,
+						"letterPosition": 8159
+					},
+					"result": {
+						"total": 28361,
+						"green": 8159,
+						"orange": 33333,
+						"gray": 100313
+					}
+				},
+				{
+					"word": "eonia",
+					"score": {
+						"inWords": 41398,
+						"letterPosition": 10673
+					},
+					"result": {
+						"total": 28361,
+						"green": 10673,
+						"orange": 30725,
+						"gray": 100407
+					}
+				},
+				{
+					"word": "akiom",
+					"score": {
+						"inWords": 41082,
+						"letterPosition": 6295
+					},
+					"result": {
+						"total": 28361,
+						"green": 6295,
+						"orange": 34787,
+						"gray": 100723
+					}
+				},
+				{
+					"word": "amoki",
+					"score": {
+						"inWords": 41082,
+						"letterPosition": 7669
+					},
+					"result": {
+						"total": 28361,
+						"green": 7669,
+						"orange": 33413,
+						"gray": 100723
+					}
+				},
+				{
+					"word": "makio",
+					"score": {
+						"inWords": 41082,
+						"letterPosition": 11907
+					},
+					"result": {
+						"total": 28361,
+						"green": 11907,
+						"orange": 29175,
+						"gray": 100723
+					}
+				},
+				{
+					"word": "okami",
+					"score": {
+						"inWords": 41082,
+						"letterPosition": 7229
+					},
+					"result": {
+						"total": 28361,
+						"green": 7229,
+						"orange": 33853,
+						"gray": 100723
+					}
+				},
+				{
+					"word": "kalio",
+					"score": {
+						"inWords": 41000,
+						"letterPosition": 13129
+					},
+					"result": {
+						"total": 28361,
+						"green": 13129,
+						"orange": 27871,
+						"gray": 100805
+					}
+				},
+				{
+					"word": "koali",
+					"score": {
+						"inWords": 41000,
+						"letterPosition": 11328
+					},
+					"result": {
+						"total": 28361,
+						"green": 11328,
+						"orange": 29672,
+						"gray": 100805
+					}
+				},
+				{
+					"word": "kolia",
+					"score": {
+						"inWords": 41000,
+						"letterPosition": 12703
+					},
+					"result": {
+						"total": 28361,
+						"green": 12703,
+						"orange": 28297,
+						"gray": 100805
+					}
+				}
+			],
+			"letterPosition": [
+				{
+					"word": "parką",
+					"score": {
+						"inWords": 32686,
+						"letterPosition": 14449
+					},
+					"result": {
+						"total": 28361,
+						"green": 14449,
+						"orange": 18237,
+						"gray": 109119
+					}
+				},
+				{
+					"word": "sarny",
+					"score": {
+						"inWords": 33937,
+						"letterPosition": 14184
+					},
+					"result": {
+						"total": 28361,
+						"green": 14184,
+						"orange": 19753,
+						"gray": 107868
+					}
+				},
+				{
+					"word": "parki",
+					"score": {
+						"inWords": 37706,
+						"letterPosition": 14171
+					},
+					"result": {
+						"total": 28361,
+						"green": 14171,
+						"orange": 23535,
+						"gray": 104099
+					}
+				},
+				{
+					"word": "sarną",
+					"score": {
+						"inWords": 31986,
+						"letterPosition": 14104
+					},
+					"result": {
+						"total": 28361,
+						"green": 14104,
+						"orange": 17882,
+						"gray": 109819
+					}
+				},
+				{
+					"word": "karny",
+					"score": {
+						"inWords": 35605,
+						"letterPosition": 14100
+					},
+					"result": {
+						"total": 28361,
+						"green": 14100,
+						"orange": 21505,
+						"gray": 106200
+					}
+				},
+				{
+					"word": "warką",
+					"score": {
+						"inWords": 32621,
+						"letterPosition": 14048
+					},
+					"result": {
+						"total": 28361,
+						"green": 14048,
+						"orange": 18573,
+						"gray": 109184
+					}
+				},
+				{
+					"word": "parkę",
+					"score": {
+						"inWords": 32282,
+						"letterPosition": 14022
+					},
+					"result": {
+						"total": 28361,
+						"green": 14022,
+						"orange": 18260,
+						"gray": 109523
+					}
+				},
+				{
+					"word": "karną",
+					"score": {
+						"inWords": 33654,
+						"letterPosition": 14020
+					},
+					"result": {
+						"total": 28361,
+						"green": 14020,
+						"orange": 19634,
+						"gray": 108151
+					}
+				},
+				{
+					"word": "parko",
+					"score": {
+						"inWords": 38520,
+						"letterPosition": 14012
+					},
+					"result": {
+						"total": 28361,
+						"green": 14012,
+						"orange": 24508,
+						"gray": 103285
+					}
+				},
+				{
+					"word": "parny",
+					"score": {
+						"inWords": 33055,
+						"letterPosition": 14012
+					},
+					"result": {
+						"total": 28361,
+						"green": 14012,
+						"orange": 19043,
+						"gray": 108750
+					}
+				}
+			]
+		}
 	},
 	"winning": {
 		"all": 32363,
