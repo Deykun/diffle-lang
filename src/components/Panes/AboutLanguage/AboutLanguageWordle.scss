@@ -58,8 +58,13 @@
 
       .about-language-wordle-word {
         display: inline-flex;
-        gap: 8px;
-        margin-right: 8px;
+        gap: 6px;
+        margin-right: 6px;
+
+        @media (min-width: 350px) {
+          gap: 8px;
+          margin-right: 8px;
+        }
 
         .about-language-wordle-letter-active {
           color: var(--text);
@@ -116,10 +121,15 @@
 
   span {
     color: var(--text);
-    font-size: 12px;
-    // font-weight: 600;
-    line-height: 12px;
-    letter-spacing: 0.08em;
+    font-size: 10px;
+    line-height: 10px;
+    letter-spacing: 0.03em;
+
+    @media (min-width: 350px) {
+      font-size: 12px;
+      line-height: 12px;
+      letter-spacing: 0.08em;
+    }
   }
 
   &.about-language-word-value--correct::before {
@@ -137,11 +147,17 @@
 
 .about-language-word-value-total {
   color: var(--text);
-  font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 0.08em;
+  font-size: 10px;
+  line-height: 10px;
+  letter-spacing: 0.03em;
   font-weight: 600;
   margin-left: 5px;
+
+  @media (min-width: 350px) {
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0.08em;
+  }
 }
 
 .about-language-wordle-footer {
