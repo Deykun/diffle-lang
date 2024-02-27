@@ -77,7 +77,9 @@ const AboutLanguageLetters = ({
       <section>
           {shouldShowFilter && (
           <nav className="heatmap-keyboard-filters">
-              {Object.values(DictionaryInfoLetters).map(infoLetter => (
+              {Object.values(DictionaryInfoLetters).filter(
+                infoLetter => infoLetter !== DictionaryInfoLetters.InWordsWordle,
+              ).map(infoLetter => (
                   <Button
                     key={infoLetter}
                     onClick={() => setFilterGroupBy(infoLetter)}
@@ -92,7 +94,7 @@ const AboutLanguageLetters = ({
           )}
           <div
             className={clsx('wrapper-padding-escape', 'heatmap-share-content-margins', {
-              'heatmap-share-content-margins--no-filters': !shouldShowFilter
+              'heatmap-share-content-margins--no-filters': !shouldShowFilter,
             })}
           >
               <div id="sharable-heatmap" className="heatmap-share-content">

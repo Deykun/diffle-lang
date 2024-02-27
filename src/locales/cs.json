@@ -215,5 +215,18 @@
     "statistics.languageTitleInTheEnd": "Nejčastěji na konci",
     "statistics.showOneChartWithFilters": "Jeden graf s filtry",
     "statistics.showTitleWithLanguage": "Zobrazit název jazyka",
-    "statistics.basedOn": "{{product}} na základě {{words}} slov z {{source}}"
+    "statistics.basedOn": "{{product}} na základě {{words}} slov z {{source}}",
+    "statistics.bestWordleWordTitle": "Nejlepší výchozí slovo ve Wordle",
+    "statistics.filterWordleLettersTitle": "Používání písmen",
+    "statistics.filterWordleInWords": "Písmena",
+    "statistics.filterWordleLetterPosition": "Pozice (opakování)",
+    "statistics.filterWordleUniqueLetterPosition": "Pozice",
+    "statistics.filterWordleMaxTitle": "Maximalizace barev",
+    "statistics.filterBestMaxGreen": "Zelená",
+    "statistics.filterBestMax": "Barvy",
+    "statistics.filterBestMaxOrange": "Žlutá",
+    "statistics.filterWordleBestTitle": "Barevná rovnováha",
+    "statistics.filterBestGreen1_5": "1.5 × zelená + 1 × žlutá",
+    "statistics.filterBestGreen2_0": "2 × zelená + 1 × žlutá",
+    "statistics.bestWordleWordPopularLettersTitle": "Nejoblíbenější písmena na dané pozici"
 }

@@ -36,12 +36,25 @@ export enum DictionaryInfoLetters {
   InWords = 'inWords',
   First = 'first',
   Last = 'last',
+  InWordsWordle = 'inWordsWordle',
+}
+
+interface WordleResult {
+  word: string,
+  score: number,
+  result: {
+    total: number,
+    green: number,
+    orange: number,
+    gray: number,
+  }
 }
 
 export type DictionaryInfo = {
   spellchecker: {
     accepted: {
       all: number,
+      allWordleWords: number,
       withSpecialCharacters: number,
       withoutSpecialCharacters: number,
       length: {
@@ -51,15 +64,23 @@ export type DictionaryInfo = {
     letters: {
       [DictionaryInfoLetters.First]: {
         [letter: string]: number,
-      }
+      },
       [DictionaryInfoLetters.Last]: {
         [letter: string]: number,
-      }
+      },
       [DictionaryInfoLetters.Common]: {
         [letter: string]: number,
-      }
+      },
       [DictionaryInfoLetters.InWords]: {
         [letter: string]: number,
+      },
+      [DictionaryInfoLetters.InWordsWordle]: {
+        [letter: string]: number,
+      }
+      wordle: {
+        [position: string]: {
+          [letter: string]: number,
+        }
       }
     }
     substrings: {
@@ -78,6 +99,16 @@ export type DictionaryInfo = {
           [text: string]: number,
         },
       },
+    },
+    wordle: {
+      inWords: WordleResult[],
+      letterPosition: WordleResult[],
+      uniqueLetterPosition: WordleResult[],
+      bestMax: WordleResult[],
+      bestMaxGreen: WordleResult[],
+      bestMaxOrange: WordleResult[],
+      bestGreen1_5: WordleResult[],
+      bestGreen2_0: WordleResult[],
     },
   }
   meta: {
@@ -220,4 +251,15 @@ export interface RootState {
 
 export interface UsedLetters {
   [key: string]: number,
+}
+
+export enum BestWordleType {
+  InWords = 'inWords',
+  LetterPosition = 'letterPosition',
+  UniqueLetterPosition = 'uniqueLetterPosition',
+  BestMax = 'bestMax',
+  BestMaxGreen = 'bestMaxGreen',
+  BestMaxOrange = 'bestMaxOrange',
+  BestGreen1_5 = 'bestGreen1_5',
+  BestGreen2_0 = 'bestGreen2_0',
 }

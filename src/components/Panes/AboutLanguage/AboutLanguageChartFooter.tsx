@@ -35,7 +35,7 @@ const AboutLanguageChartFooter = ({
     sourceHTML += ` & <a target="_blank" rel="noopener noreferrer" href="${spellcheckerAlt.url}">${spellcheckerAlt.fullName}</a>`;
   }
 
-  const diffleURL = location.href.replace('http://', '').replace('https://', '').split('?')[0];
+  const diffleURL = window.location.href.replace('http://', '').replace('https://', '').split('?')[0];
 
   return (
       <div className="chart-footer">

@@ -39,18 +39,6 @@ const AboutLanguagePlayDiffle = () => {
 
   return (
       <section className="about-language-play-diffle">
-          <h4>
-              {t('settings.statisticsTitle')}
-              :
-              {' '}
-              {t('language.currentLanguage')}
-          </h4>
-          <div>
-              <Button onClick={handleCopy}>
-                  <IconShare />
-                  <span>{t('common.copyLink')}</span>
-              </Button>
-          </div>
           <h2>{t('help.whatIsDiffleTitle')}</h2>
           <p>{t('help.whatIsDiffleDescription')}</p>
           <Button onClick={() => changePane(getInitPane({ withUrlParam: false }))} isLarge>
@@ -72,6 +60,22 @@ const AboutLanguagePlayDiffle = () => {
               <IconGithub />
               <span>{t('settings.sourceGithub')}</span>
           </Button>
+          <br />
+          <br />
+          <br />
+          <br />
+          <h4>
+              {t('settings.statisticsTitle')}
+              :
+              {' '}
+              {t('language.currentLanguage')}
+          </h4>
+          <div>
+              <Button onClick={handleCopy} isInverted>
+                  <IconShare />
+                  <span>{t('common.copyLink')}</span>
+              </Button>
+          </div>
       </section>
   );
 };
