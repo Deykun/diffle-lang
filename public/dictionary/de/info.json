@@ -420,7 +420,8 @@
 					"word": "aster",
 					"score": {
 						"inWords": 8613,
-						"letterPosition": 1696
+						"letterPosition": 1696,
+						"uniqueLetterPosition": 1696
 					},
 					"result": {
 						"total": 4427,
@@ -433,7 +434,8 @@
 					"word": "raste",
 					"score": {
 						"inWords": 8613,
-						"letterPosition": 2906
+						"letterPosition": 2906,
+						"uniqueLetterPosition": 2906
 					},
 					"result": {
 						"total": 4427,
@@ -446,7 +448,8 @@
 					"word": "rates",
 					"score": {
 						"inWords": 8613,
-						"letterPosition": 2938
+						"letterPosition": 2938,
+						"uniqueLetterPosition": 2938
 					},
 					"result": {
 						"total": 4427,
@@ -459,7 +462,8 @@
 					"word": "stare",
 					"score": {
 						"inWords": 8613,
-						"letterPosition": 2250
+						"letterPosition": 2250,
+						"uniqueLetterPosition": 2250
 					},
 					"result": {
 						"total": 4427,
@@ -472,7 +476,8 @@
 					"word": "senat",
 					"score": {
 						"inWords": 8438,
-						"letterPosition": 2387
+						"letterPosition": 2387,
+						"uniqueLetterPosition": 2387
 					},
 					"result": {
 						"total": 4427,
@@ -485,7 +490,8 @@
 					"word": "arten",
 					"score": {
 						"inWords": 8375,
-						"letterPosition": 2238
+						"letterPosition": 2238,
+						"uniqueLetterPosition": 2238
 					},
 					"result": {
 						"total": 4427,
@@ -498,7 +504,8 @@
 					"word": "raten",
 					"score": {
 						"inWords": 8375,
-						"letterPosition": 2699
+						"letterPosition": 2699,
+						"uniqueLetterPosition": 2699
 					},
 					"result": {
 						"total": 4427,
@@ -511,7 +518,8 @@
 					"word": "tarne",
 					"score": {
 						"inWords": 8375,
-						"letterPosition": 3047
+						"letterPosition": 3047,
+						"uniqueLetterPosition": 3047
 					},
 					"result": {
 						"total": 4427,
@@ -524,7 +532,8 @@
 					"word": "trane",
 					"score": {
 						"inWords": 8375,
-						"letterPosition": 2396
+						"letterPosition": 2396,
+						"uniqueLetterPosition": 2396
 					},
 					"result": {
 						"total": 4427,
@@ -537,7 +546,8 @@
 					"word": "ernst",
 					"score": {
 						"inWords": 8363,
-						"letterPosition": 1838
+						"letterPosition": 1838,
+						"uniqueLetterPosition": 1838
 					},
 					"result": {
 						"total": 4427,
@@ -549,10 +559,25 @@
 			],
 			"letterPosition": [
 				{
+					"word": "gelee",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 3345,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 4427,
+						"green": 3345,
+						"orange": 1693,
+						"gray": 17097
+					}
+				},
+				{
 					"word": "karte",
 					"score": {
 						"inWords": 7780,
-						"letterPosition": 3185
+						"letterPosition": 3185,
+						"uniqueLetterPosition": 3185
 					},
 					"result": {
 						"total": 4427,
@@ -562,10 +587,25 @@
 					}
 				},
 				{
+					"word": "satte",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 3178,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 4427,
+						"green": 3178,
+						"orange": 4233,
+						"gray": 14724
+					}
+				},
+				{
 					"word": "saite",
 					"score": {
 						"inWords": 8297,
-						"letterPosition": 3153
+						"letterPosition": 3153,
+						"uniqueLetterPosition": 3153
 					},
 					"result": {
 						"total": 4427,
@@ -578,7 +618,8 @@
 					"word": "harte",
 					"score": {
 						"inWords": 7927,
-						"letterPosition": 3153
+						"letterPosition": 3153,
+						"uniqueLetterPosition": 3153
 					},
 					"result": {
 						"total": 4427,
@@ -591,7 +632,8 @@
 					"word": "bares",
 					"score": {
 						"inWords": 7683,
-						"letterPosition": 3134
+						"letterPosition": 3134,
+						"uniqueLetterPosition": 3134
 					},
 					"result": {
 						"total": 4427,
@@ -604,7 +646,8 @@
 					"word": "saute",
 					"score": {
 						"inWords": 8040,
-						"letterPosition": 3097
+						"letterPosition": 3097,
+						"uniqueLetterPosition": 3097
 					},
 					"result": {
 						"total": 4427,
@@ -617,7 +660,8 @@
 					"word": "kante",
 					"score": {
 						"inWords": 7605,
-						"letterPosition": 3094
+						"letterPosition": 3094,
+						"uniqueLetterPosition": 3094
 					},
 					"result": {
 						"total": 4427,
@@ -630,7 +674,8 @@
 					"word": "warte",
 					"score": {
 						"inWords": 7405,
-						"letterPosition": 3093
+						"letterPosition": 3093,
+						"uniqueLetterPosition": 3093
 					},
 					"result": {
 						"total": 4427,
@@ -643,7 +688,122 @@
 					"word": "balte",
 					"score": {
 						"inWords": 7499,
-						"letterPosition": 3085
+						"letterPosition": 3085,
+						"uniqueLetterPosition": 3085
+					},
+					"result": {
+						"total": 4427,
+						"green": 3085,
+						"orange": 4414,
+						"gray": 14636
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
+					"word": "karte",
+					"score": {
+						"inWords": 7780,
+						"letterPosition": 3185,
+						"uniqueLetterPosition": 3185
+					},
+					"result": {
+						"total": 4427,
+						"green": 3185,
+						"orange": 4595,
+						"gray": 14355
+					}
+				},
+				{
+					"word": "saite",
+					"score": {
+						"inWords": 8297,
+						"letterPosition": 3153,
+						"uniqueLetterPosition": 3153
+					},
+					"result": {
+						"total": 4427,
+						"green": 3153,
+						"orange": 5144,
+						"gray": 13838
+					}
+				},
+				{
+					"word": "harte",
+					"score": {
+						"inWords": 7927,
+						"letterPosition": 3153,
+						"uniqueLetterPosition": 3153
+					},
+					"result": {
+						"total": 4427,
+						"green": 3153,
+						"orange": 4774,
+						"gray": 14208
+					}
+				},
+				{
+					"word": "bares",
+					"score": {
+						"inWords": 7683,
+						"letterPosition": 3134,
+						"uniqueLetterPosition": 3134
+					},
+					"result": {
+						"total": 4427,
+						"green": 3134,
+						"orange": 4549,
+						"gray": 14452
+					}
+				},
+				{
+					"word": "saute",
+					"score": {
+						"inWords": 8040,
+						"letterPosition": 3097,
+						"uniqueLetterPosition": 3097
+					},
+					"result": {
+						"total": 4427,
+						"green": 3097,
+						"orange": 4943,
+						"gray": 14095
+					}
+				},
+				{
+					"word": "kante",
+					"score": {
+						"inWords": 7605,
+						"letterPosition": 3094,
+						"uniqueLetterPosition": 3094
+					},
+					"result": {
+						"total": 4427,
+						"green": 3094,
+						"orange": 4511,
+						"gray": 14530
+					}
+				},
+				{
+					"word": "warte",
+					"score": {
+						"inWords": 7405,
+						"letterPosition": 3093,
+						"uniqueLetterPosition": 3093
+					},
+					"result": {
+						"total": 4427,
+						"green": 3093,
+						"orange": 4312,
+						"gray": 14730
+					}
+				},
+				{
+					"word": "balte",
+					"score": {
+						"inWords": 7499,
+						"letterPosition": 3085,
+						"uniqueLetterPosition": 3085
 					},
 					"result": {
 						"total": 4427,
@@ -656,7 +816,8 @@
 					"word": "kalte",
 					"score": {
 						"inWords": 7503,
-						"letterPosition": 3069
+						"letterPosition": 3069,
+						"uniqueLetterPosition": 3069
 					},
 					"result": {
 						"total": 4427,
@@ -669,7 +830,8 @@
 					"word": "tarne",
 					"score": {
 						"inWords": 8375,
-						"letterPosition": 3047
+						"letterPosition": 3047,
+						"uniqueLetterPosition": 3047
 					},
 					"result": {
 						"total": 4427,

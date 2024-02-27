@@ -526,7 +526,8 @@
 					"word": "aleno",
 					"score": {
 						"inWords": 41954,
-						"letterPosition": 7862
+						"letterPosition": 7862,
+						"uniqueLetterPosition": 7862
 					},
 					"result": {
 						"total": 30365,
@@ -539,7 +540,8 @@
 					"word": "leona",
 					"score": {
 						"inWords": 41954,
-						"letterPosition": 10987
+						"letterPosition": 10987,
+						"uniqueLetterPosition": 10987
 					},
 					"result": {
 						"total": 30365,
@@ -552,7 +554,8 @@
 					"word": "atole",
 					"score": {
 						"inWords": 41470,
-						"letterPosition": 7695
+						"letterPosition": 7695,
+						"uniqueLetterPosition": 7695
 					},
 					"result": {
 						"total": 30365,
@@ -565,7 +568,8 @@
 					"word": "leonu",
 					"score": {
 						"inWords": 41464,
-						"letterPosition": 12311
+						"letterPosition": 12311,
+						"uniqueLetterPosition": 12311
 					},
 					"result": {
 						"total": 30365,
@@ -578,7 +582,8 @@
 					"word": "nelou",
 					"score": {
 						"inWords": 41464,
-						"letterPosition": 11371
+						"letterPosition": 11371,
+						"uniqueLetterPosition": 11371
 					},
 					"result": {
 						"total": 30365,
@@ -591,7 +596,8 @@
 					"word": "koale",
 					"score": {
 						"inWords": 41266,
-						"letterPosition": 12275
+						"letterPosition": 12275,
+						"uniqueLetterPosition": 12275
 					},
 					"result": {
 						"total": 30365,
@@ -604,7 +610,8 @@
 					"word": "letno",
 					"score": {
 						"inWords": 41115,
-						"letterPosition": 11007
+						"letterPosition": 11007,
+						"uniqueLetterPosition": 11007
 					},
 					"result": {
 						"total": 30365,
@@ -617,7 +624,8 @@
 					"word": "tleno",
 					"score": {
 						"inWords": 41115,
-						"letterPosition": 9023
+						"letterPosition": 9023,
+						"uniqueLetterPosition": 9023
 					},
 					"result": {
 						"total": 30365,
@@ -630,7 +638,8 @@
 					"word": "alenu",
 					"score": {
 						"inWords": 40985,
-						"letterPosition": 9511
+						"letterPosition": 9511,
+						"uniqueLetterPosition": 9511
 					},
 					"result": {
 						"total": 30365,
@@ -643,7 +652,8 @@
 					"word": "klone",
 					"score": {
 						"inWords": 40911,
-						"letterPosition": 11158
+						"letterPosition": 11158,
+						"uniqueLetterPosition": 11158
 					},
 					"result": {
 						"total": 30365,
@@ -658,7 +668,8 @@
 					"word": "parnu",
 					"score": {
 						"inWords": 34044,
-						"letterPosition": 14072
+						"letterPosition": 14072,
+						"uniqueLetterPosition": 14072
 					},
 					"result": {
 						"total": 30365,
@@ -671,7 +682,8 @@
 					"word": "volnu",
 					"score": {
 						"inWords": 36451,
-						"letterPosition": 13943
+						"letterPosition": 13943,
+						"uniqueLetterPosition": 13943
 					},
 					"result": {
 						"total": 30365,
@@ -684,7 +696,8 @@
 					"word": "pornu",
 					"score": {
 						"inWords": 34523,
-						"letterPosition": 13880
+						"letterPosition": 13880,
+						"uniqueLetterPosition": 13880
 					},
 					"result": {
 						"total": 30365,
@@ -697,7 +710,8 @@
 					"word": "varnu",
 					"score": {
 						"inWords": 33922,
-						"letterPosition": 13879
+						"letterPosition": 13879,
+						"uniqueLetterPosition": 13879
 					},
 					"result": {
 						"total": 30365,
@@ -710,7 +724,8 @@
 					"word": "pareu",
 					"score": {
 						"inWords": 36245,
-						"letterPosition": 13854
+						"letterPosition": 13854,
+						"uniqueLetterPosition": 13854
 					},
 					"result": {
 						"total": 30365,
@@ -720,10 +735,25 @@
 					}
 				},
 				{
+					"word": "pannu",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 13852,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 30365,
+						"green": 13852,
+						"orange": 13950,
+						"gray": 124023
+					}
+				},
+				{
 					"word": "kolnu",
 					"score": {
 						"inWords": 38575,
-						"letterPosition": 13827
+						"letterPosition": 13827,
+						"uniqueLetterPosition": 13827
 					},
 					"result": {
 						"total": 30365,
@@ -736,7 +766,136 @@
 					"word": "velnu",
 					"score": {
 						"inWords": 37818,
-						"letterPosition": 13823
+						"letterPosition": 13823,
+						"uniqueLetterPosition": 13823
+					},
+					"result": {
+						"total": 30365,
+						"green": 13823,
+						"orange": 23995,
+						"gray": 114007
+					}
+				},
+				{
+					"word": "velne",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 13808,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 30365,
+						"green": 13808,
+						"orange": 17679,
+						"gray": 120338
+					}
+				},
+				{
+					"word": "saltu",
+					"score": {
+						"inWords": 35917,
+						"letterPosition": 13796,
+						"uniqueLetterPosition": 13796
+					},
+					"result": {
+						"total": 30365,
+						"green": 13796,
+						"orange": 22121,
+						"gray": 115908
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
+					"word": "parnu",
+					"score": {
+						"inWords": 34044,
+						"letterPosition": 14072,
+						"uniqueLetterPosition": 14072
+					},
+					"result": {
+						"total": 30365,
+						"green": 14072,
+						"orange": 19972,
+						"gray": 117781
+					}
+				},
+				{
+					"word": "volnu",
+					"score": {
+						"inWords": 36451,
+						"letterPosition": 13943,
+						"uniqueLetterPosition": 13943
+					},
+					"result": {
+						"total": 30365,
+						"green": 13943,
+						"orange": 22508,
+						"gray": 115374
+					}
+				},
+				{
+					"word": "pornu",
+					"score": {
+						"inWords": 34523,
+						"letterPosition": 13880,
+						"uniqueLetterPosition": 13880
+					},
+					"result": {
+						"total": 30365,
+						"green": 13880,
+						"orange": 20643,
+						"gray": 117302
+					}
+				},
+				{
+					"word": "varnu",
+					"score": {
+						"inWords": 33922,
+						"letterPosition": 13879,
+						"uniqueLetterPosition": 13879
+					},
+					"result": {
+						"total": 30365,
+						"green": 13879,
+						"orange": 20043,
+						"gray": 117903
+					}
+				},
+				{
+					"word": "pareu",
+					"score": {
+						"inWords": 36245,
+						"letterPosition": 13854,
+						"uniqueLetterPosition": 13854
+					},
+					"result": {
+						"total": 30365,
+						"green": 13854,
+						"orange": 22391,
+						"gray": 115580
+					}
+				},
+				{
+					"word": "kolnu",
+					"score": {
+						"inWords": 38575,
+						"letterPosition": 13827,
+						"uniqueLetterPosition": 13827
+					},
+					"result": {
+						"total": 30365,
+						"green": 13827,
+						"orange": 24748,
+						"gray": 113250
+					}
+				},
+				{
+					"word": "velnu",
+					"score": {
+						"inWords": 37818,
+						"letterPosition": 13823,
+						"uniqueLetterPosition": 13823
 					},
 					"result": {
 						"total": 30365,
@@ -749,7 +908,8 @@
 					"word": "saltu",
 					"score": {
 						"inWords": 35917,
-						"letterPosition": 13796
+						"letterPosition": 13796,
+						"uniqueLetterPosition": 13796
 					},
 					"result": {
 						"total": 30365,
@@ -762,7 +922,8 @@
 					"word": "salem",
 					"score": {
 						"inWords": 37620,
-						"letterPosition": 13782
+						"letterPosition": 13782,
+						"uniqueLetterPosition": 13782
 					},
 					"result": {
 						"total": 30365,
@@ -775,7 +936,8 @@
 					"word": "pernu",
 					"score": {
 						"inWords": 35890,
-						"letterPosition": 13760
+						"letterPosition": 13760,
+						"uniqueLetterPosition": 13760
 					},
 					"result": {
 						"total": 30365,

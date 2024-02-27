@@ -437,7 +437,8 @@
 					"word": "orase",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 3613
+						"letterPosition": 3613,
+						"uniqueLetterPosition": 3613
 					},
 					"result": {
 						"total": 11846,
@@ -450,7 +451,8 @@
 					"word": "oreas",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 6334
+						"letterPosition": 6334,
+						"uniqueLetterPosition": 6334
 					},
 					"result": {
 						"total": 11846,
@@ -463,7 +465,8 @@
 					"word": "osare",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 3339
+						"letterPosition": 3339,
+						"uniqueLetterPosition": 3339
 					},
 					"result": {
 						"total": 11846,
@@ -476,7 +479,8 @@
 					"word": "osear",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 4127
+						"letterPosition": 4127,
+						"uniqueLetterPosition": 4127
 					},
 					"result": {
 						"total": 11846,
@@ -489,7 +493,8 @@
 					"word": "osera",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 4353
+						"letterPosition": 4353,
+						"uniqueLetterPosition": 4353
 					},
 					"result": {
 						"total": 11846,
@@ -502,7 +507,8 @@
 					"word": "rosea",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 7284
+						"letterPosition": 7284,
+						"uniqueLetterPosition": 7284
 					},
 					"result": {
 						"total": 11846,
@@ -515,7 +521,8 @@
 					"word": "seora",
 					"score": {
 						"inWords": 24532,
-						"letterPosition": 5642
+						"letterPosition": 5642,
+						"uniqueLetterPosition": 5642
 					},
 					"result": {
 						"total": 11846,
@@ -528,7 +535,8 @@
 					"word": "aireo",
 					"score": {
 						"inWords": 24223,
-						"letterPosition": 7845
+						"letterPosition": 7845,
+						"uniqueLetterPosition": 7845
 					},
 					"result": {
 						"total": 11846,
@@ -541,7 +549,8 @@
 					"word": "asone",
 					"score": {
 						"inWords": 23879,
-						"letterPosition": 3797
+						"letterPosition": 3797,
+						"uniqueLetterPosition": 3797
 					},
 					"result": {
 						"total": 11846,
@@ -554,7 +563,8 @@
 					"word": "osean",
 					"score": {
 						"inWords": 23879,
-						"letterPosition": 4906
+						"letterPosition": 4906,
+						"uniqueLetterPosition": 4906
 					},
 					"result": {
 						"total": 11846,
@@ -566,10 +576,153 @@
 			],
 			"letterPosition": [
 				{
+					"word": "caras",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9366,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9366,
+						"orange": 9637,
+						"gray": 40227
+					}
+				},
+				{
+					"word": "carao",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9248,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9248,
+						"orange": 11009,
+						"gray": 38973
+					}
+				},
+				{
+					"word": "calas",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9143,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9143,
+						"orange": 8864,
+						"gray": 41223
+					}
+				},
+				{
+					"word": "carea",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9086,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9086,
+						"orange": 11090,
+						"gray": 39054
+					}
+				},
+				{
+					"word": "paras",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9077,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9077,
+						"orange": 9154,
+						"gray": 40999
+					}
+				},
+				{
+					"word": "calao",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9025,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9025,
+						"orange": 10236,
+						"gray": 39969
+					}
+				},
+				{
+					"word": "canas",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 9019,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 9019,
+						"orange": 9331,
+						"gray": 40880
+					}
+				},
+				{
+					"word": "caias",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 8994,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 8994,
+						"orange": 9760,
+						"gray": 40476
+					}
+				},
+				{
+					"word": "parao",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 8959,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 8959,
+						"orange": 10526,
+						"gray": 39745
+					}
+				},
+				{
+					"word": "taras",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 8944,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 11846,
+						"green": 8944,
+						"orange": 9839,
+						"gray": 40447
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
 					"word": "cares",
 					"score": {
 						"inWords": 21986,
-						"letterPosition": 8897
+						"letterPosition": 8897,
+						"uniqueLetterPosition": 8897
 					},
 					"result": {
 						"total": 11846,
@@ -582,7 +735,8 @@
 					"word": "careo",
 					"score": {
 						"inWords": 23240,
-						"letterPosition": 8779
+						"letterPosition": 8779,
+						"uniqueLetterPosition": 8779
 					},
 					"result": {
 						"total": 11846,
@@ -595,7 +749,8 @@
 					"word": "cales",
 					"score": {
 						"inWords": 20990,
-						"letterPosition": 8674
+						"letterPosition": 8674,
+						"uniqueLetterPosition": 8674
 					},
 					"result": {
 						"total": 11846,
@@ -608,7 +763,8 @@
 					"word": "pares",
 					"score": {
 						"inWords": 21214,
-						"letterPosition": 8608
+						"letterPosition": 8608,
+						"uniqueLetterPosition": 8608
 					},
 					"result": {
 						"total": 11846,
@@ -621,7 +777,8 @@
 					"word": "coras",
 					"score": {
 						"inWords": 22067,
-						"letterPosition": 8585
+						"letterPosition": 8585,
+						"uniqueLetterPosition": 8585
 					},
 					"result": {
 						"total": 11846,
@@ -634,7 +791,8 @@
 					"word": "canes",
 					"score": {
 						"inWords": 21333,
-						"letterPosition": 8550
+						"letterPosition": 8550,
+						"uniqueLetterPosition": 8550
 					},
 					"result": {
 						"total": 11846,
@@ -647,7 +805,8 @@
 					"word": "caies",
 					"score": {
 						"inWords": 21737,
-						"letterPosition": 8525
+						"letterPosition": 8525,
+						"uniqueLetterPosition": 8525
 					},
 					"result": {
 						"total": 11846,
@@ -660,7 +819,8 @@
 					"word": "pareo",
 					"score": {
 						"inWords": 22468,
-						"letterPosition": 8490
+						"letterPosition": 8490,
+						"uniqueLetterPosition": 8490
 					},
 					"result": {
 						"total": 11846,
@@ -673,7 +833,8 @@
 					"word": "tares",
 					"score": {
 						"inWords": 21766,
-						"letterPosition": 8475
+						"letterPosition": 8475,
+						"uniqueLetterPosition": 8475
 					},
 					"result": {
 						"total": 11846,
@@ -686,7 +847,8 @@
 					"word": "mares",
 					"score": {
 						"inWords": 21258,
-						"letterPosition": 8461
+						"letterPosition": 8461,
+						"uniqueLetterPosition": 8461
 					},
 					"result": {
 						"total": 11846,

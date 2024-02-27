@@ -391,7 +391,8 @@
 					"word": "aesir",
 					"score": {
 						"inWords": 29481,
-						"letterPosition": 6043
+						"letterPosition": 6043,
+						"uniqueLetterPosition": 6043
 					},
 					"result": {
 						"total": 15920,
@@ -404,7 +405,8 @@
 					"word": "aries",
 					"score": {
 						"inWords": 29481,
-						"letterPosition": 9250
+						"letterPosition": 9250,
+						"uniqueLetterPosition": 9250
 					},
 					"result": {
 						"total": 15920,
@@ -417,7 +419,8 @@
 					"word": "arise",
 					"score": {
 						"inWords": 29481,
-						"letterPosition": 6186
+						"letterPosition": 6186,
+						"uniqueLetterPosition": 6186
 					},
 					"result": {
 						"total": 15920,
@@ -430,7 +433,8 @@
 					"word": "raise",
 					"score": {
 						"inWords": 29481,
-						"letterPosition": 7413
+						"letterPosition": 7413,
+						"uniqueLetterPosition": 7413
 					},
 					"result": {
 						"total": 15920,
@@ -443,7 +447,8 @@
 					"word": "serai",
 					"score": {
 						"inWords": 29481,
-						"letterPosition": 7423
+						"letterPosition": 7423,
+						"uniqueLetterPosition": 7423
 					},
 					"result": {
 						"total": 15920,
@@ -456,7 +461,8 @@
 					"word": "arose",
 					"score": {
 						"inWords": 29327,
-						"letterPosition": 6073
+						"letterPosition": 6073,
+						"uniqueLetterPosition": 6073
 					},
 					"result": {
 						"total": 15920,
@@ -469,7 +475,8 @@
 					"word": "oreas",
 					"score": {
 						"inWords": 29327,
-						"letterPosition": 7245
+						"letterPosition": 7245,
+						"uniqueLetterPosition": 7245
 					},
 					"result": {
 						"total": 15920,
@@ -482,7 +489,8 @@
 					"word": "seora",
 					"score": {
 						"inWords": 29327,
-						"letterPosition": 7092
+						"letterPosition": 7092,
+						"uniqueLetterPosition": 7092
 					},
 					"result": {
 						"total": 15920,
@@ -495,7 +503,8 @@
 					"word": "arles",
 					"score": {
 						"inWords": 28638,
-						"letterPosition": 9044
+						"letterPosition": 9044,
+						"uniqueLetterPosition": 9044
 					},
 					"result": {
 						"total": 15920,
@@ -508,7 +517,8 @@
 					"word": "arsle",
 					"score": {
 						"inWords": 28638,
-						"letterPosition": 5803
+						"letterPosition": 5803,
+						"uniqueLetterPosition": 5803
 					},
 					"result": {
 						"total": 15920,
@@ -520,10 +530,53 @@
 			],
 			"letterPosition": [
 				{
+					"word": "sanes",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 11580,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 15920,
+						"green": 11580,
+						"orange": 12693,
+						"gray": 55327
+					}
+				},
+				{
+					"word": "sales",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 11403,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 15920,
+						"green": 11403,
+						"orange": 13020,
+						"gray": 55177
+					}
+				},
+				{
+					"word": "sores",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 11297,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 15920,
+						"green": 11297,
+						"orange": 11432,
+						"gray": 56871
+					}
+				},
+				{
 					"word": "cares",
 					"score": {
 						"inWords": 27302,
-						"letterPosition": 11270
+						"letterPosition": 11270,
+						"uniqueLetterPosition": 11270
 					},
 					"result": {
 						"total": 15920,
@@ -536,7 +589,8 @@
 					"word": "bares",
 					"score": {
 						"inWords": 26651,
-						"letterPosition": 11215
+						"letterPosition": 11215,
+						"uniqueLetterPosition": 11215
 					},
 					"result": {
 						"total": 15920,
@@ -546,10 +600,25 @@
 					}
 				},
 				{
+					"word": "sates",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 11125,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 15920,
+						"green": 11125,
+						"orange": 13240,
+						"gray": 55235
+					}
+				},
+				{
 					"word": "tares",
 					"score": {
 						"inWords": 28580,
-						"letterPosition": 11055
+						"letterPosition": 11055,
+						"uniqueLetterPosition": 11055
 					},
 					"result": {
 						"total": 15920,
@@ -562,7 +631,94 @@
 					"word": "pares",
 					"score": {
 						"inWords": 26862,
-						"letterPosition": 11018
+						"letterPosition": 11018,
+						"uniqueLetterPosition": 11018
+					},
+					"result": {
+						"total": 15920,
+						"green": 11018,
+						"orange": 15844,
+						"gray": 52738
+					}
+				},
+				{
+					"word": "sones",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 10990,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 15920,
+						"green": 10990,
+						"orange": 10648,
+						"gray": 57962
+					}
+				},
+				{
+					"word": "seres",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 10987,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 15920,
+						"green": 10987,
+						"orange": 8154,
+						"gray": 60459
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
+					"word": "cares",
+					"score": {
+						"inWords": 27302,
+						"letterPosition": 11270,
+						"uniqueLetterPosition": 11270
+					},
+					"result": {
+						"total": 15920,
+						"green": 11270,
+						"orange": 16032,
+						"gray": 52298
+					}
+				},
+				{
+					"word": "bares",
+					"score": {
+						"inWords": 26651,
+						"letterPosition": 11215,
+						"uniqueLetterPosition": 11215
+					},
+					"result": {
+						"total": 15920,
+						"green": 11215,
+						"orange": 15436,
+						"gray": 52949
+					}
+				},
+				{
+					"word": "tares",
+					"score": {
+						"inWords": 28580,
+						"letterPosition": 11055,
+						"uniqueLetterPosition": 11055
+					},
+					"result": {
+						"total": 15920,
+						"green": 11055,
+						"orange": 17525,
+						"gray": 51020
+					}
+				},
+				{
+					"word": "pares",
+					"score": {
+						"inWords": 26862,
+						"letterPosition": 11018,
+						"uniqueLetterPosition": 11018
 					},
 					"result": {
 						"total": 15920,
@@ -575,7 +731,8 @@
 					"word": "canes",
 					"score": {
 						"inWords": 26211,
-						"letterPosition": 10963
+						"letterPosition": 10963,
+						"uniqueLetterPosition": 10963
 					},
 					"result": {
 						"total": 15920,
@@ -588,7 +745,8 @@
 					"word": "mares",
 					"score": {
 						"inWords": 27075,
-						"letterPosition": 10923
+						"letterPosition": 10923,
+						"uniqueLetterPosition": 10923
 					},
 					"result": {
 						"total": 15920,
@@ -601,7 +759,8 @@
 					"word": "banes",
 					"score": {
 						"inWords": 25560,
-						"letterPosition": 10908
+						"letterPosition": 10908,
+						"uniqueLetterPosition": 10908
 					},
 					"result": {
 						"total": 15920,
@@ -614,7 +773,8 @@
 					"word": "dares",
 					"score": {
 						"inWords": 27355,
-						"letterPosition": 10875
+						"letterPosition": 10875,
+						"uniqueLetterPosition": 10875
 					},
 					"result": {
 						"total": 15920,
@@ -627,7 +787,8 @@
 					"word": "fares",
 					"score": {
 						"inWords": 25829,
-						"letterPosition": 10758
+						"letterPosition": 10758,
+						"uniqueLetterPosition": 10758
 					},
 					"result": {
 						"total": 15920,
@@ -640,7 +801,8 @@
 					"word": "lares",
 					"score": {
 						"inWords": 28638,
-						"letterPosition": 10753
+						"letterPosition": 10753,
+						"uniqueLetterPosition": 10753
 					},
 					"result": {
 						"total": 15920,

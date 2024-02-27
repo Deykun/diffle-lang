@@ -45,6 +45,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
         wordle: {
             inWords: {},
             letterPosition: {},
+            uniqueLetterPosition: {},
         },
     },
     winning: {

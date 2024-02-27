@@ -213,7 +213,7 @@ const getFlatWordleResult = (wordToGuess, wordToCheck) => {
     }
 };
 
-const getMassWordleMassResult = (wordToCheck, words) => {
+const getMassWordleMassResult = (wordToCheck, words, canShowUpdate = true) => {
     return words.reduce((stack, wordToGuess, index) => {
         const  {
             green,
@@ -226,12 +226,12 @@ const getMassWordleMassResult = (wordToCheck, words) => {
         stack.orange += orange;
         stack.gray += gray;
 
-        const shouldUpdate = index % 7000 === 0;
+        const shouldUpdate = canShowUpdate && index % 80000 === 0;
 
         if (shouldUpdate) {
             const progressPercent = (index / words.length) * 100;
 
-            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Validating Wordle best results - Word "${chalk.cyan(wordToCheck)}"`);
+            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Validating Wordle best results - Word "${chalk.cyan(wordToCheck)}" agains "${chalk.cyan(wordToGuess)}"`);
         }
 
         return stack;
@@ -252,6 +252,72 @@ export const actionBuildDictionary = (
     winningWords,
 ) => {
     const statistics = INITAL_DICTIONARY_STATISTICS;
+
+    const hasOnlyWordleParam = process.argv.includes('only-wordle-perfect');
+
+    if (hasOnlyWordleParam) {
+        const wordleWords = spellcheckerWords.filter((word) => word.length === 5);
+
+        
+        console.log(`Checking ${chalk.green(wordleWords.length)} words against each other...`);
+
+        const start = (new Date()).getTime();
+
+        const best = wordleWords.map((word, index) => {
+            const result = getMassWordleMassResult(word, wordleWords, false);
+
+            const score = {
+                max: result.green + result.orange,
+                maxGreen: result.green,
+                maxOrange: result.orange,
+                green1_5: (result.green * 1.5) + result.orange,
+                green2_0: (result.green * 2) + result.orange,
+            };
+
+            const shouldUpdate = index % 100 === 0;
+
+            if (shouldUpdate) {
+                const progressPercent = (index / wordleWords.length) * 100;
+                const now = (new Date()).getTime();
+                const timeDiffrenceInSeconds = Math.floor((now - start) / 1000);
+                const timePerPercentage = timeDiffrenceInSeconds / progressPercent;
+                const expectedTimeInSeconds = Math.floor(timePerPercentage * 100);
+                const timeLeftSeconds = Math.floor(expectedTimeInSeconds - timeDiffrenceInSeconds);
+                const timeLeftMinutes = Math.floor(timeLeftSeconds / 60);
+                const timeLeftSecondsToShow = timeLeftSeconds - (timeLeftMinutes * 60);
+
+                const timeStatus = timeDiffrenceInSeconds === 0 ? '' : `- ${timeDiffrenceInSeconds}s passed and ${timeLeftMinutes}m ${timeLeftSecondsToShow}s to finish.`;
+    
+                console.log(`- ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Validating word "${chalk.cyan(word)}" ${timeStatus}`);
+            }
+            
+            return  {
+                result,
+                word,
+                score,
+            };
+        });
+
+        const now = (new Date()).getTime();
+        const inSeconds = Math.floor((now - start) / 1000);
+
+        fs.writeFileSync(`./public/dictionary/${LANG}/info-wordle-best.json`, JSON.stringify({
+            meta: {
+                inSeconds,
+                words: wordleWords.length,
+            },
+            best: {
+                max: best.sort((a, b) => b.score.max - a.score.max).slice(0, 10),
+                maxGreen: best.sort((a, b) => b.score.maxGreen - a.score.maxGreen).slice(0, 10),
+                maxOrange: best.sort((a, b) => b.score.maxOrange - a.score.maxOrange).slice(0, 10),
+                green1_5: best.sort((a, b) => b.score.green1_5 - a.score.green1_5).slice(0, 10),
+                green2_0: best.sort((a, b) => b.score.green2_0 - a.score.green2_0).slice(0, 10),
+            }
+        }, null, '\t'));
+
+        return;
+    }
+
     // Used to finde the best wordle word
     const wordleWords = [];
 
@@ -399,21 +465,13 @@ export const actionBuildDictionary = (
 
     const bestWordleWords = wordleWords.map((word) => {
         const uniqueLetters = [...new Set(word.split(''))];
-
-        // We favor a diverse use of letters
-        if (uniqueLetters.length !== 5) {
-            return {
-                word,
-                score: {
-                    inWords: 0,
-                    letterPosition: 0,
-                },
-            };
-        }
+        const areAllLettersUnique = uniqueLetters.length === 5;
         
         const score = {
-            inWords: uniqueLetters.reduce((total, letter) => total + statistics.spellchecker.letters.inWordsWordle[letter], 0),
+            // We favor a diverse use of letters
+            inWords: areAllLettersUnique ? uniqueLetters.reduce((total, letter) => total + statistics.spellchecker.letters.inWordsWordle[letter], 0) : 0,
             letterPosition: word.split('').reduce((total, letter, index) => total + statistics.spellchecker.letters.wordle[index][letter], 0),
+            uniqueLetterPosition: areAllLettersUnique ? word.split('').reduce((total, letter, index) => total + statistics.spellchecker.letters.wordle[index][letter], 0) : 0,
         };
 
         return {
@@ -429,6 +487,12 @@ export const actionBuildDictionary = (
     });
 
     statistics.spellchecker.wordle.letterPosition = bestWordleWords.sort((a, b) => b.score.letterPosition - a.score.letterPosition).slice(0, 10).map((item) => {
+        item.result = getMassWordleMassResult(item.word, wordleWords);
+
+        return item;
+    });
+
+    statistics.spellchecker.wordle.uniqueLetterPosition = bestWordleWords.sort((a, b) => b.score.uniqueLetterPosition - a.score.uniqueLetterPosition).slice(0, 10).map((item) => {
         item.result = getMassWordleMassResult(item.word, wordleWords);
 
         return item;

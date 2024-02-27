@@ -455,7 +455,8 @@
 					"word": "okrai",
 					"score": {
 						"inWords": 42420,
-						"letterPosition": 8306
+						"letterPosition": 8306,
+						"uniqueLetterPosition": 8306
 					},
 					"result": {
 						"total": 28361,
@@ -468,7 +469,8 @@
 					"word": "areko",
 					"score": {
 						"inWords": 41492,
-						"letterPosition": 8159
+						"letterPosition": 8159,
+						"uniqueLetterPosition": 8159
 					},
 					"result": {
 						"total": 28361,
@@ -481,7 +483,8 @@
 					"word": "eonia",
 					"score": {
 						"inWords": 41398,
-						"letterPosition": 10673
+						"letterPosition": 10673,
+						"uniqueLetterPosition": 10673
 					},
 					"result": {
 						"total": 28361,
@@ -494,7 +497,8 @@
 					"word": "akiom",
 					"score": {
 						"inWords": 41082,
-						"letterPosition": 6295
+						"letterPosition": 6295,
+						"uniqueLetterPosition": 6295
 					},
 					"result": {
 						"total": 28361,
@@ -507,7 +511,8 @@
 					"word": "amoki",
 					"score": {
 						"inWords": 41082,
-						"letterPosition": 7669
+						"letterPosition": 7669,
+						"uniqueLetterPosition": 7669
 					},
 					"result": {
 						"total": 28361,
@@ -520,7 +525,8 @@
 					"word": "makio",
 					"score": {
 						"inWords": 41082,
-						"letterPosition": 11907
+						"letterPosition": 11907,
+						"uniqueLetterPosition": 11907
 					},
 					"result": {
 						"total": 28361,
@@ -533,7 +539,8 @@
 					"word": "okami",
 					"score": {
 						"inWords": 41082,
-						"letterPosition": 7229
+						"letterPosition": 7229,
+						"uniqueLetterPosition": 7229
 					},
 					"result": {
 						"total": 28361,
@@ -546,7 +553,8 @@
 					"word": "kalio",
 					"score": {
 						"inWords": 41000,
-						"letterPosition": 13129
+						"letterPosition": 13129,
+						"uniqueLetterPosition": 13129
 					},
 					"result": {
 						"total": 28361,
@@ -559,7 +567,8 @@
 					"word": "koali",
 					"score": {
 						"inWords": 41000,
-						"letterPosition": 11328
+						"letterPosition": 11328,
+						"uniqueLetterPosition": 11328
 					},
 					"result": {
 						"total": 28361,
@@ -572,7 +581,8 @@
 					"word": "kolia",
 					"score": {
 						"inWords": 41000,
-						"letterPosition": 12703
+						"letterPosition": 12703,
+						"uniqueLetterPosition": 12703
 					},
 					"result": {
 						"total": 28361,
@@ -584,10 +594,153 @@
 			],
 			"letterPosition": [
 				{
+					"word": "sarka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 15425,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 15425,
+						"orange": 16428,
+						"gray": 109952
+					}
+				},
+				{
+					"word": "karka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 15341,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 15341,
+						"orange": 11686,
+						"gray": 114778
+					}
+				},
+				{
+					"word": "parka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 15253,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 15253,
+						"orange": 15718,
+						"gray": 110834
+					}
+				},
+				{
+					"word": "sarna",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14908,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14908,
+						"orange": 15363,
+						"gray": 111534
+					}
+				},
+				{
+					"word": "warka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14852,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14852,
+						"orange": 16054,
+						"gray": 110899
+					}
+				},
+				{
+					"word": "karna",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14824,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14824,
+						"orange": 17115,
+						"gray": 109866
+					}
+				},
+				{
+					"word": "salka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14769,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14769,
+						"orange": 15664,
+						"gray": 111372
+					}
+				},
+				{
+					"word": "parna",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14736,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14736,
+						"orange": 14653,
+						"gray": 112416
+					}
+				},
+				{
+					"word": "marka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14725,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14725,
+						"orange": 17320,
+						"gray": 109760
+					}
+				},
+				{
+					"word": "kalka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14685,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28361,
+						"green": 14685,
+						"orange": 10922,
+						"gray": 116198
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
 					"word": "parką",
 					"score": {
 						"inWords": 32686,
-						"letterPosition": 14449
+						"letterPosition": 14449,
+						"uniqueLetterPosition": 14449
 					},
 					"result": {
 						"total": 28361,
@@ -600,7 +753,8 @@
 					"word": "sarny",
 					"score": {
 						"inWords": 33937,
-						"letterPosition": 14184
+						"letterPosition": 14184,
+						"uniqueLetterPosition": 14184
 					},
 					"result": {
 						"total": 28361,
@@ -613,7 +767,8 @@
 					"word": "parki",
 					"score": {
 						"inWords": 37706,
-						"letterPosition": 14171
+						"letterPosition": 14171,
+						"uniqueLetterPosition": 14171
 					},
 					"result": {
 						"total": 28361,
@@ -626,7 +781,8 @@
 					"word": "sarną",
 					"score": {
 						"inWords": 31986,
-						"letterPosition": 14104
+						"letterPosition": 14104,
+						"uniqueLetterPosition": 14104
 					},
 					"result": {
 						"total": 28361,
@@ -639,7 +795,8 @@
 					"word": "karny",
 					"score": {
 						"inWords": 35605,
-						"letterPosition": 14100
+						"letterPosition": 14100,
+						"uniqueLetterPosition": 14100
 					},
 					"result": {
 						"total": 28361,
@@ -652,7 +809,8 @@
 					"word": "warką",
 					"score": {
 						"inWords": 32621,
-						"letterPosition": 14048
+						"letterPosition": 14048,
+						"uniqueLetterPosition": 14048
 					},
 					"result": {
 						"total": 28361,
@@ -665,7 +823,8 @@
 					"word": "parkę",
 					"score": {
 						"inWords": 32282,
-						"letterPosition": 14022
+						"letterPosition": 14022,
+						"uniqueLetterPosition": 14022
 					},
 					"result": {
 						"total": 28361,
@@ -678,7 +837,8 @@
 					"word": "karną",
 					"score": {
 						"inWords": 33654,
-						"letterPosition": 14020
+						"letterPosition": 14020,
+						"uniqueLetterPosition": 14020
 					},
 					"result": {
 						"total": 28361,
@@ -691,7 +851,8 @@
 					"word": "parko",
 					"score": {
 						"inWords": 38520,
-						"letterPosition": 14012
+						"letterPosition": 14012,
+						"uniqueLetterPosition": 14012
 					},
 					"result": {
 						"total": 28361,
@@ -704,7 +865,8 @@
 					"word": "parny",
 					"score": {
 						"inWords": 33055,
-						"letterPosition": 14012
+						"letterPosition": 14012,
+						"uniqueLetterPosition": 14012
 					},
 					"result": {
 						"total": 28361,

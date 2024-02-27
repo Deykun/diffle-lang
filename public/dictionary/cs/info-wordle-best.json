@@ -1,0 +1,818 @@
+{
+	"meta": {
+		"inSeconds": 567,
+		"words": 29428
+	},
+	"best": {
+		"max": [
+			{
+				"result": {
+					"total": 29428,
+					"green": 7589,
+					"orange": 33074,
+					"gray": 106477
+				},
+				"word": "aleno",
+				"score": {
+					"max": 40663,
+					"maxGreen": 7589,
+					"maxOrange": 33074,
+					"green1_5": 44457.5,
+					"green2_0": 48252
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 10578,
+					"orange": 30085,
+					"gray": 106477
+				},
+				"word": "leona",
+				"score": {
+					"max": 40663,
+					"maxGreen": 10578,
+					"maxOrange": 30085,
+					"green1_5": 45952,
+					"green2_0": 51241
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 7479,
+					"orange": 32733,
+					"gray": 106928
+				},
+				"word": "atole",
+				"score": {
+					"max": 40212,
+					"maxGreen": 7479,
+					"maxOrange": 32733,
+					"green1_5": 43951.5,
+					"green2_0": 47691
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11830,
+					"orange": 28330,
+					"gray": 106980
+				},
+				"word": "leonu",
+				"score": {
+					"max": 40160,
+					"maxGreen": 11830,
+					"maxOrange": 28330,
+					"green1_5": 46075,
+					"green2_0": 51990
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11003,
+					"orange": 29157,
+					"gray": 106980
+				},
+				"word": "nelou",
+				"score": {
+					"max": 40160,
+					"maxGreen": 11003,
+					"maxOrange": 29157,
+					"green1_5": 45661.5,
+					"green2_0": 51163
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11818,
+					"orange": 28081,
+					"gray": 107241
+				},
+				"word": "koale",
+				"score": {
+					"max": 39899,
+					"maxGreen": 11818,
+					"maxOrange": 28081,
+					"green1_5": 45808,
+					"green2_0": 51717
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 10645,
+					"orange": 29221,
+					"gray": 107274
+				},
+				"word": "letno",
+				"score": {
+					"max": 39866,
+					"maxGreen": 10645,
+					"maxOrange": 29221,
+					"green1_5": 45188.5,
+					"green2_0": 50511
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 8726,
+					"orange": 31140,
+					"gray": 107274
+				},
+				"word": "tleno",
+				"score": {
+					"max": 39866,
+					"maxGreen": 8726,
+					"maxOrange": 31140,
+					"green1_5": 44229,
+					"green2_0": 48592
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 9126,
+					"orange": 30610,
+					"gray": 107404
+				},
+				"word": "alenu",
+				"score": {
+					"max": 39736,
+					"maxGreen": 9126,
+					"maxOrange": 30610,
+					"green1_5": 44299,
+					"green2_0": 48862
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 10726,
+					"orange": 28827,
+					"gray": 107587
+				},
+				"word": "klone",
+				"score": {
+					"max": 39553,
+					"maxGreen": 10726,
+					"maxOrange": 28827,
+					"green1_5": 44916,
+					"green2_0": 50279
+				}
+			}
+		],
+		"maxGreen": [
+			{
+				"result": {
+					"total": 29428,
+					"green": 13559,
+					"orange": 19451,
+					"gray": 114130
+				},
+				"word": "parnu",
+				"score": {
+					"max": 33010,
+					"maxGreen": 13559,
+					"maxOrange": 19451,
+					"green1_5": 39789.5,
+					"green2_0": 46569
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13384,
+					"orange": 21791,
+					"gray": 111965
+				},
+				"word": "pareu",
+				"score": {
+					"max": 35175,
+					"maxGreen": 13384,
+					"maxOrange": 21791,
+					"green1_5": 41867,
+					"green2_0": 48559
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13378,
+					"orange": 13615,
+					"gray": 120147
+				},
+				"word": "pannu",
+				"score": {
+					"max": 26993,
+					"maxGreen": 13378,
+					"maxOrange": 13615,
+					"green1_5": 33682,
+					"green2_0": 40371
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13376,
+					"orange": 17171,
+					"gray": 116593
+				},
+				"word": "velne",
+				"score": {
+					"max": 30547,
+					"maxGreen": 13376,
+					"maxOrange": 17171,
+					"green1_5": 37235,
+					"green2_0": 43923
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13373,
+					"orange": 19515,
+					"gray": 114252
+				},
+				"word": "varnu",
+				"score": {
+					"max": 32888,
+					"maxGreen": 13373,
+					"maxOrange": 19515,
+					"green1_5": 39574.5,
+					"green2_0": 46261
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13371,
+					"orange": 21899,
+					"gray": 111870
+				},
+				"word": "volnu",
+				"score": {
+					"max": 35270,
+					"maxGreen": 13371,
+					"maxOrange": 21899,
+					"green1_5": 41955.5,
+					"green2_0": 48641
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13328,
+					"orange": 23337,
+					"gray": 110475
+				},
+				"word": "velnu",
+				"score": {
+					"max": 36665,
+					"maxGreen": 13328,
+					"maxOrange": 23337,
+					"green1_5": 43329,
+					"green2_0": 49993
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13322,
+					"orange": 21456,
+					"gray": 112362
+				},
+				"word": "saltu",
+				"score": {
+					"max": 34778,
+					"maxGreen": 13322,
+					"maxOrange": 21456,
+					"green1_5": 41439,
+					"green2_0": 48100
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13310,
+					"orange": 20124,
+					"gray": 113706
+				},
+				"word": "pornu",
+				"score": {
+					"max": 33434,
+					"maxGreen": 13310,
+					"maxOrange": 20124,
+					"green1_5": 40089,
+					"green2_0": 46744
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 13299,
+					"orange": 23131,
+					"gray": 110710
+				},
+				"word": "salem",
+				"score": {
+					"max": 36430,
+					"maxGreen": 13299,
+					"maxOrange": 23131,
+					"green1_5": 43079.5,
+					"green2_0": 49729
+				}
+			}
+		],
+		"maxOrange": [
+			{
+				"result": {
+					"total": 29428,
+					"green": 5818,
+					"orange": 33362,
+					"gray": 107960
+				},
+				"word": "aneto",
+				"score": {
+					"max": 39180,
+					"maxGreen": 5818,
+					"maxOrange": 33362,
+					"green1_5": 42089,
+					"green2_0": 44998
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 7589,
+					"orange": 33074,
+					"gray": 106477
+				},
+				"word": "aleno",
+				"score": {
+					"max": 40663,
+					"maxGreen": 7589,
+					"maxOrange": 33074,
+					"green1_5": 44457.5,
+					"green2_0": 48252
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 7479,
+					"orange": 32733,
+					"gray": 106928
+				},
+				"word": "atole",
+				"score": {
+					"max": 40212,
+					"maxGreen": 7479,
+					"maxOrange": 32733,
+					"green1_5": 43951.5,
+					"green2_0": 47691
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 5800,
+					"orange": 32604,
+					"gray": 108736
+				},
+				"word": "elain",
+				"score": {
+					"max": 38404,
+					"maxGreen": 5800,
+					"maxOrange": 32604,
+					"green1_5": 41304,
+					"green2_0": 44204
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4575,
+					"orange": 32473,
+					"gray": 110092
+				},
+				"word": "unesl",
+				"score": {
+					"max": 37048,
+					"maxGreen": 4575,
+					"maxOrange": 32473,
+					"green1_5": 39335.5,
+					"green2_0": 41623
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 5087,
+					"orange": 32457,
+					"gray": 109596
+				},
+				"word": "lnout",
+				"score": {
+					"max": 37544,
+					"maxGreen": 5087,
+					"maxOrange": 32457,
+					"green1_5": 40087.5,
+					"green2_0": 42631
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4901,
+					"orange": 32382,
+					"gray": 109857
+				},
+				"word": "email",
+				"score": {
+					"max": 37283,
+					"maxGreen": 4901,
+					"maxOrange": 32382,
+					"green1_5": 39733.5,
+					"green2_0": 42184
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4239,
+					"orange": 32338,
+					"gray": 110563
+				},
+				"word": "etapo",
+				"score": {
+					"max": 36577,
+					"maxGreen": 4239,
+					"maxOrange": 32338,
+					"green1_5": 38696.5,
+					"green2_0": 40816
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 7032,
+					"orange": 32070,
+					"gray": 108038
+				},
+				"word": "otekl",
+				"score": {
+					"max": 39102,
+					"maxGreen": 7032,
+					"maxOrange": 32070,
+					"green1_5": 42618,
+					"green2_0": 46134
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 6700,
+					"orange": 32045,
+					"gray": 108395
+				},
+				"word": "ometl",
+				"score": {
+					"max": 38745,
+					"maxGreen": 6700,
+					"maxOrange": 32045,
+					"green1_5": 42095,
+					"green2_0": 45445
+				}
+			}
+		],
+		"green1_5": [
+			{
+				"result": {
+					"total": 29428,
+					"green": 11830,
+					"orange": 28330,
+					"gray": 106980
+				},
+				"word": "leonu",
+				"score": {
+					"max": 40160,
+					"maxGreen": 11830,
+					"maxOrange": 28330,
+					"green1_5": 46075,
+					"green2_0": 51990
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 10578,
+					"orange": 30085,
+					"gray": 106477
+				},
+				"word": "leona",
+				"score": {
+					"max": 40663,
+					"maxGreen": 10578,
+					"maxOrange": 30085,
+					"green1_5": 45952,
+					"green2_0": 51241
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11818,
+					"orange": 28081,
+					"gray": 107241
+				},
+				"word": "koale",
+				"score": {
+					"max": 39899,
+					"maxGreen": 11818,
+					"maxOrange": 28081,
+					"green1_5": 45808,
+					"green2_0": 51717
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11003,
+					"orange": 29157,
+					"gray": 106980
+				},
+				"word": "nelou",
+				"score": {
+					"max": 40160,
+					"maxGreen": 11003,
+					"maxOrange": 29157,
+					"green1_5": 45661.5,
+					"green2_0": 51163
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12009,
+					"orange": 27544,
+					"gray": 107587
+				},
+				"word": "lokne",
+				"score": {
+					"max": 39553,
+					"maxGreen": 12009,
+					"maxOrange": 27544,
+					"green1_5": 45557.5,
+					"green2_0": 51562
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12554,
+					"orange": 26548,
+					"gray": 108038
+				},
+				"word": "kolte",
+				"score": {
+					"max": 39102,
+					"maxGreen": 12554,
+					"maxOrange": 26548,
+					"green1_5": 45379,
+					"green2_0": 51656
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 10645,
+					"orange": 29221,
+					"gray": 107274
+				},
+				"word": "letno",
+				"score": {
+					"max": 39866,
+					"maxGreen": 10645,
+					"maxOrange": 29221,
+					"green1_5": 45188.5,
+					"green2_0": 50511
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11206,
+					"orange": 28347,
+					"gray": 107587
+				},
+				"word": "kolen",
+				"score": {
+					"max": 39553,
+					"maxGreen": 11206,
+					"maxOrange": 28347,
+					"green1_5": 45156,
+					"green2_0": 50759
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11487,
+					"orange": 27909,
+					"gray": 107744
+				},
+				"word": "koule",
+				"score": {
+					"max": 39396,
+					"maxGreen": 11487,
+					"maxOrange": 27909,
+					"green1_5": 45139.5,
+					"green2_0": 50883
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11998,
+					"orange": 27104,
+					"gray": 108038
+				},
+				"word": "kotle",
+				"score": {
+					"max": 39102,
+					"maxGreen": 11998,
+					"maxOrange": 27104,
+					"green1_5": 45101,
+					"green2_0": 51100
+				}
+			}
+		],
+		"green2_0": [
+			{
+				"result": {
+					"total": 29428,
+					"green": 11830,
+					"orange": 28330,
+					"gray": 106980
+				},
+				"word": "leonu",
+				"score": {
+					"max": 40160,
+					"maxGreen": 11830,
+					"maxOrange": 28330,
+					"green1_5": 46075,
+					"green2_0": 51990
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11818,
+					"orange": 28081,
+					"gray": 107241
+				},
+				"word": "koale",
+				"score": {
+					"max": 39899,
+					"maxGreen": 11818,
+					"maxOrange": 28081,
+					"green1_5": 45808,
+					"green2_0": 51717
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12554,
+					"orange": 26548,
+					"gray": 108038
+				},
+				"word": "kolte",
+				"score": {
+					"max": 39102,
+					"maxGreen": 12554,
+					"maxOrange": 26548,
+					"green1_5": 45379,
+					"green2_0": 51656
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12009,
+					"orange": 27544,
+					"gray": 107587
+				},
+				"word": "lokne",
+				"score": {
+					"max": 39553,
+					"maxGreen": 12009,
+					"maxOrange": 27544,
+					"green1_5": 45557.5,
+					"green2_0": 51562
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12803,
+					"orange": 25875,
+					"gray": 108462
+				},
+				"word": "kalte",
+				"score": {
+					"max": 38678,
+					"maxGreen": 12803,
+					"maxOrange": 25875,
+					"green1_5": 45079.5,
+					"green2_0": 51481
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 10578,
+					"orange": 30085,
+					"gray": 106477
+				},
+				"word": "leona",
+				"score": {
+					"max": 40663,
+					"maxGreen": 10578,
+					"maxOrange": 30085,
+					"green1_5": 45952,
+					"green2_0": 51241
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11003,
+					"orange": 29157,
+					"gray": 106980
+				},
+				"word": "nelou",
+				"score": {
+					"max": 40160,
+					"maxGreen": 11003,
+					"maxOrange": 29157,
+					"green1_5": 45661.5,
+					"green2_0": 51163
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12182,
+					"orange": 26757,
+					"gray": 108201
+				},
+				"word": "letnu",
+				"score": {
+					"max": 38939,
+					"maxGreen": 12182,
+					"maxOrange": 26757,
+					"green1_5": 45030,
+					"green2_0": 51121
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 11998,
+					"orange": 27104,
+					"gray": 108038
+				},
+				"word": "kotle",
+				"score": {
+					"max": 39102,
+					"maxGreen": 11998,
+					"maxOrange": 27104,
+					"green1_5": 45101,
+					"green2_0": 51100
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 12483,
+					"orange": 25949,
+					"gray": 108708
+				},
+				"word": "kolem",
+				"score": {
+					"max": 38432,
+					"maxGreen": 12483,
+					"maxOrange": 25949,
+					"green1_5": 44673.5,
+					"green2_0": 50915
+				}
+			}
+		]
+	}
+}

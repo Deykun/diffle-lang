@@ -18,8 +18,8 @@ const spellcheckerDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTION
 const spellcheckerDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellcheckerAlt.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/dictionary.txt`, 'utf-8');
 
-const spellcheckerWords1st = [...new Set(spellcheckerDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase()).filter((word => getIsWordValid(word)));
-const spellcheckerWords2nd = [...new Set(spellcheckerDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase()).filter((word => getIsWordValid(word)));
+const spellcheckerWords1st = [...new Set(spellcheckerDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word)));
+const spellcheckerWords2nd = [...new Set(spellcheckerDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word)));
 
 // It's not ideal because accents are excluded in different ways, so there are words with removed accents in this dataset
 const spellcheckerWords = [...new Set([...spellcheckerWords1st, ...spellcheckerWords2nd])];

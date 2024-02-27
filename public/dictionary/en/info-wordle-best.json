@@ -1,0 +1,818 @@
+{
+	"meta": {
+		"inSeconds": 86,
+		"words": 15920
+	},
+	"best": {
+		"max": [
+			{
+				"result": {
+					"total": 15920,
+					"green": 6043,
+					"orange": 23438,
+					"gray": 50119
+				},
+				"word": "aesir",
+				"score": {
+					"max": 29481,
+					"maxGreen": 6043,
+					"maxOrange": 23438,
+					"green1_5": 32502.5,
+					"green2_0": 35524
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9250,
+					"orange": 20231,
+					"gray": 50119
+				},
+				"word": "aries",
+				"score": {
+					"max": 29481,
+					"maxGreen": 9250,
+					"maxOrange": 20231,
+					"green1_5": 34106,
+					"green2_0": 38731
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 6186,
+					"orange": 23295,
+					"gray": 50119
+				},
+				"word": "arise",
+				"score": {
+					"max": 29481,
+					"maxGreen": 6186,
+					"maxOrange": 23295,
+					"green1_5": 32574,
+					"green2_0": 35667
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 7413,
+					"orange": 22068,
+					"gray": 50119
+				},
+				"word": "raise",
+				"score": {
+					"max": 29481,
+					"maxGreen": 7413,
+					"maxOrange": 22068,
+					"green1_5": 33187.5,
+					"green2_0": 36894
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 7423,
+					"orange": 22058,
+					"gray": 50119
+				},
+				"word": "serai",
+				"score": {
+					"max": 29481,
+					"maxGreen": 7423,
+					"maxOrange": 22058,
+					"green1_5": 33192.5,
+					"green2_0": 36904
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 6073,
+					"orange": 23254,
+					"gray": 50273
+				},
+				"word": "arose",
+				"score": {
+					"max": 29327,
+					"maxGreen": 6073,
+					"maxOrange": 23254,
+					"green1_5": 32363.5,
+					"green2_0": 35400
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 7245,
+					"orange": 22082,
+					"gray": 50273
+				},
+				"word": "oreas",
+				"score": {
+					"max": 29327,
+					"maxGreen": 7245,
+					"maxOrange": 22082,
+					"green1_5": 32949.5,
+					"green2_0": 36572
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 7092,
+					"orange": 22235,
+					"gray": 50273
+				},
+				"word": "seora",
+				"score": {
+					"max": 29327,
+					"maxGreen": 7092,
+					"maxOrange": 22235,
+					"green1_5": 32873,
+					"green2_0": 36419
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9044,
+					"orange": 19594,
+					"gray": 50962
+				},
+				"word": "arles",
+				"score": {
+					"max": 28638,
+					"maxGreen": 9044,
+					"maxOrange": 19594,
+					"green1_5": 33160,
+					"green2_0": 37682
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 5803,
+					"orange": 22835,
+					"gray": 50962
+				},
+				"word": "arsle",
+				"score": {
+					"max": 28638,
+					"maxGreen": 5803,
+					"maxOrange": 22835,
+					"green1_5": 31539.5,
+					"green2_0": 34441
+				}
+			}
+		],
+		"maxGreen": [
+			{
+				"result": {
+					"total": 15920,
+					"green": 11580,
+					"orange": 12693,
+					"gray": 55327
+				},
+				"word": "sanes",
+				"score": {
+					"max": 24273,
+					"maxGreen": 11580,
+					"maxOrange": 12693,
+					"green1_5": 30063,
+					"green2_0": 35853
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11403,
+					"orange": 13020,
+					"gray": 55177
+				},
+				"word": "sales",
+				"score": {
+					"max": 24423,
+					"maxGreen": 11403,
+					"maxOrange": 13020,
+					"green1_5": 30124.5,
+					"green2_0": 35826
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11297,
+					"orange": 11432,
+					"gray": 56871
+				},
+				"word": "sores",
+				"score": {
+					"max": 22729,
+					"maxGreen": 11297,
+					"maxOrange": 11432,
+					"green1_5": 28377.5,
+					"green2_0": 34026
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11270,
+					"orange": 16032,
+					"gray": 52298
+				},
+				"word": "cares",
+				"score": {
+					"max": 27302,
+					"maxGreen": 11270,
+					"maxOrange": 16032,
+					"green1_5": 32937,
+					"green2_0": 38572
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11215,
+					"orange": 15436,
+					"gray": 52949
+				},
+				"word": "bares",
+				"score": {
+					"max": 26651,
+					"maxGreen": 11215,
+					"maxOrange": 15436,
+					"green1_5": 32258.5,
+					"green2_0": 37866
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11125,
+					"orange": 13240,
+					"gray": 55235
+				},
+				"word": "sates",
+				"score": {
+					"max": 24365,
+					"maxGreen": 11125,
+					"maxOrange": 13240,
+					"green1_5": 29927.5,
+					"green2_0": 35490
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11055,
+					"orange": 17525,
+					"gray": 51020
+				},
+				"word": "tares",
+				"score": {
+					"max": 28580,
+					"maxGreen": 11055,
+					"maxOrange": 17525,
+					"green1_5": 34107.5,
+					"green2_0": 39635
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11018,
+					"orange": 15844,
+					"gray": 52738
+				},
+				"word": "pares",
+				"score": {
+					"max": 26862,
+					"maxGreen": 11018,
+					"maxOrange": 15844,
+					"green1_5": 32371,
+					"green2_0": 37880
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10990,
+					"orange": 10648,
+					"gray": 57962
+				},
+				"word": "sones",
+				"score": {
+					"max": 21638,
+					"maxGreen": 10990,
+					"maxOrange": 10648,
+					"green1_5": 27133,
+					"green2_0": 32628
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10987,
+					"orange": 8154,
+					"gray": 60459
+				},
+				"word": "seres",
+				"score": {
+					"max": 19141,
+					"maxGreen": 10987,
+					"maxOrange": 8154,
+					"green1_5": 24634.5,
+					"green2_0": 30128
+				}
+			}
+		],
+		"maxOrange": [
+			{
+				"result": {
+					"total": 15920,
+					"green": 3739,
+					"orange": 24647,
+					"gray": 51214
+				},
+				"word": "osela",
+				"score": {
+					"max": 28386,
+					"maxGreen": 3739,
+					"maxOrange": 24647,
+					"green1_5": 30255.5,
+					"green2_0": 32125
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 4875,
+					"orange": 23705,
+					"gray": 51020
+				},
+				"word": "astre",
+				"score": {
+					"max": 28580,
+					"maxGreen": 4875,
+					"maxOrange": 23705,
+					"green1_5": 31017.5,
+					"green2_0": 33455
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 3605,
+					"orange": 23697,
+					"gray": 52298
+				},
+				"word": "escar",
+				"score": {
+					"max": 27302,
+					"maxGreen": 3605,
+					"maxOrange": 23697,
+					"green1_5": 29104.5,
+					"green2_0": 30907
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 6043,
+					"orange": 23438,
+					"gray": 50119
+				},
+				"word": "aesir",
+				"score": {
+					"max": 29481,
+					"maxGreen": 6043,
+					"maxOrange": 23438,
+					"green1_5": 32502.5,
+					"green2_0": 35524
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 5163,
+					"orange": 23417,
+					"gray": 51020
+				},
+				"word": "arest",
+				"score": {
+					"max": 28580,
+					"maxGreen": 5163,
+					"maxOrange": 23417,
+					"green1_5": 31161.5,
+					"green2_0": 33743
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 6186,
+					"orange": 23295,
+					"gray": 50119
+				},
+				"word": "arise",
+				"score": {
+					"max": 29481,
+					"maxGreen": 6186,
+					"maxOrange": 23295,
+					"green1_5": 32574,
+					"green2_0": 35667
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 6073,
+					"orange": 23254,
+					"gray": 50273
+				},
+				"word": "arose",
+				"score": {
+					"max": 29327,
+					"maxGreen": 6073,
+					"maxOrange": 23254,
+					"green1_5": 32363.5,
+					"green2_0": 35400
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 5332,
+					"orange": 23058,
+					"gray": 51210
+				},
+				"word": "insea",
+				"score": {
+					"max": 28390,
+					"maxGreen": 5332,
+					"maxOrange": 23058,
+					"green1_5": 31056,
+					"green2_0": 33722
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 5535,
+					"orange": 23045,
+					"gray": 51020
+				},
+				"word": "aster",
+				"score": {
+					"max": 28580,
+					"maxGreen": 5535,
+					"maxOrange": 23045,
+					"green1_5": 31347.5,
+					"green2_0": 34115
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 3383,
+					"orange": 22994,
+					"gray": 53223
+				},
+				"word": "eskar",
+				"score": {
+					"max": 26377,
+					"maxGreen": 3383,
+					"maxOrange": 22994,
+					"green1_5": 28068.5,
+					"green2_0": 29760
+				}
+			}
+		],
+		"green1_5": [
+			{
+				"result": {
+					"total": 15920,
+					"green": 11055,
+					"orange": 17525,
+					"gray": 51020
+				},
+				"word": "tares",
+				"score": {
+					"max": 28580,
+					"maxGreen": 11055,
+					"maxOrange": 17525,
+					"green1_5": 34107.5,
+					"green2_0": 39635
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9250,
+					"orange": 20231,
+					"gray": 50119
+				},
+				"word": "aries",
+				"score": {
+					"max": 29481,
+					"maxGreen": 9250,
+					"maxOrange": 20231,
+					"green1_5": 34106,
+					"green2_0": 38731
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10753,
+					"orange": 17885,
+					"gray": 50962
+				},
+				"word": "lares",
+				"score": {
+					"max": 28638,
+					"maxGreen": 10753,
+					"maxOrange": 17885,
+					"green1_5": 34014.5,
+					"green2_0": 39391
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10271,
+					"orange": 18367,
+					"gray": 50962
+				},
+				"word": "rales",
+				"score": {
+					"max": 28638,
+					"maxGreen": 10271,
+					"maxOrange": 18367,
+					"green1_5": 33773.5,
+					"green2_0": 38909
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10480,
+					"orange": 18008,
+					"gray": 51112
+				},
+				"word": "nares",
+				"score": {
+					"max": 28488,
+					"maxGreen": 10480,
+					"maxOrange": 18008,
+					"green1_5": 33728,
+					"green2_0": 38968
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9993,
+					"orange": 18587,
+					"gray": 51020
+				},
+				"word": "rates",
+				"score": {
+					"max": 28580,
+					"maxGreen": 9993,
+					"maxOrange": 18587,
+					"green1_5": 33576.5,
+					"green2_0": 38573
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9896,
+					"orange": 18432,
+					"gray": 51272
+				},
+				"word": "aotes",
+				"score": {
+					"max": 28328,
+					"maxGreen": 9896,
+					"maxOrange": 18432,
+					"green1_5": 33276,
+					"green2_0": 38224
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9230,
+					"orange": 19350,
+					"gray": 51020
+				},
+				"word": "teras",
+				"score": {
+					"max": 28580,
+					"maxGreen": 9230,
+					"maxOrange": 19350,
+					"green1_5": 33195,
+					"green2_0": 37810
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 7423,
+					"orange": 22058,
+					"gray": 50119
+				},
+				"word": "serai",
+				"score": {
+					"max": 29481,
+					"maxGreen": 7423,
+					"maxOrange": 22058,
+					"green1_5": 33192.5,
+					"green2_0": 36904
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 7413,
+					"orange": 22068,
+					"gray": 50119
+				},
+				"word": "raise",
+				"score": {
+					"max": 29481,
+					"maxGreen": 7413,
+					"maxOrange": 22068,
+					"green1_5": 33187.5,
+					"green2_0": 36894
+				}
+			}
+		],
+		"green2_0": [
+			{
+				"result": {
+					"total": 15920,
+					"green": 11055,
+					"orange": 17525,
+					"gray": 51020
+				},
+				"word": "tares",
+				"score": {
+					"max": 28580,
+					"maxGreen": 11055,
+					"maxOrange": 17525,
+					"green1_5": 34107.5,
+					"green2_0": 39635
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10753,
+					"orange": 17885,
+					"gray": 50962
+				},
+				"word": "lares",
+				"score": {
+					"max": 28638,
+					"maxGreen": 10753,
+					"maxOrange": 17885,
+					"green1_5": 34014.5,
+					"green2_0": 39391
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10480,
+					"orange": 18008,
+					"gray": 51112
+				},
+				"word": "nares",
+				"score": {
+					"max": 28488,
+					"maxGreen": 10480,
+					"maxOrange": 18008,
+					"green1_5": 33728,
+					"green2_0": 38968
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10271,
+					"orange": 18367,
+					"gray": 50962
+				},
+				"word": "rales",
+				"score": {
+					"max": 28638,
+					"maxGreen": 10271,
+					"maxOrange": 18367,
+					"green1_5": 33773.5,
+					"green2_0": 38909
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9250,
+					"orange": 20231,
+					"gray": 50119
+				},
+				"word": "aries",
+				"score": {
+					"max": 29481,
+					"maxGreen": 9250,
+					"maxOrange": 20231,
+					"green1_5": 34106,
+					"green2_0": 38731
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9993,
+					"orange": 18587,
+					"gray": 51020
+				},
+				"word": "rates",
+				"score": {
+					"max": 28580,
+					"maxGreen": 9993,
+					"maxOrange": 18587,
+					"green1_5": 33576.5,
+					"green2_0": 38573
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 11270,
+					"orange": 16032,
+					"gray": 52298
+				},
+				"word": "cares",
+				"score": {
+					"max": 27302,
+					"maxGreen": 11270,
+					"maxOrange": 16032,
+					"green1_5": 32937,
+					"green2_0": 38572
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10875,
+					"orange": 16480,
+					"gray": 52245
+				},
+				"word": "dares",
+				"score": {
+					"max": 27355,
+					"maxGreen": 10875,
+					"maxOrange": 16480,
+					"green1_5": 32792.5,
+					"green2_0": 38230
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 9896,
+					"orange": 18432,
+					"gray": 51272
+				},
+				"word": "aotes",
+				"score": {
+					"max": 28328,
+					"maxGreen": 9896,
+					"maxOrange": 18432,
+					"green1_5": 33276,
+					"green2_0": 38224
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 10571,
+					"orange": 17068,
+					"gray": 51961
+				},
+				"word": "tales",
+				"score": {
+					"max": 27639,
+					"maxGreen": 10571,
+					"maxOrange": 17068,
+					"green1_5": 32924.5,
+					"green2_0": 38210
+				}
+			}
+		]
+	}
+}
