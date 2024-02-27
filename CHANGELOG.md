@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.9
+- **New**: Section about language added with the best starting word for Wordle.
+
 #### Version 3.8.2 (24.02.2024)
 - **Fix**: Shared content is displayed again
 

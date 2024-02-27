@@ -215,5 +215,18 @@
     "statistics.languageTitleInTheEnd": "Most often at the end",
     "statistics.showOneChartWithFilters": "One chart with filters",
     "statistics.showTitleWithLanguage": "Show language title",
-    "statistics.basedOn": "{{product}} based on {{words}} words from {{source}}"
+    "statistics.basedOn": "{{product}} based on {{words}} words from {{source}}",
+    "statistics.bestWordleWordTitle": "Best starting word in Wordle",
+    "statistics.filterWordleLettersTitle": "Using letters",
+    "statistics.filterWordleInWords": "Letters",
+    "statistics.filterWordleLetterPosition": "Position (repetitions)",
+    "statistics.filterWordleUniqueLetterPosition": "Position",
+    "statistics.filterWordleMaxTitle": "Maximizing colors",
+    "statistics.filterBestMaxGreen": "Green",
+    "statistics.filterBestMax": "Colors",
+    "statistics.filterBestMaxOrange": "Orange",
+    "statistics.filterWordleBestTitle": "Color balance",
+    "statistics.filterBestGreen1_5": "1.5 × green + 1 × yellow",
+    "statistics.filterBestGreen2_0": "2 × green + 1 × yellow",
+    "statistics.bestWordleWordPopularLettersTitle": "Most popular letters at a given position"
 }

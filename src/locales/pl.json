@@ -215,5 +215,18 @@
     "statistics.languageTitleInTheEnd": "Najczęściej na końcu",
     "statistics.showOneChartWithFilters": "Jeden wykres z filtrami",
     "statistics.showTitleWithLanguage": "Pokaż tytuł języka",
-    "statistics.basedOn": "{{product}} na podstawie {{words}} słów z {{source}}"
+    "statistics.basedOn": "{{product}} na podstawie {{words}} słów z {{source}}",
+    "statistics.bestWordleWordTitle": "Najlepsze słowo startowe w Wordle",
+    "statistics.filterWordleLettersTitle": "Używanie liter",
+    "statistics.filterWordleInWords": "Litery",
+    "statistics.filterWordleLetterPosition": "Pozycja (powtórzenia)",
+    "statistics.filterWordleUniqueLetterPosition": "Pozycja",
+    "statistics.filterWordleMaxTitle": "Maksymalizowanie kolorów",
+    "statistics.filterBestMaxGreen": "Zielony",
+    "statistics.filterBestMax": "Kolory",
+    "statistics.filterBestMaxOrange": "Żółty",
+    "statistics.filterWordleBestTitle": "Balans kolorów",
+    "statistics.filterBestGreen1_5": "1.5 × zielony + 1 × żółty",
+    "statistics.filterBestGreen2_0": "2 × zielony + 1 × żółty",
+    "statistics.bestWordleWordPopularLettersTitle": "Najpopularniejsze litery na danej pozycji"
 }

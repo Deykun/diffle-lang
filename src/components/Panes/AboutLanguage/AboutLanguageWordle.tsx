@@ -1,50 +1,38 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
-import { DictionaryInfo, DictionaryInfoLetters, ToastType } from '@common-types';
+import { DictionaryInfo, BestWordleType } from '@common-types';
 
-import { capitalize } from '@utils/format';
+import { useSelector } from '@store';
 
-import useEnhancedDetails from '@hooks/useEnhancedDetails';
+import { formatLargeNumber } from '@utils/format';
 
-import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
+import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
-import Button from '@components/Button/Button';
-import KeyboardHeatmap from '@components/Charts/KeyboardHeatmap';
+import AboutLanguageWordleFilters from './AboutLanguageWordleFilters';
 
-import './AboutLenguageWordle.scss';
+import './AboutLanguageWordle.scss';
 
 interface Props {
   data: DictionaryInfo
 }
 
-enum BestWordleType {
-  InWords = 'inWords',
-  LetterPosition = 'letterPosition',
-  UniqueLetterPosition = 'uniqueLetterPosition',
-  BestMax = 'bestMax',
-  BestMaxGreen = 'bestMaxGreen',
-  BestMaxOrange = 'bestMaxOrange',
-  BestGreen1_5 = 'bestGreen1_5',
-  BestGreen2_0 = 'bestGreen2_0',
-}
-
-const AboutLenguageWordle = ({ data }: Props) => {
+const AboutLanguageWordle = ({ data }: Props) => {
   const {
     spellchecker: {
       accepted: {
-        all,
         allWordleWords,
       },
       letters: {
-        inWordsWordle,
         wordle: letterPositions,
       },
       wordle,
     },
+    meta,
   } = data;
-  const [filterGroupBy, setFilterGroupBy] = useState<BestWordleType>(BestWordleType.UniqueLetterPosition);
+  const gameLanguage = useSelector(state => state.game.language);
+  const [filterGroupBy, setFilterGroupBy] = useState<BestWordleType>(BestWordleType.BestGreen1_5);
 
   const wordsData = wordle[filterGroupBy] || [];
 
@@ -58,9 +46,17 @@ const AboutLenguageWordle = ({ data }: Props) => {
     ];
   }, [letterPositions]);
 
-  const { handleClickSummary } = useEnhancedDetails();
+  useEffect(() => {
+    setFilterGroupBy(BestWordleType.BestGreen1_5);
+  }, [gameLanguage]);
 
   const { t } = useTranslation();
+
+  let sourceHTML = `<a target="_blank" rel="noopener noreferrer" href="${meta.spellchecker.url}">${meta.spellchecker.fullName}</a>`;
+
+  if (meta.spellcheckerAlt?.url) {
+    sourceHTML += ` & <a target="_blank" rel="noopener noreferrer" href="${meta.spellcheckerAlt.url}">${meta.spellcheckerAlt.fullName}</a>`;
+  }
 
   if (wordsData.length === 0) {
     return null;
@@ -70,28 +66,12 @@ const AboutLenguageWordle = ({ data }: Props) => {
 
   return (
       <section className="about-language-wordle">
-          <h2>Najlepsze słowo startowe w Wordle</h2>
-          <nav className="heatmap-keyboard-filters">
-              {[
-                BestWordleType.LetterPosition,
-                BestWordleType.UniqueLetterPosition,
-                BestWordleType.BestMaxGreen,
-                BestWordleType.BestMax,
-                BestWordleType.BestMaxOrange,
-                BestWordleType.BestGreen1_5,
-                BestWordleType.BestGreen2_0,
-              ].map(filter => (
-                  <Button
-                    key={filter}
-                    onClick={() => setFilterGroupBy(filter)}
-                    isInverted
-                    hasBorder={false}
-                    isText={filterGroupBy !== filter}
-                  >
-                      {t(`statistics.filter${capitalize(filter)}`)}
-                  </Button>
-              ))}
-          </nav>
+          <h2>{t('statistics.bestWordleWordTitle')}</h2>
+          <br />
+          <AboutLanguageWordleFilters filterGroupBy={filterGroupBy} setFilterGroupBy={setFilterGroupBy} />
+          <br />
+          <p className="about-language-wordle-word-title">{t('statistics.bestWordleWordTitle')}</p>
+          <br />
           <p>
               <span className="about-language-wordle-best-word">
                   {firstWord.split('').map((letter, index) => (
@@ -103,7 +83,9 @@ const AboutLenguageWordle = ({ data }: Props) => {
                   ))}
               </span>
           </p>
+          <br />
           <div>
+              <p>{t('statistics.bestWordleWordPopularLettersTitle')}</p>
               <ul className="about-language-wordle-positions-list">
                   {[0, 1, 2, 3, 4].map(index => (
                       <li key={index}>
@@ -126,7 +108,7 @@ const AboutLenguageWordle = ({ data }: Props) => {
                                         </strong>
                                         {' '}
                                         {' - '}
-                                        {(value / allWordleWords * 100).toFixed(1)}
+                                        {((value / allWordleWords) * 100).toFixed(1)}
                                         {'% '}
                                         {t('end.wordsUsed', { count: 100 })}
                                     </span>
@@ -136,56 +118,28 @@ const AboutLenguageWordle = ({ data }: Props) => {
                       </li>
                   ))}
               </ul>
-
-              {['letterPosition', 'uniqueLetterPosition'].includes(filterGroupBy) && (
-              <details className="statistics-filters">
-                  <summary onClick={handleClickSummary}>
-                      {/* <h3>{t('statistics.filters')}</h3> */}
-                      <h3>Metodologia</h3>
-                      <IconAnimatedCaret className="details-icon" />
-                  </summary>
-                  <div className="details-content">
-                      <div className="about-language-wordle-explanation">
-                          <p>
-                              Wszystkie litery ze słowa są podzielone na pozycje.
-                          </p>
-                          <p>
-                              Dla każdej pozycji w słowie ustalana jest litera która występuje najczęściej na tej pozycji w słowie.
-                          </p>
-                          <p>
-                              Wynik punktowy dla słowa to suma słów z tą samą pierwszą literą, drugą literą, trzecią literą i tak do końca.
-                          </p>
-                          <p>
-                              Najlepsze słowo w tej metodzie nie musi używać najpopularniejszych liter na danych pozycjach, może być najlepsze, bo oferuje największą skuteczność w zdobywaniu zielonych liter w Wordle.
-                          </p>
-                      </div>
-                  </div>
-              </details>
-
-              )}
           </div>
-          {/* <p>
-            {allWordleWords} total
-          </p> */}
-          {/* <h4>{t('statistics.languageTitleAtTheBeginning')}</h4> */}
-          <h4>Inne dobre słowa</h4>
           <div className="about-language-words-list">
               {wordsData.map(({
-                word, score, result: {
-                  total, green, orange, gray,
+                word,
+                result: {
+                  total, green, orange,
                 },
               }) => (
                   <p key={word}>
                       <span className="about-language-wordle-word">
                           {word.split('').map((letter, index) => (
-                              <strong className={clsx('about-language-small-key-cap', { 'about-language-wordle-letter-active': activeLetters[index] === letter })}>
+                              <strong
+                                // eslint-disable-next-line react/no-array-index-key
+                                key={`${word}-${index}`}
+                                className={clsx('about-language-small-key-cap', {
+                                  'about-language-wordle-letter-active': activeLetters[index] === letter,
+                                })}
+                              >
                                   {letter.replace('ß', 'ẞ')}
                               </strong>
                           ))}
                       </span>
-
-                      {/* {score[filterGroupBy]}
-                    pkt */}
                       {' '}
                       <span className={clsx('about-language-word-value', 'about-language-word-value--correct')}>
                           <span>
@@ -200,18 +154,30 @@ const AboutLenguageWordle = ({ data }: Props) => {
                               %
                           </span>
                       </span>
+                      {' = '}
                       <span className="about-language-word-value-total">
-                          {'= '}
                           {(((green + orange) / (total * 5)) * 100).toFixed(2)}
                           %
                       </span>
                   </p>
               ))}
           </div>
-
-          {/* <KeyboardHeatmap groupBy={DictionaryInfoLetters.InWordsWordle} data={data} /> */}
+          <br />
+          <GoToDictionaryButton word={firstWord} />
+          <br />
+          <p
+            className="about-language-wordle-footer"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: t('statistics.basedOn', {
+                product: '',
+                words: `<span>${formatLargeNumber(allWordleWords)}</span>`,
+                source: sourceHTML,
+              }),
+            }}
+          />
       </section>
   );
 };
 
-export default AboutLenguageWordle;
+export default AboutLanguageWordle;

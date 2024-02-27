@@ -74,6 +74,30 @@
   }
 }
 
+.about-language-wordle {
+  h5 {
+    color: var(--text-alt);
+    font-size: 14px;
+    margin-top: 30px;
+
+    &::after {
+      content: ':';
+    }
+  }
+
+  .details-content {
+    padding-bottom: 30px;
+  }
+}
+
+.about-language-wordle-word-title {
+  color: var(--text-weaker);
+
+  &::after {
+    content: ':';
+  }
+}
+
 .about-language-word-value {
   display: inline-flex;
   align-items: center;
@@ -117,5 +141,16 @@
   line-height: 12px;
   letter-spacing: 0.08em;
   font-weight: 600;
-  // margin-left: 10px;
+  margin-left: 5px;
+}
+
+.about-language-wordle-footer {
+  font-size: 12px;
+  color: var(--text-weaker);
+
+  span, a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+  }
 }

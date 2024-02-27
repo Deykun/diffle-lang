@@ -39,6 +39,17 @@ export enum DictionaryInfoLetters {
   InWordsWordle = 'inWordsWordle',
 }
 
+interface WordleResult {
+  word: string,
+  score: number,
+  result: {
+    total: number,
+    green: number,
+    orange: number,
+    gray: number,
+  }
+}
+
 export type DictionaryInfo = {
   spellchecker: {
     accepted: {
@@ -90,14 +101,14 @@ export type DictionaryInfo = {
       },
     },
     wordle: {
-      inWords: {
-        word: string,
-        score: number,
-      }[],
-      letterPosition: {
-        word: string,
-        score: number,
-      }[],
+      inWords: WordleResult[],
+      letterPosition: WordleResult[],
+      uniqueLetterPosition: WordleResult[],
+      bestMax: WordleResult[],
+      bestMaxGreen: WordleResult[],
+      bestMaxOrange: WordleResult[],
+      bestGreen1_5: WordleResult[],
+      bestGreen2_0: WordleResult[],
     },
   }
   meta: {
@@ -240,4 +251,15 @@ export interface RootState {
 
 export interface UsedLetters {
   [key: string]: number,
+}
+
+export enum BestWordleType {
+  InWords = 'inWords',
+  LetterPosition = 'letterPosition',
+  UniqueLetterPosition = 'uniqueLetterPosition',
+  BestMax = 'bestMax',
+  BestMaxGreen = 'bestMaxGreen',
+  BestMaxOrange = 'bestMaxOrange',
+  BestGreen1_5 = 'bestGreen1_5',
+  BestGreen2_0 = 'bestGreen2_0',
 }
