@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.9
+#### Version 3.10
+- **New**: Merriam-Webster is used as the default dictionary to check words
+
+#### Version 3.9 (27.02.2024)
 - **New**: Section about language added with the best starting word for Wordle
 - **New**: The length of the word has been increased in the About Language section
 

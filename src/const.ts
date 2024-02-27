@@ -89,6 +89,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     specialCharacters: [],
     hasSpecialCharacters: false,
     urls: [
+      { url: 'https://www.merriam-webster.com/dictionary/{{word}}', name: 'Merriam Webster', hasExactMatchAlways: false },
       { url: 'https://dictionary.cambridge.org/dictionary/english/{{word}}', name: 'Cambridge Dictionary', hasExactMatchAlways: false },
       { url: 'https://www.oxfordlearnersdictionaries.com/definition/english/{{word}}', name: 'Oxford Learner\'s Dictionaries', hasExactMatchAlways: false },
     ],
