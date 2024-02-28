@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright tests
 on:
   push:
 jobs:
@@ -15,7 +15,7 @@ jobs:
       uses: bahmutov/npm-install@v1
 
     - name: Install Playwright Browsers
-      run: npx playwright install-deps chromium
+      run: npx playwright install chromium
 
     - name: Run Playwright tests
       run: npm run test-e2e
