@@ -34,12 +34,12 @@
     "game.checking": "sprawdzanie...",
     "game.withSpecialCharacters": "Hasło <strong>zawiera</strong> chociaż jeden {{specialCharacter}} znak.",
     "game.withoutSpecialCharacters": "Hasło <strong>nie zawiera</strong> {{specialCharacters}} znaków.",
-   
-   
-   
-   
-   
-   
+    "game.csSpecialCharacter": "special",
+    "game.csSpecialCharacters": "special",
+    "game.deSpecialCharacter": "special",
+    "game.deSpecialCharacters": "special",
+    "game.esSpecialCharacter": "special",
+    "game.esSpecialCharacters": "special",
     "game.plSpecialCharacter": "polski",
     "game.plSpecialCharacters": "polskich",
     "game.youCanUseIncorrectLetters": "Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.",
@@ -76,7 +76,7 @@
     "end.wordsUsed_one": "słowo",
     "end.wordsUsed_few": "słowa",
     "end.wordsUsed_many": "słów",
-   
+    "end.wordsUsed_other": "words",
     "end.inWordsUsed_zero": "słowach",
     "end.inWordsUsed_one": "słowie",
     "end.inWordsUsed_few": "słowach",
@@ -86,19 +86,19 @@
     "end.in_one": "w",
     "end.in_few": "w",
     "end.in_many": "w",
-   
+    "end.in_other": "in",
     "end.lostIn": "przegrana",
     "end.lettersUsedShort": "l.",
     "end.lettersUsed_zero": "liter",
     "end.lettersUsed_one": "litera",
     "end.lettersUsed_few": "litery",
     "end.lettersUsed_many": "liter",
-   
+    "end.lettersUsed_other": "letters",
     "end.nextDaily_zero": "Nowe hasło dnia będzie dostępne za <strong>mniej niż godzinę.</strong>.",
     "end.nextDaily_one": "Nowe hasło dnia będzie dostępne za <strong>godzinę</strong>.",
     "end.nextDaily_few": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godziny</strong>.",
     "end.nextDaily_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
-   
+    "end.nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyShort": "nowe za {{count}}g",
     "end.completed": "zaliczony",
     "settings.title": "Ustawienia",
@@ -135,7 +135,7 @@
     "settings.confirmInSeconds_one": "Kliknij za sekundę by potwierdzić",
     "settings.confirmInSeconds_few": "Kliknij za {{count}}s by potwierdzić",
     "settings.confirmInSeconds_many": "Kliknij za {{count}}s by potwierdzić",
-   
+    "settings.confirmInSeconds_other": "Click in {{count}} seconds to confirm",
     "settings.confirmAfterWaiting": "Kliknij by potwierdzić",
     "settings.language": "Język",
     "settings.languageChanged": "Zmieniono język.",
@@ -175,14 +175,14 @@
     "statistics.totalGames_one": "<strong>1</strong> gra",
     "statistics.totalGames_few": "<strong>{{count}}</strong> gry",
     "statistics.totalGames_many": "<strong>{{count}}</strong> gier",
-   
+    "statistics.totalGames_other": "<strong>{{count}}</strong> games",
     "statistics.totalWon": "wygranych",
-   
+    "statistics.totalWonStreak": "won in a row",
     "statistics.totalWonStreak_zero": "wygranych z rzędu",
     "statistics.totalWonStreak_one": "wygrana z rzędu",
     "statistics.totalWonStreak_few": "wygrane z rzędu",
     "statistics.totalWonStreak_many": "wygranych z rzędu",
-   
+    "statistics.totalLostStreak": "lost in a row",
     "statistics.totalLostStreak_zero": "przegranych z rzędu",
     "statistics.totalLostStreak_one": "przegrana z rzędu",
     "statistics.totalLostStreak_few": "przegrane z rzędu",
