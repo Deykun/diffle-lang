@@ -11,8 +11,12 @@
 
 ---
 
-#### Version 3.11
+#### Version 3.11.1
+- **New**: Translation bug updated on Crowdin
+
+#### Version 3.11 (28.02.2024)
 - **New**: Playwright e2e added to project
+- **New**: Translations are now managed within https://crowdin.com/project/diffle-lang
 
 #### Version 3.10 (28.02.2024)
 - **New**: Merriam-Webster is used as the default dictionary to check words

@@ -1,3 +1,5 @@
+React, Vite, TypeScript, Redux Toolkit, Playwright
+
 # 🕹️ DIFFLE-LANG - word game
 
 A Wordle-like game without a character limit, where every used word gives hints about the position and order of letters in the solution.
@@ -13,6 +15,11 @@ Supported languages:
 <!---
    https://www.tablesgenerator.com/markdown_tables
 -->
+
+### Report a translation bug
+https://crowdin.com/project/diffle-lang
+
+[![Crowdin](https://badges.crowdin.net/diffle-lang/localized.svg)](https://crowdin.com/project/diffle-lang)
 
 # App screenshots
 ![diffle lang app screenshots](./app-screenshots.png)
