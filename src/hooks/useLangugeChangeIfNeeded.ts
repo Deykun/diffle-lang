@@ -38,6 +38,12 @@ export default function useLangugeChangeIfNeeded() {
 
       window.history.replaceState(null, title, newLocation);
     }
+
+    const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
+    if (appLanguage && title) {
+      document.title = title;
+      document.documentElement.lang = appLanguage;
+    }
   }, [wasAppLanguageDetected, i18n.language]);
 
   useEffect(() => {

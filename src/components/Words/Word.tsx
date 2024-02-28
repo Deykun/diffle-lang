@@ -23,7 +23,7 @@ const Word = ({ guess }: { guess: WordInterface }) => {
   const indexWithCaretBefore = guess.caretShift !== undefined && guess.caretShift < 0 ? guess.word.length + guess.caretShift : undefined;
 
   return (
-      <div className={clsx('word', { isExtraLong: length > 12 })}>
+      <div className={clsx('word', { isExtraLong: length > 12 })} data-testid={`word-${guess.word.replaceAll(' ', 'spacebar')}`}>
           {guess.affixes.map((
             {
               text,

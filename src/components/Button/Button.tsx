@@ -20,6 +20,7 @@ interface Props {
   isText?: boolean,
   isLarge?: boolean,
   hasBorder?: boolean,
+  dataTestId?: string,
 }
 
 function Button({
@@ -35,6 +36,7 @@ function Button({
   isText = false,
   isLarge = false,
   hasBorder = true,
+  dataTestId,
 }: Props) {
   const Tag = tagName || 'button';
 
@@ -62,6 +64,7 @@ function Button({
         href={href}
         rel={rel}
         target={target}
+        data-testid={dataTestId}
       >
           {children}
           {isLoading && <IconLoader className="button-loader" />}

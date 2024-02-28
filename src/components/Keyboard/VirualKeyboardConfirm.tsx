@@ -47,11 +47,11 @@ const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
           {wordToSubmit && <h3>{t('game.confirmCheckTheWord', { word: wordToSubmit })}</h3>}
           {!wordToSubmit && <h3>{t('game.wordToSubmitIsMissing')}</h3>}
           <div className="keyboard-confirm-actions">
-              <Button onClick={closeConfirm} isInverted isText hasBorder={false}>
+              <Button onClick={closeConfirm} isInverted isText hasBorder={false} dataTestId="confirm-word-no">
                   <IconUndo />
                   <span>{t('common.no')}</span>
               </Button>
-              <Button onClick={handleSubmit}>
+              <Button onClick={handleSubmit} dataTestId="confirm-word-yes">
                   <IconSubmit />
                   <span>{t('common.yes')}</span>
               </Button>

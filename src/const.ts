@@ -1,5 +1,7 @@
 import { Dictionary } from '@common-types';
 
+export const isTestEnv = (window.location.origin || '')?.includes(':2001') || false;
+
 export const WORD_MAXLENGTH = 15;
 
 // If breaking changes are released you can set a date stamp here and it will block the game
@@ -65,7 +67,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'de',
     languages: ['de', 'de-DE'],
     isBeta: true,
-    title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
+    title: 'DIFFLE - das Spiel wie Wordle (auf Deutsch, ohne Zeichenbegrenzung) 🇩🇪',
     shouldPreferQWERTZ: true,
     keyLines: KEY_LINES_DE,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE.flatMap(key => key)],
