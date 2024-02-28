@@ -36,12 +36,12 @@
     "game.withoutSpecialCharacters": "Vítězné slovo <strong>neobsahuje</strong> {{specialCharacters}} znaky.",
     "game.csSpecialCharacter": "český",
     "game.csSpecialCharacters": "českých",
-   
-   
-   
-   
-   
-   
+    "game.deSpecialCharacter": "special",
+    "game.deSpecialCharacters": "special",
+    "game.esSpecialCharacter": "special",
+    "game.esSpecialCharacters": "special",
+    "game.plSpecialCharacter": "special",
+    "game.plSpecialCharacters": "special",
     "game.youCanUseIncorrectLetters": "Vaše slovo <strong>nemůže</strong> vyhrát, ale můžete jej použít při hledání vítězného slova.",
     "game.youCanUseLettersTypedTooManyTimes": "Toto slovo můžete použít, ale <strong>nelze</strong> s ním vyhrát. <br /> (správný písmeno se používá příliš mnohokrát)",
     "game.youCanUseSpace": "Slova <strong>nemají</strong> mezery, ale můžete je použít (budou odstraněny).",
@@ -72,32 +72,17 @@
     "end.titleLost": "Porazit",
     "end.titleCheater": "Jasnovid",
     "end.winningWord": "Odpověď:",
-    "end.wordsUsed_zero": "slov",
     "end.wordsUsed_one": "slovo",
-    "end.wordsUsed_few": "slova",
-   
     "end.wordsUsed_other": "slov",
-   
     "end.inWordsUsed_one": "slově",
-    "end.inWordsUsed_few": "slovech",
-   
     "end.inWordsUsed_other": "slovech",
-    "end.in_zero": "v",
     "end.in_one": "v",
-    "end.in_few": "ve",
-   
     "end.in_other": "v",
     "end.lostIn": "ztracen",
     "end.lettersUsedShort": "p.",
-    "end.lettersUsed_zero": "písmen",
     "end.lettersUsed_one": "písmeno",
-    "end.lettersUsed_few": "písmena",
-   
     "end.lettersUsed_other": "písmen",
-    "end.nextDaily_zero": "Nové denní slovo bude k dispozici za <strong>méně než hodinu</strong>.",
     "end.nextDaily_one": "Nové denní slovo bude k dispozici za <strong>hodinu</strong>.",
-    "end.nextDaily_few": "Nové denní slovo bude k dispozici za <strong>{{count}} hodiny</strong>.",
-   
     "end.nextDaily_other": "Nové denní slovo bude k dispozici za <strong>{{count}} hodin</strong>.",
     "end.nextDailyShort": "Další za {{count}}h",
     "end.completed": "splněny",
@@ -131,10 +116,7 @@
     "settings.sourceDictionaryWiningWords": "jako vyhledávač vítězných slov",
     "settings.lastDailyWordsTitle": "Včerejší slovo",
     "settings.lastDailyWordsYesterday": "Včerejší slovo bylo \"{{word}}\".",
-    "settings.confirmInSeconds_zero": "Klikněte za {{count}}s potvrdit",
     "settings.confirmInSeconds_one": "Klikněte za jednu sekundu potvrdit",
-    "settings.confirmInSeconds_few": "Klikněte za {{count}}s potvrdit",
-   
     "settings.confirmInSeconds_other": "Klikněte za {{count}}s potvrdit",
     "settings.confirmAfterWaiting": "Potvrďte kliknutím",
     "settings.language": "Jazyk",
@@ -171,22 +153,11 @@
     "statistics.averageWordsNotFound": "<strong> {{value}} </strong> slova, která nebyla nalezena ve slovníku",
     "statistics.worstWordsNotFound": "nejhorší <strong> {{value}} </strong> v jedné hře",
     "statistics.worstWordsNotFoundLonger": "nejhorší slova, která nebyla nalezena ve slovníku <strong> {{value}} </strong> ve hře",
-    "statistics.totalGames_zero": "<strong>0</strong> her",
     "statistics.totalGames_one": "<strong>1</strong> hra",
-    "statistics.totalGames_few": "<strong>{{count}}</strong> hry",
-   
     "statistics.totalGames_other": "<strong>{{count}}</strong> hry",
     "statistics.totalWon": "vyhrál",
     "statistics.totalWonStreak": "výhry v řadě",
-    "statistics.totalWonStreak_zero": "výhry v řadě",
-    "statistics.totalWonStreak_one": "výhra v řadě",
-    "statistics.totalWonStreak_few": "výhry v řadě",
-   
     "statistics.totalLostStreak": "proher v řadě",
-    "statistics.totalLostStreak_zero": "proher v řadě",
-    "statistics.totalLostStreak_one": "prohra v řadě",
-    "statistics.totalLostStreak_few": "prohry v řadě",
-   
     "statistics.totalBestStreak": "nejlepší vyhrál v řadě",
     "statistics.streakTooltipWithWorstStreak": "nejhorší ztracená v řadě:",
     "statistics.lettersCorrect": "opravit",
