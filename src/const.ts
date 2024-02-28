@@ -65,7 +65,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'de',
     languages: ['de', 'de-DE'],
     isBeta: true,
-    title: 'DIFFLE - das Spiel wie Wordle (ohne Zeichenbegrenzung) 🇩🇪',
+    title: 'DIFFLE - das Spiel wie Wordle (auf Deutsch, ohne Zeichenbegrenzung) 🇩🇪',
     shouldPreferQWERTZ: true,
     keyLines: KEY_LINES_DE,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE.flatMap(key => key)],

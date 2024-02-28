@@ -25,7 +25,8 @@
     "build-pl": "node scripts/build-pl-dictionary.mjs",
     "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-pl",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "test-e2e": "playwright test"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.18.1",
@@ -42,6 +43,7 @@
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.5",
+    "@playwright/test": "^1.42.0",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
