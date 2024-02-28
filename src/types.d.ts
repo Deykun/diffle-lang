@@ -190,6 +190,18 @@ export enum KeyboardQWERTYMode {
   QWERTZ = 'qwertz',
 }
 
+export enum CookiesName {
+  GOOGLE_ANALYTICS = 'GOOGLE_ANALYTICS',
+  DIFFLE_EXTERNAL = 'DIFFLE_EXTERNAL',
+  DIFFLE_LOCAL = 'DIFFLE_LOCAL',
+}
+
+export interface CookiesSettingsInterfence {
+  [CookiesName.GOOGLE_ANALYTICS]: boolean,
+  [CookiesName.DIFFLE_EXTERNAL]: boolean,
+  [CookiesName.DIFFLE_LOCAL]: boolean,
+}
+
 export interface RootAppState {
   pane: {
     active: Pane,
@@ -197,6 +209,7 @@ export interface RootAppState {
       [key: string]: string | number,
     },
   },
+  cookies: CookiesSettingsInterfence,
   toast: Toast,
   shouldVibrate: boolean,
   shouldKeyboardVibrate: boolean,

@@ -13,6 +13,8 @@ import usePanes from '@hooks/usePanes';
 
 import Header from '@components/Header';
 
+import CookiesPopup from '@components/Cookies/CookiesPopup';
+
 import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
 import Settings from '@components/Panes/Settings/Settings';
@@ -68,6 +70,7 @@ function App() {
               {pane === PaneInterface.Statistics && <Statistics />}
               {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
           </main>
+          <CookiesPopup />
       </div>
   );
 }

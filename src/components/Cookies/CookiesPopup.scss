@@ -1,0 +1,100 @@
+.cookies-popup-wrapper {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  width: 100%;
+  max-width: min(400px, 95vw);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.cookies-popup {
+
+  z-index: 1;
+  background-color: var(--background-transparent);
+  background-color: color-mix(in srgb, var(--background) 80%, transparent);;
+  -webkit-backdrop-filter: blur(30px) saturate(1.2) hue-rotate(-15deg);
+  backdrop-filter: blur(30px) saturate(1.2) hue-rotate(-15deg);
+  
+  // border: 1px solid var(--border);
+  // background-color: var(--text);
+  width: 100%;
+  padding: 30px 12px 12px;
+  border-radius: 12px;
+
+  // border: 1px solid var(--border);
+  // text-align: left;
+  box-shadow: 0 3px 20px -12px color-mix(in srgb, var(--text) 20%, transparent);;
+  // filter: drop-shadow(0 10px 15px var(--text-weaker));
+  // filter: drop-shadow(0 10px 15px var(--green));
+  z-index: 3;
+
+
+
+  .cookies-popup-icon-wrapper {
+    position: absolute;
+    top: -36px;
+    right: 12px;
+    width: 60px;
+    height: 60px;
+    padding: 12px;
+    border-radius: 25px;
+    background-color: var(--orange);
+    // background-color: var(--text);
+    // background-color: var(--background);
+    box-shadow: 0 4px 10px -5px var(--text-weaker);
+  }
+
+  .cookies-popup-icon {
+
+    fill: var(--text-weaker);
+    // fill: var(--orange-contrast);
+    // fill: var(--background);
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  padding-top: 30px;
+
+  h3 {
+    font-size: 26px;
+    font-weight: 600;
+    // color: var(--background);
+    // color: var(--blue-on-background);
+    // color: var(--orange-on-background);
+    // letter-spacing: 0em;
+    margin-bottom: 25px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-weaker);
+    // font-size: 12px;
+    margin-bottom: 15px;
+
+    b {
+      font-weight: 600;
+      color: var(--text);
+      white-space: inherit;
+    }
+
+    @media (min-width: 400px) {
+      text-align: justify;
+      padding: 0 10px;
+    }
+  }
+
+  .cookies-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: row-reverse wrap;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+
+    @media (min-width: 400px) {
+      justify-content: flex-start;
+    }
+  }
+}

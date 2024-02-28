@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
+import { IS_MAIN_INSTANCE } from '@const';
+
 import IconBug from '@components/Icons/IconBug';
 
 import Button from '@components/Button/Button';
@@ -7,10 +9,7 @@ import Button from '@components/Button/Button';
 const ReportTranslationBugButton = () => {
   const { t } = useTranslation();
 
-  /* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */
-  const isSiteValid = ['localhost', 'deykun'].some(phrase => window.location.href.includes(phrase));
-
-  if (!isSiteValid) {
+  if (!IS_MAIN_INSTANCE) {
     return null;
   }
 

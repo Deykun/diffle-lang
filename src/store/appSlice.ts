@@ -4,6 +4,7 @@ import { Pane, RootAppState, ToastType } from '@common-types';
 
 import {
   getInitPane,
+  getInitCookiesSettings,
   getInitShouldVibrate,
   getInitShouldKeyboardVibrate,
   getInitIsSmallKeyboard,
@@ -24,6 +25,9 @@ const initialState: RootAppState = {
     timeoutSeconds: 5,
     toastTime: null,
     params: {},
+  },
+  cookies: {
+    ...getInitCookiesSettings(),
   },
   shouldVibrate: getInitShouldVibrate(),
   shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
