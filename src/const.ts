@@ -1,5 +1,7 @@
 import { Dictionary } from '@common-types';
 
+export const isTestEnv = (window.location.origin || '')?.includes(':2001') || false;
+
 export const WORD_MAXLENGTH = 15;
 
 // If breaking changes are released you can set a date stamp here and it will block the game

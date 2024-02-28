@@ -71,7 +71,11 @@ const Toasts = () => {
   }
 
   return (
-      <p className={clsx('toast', `toast-${type}`, { 'toast-shake': shouldShake, 'toast-shaked': didShake })} key={text}>
+      <p
+        className={clsx('toast', `toast-${type}`, { 'toast-shake': shouldShake, 'toast-shaked': didShake })}
+        key={text}
+        data-testid={`toast-${text.replaceAll('.', '-')}`}
+      >
           {t(text, params)}
       </p>
   );

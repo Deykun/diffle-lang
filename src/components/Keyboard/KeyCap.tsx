@@ -40,6 +40,7 @@ const KeyCap = ({ text, onClick }: Props) => {
         onClick={handleClick}
         className={clsx('key', `key-${text}`, type, { typed: isTyped })}
         type="button"
+        data-testid={`key-${text}`}
       >
           {shouldShowText && <span>{textToShow.replace('ß', 'ẞ')}</span>}
           {/* Both text-transform: uppercase and .toUppercase() replace ß with SS */}
