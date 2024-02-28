@@ -34,14 +34,14 @@
     "game.checking": "überprüfung...",
     "game.withSpecialCharacters": "Das Gewinnerwort <strong>enthält</strong> mindestens ein {{specialCharacter}} Zeichen.",
     "game.withoutSpecialCharacters": "Das Gewinnerwort <strong>enthält keine</strong> {{specialCharacters}} Zeichen.",
-   
-   
+    "game.csSpecialCharacter": "special",
+    "game.csSpecialCharacters": "special",
     "game.deSpecialCharacter": "deutsches",
     "game.deSpecialCharacters": "deutschen",
-   
-   
-   
-   
+    "game.esSpecialCharacter": "special",
+    "game.esSpecialCharacters": "special",
+    "game.plSpecialCharacter": "special",
+    "game.plSpecialCharacters": "special",
     "game.youCanUseIncorrectLetters": "Dein Wort kann <strong>nicht</strong> gewinnen, aber du kannst es beim Suchen nach dem Siegerwort verwenden.",
     "game.youCanUseLettersTypedTooManyTimes": "Du kannst dieses Wort verwenden, aber du kannst <strong>nicht</strong> damit gewinnen.<br />(ein korrekter Buchstabe wurde zu oft verwendet)",
     "game.youCanUseSpace": "Wörter haben <strong>keine</strong> Leerzeichen, aber du kannst sie verwenden (sie werden entfernt)",
@@ -72,32 +72,17 @@
     "end.titleLost": "Niederlage",
     "end.titleCheater": "Hellseher",
     "end.winningWord": "Die Antwort:",
-   
     "end.wordsUsed_one": "Wort",
-   
-   
     "end.wordsUsed_other": "Wörtern",
-   
     "end.inWordsUsed_one": "Wort",
-   
-   
     "end.inWordsUsed_other": "Wörtern",
-   
     "end.in_one": "im",
-   
-   
     "end.in_other": "im",
     "end.lostIn": "Niederlage",
     "end.lettersUsedShort": "B.",
-   
     "end.lettersUsed_one": "Buchstabe",
-   
-   
     "end.lettersUsed_other": "Buchstaben",
-   
     "end.nextDaily_one": "Das neue Tageswort wird in <strong>einer Stunde</strong> verfügbar sein.",
-   
-   
     "end.nextDaily_other": "Das neue Tageswort wird in <strong>{{count}} Stunden</strong> verfügbar sein.",
     "end.nextDailyShort": "nächster im {{count}}S",
     "end.completed": "abgeschlossen",
@@ -131,10 +116,7 @@
     "settings.sourceDictionaryWiningWords": "als Siegerwort-Finder",
     "settings.lastDailyWordsTitle": "Wort von gestern",
     "settings.lastDailyWordsYesterday": "Das Wort von gestern war \"{{word}}\".",
-   
     "settings.confirmInSeconds_one": "1 Sekunde klicken, bestätigen",
-   
-   
     "settings.confirmInSeconds_other": "{{count}} Sekunden klicken, bestätigen",
     "settings.confirmAfterWaiting": "Klicken, um zu bestätigen",
     "settings.language": "Sprache",
@@ -171,22 +153,11 @@
     "statistics.averageWordsNotFound": "<strong>{{value}}</strong> Wörter nicht im Wörterbuch gefunden",
     "statistics.worstWordsNotFound": "Schlechtestes <strong>{{value}}</strong> in einem Spiel",
     "statistics.worstWordsNotFoundLonger": "Schlechteste nicht im Wörterbuch gefundenen Wörter: <strong>{{value}}</strong> in einem Spiel",
-   
     "statistics.totalGames_one": "<strong>1</strong> Spiel",
-   
-   
     "statistics.totalGames_other": "<strong>{{count}}</strong> Spiele",
     "statistics.totalWon": "gewonnen",
     "statistics.totalWonStreak": "in Folge gewonnen",
-   
-   
-   
-   
     "statistics.totalLostStreak": "in Folge verloren",
-   
-   
-   
-   
     "statistics.totalBestStreak": "Bestes in Folge gewonnen",
     "statistics.streakTooltipWithWorstStreak": "Das schlechteste in Folge verloren:",
     "statistics.lettersCorrect": "korrekt",
