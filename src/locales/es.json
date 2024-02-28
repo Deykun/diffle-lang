@@ -26,7 +26,7 @@
     "game.modeDaily": "Diario",
     "game.modePractice": "Práctica",
     "game.modeShare": "Compartido",
-   
+    "game.iGiveUp": "I give up",
     "game.dailyGameLostToast": "Partida perdida desde {{dailyStamp}}, la palabra ganadora fue \"{{word}}\"",
     "game.givingUpIsNotPossible": "Comienza una partida para poder rendirte ;)",
     "game.confirmCheckTheWord": "¿Es \"{{word}}\" aceptable?",
@@ -34,14 +34,14 @@
     "game.checking": "verificando...",
     "game.withSpecialCharacters": "La palabra ganadora <strong>contiene</strong> al menos un carácter en {{specialCharacter}}.",
     "game.withoutSpecialCharacters": "La palabra ganadora <strong>no</strong> contiene caracteres en {{specialCharacters}}.",
-   
-   
-   
-   
+    "game.csSpecialCharacter": "special",
+    "game.csSpecialCharacters": "special",
+    "game.deSpecialCharacter": "special",
+    "game.deSpecialCharacters": "special",
     "game.esSpecialCharacter": "español",
     "game.esSpecialCharacters": "español",
-   
-   
+    "game.plSpecialCharacter": "special",
+    "game.plSpecialCharacters": "special",
     "game.youCanUseIncorrectLetters": "Tu palabra <strong>no puede</strong> ganar, pero puedes usarla mientras buscas la palabra ganadora.",
     "game.youCanUseLettersTypedTooManyTimes": "Puedes usar esta palabra, pero <strong>no puedes</strong> ganar con ella.<br />(una letra correcta usada demasiadas veces)",
     "game.youCanUseSpace": "Las palabras <strong>no</strong> tienen espacios, pero puedes usarlos (serán eliminados).",
@@ -72,32 +72,17 @@
     "end.titleLost": "Derrota",
     "end.titleCheater": "Un clarividente",
     "end.winningWord": "La respuesta:",
-   
     "end.wordsUsed_one": "palabra",
-   
-   
     "end.wordsUsed_other": "palabras",
-   
     "end.inWordsUsed_one": "palabra",
-   
-   
     "end.inWordsUsed_other": "palabras",
-   
     "end.in_one": "en",
-   
-   
     "end.in_other": "en",
     "end.lostIn": "perdido",
     "end.lettersUsedShort": "l.",
-   
     "end.lettersUsed_one": "letra",
-   
-   
     "end.lettersUsed_other": "letras",
-   
     "end.nextDaily_one": "La nueva palabra diaria estará disponible en <strong>una hora</strong>.",
-   
-   
     "end.nextDaily_other": "La nueva palabra diaria estará disponible en <strong>{{count}} horas</strong>.",
     "end.nextDailyShort": "Próximo en {{count}}h",
     "end.completed": "completado",
@@ -131,10 +116,7 @@
     "settings.sourceDictionaryWiningWords": "como buscador de palabras ganadoras",
     "settings.lastDailyWordsTitle": "Palabra de ayer",
     "settings.lastDailyWordsYesterday": "La palabra de ayer fue \"{{word}}\".",
-   
     "settings.confirmInSeconds_one": "Clic en 1 segundo para confirmar.",
-   
-   
     "settings.confirmInSeconds_other": "Clic en {{count}} seg. para confirmar",
     "settings.confirmAfterWaiting": "Confirmar",
     "settings.language": "Idioma",
@@ -171,22 +153,11 @@
     "statistics.averageWordsNotFound": "<strong>{{value}}</strong> palabras no encontradas en un diccionario",
     "statistics.worstWordsNotFound": "peor <strong>{{value}}</strong> en un juego",
     "statistics.worstWordsNotFoundLonger": "peores palabras no encontradas en un diccionario <strong>{{value}}</strong> en un juego",
-   
     "statistics.totalGames_one": "<strong>1</strong> juego",
-   
-   
     "statistics.totalGames_other": "<strong>{{count}}</strong> juegos",
     "statistics.totalWon": "ganado",
     "statistics.totalWonStreak": "ganado en fila",
-   
-   
-   
-   
     "statistics.totalLostStreak": "perdido en fila",
-   
-   
-   
-   
     "statistics.totalBestStreak": "mejor ganado en fila",
     "statistics.streakTooltipWithWorstStreak": "lo peor perdido en fila:",
     "statistics.lettersCorrect": "correcto",
