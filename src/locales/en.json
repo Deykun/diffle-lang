@@ -72,32 +72,32 @@
     "end.titleLost": "Defeat",
     "end.titleCheater": "A clairvoyant",
     "end.winningWord": "The answer:",
-   
+    "end.wordsUsed_zero": "words",
     "end.wordsUsed_one": "word",
-   
-   
+    "end.wordsUsed_few": "words",
+    "end.wordsUsed_many": "words",
     "end.wordsUsed_other": "words",
-   
+    "end.inWordsUsed_zero": "words",
     "end.inWordsUsed_one": "word",
-   
-   
+    "end.inWordsUsed_few": "words",
+    "end.inWordsUsed_many": "words",
     "end.inWordsUsed_other": "words",
-   
+    "end.in_zero": "in",
     "end.in_one": "in",
-   
-   
+    "end.in_few": "in",
+    "end.in_many": "in",
     "end.in_other": "in",
     "end.lostIn": "lost",
     "end.lettersUsedShort": "ch.",
-   
+    "end.lettersUsed_zero": "letter",
     "end.lettersUsed_one": "letter",
-   
-   
+    "end.lettersUsed_few": "letters",
+    "end.lettersUsed_many": "letters",
     "end.lettersUsed_other": "letters",
-   
+    "end.nextDaily_zero": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDaily_one": "The new daily word will be available in <strong>an hour</strong>.",
-   
-   
+    "end.nextDaily_few": "The new daily word will be available in <strong>{{count}} hours</strong>.",
+    "end.nextDaily_many": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyShort": "next in {{count}}h",
     "end.completed": "completed",
@@ -131,10 +131,10 @@
     "settings.sourceDictionaryWiningWords": "as winning words finder",
     "settings.lastDailyWordsTitle": "Yesterday's word",
     "settings.lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\".",
-   
+    "settings.confirmInSeconds_zero": "Click in {{count}} seconds to confirm",
     "settings.confirmInSeconds_one": "Cilck in one second to confirm",
-   
-   
+    "settings.confirmInSeconds_few": "Click in {{count}} seconds to confirm",
+    "settings.confirmInSeconds_many": "Click in {{count}} seconds to confirm",
     "settings.confirmInSeconds_other": "Click in {{count}} seconds to confirm",
     "settings.confirmAfterWaiting": "Click to confirm",
     "settings.language": "Language",
@@ -171,22 +171,22 @@
     "statistics.averageWordsNotFound": "<strong>{{value}}</strong> words not found in a dictionary",
     "statistics.worstWordsNotFound": "worst <strong>{{value}}</strong> in one game",
     "statistics.worstWordsNotFoundLonger": "worst words not found in a dictionary <strong>{{value}}</strong> in a game",
-   
+    "statistics.totalGames_zero": "<strong>{{count}}</strong> games",
     "statistics.totalGames_one": "<strong>1</strong> game",
-   
-   
+    "statistics.totalGames_few": "<strong>{{count}}</strong> games",
+    "statistics.totalGames_many": "<strong>{{count}}</strong> games",
     "statistics.totalGames_other": "<strong>{{count}}</strong> games",
     "statistics.totalWon": "won",
     "statistics.totalWonStreak": "won in a row",
-   
-   
-   
-   
+    "statistics.totalWonStreak_zero": "won in a row",
+    "statistics.totalWonStreak_one": "won in a row",
+    "statistics.totalWonStreak_few": "won in a row",
+    "statistics.totalWonStreak_many": "won in a row",
     "statistics.totalLostStreak": "lost in a row",
-   
-   
-   
-   
+    "statistics.totalLostStreak_zero": "lost in a row",
+    "statistics.totalLostStreak_one": "lost in a row",
+    "statistics.totalLostStreak_few": "lost in a row",
+    "statistics.totalLostStreak_many": "lost in a row",
     "statistics.totalBestStreak": "best won in a row",
     "statistics.streakTooltipWithWorstStreak": "the worst lost in a row:",
     "statistics.lettersCorrect": "correct",
