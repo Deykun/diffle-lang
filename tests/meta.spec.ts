@@ -6,7 +6,7 @@ test('Correct titles for languages', async ({ page }) => {
   const langs = [
     { code: 'cs', title: 'v češtině' },
     { code: 'de', title: 'auf Deutsch' },
-    { code: 'pl', title: 'po polsku' },
+    { code: 'pl', title: 'po polsdadssku' },
   ]
 
   for (const lang of langs) {
