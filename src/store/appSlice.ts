@@ -67,6 +67,12 @@ const appSlice = createSlice({
         type, text, timeoutSeconds, toastTime, params,
       };
     },
+    setCookies(state, action) {
+      console.log('action.payload', action.payload);
+      state.cookies = {
+        ...action.payload,
+      };
+    },
     clearToast(state) {
       state.toast = {
         type: ToastType.Default, text: '', timeoutSeconds: 3, toastTime: null, params: {},
@@ -120,6 +126,7 @@ const appSlice = createSlice({
 export const {
   setPane,
   setToast,
+  setCookies,
   clearToast,
   toggleVibration,
   toggleKeyboardVibration,

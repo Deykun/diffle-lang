@@ -1,4 +1,6 @@
-import { GameMode, Pane, KeyboardQWERTYMode, CookiesSettingsInterfence, CookiesName } from '@common-types';
+import {
+  GameMode, Pane, KeyboardQWERTYMode, CookiesSettingsInterfence, CookiesName,
+} from '@common-types';
 
 import { LOCAL_STORAGE, COOKIES_INITIAL_SETTINGS_UNSET } from '@const';
 
@@ -19,9 +21,9 @@ export const getInitCookiesSettings = () => {
       const savedCookiesJSON = JSON.parse(savedCookies) || {};
 
       const savedKeys = Object.keys(savedCookiesJSON);
-      const cookiesKeys = Object.keys(CookiesName);
+      const cookiesKeys = Object.values(CookiesName);
 
-      const isInterfaceRight = savedKeys.length === cookiesKeys.length && savedKeys.every((key) => cookiesKeys.includes(key));
+      const isInterfaceRight = savedKeys.length === cookiesKeys.length && savedKeys.every(key => cookiesKeys.includes(key));
 
       if (isInterfaceRight) {
         return savedCookiesJSON as CookiesSettingsInterfence;

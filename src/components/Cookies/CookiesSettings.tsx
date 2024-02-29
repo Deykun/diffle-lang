@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Dispatch, SetStateAction, } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CookiesName, CookiesSettingsInterfence } from '@common-types';
@@ -18,18 +18,14 @@ import Button from '@components/Button/Button';
 import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
-// import './CookiesPopup.scss';
+import './CookiesPopup.scss';
 
 interface Props {
   settings: CookiesSettingsInterfence,
+  onChange: Dispatch<SetStateAction<CookiesSettingsInterfence>>,
 }
 
 const CookiesSettings = ({ settings, onChange }: Props) => {
-//   const isOfficialDiffle
-  const { urls } = useSelector(selectGameLanguageKeyboardInfo);
-
-  const [isOpen, setIsOpen] = useState(false);
-
   const { t } = useTranslation();
 
   const toggleSetting = (settingName: CookiesName) => {
@@ -43,48 +39,42 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
       <ul className="list-col-3">
           <li>
               <ButtonTile
-                isActive={settings.GOOGLE_ANALYTICS}
+                isActive={settings[CookiesName.GOOGLE_ANALYTICS]}
                 onClick={() => toggleSetting(CookiesName.GOOGLE_ANALYTICS)}
               >
                   <IconCookies />
                   <span className="button-tile-title-small">
-                      {/* {t('common.checkInDictionaryWithName', { word, name })} */}
                       <strong>Google Analytics</strong>
                       <br />
-                      zewnętrzne i opcjonalne
+                      <span>{t('settings.cookiesExternalOptional')}</span>
                   </span>
               </ButtonTile>
           </li>
           {IS_MAIN_INSTANCE && (
           <li>
               <ButtonTile
-                isActive={settings.DIFFLE_EXTERNAL}
+                isActive={settings[CookiesName.DIFFLE_EXTERNAL]}
                 onClick={() => toggleSetting(CookiesName.DIFFLE_EXTERNAL)}
               >
                   <IconCookies />
                   <span className="button-tile-title-small">
-                      {/* {t('common.checkInDictionaryWithName', { word, name })} */}
-                      <strong>Diffle</strong>
+                      <strong>DIFFLE</strong>
                       <br />
-                      zewnętrzne i opcjonalne
+                      <span>{t('settings.cookiesExternalOptional')}</span>
                   </span>
               </ButtonTile>
           </li>
           )}
           <li>
               <ButtonTile
-                isActive={settings.DIFFLE_LOCAL}
+                isActive={settings[CookiesName.DIFFLE_LOCAL]}
                 onClick={() => toggleSetting(CookiesName.DIFFLE_LOCAL)}
               >
                   <IconCookie />
                   <span className="button-tile-title-small">
-                      {/* {t('common.checkInDictionaryWithName', { word, name })} */}
-                      <strong>Diffle</strong>
+                      <strong>DIFFLE</strong>
                       <br />
-                      lokalne
-                      {' '}
-                      <br />
-                      i niezbędne
+                      <span>{t('settings.cookiesLocalRequierd')}</span>
                   </span>
               </ButtonTile>
           </li>

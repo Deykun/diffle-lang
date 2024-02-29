@@ -181,6 +181,7 @@ export const COOKIES_INITIAL_SETTINGS_UNSET = {
   [CookiesName.DIFFLE_LOCAL]: false,
 };
 
+// This is the "Accept all" preset some checks aren't true if they aren't configured
 export const COOKIES_INITIAL_SETTINGS_PRESET = {
   [CookiesName.GOOGLE_ANALYTICS]: !!TRACKER_GA_ID,
   [CookiesName.DIFFLE_EXTERNAL]: !!IS_MAIN_INSTANCE,

@@ -140,6 +140,8 @@
     "settings.language": "Language",
     "settings.languageChanged": "The language has been changed.",
     "settings.reportTranslationBug": "Report a translation bug",
+    "settings.privacyTitle": "Privacy",
+    "settings.cookiesTitle": "Cookies",
     "share.titleSettings": "Sharing",
     "share.linkWithUsedWords": "Link to used words",
     "share.linkWithUsedWordsNoSpoilers": "(without spoilers)",

@@ -11,6 +11,7 @@ import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
 import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
+import IconCookies from '@components/Icons/IconCookies';
 import IconKeyboard from '@components/Icons/IconKeyboard';
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown';
 import IconMoon from '@components/Icons/IconMoon';
@@ -21,6 +22,7 @@ import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
 import ButtonTile from '@components/Button/ButtonTile';
 
+import CookiesPopup from '@components/Cookies/CookiesPopup';
 import LanguagePicker from '@components/Language/LanguagePicker';
 
 import './Settings.scss';
@@ -63,7 +65,7 @@ const SettingsPreferences = () => {
   return (
       <>
           <h2>{t('settings.preferencesTitle')}</h2>
-          <ul>
+          <ul className="list-col-3">
               <li>
                   <ButtonTile isActive onClick={handleToggleDarkLightMode}>
                       <span className="only-dark">
@@ -83,9 +85,15 @@ const SettingsPreferences = () => {
                   </ButtonTile>
               </li>
               <li>
+                  <CookiesPopup className="button-tile" isEditMode>
+                      <IconCookies />
+                      <span>{t('settings.privacyTitle')}</span>
+                  </CookiesPopup>
+              </li>
+              <li>
                   <ButtonTile isActive={shouldVibrate} onClick={handleToggleVibrate}>
                       <IconVibrate />
-                      <span>{t('settings.appVibration')}</span>
+                      <span className="button-tile-title-small">{t('settings.appVibration')}</span>
                   </ButtonTile>
               </li>
               <li>
@@ -93,14 +101,14 @@ const SettingsPreferences = () => {
               </li>
           </ul>
           <h3>{t('settings.keyboard')}</h3>
-          <ul>
+          <ul className="list-col-3">
               <li>
                   <ButtonTile
                     isActive={shouldKeyboardVibrate}
                     onClick={handleTogglKeyboardVibrate}
                   >
                       <IconVibrateKeyboard />
-                      <span>{t('settings.keyboardVibration')}</span>
+                      <span className="button-tile-title-small">{t('settings.keyboardVibration')}</span>
                   </ButtonTile>
               </li>
               <li>
@@ -109,7 +117,7 @@ const SettingsPreferences = () => {
                     onClick={handleToggleKeyboardSize}
                   >
                       <IconKeyboardDown />
-                      <span>{t('settings.smallerKeyboard')}</span>
+                      <span className="button-tile-title-small">{t('settings.smallerKeyboard')}</span>
                   </ButtonTile>
               </li>
               <li>
@@ -135,7 +143,7 @@ const SettingsPreferences = () => {
               <li>
                   <ButtonTile isActive={isEnterSwapped} onClick={handleToggleEnterSwap}>
                       <IconSwap />
-                      <span className="setting-title-small">{t('settings.swapEnterAndBackspace')}</span>
+                      <span className="button-tile-title-small">{t('settings.swapEnterAndBackspace')}</span>
                   </ButtonTile>
               </li>
               <li>
@@ -144,7 +152,7 @@ const SettingsPreferences = () => {
                     onClick={handleToggleConfirmEnter}
                   >
                       <IconCheckConfirm />
-                      <span className="setting-title-small">{t('settings.confirmSubmition')}</span>
+                      <span className="button-tile-title-small">{t('settings.confirmSubmition')}</span>
                   </ButtonTile>
               </li>
           </ul>

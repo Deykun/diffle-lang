@@ -191,9 +191,9 @@ export enum KeyboardQWERTYMode {
 }
 
 export enum CookiesName {
-  GOOGLE_ANALYTICS = 'GOOGLE_ANALYTICS',
-  DIFFLE_EXTERNAL = 'DIFFLE_EXTERNAL',
-  DIFFLE_LOCAL = 'DIFFLE_LOCAL',
+  GOOGLE_ANALYTICS = 'googleAnalytics',
+  DIFFLE_EXTERNAL = 'diffleExternal',
+  DIFFLE_LOCAL = 'diffleLocal',
 }
 
 export interface CookiesSettingsInterfence {

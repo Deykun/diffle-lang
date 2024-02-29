@@ -1,101 +1,161 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CookiesName, CookiesSettingsInterfence } from '@common-types';
 
-import { IS_MAIN_INSTANCE, COOKIES_INITIAL_SETTINGS_PRESET } from '@const';
+import { LOCAL_STORAGE, COOKIES_INITIAL_SETTINGS_PRESET } from '@const';
 
-import { useSelector } from '@store';
-import { selectGameLanguageKeyboardInfo } from '@store/selectors';
+import { useDispatch, useSelector } from '@store';
+import { setCookies } from '@store/appSlice';
+
+import useEffectChange from '@hooks/useEffectChange';
 
 import IconCookie from '@components/Icons/IconCookie';
 import IconCheckEnter from '@components/Icons/IconCheckEnter';
-import IconBookmark from '@components/Icons/IconBookmark';
-import IconDictionary from '@components/Icons/IconDictionary';
-import IconDictionaryAlt from '@components/Icons/IconDictionaryAlt';
 
 import Button from '@components/Button/Button';
-import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import CookiesSettings from './CookiesSettings';
 
 import './CookiesPopup.scss';
 
-const CookiesPopup = () => {
-  const areCookiesAlreadyChecked = useSelector(state => state.app.cookies.DIFFLE_LOCAL);
-    // 
-  const [settings, setSettings] = useState(COOKIES_INITIAL_SETTINGS_PRESET);
+interface Props {
+  className?: string,
+  children?: React.ReactNode,
+  isEditMode?: boolean,
+}
 
+const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
+  const dispatch = useDispatch();
+  const storeCookies = useSelector(state => state.app.cookies);
+  const areCookiesAlreadyChecked = useSelector(state => state.app.cookies[CookiesName.DIFFLE_LOCAL]);
+
+  const [settings, setSettings] = useState<CookiesSettingsInterfence>(
+    areCookiesAlreadyChecked ? storeCookies : { ...COOKIES_INITIAL_SETTINGS_PRESET },
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   const { t } = useTranslation();
 
-  const handleChange = useCallback(() => {
+  useEffectChange(() => {
+    setSettings(storeCookies);
+  }, [storeCookies]);
 
-  }, [settings]);
+  const handleSave = useCallback(() => {
+    localStorage.setItem(LOCAL_STORAGE.COOKIES, JSON.stringify(settings));
 
-  // const onClick = () => setIsOpen((value) => !value);
+    dispatch(setCookies(settings));
 
-  // const hasExactMatch = urls.some(({ hasExactMatchAlways }) => hasExactMatchAlways);
+    setIsOpen(false);
+  }, [dispatch, settings]);
 
-  // if (!word) {
-  //   return null;
-  // }
+  const acceptAll = useCallback(() => {
+    localStorage.setItem(LOCAL_STORAGE.COOKIES, JSON.stringify({ ...COOKIES_INITIAL_SETTINGS_PRESET }));
 
-  if (areCookiesAlreadyChecked) {
+    console.log('COOKIES_INITIAL_SETTINGS_PRESET', COOKIES_INITIAL_SETTINGS_PRESET);
+
+    dispatch(setCookies({ ...COOKIES_INITIAL_SETTINGS_PRESET }));
+
+    setIsOpen(false);
+  }, [dispatch]);
+
+  if (areCookiesAlreadyChecked && !isEditMode) {
     return null;
   }
 
   return (
       <>
-          <div className="cookies-popup-wrapper">
-              <div className="cookies-popup">
-                  <div className="cookies-popup-icon-wrapper">
-                      <IconCookie className="cookies-popup-icon" />
-                  </div>
-                  <h3>Akceptujesz cookies?</h3>
-                  <p>
-                      Ta strona korzysta z
-                      {' '}
-                      <b>pamięci podręcznej</b>
-                      {' '}
-                      Twojej przeglądarki by poprawnie funkcjonować.
-                  </p>
-                  <p>
-                      Akceptując wszystko zgadzasz się także na opcjonalne badanie swojej aktywności (między innymi przy pomocy
-                      {' '}
-                      <b>Google Analytics</b>
-                      ).
-                  </p>
-                  <div className="cookies-actions">
-
-                      <Button>
-                          <span>Akceptuję wszystko</span>
-                      </Button>
-                      <Button
-                        onClick={() => setIsOpen(value => !value)}
-                        isInverted
-                        hasBorder={false}
-                      >
-                          {t('settings.title')}
-                      </Button>
+          {children ? (
+              <button
+                className={className}
+                onClick={() => setIsOpen(value => !value)}
+                type="button"
+              >
+                  {children}
+              </button>
+          ) : (
+              <div className="cookies-popup-wrapper">
+                  <div className="cookies-popup">
+                      <div className="cookies-popup-icon-wrapper">
+                          <IconCookie className="cookies-popup-icon" />
+                      </div>
+                      <div className="cookies-text">
+                          <h3>{t('settings.cookiesTitle')}</h3>
+                          <p
+                            // eslint-disable-next-line react/no-danger
+                            dangerouslySetInnerHTML={{ __html: t('settings.cookiesText1') }}
+                          />
+                          <p
+                            // eslint-disable-next-line react/no-danger
+                            dangerouslySetInnerHTML={{ __html: t('settings.cookiesText2') }}
+                          />
+                      </div>
+                      <div className="cookies-actions">
+                          <Button
+                            onClick={acceptAll}
+                          >
+                              <span>{t('settings.acceptAll')}</span>
+                          </Button>
+                          <Button
+                            onClick={() => setIsOpen(value => !value)}
+                            isInverted
+                            hasBorder={false}
+                          >
+                              {t('settings.title')}
+                          </Button>
+                      </div>
                   </div>
               </div>
-          </div>
+          )}
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
-                  <h3>{t('settings.title')}</h3>
-                  {/* {!hasExactMatch && <p className="dictionary-not-match">{t('common.dictionaryIsNotExactMatch')}</p>} */}
+                  <h3>{t('settings.privacyTitle')}</h3>
                   <CookiesSettings settings={settings} onChange={setSettings} />
-                  <Button
-                    isDisabled={!settings.DIFFLE_LOCAL}
-                  >
-                      <IconCheckEnter />
-                      <span>
-                          {t('settings.save')}
-                      </span>
-                  </Button>
+                  {isEditMode ? (
+                      <div>
+                          <div className="cookies-text">
+                              <h3>{t('settings.cookiesTitle')}</h3>
+                              <p
+                                // eslint-disable-next-line react/no-danger
+                                dangerouslySetInnerHTML={{ __html: t('settings.cookiesText1') }}
+                              />
+                              <p
+                                // eslint-disable-next-line react/no-danger
+                                dangerouslySetInnerHTML={{ __html: t('settings.cookiesText2') }}
+                              />
+                          </div>
+                          <div className="cookies-actions">
+                              <Button
+                                onClick={acceptAll}
+                              >
+                                  <span>{t('settings.acceptAll')}</span>
+                              </Button>
+                              <Button
+                                isDisabled={!settings[CookiesName.DIFFLE_LOCAL]}
+                                isInverted
+                                onClick={handleSave}
+                              >
+                                  <span>
+                                      {t('settings.saveSelected')}
+                                  </span>
+                              </Button>
+                          </div>
+                      </div>
+                  ) : (
+                      <div className="cookies-actions">
+                          <Button
+                            isDisabled={!settings[CookiesName.DIFFLE_LOCAL]}
+                            onClick={handleSave}
+                          >
+                              <IconCheckEnter />
+                              <span>
+                                  {t('settings.saveSelected')}
+                              </span>
+                          </Button>
+                      </div>
+                  )}
+
               </div>
           </Modal>
       </>
