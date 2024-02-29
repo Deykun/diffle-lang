@@ -8,8 +8,9 @@ import {
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
-import { useSelector } from '@store';
+import { useDispatch, useSelector } from '@store';
 import { selectIsGameEnded, getWordsAndLetters } from '@store/selectors';
+import { track } from '@store/appSlice';
 
 import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
@@ -70,6 +71,7 @@ const EMPTY_SHARED_CONTENT_RESULT = {
 };
 
 const SharedContent = () => {
+  const dispatch = useDispatch();
   const isGameEnded = useSelector(selectIsGameEnded);
   const gameLanguage = useSelector(state => state.game.language);
   const gameMode = useSelector(state => state.game.mode);
@@ -180,6 +182,14 @@ const SharedContent = () => {
 
             return;
           }
+
+          dispatch(track({
+            name: 'game_result_displayed',
+            params: {
+              lang: gameLanguage || getLangFromUrl() || 'unknown',
+              hash,
+            },
+          }));
 
           setResult({
             wordToGuess: sharedWordToGuess,

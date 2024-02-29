@@ -112,6 +112,7 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                           </Button>
                           <Button
                             onClick={() => setIsOpen(value => !value)}
+                            dataTestId="show-cookies-settings"
                             isInverted
                             hasBorder={false}
                           >
@@ -148,6 +149,7 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                                 isDisabled={!settings[CookiesName.DIFFLE_LOCAL]}
                                 isInverted
                                 onClick={handleSave}
+                                dataTestId="cookies-save-selected"
                               >
                                   <span>
                                       {t('settings.saveSelected')}
@@ -160,6 +162,7 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                           <Button
                             isDisabled={!settings[CookiesName.DIFFLE_LOCAL]}
                             onClick={handleSave}
+                            dataTestId="cookies-save-selected"
                           >
                               <IconCheckEnter />
                               <span>

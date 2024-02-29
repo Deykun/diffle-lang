@@ -143,7 +143,7 @@
     "settings.privacyTitle": "Privacidad",
     "settings.cookiesTitle": "Cookies",
     "settings.cookiesText1": "Este sitio web utiliza la <b>memoria caché</b> de su navegador para funcionar correctamente.",
-    "settings.cookiesText2": "Al aceptar \"todo\", también acepta el seguimiento <b>opcional</b> de su actividad (incluido a través de <b>Google Analytics</b>).",
+    "settings.cookiesText2": "Al aceptar \"todo\", también aceptas el seguimiento <b>opcional</b> de tu actividad (incluido <b>Google Analytics</b>).",
     "settings.acceptAll": "Aceptar todo",
     "settings.saveSelected": "Guardar seleccionado",
     "settings.cookiesSavedAndRefresh": "Guardado. La aplicación se actualizará.",

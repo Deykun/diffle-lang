@@ -143,7 +143,7 @@
     "settings.privacyTitle": "Datenschutz",
     "settings.cookiesTitle": "Cookies",
     "settings.cookiesText1": "Diese Website verwendet den <b>Cache</b> Ihres Browsers, um korrekt zu funktionieren.",
-    "settings.cookiesText2": "Durch das Akzeptieren von \"alle\" stimmen Sie auch der <b>optionalen</b> Verfolgung Ihrer Aktivitäten zu (einschließlich über <b>Google Analytics</b>).",
+    "settings.cookiesText2": "Durch die Zustimmung zu „alle“ stimmen Sie auch der <b>optionalen</b> Verfolgung Ihrer Aktivitäten zu (einschließlich <b>Google Analytics</b>).",
     "settings.acceptAll": "Alles akzeptieren",
     "settings.saveSelected": "Auswahl speichern",
     "settings.cookiesSavedAndRefresh": "Gespeichert. Die Anwendung wird aktualisiert.",

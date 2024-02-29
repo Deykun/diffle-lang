@@ -31,6 +31,7 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
               <ButtonTile
                 isActive={settings[CookiesName.GOOGLE_ANALYTICS]}
                 onClick={() => toggleSetting(CookiesName.GOOGLE_ANALYTICS)}
+                dataTestId="cookie-setting-ga"
               >
                   <IconCookies />
                   <span className="button-tile-title-small">
@@ -44,6 +45,7 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
               <ButtonTile
                 isActive={settings[CookiesName.DIFFLE_EXTERNAL]}
                 onClick={() => toggleSetting(CookiesName.DIFFLE_EXTERNAL)}
+                dataTestId="cookie-setting-diffle-external"
               >
                   <IconCookies />
                   <span className="button-tile-title-small">
@@ -57,6 +59,7 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
               <ButtonTile
                 isActive={settings[CookiesName.DIFFLE_LOCAL]}
                 onClick={() => toggleSetting(CookiesName.DIFFLE_LOCAL)}
+                dataTestId="cookie-setting-diffle-local"
               >
                   <IconCookie />
                   <span className="button-tile-title-small">

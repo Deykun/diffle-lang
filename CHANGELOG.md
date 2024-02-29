@@ -11,7 +11,14 @@
 
 ---
 
-#### Version 3.12
+#### Version 3.12.1
+- **Fix**: No triple tracking for panes in GA
+- **Fix**: Tracking for the initial pane restored
+- **Fix**: No doubled tracking for words that weren't found in the dictionary
+- **New**: Result copied and seen tracking added
+- **New**: Game mode changed tracking added
+
+#### Version 3.12 (29.02.2024)
 - **New**: Cookies popup added, basic integration with Google Analytics
 
 #### Version 3.11.1 (28.02.2024)

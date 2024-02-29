@@ -140,9 +140,9 @@ export const submitAnswer = createAsyncThunk(
       dispatch(setToast({ text: 'game.isNotInDictionary' }));
 
       dispatch(track({ name: 'word_not_in_dictionary', params: { lang, word: wordToSubmit } }));
+    } else {
+      dispatch(track({ name: 'word_in_dictionary', params: { lang, word: wordToSubmit } }));
     }
-
-    dispatch(track({ name: 'word_in_dictionary', params: { lang, word: wordToSubmit } }));
 
     const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
     if (isWordFetchError) {
