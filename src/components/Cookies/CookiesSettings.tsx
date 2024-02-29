@@ -46,7 +46,7 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
                   <span className="button-tile-title-small">
                       <strong>Google Analytics</strong>
                       <br />
-                      <span>{t('settings.cookiesExternalOptional')}</span>
+                      <span className="cookies-setting-small-label">{t('settings.cookiesExternalOptional')}</span>
                   </span>
               </ButtonTile>
           </li>
@@ -60,7 +60,7 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
                   <span className="button-tile-title-small">
                       <strong>DIFFLE</strong>
                       <br />
-                      <span>{t('settings.cookiesExternalOptional')}</span>
+                      <span className="cookies-setting-small-label">{t('settings.cookiesExternalOptional')}</span>
                   </span>
               </ButtonTile>
           </li>
@@ -74,7 +74,7 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
                   <span className="button-tile-title-small">
                       <strong>DIFFLE</strong>
                       <br />
-                      <span>{t('settings.cookiesLocalRequierd')}</span>
+                      <span className="cookies-setting-small-label">{t('settings.cookiesLocalRequierd')}</span>
                   </span>
               </ButtonTile>
           </li>

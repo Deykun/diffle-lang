@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from 'react';
+import clsx from 'clsx';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CookiesName, CookiesSettingsInterfence } from '@common-types';
@@ -6,7 +7,7 @@ import { CookiesName, CookiesSettingsInterfence } from '@common-types';
 import { LOCAL_STORAGE, COOKIES_INITIAL_SETTINGS_PRESET } from '@const';
 
 import { useDispatch, useSelector } from '@store';
-import { setCookies } from '@store/appSlice';
+import { setCookies, setToast } from '@store/appSlice';
 
 import useEffectChange from '@hooks/useEffectChange';
 
@@ -29,6 +30,7 @@ interface Props {
 const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
   const dispatch = useDispatch();
   const storeCookies = useSelector(state => state.app.cookies);
+  const shouldReloadWhenUnchecked = useSelector(state => state.app.cookies[CookiesName.GOOGLE_ANALYTICS]);
   const areCookiesAlreadyChecked = useSelector(state => state.app.cookies[CookiesName.DIFFLE_LOCAL]);
 
   const [settings, setSettings] = useState<CookiesSettingsInterfence>(
@@ -39,26 +41,36 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
   const { t } = useTranslation();
 
   useEffectChange(() => {
-    setSettings(storeCookies);
-  }, [storeCookies]);
+    if (isEditMode) {
+      setSettings(storeCookies);
+    }
+  }, [isEditMode, storeCookies]);
+
+  const saveCookies = useCallback((cookiesToSave: CookiesSettingsInterfence) => {
+    localStorage.setItem(LOCAL_STORAGE.COOKIES, JSON.stringify(cookiesToSave));
+
+    dispatch(setCookies(cookiesToSave));
+
+    setIsOpen(false);
+
+    // Google Analytics (GA) was already added to the site; refreshing guarantees that it was removed
+    const shouldReload = shouldReloadWhenUnchecked && !cookiesToSave[CookiesName.GOOGLE_ANALYTICS];
+    if (shouldReload) {
+      dispatch(setToast({ text: 'settings.cookiesSavedAndRefresh', timeoutSeconds: 5 }));
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2 * 1000);
+    }
+  }, [dispatch, shouldReloadWhenUnchecked]);
 
   const handleSave = useCallback(() => {
-    localStorage.setItem(LOCAL_STORAGE.COOKIES, JSON.stringify(settings));
-
-    dispatch(setCookies(settings));
-
-    setIsOpen(false);
-  }, [dispatch, settings]);
+    saveCookies(settings);
+  }, [saveCookies, settings]);
 
   const acceptAll = useCallback(() => {
-    localStorage.setItem(LOCAL_STORAGE.COOKIES, JSON.stringify({ ...COOKIES_INITIAL_SETTINGS_PRESET }));
-
-    console.log('COOKIES_INITIAL_SETTINGS_PRESET', COOKIES_INITIAL_SETTINGS_PRESET);
-
-    dispatch(setCookies({ ...COOKIES_INITIAL_SETTINGS_PRESET }));
-
-    setIsOpen(false);
-  }, [dispatch]);
+    saveCookies({ ...COOKIES_INITIAL_SETTINGS_PRESET });
+  }, [saveCookies]);
 
   if (areCookiesAlreadyChecked && !isEditMode) {
     return null;
@@ -109,7 +121,7 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
               </div>
           )}
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="settings">
+              <div className={clsx('settings', 'cookies-settings')}>
                   <h3>{t('settings.privacyTitle')}</h3>
                   <CookiesSettings settings={settings} onChange={setSettings} />
                   {isEditMode ? (

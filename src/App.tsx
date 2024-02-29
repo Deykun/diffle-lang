@@ -9,6 +9,7 @@ import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
+import useAddTrackersScriptsIfNeeded from '@hooks/useAddTrackersScriptsIfNeeded';
 import usePanes from '@hooks/usePanes';
 
 import Header from '@components/Header';
@@ -42,6 +43,8 @@ function App() {
   useAppUpdateIfNeeded();
 
   useLangugeChangeIfNeeded();
+
+  useAddTrackersScriptsIfNeeded();
 
   useEffect(() => {
     const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
