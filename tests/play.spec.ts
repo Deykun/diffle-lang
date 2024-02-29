@@ -5,6 +5,7 @@ const BASE_URL_EN = `${BASE_URL}en`;
 
 test('Should render "Help" and keyboard after clicking "Play"', async ({ page }) => {
   await page.goto(BASE_URL_EN);
+  await page.getByTestId('accept-all-cookies').click();
 
   const playButton = page.getByRole('button', { name: 'Play' });
 
@@ -20,6 +21,7 @@ test('Should render "Help" and keyboard after clicking "Play"', async ({ page })
 
 async function startTheGame(page: Page) {
   await page.goto(BASE_URL_EN);
+  await page.getByTestId('accept-all-cookies').click();
 
   const playButton = page.getByRole('button', { name: 'Play' });
 
@@ -31,6 +33,8 @@ async function typeOnVirtualKeyboardWord(page: Page, text = '') {
 
   for (const letter of letters) {
     const keyForLetter = page.getByTestId(`key-${letter}`);
+
+    await page.waitForTimeout(30);
     
     await keyForLetter.click();
   }

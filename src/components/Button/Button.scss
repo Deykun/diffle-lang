@@ -41,6 +41,10 @@
         border-color: var(--blue-stronger);
     }
 
+    &:disabled {
+        opacity: 0.3;
+    }
+
     .button-loader {
         position: absolute;
         left: calc(50% - 10px);

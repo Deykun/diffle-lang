@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.11.1
+#### Version 3.12
+- **New**: Cookies popup added, basic integration with Google Analytics
+
+#### Version 3.11.1 (28.02.2024)
 - **New**: Translation bug updated on Crowdin
 
 #### Version 3.11 (28.02.2024)

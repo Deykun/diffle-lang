@@ -1,4 +1,4 @@
-import { Dictionary } from '@common-types';
+import { Dictionary, CookiesName } from '@common-types';
 
 export const isTestEnv = (window.location.origin || '')?.includes(':2001') || false;
 
@@ -159,6 +159,7 @@ export const LOCAL_STORAGE = {
   LAST_LANG: 'diffle_last_lang',
   THEME: 'diffle_theme',
   THEME_CONTRAST: 'diffle_theme_contrast',
+  COOKIES: 'diffle_cookies',
   SHOULD_VIBRATE: 'diffle_should_vibrate',
   SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',
   IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
@@ -166,4 +167,23 @@ export const LOCAL_STORAGE = {
   SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
   SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',
+};
+
+/* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */
+export const IS_MAIN_INSTANCE = ['localhost', 'deykun'].some(phrase => window.location.href.includes(phrase));
+
+// Just put your ID inside the single quotes if you want to use your own GA instance. ;)
+export const TRACKER_GA_ID = IS_MAIN_INSTANCE ? 'G-ZEKHKHYYV0' : '';
+
+export const COOKIES_INITIAL_SETTINGS_UNSET = {
+  [CookiesName?.GOOGLE_ANALYTICS]: false,
+  [CookiesName?.DIFFLE_EXTERNAL]: false,
+  [CookiesName?.DIFFLE_LOCAL]: false,
+};
+
+// This is the "Accept all" preset some checks aren't true if they aren't configured
+export const COOKIES_INITIAL_SETTINGS_PRESET = {
+  [CookiesName?.GOOGLE_ANALYTICS]: !!TRACKER_GA_ID,
+  [CookiesName?.DIFFLE_EXTERNAL]: !!IS_MAIN_INSTANCE,
+  [CookiesName?.DIFFLE_LOCAL]: true,
 };
