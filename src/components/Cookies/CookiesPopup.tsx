@@ -168,7 +168,6 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                           </Button>
                       </div>
                   )}
-
               </div>
           </Modal>
       </>

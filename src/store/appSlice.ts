@@ -1,4 +1,3 @@
-// import { createSlice } from '@reduxjs/toolkit';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Pane, RootAppState, RootState, ToastType, CookiesName } from '@common-types';
