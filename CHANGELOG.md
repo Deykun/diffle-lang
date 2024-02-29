@@ -15,7 +15,7 @@
 - **Fix**: No triple tracking for panes in GA
 - **Fix**: Tracking for the initial pane restored
 - **Fix**: No doubled tracking for words that weren't found in the dictionary
-- **New**: Result copied tracking added
+- **New**: Result copied and seen tracking added
 - **New**: Game mode changed tracking added
 
 #### Version 3.12 (29.02.2024)

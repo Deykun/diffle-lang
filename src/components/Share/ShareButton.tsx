@@ -95,7 +95,7 @@ ${shareUrl}`;
     dispatch(setToast({ text: 'common.copied' }));
 
     dispatch(track({
-      name: 'game_result_shared',
+      name: 'game_result_copied',
       params: {
         lang: gameLanguage,
         letters,
