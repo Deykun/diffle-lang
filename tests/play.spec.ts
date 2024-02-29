@@ -3,9 +3,29 @@ import { test, expect, type Page } from '@playwright/test';
 const BASE_URL = 'http://localhost:2001/diffle-lang/';
 const BASE_URL_EN = `${BASE_URL}en`;
 
+async function acceptRequiredCookies(page: Page) {
+  await page.getByTestId('show-cookies-settings').click();
+
+  const settingGA = page.getByTestId('cookie-setting-ga');
+  const settingDiffleExt = page.getByTestId('cookie-setting-diffle-external');
+
+  const classNameGA = await settingGA.evaluate(el => el.className)
+  if (classNameGA && classNameGA?.includes('button-tile-active')) {
+    await settingGA.click();
+  }
+
+  const classNameDiffleExt = await settingDiffleExt.evaluate(el => el.className)
+  if (classNameDiffleExt && classNameDiffleExt?.includes('button-tile-active')) {
+    await settingDiffleExt.click();
+  }
+
+  await page.getByTestId('cookies-save-selected').click();
+}
+
 test('Should render "Help" and keyboard after clicking "Play"', async ({ page }) => {
   await page.goto(BASE_URL_EN);
-  await page.getByTestId('accept-all-cookies').click();
+
+  await acceptRequiredCookies(page);
 
   const playButton = page.getByRole('button', { name: 'Play' });
 
@@ -21,7 +41,8 @@ test('Should render "Help" and keyboard after clicking "Play"', async ({ page })
 
 async function startTheGame(page: Page) {
   await page.goto(BASE_URL_EN);
-  await page.getByTestId('accept-all-cookies').click();
+
+  await acceptRequiredCookies(page);
 
   const playButton = page.getByRole('button', { name: 'Play' });
 

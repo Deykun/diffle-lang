@@ -11,6 +11,7 @@ import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
 import useAddTrackersScriptsIfNeeded from '@hooks/useAddTrackersScriptsIfNeeded';
 import usePanes from '@hooks/usePanes';
+import useTrackGlobal from '@hooks/useTrackGlobal';
 
 import Header from '@components/Header';
 
@@ -45,6 +46,8 @@ function App() {
   useLangugeChangeIfNeeded();
 
   useAddTrackersScriptsIfNeeded();
+
+  useTrackGlobal();
 
   useEffect(() => {
     const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';

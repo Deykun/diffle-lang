@@ -145,6 +145,7 @@
     "settings.cookiesText1": "Ta strona korzysta z <b>pamięci podręcznej</b> Twojej przeglądarki by poprawnie funkcjonować.",
     "settings.cookiesText2": "\"Akceptując wszystkie\" zgadzasz się także na <b>opcjonalne</b> badanie swojej aktywności (między innymi przy pomocy <b>Google Analytics</b>).",
     "settings.acceptAll": "Akceptuję wszystkie",
+    "settings.acceptOnlyRequired": "Akceptuję wymagane",
     "settings.saveSelected": "Zapisz wybrane",
     "settings.cookiesSavedAndRefresh": "Zapisano. Aplikacja zostanie odświeżona.",
     "settings.cookiesExternalOptional": "zewnętrzne i opcjonalne",

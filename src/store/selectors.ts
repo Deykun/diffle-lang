@@ -24,6 +24,13 @@ export const selectIsWon = (state: RootState) => state.game.status === GameStatu
 export const selectIsLost = (state: RootState) => state.game.status === GameStatus.Lost;
 export const selectIsGameEnded = (state: RootState) => state.game.status !== GameStatus.Guessing;
 
+export const selectCookiesPolicyHash = createSelector(
+  (state: RootState) => state.app.cookies,
+  (cookies): string => {
+    return Object.values(cookies).map(isChecked => (isChecked ? 't' : 'f')).join('-');
+  },
+);
+
 export const selectGameLanguageKeyboardInfo = createSelector(
   (state: RootState) => state.game.language,
   (state: RootState) => state.app.keyboardQWERTYMode,

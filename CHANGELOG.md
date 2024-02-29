@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.12
+#### Version 3.12.1
+- **Fix**: First improvments to GA integration
+
+#### Version 3.12 (29.02.2024)
 - **New**: Cookies popup added, basic integration with Google Analytics
 
 #### Version 3.11.1 (28.02.2024)
