@@ -20,7 +20,7 @@ export const getInitCookiesSettings = () => {
     try {
       const savedCookiesJSON = JSON.parse(savedCookies) || {};
 
-      const savedKeys = Object.keys(savedCookiesJSON);
+      const savedKeys = Object.keys(savedCookiesJSON) as CookiesName[];
       const cookiesKeys = Object.values(CookiesName);
 
       const isInterfaceRight = savedKeys.length === cookiesKeys.length && savedKeys.every(key => cookiesKeys.includes(key));

@@ -106,6 +106,7 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                       <div className="cookies-actions">
                           <Button
                             onClick={acceptAll}
+                            dataTestId="accept-all-cookies"
                           >
                               <span>{t('settings.acceptAll')}</span>
                           </Button>

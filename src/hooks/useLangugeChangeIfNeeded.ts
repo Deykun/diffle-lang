@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useSelector, useDispatch } from '@store';
+import { track } from '@store/appSlice';
 import { setGameLanguage } from '@store/gameSlice';
 
 import { getLangFromUrl, getLangFromBrowser } from '@utils/lang';
@@ -23,6 +24,12 @@ export default function useLangugeChangeIfNeeded() {
   const gameLanguage = useSelector(state => state.game.language);
 
   const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (gameLanguage) {
+      dispatch(track({ name: `game_lang_${gameLanguage}` }));
+    }
+  }, [dispatch, gameLanguage]);
 
   useEffectChange(() => {
     const { language: appLanguage } = i18n;

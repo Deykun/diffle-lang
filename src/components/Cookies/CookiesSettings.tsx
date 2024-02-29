@@ -1,22 +1,12 @@
-import { useEffect, useState, Dispatch, SetStateAction, } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { CookiesName, CookiesSettingsInterfence } from '@common-types';
 
-import { IS_MAIN_INSTANCE, COOKIES_INITIAL_SETTINGS_PRESET } from '@const';
-
-import { useSelector } from '@store';
-import { selectGameLanguageKeyboardInfo } from '@store/selectors';
-
 import IconCookie from '@components/Icons/IconCookie';
 import IconCookies from '@components/Icons/IconCookies';
-import IconBookmark from '@components/Icons/IconBookmark';
-import IconDictionary from '@components/Icons/IconDictionary';
-import IconDictionaryAlt from '@components/Icons/IconDictionaryAlt';
 
-import Button from '@components/Button/Button';
 import ButtonTile from '@components/Button/ButtonTile';
-import Modal from '@components/Modal/Modal';
 
 import './CookiesPopup.scss';
 
@@ -50,7 +40,6 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
                   </span>
               </ButtonTile>
           </li>
-          {IS_MAIN_INSTANCE && (
           <li>
               <ButtonTile
                 isActive={settings[CookiesName.DIFFLE_EXTERNAL]}
@@ -64,7 +53,6 @@ const CookiesSettings = ({ settings, onChange }: Props) => {
                   </span>
               </ButtonTile>
           </li>
-          )}
           <li>
               <ButtonTile
                 isActive={settings[CookiesName.DIFFLE_LOCAL]}

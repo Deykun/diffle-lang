@@ -176,14 +176,14 @@ export const IS_MAIN_INSTANCE = ['localhost', 'deykun'].some(phrase => window.lo
 export const TRACKER_GA_ID = IS_MAIN_INSTANCE ? 'G-ZEKHKHYYV0' : '';
 
 export const COOKIES_INITIAL_SETTINGS_UNSET = {
-  [CookiesName.GOOGLE_ANALYTICS]: false,
-  [CookiesName.DIFFLE_EXTERNAL]: false,
-  [CookiesName.DIFFLE_LOCAL]: false,
+  [CookiesName?.GOOGLE_ANALYTICS]: false,
+  [CookiesName?.DIFFLE_EXTERNAL]: false,
+  [CookiesName?.DIFFLE_LOCAL]: false,
 };
 
 // This is the "Accept all" preset some checks aren't true if they aren't configured
 export const COOKIES_INITIAL_SETTINGS_PRESET = {
-  [CookiesName.GOOGLE_ANALYTICS]: !!TRACKER_GA_ID,
-  [CookiesName.DIFFLE_EXTERNAL]: !!IS_MAIN_INSTANCE,
-  [CookiesName.DIFFLE_LOCAL]: true,
+  [CookiesName?.GOOGLE_ANALYTICS]: !!TRACKER_GA_ID,
+  [CookiesName?.DIFFLE_EXTERNAL]: !!IS_MAIN_INSTANCE,
+  [CookiesName?.DIFFLE_LOCAL]: true,
 };

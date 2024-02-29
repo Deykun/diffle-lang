@@ -11,6 +11,7 @@ import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
 import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
+import IconCookie from '@components/Icons/IconCookie';
 import IconCookies from '@components/Icons/IconCookies';
 import IconKeyboard from '@components/Icons/IconKeyboard';
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown';
@@ -29,6 +30,9 @@ import './Settings.scss';
 
 const SettingsPreferences = () => {
   const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
+  const cookies = useSelector(state => state.app.cookies);
+  const totalOfCookiesPoliciesAccepted = Object.values(cookies).filter(Boolean).length;
+
   const { t } = useTranslation();
 
   const {
@@ -86,7 +90,10 @@ const SettingsPreferences = () => {
               </li>
               <li>
                   <CookiesPopup className="button-tile" isEditMode>
-                      <IconCookies />
+                      {totalOfCookiesPoliciesAccepted > 1
+                        ? <IconCookies />
+                        : <IconCookie />
+                      }
                       <span>{t('settings.privacyTitle')}</span>
                   </CookiesPopup>
               </li>
