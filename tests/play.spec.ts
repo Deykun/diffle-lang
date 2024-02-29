@@ -33,6 +33,8 @@ async function typeOnVirtualKeyboardWord(page: Page, text = '') {
 
   for (const letter of letters) {
     const keyForLetter = page.getByTestId(`key-${letter}`);
+
+    await page.waitForTimeout(30);
     
     await keyForLetter.click();
   }
