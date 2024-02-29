@@ -11,18 +11,25 @@ function useTrackGlobal() {
 
   const activePane = useSelector(state => state.app.pane.active);
   const gameLanguage = useSelector(state => state.game.language);
+  const gameMode = useSelector(state => state.game.mode);
 
   useEffect(() => {
     if (activePane && gameLanguage) {
       dispatch(track({ name: `pane_view_${activePane.replaceAll('-', '_').toLocaleLowerCase()}`, params: { lang: gameLanguage } }));
     }
-  }, [activePane, cookiesRefresherString, dispatch, gameLanguage]);
+  }, [cookiesRefresherString, dispatch, activePane, gameLanguage]);
+
+  useEffect(() => {
+    if (gameMode && gameLanguage) {
+      dispatch(track({ name: `game_mode_${gameMode}`, params: { lang: gameLanguage } }));
+    }
+  }, [cookiesRefresherString, dispatch, gameLanguage, gameMode]);
 
   useEffect(() => {
     if (gameLanguage) {
       dispatch(track({ name: `game_lang_${gameLanguage}` }));
     }
-  }, [gameLanguage, cookiesRefresherString, dispatch]);
+  }, [cookiesRefresherString, dispatch, gameLanguage]);
 }
 
 export default useTrackGlobal;

@@ -7,7 +7,7 @@ import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 import { GameMode, GameStatus } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
-import { setToast, toggleShareWords } from '@store/appSlice';
+import { track, setToast, toggleShareWords } from '@store/appSlice';
 import { selectGuessesStatsForLetters } from '@store/selectors';
 
 import { getWordsIndexesChunks } from '@api/getDoesWordExist';
@@ -85,11 +85,24 @@ ${shareUrl}`;
   }, [endStatus, gameLanguage, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words]);
 
   const handleCopy = useCallback(() => {
+    if (!gameLanguage) {
+      return;
+    }
+
     setIsOpen(false);
     copyMessage(textToCopy);
 
     dispatch(setToast({ text: 'common.copied' }));
-  }, [textToCopy, dispatch]);
+
+    dispatch(track({
+      name: 'game_result_shared',
+      params: {
+        lang: gameLanguage,
+        letters,
+        words,
+      },
+    }));
+  }, [gameLanguage, textToCopy, dispatch, letters, words]);
 
   const handleToggleShareWords = useCallback(() => {
     vibrate();
