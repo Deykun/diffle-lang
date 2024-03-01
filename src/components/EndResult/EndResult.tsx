@@ -26,11 +26,11 @@ import './EndResult.scss';
 
 function EndResult() {
   const dispatch = useDispatch();
-  const endStatus = useSelector((state) => state.game.status);
-  const gameLanguage = useSelector((state) => state.game.language);
-  const gameMode = useSelector((state) => state.game.mode);
-  const wordToGuess = useSelector((state) => state.game.wordToGuess);
-  const guesses = useSelector((state) => state.game.guesses);
+  const endStatus = useSelector(state => state.game.status);
+  const gameLanguage = useSelector(state => state.game.language);
+  const gameMode = useSelector(state => state.game.mode);
+  const wordToGuess = useSelector(state => state.game.wordToGuess);
+  const guesses = useSelector(state => state.game.guesses);
   const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
   const [isReseting, setIsReseting] = useState(false);
 

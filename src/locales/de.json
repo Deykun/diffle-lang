@@ -227,6 +227,7 @@
     "statistics.showTitleWithLanguage": "Sprachtitel anzeigen",
     "statistics.basedOn": "{{product}} basierend auf {{words}} Wörtern aus {{source}}",
     "statistics.bestWordleWordTitle": "Bestes Startwort in Wordle",
+    "statistics.bestWordleWordExplanation": "Ergebnis gegen {{words}} Wörter:",
     "statistics.filterWordleLettersTitle": "Verwendung von Buchstaben",
     "statistics.filterWordleInWords": "Buchstaben",
     "statistics.filterWordleLetterPosition": "Position (Wiederholungen)",

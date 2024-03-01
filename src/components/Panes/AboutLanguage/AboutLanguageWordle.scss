@@ -11,6 +11,63 @@
     }
   }
 
+  .about-language-wordle-best-word-explanation,
+  .about-language-wordle-best-word-statistics {
+    color: var(--text-weaker);
+    font-size: 12px;
+    letter-spacing: 0.03em;
+
+    strong {
+      color: var(--text);
+    }
+  }
+
+  .about-language-wordle-best-word-statistics {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    gap: 14px;
+    margin: 4px 0 20px;
+    color: var(--text);
+
+    > span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: help;
+      font-weight: 600;
+
+      &::before {
+        display: inline-block;
+        content: '';
+        border-radius: 2px;
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        margin-right: 5px;
+      }
+
+      > span {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 1px;
+      }
+
+      &.about-language-wordle-best-word--correct::before {
+        background-color: var(--green);
+      }
+
+      &.about-language-wordle-best-word--position::before {
+        background-color: var(--orange);
+      }
+
+      &.about-language-wordle-best-word--incorrect::before {
+        background-color: var(--incorrect);
+      }
+    }
+  }
+
   .about-language-wordle-explanation {
     font-size: 14px;
     margin-bottom: 24px;
@@ -113,7 +170,6 @@
     display: inline-block;
     vertical-align: middle;
     border-radius: 2px;
-    background-color: pink;
     width: 10px;
     height: 10px;
     margin-right: 5px;

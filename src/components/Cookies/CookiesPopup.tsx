@@ -142,11 +142,12 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                           <div className="cookies-actions">
                               <Button
                                 onClick={acceptAll}
+                                isDisabled={!isOpen}
                               >
                                   <span>{t('settings.acceptAll')}</span>
                               </Button>
                               <Button
-                                isDisabled={!settings[CookiesName.DIFFLE_LOCAL]}
+                                isDisabled={!isOpen || !settings[CookiesName.DIFFLE_LOCAL]}
                                 isInverted
                                 onClick={handleSave}
                                 dataTestId="cookies-save-selected"
@@ -160,7 +161,7 @@ const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
                   ) : (
                       <div className="cookies-actions">
                           <Button
-                            isDisabled={!settings[CookiesName.DIFFLE_LOCAL]}
+                            isDisabled={!isOpen || !settings[CookiesName.DIFFLE_LOCAL]}
                             onClick={handleSave}
                             dataTestId="cookies-save-selected"
                           >

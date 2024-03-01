@@ -55,13 +55,7 @@ const ButtonTile = ({
         className={clsx('button-tile', {
           'button-tile-active': isActive,
           'button-tile-inverse': isInverted,
-          // isActive
-          // inverted: isInverted,
-          // text: isText,
-          // large: isLarge,
           [className]: className,
-          // loading: isLoading,
-          // 'no-border': !hasBorder,
         })}
         onClick={handleClick}
         href={href}

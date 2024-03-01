@@ -4,8 +4,16 @@
   left: 50%;
   width: 100%;
   max-width: min(400px, 95vw);
-  transform: translateX(-50%);
   z-index: 1;
+  transform: scale(0.8) translate(-50%, 150%);
+  animation: slideInCookies 0.2s ease-out forwards;
+  animation: slideInCookies 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.2) forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes slideInCookies {
+  0% { transform: scale(0.8) translate(-50%, 150%); }
+  100% { transform: scale(1) translate(-50%, 0%); }
 }
 
 .cookies-popup {

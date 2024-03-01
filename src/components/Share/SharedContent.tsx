@@ -16,6 +16,7 @@ import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
 import { getWordReportForMultipleWords } from '@api/getWordReport';
 
+import { getCssVarMillisecondsValue } from '@utils/css';
 import { removeDiacratics } from '@api/helpers';
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
@@ -205,14 +206,20 @@ const SharedContent = () => {
         }
       })();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hash]);
 
   const removeSharedContent = () => {
     window.history.replaceState(null, document.title, window.location.href.replace(window.location.search, ''));
     setIsOpen(false);
-    setErrorMessage('');
-    setHash('');
-    setResult(EMPTY_SHARED_CONTENT_RESULT);
+
+    const cssTimeoutMs = getCssVarMillisecondsValue('--modal-duration-close') || 100;
+
+    setTimeout(() => {
+      setErrorMessage('');
+      setHash('');
+      setResult(EMPTY_SHARED_CONTENT_RESULT);
+    }, cssTimeoutMs);
   };
 
   useEffect(() => {

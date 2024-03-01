@@ -11,7 +11,13 @@
 
 ---
 
-#### Version 3.12.1
+#### Version 3.12.2
+- **Fix**: Improved modal closing for externally triggered closures
+- **Fix**: Removed a scroll in a language picker (Chrome)
+- **New**: Better tracking for GA
+- **New**: Improved description of Wordle results
+
+#### Version 3.12.1 (29.02.2024)
 - **Fix**: No triple tracking for panes in GA
 - **Fix**: Tracking for the initial pane restored
 - **Fix**: No doubled tracking for words that weren't found in the dictionary
