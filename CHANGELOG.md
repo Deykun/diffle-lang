@@ -11,6 +11,10 @@
 
 ---
 
+#### Version 3.12.2
+- **Fix**: Improved modal closing for externally triggered closures
+- **New**: Better tracking for GA
+
 #### Version 3.12.1
 - **Fix**: No triple tracking for panes in GA
 - **Fix**: Tracking for the initial pane restored

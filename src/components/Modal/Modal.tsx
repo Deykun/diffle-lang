@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { getCssVarMillisecondsValue } from '@utils/css';
 
+import useEffectChange from '@hooks/useEffectChange';
 import useVibrate from '@hooks/useVibrate';
 
 import IconClose from '@components/Icons/IconClose';
@@ -19,15 +20,16 @@ interface Props {
 }
 
 const Modal = ({
-  classNameWraper = '', children, isOpen, onClose,
+  classNameWraper = '', children, isOpen: isOpenProp, onClose,
 }: Props) => {
   const setTimeoutShowModalRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [isOpen, setIsOpen] = useState(isOpenProp);
   const [isClosing, setIsClosing] = useState(false);
 
   const { vibrate } = useVibrate();
   const { t } = useTranslation();
 
-  const handleClosing = () => {
+  const close = () => {
     if (isClosing) {
       return;
     }
@@ -42,6 +44,7 @@ const Modal = ({
 
     setTimeoutShowModalRef.current = setTimeout(() => {
       onClose();
+      setIsOpen(false);
       setIsClosing(false);
     }, cssTimeoutMs);
   };
@@ -49,7 +52,7 @@ const Modal = ({
   const handleClickClose = () => {
     vibrate();
 
-    handleClosing();
+    close();
   };
 
   useEffect(() => () => {
@@ -59,6 +62,15 @@ const Modal = ({
 
     setIsClosing(false);
   }, []);
+
+  // When was open somewher is closed by change od isOpen={true -> false}
+  useEffectChange(() => {
+    if (isOpenProp) {
+      setIsOpen(true);
+    } else {
+      close();
+    }
+  }, [isOpenProp]);
 
   if (!isOpen) {
     return null;

@@ -4,6 +4,8 @@
     left: 50%;
     z-index: 1;
     transform: translate(-50%, 100%);
+    animation: slideInFromBottom 0.4s ease-out forwards;
+    animation-delay: 0.25s;
     width: min(500px, 100%);
     border-top: 1px solid var(--border);
 
@@ -18,8 +20,6 @@
     backdrop-filter: blur(6px) saturate(1.2) hue-rotate(-15deg);
     box-shadow: 0 -7px 15px 0 var(--background-transparent);
     transition: all 0.3s ease-in-out;
-    animation: slideInFromBottom 0.4s ease-out forwards;
-    animation-delay: 0.25s;
 
     &::before {
         content: '';

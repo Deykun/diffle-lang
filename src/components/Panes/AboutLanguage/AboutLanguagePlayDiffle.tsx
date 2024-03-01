@@ -10,7 +10,7 @@ import {
 import { copyMessage } from '@utils/copyMessage';
 
 import { useDispatch } from '@store';
-import { setToast } from '@store/appSlice';
+import { track, setToast } from '@store/appSlice';
 
 import usePanes from '@hooks/usePanes';
 
@@ -37,6 +37,10 @@ const AboutLanguagePlayDiffle = () => {
     dispatch(setToast({ text: 'common.copied' }));
   }, [dispatch]);
 
+  const handleGithubClick = useCallback(() => {
+    dispatch(track({ name: 'click_github_link', params: { source: 'about-language' } }));
+  }, [dispatch]);
+
   return (
       <section className="about-language-play-diffle">
           <h2>{t('help.whatIsDiffleTitle')}</h2>
@@ -53,6 +57,7 @@ const AboutLanguagePlayDiffle = () => {
             tagName="a"
             href="https://github.com/Deykun/diffle-lang"
             target="_blank"
+            onClick={handleGithubClick}
             isInverted
             isText
             hasBorder={false}

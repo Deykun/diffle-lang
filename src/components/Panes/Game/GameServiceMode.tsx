@@ -1,4 +1,8 @@
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { useDispatch } from '@store';
+import { track } from '@store/appSlice';
 
 import IconConstructionMan from '@components/Icons/IconConstruction';
 import IconGithub from '@components/Icons/IconGithub';
@@ -12,7 +16,12 @@ interface Props {
 }
 
 const GameServiceMode = ({ today }: Props) => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
+
+  const handleGithubClick = useCallback(() => {
+    dispatch(track({ name: 'click_github_link', params: { source: 'settings' } }));
+  }, [dispatch]);
 
   return (
       <div className="game-update">
@@ -29,6 +38,7 @@ const GameServiceMode = ({ today }: Props) => {
                 tagName="a"
                 href="https://github.com/Deykun/diffle-lang"
                 target="_blank"
+                onClick={handleGithubClick}
                 isInverted
                 isText
                 hasBorder={false}

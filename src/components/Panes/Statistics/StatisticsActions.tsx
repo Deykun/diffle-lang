@@ -90,7 +90,7 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
                       <li>
                           <ButtonTileWithConfirm
                             onClick={() => handleRemoveGameModeStatitics(ModeFilter.Daily)}
-                            isDisabled={modeFilter === ModeFilter.Practice}
+                            isDisabled={!isOpen || modeFilter === ModeFilter.Practice}
                           >
                               <IconDay />
                               <span>{t('game.modeDaily')}</span>
@@ -99,7 +99,7 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
                       <li>
                           <ButtonTileWithConfirm
                             onClick={() => handleRemoveGameModeStatitics(ModeFilter.Practice)}
-                            isDisabled={modeFilter === ModeFilter.Daily}
+                            isDisabled={!isOpen || modeFilter === ModeFilter.Daily}
                           >
                               <IconInfinity />
                               <span>{t('game.modePractice')}</span>
