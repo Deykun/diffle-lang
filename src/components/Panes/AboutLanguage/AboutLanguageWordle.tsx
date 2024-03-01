@@ -91,15 +91,8 @@ const AboutLanguageWordle = ({ data }: Props) => {
                   ))}
               </span>
           </p>
-          <p className="about-language-wordle-best-word-explanation">
-              Rezultat przeciwko
-              {' '}
-              <strong>{formatLargeNumber(allWordleWords)}</strong>
-              {' '}
-              słowom:
-          </p>
           <p
-            className="about-language-wordle-footer"
+            className="about-language-wordle-best-word-explanation"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: t('statistics.bestWordleWordExplanation', {

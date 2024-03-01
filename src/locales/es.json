@@ -227,7 +227,7 @@
     "statistics.showTitleWithLanguage": "Mostrar título del idioma",
     "statistics.basedOn": "{{product}} basado en {{words}} palabras de {{source}}",
     "statistics.bestWordleWordTitle": "Mejor palabra inicial en Wordle",
-    "statistics.bestWordleWordExplanation": "Resultado contra {{word}} palabras:",
+    "statistics.bestWordleWordExplanation": "Resultado contra {{words}} palabras:",
     "statistics.filterWordleLettersTitle": "Uso de letras",
     "statistics.filterWordleInWords": "Letras",
     "statistics.filterWordleLetterPosition": "Posición (repeticiones)",

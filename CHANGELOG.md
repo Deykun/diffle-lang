@@ -13,6 +13,7 @@
 
 #### Version 3.12.2
 - **Fix**: Improved modal closing for externally triggered closures
+- **Fix**: Removed a scroll in a language picker (Chrome)
 - **New**: Better tracking for GA
 - **New**: Improved description of Wordle results
 
