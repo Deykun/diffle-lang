@@ -24,6 +24,7 @@ const Affix = ({
           end: isEnd,
           caret: hasCaretBefore,
         })}
+        data-testid={`affix-${text.replaceAll(' ', 'spacebar')}`}
         onClick={onClick}
       >
           {/* Both text-transform: uppercase and .toUppercase() replace ß with SS */}

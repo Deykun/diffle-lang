@@ -17,7 +17,7 @@ const ReportTranslationBugButton = () => {
   return (
       <Button
         tagName="a"
-        href="https://forms.gle/AruMXjqf8MyUA4Qt8"
+        href="https://crowdin.com/project/diffle-lang"
         target="_blank"
         isInverted
         isText
