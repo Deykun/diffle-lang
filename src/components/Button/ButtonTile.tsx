@@ -20,6 +20,7 @@ interface Props {
   isDisabled?: boolean,
   isLoading?: boolean,
   isInverted?: boolean,
+  dataTestId?: string,
 }
 
 const ButtonTile = ({
@@ -35,6 +36,7 @@ const ButtonTile = ({
   isDisabled = false,
   isLoading = false,
   isInverted = false,
+  dataTestId,
 }: Props) => {
   const Tag = tagName || 'button';
 
@@ -67,6 +69,7 @@ const ButtonTile = ({
         rel={rel}
         target={target}
         disabled={isDisabled}
+        data-testid={dataTestId}
       >
           {children}
           {isLoading && <IconLoader className="button-loader" />}

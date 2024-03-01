@@ -1,9 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { Pane, RootAppState, ToastType } from '@common-types';
+import { Pane, RootAppState, RootState, ToastType, CookiesName } from '@common-types';
 
 import {
   getInitPane,
+  getInitCookiesSettings,
   getInitShouldVibrate,
   getInitShouldKeyboardVibrate,
   getInitIsSmallKeyboard,
@@ -12,6 +13,31 @@ import {
   getShouldConfirmEnter,
   getShouldShareWords,
 } from '@api/getInit';
+
+export const track = createAsyncThunk(
+  'app/track',
+  async ({
+    name,
+    params = {},
+  }: {
+    name: string,
+    params?: {
+      [key: string]: string | number
+    },
+  }, { getState }) => {
+    const state = getState() as RootState;
+
+    const isGoogleAnalyticsActive = state.app.cookies[CookiesName.GOOGLE_ANALYTICS];
+    if (isGoogleAnalyticsActive) {
+      try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any)?.gtag('event', name, params);
+      } catch {
+        //
+      }
+    }
+  },
+);
 
 const initialState: RootAppState = {
   pane: {
@@ -24,6 +50,9 @@ const initialState: RootAppState = {
     timeoutSeconds: 5,
     toastTime: null,
     params: {},
+  },
+  cookies: {
+    ...getInitCookiesSettings(),
   },
   shouldVibrate: getInitShouldVibrate(),
   shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
@@ -61,6 +90,11 @@ const appSlice = createSlice({
 
       state.toast = {
         type, text, timeoutSeconds, toastTime, params,
+      };
+    },
+    setCookies(state, action) {
+      state.cookies = {
+        ...action.payload,
       };
     },
     clearToast(state) {
@@ -116,6 +150,7 @@ const appSlice = createSlice({
 export const {
   setPane,
   setToast,
+  setCookies,
   clearToast,
   toggleVibration,
   toggleKeyboardVibration,

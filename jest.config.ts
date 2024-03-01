@@ -3,6 +3,7 @@ export default {
     transform: {
         "^.+\\.tsx?$": "ts-jest"
     },
+    testPathIgnorePatterns: ['<rootDir>/tests/'],
     moduleNameMapper: {
         '@api(.*)': '<rootDir>/src/api$1',
         '@components(.*)': '<rootDir>/src/components$1',

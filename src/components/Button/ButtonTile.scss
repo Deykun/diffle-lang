@@ -235,6 +235,17 @@
       border-color: var(--green);
   }
 
+  &:disabled {
+    > svg,
+    > svg + span {
+        opacity: 1;
+    }
+
+    &:hover {
+        opacity: 0.6;
+    }
+  }
+
   svg + span {    
       strong {
           color: var(--green-contrast);

@@ -15,6 +15,7 @@ interface Props {
   href?: string,
   target?: string,
   rel?: string,
+  isDisabled?: boolean,
   isLoading?: boolean,
   isInverted?: boolean,
   isText?: boolean,
@@ -31,6 +32,7 @@ function Button({
   href,
   target,
   rel,
+  isDisabled = false,
   isLoading = false,
   isInverted = false,
   isText = false,
@@ -64,6 +66,7 @@ function Button({
         href={href}
         rel={rel}
         target={target}
+        disabled={isDisabled}
         data-testid={dataTestId}
       >
           {children}

@@ -34,7 +34,7 @@ import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
 import getWordToGuess from '@api/getWordToGuess';
 
-import { setToast } from '@store/appSlice';
+import { setToast, track } from '@store/appSlice';
 import {
   selectIsWon,
   selectIsLost,
@@ -138,6 +138,10 @@ export const submitAnswer = createAsyncThunk(
     const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
     if (isWordDoesNotExistError) {
       dispatch(setToast({ text: 'game.isNotInDictionary' }));
+
+      dispatch(track({ name: 'word_not_in_dictionary', params: { lang, word: wordToSubmit } }));
+    } else {
+      dispatch(track({ name: 'word_in_dictionary', params: { lang, word: wordToSubmit } }));
     }
 
     const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;

@@ -9,9 +9,13 @@ import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
 import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
+import useAddTrackersScriptsIfNeeded from '@hooks/useAddTrackersScriptsIfNeeded';
 import usePanes from '@hooks/usePanes';
+import useTrackGlobal from '@hooks/useTrackGlobal';
 
 import Header from '@components/Header';
+
+import CookiesPopup from '@components/Cookies/CookiesPopup';
 
 import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
@@ -41,6 +45,10 @@ function App() {
 
   useLangugeChangeIfNeeded();
 
+  useAddTrackersScriptsIfNeeded();
+
+  useTrackGlobal();
+
   useEffect(() => {
     const isSavedLightTheme = localStorage.getItem(LOCAL_STORAGE.THEME) === 'light';
     const isNotSavedAndSystemUsesLightTheme = !localStorage.getItem(LOCAL_STORAGE.THEME)
@@ -68,6 +76,7 @@ function App() {
               {pane === PaneInterface.Statistics && <Statistics />}
               {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
           </main>
+          <CookiesPopup />
       </div>
   );
 }
