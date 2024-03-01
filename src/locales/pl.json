@@ -143,7 +143,7 @@
     "settings.privacyTitle": "Prywatność",
     "settings.cookiesTitle": "Ciasteczka",
     "settings.cookiesText1": "Ta strona wykorzystuje <b>pamięć podręczną</b> Twojej przeglądarki do prawidłowego funkcjonowania.",
-    "settings.cookiesText2": "Akceptując \"wszystkie\" zgadzasz się również na śledzenie Twojej aktywności <b>opcjonalnie</b> (w tym <b>Google Analytics</b>).",
+    "settings.cookiesText2": "Akceptując \"wszystkie\" zgadzasz się również na <b>opcjonalnie</b> śledzenie Twojej aktywności (w tym <b>Google Analytics</b>).",
     "settings.acceptAll": "Zaakceptuj wszystkie",
     "settings.acceptOnlyRequired": "Zaakceptuj wymagane",
     "settings.saveSelected": "Zapisz zaznaczone",
