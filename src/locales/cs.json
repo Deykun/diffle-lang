@@ -227,6 +227,7 @@
     "statistics.showTitleWithLanguage": "Zobrazit název jazyka",
     "statistics.basedOn": "{{product}} na základě {{words}} slov z {{source}}",
     "statistics.bestWordleWordTitle": "Nejlepší výchozí slovo ve Wordle",
+    "statistics.bestWordleWordExplanation": "Výsledek proti {{word}} slovům:",
     "statistics.filterWordleLettersTitle": "Používání písmen",
     "statistics.filterWordleInWords": "Písmena",
     "statistics.filterWordleLetterPosition": "Pozice (opakování)",

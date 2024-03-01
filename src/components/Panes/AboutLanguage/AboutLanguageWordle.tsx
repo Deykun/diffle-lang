@@ -11,6 +11,7 @@ import { formatLargeNumber } from '@utils/format';
 import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
 import AboutLanguageWordleFilters from './AboutLanguageWordleFilters';
+import AboutLanguageWordleItem from './AboutLanguageWordleItem';
 
 import './AboutLanguageWordle.scss';
 
@@ -62,7 +63,14 @@ const AboutLanguageWordle = ({ data }: Props) => {
     return null;
   }
 
-  const firstWord = wordsData[0].word;
+  const {
+    word: firstWord,
+    result: {
+      green: firsrtWordCorrect,
+      orange: firsrtWordPosition,
+      gray: firsrtWordIncorrect,
+    },
+  } = wordsData[0];
 
   return (
       <section className="about-language-wordle">
@@ -83,19 +91,84 @@ const AboutLanguageWordle = ({ data }: Props) => {
                   ))}
               </span>
           </p>
+          <p className="about-language-wordle-best-word-explanation">
+              Rezultat przeciwko
+              {' '}
+              <strong>{formatLargeNumber(allWordleWords)}</strong>
+              {' '}
+              słowom:
+          </p>
+          <p
+            className="about-language-wordle-footer"
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: t('statistics.bestWordleWordExplanation', {
+                words: `<strong>${formatLargeNumber(allWordleWords)}</strong>`,
+              }),
+            }}
+          />
+          <div className="about-language-wordle-best-word-statistics">
+              <span
+                className={clsx(
+                  'about-language-wordle-best-word--correct',
+                  'has-tooltip',
+                  'has-tooltip-from-right',
+                )}
+              >
+                  <span>
+                      {(100 * (firsrtWordCorrect / (allWordleWords * 5))).toFixed(2)}
+                      %
+                  </span>
+                  <span className="tooltip">
+                      {t('statistics.lettersCorrect')}
+                  </span>
+              </span>
+              <span
+                className={clsx(
+                  'about-language-wordle-best-word--position',
+                  'has-tooltip',
+                  'has-tooltip-from-right',
+                )}
+              >
+                  <span>
+                      {(100 * (firsrtWordPosition / (allWordleWords * 5))).toFixed(2)}
+                      %
+                  </span>
+                  <span className="tooltip">
+                      {t('statistics.lettersPosition')}
+                  </span>
+              </span>
+              <span
+                className={clsx(
+                  'about-language-wordle-best-word--incorrect',
+                  'has-tooltip',
+                  'has-tooltip-from-right',
+                )}
+              >
+                  <span>
+                      {(100 * (firsrtWordIncorrect / (allWordleWords * 5))).toFixed(2)}
+                      %
+                  </span>
+                  <span className="tooltip">
+                      {t('statistics.lettersIncorrect')}
+                  </span>
+              </span>
+          </div>
           <br />
           <div>
               <p>{t('statistics.bestWordleWordPopularLettersTitle')}</p>
               <ul className="about-language-wordle-positions-list">
-                  {[0, 1, 2, 3, 4].map(index => (
-                      <li key={index}>
+                  {[1, 2, 3, 4, 5].map((position, index) => (
+                      // eslint-disable-next-line react/no-array-index-key
+                      <li key={position}>
                           <strong>
-                              {index + 1}
+                              {position}
                           </strong>
                           {' '}
                           {Object.entries(letterPositions[index]).slice(0, 5).map(
                             ([letter, value]) => (
                                 <strong
+                                  key={`${letter}-${value}`}
                                   className={clsx('about-language-small-key-cap', 'has-tooltip', {
                                     'about-language-wordle-positions-active-letter': firstWord.at(index) === letter,
                                   })}
@@ -126,40 +199,14 @@ const AboutLanguageWordle = ({ data }: Props) => {
                   total, green, orange,
                 },
               }) => (
-                  <p key={word}>
-                      <span className="about-language-wordle-word">
-                          {word.split('').map((letter, index) => (
-                              <strong
-                                // eslint-disable-next-line react/no-array-index-key
-                                key={`${word}-${index}`}
-                                className={clsx('about-language-small-key-cap', {
-                                  'about-language-wordle-letter-active': activeLetters[index] === letter,
-                                })}
-                              >
-                                  {letter.replace('ß', 'ẞ')}
-                              </strong>
-                          ))}
-                      </span>
-                      {' '}
-                      <span className={clsx('about-language-word-value', 'about-language-word-value--correct')}>
-                          <span>
-                              {((green / (total * 5)) * 100).toFixed(2)}
-                              %
-                          </span>
-                      </span>
-                      {' + '}
-                      <span className={clsx('about-language-word-value', 'about-language-word-value--position')}>
-                          <span>
-                              {((orange / (total * 5)) * 100).toFixed(2)}
-                              %
-                          </span>
-                      </span>
-                      {' = '}
-                      <span className="about-language-word-value-total">
-                          {(((green + orange) / (total * 5)) * 100).toFixed(2)}
-                          %
-                      </span>
-                  </p>
+                  <AboutLanguageWordleItem
+                    key={word}
+                    word={word}
+                    activeLetters={activeLetters}
+                    total={total}
+                    green={green}
+                    orange={orange}
+                  />
               ))}
           </div>
           <br />
