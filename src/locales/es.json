@@ -145,6 +145,7 @@
     "settings.cookiesText1": "Este sitio web utiliza la <b>memoria caché</b> de su navegador para funcionar correctamente.",
     "settings.cookiesText2": "Al aceptar \"todo\", también aceptas el seguimiento <b>opcional</b> de tu actividad (incluido <b>Google Analytics</b>).",
     "settings.acceptAll": "Aceptar todo",
+    "settings.acceptOnlyRequired": "Aceptar requeridos",
     "settings.saveSelected": "Guardar seleccionado",
     "settings.cookiesSavedAndRefresh": "Guardado. La aplicación se actualizará.",
     "settings.cookiesExternalOptional": "externo y opcional",
