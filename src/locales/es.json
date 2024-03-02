@@ -26,7 +26,7 @@
     "game.modeDaily": "Diario",
     "game.modePractice": "Práctica",
     "game.modeShare": "Compartido",
-    "game.iGiveUp": "I give up",
+    "game.iGiveUp": "Me rindo",
     "game.dailyGameLostToast": "Partida perdida desde {{dailyStamp}}, la palabra ganadora fue \"{{word}}\"",
     "game.givingUpIsNotPossible": "Comienza una partida para poder rendirte ;)",
     "game.confirmCheckTheWord": "¿Es \"{{word}}\" aceptable?",
