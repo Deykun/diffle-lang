@@ -11,7 +11,11 @@
 
 ---
 
-#### Version 3.12.2
+#### Version 3.12.3
+- **New**: GA tracking of lost/won game
+- **New**: GA tracking of dictionary clicks
+
+#### Version 3.12.2 (01.03.2024)
 - **Fix**: Improved modal closing for externally triggered closures
 - **Fix**: Removed a scroll in a language picker (Chrome)
 - **New**: Better tracking for GA

@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
 import { selectGameLanguageKeyboardInfo } from '@store/selectors';
+import { track } from '@store/appSlice';
 
 import IconBook from '@components/Icons/IconBook';
 import IconBookmark from '@components/Icons/IconBookmark';
@@ -20,15 +21,21 @@ interface Props {
 }
 
 function GoToDictionaryButton({ word = '' }: Props) {
+  const dispatch = useDispatch();
+  const gameLanguage = useSelector(state => state.game.language);
   const { urls } = useSelector(selectGameLanguageKeyboardInfo);
 
   const [isOpen, setIsOpen] = useState(false);
 
   const { t } = useTranslation();
 
-  const onClick = () => setIsOpen((value) => !value);
+  const onClick = () => setIsOpen(value => !value);
 
   const hasExactMatch = urls.some(({ hasExactMatchAlways }) => hasExactMatchAlways);
+
+  const handleDictionaryClick = useCallback(() => {
+    dispatch(track({ name: `click_${gameLanguage}_dictionary_link`, params: { word } }));
+  }, [dispatch, gameLanguage, word]);
 
   if (!word) {
     return null;
@@ -47,6 +54,7 @@ function GoToDictionaryButton({ word = '' }: Props) {
                 href={mainUrl.replace('{{word}}', word)}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={handleDictionaryClick}
                 isInverted
               >
                   {hasExactMatch ? <IconDictionary /> : <IconBook />}
@@ -75,6 +83,7 @@ function GoToDictionaryButton({ word = '' }: Props) {
                                 href={url.replace('{{word}}', word)}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={handleDictionaryClick}
                               >
                                   {index % 2 === 0 ? <IconDictionary /> : <IconDictionaryAlt />}
                                   <span className="button-tile-title-small">

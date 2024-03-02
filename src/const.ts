@@ -1,6 +1,7 @@
 import { Dictionary, CookiesName } from '@common-types';
 
 export const isTestEnv = (window.location.origin || '')?.includes(':2001') || false;
+export const isDev = (window.location.origin || '')?.includes('localhost') || false;
 
 export const WORD_MAXLENGTH = 15;
 
