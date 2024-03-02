@@ -14,4 +14,7 @@
 13. Add an srr index for the language at `public-ssr/[langCode]`
 14. Remember to include a custom open graph image.
 
+## TODO add point about
+src\components\Panes\Settings\constants.tsx
+
 Feel free to adjust as needed for your specific context!

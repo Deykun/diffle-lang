@@ -38,6 +38,14 @@ const KEY_LINES_ES = [
   ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
 ];
 
+const KEY_LINES_FR = [
+  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+  ['é', 'è', 'ê', 'ë', 'î', 'ï', 'œ', 'ô'],
+  ['ù', 'û', 'spacebar', 'ü', 'ÿ'],
+];
+
 const KEY_LINES_PL = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -114,6 +122,25 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
       { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
     ],
     shareMarker: '🇪🇸 #diffle #difflees',
+  },
+  fr: {
+    code: 'fr',
+    languages: ['fr'],
+    isBeta: true,
+    // TODO CHANGE
+    title: 'DIFFLE - el juego similar a Wordle (sin límite de caracteres) 🇪🇸',
+    shouldPreferQWERTZ: false,
+    keyLines: KEY_LINES_FR,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR.flatMap(key => key)],
+    characters: KEY_LINES_FR.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    specialCharacters: ['é', 'è', 'ê', 'ë', 'î', 'ï', 'œ', 'ô', 'ù', 'û', 'ü', 'ÿ'],
+    hasSpecialCharacters: true,
+    urls: [
+      // TODO CHANGE
+      { url: 'https://dle.rae.es/{{word}}', name: 'RAE - Diccionario de la lengua español', hasExactMatchAlways: false },
+      { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
+    ],
+    shareMarker: '🇫🇷 #diffle #difflefr',
   },
   pl: {
     code: 'pl',
