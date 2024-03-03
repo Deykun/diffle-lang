@@ -11,7 +11,7 @@
 
 ---
 
-#### Version 3.13
+#### Version 3.13 (03.03.2024)
 - **New**: French game language added
 - **Fix**: Percentages restored in the "most often at the beginning" section.
 
