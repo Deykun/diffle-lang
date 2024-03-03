@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <title>DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷</title>
+        <meta name="description" content="Chaque mot utilisé fournit des indices sur la position et l'ordre des lettres dans la solution.">
+        <meta  property="og:title" content="DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷" >
+        <meta  property="og:description" content="Chaque mot utilisé fournit des indices sur la position et l'ordre des lettres dans la solution." >
+        <meta  property="og:image" content="https://deykun.github.io/diffle-lang/diffle-francaise.png" >
+        <meta  property="og:image:alt" content="diffle wordle" >
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/diffle-lang/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/diffle-lang/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/diffle-lang/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/diffle-lang/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/diffle-lang/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/diffle-lang/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/diffle-lang/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/diffle-lang/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/diffle-lang/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/diffle-lang/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/diffle-lang/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/diffle-lang/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/diffle-lang/favicon-16x16.png">
+        <link rel="manifest" href="/diffle-lang/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <style>
+            body {
+                background-color: #222222;
+            }
+
+            .help-no-js {
+                max-width: 400px;
+                margin: 30px auto;
+                text-align: center;
+                font-family: 'Baloo 2', sans-serif;
+                color: #3e3e3e;
+            }
+
+            .help-no-js h1 {
+                color: #3c3c3c;
+                margin-bottom: 20px;
+            }
+
+            .help-no-js p {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 10px;
+            }
+
+            .help-no-js ul {
+                list-style: none;
+                margin: 0;
+                margin-top: 30px;
+                padding: 0;
+            }
+
+            .help-no-js a {
+                display: inline-block;
+                color: #3c3c3c;
+                text-decoration: none;
+                letter-spacing: 0.05em;
+                margin-bottom: 12px;
+                transition: 0.1s ease-in-out;
+            }
+
+            .help-no-js a img {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 5px;
+                width: 12px;
+                height: 12px;
+                object-fit: cover;
+                border-radius: 50%;
+                filter: contrast(0.8) saturate(0.7);
+            }
+
+            .help-no-js a:hover {
+                color: #646464;
+            }
+
+            .help-no-js .about-short {
+                margin-top: 50px;
+                border-top: 1px dashed #5bff1045;
+                padding-top: 20px;
+                text-align: justify;
+            }
+
+            .help-no-js .about-short p {
+                color: #585e5645;
+                font-size: 12px;
+                line-height: 1.4;
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+        </style>
+      <script type="module" crossorigin src="/diffle-lang/assets/index-6986a2a7.js"></script>
+      <link rel="stylesheet" href="/diffle-lang/assets/index-b4a869c0.css">
+    </head>
+    <body>
+        <div id="root">
+            <div class="help-no-js">
+                <h1>DIFFLE</h1>
+                <h2>Qu'est-ce que Diffle ?</h2>
+                <p>Diffle est un jeu inspiré de Wordle sans limite de caractères. Si vous appréciez d'autres versions de Wordle, ce jeu est fait pour vous.</p>
+                <h2>Comment jouer à Diffle ?</h2>
+                <p>L'objectif est de deviner le mot de passe en utilisant le moins de lettres et de mots possible.</p>
+                <p>Après chaque tentative, les lettres seront marquées avec la couleur appropriée.</p>
+                <div class="about-short">
+                    <p>
+                        "Diffle", un jeu captivant de devinette de mots rappelant Wordle, s'est imposé comme un concurrent frais et innovant dans le monde des défis linguistiques. Dans ce jeu, les joueurs ont pour tâche de décrypter un mot secret en un nombre défini de tentatives. Ce qui distingue Diffle, c'est sa torsion unique à la formule classique : les joueurs doivent non seulement deviner les bonnes lettres et leurs positions, mais ils doivent également faire face à la complexité ajoutée des lettres adjacentes qui ne sont pas dans le bon ordre. Cette variation subtile transforme le gameplay, offrant un mélange délicieux de familiarité et de nouveauté pour les amateurs de mots.
+                    </p>
+                    <p>
+                        L'attrait de Diffle réside dans sa profondeur stratégique et les acrobaties mentales qu'il demande aux joueurs. Chaque supposition devient un mouvement soigneusement calculé, nécessitant un équilibre délicat entre le raisonnement déductif et l'essai-erreur. Alors que les joueurs naviguent à travers le labyrinthe linguistique, le jeu se déroule comme un défi dynamique qui s'adapte au niveau de compétence du joueur. Diffle s'adresse à un public diversifié, offrant une expérience stimulante tant pour les joueurs occasionnels à la recherche d'un exercice mental rapide que pour les maîtres mots en quête d'une énigme plus complexe.
+                    </p>
+                    <p>
+                        De plus, Diffle embrasse la nature interconnectée de l'ère numérique, favorisant un sentiment de communauté entre les joueurs. Que ce soit en compétition contre des amis ou en interagissant avec la base de joueurs mondiale, le défi partagé du jeu suscite des conversations et des rivalités amicales. Diffle transforme l'acte de décrypter des mots en une entreprise sociale, démontrant comment les expériences de jeu modernes peuvent mêler harmonieusement divertissement et stimulation intellectuelle. En essence, Diffle témoigne de l'attrait durable des puzzles basés sur les mots, offrant un nouveau et captivant chapitre dans le paysage en constante évolution des jeux linguistiques.
+                    </p>
+                </div>
+	
+            </div>
+        </div>
+        <div id="root-modal"></div>
+        
+    </body>
+</html>
