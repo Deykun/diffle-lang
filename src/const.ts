@@ -38,11 +38,14 @@ const KEY_LINES_ES = [
   ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
 ];
 
+// Rejected because too niche public\dictionary\fr\info.json (common)
+// https://www.sttmedia.com/characterfrequency-french
+// resources/fr/constants.js
 const KEY_LINES_FR = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
   ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['é', 'è', 'ê', 'î', 'ï', 'œ', 'ô', 'ù', 'û'],
+  ['â', 'ç', 'é', 'è', 'ê', 'î', 'ï', 'ô', 'û'],
 ];
 
 const KEY_LINES_PL = [
@@ -134,9 +137,9 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     specialCharacters: ['é', 'è', 'ê', 'î', 'ï', 'œ', 'ô', 'ù', 'û'],
     hasSpecialCharacters: true,
     urls: [
+      { url: 'https://fr.wiktionary.org/wiki/{{word}}', name: 'Wiktionary.org', hasExactMatchAlways: false },
       { url: 'https://www.le-dictionnaire.com/definition/{{word}}', name: 'Le dictionnaire', hasExactMatchAlways: false },
       { url: 'https://www.cnrtl.fr/definition/{{word}}', name: 'CNRTL', hasExactMatchAlways: false },
-      { url: 'https://fr.wiktionary.org/wiki/{{word}}', name: 'Wiktionary.org', hasExactMatchAlways: false },
     ],
     shareMarker: '🇫🇷 #diffle #difflefr',
   },

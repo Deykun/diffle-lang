@@ -57,7 +57,9 @@ export const removeDiacratics = (word, lang) => {
     }
 
     if (!lang || lang === 'fr') {
-        wordToReturn = wordToReturn.replaceAll('é', 'e')
+        wordToReturn = wordToReturn.replaceAll('â', 'a')
+            .replaceAll('ç', 'c')
+            .replaceAll('é', 'e')
             .replaceAll('è', 'e')
             .replaceAll('ê', 'e')
             .replaceAll('î', 'i')
@@ -65,7 +67,8 @@ export const removeDiacratics = (word, lang) => {
             .replaceAll('œ', 'o')
             .replaceAll('ô', 'o')
             .replaceAll('ù', 'u')
-            .replaceAll('û', 'ü');
+            .replaceAll('û', 'u')
+            .replaceAll('ü', 'u');
     }
 
     if (!lang || lang === 'pl') {

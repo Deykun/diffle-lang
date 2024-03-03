@@ -1,201 +1,214 @@
 {
 	"spellchecker": {
-		"all": 430138,
+		"all": 460385,
 		"accepted": {
-			"allUsedInGame": 415353,
-			"all": 429774,
-			"allWordleWords": 9531,
-			"withSpecialCharacters": 163548,
+			"allUsedInGame": 445162,
+			"all": 460016,
+			"allWordleWords": 10062,
+			"withSpecialCharacters": 193790,
 			"withoutSpecialCharacters": 266226,
 			"length": {
-				"2": 344,
-				"3": 1199,
-				"4": 3492,
-				"5": 9531,
-				"6": 20310,
-				"7": 34215,
-				"8": 48678,
-				"9": 59055,
-				"10": 62320,
-				"11": 58015,
-				"12": 47441,
-				"13": 34712,
-				"14": 22538,
-				"15": 13503,
-				"16": 7371,
-				"17": 3815,
-				"18": 1846,
-				"19": 915,
-				"20": 474
+				"2": 348,
+				"3": 1217,
+				"4": 3605,
+				"5": 10062,
+				"6": 21592,
+				"7": 36758,
+				"8": 52696,
+				"9": 64093,
+				"10": 67452,
+				"11": 62445,
+				"12": 50557,
+				"13": 36618,
+				"14": 23671,
+				"15": 14048,
+				"16": 7620,
+				"17": 3922,
+				"18": 1891,
+				"19": 945,
+				"20": 476
 			}
 		},
-		"rejected": 14785,
+		"rejected": 15223,
 		"letters": {
 			"first": {
-				"d": 49922,
-				"c": 44784,
-				"r": 44348,
-				"p": 34541,
-				"a": 32668,
-				"s": 28097,
-				"e": 25519,
-				"m": 21629,
-				"b": 20423,
-				"t": 19990,
-				"é": 15502,
-				"f": 14976,
-				"i": 14892,
-				"g": 13114,
-				"l": 9013,
-				"v": 8625,
-				"h": 8517,
-				"o": 6683,
-				"n": 5714,
-				"j": 3088,
-				"z": 1622,
-				"u": 1503,
-				"q": 1445,
-				"k": 1421,
-				"y": 605,
-				"w": 473,
-				"x": 327,
-				"œ": 253,
-				"ô": 37,
+				"d": 54113,
+				"r": 48159,
+				"c": 47888,
+				"p": 36722,
+				"a": 34574,
+				"s": 29782,
+				"e": 27665,
+				"m": 23025,
+				"b": 22100,
+				"t": 21388,
+				"é": 16631,
+				"f": 16137,
+				"i": 15664,
+				"g": 14094,
+				"l": 9513,
+				"v": 9111,
+				"h": 9022,
+				"o": 7036,
+				"n": 5980,
+				"j": 3294,
+				"z": 1736,
+				"u": 1546,
+				"q": 1525,
+				"k": 1453,
+				"y": 620,
+				"w": 483,
+				"x": 330,
+				"œ": 262,
+				"â": 78,
+				"ô": 40,
 				"è": 18,
 				"î": 16,
 				"ê": 5,
-				"ï": 4
+				"ï": 4,
+				"ç": 1,
+				"ü": 1
 			},
 			"last": {
-				"s": 165775,
-				"t": 80275,
-				"e": 61067,
-				"z": 40296,
-				"a": 17306,
-				"i": 16749,
-				"r": 12694,
-				"é": 9815,
-				"è": 7217,
-				"n": 7199,
-				"l": 2390,
-				"x": 2216,
-				"u": 960,
-				"o": 932,
-				"d": 911,
-				"f": 773,
-				"m": 724,
-				"y": 508,
+				"s": 183629,
+				"t": 89584,
+				"e": 61968,
+				"z": 41070,
+				"a": 17712,
+				"i": 17152,
+				"r": 12886,
+				"é": 9948,
+				"è": 7334,
+				"n": 7276,
+				"l": 2397,
+				"x": 2240,
+				"u": 977,
+				"o": 933,
+				"d": 918,
+				"f": 776,
+				"m": 726,
+				"y": 510,
 				"g": 417,
 				"h": 360,
 				"c": 332,
-				"k": 315,
+				"k": 318,
 				"p": 151,
 				"b": 136,
 				"v": 113,
 				"w": 49,
-				"ï": 35,
+				"ï": 36,
 				"q": 27,
 				"j": 24,
+				"û": 6,
 				"ô": 5,
+				"â": 2,
+				"î": 2,
 				"ù": 1,
-				"î": 1,
 				"ê": 1
 			},
 			"common": {
-				"e": 472735,
-				"s": 433594,
-				"i": 417218,
-				"a": 399225,
-				"r": 380579,
-				"n": 321592,
-				"t": 292497,
-				"o": 269000,
-				"l": 180513,
-				"u": 158591,
-				"é": 158393,
-				"c": 153055,
-				"m": 106958,
-				"p": 104362,
-				"d": 103193,
-				"g": 71721,
-				"b": 63436,
-				"h": 56751,
-				"f": 56211,
-				"z": 45028,
-				"v": 40551,
-				"è": 26604,
-				"q": 24399,
-				"y": 19481,
-				"x": 12066,
-				"j": 7346,
-				"k": 5027,
-				"î": 3377,
-				"ê": 2400,
-				"ï": 1877,
-				"w": 1666,
-				"ô": 1128,
-				"œ": 491,
+				"e": 503683,
+				"s": 465189,
+				"i": 434992,
+				"a": 417800,
+				"r": 399444,
+				"n": 339341,
+				"t": 321984,
+				"o": 283528,
+				"l": 191999,
+				"é": 167227,
+				"u": 166988,
+				"c": 162493,
+				"m": 120529,
+				"p": 110847,
+				"d": 109875,
+				"g": 76123,
+				"b": 68016,
+				"f": 60578,
+				"h": 60513,
+				"z": 46033,
+				"v": 42819,
+				"è": 26907,
+				"â": 25580,
+				"q": 25576,
+				"y": 20233,
+				"x": 12609,
+				"j": 7793,
+				"k": 5177,
+				"ç": 3566,
+				"î": 3471,
+				"ê": 2539,
+				"ï": 1915,
+				"û": 1732,
+				"w": 1706,
+				"ô": 1188,
+				"œ": 506,
+				"ü": 194,
 				"ù": 1
 			},
 			"inWordsWordle": {
-				"a": 4426,
-				"e": 4035,
-				"s": 3278,
-				"i": 3242,
-				"r": 3040,
-				"o": 2684,
-				"t": 2234,
-				"l": 2208,
-				"u": 2190,
-				"n": 2082,
-				"é": 2007,
-				"c": 1547,
-				"m": 1384,
-				"p": 1269,
-				"d": 1170,
-				"b": 1126,
-				"g": 1074,
-				"è": 811,
-				"v": 796,
-				"f": 753,
-				"h": 739,
-				"y": 460,
-				"z": 444,
-				"k": 349,
-				"x": 278,
-				"j": 259,
-				"ê": 132,
-				"q": 126,
-				"î": 92,
+				"a": 4575,
+				"e": 4182,
+				"s": 3398,
+				"i": 3336,
+				"r": 3176,
+				"o": 2772,
+				"t": 2579,
+				"l": 2325,
+				"u": 2241,
+				"n": 2147,
+				"é": 2078,
+				"c": 1628,
+				"m": 1460,
+				"p": 1350,
+				"d": 1205,
+				"b": 1203,
+				"g": 1118,
+				"è": 835,
+				"v": 827,
+				"h": 798,
+				"f": 790,
+				"y": 468,
+				"z": 465,
+				"â": 379,
+				"k": 354,
+				"x": 287,
+				"j": 270,
+				"ê": 139,
+				"q": 127,
+				"û": 102,
+				"î": 98,
 				"w": 81,
-				"ô": 79,
-				"ï": 65,
-				"œ": 23
+				"ô": 80,
+				"ï": 66,
+				"ç": 49,
+				"œ": 23,
+				"ü": 10
 			},
 			"wordle": {
 				"0": {
-					"c": 804,
-					"p": 735,
-					"b": 677,
-					"s": 665,
-					"a": 660,
-					"t": 581,
-					"m": 569,
-					"r": 560,
-					"l": 506,
-					"f": 493,
-					"g": 460,
-					"d": 445,
-					"v": 327,
-					"é": 315,
-					"n": 272,
-					"h": 256,
-					"o": 221,
-					"j": 207,
-					"i": 158,
-					"e": 149,
-					"k": 149,
-					"z": 85,
+					"c": 843,
+					"p": 789,
+					"b": 733,
+					"s": 687,
+					"a": 684,
+					"t": 619,
+					"r": 612,
+					"m": 609,
+					"l": 534,
+					"f": 521,
+					"g": 493,
+					"d": 464,
+					"v": 344,
+					"é": 322,
+					"h": 283,
+					"n": 281,
+					"o": 224,
+					"j": 218,
+					"i": 159,
+					"e": 154,
+					"k": 151,
+					"z": 94,
 					"u": 65,
 					"x": 40,
 					"w": 38,
@@ -203,136 +216,149 @@
 					"q": 29,
 					"œ": 13,
 					"ô": 8,
+					"â": 7,
 					"î": 3,
 					"ê": 1,
 					"ï": 1,
 					"è": 1
 				},
 				"1": {
-					"a": 1971,
-					"o": 1502,
-					"i": 1160,
-					"u": 832,
-					"e": 776,
-					"r": 703,
-					"é": 421,
-					"l": 417,
-					"h": 180,
-					"n": 172,
-					"c": 149,
-					"t": 142,
-					"m": 139,
-					"p": 121,
-					"y": 103,
+					"a": 2025,
+					"o": 1576,
+					"i": 1206,
+					"u": 863,
+					"e": 805,
+					"r": 728,
+					"l": 436,
+					"é": 436,
+					"h": 182,
+					"n": 176,
+					"c": 155,
+					"â": 147,
+					"t": 144,
+					"m": 141,
+					"p": 127,
+					"y": 106,
 					"v": 95,
 					"s": 95,
+					"ê": 85,
 					"b": 79,
-					"ê": 78,
+					"g": 65,
 					"d": 63,
-					"g": 63,
 					"x": 61,
 					"è": 53,
-					"ô": 37,
+					"û": 50,
+					"ô": 38,
+					"î": 27,
 					"z": 25,
-					"î": 25,
-					"k": 21,
+					"k": 22,
+					"f": 12,
 					"w": 12,
-					"f": 11,
 					"j": 8,
 					"œ": 7,
 					"ï": 6,
-					"q": 4
+					"q": 4,
+					"ü": 1,
+					"ç": 1
 				},
 				"2": {
-					"r": 935,
-					"i": 833,
-					"n": 770,
-					"u": 668,
-					"l": 645,
-					"a": 635,
-					"t": 571,
-					"s": 476,
-					"o": 470,
-					"c": 403,
-					"m": 382,
-					"g": 380,
-					"d": 293,
-					"b": 266,
-					"p": 263,
+					"r": 974,
+					"i": 845,
+					"n": 800,
+					"l": 689,
+					"t": 680,
+					"u": 679,
+					"a": 640,
+					"s": 496,
+					"o": 471,
+					"c": 438,
+					"m": 413,
+					"g": 389,
+					"d": 309,
+					"b": 287,
+					"p": 285,
+					"v": 256,
 					"e": 244,
-					"v": 242,
-					"é": 160,
-					"f": 148,
-					"y": 120,
-					"x": 109,
-					"q": 89,
+					"é": 165,
+					"f": 156,
+					"y": 125,
+					"x": 118,
+					"q": 90,
 					"è": 81,
-					"h": 74,
-					"k": 59,
+					"h": 76,
+					"k": 61,
 					"ê": 46,
-					"z": 43,
+					"z": 44,
 					"ï": 40,
+					"û": 39,
 					"ô": 31,
 					"j": 26,
+					"ç": 25,
+					"â": 14,
 					"î": 13,
 					"w": 13,
-					"œ": 3
+					"œ": 3,
+					"ü": 1
 				},
 				"3": {
-					"e": 1277,
-					"a": 874,
-					"i": 866,
-					"t": 660,
-					"n": 609,
-					"l": 589,
-					"r": 572,
-					"u": 551,
-					"é": 500,
-					"o": 445,
-					"s": 425,
+					"e": 1344,
+					"a": 906,
+					"i": 885,
+					"t": 684,
+					"n": 622,
+					"l": 616,
+					"r": 581,
+					"u": 558,
+					"é": 520,
+					"o": 455,
+					"s": 426,
 					"d": 330,
-					"m": 306,
-					"c": 217,
-					"p": 213,
+					"m": 310,
+					"â": 219,
+					"c": 218,
+					"p": 214,
+					"h": 213,
 					"g": 201,
-					"h": 185,
 					"v": 146,
 					"b": 122,
 					"f": 104,
 					"k": 87,
 					"y": 74,
-					"î": 51,
+					"î": 55,
 					"z": 38,
+					"ç": 23,
 					"j": 20,
 					"è": 15,
 					"w": 15,
 					"x": 14,
-					"ï": 11,
+					"û": 12,
+					"ï": 12,
+					"ü": 9,
 					"ê": 7,
 					"q": 4,
 					"ô": 3
 				},
 				"4": {
-					"s": 2037,
-					"e": 1896,
-					"a": 970,
-					"é": 767,
-					"è": 661,
-					"t": 490,
-					"i": 440,
-					"r": 417,
-					"n": 413,
-					"z": 270,
+					"s": 2119,
+					"e": 1946,
+					"a": 1017,
+					"é": 791,
+					"t": 732,
+					"è": 685,
+					"i": 456,
+					"r": 434,
+					"n": 424,
+					"z": 282,
 					"l": 218,
 					"o": 190,
-					"u": 137,
+					"u": 139,
 					"y": 127,
 					"x": 80,
 					"d": 73,
 					"h": 64,
-					"m": 63,
+					"m": 64,
+					"f": 47,
 					"k": 47,
-					"f": 46,
 					"c": 42,
 					"p": 25,
 					"b": 22,
@@ -340,114 +366,120 @@
 					"ï": 7,
 					"v": 5,
 					"w": 3,
-					"q": 1
+					"û": 1,
+					"q": 1,
+					"â": 1
 				}
 			},
 			"inWords": {
-				"e": 333875,
-				"a": 290750,
-				"i": 290545,
-				"r": 279437,
-				"s": 271537,
-				"n": 236670,
-				"t": 227224,
-				"o": 214738,
-				"l": 147019,
-				"u": 144218,
-				"é": 137091,
-				"c": 135016,
-				"d": 97129,
-				"m": 96039,
-				"p": 93373,
-				"g": 67431,
-				"b": 60590,
-				"h": 53324,
-				"f": 48083,
-				"z": 44312,
-				"v": 39666,
-				"è": 26542,
-				"q": 24174,
-				"y": 18814,
-				"x": 11914,
-				"j": 7320,
-				"k": 4757,
-				"î": 3368,
-				"ê": 2393,
-				"ï": 1875,
-				"w": 1643,
-				"ô": 1128,
-				"œ": 491,
+				"e": 356916,
+				"a": 306009,
+				"i": 304902,
+				"r": 295272,
+				"s": 293298,
+				"n": 249390,
+				"t": 249091,
+				"o": 227373,
+				"l": 156623,
+				"u": 152101,
+				"é": 145157,
+				"c": 143692,
+				"m": 107651,
+				"d": 103499,
+				"p": 99291,
+				"g": 71614,
+				"b": 65014,
+				"h": 56964,
+				"f": 51788,
+				"z": 45288,
+				"v": 41898,
+				"è": 26845,
+				"â": 25374,
+				"q": 25339,
+				"y": 19548,
+				"x": 12457,
+				"j": 7767,
+				"k": 4904,
+				"ç": 3566,
+				"î": 3462,
+				"ê": 2532,
+				"ï": 1913,
+				"û": 1732,
+				"w": 1683,
+				"ô": 1188,
+				"œ": 506,
+				"ü": 191,
 				"ù": 1
 			}
 		},
 		"substrings": {
 			"first": {
 				"2": {
-					"dé": 38235,
-					"re": 21539,
-					"co": 17887,
-					"en": 11686,
-					"ré": 10265
+					"dé": 41739,
+					"re": 23487,
+					"co": 19036,
+					"en": 12832,
+					"ré": 10990
 				},
 				"3": {
-					"dés": 8172,
-					"déc": 7625,
-					"con": 7589,
-					"sur": 4421,
-					"rec": 4105
+					"dés": 8989,
+					"déc": 8244,
+					"con": 8074,
+					"sur": 4750,
+					"rec": 4431
 				},
 				"4": {
-					"cont": 2764,
-					"déco": 2544,
-					"désa": 2432,
-					"dése": 2306,
-					"inte": 1977
+					"cont": 2958,
+					"déco": 2756,
+					"désa": 2739,
+					"dése": 2545,
+					"inte": 2079
 				}
 			},
 			"middle": {
 				"2": {
-					"er": 106855,
-					"on": 94222,
-					"ra": 80196,
-					"en": 71962,
-					"ai": 64432
+					"er": 109450,
+					"on": 99105,
+					"ra": 82573,
+					"en": 74628,
+					"ai": 66344
 				},
 				"3": {
-					"ass": 40186,
-					"era": 38628,
-					"ion": 33383,
-					"rai": 30186,
-					"sse": 22305
+					"ass": 41826,
+					"era": 39226,
+					"ion": 34300,
+					"rai": 30730,
+					"sse": 23004
 				},
 				"4": {
-					"erai": 23094,
-					"aien": 16258,
-					"asse": 15868,
-					"eron": 15701,
-					"assi": 14983
+					"erai": 23453,
+					"aien": 16658,
+					"asse": 16425,
+					"eron": 16004,
+					"assi": 15552
 				}
 			},
 			"last": {
 				"2": {
-					"es": 60662,
-					"nt": 60291,
-					"ns": 46045,
-					"ez": 40171,
-					"is": 18057
+					"es": 76411,
+					"nt": 61694,
+					"ns": 47022,
+					"ez": 40944,
+					"is": 18490
 				},
 				"3": {
-					"ons": 43761,
-					"ent": 43521,
-					"iez": 24125,
-					"ais": 16408,
-					"ait": 16351
+					"ons": 44724,
+					"ent": 44522,
+					"iez": 24651,
+					"ais": 16815,
+					"ait": 16752
 				},
 				"4": {
-					"ions": 27113,
-					"ient": 16744,
-					"rons": 9171,
-					"rait": 9119,
-					"riez": 9098
+					"ions": 27643,
+					"ient": 17146,
+					"siez": 9352,
+					"sent": 9350,
+					"rons": 9309
 				}
 			}
 		},
@@ -456,141 +488,141 @@
 				{
 					"word": "serai",
 					"score": {
-						"inWords": 18021,
-						"letterPosition": 3690,
-						"uniqueLetterPosition": 3690
+						"inWords": 18667,
+						"letterPosition": 3828,
+						"uniqueLetterPosition": 3828
 					},
 					"result": {
-						"total": 9531,
-						"green": 3690,
-						"orange": 14331,
-						"gray": 29634
+						"total": 10062,
+						"green": 3828,
+						"orange": 14839,
+						"gray": 31643
 					}
 				},
 				{
 					"word": "aires",
 					"score": {
-						"inWords": 18021,
-						"letterPosition": 6069,
-						"uniqueLetterPosition": 6069
+						"inWords": 18667,
+						"letterPosition": 6327,
+						"uniqueLetterPosition": 6327
 					},
 					"result": {
-						"total": 9531,
-						"green": 6069,
-						"orange": 11952,
-						"gray": 29634
+						"total": 10062,
+						"green": 6327,
+						"orange": 12340,
+						"gray": 31643
 					}
 				},
 				{
 					"word": "raies",
 					"score": {
-						"inWords": 18021,
-						"letterPosition": 6678,
-						"uniqueLetterPosition": 6678
+						"inWords": 18667,
+						"letterPosition": 6945,
+						"uniqueLetterPosition": 6945
 					},
 					"result": {
-						"total": 9531,
-						"green": 6678,
-						"orange": 11343,
-						"gray": 29634
+						"total": 10062,
+						"green": 6945,
+						"orange": 11722,
+						"gray": 31643
 					}
 				},
 				{
 					"word": "arise",
 					"score": {
-						"inWords": 18021,
-						"letterPosition": 4517,
-						"uniqueLetterPosition": 4517
+						"inWords": 18667,
+						"letterPosition": 4629,
+						"uniqueLetterPosition": 4629
 					},
 					"result": {
-						"total": 9531,
-						"green": 4517,
-						"orange": 13504,
-						"gray": 29634
+						"total": 10062,
+						"green": 4629,
+						"orange": 14038,
+						"gray": 31643
 					}
 				},
 				{
 					"word": "osera",
 					"score": {
-						"inWords": 17463,
-						"letterPosition": 2102,
-						"uniqueLetterPosition": 2102
+						"inWords": 18103,
+						"letterPosition": 2161,
+						"uniqueLetterPosition": 2161
 					},
 					"result": {
-						"total": 9531,
-						"green": 2102,
-						"orange": 15361,
-						"gray": 30192
+						"total": 10062,
+						"green": 2161,
+						"orange": 15942,
+						"gray": 32207
 					}
 				},
 				{
 					"word": "taies",
 					"score": {
-						"inWords": 17215,
-						"letterPosition": 6699,
-						"uniqueLetterPosition": 6699
+						"inWords": 18070,
+						"letterPosition": 6952,
+						"uniqueLetterPosition": 6952
 					},
 					"result": {
-						"total": 9531,
-						"green": 6699,
-						"orange": 10516,
-						"gray": 30440
+						"total": 10062,
+						"green": 6952,
+						"orange": 11118,
+						"gray": 32240
 					}
 				},
 				{
 					"word": "satie",
 					"score": {
-						"inWords": 17215,
-						"letterPosition": 5969,
-						"uniqueLetterPosition": 5969
+						"inWords": 18070,
+						"letterPosition": 6223,
+						"uniqueLetterPosition": 6223
 					},
 					"result": {
-						"total": 9531,
-						"green": 5969,
-						"orange": 11246,
-						"gray": 30440
+						"total": 10062,
+						"green": 6223,
+						"orange": 11847,
+						"gray": 32240
 					}
 				},
 				{
 					"word": "taise",
 					"score": {
-						"inWords": 17215,
-						"letterPosition": 5706,
-						"uniqueLetterPosition": 5706
+						"inWords": 18070,
+						"letterPosition": 5861,
+						"uniqueLetterPosition": 5861
 					},
 					"result": {
-						"total": 9531,
-						"green": 5706,
-						"orange": 11509,
-						"gray": 30440
+						"total": 10062,
+						"green": 5861,
+						"orange": 12209,
+						"gray": 32240
 					}
 				},
 				{
-					"word": "asile",
+					"word": "resta",
 					"score": {
-						"inWords": 17189,
-						"letterPosition": 4073,
-						"uniqueLetterPosition": 4073
+						"inWords": 17910,
+						"letterPosition": 3614,
+						"uniqueLetterPosition": 3614
 					},
 					"result": {
-						"total": 9531,
-						"green": 4073,
-						"orange": 13116,
-						"gray": 30466
+						"total": 10062,
+						"green": 3614,
+						"orange": 14296,
+						"gray": 32400
 					}
 				},
 				{
-					"word": "ailes",
+					"word": "astre",
 					"score": {
-						"inWords": 17189,
-						"letterPosition": 5779,
-						"uniqueLetterPosition": 5779
+						"inWords": 17910,
+						"letterPosition": 3986,
+						"uniqueLetterPosition": 3986
 					},
 					"result": {
-						"total": 9531,
-						"green": 5779,
-						"orange": 11410,
-						"gray": 30466
+						"total": 10062,
+						"green": 3986,
+						"orange": 13924,
+						"gray": 32400
 					}
 				}
 			],
@@ -598,141 +630,141 @@
 				{
 					"word": "pares",
 					"score": {
-						"inWords": 16048,
-						"letterPosition": 6955,
-						"uniqueLetterPosition": 6955
+						"inWords": 16681,
+						"letterPosition": 7251,
+						"uniqueLetterPosition": 7251
 					},
 					"result": {
-						"total": 9531,
-						"green": 6955,
-						"orange": 9093,
-						"gray": 31607
+						"total": 10062,
+						"green": 7251,
+						"orange": 9430,
+						"gray": 33629
 					}
 				},
 				{
 					"word": "canes",
 					"score": {
-						"inWords": 15368,
-						"letterPosition": 6859,
-						"uniqueLetterPosition": 6859
+						"inWords": 15930,
+						"letterPosition": 7131,
+						"uniqueLetterPosition": 7131
 					},
 					"result": {
-						"total": 9531,
-						"green": 6859,
-						"orange": 8509,
-						"gray": 32287
+						"total": 10062,
+						"green": 7131,
+						"orange": 8799,
+						"gray": 34380
 					}
 				},
 				{
 					"word": "paies",
 					"score": {
-						"inWords": 16250,
-						"letterPosition": 6853,
-						"uniqueLetterPosition": 6853
+						"inWords": 16841,
+						"letterPosition": 7122,
+						"uniqueLetterPosition": 7122
 					},
 					"result": {
-						"total": 9531,
-						"green": 6853,
-						"orange": 9397,
-						"gray": 31405
+						"total": 10062,
+						"green": 7122,
+						"orange": 9719,
+						"gray": 33469
 					}
 				},
 				{
 					"word": "tares",
 					"score": {
-						"inWords": 17013,
-						"letterPosition": 6801,
-						"uniqueLetterPosition": 6801
+						"inWords": 17910,
+						"letterPosition": 7081,
+						"uniqueLetterPosition": 7081
 					},
 					"result": {
-						"total": 9531,
-						"green": 6801,
-						"orange": 10212,
-						"gray": 30642
-					}
-				},
-				{
-					"word": "baies",
-					"score": {
-						"inWords": 16107,
-						"letterPosition": 6795,
-						"uniqueLetterPosition": 6795
-					},
-					"result": {
-						"total": 9531,
-						"green": 6795,
-						"orange": 9312,
-						"gray": 31548
+						"total": 10062,
+						"green": 7081,
+						"orange": 10829,
+						"gray": 32400
 					}
 				},
 				{
 					"word": "panes",
 					"score": {
-						"inWords": 15090,
-						"letterPosition": 6790,
-						"uniqueLetterPosition": 6790
+						"inWords": 15652,
+						"letterPosition": 7077,
+						"uniqueLetterPosition": 7077
 					},
 					"result": {
-						"total": 9531,
-						"green": 6790,
-						"orange": 8300,
-						"gray": 32565
-					}
-				},
-				{
-					"word": "mares",
-					"score": {
-						"inWords": 16163,
-						"letterPosition": 6789,
-						"uniqueLetterPosition": 6789
-					},
-					"result": {
-						"total": 9531,
-						"green": 6789,
-						"orange": 9374,
-						"gray": 31492
-					}
-				},
-				{
-					"word": "saies",
-					"score": {
-						"inWords": 0,
-						"letterPosition": 6783,
-						"uniqueLetterPosition": 0
-					},
-					"result": {
-						"total": 9531,
-						"green": 6783,
-						"orange": 8607,
-						"gray": 32265
+						"total": 10062,
+						"green": 7077,
+						"orange": 8575,
+						"gray": 34658
 					}
 				},
 				{
 					"word": "rares",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 6780,
+						"letterPosition": 7074,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 9531,
-						"green": 6780,
-						"orange": 8145,
-						"gray": 32730
+						"total": 10062,
+						"green": 7074,
+						"orange": 8409,
+						"gray": 34827
+					}
+				},
+				{
+					"word": "mares",
+					"score": {
+						"inWords": 16791,
+						"letterPosition": 7071,
+						"uniqueLetterPosition": 7071
+					},
+					"result": {
+						"total": 10062,
+						"green": 7071,
+						"orange": 9720,
+						"gray": 33519
+					}
+				},
+				{
+					"word": "baies",
+					"score": {
+						"inWords": 16694,
+						"letterPosition": 7066,
+						"uniqueLetterPosition": 7066
+					},
+					"result": {
+						"total": 10062,
+						"green": 7066,
+						"orange": 9628,
+						"gray": 33616
 					}
 				},
 				{
 					"word": "cales",
 					"score": {
-						"inWords": 15494,
-						"letterPosition": 6734,
-						"uniqueLetterPosition": 6734
+						"inWords": 16108,
+						"letterPosition": 7020,
+						"uniqueLetterPosition": 7020
 					},
 					"result": {
-						"total": 9531,
-						"green": 6734,
-						"orange": 8760,
-						"gray": 32161
+						"total": 10062,
+						"green": 7020,
+						"orange": 9088,
+						"gray": 34202
+					}
+				},
+				{
+					"word": "saies",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 7020,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 10062,
+						"green": 7020,
+						"orange": 8885,
+						"gray": 34405
 					}
 				}
 			],
@@ -740,141 +772,141 @@
 				{
 					"word": "pares",
 					"score": {
-						"inWords": 16048,
-						"letterPosition": 6955,
-						"uniqueLetterPosition": 6955
+						"inWords": 16681,
+						"letterPosition": 7251,
+						"uniqueLetterPosition": 7251
 					},
 					"result": {
-						"total": 9531,
-						"green": 6955,
-						"orange": 9093,
-						"gray": 31607
+						"total": 10062,
+						"green": 7251,
+						"orange": 9430,
+						"gray": 33629
 					}
 				},
 				{
 					"word": "canes",
 					"score": {
-						"inWords": 15368,
-						"letterPosition": 6859,
-						"uniqueLetterPosition": 6859
+						"inWords": 15930,
+						"letterPosition": 7131,
+						"uniqueLetterPosition": 7131
 					},
 					"result": {
-						"total": 9531,
-						"green": 6859,
-						"orange": 8509,
-						"gray": 32287
+						"total": 10062,
+						"green": 7131,
+						"orange": 8799,
+						"gray": 34380
 					}
 				},
 				{
 					"word": "paies",
 					"score": {
-						"inWords": 16250,
-						"letterPosition": 6853,
-						"uniqueLetterPosition": 6853
+						"inWords": 16841,
+						"letterPosition": 7122,
+						"uniqueLetterPosition": 7122
 					},
 					"result": {
-						"total": 9531,
-						"green": 6853,
-						"orange": 9397,
-						"gray": 31405
+						"total": 10062,
+						"green": 7122,
+						"orange": 9719,
+						"gray": 33469
 					}
 				},
 				{
 					"word": "tares",
 					"score": {
-						"inWords": 17013,
-						"letterPosition": 6801,
-						"uniqueLetterPosition": 6801
+						"inWords": 17910,
+						"letterPosition": 7081,
+						"uniqueLetterPosition": 7081
 					},
 					"result": {
-						"total": 9531,
-						"green": 6801,
-						"orange": 10212,
-						"gray": 30642
-					}
-				},
-				{
-					"word": "baies",
-					"score": {
-						"inWords": 16107,
-						"letterPosition": 6795,
-						"uniqueLetterPosition": 6795
-					},
-					"result": {
-						"total": 9531,
-						"green": 6795,
-						"orange": 9312,
-						"gray": 31548
+						"total": 10062,
+						"green": 7081,
+						"orange": 10829,
+						"gray": 32400
 					}
 				},
 				{
 					"word": "panes",
 					"score": {
-						"inWords": 15090,
-						"letterPosition": 6790,
-						"uniqueLetterPosition": 6790
+						"inWords": 15652,
+						"letterPosition": 7077,
+						"uniqueLetterPosition": 7077
 					},
 					"result": {
-						"total": 9531,
-						"green": 6790,
-						"orange": 8300,
-						"gray": 32565
+						"total": 10062,
+						"green": 7077,
+						"orange": 8575,
+						"gray": 34658
 					}
 				},
 				{
 					"word": "mares",
 					"score": {
-						"inWords": 16163,
-						"letterPosition": 6789,
-						"uniqueLetterPosition": 6789
+						"inWords": 16791,
+						"letterPosition": 7071,
+						"uniqueLetterPosition": 7071
 					},
 					"result": {
-						"total": 9531,
-						"green": 6789,
-						"orange": 9374,
-						"gray": 31492
+						"total": 10062,
+						"green": 7071,
+						"orange": 9720,
+						"gray": 33519
+					}
+				},
+				{
+					"word": "baies",
+					"score": {
+						"inWords": 16694,
+						"letterPosition": 7066,
+						"uniqueLetterPosition": 7066
+					},
+					"result": {
+						"total": 10062,
+						"green": 7066,
+						"orange": 9628,
+						"gray": 33616
 					}
 				},
 				{
 					"word": "cales",
 					"score": {
-						"inWords": 15494,
-						"letterPosition": 6734,
-						"uniqueLetterPosition": 6734
+						"inWords": 16108,
+						"letterPosition": 7020,
+						"uniqueLetterPosition": 7020
 					},
 					"result": {
-						"total": 9531,
-						"green": 6734,
-						"orange": 8760,
-						"gray": 32161
+						"total": 10062,
+						"green": 7020,
+						"orange": 9088,
+						"gray": 34202
 					}
 				},
 				{
 					"word": "lares",
 					"score": {
-						"inWords": 16987,
-						"letterPosition": 6726,
-						"uniqueLetterPosition": 6726
+						"inWords": 17656,
+						"letterPosition": 6996,
+						"uniqueLetterPosition": 6996
 					},
 					"result": {
-						"total": 9531,
-						"green": 6726,
-						"orange": 10261,
-						"gray": 30668
+						"total": 10062,
+						"green": 6996,
+						"orange": 10660,
+						"gray": 32654
 					}
 				},
 				{
-					"word": "taies",
+					"word": "pales",
 					"score": {
-						"inWords": 17215,
-						"letterPosition": 6699,
-						"uniqueLetterPosition": 6699
+						"inWords": 15830,
+						"letterPosition": 6966,
+						"uniqueLetterPosition": 6966
 					},
 					"result": {
-						"total": 9531,
-						"green": 6699,
-						"orange": 10516,
-						"gray": 30440
+						"total": 10062,
+						"green": 6966,
+						"orange": 8864,
+						"gray": 34480
 					}
 				}
 			]
@@ -883,31 +915,30 @@
 	"winning": {
 		"all": 15038,
 		"accepted": {
-			"all": 9467,
-			"withSpecialCharacters": 2168,
+			"all": 9566,
+			"withSpecialCharacters": 2267,
 			"withoutSpecialCharacters": 7299,
 			"length": {
-				"4": 647,
-				"5": 1391,
-				"6": 1825,
-				"7": 2066,
-				"8": 1969,
-				"9": 1569
+				"4": 660,
+				"5": 1402,
+				"6": 1849,
+				"7": 2089,
+				"8": 1987,
+				"9": 1579
 			}
 		},
 		"rejected": {
-			"all": 5571,
+			"all": 5472,
 			"tooLong": 3861,
 			"tooShort": 300,
 			"censored": 0,
-			"wrongLetters": 0,
-			"missingInSpellingDictionary": 1410
+			"wrongLetters": 21,
+			"missingInSpellingDictionary": 1290
 		},
 		"lettersNotAcceptedInWinningWord": [
-			"ë",
 			"ù",
 			"ü",
-			"ÿ"
+			"œ"
 		]
 	},
 	"meta": {

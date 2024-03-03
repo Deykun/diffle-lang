@@ -15,7 +15,7 @@
 - **New**: French game language added
 - **Fix**: Percentages restored in the "most often at the beginning" section.
 
-#### Version 3.12.3
+#### Version 3.12.3 (02.03.2024)
 - **New**: GA tracking of lost/won game
 - **New**: GA tracking of dictionary clicks
 
