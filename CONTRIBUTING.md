@@ -11,7 +11,8 @@
 10. Incorporate the flag for the language from [Flag Icons](https://github.com/lipis/flag-icons) (4x3). Compress it with https://jakearchibald.github.io/svgomg/.
 11. Update `language` as an allowed string in the `RootGameState` within `types.d.ts`.
 12. Include example words in `src\components\Panes\Help\constants.ts`. The easiest way to find them is to override getWordToGuess with our expected word and play to identify words that can be used as examples.
-13. Add an srr index for the language at `public-ssr/[langCode]`
+13. Add an srr index for the language at `public-ssr/[langCode]` and `scripts\post-build.mjs`
 14. Remember to include a custom open graph image.
+15. Add dictionaries to `src\components\Panes\Settings\constants.tsx`
 
 Feel free to adjust as needed for your specific context!

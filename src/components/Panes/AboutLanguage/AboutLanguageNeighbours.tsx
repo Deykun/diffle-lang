@@ -71,7 +71,7 @@ const AboutLanguageNeighbours = ({
                                         {'" '}
                                         {t('end.in', { postProcess: 'interval', count: 100 })}
                                         {' '}
-                                        <strong>{(first[chunkLength][part] / (all * 100)).toFixed(2)}</strong>
+                                        <strong>{((first[chunkLength][part] / all) * 100).toFixed(2)}</strong>
                                         %
                                         {' '}
                                         {t('end.wordsUsed', { count: 100 })}
@@ -136,7 +136,7 @@ const AboutLanguageNeighbours = ({
                                         {'" '}
                                         {t('end.in', { postProcess: 'interval', count: 100 })}
                                         {' '}
-                                        <strong>{(last[chunkLength][part] / all * 100).toFixed(2)}</strong>
+                                        <strong>{((last[chunkLength][part] / all) * 100).toFixed(2)}</strong>
                                         %
                                         {' '}
                                         {t('end.wordsUsed', { count: 100 })}
