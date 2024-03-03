@@ -1,4 +1,8 @@
 {
+    "seo.pageTitle": "DIFFLE - the game like Wordle (without character limit)",
+    "seo.metaDescription": "Each used word provides hints about the position and order of letters in the solution.",
+    "seo.openGraphTitle": "DIFFLE - the game like Wordle (without character limit)",
+    "seo.openGraphDescription": "Each used word provides hints about the position and order of letters in the solution.",
     "common.yes": "Yes",
     "common.no": "No",
     "common.play": "Play",

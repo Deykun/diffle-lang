@@ -42,8 +42,7 @@ const KEY_LINES_FR = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
   ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['é', 'è', 'ê', 'ë', 'î', 'ï', 'œ', 'ô'],
-  ['ù', 'û', 'spacebar', 'ü', 'ÿ'],
+  ['é', 'è', 'ê', 'î', 'ï', 'œ', 'ô', 'ù', 'û'],
 ];
 
 const KEY_LINES_PL = [
@@ -127,18 +126,17 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'fr',
     languages: ['fr'],
     isBeta: true,
-    // TODO CHANGE
-    title: 'DIFFLE - el juego similar a Wordle (sin límite de caracteres) 🇪🇸',
+    title: 'DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷',
     shouldPreferQWERTZ: false,
     keyLines: KEY_LINES_FR,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR.flatMap(key => key)],
     characters: KEY_LINES_FR.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
-    specialCharacters: ['é', 'è', 'ê', 'ë', 'î', 'ï', 'œ', 'ô', 'ù', 'û', 'ü', 'ÿ'],
+    specialCharacters: ['é', 'è', 'ê', 'î', 'ï', 'œ', 'ô', 'ù', 'û'],
     hasSpecialCharacters: true,
     urls: [
-      // TODO CHANGE
-      { url: 'https://dle.rae.es/{{word}}', name: 'RAE - Diccionario de la lengua español', hasExactMatchAlways: false },
-      { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
+      { url: 'https://www.le-dictionnaire.com/definition/{{word}}', name: 'Le dictionnaire', hasExactMatchAlways: false },
+      { url: 'https://www.cnrtl.fr/definition/{{word}}', name: 'CNRTL', hasExactMatchAlways: false },
+      { url: 'https://fr.wiktionary.org/wiki/{{word}}', name: 'Wiktionary.org', hasExactMatchAlways: false },
     ],
     shareMarker: '🇫🇷 #diffle #difflefr',
   },

@@ -2,7 +2,7 @@ export const BLOCKED_WORDS = [];
 
 export const BLOCKED_PARTS = [];
 
-export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = [];
+export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = ['ë', 'ù', 'ü', 'ÿ'];
 
 export const DICTIONARIES = {
     nativeSpeakersFromWikipedia: 310_000_000,

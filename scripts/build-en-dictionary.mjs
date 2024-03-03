@@ -18,7 +18,7 @@ const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARI
 const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ara/dictionary.txt`, 'utf-8');
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/jap/dictionary.txt`, 'utf-8');
 
-const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word)));
+const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word, LANG)));
 
 const winningWords1st = [...new Set(winningDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
 const winningWords2nd = [...new Set(winningDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());

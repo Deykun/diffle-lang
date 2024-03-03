@@ -41,7 +41,14 @@ export const DICTIONARIES_BY_LANG: {
     href: 'https://freedict.org/',
     labelHTML: '<strong>freedict.org</strong>',
   }],
-  fr: [],
+  fr: [{
+    isSpeelchecker: true,
+    href: 'https://grammalecte.net',
+    labelHTML: '<strong>Grammalecte</strong>',
+  }, {
+    href: 'https://freedict.org/',
+    labelHTML: '<strong>freedict.org</strong>',
+  }],
   pl: [{
     isSpeelchecker: true,
     href: 'https://sjp.pl',

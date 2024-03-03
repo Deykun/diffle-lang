@@ -1,816 +1,816 @@
 {
 	"meta": {
-		"inSeconds": 58,
-		"words": 9667
+		"inSeconds": 59,
+		"words": 9531
 	},
 	"best": {
 		"max": [
 			{
 				"result": {
-					"total": 9667,
-					"green": 3737,
-					"orange": 14486,
-					"gray": 30112
+					"total": 9531,
+					"green": 3690,
+					"orange": 14331,
+					"gray": 29634
 				},
 				"word": "serai",
 				"score": {
-					"max": 18223,
-					"maxGreen": 3737,
-					"maxOrange": 14486,
-					"green1_5": 20091.5,
-					"green2_0": 21960
+					"max": 18021,
+					"maxGreen": 3690,
+					"maxOrange": 14331,
+					"green1_5": 19866,
+					"green2_0": 21711
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6165,
-					"orange": 12058,
-					"gray": 30112
+					"total": 9531,
+					"green": 6069,
+					"orange": 11952,
+					"gray": 29634
 				},
 				"word": "aires",
 				"score": {
-					"max": 18223,
-					"maxGreen": 6165,
-					"maxOrange": 12058,
-					"green1_5": 21305.5,
-					"green2_0": 24388
+					"max": 18021,
+					"maxGreen": 6069,
+					"maxOrange": 11952,
+					"green1_5": 21055.5,
+					"green2_0": 24090
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6764,
-					"orange": 11459,
-					"gray": 30112
+					"total": 9531,
+					"green": 6678,
+					"orange": 11343,
+					"gray": 29634
 				},
 				"word": "raies",
 				"score": {
-					"max": 18223,
-					"maxGreen": 6764,
-					"maxOrange": 11459,
-					"green1_5": 21605,
-					"green2_0": 24987
+					"max": 18021,
+					"maxGreen": 6678,
+					"maxOrange": 11343,
+					"green1_5": 21360,
+					"green2_0": 24699
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 4559,
-					"orange": 13664,
-					"gray": 30112
+					"total": 9531,
+					"green": 4517,
+					"orange": 13504,
+					"gray": 29634
 				},
 				"word": "arise",
 				"score": {
-					"max": 18223,
-					"maxGreen": 4559,
-					"maxOrange": 13664,
-					"green1_5": 20502.5,
-					"green2_0": 22782
+					"max": 18021,
+					"maxGreen": 4517,
+					"maxOrange": 13504,
+					"green1_5": 20279.5,
+					"green2_0": 22538
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 2121,
-					"orange": 15569,
-					"gray": 30645
+					"total": 9531,
+					"green": 2102,
+					"orange": 15361,
+					"gray": 30192
 				},
 				"word": "osera",
 				"score": {
-					"max": 17690,
-					"maxGreen": 2121,
-					"maxOrange": 15569,
-					"green1_5": 18750.5,
-					"green2_0": 19811
+					"max": 17463,
+					"maxGreen": 2102,
+					"maxOrange": 15361,
+					"green1_5": 18514,
+					"green2_0": 19565
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6783,
-					"orange": 10659,
-					"gray": 30893
+					"total": 9531,
+					"green": 6699,
+					"orange": 10516,
+					"gray": 30440
 				},
 				"word": "taies",
 				"score": {
-					"max": 17442,
-					"maxGreen": 6783,
-					"maxOrange": 10659,
-					"green1_5": 20833.5,
-					"green2_0": 24225
+					"max": 17215,
+					"maxGreen": 6699,
+					"maxOrange": 10516,
+					"green1_5": 20564.5,
+					"green2_0": 23914
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6035,
-					"orange": 11407,
-					"gray": 30893
+					"total": 9531,
+					"green": 5969,
+					"orange": 11246,
+					"gray": 30440
 				},
 				"word": "satie",
 				"score": {
-					"max": 17442,
-					"maxGreen": 6035,
-					"maxOrange": 11407,
-					"green1_5": 20459.5,
-					"green2_0": 23477
+					"max": 17215,
+					"maxGreen": 5969,
+					"maxOrange": 11246,
+					"green1_5": 20199.5,
+					"green2_0": 23184
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 5744,
-					"orange": 11698,
-					"gray": 30893
+					"total": 9531,
+					"green": 5706,
+					"orange": 11509,
+					"gray": 30440
 				},
 				"word": "taise",
 				"score": {
-					"max": 17442,
-					"maxGreen": 5744,
-					"maxOrange": 11698,
-					"green1_5": 20314,
-					"green2_0": 23186
+					"max": 17215,
+					"maxGreen": 5706,
+					"maxOrange": 11509,
+					"green1_5": 20068,
+					"green2_0": 22921
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 4116,
-					"orange": 13260,
-					"gray": 30959
+					"total": 9531,
+					"green": 4073,
+					"orange": 13116,
+					"gray": 30466
 				},
 				"word": "asile",
 				"score": {
-					"max": 17376,
-					"maxGreen": 4116,
-					"maxOrange": 13260,
-					"green1_5": 19434,
-					"green2_0": 21492
+					"max": 17189,
+					"maxGreen": 4073,
+					"maxOrange": 13116,
+					"green1_5": 19225.5,
+					"green2_0": 21262
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 5867,
-					"orange": 11509,
-					"gray": 30959
+					"total": 9531,
+					"green": 5779,
+					"orange": 11410,
+					"gray": 30466
 				},
 				"word": "ailes",
 				"score": {
-					"max": 17376,
-					"maxGreen": 5867,
-					"maxOrange": 11509,
-					"green1_5": 20309.5,
-					"green2_0": 23243
+					"max": 17189,
+					"maxGreen": 5779,
+					"maxOrange": 11410,
+					"green1_5": 20078.5,
+					"green2_0": 22968
 				}
 			}
 		],
 		"maxGreen": [
 			{
 				"result": {
-					"total": 9667,
-					"green": 7047,
-					"orange": 9196,
-					"gray": 32092
+					"total": 9531,
+					"green": 6955,
+					"orange": 9093,
+					"gray": 31607
 				},
 				"word": "pares",
 				"score": {
-					"max": 16243,
-					"maxGreen": 7047,
-					"maxOrange": 9196,
-					"green1_5": 19766.5,
-					"green2_0": 23290
+					"max": 16048,
+					"maxGreen": 6955,
+					"maxOrange": 9093,
+					"green1_5": 19525.5,
+					"green2_0": 23003
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6952,
-					"orange": 8606,
-					"gray": 32777
+					"total": 9531,
+					"green": 6859,
+					"orange": 8509,
+					"gray": 32287
 				},
 				"word": "canes",
 				"score": {
-					"max": 15558,
-					"maxGreen": 6952,
-					"maxOrange": 8606,
-					"green1_5": 19034,
-					"green2_0": 22510
+					"max": 15368,
+					"maxGreen": 6859,
+					"maxOrange": 8509,
+					"green1_5": 18797.5,
+					"green2_0": 22227
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6933,
-					"orange": 9487,
-					"gray": 31915
+					"total": 9531,
+					"green": 6853,
+					"orange": 9397,
+					"gray": 31405
 				},
 				"word": "paies",
 				"score": {
-					"max": 16420,
-					"maxGreen": 6933,
-					"maxOrange": 9487,
-					"green1_5": 19886.5,
-					"green2_0": 23353
+					"max": 16250,
+					"maxGreen": 6853,
+					"maxOrange": 9397,
+					"green1_5": 19676.5,
+					"green2_0": 23103
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6897,
-					"orange": 10368,
-					"gray": 31070
+					"total": 9531,
+					"green": 6801,
+					"orange": 10212,
+					"gray": 30642
 				},
 				"word": "tares",
 				"score": {
-					"max": 17265,
-					"maxGreen": 6897,
-					"maxOrange": 10368,
-					"green1_5": 20713.5,
-					"green2_0": 24162
+					"max": 17013,
+					"maxGreen": 6801,
+					"maxOrange": 10212,
+					"green1_5": 20413.5,
+					"green2_0": 23814
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6889,
-					"orange": 9485,
-					"gray": 31961
-				},
-				"word": "mares",
-				"score": {
-					"max": 16374,
-					"maxGreen": 6889,
-					"maxOrange": 9485,
-					"green1_5": 19818.5,
-					"green2_0": 23263
-				}
-			},
-			{
-				"result": {
-					"total": 9667,
-					"green": 6884,
-					"orange": 9402,
-					"gray": 32049
+					"total": 9531,
+					"green": 6795,
+					"orange": 9312,
+					"gray": 31548
 				},
 				"word": "baies",
 				"score": {
-					"max": 16286,
-					"maxGreen": 6884,
-					"maxOrange": 9402,
-					"green1_5": 19728,
-					"green2_0": 23170
+					"max": 16107,
+					"maxGreen": 6795,
+					"maxOrange": 9312,
+					"green1_5": 19504.5,
+					"green2_0": 22902
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6878,
-					"orange": 8238,
-					"gray": 33219
-				},
-				"word": "rares",
-				"score": {
-					"max": 15116,
-					"maxGreen": 6878,
-					"maxOrange": 8238,
-					"green1_5": 18555,
-					"green2_0": 21994
-				}
-			},
-			{
-				"result": {
-					"total": 9667,
-					"green": 6877,
-					"orange": 8392,
-					"gray": 33066
+					"total": 9531,
+					"green": 6790,
+					"orange": 8300,
+					"gray": 32565
 				},
 				"word": "panes",
 				"score": {
-					"max": 15269,
-					"maxGreen": 6877,
-					"maxOrange": 8392,
-					"green1_5": 18707.5,
-					"green2_0": 22146
+					"max": 15090,
+					"maxGreen": 6790,
+					"maxOrange": 8300,
+					"green1_5": 18485,
+					"green2_0": 21880
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6870,
-					"orange": 8687,
-					"gray": 32778
+					"total": 9531,
+					"green": 6789,
+					"orange": 9374,
+					"gray": 31492
+				},
+				"word": "mares",
+				"score": {
+					"max": 16163,
+					"maxGreen": 6789,
+					"maxOrange": 9374,
+					"green1_5": 19557.5,
+					"green2_0": 22952
+				}
+			},
+			{
+				"result": {
+					"total": 9531,
+					"green": 6783,
+					"orange": 8607,
+					"gray": 32265
 				},
 				"word": "saies",
 				"score": {
-					"max": 15557,
-					"maxGreen": 6870,
-					"maxOrange": 8687,
-					"green1_5": 18992,
-					"green2_0": 22427
+					"max": 15390,
+					"maxGreen": 6783,
+					"maxOrange": 8607,
+					"green1_5": 18781.5,
+					"green2_0": 22173
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6824,
-					"orange": 8861,
-					"gray": 32650
+					"total": 9531,
+					"green": 6780,
+					"orange": 8145,
+					"gray": 32730
+				},
+				"word": "rares",
+				"score": {
+					"max": 14925,
+					"maxGreen": 6780,
+					"maxOrange": 8145,
+					"green1_5": 18315,
+					"green2_0": 21705
+				}
+			},
+			{
+				"result": {
+					"total": 9531,
+					"green": 6734,
+					"orange": 8760,
+					"gray": 32161
 				},
 				"word": "cales",
 				"score": {
-					"max": 15685,
-					"maxGreen": 6824,
-					"maxOrange": 8861,
-					"green1_5": 19097,
-					"green2_0": 22509
+					"max": 15494,
+					"maxGreen": 6734,
+					"maxOrange": 8760,
+					"green1_5": 18861,
+					"green2_0": 22228
 				}
 			}
 		],
 		"maxOrange": [
 			{
 				"result": {
-					"total": 9667,
-					"green": 2121,
-					"orange": 15569,
-					"gray": 30645
+					"total": 9531,
+					"green": 2102,
+					"orange": 15361,
+					"gray": 30192
 				},
 				"word": "osera",
 				"score": {
-					"max": 17690,
-					"maxGreen": 2121,
-					"maxOrange": 15569,
-					"green1_5": 18750.5,
-					"green2_0": 19811
+					"max": 17463,
+					"maxGreen": 2102,
+					"maxOrange": 15361,
+					"green1_5": 18514,
+					"green2_0": 19565
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 1965,
-					"orange": 15197,
-					"gray": 31173
+					"total": 9531,
+					"green": 1946,
+					"orange": 15023,
+					"gray": 30686
 				},
 				"word": "usera",
 				"score": {
-					"max": 17162,
-					"maxGreen": 1965,
-					"maxOrange": 15197,
-					"green1_5": 18144.5,
-					"green2_0": 19127
+					"max": 16969,
+					"maxGreen": 1946,
+					"maxOrange": 15023,
+					"green1_5": 17942,
+					"green2_0": 18915
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 3737,
-					"orange": 14486,
-					"gray": 30112
+					"total": 9531,
+					"green": 3690,
+					"orange": 14331,
+					"gray": 29634
 				},
 				"word": "serai",
 				"score": {
-					"max": 18223,
-					"maxGreen": 3737,
-					"maxOrange": 14486,
-					"green1_5": 20091.5,
-					"green2_0": 21960
+					"max": 18021,
+					"maxGreen": 3690,
+					"maxOrange": 14331,
+					"green1_5": 19866,
+					"green2_0": 21711
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 1815,
-					"orange": 14428,
-					"gray": 32092
+					"total": 9531,
+					"green": 1798,
+					"orange": 14250,
+					"gray": 31607
 				},
 				"word": "espar",
 				"score": {
-					"max": 16243,
-					"maxGreen": 1815,
-					"maxOrange": 14428,
-					"green1_5": 17150.5,
-					"green2_0": 18058
+					"max": 16048,
+					"maxGreen": 1798,
+					"maxOrange": 14250,
+					"green1_5": 16947,
+					"green2_0": 17846
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 2716,
-					"orange": 14287,
-					"gray": 31332
+					"total": 9531,
+					"green": 2684,
+					"orange": 14141,
+					"gray": 30830
 				},
 				"word": "irena",
 				"score": {
-					"max": 17003,
-					"maxGreen": 2716,
-					"maxOrange": 14287,
-					"green1_5": 18361,
-					"green2_0": 19719
+					"max": 16825,
+					"maxGreen": 2684,
+					"maxOrange": 14141,
+					"green1_5": 18167,
+					"green2_0": 19509
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 2198,
-					"orange": 14272,
-					"gray": 31865
+					"total": 9531,
+					"green": 2179,
+					"orange": 14088,
+					"gray": 31388
 				},
 				"word": "onera",
 				"score": {
-					"max": 16470,
-					"maxGreen": 2198,
-					"maxOrange": 14272,
-					"green1_5": 17569,
-					"green2_0": 18668
+					"max": 16267,
+					"maxGreen": 2179,
+					"maxOrange": 14088,
+					"green1_5": 17356.5,
+					"green2_0": 18446
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 3088,
-					"orange": 14177,
-					"gray": 31070
+					"total": 9531,
+					"green": 3020,
+					"orange": 13993,
+					"gray": 30642
 				},
 				"word": "aster",
 				"score": {
-					"max": 17265,
-					"maxGreen": 3088,
-					"maxOrange": 14177,
-					"green1_5": 18809,
-					"green2_0": 20353
+					"max": 17013,
+					"maxGreen": 3020,
+					"maxOrange": 13993,
+					"green1_5": 18523,
+					"green2_0": 20033
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 2355,
-					"orange": 14115,
-					"gray": 31865
+					"total": 9531,
+					"green": 2333,
+					"orange": 13934,
+					"gray": 31388
 				},
 				"word": "enora",
 				"score": {
-					"max": 16470,
-					"maxGreen": 2355,
-					"maxOrange": 14115,
-					"green1_5": 17647.5,
-					"green2_0": 18825
+					"max": 16267,
+					"maxGreen": 2333,
+					"maxOrange": 13934,
+					"green1_5": 17433.5,
+					"green2_0": 18600
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 2186,
-					"orange": 14105,
-					"gray": 32044
+					"total": 9531,
+					"green": 2161,
+					"orange": 13894,
+					"gray": 31600
 				},
 				"word": "ensat",
 				"score": {
-					"max": 16291,
-					"maxGreen": 2186,
-					"maxOrange": 14105,
-					"green1_5": 17384,
-					"green2_0": 18477
+					"max": 16055,
+					"maxGreen": 2161,
+					"maxOrange": 13894,
+					"green1_5": 17135.5,
+					"green2_0": 18216
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 2242,
-					"orange": 13980,
-					"gray": 32113
+					"total": 9531,
+					"green": 2206,
+					"orange": 13813,
+					"gray": 31636
 				},
 				"word": "entai",
 				"score": {
-					"max": 16222,
-					"maxGreen": 2242,
-					"maxOrange": 13980,
-					"green1_5": 17343,
-					"green2_0": 18464
+					"max": 16019,
+					"maxGreen": 2206,
+					"maxOrange": 13813,
+					"green1_5": 17122,
+					"green2_0": 18225
 				}
 			}
 		],
 		"green1_5": [
 			{
 				"result": {
-					"total": 9667,
-					"green": 6764,
-					"orange": 11459,
-					"gray": 30112
+					"total": 9531,
+					"green": 6678,
+					"orange": 11343,
+					"gray": 29634
 				},
 				"word": "raies",
 				"score": {
-					"max": 18223,
-					"maxGreen": 6764,
-					"maxOrange": 11459,
-					"green1_5": 21605,
-					"green2_0": 24987
+					"max": 18021,
+					"maxGreen": 6678,
+					"maxOrange": 11343,
+					"green1_5": 21360,
+					"green2_0": 24699
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6165,
-					"orange": 12058,
-					"gray": 30112
+					"total": 9531,
+					"green": 6069,
+					"orange": 11952,
+					"gray": 29634
 				},
 				"word": "aires",
 				"score": {
-					"max": 18223,
-					"maxGreen": 6165,
-					"maxOrange": 12058,
-					"green1_5": 21305.5,
-					"green2_0": 24388
+					"max": 18021,
+					"maxGreen": 6069,
+					"maxOrange": 11952,
+					"green1_5": 21055.5,
+					"green2_0": 24090
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6783,
-					"orange": 10659,
-					"gray": 30893
+					"total": 9531,
+					"green": 6699,
+					"orange": 10516,
+					"gray": 30440
 				},
 				"word": "taies",
 				"score": {
-					"max": 17442,
-					"maxGreen": 6783,
-					"maxOrange": 10659,
-					"green1_5": 20833.5,
-					"green2_0": 24225
+					"max": 17215,
+					"maxGreen": 6699,
+					"maxOrange": 10516,
+					"green1_5": 20564.5,
+					"green2_0": 23914
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6701,
-					"orange": 10675,
-					"gray": 30959
+					"total": 9531,
+					"green": 6624,
+					"orange": 10565,
+					"gray": 30466
 				},
 				"word": "laies",
 				"score": {
-					"max": 17376,
-					"maxGreen": 6701,
-					"maxOrange": 10675,
-					"green1_5": 20726.5,
-					"green2_0": 24077
+					"max": 17189,
+					"maxGreen": 6624,
+					"maxOrange": 10565,
+					"green1_5": 20501,
+					"green2_0": 23813
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6897,
-					"orange": 10368,
-					"gray": 31070
+					"total": 9531,
+					"green": 6801,
+					"orange": 10212,
+					"gray": 30642
 				},
 				"word": "tares",
 				"score": {
-					"max": 17265,
-					"maxGreen": 6897,
-					"maxOrange": 10368,
-					"green1_5": 20713.5,
-					"green2_0": 24162
+					"max": 17013,
+					"maxGreen": 6801,
+					"maxOrange": 10212,
+					"green1_5": 20413.5,
+					"green2_0": 23814
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6815,
-					"orange": 10384,
-					"gray": 31136
+					"total": 9531,
+					"green": 6726,
+					"orange": 10261,
+					"gray": 30668
 				},
 				"word": "lares",
 				"score": {
-					"max": 17199,
-					"maxGreen": 6815,
-					"maxOrange": 10384,
-					"green1_5": 20606.5,
-					"green2_0": 24014
+					"max": 16987,
+					"maxGreen": 6726,
+					"maxOrange": 10261,
+					"green1_5": 20350,
+					"green2_0": 23713
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6523,
-					"orange": 10742,
-					"gray": 31070
-				},
-				"word": "rates",
-				"score": {
-					"max": 17265,
-					"maxGreen": 6523,
-					"maxOrange": 10742,
-					"green1_5": 20526.5,
-					"green2_0": 23788
-				}
-			},
-			{
-				"result": {
-					"total": 9667,
-					"green": 4559,
-					"orange": 13664,
-					"gray": 30112
+					"total": 9531,
+					"green": 4517,
+					"orange": 13504,
+					"gray": 29634
 				},
 				"word": "arise",
 				"score": {
-					"max": 18223,
-					"maxGreen": 4559,
-					"maxOrange": 13664,
-					"green1_5": 20502.5,
-					"green2_0": 22782
+					"max": 18021,
+					"maxGreen": 4517,
+					"maxOrange": 13504,
+					"green1_5": 20279.5,
+					"green2_0": 22538
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6035,
-					"orange": 11407,
-					"gray": 30893
+					"total": 9531,
+					"green": 6416,
+					"orange": 10597,
+					"gray": 30642
 				},
-				"word": "satie",
+				"word": "rates",
 				"score": {
-					"max": 17442,
-					"maxGreen": 6035,
-					"maxOrange": 11407,
-					"green1_5": 20459.5,
-					"green2_0": 23477
+					"max": 17013,
+					"maxGreen": 6416,
+					"maxOrange": 10597,
+					"green1_5": 20221,
+					"green2_0": 23429
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6092,
-					"orange": 11284,
-					"gray": 30959
+					"total": 9531,
+					"green": 6043,
+					"orange": 11146,
+					"gray": 30466
 				},
 				"word": "salie",
 				"score": {
-					"max": 17376,
-					"maxGreen": 6092,
-					"maxOrange": 11284,
-					"green1_5": 20422,
-					"green2_0": 23468
+					"max": 17189,
+					"maxGreen": 6043,
+					"maxOrange": 11146,
+					"green1_5": 20210.5,
+					"green2_0": 23232
+				}
+			},
+			{
+				"result": {
+					"total": 9531,
+					"green": 5969,
+					"orange": 11246,
+					"gray": 30440
+				},
+				"word": "satie",
+				"score": {
+					"max": 17215,
+					"maxGreen": 5969,
+					"maxOrange": 11246,
+					"green1_5": 20199.5,
+					"green2_0": 23184
 				}
 			}
 		],
 		"green2_0": [
 			{
 				"result": {
-					"total": 9667,
-					"green": 6764,
-					"orange": 11459,
-					"gray": 30112
+					"total": 9531,
+					"green": 6678,
+					"orange": 11343,
+					"gray": 29634
 				},
 				"word": "raies",
 				"score": {
-					"max": 18223,
-					"maxGreen": 6764,
-					"maxOrange": 11459,
-					"green1_5": 21605,
-					"green2_0": 24987
+					"max": 18021,
+					"maxGreen": 6678,
+					"maxOrange": 11343,
+					"green1_5": 21360,
+					"green2_0": 24699
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6165,
-					"orange": 12058,
-					"gray": 30112
+					"total": 9531,
+					"green": 6069,
+					"orange": 11952,
+					"gray": 29634
 				},
 				"word": "aires",
 				"score": {
-					"max": 18223,
-					"maxGreen": 6165,
-					"maxOrange": 12058,
-					"green1_5": 21305.5,
-					"green2_0": 24388
+					"max": 18021,
+					"maxGreen": 6069,
+					"maxOrange": 11952,
+					"green1_5": 21055.5,
+					"green2_0": 24090
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6783,
-					"orange": 10659,
-					"gray": 30893
+					"total": 9531,
+					"green": 6699,
+					"orange": 10516,
+					"gray": 30440
 				},
 				"word": "taies",
 				"score": {
-					"max": 17442,
-					"maxGreen": 6783,
-					"maxOrange": 10659,
-					"green1_5": 20833.5,
-					"green2_0": 24225
+					"max": 17215,
+					"maxGreen": 6699,
+					"maxOrange": 10516,
+					"green1_5": 20564.5,
+					"green2_0": 23914
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6897,
-					"orange": 10368,
-					"gray": 31070
+					"total": 9531,
+					"green": 6801,
+					"orange": 10212,
+					"gray": 30642
 				},
 				"word": "tares",
 				"score": {
-					"max": 17265,
-					"maxGreen": 6897,
-					"maxOrange": 10368,
-					"green1_5": 20713.5,
-					"green2_0": 24162
+					"max": 17013,
+					"maxGreen": 6801,
+					"maxOrange": 10212,
+					"green1_5": 20413.5,
+					"green2_0": 23814
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6701,
-					"orange": 10675,
-					"gray": 30959
+					"total": 9531,
+					"green": 6624,
+					"orange": 10565,
+					"gray": 30466
 				},
 				"word": "laies",
 				"score": {
-					"max": 17376,
-					"maxGreen": 6701,
-					"maxOrange": 10675,
-					"green1_5": 20726.5,
-					"green2_0": 24077
+					"max": 17189,
+					"maxGreen": 6624,
+					"maxOrange": 10565,
+					"green1_5": 20501,
+					"green2_0": 23813
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6815,
-					"orange": 10384,
-					"gray": 31136
+					"total": 9531,
+					"green": 6726,
+					"orange": 10261,
+					"gray": 30668
 				},
 				"word": "lares",
 				"score": {
-					"max": 17199,
-					"maxGreen": 6815,
-					"maxOrange": 10384,
-					"green1_5": 20606.5,
-					"green2_0": 24014
+					"max": 16987,
+					"maxGreen": 6726,
+					"maxOrange": 10261,
+					"green1_5": 20350,
+					"green2_0": 23713
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6523,
-					"orange": 10742,
-					"gray": 31070
+					"total": 9531,
+					"green": 6416,
+					"orange": 10597,
+					"gray": 30642
 				},
 				"word": "rates",
 				"score": {
-					"max": 17265,
-					"maxGreen": 6523,
-					"maxOrange": 10742,
-					"green1_5": 20526.5,
-					"green2_0": 23788
+					"max": 17013,
+					"maxGreen": 6416,
+					"maxOrange": 10597,
+					"green1_5": 20221,
+					"green2_0": 23429
 				}
 			},
 			{
 				"result": {
-					"total": 9667,
-					"green": 6303,
-					"orange": 10893,
-					"gray": 31139
+					"total": 9531,
+					"green": 6043,
+					"orange": 11146,
+					"gray": 30466
+				},
+				"word": "salie",
+				"score": {
+					"max": 17189,
+					"maxGreen": 6043,
+					"maxOrange": 11146,
+					"green1_5": 20210.5,
+					"green2_0": 23232
+				}
+			},
+			{
+				"result": {
+					"total": 9531,
+					"green": 6168,
+					"orange": 10895,
+					"gray": 30592
+				},
+				"word": "sanie",
+				"score": {
+					"max": 17063,
+					"maxGreen": 6168,
+					"maxOrange": 10895,
+					"green1_5": 20147,
+					"green2_0": 23231
+				}
+			},
+			{
+				"result": {
+					"total": 9531,
+					"green": 6249,
+					"orange": 10728,
+					"gray": 30678
 				},
 				"word": "tarie",
 				"score": {
-					"max": 17196,
-					"maxGreen": 6303,
-					"maxOrange": 10893,
-					"green1_5": 20347.5,
-					"green2_0": 23499
-				}
-			},
-			{
-				"result": {
-					"total": 9667,
-					"green": 6035,
-					"orange": 11407,
-					"gray": 30893
-				},
-				"word": "satie",
-				"score": {
-					"max": 17442,
-					"maxGreen": 6035,
-					"maxOrange": 11407,
-					"green1_5": 20459.5,
-					"green2_0": 23477
-				}
-			},
-			{
-				"result": {
-					"total": 9667,
-					"green": 6205,
-					"orange": 11060,
-					"gray": 31070
-				},
-				"word": "sarte",
-				"score": {
-					"max": 17265,
-					"maxGreen": 6205,
-					"maxOrange": 11060,
-					"green1_5": 20367.5,
-					"green2_0": 23470
+					"max": 16977,
+					"maxGreen": 6249,
+					"maxOrange": 10728,
+					"green1_5": 20101.5,
+					"green2_0": 23226
 				}
 			}
 		]

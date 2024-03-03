@@ -1,4 +1,6 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import {
+  useState, useEffect, useMemo, useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
@@ -115,15 +117,21 @@ const SettingsSources = () => {
           </ul>
           <h2>
               {t('settings.sourcesTitleDictionaries')}
-              :
-              {' '}
+              {': '}
               {t('language.currentLanguage')}
           </h2>
           <ul className={clsx({ 'list-col-3': (dictionaries.length + 1) % 3 === 0 })}>
               <li>
                   <ButtonTile onClick={() => changePane(Pane.AboutLanguage)}>
                       <IconBookOpen />
-                      <span>{t('settings.statisticsTitle')}</span>
+                      <span>
+                          {t('settings.statisticsTitle')}
+                          {': '}
+                          <br />
+                          <strong>
+                              {t('language.currentLanguage')}
+                          </strong>
+                      </span>
                   </ButtonTile>
               </li>
               {dictionaries.map(({ isSpeelchecker = false, href, labelHTML }, index) => (
