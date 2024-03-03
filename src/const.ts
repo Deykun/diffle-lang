@@ -134,7 +134,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLines: KEY_LINES_FR,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR.flatMap(key => key)],
     characters: KEY_LINES_FR.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
-    specialCharacters: ['é', 'è', 'ê', 'î', 'ï', 'œ', 'ô', 'ù', 'û'],
+    specialCharacters: ['â', 'ç', 'é', 'è', 'ê', 'î', 'ï', 'ô', 'û'],
     hasSpecialCharacters: true,
     urls: [
       { url: 'https://fr.wiktionary.org/wiki/{{word}}', name: 'Wiktionary.org', hasExactMatchAlways: false },
