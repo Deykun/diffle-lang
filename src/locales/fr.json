@@ -180,7 +180,7 @@
     "statistics.keyboardUsed": "moyenne <strong>{{value}}%</strong> du clavier utilisée",
     "statistics.averageWordsNotFound": "<strong>{{value}}</strong> mots non trouvés dans un dictionnaire",
     "statistics.worstWordsNotFound": "pire <strong>{{value}}</strong> en une partie",
-    "statistics.worstWordsNotFoundLonger": "pire mots non trouvés dans un dictionnaire <strong>{{value}}</strong> en une partie",
+    "statistics.worstWordsNotFoundLonger": "les pires mots non trouvés dans un dictionnaire <strong>{{value}}</strong> dans un jeu",
     "statistics.totalGames_zero": "<strong>{{count}}</strong> parties",
     "statistics.totalGames_one": "<strong>1</strong> partie",
     "statistics.totalGames_few": "<strong>{{count}}</strong> parties",
