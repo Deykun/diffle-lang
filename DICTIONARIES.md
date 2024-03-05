@@ -20,6 +20,8 @@ Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.t
 - https://gitlab.com/strepon/czech-cc0-dictionaries 📔 (12.07MB)
 - http://slovniky.webz.cz via http://home.zcu.cz/~konopik/ppc/ 🎯
 
+- https://www.dicts.info/uddl.php and https://omegawiki.org/ (currently down) 📄 
+
 ### German 🇩🇪
 The current German spellchecker is based on words from Wikipedia articles (likely gathered before 2018). It works okay, but the words may be too specific.
 
@@ -34,7 +36,7 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 - https://github.com/lorenbrichter/Words/blob/master/Words/es.txt 📔 (6.73MB)
 - https://github.com/ManiacDC/TypingAid/blob/master/Wordlists/Wordlist%20Spanish.txt 📔 (850KB)
 - https://freedict.org 🎯
-t
+
 - https://github.com/Alex44lel/RAE-Scraper/blob/master/scrapy/rae/cleaned_words.json - 📄🃏 (1.48MB)
 - https://github.com/mananoreboton/en-es-en-Dic 📄
 - https://github.com/CAERMALO/Language_-_Spanish/blob/master/es_ES.dic 📄 (832 KB)
