@@ -12,6 +12,11 @@ Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.t
 
 🎯 - **Winning Dictionary**: a more concise selection, significantly smaller. Words that align with the spellchecker dictionary should function exceptionally well as winning choices in a spelling game (no weird endings).
 
+<<<<<<< HEAD
+=======
+🚫 - **Rejected**
+
+>>>>>>> d36a35ceae0e1a2402032e8e0bf5756e79f2fb67
 🃏 - **No license**: Rejected because it doesn't have a license.
 
 📄 - **Too little**: Rejected because it is the smallest,
@@ -36,7 +41,6 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 - https://github.com/lorenbrichter/Words/blob/master/Words/es.txt 📔 (6.73MB)
 - https://github.com/ManiacDC/TypingAid/blob/master/Wordlists/Wordlist%20Spanish.txt 📔 (850KB)
 - https://freedict.org 🎯
-
 - https://github.com/Alex44lel/RAE-Scraper/blob/master/scrapy/rae/cleaned_words.json - 📄🃏 (1.48MB)
 - https://github.com/mananoreboton/en-es-en-Dic 📄
 - https://github.com/CAERMALO/Language_-_Spanish/blob/master/es_ES.dic 📄 (832 KB)
