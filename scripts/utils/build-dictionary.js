@@ -293,6 +293,7 @@ export const actionBuildDictionary = (
         DICTIONARIES,
         MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD = MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
         MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD = MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
+        MAXIMUM_LENGTH_OF_WINNING_WORD = MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
     },
     spellcheckerWords,
     winningWords,
@@ -572,14 +573,14 @@ export const actionBuildDictionary = (
         const word = rawWord.trim();
         const key = getNormalizedKey(word, LANG);
 
-        const isWithCorrectLength = key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD && word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD;
+        const isWithCorrectLength = key && word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD && word.length <= MAXIMUM_LENGTH_OF_WINNING_WORD;
         if (!isWithCorrectLength) {
             // Meets it so it's too long
             if (word.length >= MINIMUM_LENGTH_FOR_A_WINNING_WORD) {
                 statistics.winning.rejected.tooLong += 1;
             }
 
-            if (word.length <= MAXIMUM_LENGTH_FOR_A_WINNING_WORD) {
+            if (word.length <= MAXIMUM_LENGTH_OF_WINNING_WORD) {
                 statistics.winning.rejected.tooShort += 1;
             }
 
