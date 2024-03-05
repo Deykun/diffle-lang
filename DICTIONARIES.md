@@ -10,8 +10,6 @@ Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.t
 
 🎯 - **Winning Dictionary**: a more concise selection, significantly smaller. Words that align with the spellchecker dictionary should function exceptionally well as winning choices in a spelling game (no weird endings).
 
-🚫 - **Rejected**
-
 🃏 - **No license**: Rejected because it doesn't have a license.
 
 📄 - **Too little**: Rejected because it is the smallest,
