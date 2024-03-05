@@ -45,6 +45,11 @@ t
 - https://github.com/CAERMALO/Language_-_Spanish/blob/master/es_ES.dic 📄 (832 KB)
 - https://github.com/words/an-array-of-spanish-words/blob/master/index.json 📄 (7.94 MB)
 - https://github.com/dm03514/open-dictionaries/blob/master/es/words.txt 📄🃏 (706KB)
+- https://github.com/mananoreboton/en-es-en-Dic/blob/master/src/main/resources/dic/es-en.xml 📄 (3.8MB)
+- https://github.com/nhershy/SpanishDictionaryCreator/blob/main/mananoreboton%20dictionaries/es-en.csv 📄 (1.34MB same as above)
+
+#### A great source of information for Spanish dictionaries:
+https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-i-came-across
 
 ### French 🇫🇷
 - http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (19.1MB)
