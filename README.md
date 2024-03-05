@@ -57,11 +57,7 @@ You can share your result with a hashed URL, which after winning your daily game
  - https://github.com/hedalu244/diffle
 
 ### Dictionaries
-<<<<<<< HEAD
-[Check DICTIONARIES.md](DICTIONARIES.md)
-=======
-[Check DICTIONARIES](DICTIONARIES.md)
->>>>>>> d36a35ceae0e1a2402032e8e0bf5756e79f2fb67
+[Check 📔 DICTIONARIES.md](DICTIONARIES.md)
 
 ### Other
  - https://iconmonstr.com/ - icons
