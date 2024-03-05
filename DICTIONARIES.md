@@ -14,7 +14,7 @@ Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.t
 
 🃏 - **No license**: Rejected because it doesn't have a license.
 
-📄 - **Too little**: Rejected because it is the smallest,
+📄 - **Too little**: Rejected because it is too tiny.
 
 ### Czech 🇨🇿 
 - https://gitlab.com/strepon/czech-cc0-dictionaries 📔 (12.07MB)
