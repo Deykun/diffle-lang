@@ -4,11 +4,6 @@ Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.t
 
 **I am very grateful to all the creators of open online dictionaries. Your help is invaluable. 💗**
 
-|       	|     🇨🇿     	|      🇬🇧     	|     🇫🇷     	|     🇵🇱     	|      🇪🇸     	|     🇩🇪     	|
-|:-----:	|:----------:	|:-----------:	|:----------:	|:----------:	|:-----------:	|:----------:	|
-|       	|  **Czech** 	| **English** 	| **French** 	| **Polish** 	| **Spanish** 	| **German** 	|
-| Since 	| 02.02.2024 	|  19.01.2024 	| 03.03.2024 	| 30.07.2023 	|  21.02.2024 	| 19.02.2024 	|
-
 ## Open-source dictionaries
 
 📔 - **Spellchecker**: the broadest dictionary, with the goal of encompassing as many words as possible and ensuring their accuracy. However, some inappropriate words may be incorrectly recognized.
