@@ -1,5 +1,3 @@
-
-
 # Dictionaries
 Special thanks to dwyl for their dictionary and FreeDict, both utilized by diffle-en. The dwyl's dictionary functions as a spellchecker, while FreeDict aids in identifying the best winning words.
 - https://github.com/dwyl/

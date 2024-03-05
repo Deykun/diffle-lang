@@ -167,6 +167,36 @@
     }
 }
 
+.word.word--is-long {
+    .affix {
+        min-width: min(22px, 5vw);
+        height: min(22px, 5vw);
+        line-height: min(22px, 5vw);
+        font-size: min(16px, 3vw);
+
+        &.letter {
+            max-width: min(22px, 5vw);
+            padding: 0;
+            letter-spacing: 0;
+        }
+    }
+}
+
+.word.word--is-extra-long {
+    .affix {
+        min-width: min(20px, 4vw);
+        height: min(20px, 4vw);
+        line-height: min(20px, 4vw);
+        font-size: min(14px, 2.5vw);
+
+        &.letter {
+            max-width: min(20px, 4vw);
+            padding: 0;
+            letter-spacing: 0;
+        }
+    }
+}
+
 .lost-word-wrapper {
     .word {
         margin-top: 5px;
