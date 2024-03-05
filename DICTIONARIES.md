@@ -1,5 +1,7 @@
 # Dictionaries used and not used by Diffle.
 
+Currently utilized dictionaries by diffle-lang are included in `/resources/[lang]/[dictionaryDir]`.
+
 Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.txt` with a wordlist. The dictionaries I consider the best are there. If you simply want to grab a dictionary go to there (the source is worth checking because they may have updated the dictionary, license, or have added new words).
 
 **I am very grateful to all the creators of open online dictionaries. Your help is invaluable. 💗**
