@@ -7,7 +7,7 @@ import { Pane as PaneInterface } from '@common-types';
 import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useDispatch, useSelector } from '@store';
-import { setToast } from '@store/appSlice';
+import { track, setToast } from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
 import usePanes from '@hooks/usePanes';
@@ -28,9 +28,10 @@ import './LanguagePicker.scss';
 interface Props {
   className?: string,
   children?: React.ReactNode,
+  place?: string,
 }
 
-const LanguagePicker = ({ children, className }: Props) => {
+const LanguagePicker = ({ children, className, place }: Props) => {
   const dispatch = useDispatch();
   const isGameUpdating = useSelector(state => state.game.isProcessing || state.game.isLoadingGame);
   const [isOpen, setIsOpen] = useState(false);
@@ -45,6 +46,7 @@ const LanguagePicker = ({ children, className }: Props) => {
     }
 
     vibrate();
+    dispatch(track({ name: `click_change_lang_to_${lang}_from_${i18n.language}` }));
 
     i18n.changeLanguage(lang);
 
@@ -54,6 +56,12 @@ const LanguagePicker = ({ children, className }: Props) => {
 
   const handleTriggerClick = () => {
     vibrate();
+
+    if (place) {
+      dispatch(track({ name: `click_languge_picker_opened_from_${place}` }));
+    } else {
+      dispatch(track({ name: 'click_languge_picker_opened' }));
+    }
 
     setIsOpen(value => !value);
   };

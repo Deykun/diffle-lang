@@ -75,7 +75,7 @@ const Header = () => {
                   {gameMode === GameMode.Practice && <IconInfinity />}
               </button>
               {gameLanguage && (
-              <LanguagePicker className="header-language-picker">
+              <LanguagePicker className="header-language-picker" place="header">
                   <img
                     key={flagKey}
                     className={clsx('header-flag', { 'header-flag--animation': flagKey })}

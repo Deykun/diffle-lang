@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE } from '@const';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
+import { track } from '@store/appSlice';
 import {
   selectGameLanguageKeyboardInfo,
 } from '@store/selectors';
@@ -29,6 +30,7 @@ import LanguagePicker from '@components/Language/LanguagePicker';
 import './Settings.scss';
 
 const SettingsPreferences = () => {
+  const dispatch = useDispatch();
   const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
   const cookies = useSelector(state => state.app.cookies);
   const totalOfCookiesPoliciesAccepted = Object.values(cookies).filter(Boolean).length;
@@ -55,6 +57,8 @@ const SettingsPreferences = () => {
 
     localStorage.setItem(LOCAL_STORAGE.THEME, isLightThemeBeforeToggle ? 'dark' : 'light');
 
+    dispatch(track({ name: `click_change_to_${isLightThemeBeforeToggle ? 'dark' : 'light'}_mode` }));
+
     document.documentElement.classList.toggle('light');
   };
 
@@ -62,6 +66,8 @@ const SettingsPreferences = () => {
     const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
 
     localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
+
+    dispatch(track({ name: `click_${isHighContrastBeforeToggle ? 'turn_off_contrast' : 'turn_on_contrast'}` }));
 
     document.documentElement.classList.toggle('contrast');
   };
@@ -104,7 +110,7 @@ const SettingsPreferences = () => {
                   </ButtonTile>
               </li>
               <li>
-                  <LanguagePicker className="button-tile" />
+                  <LanguagePicker className="button-tile" place="settings" />
               </li>
           </ul>
           <h3>{t('settings.keyboard')}</h3>
