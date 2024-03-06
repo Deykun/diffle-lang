@@ -162,6 +162,7 @@
     "share.linkWithUsedWordsNoSpoilers": "(without spoilers)",
     "share.titleSharedResult": "Result shared with you",
     "share.resultIsBroken": "Unfortunately, this link has expired or is broken.",
+    "share.resultIsForTheFuture": "This link should work soon.",
     "share.resultHasExpired": "Unfortunately, this link has expired.",
     "share.titleUsedWords": "Used words",
     "share.dontShowThisResult": "Don't show this result anymore",

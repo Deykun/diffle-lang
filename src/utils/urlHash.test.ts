@@ -6,6 +6,7 @@ import {
   transformChunkInfoIntoShortKey,
   transformShortKeyToChunkInfo,
   getUrlHashForGameResult,
+  getGameResultFromUrlHash,
 } from './urlHash';
 
 describe('', () => {
@@ -174,6 +175,7 @@ describe('ChunkInfo and ShortedKey', () => {
 describe('getUrlHashForGameResult', () => {
   const workingExample = {
     wordToGuess: 'test',
+    dayIntoYear: 32,
     wordsWithIndexes: [
       { word: 'kasa', key: 'kas', index: 123 },
       { word: 'test', key: 'tes', index: 345 },
@@ -198,7 +200,25 @@ describe('getUrlHashForGameResult', () => {
     });
   });
 
-  it('right inputshould generate the correct hash', () => {
-    expect(getUrlHashForGameResult({ ...workingExample })).toEqual('!(test.5.0.3.0.kas-7b.tes-159)!');
+  it('right input should generate the correct hash', () => {
+    expect(getUrlHashForGameResult({ ...workingExample })).toEqual('!(test-32.5.0.3.0.kas-7b.tes-159)!');
+  });
+
+  it('right input should generate the correct hash without date (older version)', () => {
+    expect(getUrlHashForGameResult({ ...workingExample, dayIntoYear: undefined })).toEqual('!(test.5.0.3.0.kas-7b.tes-159)!');
+  });
+});
+
+describe('getGameResultFromUrlHash', () => {
+  it('right input should generate the correct word to guess', async () => {
+    const result = await getGameResultFromUrlHash('!(test-32.5.0.3.0.kas-7b.tes-159)!');
+    expect(result.wordToGuess).toEqual('test');
+    expect(result.dayIntoYear).toEqual(32);
+  });
+
+  it('right input should generate the correct word to guess (older version)', async () => {
+    const result = await getGameResultFromUrlHash('!(test.5.0.3.0.kas-7b.tes-159)!');
+    expect(result.wordToGuess).toEqual('test');
+    expect(result.dayIntoYear).toEqual(undefined);
   });
 });

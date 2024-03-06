@@ -29,6 +29,7 @@ export interface Dictionary {
     hasExactMatchAlways: boolean, // exact means that there have to be exact match
   }[],
   shareMarker?: string,
+  maxWordLength?: number,
 }
 
 export enum DictionaryInfoLetters {

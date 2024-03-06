@@ -646,10 +646,11 @@ const gameSlice = createSlice({
         return;
       }
 
-      const { allowedKeys = [] } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage] || {};
+      const { allowedKeys = [], maxWordLength: maxWordLengthForLanguage } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage] || {};
 
       if (allowedKeys.includes(typed)) {
-        if (state.wordToSubmit.length > WORD_MAXLENGTH - 1) {
+        const maxwordLengt = maxWordLengthForLanguage || WORD_MAXLENGTH;
+        if (state.wordToSubmit.length > maxwordLengt - 1) {
           return;
         }
 

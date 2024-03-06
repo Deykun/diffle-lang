@@ -57,15 +57,7 @@ You can share your result with a hashed URL, which after winning your daily game
  - https://github.com/hedalu244/diffle
 
 ### Dictionaries
- - https://gitlab.com/strepon/czech-cc0-dictionaries - Czech spellchecker dictionary
- - http://slovniky.webz.cz via http://home.zcu.cz/~konopik/ppc/ - Czech winning words dictionary
- - http://www.aaabbb.de/WordList/WordList.php - German spellchecker dictionary (from Wikipedia)
- - https://github.com/dwyl - English spellchecker dictionary
- - https://grammalecte.net/ - French spellchecker dictionary
- - https://sjp.pl - Polish spellchecker dictionary
- - https://github.com/lorenbrichter/Words - Spanish spellchecker
- - https://github.com/ManiacDC/TypingAid - Spanish spellchecker
- - https://freedict.org - English & German & French & Polish & Spanish winning words dictionary
+[Check 📔 DICTIONARIES.md](DICTIONARIES.md)
 
 ### Other
  - https://iconmonstr.com/ - icons

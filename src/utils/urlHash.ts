@@ -92,6 +92,7 @@ export const transformShortKeyToChunkInfo = (shortKey: string): ChunkInfo[] => {
 
 interface Params {
   wordToGuess: string,
+  dayIntoYear: number | undefined,
   wordsWithIndexes: {
     word: string,
     key: string,
@@ -107,6 +108,7 @@ interface Params {
 
 export const getUrlHashForGameResult = ({
   wordToGuess = '',
+  dayIntoYear,
   wordsWithIndexes = [],
   subtotals: {
     correct = 0,
@@ -122,7 +124,7 @@ export const getUrlHashForGameResult = ({
   }
 
   const partsToHash = [
-    wordToGuess,
+    dayIntoYear ? [wordToGuess, dayIntoYear].join('-') : wordToGuess,
     // values below will be used as a checksum
     correct,
     position,
@@ -143,7 +145,7 @@ export const getUrlHashForGameResult = ({
 
 export const getGameResultFromUrlHash = async (urlHash: string) => {
   const [
-    wordToGuess,
+    wordToGuessOrWordToGuessWithGuessDate,
     correctString,
     positionString,
     incorrectString,
@@ -153,8 +155,14 @@ export const getGameResultFromUrlHash = async (urlHash: string) => {
 
   const keysWithIndexes = transformShortKeyToChunkInfo(compactedWords.join('.'));
 
+  // Older hashes doesn't have guessDate
+  const [wordToGuess, dayIntoYear] = wordToGuessOrWordToGuessWithGuessDate.includes('-')
+    ? wordToGuessOrWordToGuessWithGuessDate.split('-')
+    : [wordToGuessOrWordToGuessWithGuessDate, undefined];
+
   return {
     wordToGuess,
+    dayIntoYear: dayIntoYear !== undefined ? Number(dayIntoYear) : undefined,
     correct: Number(correctString),
     position: Number(positionString),
     incorrect: Number(incorrectString),

@@ -90,6 +90,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
       { url: 'https://www.dwds.de/wb/{{word}}', name: 'DWDS - Digitales Wörterbuch der deutschen Sprache', hasExactMatchAlways: false },
     ],
     shareMarker: '🇩🇪 #diffle #difflede',
+    maxWordLength: 18,
   },
   en: {
     code: 'en',
