@@ -59,7 +59,7 @@
     "help.title": "Aide",
     "help.howToPlayTitle": "Comment jouer ?",
     "help.howToPlayText1": "Devinez le mot en utilisant le moins de lettres possible.",
-    "help.howToPlayText2": "Une fois que vous avez fait de votre mieux pour deviner, les couleurs des lettres changent pour vous indiquer à quel point vous êtes proche ou éloigné du mot.",
+    "help.howToPlayText2": "Une fois que vous avez fait de votre mieux pour deviner, les couleurs des lettres changent pour vous indiquer à quel point vous vous rapprochez ou vous éloignez du mot.",
     "help.exampleTitle": "Un exemple",
     "help.exampleTitleAlt": "Un exemple différent",
     "help.incorrectLettersTip": "Les lettres grises ne sont pas dans le mot.",
@@ -247,5 +247,5 @@
     "statistics.filterWordleBestTitle": "Équilibre des couleurs",
     "statistics.filterBestGreen1_5": "1,5 × vert + 1 × jaune",
     "statistics.filterBestGreen2_0": "2 × vert + 1 × jaune",
-    "statistics.bestWordleWordPopularLettersTitle": "Lettres les plus populaires à une position donnée"
+    "statistics.bestWordleWordPopularLettersTitle": "Lettres les plus populaires à chaque position donnée"
 }
