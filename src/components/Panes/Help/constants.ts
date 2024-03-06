@@ -50,6 +50,16 @@ export const HELP_EXAMPLES_BY_LANG: {
       words: ['ablandad', 'etica', 'gatos', 'pairo', 'perrito'],
     },
   },
+  fr: {
+    first: {
+      wordToGuess: 'fleur',
+      words: ['mot', 'peluche', 'rebelle', 'foutoir', 'fleur'],
+    },
+    second: {
+      wordToGuess: 'nuit',
+      words: ['hé', 'utile', 'inciter', 'navet', 'nuit'],
+    },
+  },
   pl: {
     first: {
       wordToGuess: 'super',

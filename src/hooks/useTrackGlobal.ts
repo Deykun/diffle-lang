@@ -15,13 +15,13 @@ function useTrackGlobal() {
 
   useEffect(() => {
     if (activePane && gameLanguage) {
-      dispatch(track({ name: `pane_view_${activePane.replaceAll('-', '_').toLocaleLowerCase()}`, params: { lang: gameLanguage } }));
+      dispatch(track({ name: `pane_view_${gameLanguage}_${activePane.replaceAll('-', '_').toLocaleLowerCase()}` }));
     }
   }, [cookiesRefresherString, dispatch, activePane, gameLanguage]);
 
   useEffect(() => {
     if (gameMode && gameLanguage) {
-      dispatch(track({ name: `game_mode_${gameMode}`, params: { lang: gameLanguage } }));
+      dispatch(track({ name: `game_mode_${gameLanguage}_${gameMode}` }));
     }
   }, [cookiesRefresherString, dispatch, gameLanguage, gameMode]);
 

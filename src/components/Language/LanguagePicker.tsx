@@ -16,6 +16,7 @@ import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconConstruction from '@components/Icons/IconConstruction';
 import IconTranslation from '@components/Icons/IconTranslation';
 
+import Button from '@components/Button/Button';
 import ButtonTile from '@components/Button/ButtonTile';
 import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
@@ -65,6 +66,8 @@ const LanguagePicker = ({ children, className }: Props) => {
     setIsOpen(value => !value);
   };
 
+  const shouldShowAboutInLanguages = SUPPORTED_LANGS.length === 5;
+
   return (
       <>
           <button
@@ -84,6 +87,7 @@ const LanguagePicker = ({ children, className }: Props) => {
               <div className="settings">
                   <h3>{t('settings.language')}</h3>
                   <ul className="list-col-3">
+                      {shouldShowAboutInLanguages && (
                       <li>
                           <ButtonTile isInverted onClick={handleGoToAboutLanguage}>
                               <IconBookOpen />
@@ -95,6 +99,7 @@ const LanguagePicker = ({ children, className }: Props) => {
                               </span>
                           </ButtonTile>
                       </li>
+                      )}
                       {SUPPORTED_LANGS.map(lang => (
                           <li key={lang}>
                               <ButtonTile
@@ -121,6 +126,25 @@ const LanguagePicker = ({ children, className }: Props) => {
                           </li>
                       ))}
                   </ul>
+                  {!shouldShowAboutInLanguages && (
+                  <div>
+                      <br />
+                      <br />
+                      <Button
+                        onClick={handleGoToAboutLanguage}
+                      >
+                          <IconBookOpen />
+                          <span>
+                              {t('settings.statisticsTitle')}
+                              :
+                              {' '}
+                              <strong>{t('language.currentLanguage')}</strong>
+                          </span>
+                      </Button>
+                      <br />
+                      <br />
+                  </div>
+                  )}
                   <ReportTranslationBugButton />
               </div>
           </Modal>

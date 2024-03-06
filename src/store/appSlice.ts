@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Pane, RootAppState, RootState, ToastType, CookiesName } from '@common-types';
 
+import { isDev } from '@const';
+
 import {
   getInitPane,
   getInitCookiesSettings,
@@ -26,6 +28,11 @@ export const track = createAsyncThunk(
     },
   }, { getState }) => {
     const state = getState() as RootState;
+
+    if (isDev) {
+      // eslint-disable-next-line no-console
+      console.info('event', name, params);
+    }
 
     const isGoogleAnalyticsActive = state.app.cookies[CookiesName.GOOGLE_ANALYTICS];
     if (isGoogleAnalyticsActive) {

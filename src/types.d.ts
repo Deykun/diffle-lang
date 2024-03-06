@@ -234,7 +234,7 @@ export enum GameStatus {
 }
 
 export interface RootGameState {
-  language: 'cs' | 'de' | 'en' | 'es' | 'pl' | undefined,
+  language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'pl' | undefined,
   mode: GameMode,
   today: string,
   wordToGuess: string,

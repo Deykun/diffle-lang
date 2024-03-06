@@ -10,38 +10,84 @@ import {
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants.js';
 
-export const removeDiacratics = (word) => word
-    .replaceAll('ą', 'a')
-    .replaceAll('á', 'a')
-    .replaceAll('ä', 'a')
-    .replaceAll('ć', 'c')
-    .replaceAll('č', 'c')
-    .replaceAll('ď', 'd')
-    .replaceAll('ę', 'e')
-    .replaceAll('é', 'e')
-    .replaceAll('ě', 'e')
-    .replaceAll('í', 'i')
-    .replaceAll('ł', 'l')
-    .replaceAll('ń', 'n')
-    .replaceAll('ň', 'n')
-    .replaceAll('ñ', 'n')
-    .replaceAll('ó', 'o')
-    .replaceAll('ö', 'o')
-    .replaceAll('ř', 'r')
-    .replaceAll('ß', 's')
-    .replaceAll('ś', 's')
-    .replaceAll('š', 's')
-    .replaceAll('ť', 't')
-    .replaceAll('ú', 'u')
-    .replaceAll('ů', 'u')
-    .replaceAll('ü', 'u')
-    .replaceAll('ý', 'y')
-    .replaceAll('ź', 'z')
-    .replaceAll('ż', 'z')
-    .replaceAll('ž', 'z');
+export const removeDiacratics = (word, lang) => {
+    let wordToReturn = word;
+
+    // If lang not passed or specified
+    if (!lang || lang === 'cs') {
+        wordToReturn = wordToReturn.replaceAll('á', 'a')
+            .replaceAll('č', 'c')
+            .replaceAll('ď', 'd')
+            .replaceAll('é', 'e')
+            .replaceAll('ě', 'e')
+            .replaceAll('í', 'i')
+            .replaceAll('ň', 'n')
+            .replaceAll('ó', 'o')
+            .replaceAll('ř', 'r')
+            .replaceAll('š', 's')
+            .replaceAll('ť', 't')
+            .replaceAll('ú', 'u')
+            .replaceAll('ů', 'u')
+            .replaceAll('ý', 'y')
+            .replaceAll('ž', 'z');
+    }
+
+    if (!lang || lang === 'de') {
+        wordToReturn = wordToReturn.replaceAll('ä', 'a')
+            .replaceAll('ö', 'o')
+            .replaceAll('ß', 's')
+            .replaceAll('ü', 'u');
+    }
+
+    if (!lang || lang === 'de') {
+        wordToReturn = wordToReturn.replaceAll('ä', 'a')
+            .replaceAll('ö', 'o')
+            .replaceAll('ß', 's')
+            .replaceAll('ü', 'u');
+    }
+
+    if (!lang || lang === 'es') {
+        wordToReturn = wordToReturn.replaceAll('á', 'a')
+            .replaceAll('é', 'e')
+            .replaceAll('í', 'i')
+            .replaceAll('ó', 'o')
+            .replaceAll('ú', 'u')
+            .replaceAll('ü', 'ü')
+            .replaceAll('ñ', 'n');
+    }
+
+    if (!lang || lang === 'fr') {
+        wordToReturn = wordToReturn.replaceAll('â', 'a')
+            .replaceAll('ç', 'c')
+            .replaceAll('é', 'e')
+            .replaceAll('è', 'e')
+            .replaceAll('ê', 'e')
+            .replaceAll('î', 'i')
+            .replaceAll('ï', 'i')
+            .replaceAll('œ', 'o')
+            .replaceAll('ô', 'o')
+            .replaceAll('ù', 'u')
+            .replaceAll('û', 'u')
+            .replaceAll('ü', 'u');
+    }
+
+    if (!lang || lang === 'pl') {
+        wordToReturn = wordToReturn.replaceAll('ą', 'a')
+            .replaceAll('ć', 'c')
+            .replaceAll('ę', 'e')
+            .replaceAll('ł', 'l')
+            .replaceAll('ń', 'n')
+            .replaceAll('ó', 'o')
+            .replaceAll('ś', 's')
+            .replaceAll('ź', 'z')
+            .replaceAll('ż', 'z');
+    }
+
+    return wordToReturn;
+}
 
 // TODO: Should work better now Polish special character are aceppted in English.
-export const getIsWordValid = (word) => removeDiacratics(word).replace(/[^a-z]/g, '').length === word.length;
+export const getIsWordValid = (word, lang) => removeDiacratics(word, lang).replace(/[^a-z]/g, '').length === word.length;
 
 export const getIsWordWithSpecialCharacters = (word) => removeDiacratics(word) !== word;
 

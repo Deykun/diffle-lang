@@ -46,6 +46,7 @@
     left: 50%;
     z-index: 5;
     max-height: calc(100vh - 50px);
+    max-width: 100%;
     overflow: auto;
     text-align: center;
     padding: 16px 7px 7px;
@@ -53,6 +54,10 @@
     border-top: 1px solid var(--border);
     border-left: 1px solid transparent;
     border-right: 1px solid transparent;
+
+    &::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
 
     @media (min-width: 502px) {
         border-left: 1px solid color-mix(in srgb, var(--border) 20%, transparent);

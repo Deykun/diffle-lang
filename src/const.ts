@@ -1,6 +1,7 @@
 import { Dictionary, CookiesName } from '@common-types';
 
 export const isTestEnv = (window.location.origin || '')?.includes(':2001') || false;
+export const isDev = (window.location.origin || '')?.includes('localhost') || false;
 
 export const WORD_MAXLENGTH = 15;
 
@@ -35,6 +36,16 @@ const KEY_LINES_ES = [
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
   ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
   ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
+];
+
+// Rejected because too niche public\dictionary\fr\info.json (common)
+// https://www.sttmedia.com/characterfrequency-french
+// resources/fr/constants.js
+const KEY_LINES_FR = [
+  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+  ['â', 'ç', 'é', 'è', 'ê', 'î', 'ï', 'ô', 'û'],
 ];
 
 const KEY_LINES_PL = [
@@ -113,6 +124,24 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
       { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
     ],
     shareMarker: '🇪🇸 #diffle #difflees',
+  },
+  fr: {
+    code: 'fr',
+    languages: ['fr'],
+    isBeta: true,
+    title: 'DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷',
+    shouldPreferQWERTZ: false,
+    keyLines: KEY_LINES_FR,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR.flatMap(key => key)],
+    characters: KEY_LINES_FR.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    specialCharacters: ['â', 'ç', 'é', 'è', 'ê', 'î', 'ï', 'ô', 'û'],
+    hasSpecialCharacters: true,
+    urls: [
+      { url: 'https://fr.wiktionary.org/wiki/{{word}}', name: 'Wiktionary.org', hasExactMatchAlways: false },
+      { url: 'https://www.le-dictionnaire.com/definition/{{word}}', name: 'Le dictionnaire', hasExactMatchAlways: false },
+      { url: 'https://www.cnrtl.fr/definition/{{word}}', name: 'CNRTL', hasExactMatchAlways: false },
+    ],
+    shareMarker: '🇫🇷 #diffle #difflefr',
   },
   pl: {
     code: 'pl',

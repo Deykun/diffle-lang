@@ -139,9 +139,9 @@ export const submitAnswer = createAsyncThunk(
     if (isWordDoesNotExistError) {
       dispatch(setToast({ text: 'game.isNotInDictionary' }));
 
-      dispatch(track({ name: 'word_not_in_dictionary', params: { lang, word: wordToSubmit } }));
+      dispatch(track({ name: `word_${lang}_not_in_dictionary`, params: { word: wordToSubmit } }));
     } else {
-      dispatch(track({ name: 'word_in_dictionary', params: { lang, word: wordToSubmit } }));
+      dispatch(track({ name: `word_${lang}_in_dictionary`, params: { word: wordToSubmit } }));
     }
 
     const isWordFetchError = result.isError && result.type === SUBMIT_ERRORS.WORD_FETCH_ERROR;
@@ -347,6 +347,7 @@ export const loadGame = createAsyncThunk(
       }
 
       await getWordToGuess({ gameMode, gameLanguage }).then((word) => {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         dispatch(setWordToGuess(word));
       });
     }
@@ -355,7 +356,7 @@ export const loadGame = createAsyncThunk(
 
 export const saveEndedGame = createAsyncThunk(
   'game/saveEndedGame',
-  async (_, { getState, rejectWithValue }) => {
+  async (_, { getState, dispatch, rejectWithValue }) => {
     const state = getState() as RootState;
 
     const isWon = selectIsWon(state);
@@ -403,12 +404,12 @@ export const saveEndedGame = createAsyncThunk(
     globalStreakToUpdate[streakKeyToReset] = 0;
     gameModeToUpdate[streakKeyToReset] = 0;
 
-    globalStreakToUpdate[streakKeyToIncrease] = globalStreakToUpdate[streakKeyToIncrease] + 1;
+    globalStreakToUpdate[streakKeyToIncrease] += 1;
     if (globalStreakToUpdate[streakKeyToIncrease] > globalStreakToUpdate[streakKeyForRecord]) {
       globalStreakToUpdate[streakKeyForRecord] = globalStreakToUpdate[streakKeyToIncrease];
     }
 
-    gameModeToUpdate[streakKeyToIncrease] = gameModeToUpdate[streakKeyToIncrease] + 1;
+    gameModeToUpdate[streakKeyToIncrease] += 1;
     if (gameModeToUpdate[streakKeyToIncrease] > gameModeToUpdate[streakKeyForRecord]) {
       gameModeToUpdate[streakKeyForRecord] = gameModeToUpdate[streakKeyToIncrease];
     }
@@ -431,8 +432,11 @@ export const saveEndedGame = createAsyncThunk(
     statisticToUpdate.lastGame.rejectedWords = rejectedWords;
     statisticToUpdate.lastGame.durationMS = durationMS;
 
+    const todayStamp = state.game.today;
+
     if (isLost) {
       statisticToUpdate.totals.lost += 1;
+      dispatch(track({ name: `lost_${gameLanguage}_${gameMode}`, params: { timeStamp: todayStamp, wordToGuess, words: guesses.length } }));
     } else if (isWon) {
       const keyboardUsagePercentage = selectKeyboardUsagePercentage(state);
       const totalGamesStored = statisticToUpdate.totals.won;
@@ -488,6 +492,16 @@ export const saveEndedGame = createAsyncThunk(
       }
 
       statisticToUpdate.secondWord.letters += secondWord.word.length;
+
+      dispatch(track({
+        name: `won_${gameLanguage}_${gameMode}`,
+        params: {
+          timeStamp: todayStamp,
+          wordToGuess,
+          words,
+          letters,
+        },
+      }));
     }
 
     saveStatistic({

@@ -121,6 +121,13 @@ body {
     background-color: var(--background);
 }
 
+main {
+    & > div {
+        opacity: 0;
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+}
+
 .only-light {
     display: none;
 }

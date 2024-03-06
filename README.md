@@ -7,10 +7,10 @@ A Wordle-like game without a character limit, where every used word gives hints 
 The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
-|       	|     🇨🇿     	|      🇬🇧     	|     🇩🇪     	|     🇵🇱     	|      🇪🇸     	|
-|:-----:	|:----------:	|:-----------:	|:----------:	|:----------:	|:-----------:	|
-|       	|  **Czech** 	| **English** 	| **German** 	| **Polish** 	| **Spanish** 	|
-| Since 	| 02.02.2024 	|  19.01.2024 	| 19.02.2024 	| 30.07.2023 	|  21.02.2024 	|
+|       	|     🇨🇿     	|      🇬🇧     	|     🇫🇷     	|     🇵🇱     	|      🇪🇸     	|     🇩🇪     	|
+|:-----:	|:----------:	|:-----------:	|:----------:	|:----------:	|:-----------:	|:----------:	|
+|       	|  **Czech** 	| **English** 	| **French** 	| **Polish** 	| **Spanish** 	| **German** 	|
+| Since 	| 02.02.2024 	|  19.01.2024 	| 03.03.2024 	| 30.07.2023 	|  21.02.2024 	| 19.02.2024 	|
 
 <!---
    https://www.tablesgenerator.com/markdown_tables
@@ -40,6 +40,7 @@ This app has a dedicated subpage with a meta-analysis of the dictionary, includi
 - https://deykun.github.io/diffle-lang/cs?p=about-language 🇨🇿 
 - https://deykun.github.io/diffle-lang/de?p=about-language 🇩🇪 
 - https://deykun.github.io/diffle-lang/en?p=about-language 🇬🇧
+- https://deykun.github.io/diffle-lang/fr?p=about-language 🇫🇷
 - https://deykun.github.io/diffle-lang/pl?p=about-language 🇵🇱
 - https://deykun.github.io/diffle-lang/es?p=about-language 🇪🇸
 
@@ -60,10 +61,11 @@ You can share your result with a hashed URL, which after winning your daily game
  - http://slovniky.webz.cz via http://home.zcu.cz/~konopik/ppc/ - Czech winning words dictionary
  - http://www.aaabbb.de/WordList/WordList.php - German spellchecker dictionary (from Wikipedia)
  - https://github.com/dwyl - English spellchecker dictionary
+ - https://grammalecte.net/ - French spellchecker dictionary
  - https://sjp.pl - Polish spellchecker dictionary
  - https://github.com/lorenbrichter/Words - Spanish spellchecker
  - https://github.com/ManiacDC/TypingAid - Spanish spellchecker
- - https://freedict.org - English & German & Polish & Spanish winning words dictionary
+ - https://freedict.org - English & German & French & Polish & Spanish winning words dictionary
 
 ### Other
  - https://iconmonstr.com/ - icons

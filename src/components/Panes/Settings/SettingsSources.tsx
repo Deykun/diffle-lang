@@ -1,10 +1,13 @@
-import { useState, useEffect, useMemo } from 'react';
+import {
+  useState, useEffect, useMemo, useCallback,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
 import { Pane } from '@common-types';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
+import { track } from '@store/appSlice';
 
 import usePanes from '@hooks/usePanes';
 
@@ -28,6 +31,7 @@ import { DICTIONARIES_BY_LANG } from './constants';
 import './Settings.scss';
 
 const SettingsSources = () => {
+  const dispatch = useDispatch();
   const [startCount, setStartCount] = useState<null | number>(null);
   const gameLanguage = useSelector(state => state.game.language);
   const { t } = useTranslation();
@@ -64,6 +68,10 @@ const SettingsSources = () => {
     })();
   }, [startCount]);
 
+  const handleGithubClick = useCallback(() => {
+    dispatch(track({ name: 'click_github_link', params: { source: 'settings' } }));
+  }, [dispatch]);
+
   return (
       <>
           <ReportTranslationBugButton />
@@ -76,6 +84,7 @@ const SettingsSources = () => {
                     isInverted
                     href="https://github.com/Deykun/diffle-lang"
                     title={t('settings.sourceGithub')}
+                    onClick={handleGithubClick}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -108,15 +117,21 @@ const SettingsSources = () => {
           </ul>
           <h2>
               {t('settings.sourcesTitleDictionaries')}
-              :
-              {' '}
+              {': '}
               {t('language.currentLanguage')}
           </h2>
           <ul className={clsx({ 'list-col-3': (dictionaries.length + 1) % 3 === 0 })}>
               <li>
                   <ButtonTile onClick={() => changePane(Pane.AboutLanguage)}>
                       <IconBookOpen />
-                      <span>{t('settings.statisticsTitle')}</span>
+                      <span>
+                          {t('settings.statisticsTitle')}
+                          {': '}
+                          <br />
+                          <strong>
+                              {t('language.currentLanguage')}
+                          </strong>
+                      </span>
                   </ButtonTile>
               </li>
               {dictionaries.map(({ isSpeelchecker = false, href, labelHTML }, index) => (
