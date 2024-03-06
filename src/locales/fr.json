@@ -1,4 +1,8 @@
 {
+    "seo.pageTitle": "DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷",
+    "seo.metaDescription": "Chaque mot utilisé fournit des indices sur la position et l'ordre des lettres dans la solution.",
+    "seo.openGraphTitle": "DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷",
+    "seo.openGraphDescription": "Chaque mot utilisé fournit des indices sur la position et l'ordre des lettres dans la solution.",
     "common.yes": "Oui",
     "common.no": "Non",
     "common.play": "Jouer",
@@ -22,6 +26,7 @@
     "language.de": "Allemand",
     "language.en": "Anglais",
     "language.es": "Espagnol",
+    "language.fr": "Français",
     "language.pl": "Polonais",
     "game.modeDaily": "Quotidien",
     "game.modePractice": "Pratique",
@@ -40,6 +45,8 @@
     "game.deSpecialCharacters": "spéciaux",
     "game.esSpecialCharacter": "spéciaux",
     "game.esSpecialCharacters": "spéciaux",
+    "game.frSpecialCharacter": "spéciaux",
+    "game.frSpecialCharacters": "spéciaux",
     "game.plSpecialCharacter": "spéciaux",
     "game.plSpecialCharacters": "spéciaux",
     "game.youCanUseIncorrectLetters": "Votre mot <strong>ne peut pas</strong> gagner, mais vous pouvez l'utiliser lors de la recherche du mot gagnant.",
@@ -52,7 +59,7 @@
     "help.title": "Aide",
     "help.howToPlayTitle": "Comment jouer ?",
     "help.howToPlayText1": "Devinez le mot en utilisant le moins de lettres possible.",
-    "help.howToPlayText2": "Une fois que vous avez fait de votre mieux pour deviner, les couleurs des lettres changent pour vous indiquer à quel point vous êtes proche ou éloigné du mot.",
+    "help.howToPlayText2": "Une fois que vous avez fait de votre mieux pour deviner, les couleurs des lettres changent pour vous indiquer à quel point vous vous rapprochez ou vous éloignez du mot.",
     "help.exampleTitle": "Un exemple",
     "help.exampleTitleAlt": "Un exemple différent",
     "help.incorrectLettersTip": "Les lettres grises ne sont pas dans le mot.",
@@ -155,6 +162,7 @@
     "share.linkWithUsedWordsNoSpoilers": "(sans spoilers)",
     "share.titleSharedResult": "Résultat partagé avec vous",
     "share.resultIsBroken": "Malheureusement, ce lien a expiré ou est cassé.",
+    "share.resultIsForTheFuture": "Ce lien devrait fonctionner bientôt.",
     "share.resultHasExpired": "Malheureusement, ce lien a expiré.",
     "share.titleUsedWords": "Mots utilisés",
     "share.dontShowThisResult": "Ne plus afficher ce résultat",
@@ -180,7 +188,7 @@
     "statistics.keyboardUsed": "moyenne <strong>{{value}}%</strong> du clavier utilisée",
     "statistics.averageWordsNotFound": "<strong>{{value}}</strong> mots non trouvés dans un dictionnaire",
     "statistics.worstWordsNotFound": "pire <strong>{{value}}</strong> en une partie",
-    "statistics.worstWordsNotFoundLonger": "pire mots non trouvés dans un dictionnaire <strong>{{value}}</strong> en une partie",
+    "statistics.worstWordsNotFoundLonger": "les pires mots non trouvés dans un dictionnaire <strong>{{value}}</strong> dans un jeu",
     "statistics.totalGames_zero": "<strong>{{count}}</strong> parties",
     "statistics.totalGames_one": "<strong>1</strong> partie",
     "statistics.totalGames_few": "<strong>{{count}}</strong> parties",
@@ -239,5 +247,5 @@
     "statistics.filterWordleBestTitle": "Équilibre des couleurs",
     "statistics.filterBestGreen1_5": "1,5 × vert + 1 × jaune",
     "statistics.filterBestGreen2_0": "2 × vert + 1 × jaune",
-    "statistics.bestWordleWordPopularLettersTitle": "Lettres les plus populaires à une position donnée"
+    "statistics.bestWordleWordPopularLettersTitle": "Lettres les plus populaires à chaque position donnée"
 }
