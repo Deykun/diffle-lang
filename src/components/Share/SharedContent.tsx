@@ -157,10 +157,10 @@ const SharedContent = () => {
             const { dayIntoYear } = getNow();
 
             // We still don't know the year
-            const doesDayIntoYearMatchingNextDay = (dayIntoYear + 1) === sharedDayIntoYear;
-            const doesDayIntoYearMatchingNewYear = [365, 366].includes(dayIntoYear) && sharedDayIntoYear === 0;
+            const doesDayIntoYearMatchNextDay = (dayIntoYear + 1) === sharedDayIntoYear;
+            const doesDayIntoYearMatchNewYear = [365, 366].includes(dayIntoYear) && sharedDayIntoYear === 0;
 
-            const isPossibleSpoiler = doesDayIntoYearMatchingNextDay || doesDayIntoYearMatchingNewYear;
+            const isPossibleSpoiler = doesDayIntoYearMatchNextDay || doesDayIntoYearMatchNewYear;
 
             if (isPossibleSpoiler) {
               const tommorowSeed = getTommorowSeed();
