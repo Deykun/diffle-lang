@@ -103,9 +103,17 @@ test.describe('Typing with virtual keyboard', () => {
 
     await page.getByTestId('key-enter').click();
 
-    await page.getByTestId('confirm-word-yes').click();    
+    await page.getByTestId('confirm-word-yes').click();
+
+    /* 
+      We find "s" that way because, after submitting, it can become part of a larger affix,
+      for example: "best" puts it in affix-es.
+    */
+    const wordReset = page.getByTestId('word-reset');
+
+    const affixWithS = wordReset.getByText(/s/);
   
-    await expect(affixS).not.toHaveClass(/new/);
+    await expect(affixWithS).not.toHaveClass(/new/);
   });
 
   test('Incorrect word is rejected with toast', async ({ page }) => {

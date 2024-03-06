@@ -15,9 +15,11 @@ import { track } from '@store/appSlice';
 import { getInitPane } from '@api/getInit';
 import { getWordsFromKeysWithIndexes } from '@api/getDoesWordExist';
 import { getWordReportForMultipleWords } from '@api/getWordReport';
+import getWordToGuess from '@api/getWordToGuess';
 
 import { getCssVarMillisecondsValue } from '@utils/css';
 import { removeDiacratics } from '@api/helpers';
+import { getNow, getTommorowSeed } from '@utils/date';
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 import { demaskValue, getGameResultFromUrlHash } from '@utils/urlHash';
 import { getLangFromUrl } from '@utils/lang';
@@ -134,6 +136,7 @@ const SharedContent = () => {
         try {
           const {
             wordToGuess: sharedWordToGuess,
+            dayIntoYear: sharedDayIntoYear,
             correct: hashCorrect,
             position: hashPosition,
             incorrect: hashIncorrect,
@@ -148,6 +151,40 @@ const SharedContent = () => {
             setErrorMessage('share.resultIsBroken');
 
             return;
+          }
+
+          if (typeof sharedDayIntoYear === 'number') {
+            const { dayIntoYear } = getNow();
+
+            // We still don't know the year
+            const doesDayIntoYearMatchNextDay = (dayIntoYear + 1) === sharedDayIntoYear;
+            const doesDayIntoYearMatchNewYear = [365, 366].includes(dayIntoYear) && sharedDayIntoYear === 0;
+
+            const isPossibleSpoiler = doesDayIntoYearMatchNextDay || doesDayIntoYearMatchNewYear;
+
+            if (isPossibleSpoiler) {
+              const tommorowSeed = getTommorowSeed();
+
+              if (langFromUrl) {
+                const tommorowWord = await getWordToGuess({
+                  gameMode: GameMode.Daily,
+                  gameLanguage: langFromUrl,
+                  seedNumber: tommorowSeed,
+                });
+
+                /*
+                  The daily mode time changes for the UTC timezone,
+                  but if someone changes the time (not the timezone),
+                  they are technically in the future.
+                */
+                const isSpoilerForNextDay = sharedWordToGuess === tommorowWord;
+                if (isSpoilerForNextDay) {
+                  setErrorMessage('share.resultIsForTheFuture');
+
+                  return;
+                }
+              }
+            }
           }
 
           const wordsFromIndexes = await getWordsFromKeysWithIndexes(keysWithIndexes, langFromUrl);

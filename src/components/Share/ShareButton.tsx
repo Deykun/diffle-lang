@@ -58,7 +58,14 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
     if (shouldShareWords && gameLanguage) {
       const wordsWithIndexes = getWordsIndexesChunks(guessedWords, gameLanguage);
 
-      const hashedValue = getUrlHashForGameResult({ subtotals, wordToGuess, wordsWithIndexes });
+      const { dayIntoYear } = getNow();
+
+      const hashedValue = getUrlHashForGameResult({
+        subtotals,
+        wordToGuess,
+        dayIntoYear,
+        wordsWithIndexes,
+      });
 
       resultParam = maskValue(hashedValue);
     }

@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.14
+#### Version 3.15
+- **Fix**: Blocking of the spoiling of the next word by people with manually set time to the next day added
+
+#### Version 3.14 (05.03.2024)
 - **New**: The maximum length of winning words for German has been increased from 9 to 10, as German words tend to be longer
 - **New**: The maximum length of a typed word has been increased from 15 to 18, as German words tend to be longer
 - **New**: An additional dictionary has been added to restrict possible winning words in German. The winning word must be present in 3 dictionaries.
