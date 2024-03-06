@@ -10,6 +10,11 @@ export const generateSeedForDay = (
   return stampConvertedToNumber;
 };
 
+// https://stackoverflow.com/a/40975730/6743808
+const getDayIntoYear = (date: Date) => {
+  return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
+}
+
 export const getNow = () => {
   const nowLocal = new Date();
   const nowUTC = new Date(nowLocal.getTime() + nowLocal.getTimezoneOffset() * 60 * 1000);
@@ -37,13 +42,14 @@ export const getNow = () => {
     day,
     nowUTC,
     dateSeed,
+    dayIntoYear: getDayIntoYear(nowUTC),
   };
 };
 
-export const getYesterdaysSeed = () => {
+const getNowAddDaysSeed = (numberOfDaysToAdd: number) => {
   const nowLocal = new Date();
   const dateUTC = new Date(nowLocal.getTime() + nowLocal.getTimezoneOffset() * 60 * 1000);
-  dateUTC.setDate(dateUTC.getDate() - 1);
+  dateUTC.setDate(dateUTC.getDate() + numberOfDaysToAdd);
 
   const year = dateUTC.getFullYear();
   // DD.MM.YYYY (month is counted from 0)
@@ -51,6 +57,14 @@ export const getYesterdaysSeed = () => {
   const day = dateUTC.getDate();
 
   return generateSeedForDay({ day, month, year });
+};
+
+export const getYesterdaysSeed = () => {
+  return getNowAddDaysSeed(-1);
+};
+
+export const getTommorowSeed = () => {
+  return getNowAddDaysSeed(1);
 };
 
 export const getTimeUpdateFromTimeStamp = (timeToCompare: number) => {
