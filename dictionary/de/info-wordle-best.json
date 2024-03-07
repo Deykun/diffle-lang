@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"inSeconds": 8,
+		"inSeconds": 7,
 		"words": 4427
 	},
 	"best": {
@@ -166,6 +166,168 @@
 				}
 			}
 		],
+		"maxGray": [
+			{
+				"result": {
+					"total": 4427,
+					"green": 923,
+					"orange": 671,
+					"gray": 20541
+				},
+				"word": "pippi",
+				"score": {
+					"max": 1594,
+					"maxGreen": 923,
+					"maxOrange": 671,
+					"green1_5": 2055.5,
+					"green2_0": 2517
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 754,
+					"orange": 1039,
+					"gray": 20342
+				},
+				"word": "zuzug",
+				"score": {
+					"max": 1793,
+					"maxGreen": 754,
+					"maxOrange": 1039,
+					"green1_5": 2170,
+					"green2_0": 2547
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 689,
+					"orange": 1333,
+					"gray": 20113
+				},
+				"word": "pfiff",
+				"score": {
+					"max": 2022,
+					"maxGreen": 689,
+					"maxOrange": 1333,
+					"green1_5": 2366.5,
+					"green2_0": 2711
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 866,
+					"orange": 1201,
+					"gray": 20068
+				},
+				"word": "dummy",
+				"score": {
+					"max": 2067,
+					"maxGreen": 866,
+					"maxOrange": 1201,
+					"green1_5": 2500,
+					"green2_0": 2933
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 965,
+					"orange": 1166,
+					"gray": 20004
+				},
+				"word": "volvo",
+				"score": {
+					"max": 2131,
+					"maxGreen": 965,
+					"maxOrange": 1166,
+					"green1_5": 2613.5,
+					"green2_0": 3096
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 1190,
+					"orange": 1030,
+					"gray": 19915
+				},
+				"word": "jaffa",
+				"score": {
+					"max": 2220,
+					"maxGreen": 1190,
+					"maxOrange": 1030,
+					"green1_5": 2815,
+					"green2_0": 3410
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 802,
+					"orange": 1453,
+					"gray": 19880
+				},
+				"word": "zügig",
+				"score": {
+					"max": 2255,
+					"maxGreen": 802,
+					"maxOrange": 1453,
+					"green1_5": 2656,
+					"green2_0": 3057
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 513,
+					"orange": 1815,
+					"gray": 19807
+				},
+				"word": "zwölf",
+				"score": {
+					"max": 2328,
+					"maxGreen": 513,
+					"maxOrange": 1815,
+					"green1_5": 2584.5,
+					"green2_0": 2841
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 1035,
+					"orange": 1319,
+					"gray": 19781
+				},
+				"word": "hobby",
+				"score": {
+					"max": 2354,
+					"maxGreen": 1035,
+					"maxOrange": 1319,
+					"green1_5": 2871.5,
+					"green2_0": 3389
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 343,
+					"orange": 2030,
+					"gray": 19762
+				},
+				"word": "umzug",
+				"score": {
+					"max": 2373,
+					"maxGreen": 343,
+					"maxOrange": 2030,
+					"green1_5": 2544.5,
+					"green2_0": 2716
+				}
+			}
+		],
 		"maxGreen": [
 			{
 				"result": {
@@ -219,22 +381,6 @@
 				"result": {
 					"total": 4427,
 					"green": 3153,
-					"orange": 5144,
-					"gray": 13838
-				},
-				"word": "saite",
-				"score": {
-					"max": 8297,
-					"maxGreen": 3153,
-					"maxOrange": 5144,
-					"green1_5": 9873.5,
-					"green2_0": 11450
-				}
-			},
-			{
-				"result": {
-					"total": 4427,
-					"green": 3153,
 					"orange": 4774,
 					"gray": 14208
 				},
@@ -245,6 +391,22 @@
 					"maxOrange": 4774,
 					"green1_5": 9503.5,
 					"green2_0": 11080
+				}
+			},
+			{
+				"result": {
+					"total": 4427,
+					"green": 3153,
+					"orange": 5144,
+					"gray": 13838
+				},
+				"word": "saite",
+				"score": {
+					"max": 8297,
+					"maxGreen": 3153,
+					"maxOrange": 5144,
+					"green1_5": 9873.5,
+					"green2_0": 11450
 				}
 			},
 			{

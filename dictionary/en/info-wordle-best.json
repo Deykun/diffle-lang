@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"inSeconds": 92,
+		"inSeconds": 91,
 		"words": 15920
 	},
 	"best": {
@@ -163,6 +163,168 @@
 					"maxOrange": 22835,
 					"green1_5": 31539.5,
 					"green2_0": 34441
+				}
+			}
+		],
+		"maxGray": [
+			{
+				"result": {
+					"total": 15920,
+					"green": 3198,
+					"orange": 2230,
+					"gray": 74172
+				},
+				"word": "xxiii",
+				"score": {
+					"max": 5428,
+					"maxGreen": 3198,
+					"maxOrange": 2230,
+					"green1_5": 7027,
+					"green2_0": 8626
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 3205,
+					"orange": 3072,
+					"gray": 73323
+				},
+				"word": "xviii",
+				"score": {
+					"max": 6277,
+					"maxGreen": 3205,
+					"maxOrange": 3072,
+					"green1_5": 7879.5,
+					"green2_0": 9482
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 3444,
+					"orange": 3362,
+					"gray": 72794
+				},
+				"word": "kikki",
+				"score": {
+					"max": 6806,
+					"maxGreen": 3444,
+					"maxOrange": 3362,
+					"green1_5": 8528,
+					"green2_0": 10250
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 4186,
+					"orange": 2770,
+					"gray": 72644
+				},
+				"word": "fuffy",
+				"score": {
+					"max": 6956,
+					"maxGreen": 4186,
+					"maxOrange": 2770,
+					"green1_5": 9049,
+					"green2_0": 11142
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 2246,
+					"orange": 4872,
+					"gray": 72482
+				},
+				"word": "xylyl",
+				"score": {
+					"max": 7118,
+					"maxGreen": 2246,
+					"maxOrange": 4872,
+					"green1_5": 8241,
+					"green2_0": 9364
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 4045,
+					"orange": 3262,
+					"gray": 72293
+				},
+				"word": "fuzzy",
+				"score": {
+					"max": 7307,
+					"maxGreen": 4045,
+					"maxOrange": 3262,
+					"green1_5": 9329.5,
+					"green2_0": 11352
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 3829,
+					"orange": 3523,
+					"gray": 72248
+				},
+				"word": "wuzzy",
+				"score": {
+					"max": 7352,
+					"maxGreen": 3829,
+					"maxOrange": 3523,
+					"green1_5": 9266.5,
+					"green2_0": 11181
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 3061,
+					"orange": 4539,
+					"gray": 72000
+				},
+				"word": "ululu",
+				"score": {
+					"max": 7600,
+					"maxGreen": 3061,
+					"maxOrange": 4539,
+					"green1_5": 9130.5,
+					"green2_0": 10661
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 4973,
+					"orange": 2835,
+					"gray": 71792
+				},
+				"word": "bubby",
+				"score": {
+					"max": 7808,
+					"maxGreen": 4973,
+					"maxOrange": 2835,
+					"green1_5": 10294.5,
+					"green2_0": 12781
+				}
+			},
+			{
+				"result": {
+					"total": 15920,
+					"green": 2291,
+					"orange": 5566,
+					"gray": 71743
+				},
+				"word": "whuff",
+				"score": {
+					"max": 7857,
+					"maxGreen": 2291,
+					"maxOrange": 5566,
+					"green1_5": 9002.5,
+					"green2_0": 10148
 				}
 			}
 		],
