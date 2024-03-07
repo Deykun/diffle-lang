@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"inSeconds": 549,
+		"inSeconds": 564,
 		"words": 29428
 	},
 	"best": {
@@ -163,6 +163,168 @@
 					"maxOrange": 28827,
 					"green1_5": 44916,
 					"green2_0": 50279
+				}
+			}
+		],
+		"maxGray": [
+			{
+				"result": {
+					"total": 29428,
+					"green": 3227,
+					"orange": 3083,
+					"gray": 140830
+				},
+				"word": "xxxii",
+				"score": {
+					"max": 6310,
+					"maxGreen": 3227,
+					"maxOrange": 3083,
+					"green1_5": 7923.5,
+					"green2_0": 9537
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4206,
+					"orange": 2112,
+					"gray": 140822
+				},
+				"word": "xxiii",
+				"score": {
+					"max": 6318,
+					"maxGreen": 4206,
+					"maxOrange": 2112,
+					"green1_5": 8421,
+					"green2_0": 10524
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4167,
+					"orange": 3421,
+					"gray": 139552
+				},
+				"word": "vývěv",
+				"score": {
+					"max": 7588,
+					"maxGreen": 4167,
+					"maxOrange": 3421,
+					"green1_5": 9671.5,
+					"green2_0": 11755
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4170,
+					"orange": 4482,
+					"gray": 138488
+				},
+				"word": "šíříš",
+				"score": {
+					"max": 8652,
+					"maxGreen": 4170,
+					"maxOrange": 4482,
+					"green1_5": 10737,
+					"green2_0": 12822
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 1601,
+					"orange": 7949,
+					"gray": 137590
+				},
+				"word": "chýšť",
+				"score": {
+					"max": 9550,
+					"maxGreen": 1601,
+					"maxOrange": 7949,
+					"green1_5": 10350.5,
+					"green2_0": 11151
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 2635,
+					"orange": 7028,
+					"gray": 137477
+				},
+				"word": "zhyzď",
+				"score": {
+					"max": 9663,
+					"maxGreen": 2635,
+					"maxOrange": 7028,
+					"green1_5": 10980.5,
+					"green2_0": 12298
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4958,
+					"orange": 4770,
+					"gray": 137412
+				},
+				"word": "méďům",
+				"score": {
+					"max": 9728,
+					"maxGreen": 4958,
+					"maxOrange": 4770,
+					"green1_5": 12207,
+					"green2_0": 14686
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4650,
+					"orange": 5584,
+					"gray": 136906
+				},
+				"word": "výzvě",
+				"score": {
+					"max": 10234,
+					"maxGreen": 4650,
+					"maxOrange": 5584,
+					"green1_5": 12559,
+					"green2_0": 14884
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4571,
+					"orange": 5820,
+					"gray": 136749
+				},
+				"word": "žižic",
+				"score": {
+					"max": 10391,
+					"maxGreen": 4571,
+					"maxOrange": 5820,
+					"green1_5": 12676.5,
+					"green2_0": 14962
+				}
+			},
+			{
+				"result": {
+					"total": 29428,
+					"green": 4001,
+					"orange": 6446,
+					"gray": 136693
+				},
+				"word": "úhyby",
+				"score": {
+					"max": 10447,
+					"maxGreen": 4001,
+					"maxOrange": 6446,
+					"green1_5": 12447.5,
+					"green2_0": 14448
 				}
 			}
 		],

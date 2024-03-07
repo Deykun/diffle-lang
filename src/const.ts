@@ -38,14 +38,19 @@ const KEY_LINES_ES = [
   ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
 ];
 
-// Rejected because too niche public\dictionary\fr\info.json (common)
-// https://www.sttmedia.com/characterfrequency-french
-// resources/fr/constants.js
+/*
+  I had a hard time deciding which letters should stay.
+  Some are used in fewer than 200 words in a 460k dictionary.
+  In the end, I decided to check the letters that Duolingo adds in their French course
+
+  https://en.wikipedia.org/wiki/French_orthography#Alphabet - ÿ was ommited
+*/
 const KEY_LINES_FR = [
   ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
   ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
   ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['â', 'ç', 'é', 'è', 'ê', 'î', 'ï', 'ô', 'û'],
+  ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë'],
+  ['î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
 ];
 
 const KEY_LINES_PL = [
@@ -135,7 +140,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLines: KEY_LINES_FR,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR.flatMap(key => key)],
     characters: KEY_LINES_FR.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
-    specialCharacters: ['â', 'ç', 'é', 'è', 'ê', 'î', 'ï', 'ô', 'û'],
+    specialCharacters: ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë', 'î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
     hasSpecialCharacters: true,
     urls: [
       { url: 'https://fr.wiktionary.org/wiki/{{word}}', name: 'Wiktionary.org', hasExactMatchAlways: false },

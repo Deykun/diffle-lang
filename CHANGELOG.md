@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.15
+#### Version 3.16
+- **New**: Wordle's worst word added
+
+#### Version 3.15 (06.03.2024)
 - **Fix**: Blocking of the spoiling of the next word by people with manually set time to the next day added
 
 #### Version 3.14 (05.03.2024)

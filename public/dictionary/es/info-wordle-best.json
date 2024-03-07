@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"inSeconds": 55,
+		"inSeconds": 52,
 		"words": 11846
 	},
 	"best": {
@@ -163,6 +163,168 @@
 					"maxOrange": 18973,
 					"green1_5": 26332,
 					"green2_0": 28785
+				}
+			}
+		],
+		"maxGray": [
+			{
+				"result": {
+					"total": 11846,
+					"green": 2617,
+					"orange": 1523,
+					"gray": 55090
+				},
+				"word": "buqué",
+				"score": {
+					"max": 4140,
+					"maxGreen": 2617,
+					"maxOrange": 1523,
+					"green1_5": 5448.5,
+					"green2_0": 6757
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 3845,
+					"orange": 1640,
+					"gray": 53745
+				},
+				"word": "cucuy",
+				"score": {
+					"max": 5485,
+					"maxGreen": 3845,
+					"maxOrange": 1640,
+					"green1_5": 7407.5,
+					"green2_0": 9330
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 3676,
+					"orange": 2238,
+					"gray": 53316
+				},
+				"word": "cuché",
+				"score": {
+					"max": 5914,
+					"maxGreen": 3676,
+					"maxOrange": 2238,
+					"green1_5": 7752,
+					"green2_0": 9590
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 3373,
+					"orange": 2638,
+					"gray": 53219
+				},
+				"word": "vivid",
+				"score": {
+					"max": 6011,
+					"maxGreen": 3373,
+					"maxOrange": 2638,
+					"green1_5": 7697.5,
+					"green2_0": 9384
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 3698,
+					"orange": 2348,
+					"gray": 53184
+				},
+				"word": "cuchí",
+				"score": {
+					"max": 6046,
+					"maxGreen": 3698,
+					"maxOrange": 2348,
+					"green1_5": 7895,
+					"green2_0": 9744
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 2480,
+					"orange": 3802,
+					"gray": 52948
+				},
+				"word": "hippy",
+				"score": {
+					"max": 6282,
+					"maxGreen": 2480,
+					"maxOrange": 3802,
+					"green1_5": 7522,
+					"green2_0": 8762
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 3597,
+					"orange": 2818,
+					"gray": 52815
+				},
+				"word": "zuzón",
+				"score": {
+					"max": 6415,
+					"maxGreen": 3597,
+					"maxOrange": 2818,
+					"green1_5": 8213.5,
+					"green2_0": 10012
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 4061,
+					"orange": 2400,
+					"gray": 52769
+				},
+				"word": "rurru",
+				"score": {
+					"max": 6461,
+					"maxGreen": 4061,
+					"maxOrange": 2400,
+					"green1_5": 8491.5,
+					"green2_0": 10522
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 3488,
+					"orange": 2996,
+					"gray": 52746
+				},
+				"word": "hiñid",
+				"score": {
+					"max": 6484,
+					"maxGreen": 3488,
+					"maxOrange": 2996,
+					"green1_5": 8228,
+					"green2_0": 9972
+				}
+			},
+			{
+				"result": {
+					"total": 11846,
+					"green": 4053,
+					"orange": 2434,
+					"gray": 52743
+				},
+				"word": "rurrú",
+				"score": {
+					"max": 6487,
+					"maxGreen": 4053,
+					"maxOrange": 2434,
+					"green1_5": 8513.5,
+					"green2_0": 10540
 				}
 			}
 		],

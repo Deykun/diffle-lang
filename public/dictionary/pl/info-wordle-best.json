@@ -166,6 +166,168 @@
 				}
 			}
 		],
+		"maxGray": [
+			{
+				"result": {
+					"total": 28361,
+					"green": 5290,
+					"orange": 3269,
+					"gray": 133246
+				},
+				"word": "dżdżę",
+				"score": {
+					"max": 8559,
+					"maxGreen": 5290,
+					"maxOrange": 3269,
+					"green1_5": 11204,
+					"green2_0": 13849
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 3047,
+					"orange": 5712,
+					"gray": 133046
+				},
+				"word": "chcąc",
+				"score": {
+					"max": 8759,
+					"maxGreen": 3047,
+					"maxOrange": 5712,
+					"green1_5": 10282.5,
+					"green2_0": 11806
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 5717,
+					"orange": 3246,
+					"gray": 132842
+				},
+				"word": "dżdżą",
+				"score": {
+					"max": 8963,
+					"maxGreen": 5717,
+					"maxOrange": 3246,
+					"green1_5": 11821.5,
+					"green2_0": 14680
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 3436,
+					"orange": 6290,
+					"gray": 132079
+				},
+				"word": "wwódź",
+				"score": {
+					"max": 9726,
+					"maxGreen": 3436,
+					"maxOrange": 6290,
+					"green1_5": 11444,
+					"green2_0": 13162
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 3964,
+					"orange": 5791,
+					"gray": 132050
+				},
+				"word": "pójść",
+				"score": {
+					"max": 9755,
+					"maxGreen": 3964,
+					"maxOrange": 5791,
+					"green1_5": 11737,
+					"green2_0": 13719
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 2599,
+					"orange": 7547,
+					"gray": 131659
+				},
+				"word": "zbóść",
+				"score": {
+					"max": 10146,
+					"maxGreen": 2599,
+					"maxOrange": 7547,
+					"green1_5": 11445.5,
+					"green2_0": 12745
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 5566,
+					"orange": 4690,
+					"gray": 131549
+				},
+				"word": "żeńże",
+				"score": {
+					"max": 10256,
+					"maxGreen": 5566,
+					"maxOrange": 4690,
+					"green1_5": 13039,
+					"green2_0": 15822
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 4238,
+					"orange": 6055,
+					"gray": 131512
+				},
+				"word": "wężów",
+				"score": {
+					"max": 10293,
+					"maxGreen": 4238,
+					"maxOrange": 6055,
+					"green1_5": 12412,
+					"green2_0": 14531
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 3586,
+					"orange": 7132,
+					"gray": 131087
+				},
+				"word": "chych",
+				"score": {
+					"max": 10718,
+					"maxGreen": 3586,
+					"maxOrange": 7132,
+					"green1_5": 12511,
+					"green2_0": 14304
+				}
+			},
+			{
+				"result": {
+					"total": 28361,
+					"green": 5797,
+					"orange": 5117,
+					"gray": 130891
+				},
+				"word": "dżdży",
+				"score": {
+					"max": 10914,
+					"maxGreen": 5797,
+					"maxOrange": 5117,
+					"green1_5": 13812.5,
+					"green2_0": 16711
+				}
+			}
+		],
 		"maxGreen": [
 			{
 				"result": {
