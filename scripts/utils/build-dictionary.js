@@ -15,7 +15,8 @@ export const removeDiacratics = (word, lang) => {
 
     // If lang not passed or specified
     if (!lang || lang === 'cs') {
-        wordToReturn = wordToReturn.replaceAll('á', 'a')
+        wordToReturn = wordToReturn
+            .replaceAll('á', 'a')
             .replaceAll('č', 'c')
             .replaceAll('ď', 'd')
             .replaceAll('é', 'e')
@@ -33,21 +34,24 @@ export const removeDiacratics = (word, lang) => {
     }
 
     if (!lang || lang === 'de') {
-        wordToReturn = wordToReturn.replaceAll('ä', 'a')
+        wordToReturn = wordToReturn
+            .replaceAll('ä', 'a')
             .replaceAll('ö', 'o')
             .replaceAll('ß', 's')
             .replaceAll('ü', 'u');
     }
 
     if (!lang || lang === 'de') {
-        wordToReturn = wordToReturn.replaceAll('ä', 'a')
+        wordToReturn = wordToReturn
+            .replaceAll('ä', 'a')
             .replaceAll('ö', 'o')
             .replaceAll('ß', 's')
             .replaceAll('ü', 'u');
     }
 
     if (!lang || lang === 'es') {
-        wordToReturn = wordToReturn.replaceAll('á', 'a')
+        wordToReturn = wordToReturn
+            .replaceAll('á', 'a')
             .replaceAll('é', 'e')
             .replaceAll('í', 'i')
             .replaceAll('ó', 'o')
@@ -57,22 +61,27 @@ export const removeDiacratics = (word, lang) => {
     }
 
     if (!lang || lang === 'fr') {
-        wordToReturn = wordToReturn.replaceAll('â', 'a')
+        wordToReturn = wordToReturn
+            .replaceAll('à', 'a')
+            .replaceAll('â', 'a')
+            .replaceAll('æ', 'a')
             .replaceAll('ç', 'c')
             .replaceAll('é', 'e')
             .replaceAll('è', 'e')
             .replaceAll('ê', 'e')
+            .replaceAll('ë', 'e')
             .replaceAll('î', 'i')
             .replaceAll('ï', 'i')
-            .replaceAll('œ', 'o')
             .replaceAll('ô', 'o')
+            .replaceAll('œ', 'o')
             .replaceAll('ù', 'u')
             .replaceAll('û', 'u')
             .replaceAll('ü', 'u');
     }
 
     if (!lang || lang === 'pl') {
-        wordToReturn = wordToReturn.replaceAll('ą', 'a')
+        wordToReturn = wordToReturn
+            .replaceAll('ą', 'a')
             .replaceAll('ć', 'c')
             .replaceAll('ę', 'e')
             .replaceAll('ł', 'l')
@@ -355,6 +364,7 @@ export const actionBuildDictionary = (
             },
             best: {
                 max: best.sort((a, b) => b.score.max - a.score.max).slice(0, 10),
+                maxGray: best.sort((a, b) => a.score.max - b.score.max).slice(0, 10),
                 maxGreen: best.sort((a, b) => b.score.maxGreen - a.score.maxGreen).slice(0, 10),
                 maxOrange: best.sort((a, b) => b.score.maxOrange - a.score.maxOrange).slice(0, 10),
                 green1_5: best.sort((a, b) => b.score.green1_5 - a.score.green1_5).slice(0, 10),

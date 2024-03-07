@@ -244,6 +244,7 @@
     "statistics.filterBestMaxGreen": "Zielony",
     "statistics.filterBestMax": "Kolory",
     "statistics.filterBestMaxOrange": "Żółty",
+    "statistics.filterBestMaxGray": "Szary",
     "statistics.filterWordleBestTitle": "Balans kolorów",
     "statistics.filterBestGreen1_5": "1.5 × zielony + 1 × żółty",
     "statistics.filterBestGreen2_0": "2 × zielony + 1 × żółty",

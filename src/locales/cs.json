@@ -244,6 +244,7 @@
     "statistics.filterBestMaxGreen": "Zelená",
     "statistics.filterBestMax": "Barvy",
     "statistics.filterBestMaxOrange": "Žlutá",
+    "statistics.filterBestMaxGray": "Šedá",
     "statistics.filterWordleBestTitle": "Barevná rovnováha",
     "statistics.filterBestGreen1_5": "1.5 × zelená + 1 × žlutá",
     "statistics.filterBestGreen2_0": "2 × zelená + 1 × žlutá",

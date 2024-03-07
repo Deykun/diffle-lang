@@ -244,6 +244,7 @@
     "statistics.filterBestMaxGreen": "Green",
     "statistics.filterBestMax": "Colors",
     "statistics.filterBestMaxOrange": "Orange",
+    "statistics.filterBestMaxGray": "Gray",
     "statistics.filterWordleBestTitle": "Color balance",
     "statistics.filterBestGreen1_5": "1.5 × green + 1 × yellow",
     "statistics.filterBestGreen2_0": "2 × green + 1 × yellow",

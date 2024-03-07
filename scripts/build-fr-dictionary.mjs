@@ -28,6 +28,7 @@ actionBuildDictionary(
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
+        MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD: 18,
     },
     spellcheckerWords,
     winningWords,

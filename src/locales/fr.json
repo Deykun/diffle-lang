@@ -244,6 +244,7 @@
     "statistics.filterBestMaxGreen": "Vert",
     "statistics.filterBestMax": "Couleurs",
     "statistics.filterBestMaxOrange": "Jaune",
+    "statistics.filterBestMaxGray": "Gris",
     "statistics.filterWordleBestTitle": "Équilibre des couleurs",
     "statistics.filterBestGreen1_5": "1,5 × vert + 1 × jaune",
     "statistics.filterBestGreen2_0": "2 × vert + 1 × jaune",

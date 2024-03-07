@@ -21,21 +21,24 @@ export const removeDiacratics = (word: string, lang?: string) => {
   }
 
   if (!lang || lang === 'de') {
-    wordToReturn = wordToReturn.replaceAll('ä', 'a')
+    wordToReturn = wordToReturn
+      .replaceAll('ä', 'a')
       .replaceAll('ö', 'o')
       .replaceAll('ß', 's')
       .replaceAll('ü', 'u');
   }
 
   if (!lang || lang === 'de') {
-    wordToReturn = wordToReturn.replaceAll('ä', 'a')
+    wordToReturn = wordToReturn
+      .replaceAll('ä', 'a')
       .replaceAll('ö', 'o')
       .replaceAll('ß', 's')
       .replaceAll('ü', 'u');
   }
 
   if (!lang || lang === 'es') {
-    wordToReturn = wordToReturn.replaceAll('á', 'a')
+    wordToReturn = wordToReturn
+      .replaceAll('á', 'a')
       .replaceAll('é', 'e')
       .replaceAll('í', 'i')
       .replaceAll('ó', 'o')
@@ -45,22 +48,27 @@ export const removeDiacratics = (word: string, lang?: string) => {
   }
 
   if (!lang || lang === 'fr') {
-    wordToReturn = wordToReturn.replaceAll('â', 'a')
+    wordToReturn = wordToReturn
+      .replaceAll('à', 'a')
+      .replaceAll('â', 'a')
+      .replaceAll('æ', 'a')
       .replaceAll('ç', 'c')
       .replaceAll('é', 'e')
       .replaceAll('è', 'e')
       .replaceAll('ê', 'e')
+      .replaceAll('ë', 'e')
       .replaceAll('î', 'i')
       .replaceAll('ï', 'i')
-      .replaceAll('œ', 'o')
       .replaceAll('ô', 'o')
+      .replaceAll('œ', 'o')
       .replaceAll('ù', 'u')
       .replaceAll('û', 'u')
       .replaceAll('ü', 'u');
   }
 
   if (!lang || lang === 'pl') {
-    wordToReturn = wordToReturn.replaceAll('ą', 'a')
+    wordToReturn = wordToReturn
+      .replaceAll('ą', 'a')
       .replaceAll('ć', 'c')
       .replaceAll('ę', 'e')
       .replaceAll('ł', 'l')

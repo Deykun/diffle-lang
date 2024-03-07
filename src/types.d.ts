@@ -108,6 +108,7 @@ export type DictionaryInfo = {
       bestMax: WordleResult[],
       bestMaxGreen: WordleResult[],
       bestMaxOrange: WordleResult[],
+      bestMaxGray: WordleResult[],
       bestGreen1_5: WordleResult[],
       bestGreen2_0: WordleResult[],
     },
@@ -274,6 +275,7 @@ export enum BestWordleType {
   BestMax = 'bestMax',
   BestMaxGreen = 'bestMaxGreen',
   BestMaxOrange = 'bestMaxOrange',
+  BestMaxGray = 'bestMaxGray',
   BestGreen1_5 = 'bestGreen1_5',
   BestGreen2_0 = 'bestGreen2_0',
 }

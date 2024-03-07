@@ -31,6 +31,7 @@ const getDicitonaryData = async (lang: string | undefined): Promise<DictionaryIn
   rawData.spellchecker.wordle.bestMax = rawDataWordleBest.best.max;
   rawData.spellchecker.wordle.bestMaxGreen = rawDataWordleBest.best.maxGreen;
   rawData.spellchecker.wordle.bestMaxOrange = rawDataWordleBest.best.maxOrange;
+  rawData.spellchecker.wordle.bestMaxGray = rawDataWordleBest.best.maxGray;
   rawData.spellchecker.wordle.bestGreen1_5 = rawDataWordleBest.best.green1_5;
   rawData.spellchecker.wordle.bestGreen2_0 = rawDataWordleBest.best.green2_0;
 

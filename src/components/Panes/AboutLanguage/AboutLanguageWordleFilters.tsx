@@ -55,6 +55,7 @@ const AboutLanguageWordleFilters = ({
                     BestWordleType.BestMaxGreen,
                     BestWordleType.BestMax,
                     BestWordleType.BestMaxOrange,
+                    BestWordleType.BestMaxGray,
                   ].map(filter => (
                       <Button
                         key={filter}
