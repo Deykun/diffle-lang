@@ -3,7 +3,6 @@ import { createSelector } from '@reduxjs/toolkit';
 import {
   RootState,
   Dictionary,
-  KeyboardQWERTYMode,
   Word as WordInterface,
   AffixStatus,
   UsedLetters,
@@ -33,16 +32,16 @@ export const selectCookiesPolicyHash = createSelector(
 
 export const selectGameLanguageKeyboardInfo = createSelector(
   (state: RootState) => state.game.language,
-  (state: RootState) => state.app.keyboardQWERTYMode,
+  (state: RootState) => state.app.keyboardLayoutIndex,
   (state: RootState) => state.app.isEnterSwapped,
-  (gameLanguage, userQWERTYPreferedMode, isEnterSwapped): Dictionary => {
+  (gameLanguage, userPrefferedLayout, isEnterSwapped): Dictionary => {
     if (!gameLanguage || !SUPPORTED_DICTIONARY_BY_LANG[gameLanguage]) {
       return {
         code: undefined,
         title: '',
         languages: [],
-        shouldPreferQWERTZ: false,
-        keyLines: [],
+        keyLinesVariants: [],
+        keyLinesToUse: [],
         allowedKeys: [],
         characters: [],
         specialCharacters: [],
@@ -52,29 +51,13 @@ export const selectGameLanguageKeyboardInfo = createSelector(
       };
     }
     const {
-      keyLines,
-      shouldPreferQWERTZ,
+      keyLinesVariants,
       ...dictionary
     } = SUPPORTED_DICTIONARY_BY_LANG[gameLanguage];
 
-    let keyLinesToUse = keyLines;
-
-    const shouldSwapZwithY = userQWERTYPreferedMode === KeyboardQWERTYMode.QWERTZ
-            || (userQWERTYPreferedMode === KeyboardQWERTYMode.FROM_LANG && shouldPreferQWERTZ);
-
-    if (shouldSwapZwithY) {
-      keyLinesToUse = keyLinesToUse.map(line => line.map((keyText) => {
-        if (keyText === 'y') {
-          return 'z';
-        }
-
-        if (keyText === 'z') {
-          return 'y';
-        }
-
-        return keyText;
-      }));
-    }
+    let keyLinesToUse = keyLinesVariants[userPrefferedLayout]
+      ? keyLinesVariants[userPrefferedLayout].keyLines
+      : keyLinesVariants[0].keyLines;
 
     if (isEnterSwapped) {
       keyLinesToUse = keyLinesToUse.map(line => line.map((keyText) => {
@@ -92,8 +75,8 @@ export const selectGameLanguageKeyboardInfo = createSelector(
 
     return {
       ...dictionary,
-      shouldPreferQWERTZ,
-      keyLines: keyLinesToUse,
+      keyLinesVariants,
+      keyLinesToUse,
     };
   },
 );

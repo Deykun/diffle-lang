@@ -11,3 +11,7 @@ export const getLocalStorageKeyForDailyStamp = ({ gameLanguage }: { gameLanguage
 export const getLocalStorageKeyForLastGameMode = ({ gameLanguage }: { gameLanguage: string }) => {
   return `diffle_${gameLanguage}_last_game_mode`;
 };
+
+export const getLocalStorageKeyForGameKeyboardLayout = ({ gameLanguage }: { gameLanguage: string }) => {
+  return `diffle_${gameLanguage}_keyboard_layout`;
+};

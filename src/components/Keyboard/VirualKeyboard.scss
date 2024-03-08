@@ -44,9 +44,14 @@
         }
     }
 
-    &.isSmall .line {
+    &.keyboard--is-small-keyboard .line {
         gap: min(8px, 2vw);
         margin-bottom: min(5px, 2vw);
+    }
+
+    &.keyboard--is-wide-keyboard .line {
+        gap: min(6px, 2vw);
+        margin-bottom: min(6px, 1vw);
     }
 
     &.incorrect {

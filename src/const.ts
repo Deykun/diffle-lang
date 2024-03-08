@@ -10,33 +10,62 @@ export const UPDATE_BLOCK_DAILY = '19.01.2024';
 
 const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [' ', 'delete', 'arrowleft', 'arrowright', 'arrowdown', 'arrowup'];
 
-const KEY_LINES_CS = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř'],
-  ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
-];
+const KEY_LINES_CS_VARIANTS = [{
+  name: 'QWERTZ',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř'],
+    ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
+  ],
+}, {
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř'],
+    ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
+  ],
+}];
 
-const KEY_LINES_DE = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['ä', 'ö', 'spacebar', 'ß', 'ü'],
-];
+const KEY_LINES_DE_VARIANTS = [{
+  name: 'QWERTZ',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'y', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['ä', 'ö', 'spacebar', 'ß', 'ü'],
+  ],
+}, {
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['ä', 'ö', 'spacebar', 'ß', 'ü'],
+  ],
+}];
 
-const KEY_LINES_EN = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-];
+const KEY_LINES_EN_VARIANTS = [{
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+  ],
+}];
 
-const KEY_LINES_ES = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
-];
+const KEY_LINES_ES_VARIANTS = [{
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
+  ],
+}];
 
 /*
   I had a hard time deciding which letters should stay.
@@ -45,20 +74,44 @@ const KEY_LINES_ES = [
 
   https://en.wikipedia.org/wiki/French_orthography#Alphabet - ÿ was ommited
 */
-const KEY_LINES_FR = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë'],
-  ['î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
-];
+const KEY_LINES_FR_VARIANTS = [{
+  name: 'BÉPO',
+  keyLines: [
+    ['b', 'é', 'p', 'o', 'è', 'v', 'd', 'l', 'j', 'z', 'w'],
+    ['a', 'u', 'i', 'e', 'c', 't', 's', 'r', 'n', 'm', 'ç'],
+    ['ê', 'à', 'y', 'x', 'k', 'q', 'g', 'h', 'f'],
+    ['backspace', 'â', 'ë', 'œ', 'æ', 'enter'],
+    ['î', 'ï', 'ô', 'spacebar', 'ù', 'û', 'ü'],
+  ],
+}, {
+  name: 'AZERTY',
+  keyLines: [
+    ['a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm'],
+    ['backspace', 'w', 'x', 'c', 'v', 'b', 'n', 'enter'],
+    ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë'],
+    ['î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
+  ],
+}, {
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë'],
+    ['î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
+  ],
+}];
 
-const KEY_LINES_PL = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
-  ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
-];
+const KEY_LINES_PL_VARIANTS = [{
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
+  ],
+}];
 
 export const SUPPORTED_DICTIONARY_BY_LANG: {
   [key: string]: Dictionary,
@@ -67,10 +120,10 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'cs',
     languages: ['cs', 'cs-CZ'],
     title: 'DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿',
-    shouldPreferQWERTZ: true,
-    keyLines: KEY_LINES_CS,
-    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_CS.flatMap(key => key)],
-    characters: KEY_LINES_CS.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    keyLinesVariants: KEY_LINES_CS_VARIANTS,
+    keyLinesToUse: KEY_LINES_CS_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_CS_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_CS_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
     specialCharacters: ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř', 'š', 'ť', 'ú', 'ů', 'ý', 'ž'],
     hasSpecialCharacters: true,
     urls: [
@@ -84,10 +137,10 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     languages: ['de', 'de-DE'],
     isBeta: true,
     title: 'DIFFLE - das Spiel wie Wordle (auf Deutsch, ohne Zeichenbegrenzung) 🇩🇪',
-    shouldPreferQWERTZ: true,
-    keyLines: KEY_LINES_DE,
-    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE.flatMap(key => key)],
-    characters: KEY_LINES_DE.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    keyLinesVariants: KEY_LINES_DE_VARIANTS,
+    keyLinesToUse: KEY_LINES_DE_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_DE_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
     specialCharacters: ['ä', 'ö', 'ß', 'ü'],
     hasSpecialCharacters: true,
     urls: [
@@ -101,10 +154,10 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'en',
     languages: ['en', 'en-UK'],
     title: 'DIFFLE - the game like Wordle (without character limit)',
-    shouldPreferQWERTZ: false,
-    keyLines: KEY_LINES_EN,
-    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN.flatMap(key => key)],
-    characters: KEY_LINES_EN.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    keyLinesVariants: KEY_LINES_EN_VARIANTS,
+    keyLinesToUse: KEY_LINES_EN_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_EN_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
     specialCharacters: [],
     hasSpecialCharacters: false,
     urls: [
@@ -119,10 +172,10 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     languages: ['es'],
     isBeta: true,
     title: 'DIFFLE - el juego similar a Wordle (sin límite de caracteres) 🇪🇸',
-    shouldPreferQWERTZ: false,
-    keyLines: KEY_LINES_ES,
-    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES.flatMap(key => key)],
-    characters: KEY_LINES_ES.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    keyLinesVariants: KEY_LINES_ES_VARIANTS,
+    keyLinesToUse: KEY_LINES_ES_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_ES_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
     specialCharacters: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
     hasSpecialCharacters: true,
     urls: [
@@ -136,10 +189,10 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     languages: ['fr'],
     isBeta: true,
     title: 'DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷',
-    shouldPreferQWERTZ: false,
-    keyLines: KEY_LINES_FR,
-    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR.flatMap(key => key)],
-    characters: KEY_LINES_FR.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    keyLinesVariants: KEY_LINES_FR_VARIANTS,
+    keyLinesToUse: KEY_LINES_FR_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_FR_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
     specialCharacters: ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë', 'î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
     hasSpecialCharacters: true,
     urls: [
@@ -153,10 +206,10 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'pl',
     languages: ['pl', 'pl-PL'],
     title: 'DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱',
-    shouldPreferQWERTZ: false,
-    keyLines: KEY_LINES_PL,
-    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL.flatMap(key => key)],
-    characters: KEY_LINES_PL.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    keyLinesVariants: KEY_LINES_PL_VARIANTS,
+    keyLinesToUse: KEY_LINES_PL_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_PL_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
     specialCharacters: ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
     hasSpecialCharacters: true,
     urls: [
@@ -198,7 +251,6 @@ export const LOCAL_STORAGE = {
   SHOULD_VIBRATE: 'diffle_should_vibrate',
   SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',
   IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
-  QWERTY_MODE: 'diffle_qwerty_mode',
   SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
   SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',

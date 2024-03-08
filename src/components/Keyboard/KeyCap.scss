@@ -17,10 +17,15 @@
     line-height: 50px;
     transition: all 0.5s ease-in-out;
 
-    .keyboard.isSmall & {
+    .keyboard.keyboard--is-small-keyboard & {
         height: 40px;
         line-height: 40px;
         list-style: 40px;
+    }
+
+    .keyboard.keyboard--is-wide-keyboard & {
+        padding: 0 min(6px, 1vw);
+        min-width: 7.5%;
     }
 
     &.typed {
@@ -80,33 +85,36 @@
         }
     }
 
-    &-backspace,
-    &-enter {
-        padding: 0 min(6px, 1vw);
-        min-width: 36px;
+    &,
+    .keyboard.keyboard--is-wide-keyboard & {
+        &-backspace,
+        &-enter {
+            padding: 0 min(6px, 1vw);
+            min-width: 36px;
 
-        @media (min-width: 400px) {
-            min-width: 52px;
+            @media (min-width: 400px) {
+                min-width: 52px;
+            }
+
+            max-width: 7vw;
+            width: 56px;
         }
 
-        max-width: 7vw;
-        width: 56px;
-    }
+        
+        &-spacebar {
+            min-width: 50px;
 
-    
-    &-spacebar {
-        min-width: 50px;
+            @media (min-width: 400px) {
+                min-width: 100px;
+            }
 
-        @media (min-width: 400px) {
-            min-width: 100px;
-        }
+            max-width: 12vw;
+            width: 56px;
 
-        max-width: 12vw;
-        width: 56px;
-
-        svg {
-            width: 24px;
-            height: 24px;
+            svg {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 
