@@ -80,7 +80,17 @@ const KEY_LINES_FR_VARIANTS = [{
     ['b', 'é', 'p', 'o', 'è', 'v', 'd', 'l', 'j', 'z', 'w'],
     ['a', 'u', 'i', 'e', 'c', 't', 's', 'r', 'n', 'm', 'ç'],
     ['ê', 'à', 'y', 'x', 'k', 'q', 'g', 'h', 'f'],
-    ['backspace', 'œ', 'æ', 'ù', 'enter'],
+    ['backspace', 'â', 'ë', 'œ', 'æ', 'enter'],
+    ['î', 'ï', 'ô', 'spacebar', 'ù', 'û', 'ü'],
+  ],
+}, {
+  name: 'AZERTY',
+  keyLines: [
+    ['a', 'z', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['q', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm'],
+    ['backspace', 'w', 'x', 'c', 'v', 'b', 'n', 'enter'],
+    ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë'],
+    ['î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
   ],
 }, {
   name: 'QWERTY',
@@ -241,7 +251,6 @@ export const LOCAL_STORAGE = {
   SHOULD_VIBRATE: 'diffle_should_vibrate',
   SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',
   IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
-  QWERTY_MODE: 'diffle_qwerty_mode',
   SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
   SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',

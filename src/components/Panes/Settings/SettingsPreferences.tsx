@@ -4,9 +4,6 @@ import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { track } from '@store/appSlice';
-import {
-  selectGameLanguageKeyboardInfo,
-} from '@store/selectors';
 
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
@@ -14,7 +11,6 @@ import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
 import IconCookie from '@components/Icons/IconCookie';
 import IconCookies from '@components/Icons/IconCookies';
-import IconKeyboard from '@components/Icons/IconKeyboard';
 import IconKeyboardDown from '@components/Icons/IconKeyboardDown';
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
@@ -26,12 +22,12 @@ import ButtonTile from '@components/Button/ButtonTile';
 
 import CookiesPopup from '@components/Cookies/CookiesPopup';
 import LanguagePicker from '@components/Language/LanguagePicker';
+import KeyboardLayoutPicker from '@components/Keyboard/KeyboardLayoutPicker';
 
 import './Settings.scss';
 
 const SettingsPreferences = () => {
   const dispatch = useDispatch();
-  const { shouldPreferQWERTZ } = useSelector(selectGameLanguageKeyboardInfo);
   const cookies = useSelector(state => state.app.cookies);
   const totalOfCookiesPoliciesAccepted = Object.values(cookies).filter(Boolean).length;
 
@@ -48,8 +44,6 @@ const SettingsPreferences = () => {
     handleToggleEnterSwap,
     shouldConfirmEnter,
     handleToggleConfirmEnter,
-    keyboardQWERTYMode,
-    handleSetNextQWERTYMode,
   } = useKeyboardSettings();
 
   const handleToggleDarkLightMode = () => {
@@ -134,24 +128,7 @@ const SettingsPreferences = () => {
                   </ButtonTile>
               </li>
               <li>
-                  <ButtonTile isActive onClick={handleSetNextQWERTYMode}>
-                      <IconKeyboard />
-                      <span className="button-tile-title-small">
-                          {keyboardQWERTYMode === 'language'
-                            ? (
-                                <>
-                                    {shouldPreferQWERTZ ? 'QWERTZ' : 'QWERTY'}
-                                    {' '}
-                                    <small>
-                                        (
-                                        {t('settings.languageDefault')}
-                                        )
-                                    </small>
-                                </>
-                            )
-                            : keyboardQWERTYMode.toUpperCase()}
-                      </span>
-                  </ButtonTile>
+                  <KeyboardLayoutPicker />
               </li>
               <li>
                   <ButtonTile isActive={isEnterSwapped} onClick={handleToggleEnterSwap}>

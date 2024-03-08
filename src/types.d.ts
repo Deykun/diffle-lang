@@ -191,12 +191,6 @@ export interface Toast {
   },
 }
 
-export enum KeyboardQWERTYMode {
-  FROM_LANG = 'language',
-  QWERTY = 'qwerty',
-  QWERTZ = 'qwertz',
-}
-
 export enum CookiesName {
   GOOGLE_ANALYTICS = 'googleAnalytics',
   DIFFLE_EXTERNAL = 'diffleExternal',
@@ -221,7 +215,6 @@ export interface RootAppState {
   shouldVibrate: boolean,
   shouldKeyboardVibrate: boolean,
   isSmallKeyboard: boolean,
-  keyboardQWERTYMode: KeyboardQWERTYMode,
   keyboardLayoutIndex: number,
   isEnterSwapped: boolean,
   shouldConfirmEnter: boolean,

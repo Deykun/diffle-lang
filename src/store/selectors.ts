@@ -3,7 +3,6 @@ import { createSelector } from '@reduxjs/toolkit';
 import {
   RootState,
   Dictionary,
-  KeyboardQWERTYMode,
   Word as WordInterface,
   AffixStatus,
   UsedLetters,

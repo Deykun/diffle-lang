@@ -82,8 +82,16 @@ const VirualKeyboard = () => {
     return null;
   }
 
+  const isWideKeyboard = keyLinesToUse.some(line => line.length > 10);
+
   return (
-      <aside ref={keyboardRef} className={clsx('keyboard', type, { isSmall: isSmallKeyboard })}>
+      <aside
+        ref={keyboardRef}
+        className={clsx('keyboard', type, {
+          'keyboard--is-small-keyboard': isSmallKeyboard,
+          'keyboard--is-wide-keyboard': isWideKeyboard,
+        })}
+      >
           {shouldShowConfirm && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
           {keyLinesToUse.map((line) => {
             return (

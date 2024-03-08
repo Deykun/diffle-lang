@@ -10,7 +10,6 @@ import {
   getInitShouldVibrate,
   getInitShouldKeyboardVibrate,
   getInitIsSmallKeyboard,
-  getInitKeyboardMode,
   getInitKeyboardLayoutIndex,
   getIsEnterSwapped,
   getShouldConfirmEnter,
@@ -65,7 +64,6 @@ const initialState: RootAppState = {
   shouldVibrate: getInitShouldVibrate(),
   shouldKeyboardVibrate: getInitShouldKeyboardVibrate(),
   isSmallKeyboard: getInitIsSmallKeyboard(),
-  keyboardQWERTYMode: getInitKeyboardMode(),
   keyboardLayoutIndex: getInitKeyboardLayoutIndex(),
   isEnterSwapped: getIsEnterSwapped(),
   shouldConfirmEnter: getShouldConfirmEnter(),
@@ -131,8 +129,8 @@ const appSlice = createSlice({
     toggleKeyboardSize(state) {
       state.isSmallKeyboard = !state.isSmallKeyboard;
     },
-    toggleKeyboardQWERTYMode(state, action) {
-      state.keyboardQWERTYMode = action.payload;
+    changeKeyboardLayoutIndex(state, action) {
+      state.keyboardLayoutIndex = action.payload;
     },
     toggleEnterSwap(state) {
       state.isEnterSwapped = !state.isEnterSwapped;
@@ -152,6 +150,9 @@ const appSlice = createSlice({
         state.toast = {
           type: ToastType.Error, text: 'unknownError', timeoutSeconds: 5, toastTime, params: {},
         };
+      })
+      .addCase('game/setGameLanguage', (state) => {
+        state.keyboardLayoutIndex = getInitKeyboardLayoutIndex();
       });
   },
 });
@@ -164,7 +165,7 @@ export const {
   toggleVibration,
   toggleKeyboardVibration,
   toggleKeyboardSize,
-  toggleKeyboardQWERTYMode,
+  changeKeyboardLayoutIndex,
   toggleEnterSwap,
   toggleConfirmEnter,
   toggleShareWords,

@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.16
+#### Version 3.17
+- **New**: Keyboard layout picker added to specific languages; the QWERTZ option was removed
+
+#### Version 3.16 (08.03.2024)
 - **New**: Wordle's worst word added
 - **New**: French keyboard changes (new accepted letters added)
 

@@ -1,5 +1,5 @@
 import {
-  GameMode, Pane, KeyboardQWERTYMode, CookiesSettingsInterfence, CookiesName,
+  GameMode, Pane, CookiesSettingsInterfence, CookiesName,
 } from '@common-types';
 
 import { LOCAL_STORAGE, COOKIES_INITIAL_SETTINGS_UNSET, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
@@ -98,15 +98,6 @@ export const getInitIsSmallKeyboard = () => {
   const isWideScreen = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0) > 1024;
 
   return isWideScreen;
-};
-
-export const getInitKeyboardMode = () => {
-  const savedMode = keepIfInEnum<KeyboardQWERTYMode>(localStorage.getItem(LOCAL_STORAGE.QWERTY_MODE) || '', KeyboardQWERTYMode);
-  if (savedMode) {
-    return savedMode;
-  }
-
-  return KeyboardQWERTYMode.FROM_LANG;
 };
 
 export const getInitKeyboardLayoutIndex = () => {
