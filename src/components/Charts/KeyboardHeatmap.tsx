@@ -29,7 +29,7 @@ function KeyboardHeatmap({
     },
   },
 }: Props) {
-  const { keyLines, characters } = useSelector(selectGameLanguageKeyboardInfo);
+  const { keyLinesToUse, characters } = useSelector(selectGameLanguageKeyboardInfo);
 
   const lettersData = letters[groupBy];
 
@@ -71,7 +71,7 @@ function KeyboardHeatmap({
           />
           <div className="heatmap-keyboard-wrapper">
               <div className="heatmap-keyboard heatmap-keyboard--background">
-                  {keyLines.map((line) => {
+                  {keyLinesToUse.map((line) => {
                     return (
                         <div key={line[0]} className="line">
                             {line.map((keyText) => {
@@ -95,7 +95,7 @@ function KeyboardHeatmap({
                   })}
               </div>
               <div className="heatmap-keyboard heatmap-keyboard--front">
-                  {keyLines.map((line) => {
+                  {keyLinesToUse.map((line) => {
                     return (
                         <div key={line[0]} className="line">
                             {line.map((keyText) => {

@@ -12,13 +12,18 @@ export enum Pane {
   AboutLanguage = 'about-language',
 }
 
+export interface KeyLinesVariant {
+  name: string,
+  keyLines: string[][],
+}
+
 export interface Dictionary {
   code?: string,
   languages: string[],
   title: string,
   isBeta?: boolean,
-  shouldPreferQWERTZ: boolean,
-  keyLines: string[][],
+  keyLinesVariants: KeyLinesVariant[],
+  keyLinesToUse: string[][],
   allowedKeys: string[],
   characters: string[],
   specialCharacters: string[],
@@ -217,6 +222,7 @@ export interface RootAppState {
   shouldKeyboardVibrate: boolean,
   isSmallKeyboard: boolean,
   keyboardQWERTYMode: KeyboardQWERTYMode,
+  keyboardLayoutIndex: number,
   isEnterSwapped: boolean,
   shouldConfirmEnter: boolean,
   shouldShareWords: boolean,

@@ -19,9 +19,9 @@ import './VirualKeyboard.scss';
 const VirualKeyboard = () => {
   const keyboardRef = useRef<HTMLElement | null>(null);
   const dispatch = useDispatch();
-  const shouldConfirmEnter = useSelector((state) => state.app.shouldConfirmEnter);
-  const isSmallKeyboard = useSelector((state) => state.app.isSmallKeyboard);
-  const { keyLines, allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
+  const shouldConfirmEnter = useSelector(state => state.app.shouldConfirmEnter);
+  const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
+  const { keyLinesToUse, allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
   const isGameEnded = useSelector(selectIsGameEnded);
   const type = useSelector(selectKeyboardState);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
@@ -40,7 +40,7 @@ const VirualKeyboard = () => {
   const toggleConfirmModal = useCallback(() => {
     vibrateKeyboard();
 
-    setIsConfirmOpen((prevValue) => !prevValue);
+    setIsConfirmOpen(prevValue => !prevValue);
   }, [vibrateKeyboard]);
 
   const handleType = useCallback((keyTyped: string, typed?: AffixStatus) => {
@@ -78,14 +78,14 @@ const VirualKeyboard = () => {
 
   const shouldShowConfirm = isConfirmOpen && !isGameEnded;
 
-  if (keyLines.length === 0) {
+  if (keyLinesToUse.length === 0) {
     return null;
   }
 
   return (
       <aside ref={keyboardRef} className={clsx('keyboard', type, { isSmall: isSmallKeyboard })}>
           {shouldShowConfirm && <VirualKeyboardConfirm closeConfirm={closeConfirm} />}
-          {keyLines.map((line) => {
+          {keyLinesToUse.map((line) => {
             return (
                 <div key={line[0]} className="line">
                     {line.map((keyText) => {

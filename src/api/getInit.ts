@@ -2,7 +2,7 @@ import {
   GameMode, Pane, KeyboardQWERTYMode, CookiesSettingsInterfence, CookiesName,
 } from '@common-types';
 
-import { LOCAL_STORAGE, COOKIES_INITIAL_SETTINGS_UNSET } from '@const';
+import { LOCAL_STORAGE, COOKIES_INITIAL_SETTINGS_UNSET, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { getNow } from '@utils/date';
 import { getLangFromUrl } from '@utils/lang';
@@ -12,6 +12,7 @@ import {
 import {
   getLocalStorageKeyForDailyStamp,
   getLocalStorageKeyForLastGameMode,
+  getLocalStorageKeyForGameKeyboardLayout,
 } from '@utils/game';
 
 export const getInitCookiesSettings = () => {
@@ -106,6 +107,27 @@ export const getInitKeyboardMode = () => {
   }
 
   return KeyboardQWERTYMode.FROM_LANG;
+};
+
+export const getInitKeyboardLayoutIndex = () => {
+  const langFromUrl = getLangFromUrl();
+
+  if (langFromUrl) {
+    const localStorageKey = getLocalStorageKeyForGameKeyboardLayout({ gameLanguage: langFromUrl });
+    const layoutIndex = localStorage.getItem(localStorageKey);
+
+    if (layoutIndex) {
+      const layoutIndexNumber = Number(layoutIndex);
+
+      const hasMatchingVariant = SUPPORTED_DICTIONARY_BY_LANG[langFromUrl].keyLinesVariants[Number(layoutIndexNumber)];
+
+      if (hasMatchingVariant) {
+        return layoutIndexNumber;
+      }
+    }
+  }
+
+  return 0;
 };
 
 export const getInitShouldVibrate = () => {
