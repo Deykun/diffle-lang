@@ -55,7 +55,7 @@ async function typeOnVirtualKeyboardWord(page: Page, text = '') {
   for (const letter of letters) {
     const keyForLetter = page.getByTestId(`key-${letter}`);
 
-    await page.waitForTimeout(30);
+    await page.waitForTimeout(60);
     
     await keyForLetter.click();
   }
@@ -117,7 +117,7 @@ test.describe('Typing with virtual keyboard', () => {
   });
 
   test('Incorrect word is rejected with toast', async ({ page }) => {
-    typeOnVirtualKeyboardWord(page, 'dshjgs');
+    typeOnVirtualKeyboardWord(page, 'dshjg');
 
     await page.getByTestId('key-enter').click();
 
