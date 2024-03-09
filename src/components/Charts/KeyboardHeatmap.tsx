@@ -29,6 +29,8 @@ function KeyboardHeatmap({
     },
   },
 }: Props) {
+  const gameLanguage = useSelector(state => state.game.language);
+  const keyboardLayoutIndex = useSelector(state => state.app.keyboardLayoutIndex);
   const { keyLinesToUse, characters } = useSelector(selectGameLanguageKeyboardInfo);
 
   const lettersData = letters[groupBy];
@@ -49,6 +51,28 @@ function KeyboardHeatmap({
       middle: lettersData[letterKeysByValueToPass[middleIndex]] || 0,
     };
   }, [lettersData]);
+
+  const keyLines = useMemo(() => {
+    // It has 2 lines with enter and backspace, but it can be one line
+    const isBEPO = gameLanguage === 'fr' && keyboardLayoutIndex === 1;
+    if (!isBEPO) {
+      const total = keyLinesToUse.length;
+
+      return keyLinesToUse.reduce((stack: string[][], line, index) => {
+        const isLast = total - 1 === index;
+
+        if (isLast) {
+          stack[index - 1] = [...stack[index - 1], ...line];
+        } else {
+          stack.push(line);
+        }
+
+        return stack;
+      }, []);
+    }
+
+    return keyLinesToUse;
+  }, [keyLinesToUse, keyboardLayoutIndex, gameLanguage]);
 
   const isMaxPercentage = groupBy !== 'common';
   const maxLetterValue = (lettersData[letterKeysByValue[0]] / all) * (isMaxPercentage ? 100 : 1);
@@ -71,7 +95,7 @@ function KeyboardHeatmap({
           />
           <div className="heatmap-keyboard-wrapper">
               <div className="heatmap-keyboard heatmap-keyboard--background">
-                  {keyLinesToUse.map((line) => {
+                  {keyLines.map((line) => {
                     return (
                         <div key={line[0]} className="line">
                             {line.map((keyText) => {
@@ -95,7 +119,7 @@ function KeyboardHeatmap({
                   })}
               </div>
               <div className="heatmap-keyboard heatmap-keyboard--front">
-                  {keyLinesToUse.map((line) => {
+                  {keyLines.map((line) => {
                     return (
                         <div key={line[0]} className="line">
                             {line.map((keyText) => {
