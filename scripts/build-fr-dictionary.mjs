@@ -1,5 +1,9 @@
 import fs from 'fs';
 
+import {
+    getAllLineWords,
+} from './utils/parse-dictionary.js';
+
 import  {
     getIsWordValid,
     actionBuildDictionary,
@@ -19,11 +23,11 @@ const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ita/dictionary.txt`, 'utf-8');
 const winningDictionary3rd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`, 'utf-8');
 
-const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word, LANG)));
+const spellcheckerWords = getAllLineWords(spellcheckerDictionary, 'first').filter((word => getIsWordValid(word, LANG)));
 
-const winningWords1st = [...new Set(winningDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
-const winningWords2nd = [...new Set(winningDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
-const winningWords3rd = [...new Set(winningDictionary3rd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords1st = getAllLineWords(winningDictionary1st, 'first');
+const winningWords2nd = getAllLineWords(winningDictionary2nd, 'first');
+const winningWords3rd = getAllLineWords(winningDictionary3rd, 'first');
 
 const winningWords1stAnd2nd = winningWords1st.length > winningWords2nd.length
     ? winningWords1st.filter(word => winningWords2nd.includes(word))
