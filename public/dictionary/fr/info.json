@@ -976,6 +976,15 @@
 				"fra-pol-2023.05.29"
 			],
 			"url": "https://freedict.org/"
+		},
+		"winningAlt": {
+			"dir": "Omegawiki",
+			"shortName": "Omegawiki",
+			"fullName": "Omegawiki",
+			"comments": [
+				"via https://www.dicts.info"
+			],
+			"url": "https://www.dicts.info/uddl.php"
 		}
 	}
 }

@@ -25,17 +25,15 @@ const winningDictionary3rd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES
 
 const spellcheckerWords = getAllLineWords(spellcheckerDictionary, 'first').filter((word => getIsWordValid(word, LANG)));
 
-const winningWords1st = getAllLineWords(winningDictionary1st, 'first');
-const winningWords2nd = getAllLineWords(winningDictionary2nd, 'first');
-const winningWords3rd = getAllLineWords(winningDictionary3rd, 'first');
+const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
+    getAllLineWords(winningDictionary1st, 'first'),
+    getAllLineWords(winningDictionary2nd, 'first'),
+    getAllLineWords(winningDictionary3rd, 'first'),
+].sort((a, b) => b.length - a.length);
 
-const winningWords1stAnd2nd = winningWords1st.length > winningWords2nd.length
-    ? winningWords1st.filter(word => winningWords2nd.includes(word))
-    : winningWords2nd.filter(word => winningWords1st.includes(word));
-
-const winningWords= winningWords1stAnd2nd.length > winningWords3rd.length
-    ? winningWords1stAnd2nd.filter(word => winningWords3rd.includes(word))
-    : winningWords3rd.filter(word => winningWords1stAnd2nd.includes(word));
+const winningWords = longestWinningWords.filter(
+    (word) => winningWordsDictionariesToCheck.every((wordlist) => wordlist.includes(word)),
+);
 
 actionBuildDictionary(
     {
