@@ -931,27 +931,27 @@
 		}
 	},
 	"winning": {
-		"all": 15038,
+		"all": 12320,
 		"accepted": {
-			"all": 9574,
-			"withSpecialCharacters": 2275,
-			"withoutSpecialCharacters": 7299,
+			"all": 8238,
+			"withSpecialCharacters": 1926,
+			"withoutSpecialCharacters": 6312,
 			"length": {
-				"4": 663,
-				"5": 1404,
-				"6": 1850,
-				"7": 2091,
-				"8": 1987,
-				"9": 1579
+				"4": 593,
+				"5": 1267,
+				"6": 1625,
+				"7": 1816,
+				"8": 1653,
+				"9": 1284
 			}
 		},
 		"rejected": {
-			"all": 5464,
-			"tooLong": 3861,
-			"tooShort": 300,
+			"all": 4082,
+			"tooLong": 2913,
+			"tooShort": 279,
 			"censored": 0,
-			"wrongLetters": 21,
-			"missingInSpellingDictionary": 1282
+			"wrongLetters": 19,
+			"missingInSpellingDictionary": 871
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"ù",
@@ -971,7 +971,10 @@
 			"dir": "FreeDict",
 			"shortName": "FreeDict",
 			"fullName": "FreeDict",
-			"comment": "fra-pol-2023.05.29",
+			"comments": [
+				"fra-deu-2023.05.29",
+				"fra-pol-2023.05.29"
+			],
 			"url": "https://freedict.org/"
 		}
 	}

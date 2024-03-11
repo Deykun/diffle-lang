@@ -15,11 +15,17 @@ import {
 const LANG = 'fr';
 
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
-const winningDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/dictionary.txt`, 'utf-8');
+const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/deu/dictionary.txt`, 'utf-8');
+const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`, 'utf-8');
 
 const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word, LANG)));
 
-const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords1st = [...new Set(winningDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords2nd = [...new Set(winningDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+
+const winningWords = winningWords1st.length > winningWords2nd.length
+    ? winningWords1st.filter(word => winningWords2nd.includes(word))
+    : winningWords2nd.filter(word => winningWords1st.includes(word));
 
 actionBuildDictionary(
     {

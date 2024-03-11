@@ -16,7 +16,10 @@ export const DICTIONARIES = {
         dir: 'FreeDict',
         shortName: 'FreeDict',
         fullName: 'FreeDict',
-        comment: 'fra-pol-2023.05.29',
+        comments: [
+            'fra-deu-2023.05.29',
+            'fra-pol-2023.05.29'
+        ],
         url: 'https://freedict.org/',
     },
 };
