@@ -16,16 +16,22 @@ const LANG = 'fr';
 
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/deu/dictionary.txt`, 'utf-8');
-const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`, 'utf-8');
+const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ita/dictionary.txt`, 'utf-8');
+const winningDictionary3rd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`, 'utf-8');
 
 const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word, LANG)));
 
 const winningWords1st = [...new Set(winningDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
 const winningWords2nd = [...new Set(winningDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords3rd = [...new Set(winningDictionary3rd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
 
-const winningWords = winningWords1st.length > winningWords2nd.length
+const winningWords1stAnd2nd = winningWords1st.length > winningWords2nd.length
     ? winningWords1st.filter(word => winningWords2nd.includes(word))
     : winningWords2nd.filter(word => winningWords1st.includes(word));
+
+const winningWords= winningWords1stAnd2nd.length > winningWords3rd.length
+    ? winningWords1stAnd2nd.filter(word => winningWords3rd.includes(word))
+    : winningWords3rd.filter(word => winningWords1stAnd2nd.includes(word));
 
 actionBuildDictionary(
     {

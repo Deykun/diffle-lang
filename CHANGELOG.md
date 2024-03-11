@@ -12,7 +12,7 @@
 ---
 
 #### Version 3.18
-- **New**: An additional dictionary has been added to restrict possible winning words in French. The winning word must be present in 3 dictionaries.
+- **New**: An additional dictionaries have been added to restrict possible winning words in French. The winning word must be present in 4 dictionaries.
 
 #### Version 3.17.1 (09.03.2024)
 - **New**: BÉPO keyboard has three lines instead of four in the about language
