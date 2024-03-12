@@ -18,7 +18,7 @@ export const DICTIONARIES = {
         fullName: 'FreeDict',
         comments: [
             'fra-deu-2023.05.29',
-            'fra-pol-2023.05.29'
+            'fra-ita-2023.05.29'
         ],
         url: 'https://freedict.org/',
     },

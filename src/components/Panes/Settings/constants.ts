@@ -49,7 +49,7 @@ export const DICTIONARIES_BY_LANG: {
     href: 'https://freedict.org/',
     labelHTML: '<strong>freedict.org</strong>',
   }, {
-    href: 'http://www.lexique.org//',
+    href: 'http://www.lexique.org/',
     labelHTML: '<strong>Lexique.org</strong>',
   }],
   pl: [{
