@@ -12,6 +12,7 @@
 ---
 
 #### Version 3.18.1
+- **Fix**: Align keyboard heatmaps when the title breaks the line
 - **Fix**: Fixed the incorrect keyboard layout for languages other than French in the About language
 
 #### Version 3.18 (12.03.2024)
