@@ -21,14 +21,15 @@ const LANG = 'fr';
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/deu/dictionary.txt`, 'utf-8');
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ita/dictionary.txt`, 'utf-8');
-const winningDictionary3rd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`, 'utf-8');
+const winningDictionary4th = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt.dir}/dictionary.txt`, 'utf-8');
+
 
 const spellcheckerWords = getAllLineWords(spellcheckerDictionary, 'first').filter((word => getIsWordValid(word, LANG)));
 
 const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
     getAllLineWords(winningDictionary1st, 'first'),
     getAllLineWords(winningDictionary2nd, 'first'),
-    getAllLineWords(winningDictionary3rd, 'first'),
+    getAllLineWords(winningDictionary4th, 'first'),
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(

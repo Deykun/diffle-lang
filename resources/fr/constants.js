@@ -22,4 +22,13 @@ export const DICTIONARIES = {
         ],
         url: 'https://freedict.org/',
     },
+    winningAlt: {
+        dir: 'Lexique',
+        shortName: 'Lexique',
+        fullName: 'Lexique',
+        comments: [
+            '3.83',
+        ],
+        url: 'http://www.lexique.org/',
+    },
 };

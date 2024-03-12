@@ -1,4 +1,3 @@
-
 # Resources
 
 Special thanks to: https://grammalecte.net/

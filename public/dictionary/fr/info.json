@@ -931,27 +931,27 @@
 		}
 	},
 	"winning": {
-		"all": 11011,
+		"all": 14172,
 		"accepted": {
-			"all": 7480,
-			"withSpecialCharacters": 1741,
-			"withoutSpecialCharacters": 5739,
+			"all": 10108,
+			"withSpecialCharacters": 2514,
+			"withoutSpecialCharacters": 7594,
 			"length": {
-				"4": 559,
-				"5": 1164,
-				"6": 1483,
-				"7": 1636,
-				"8": 1474,
-				"9": 1164
+				"4": 631,
+				"5": 1388,
+				"6": 1885,
+				"7": 2206,
+				"8": 2148,
+				"9": 1850
 			}
 		},
 		"rejected": {
-			"all": 3531,
-			"tooLong": 2599,
+			"all": 4064,
+			"tooLong": 3761,
 			"tooShort": 262,
 			"censored": 0,
-			"wrongLetters": 17,
-			"missingInSpellingDictionary": 653
+			"wrongLetters": 1,
+			"missingInSpellingDictionary": 40
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"ù",
@@ -978,13 +978,13 @@
 			"url": "https://freedict.org/"
 		},
 		"winningAlt": {
-			"dir": "Omegawiki",
-			"shortName": "Omegawiki",
-			"fullName": "Omegawiki",
+			"dir": "Lexique",
+			"shortName": "Lexique",
+			"fullName": "Lexique",
 			"comments": [
-				"via https://www.dicts.info"
+				"3.83"
 			],
-			"url": "https://www.dicts.info/uddl.php"
+			"url": "http://www.lexique.org/"
 		}
 	}
 }
