@@ -11,10 +11,13 @@
 
 ---
 
-#### Version 3.17.1
+#### Version 3.18
+- **New**: An additional dictionaries have been added to restrict possible winning words in French. The winning word must be present in 4 dictionaries.
+
+#### Version 3.17.1 (09.03.2024)
 - **New**: BÉPO keyboard has three lines instead of four in the about language
 
-#### Version 3.17
+#### Version 3.17 (09.03.2024)
 - **New**: Keyboard layout picker added to specific languages; the QWERTZ option was removed
 
 #### Version 3.16 (08.03.2024)

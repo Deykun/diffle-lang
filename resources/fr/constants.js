@@ -16,7 +16,19 @@ export const DICTIONARIES = {
         dir: 'FreeDict',
         shortName: 'FreeDict',
         fullName: 'FreeDict',
-        comment: 'fra-pol-2023.05.29',
+        comments: [
+            'fra-deu-2023.05.29',
+            'fra-ita-2023.05.29'
+        ],
         url: 'https://freedict.org/',
+    },
+    winningAlt: {
+        dir: 'Lexique',
+        shortName: 'Lexique',
+        fullName: 'Lexique',
+        comments: [
+            '3.83',
+        ],
+        url: 'http://www.lexique.org/',
     },
 };

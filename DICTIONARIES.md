@@ -48,8 +48,9 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-i-came-across
 
 ### French 🇫🇷
-- http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (19.1MB)
+- http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (~450k words - 19.1MB)
 - https://freedict.org 🎯
+- http://www.lexique.org/ 🎯 (~140k words)
 
 ### Polish 🇵🇱
 - https://sjp.pl/sl/growy/ 📔 (43.1MB)
