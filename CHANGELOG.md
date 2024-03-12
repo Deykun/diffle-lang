@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.18
+#### Version 3.18.1
+- **Fix**: Fixed the incorrect keyboard layout for languages other than French in the About language
+
+#### Version 3.18 (12.03.2024)
 - **New**: An additional dictionaries have been added to restrict possible winning words in French. The winning word must be present in 4 dictionaries.
 
 #### Version 3.17.1 (09.03.2024)

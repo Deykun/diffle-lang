@@ -54,8 +54,8 @@ function KeyboardHeatmap({
 
   const keyLines = useMemo(() => {
     // It has 2 lines with enter and backspace, but it can be one line
-    const isBEPO = gameLanguage === 'fr' && keyboardLayoutIndex === 1;
-    if (!isBEPO) {
+    const isBEPO = gameLanguage === 'fr' && keyboardLayoutIndex === 0;
+    if (isBEPO) {
       const total = keyLinesToUse.length;
 
       return keyLinesToUse.reduce((stack: string[][], line, index) => {
