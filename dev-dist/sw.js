@@ -67,7 +67,7 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-b5f7729d'], (function (workbox) { 'use strict';
+define(['./workbox-fda11f75'], (function (workbox) { 'use strict';
 
   self.skipWaiting();
   workbox.clientsClaim();
@@ -82,11 +82,22 @@ define(['./workbox-b5f7729d'], (function (workbox) { 'use strict';
     "revision": "9826aee49e0d0ee3a1f993c4f91b69bf"
   }, {
     "url": "index.html",
-    "revision": "0.h8doh3ifj78"
+    "revision": "0.q6335uii648"
   }], {});
   workbox.cleanupOutdatedCaches();
   workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
     allowlist: [/^\/$/]
   }));
+  workbox.registerRoute(({
+    url
+  }) => {
+    console.log(url);
+    return url.pathname.startsWith("/diffle-lang/dictionary");
+  }, new workbox.NetworkFirst({
+    "cacheName": "api-cache",
+    plugins: [new workbox.CacheableResponsePlugin({
+      statuses: [0, 200]
+    })]
+  }), 'GET');
 
 }));

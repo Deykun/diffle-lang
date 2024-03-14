@@ -3,7 +3,49 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite';
 
 import react from '@vitejs/plugin-react';
-import { VitePWA } from 'vite-plugin-pwa';
+import { VitePWA, VitePWAOptions  } from 'vite-plugin-pwa';
+
+const manifestForPlugin: Partial<VitePWAOptions> = {
+  registerType: "autoUpdate",
+  manifest: {
+    name: "DIFFLE",
+    short_name: "DIFFLE",
+    description: "",
+    theme_color: "#black",
+    background_color: "#fff",
+    start_url: "/diffle-lang/",
+    display: "standalone",
+    orientation: "portrait",
+    icons: [
+      {
+        src: '/diffle-lang/android-icon-192x192.png',
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any maskable",
+      },
+    ],
+  },
+  devOptions: {
+    enabled: true,
+    type: "module",
+  },
+  workbox: {
+    globPatterns: ['**/*.{js,json,css,html,ico,png,svg}'],
+    runtimeCaching: [{
+      urlPattern: ({ url }) => {
+        console.log(url);
+        return url.pathname.startsWith('/diffle-lang/dictionary');
+      },
+      handler: 'CacheFirst' as const,
+      options: {
+        cacheName: "api-cache",
+        cacheableResponse: {
+            statuses: [0, 200]
+        }
+      },
+    }]
+  }
+};
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,26 +59,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    VitePWA({ 
-      registerType: 'autoUpdate',
-      manifest: {
-        name: "DIFFLE",
-        theme_color: '#fff',
-        icons: [{
-          src: '/diffle-lang/android-icon-192x192.png',
-          sizes: "192x192",
-          type: "image/png",
-          purpose: "any maskable",
-        }]
-      },
-      devOptions: {
-        enabled: true,
-        type: "module",
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,json,css,html,ico,png,svg}']
-      }
-    }),
+    VitePWA(manifestForPlugin),
   ],
   resolve: {
     alias: {
