@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
+import { SHOULD_SHOW_HTML_EXTENSION, LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { setGameLanguage } from '@store/gameSlice';
@@ -29,8 +29,11 @@ export default function useLangugeChangeIfNeeded() {
     const langFromUrl = getLangFromUrl();
 
     if (!langFromUrl || appLanguage !== langFromUrl) {
+      const htmlExtension = SHOULD_SHOW_HTML_EXTENSION ? '.html' : '';
       const currentUrl = window.location.href.replace(window.location.search, '');
-      const newLocation = `${currentUrl.replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}`;
+      const newLocation = `${currentUrl
+        .replace('.html', '')
+        .replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}${htmlExtension}`;
 
       const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
       document.title = title;

@@ -3,6 +3,8 @@ import { Dictionary, CookiesName } from '@common-types';
 export const isTestEnv = (window.location.origin || '')?.includes(':2001') || false;
 export const isDev = (window.location.origin || '')?.includes('localhost') || false;
 
+export const SHOULD_SHOW_HTML_EXTENSION = (window.location.href || '')?.includes('localhost:5500') || false;
+
 export const WORD_MAXLENGTH = 15;
 
 // If breaking changes are released you can set a date stamp here and it will block the game
@@ -257,7 +259,7 @@ export const LOCAL_STORAGE = {
 };
 
 /* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */
-export const IS_MAIN_INSTANCE = ['localhost', 'deykun'].some(phrase => window.location.href.includes(phrase));
+export const IS_MAIN_INSTANCE = ['deykun'].some(phrase => window.location.href.includes(phrase));
 
 // Just put your ID inside the single quotes if you want to use your own GA instance. ;)
 export const TRACKER_GA_ID = IS_MAIN_INSTANCE ? 'G-ZEKHKHYYV0' : '';

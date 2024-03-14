@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Cert
+.vscode/https
+
 # Editor directories and files
 !.vscode/extensions.json
 .idea

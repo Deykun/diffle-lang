@@ -1,7 +1,8 @@
 import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 export const getLangFromUrl = () => {
-  const langFromUrl = SUPPORTED_LANGS.find(lang => window.location.pathname.endsWith(`/${lang}`));
+  const langFromUrl = SUPPORTED_LANGS.find(lang => window.location.pathname.endsWith(`/${lang}`)
+    || window.location.pathname.endsWith(`/${lang}.html`));
 
   return langFromUrl;
 };

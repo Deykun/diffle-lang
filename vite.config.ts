@@ -8,14 +8,22 @@ import { VitePWA } from 'vite-plugin-pwa';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/diffle-lang/',
+  server: {
+    https: {
+      // https://regery.com/en/security/ssl-tools/self-signed-certificate-generator
+      key: './scripts/https/diffle-privateKey.key',
+      cert: './scripts/https/diffle.crt',
+    }
+  },
   plugins: [
     react(),
     VitePWA({ 
       registerType: 'autoUpdate',
       manifest: {
         name: "DIFFLE",
+        theme_color: '#fff',
         icons: [{
-          src: '/android-icon-192x192.png',
+          src: '/diffle-lang/android-icon-192x192.png',
           sizes: "192x192",
           type: "image/png",
           purpose: "any maskable",
