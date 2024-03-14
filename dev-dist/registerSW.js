@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/diffle-lang/dev-sw.js?dev-sw', { scope: '/diffle-lang/', type: 'classic' })

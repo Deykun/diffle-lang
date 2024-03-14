@@ -391,7 +391,12 @@ export const actionBuildDictionary = (
     fsExtra.emptyDirSync(`./public/dictionary/${LANG}/spelling/`);
     fsExtra.emptyDirSync(`./public/dictionary/${LANG}/winning/`);
 
-    let spellingIndex = {};
+    let spellingIndex = {
+        offline: {
+            key: 'offline',
+            words: [],
+        },
+    };
 
     console.log(' ');
     console.log(chalk.blue(`Creating spelling chunks index from ${statistics.spellchecker.all} words...`));
@@ -468,6 +473,7 @@ export const actionBuildDictionary = (
             }
         
             if (spellingIndex[key]) {
+                spellingIndex['offline'].words.push(word);
                 spellingIndex[key].words.push(word);
             } else {
                 spellingIndex[key] = {
@@ -576,7 +582,12 @@ export const actionBuildDictionary = (
     console.log(' ');
     console.log(chalk.blue(`Creating winning chunks from ${statistics.winning.all} words...`));
 
-    const winnigIndex = {};
+    const winnigIndex = {
+        offline: {
+            key: 'offline',
+            words: [],
+        },
+    };
     const winningWordsLengths = {};
 
     winningWords.forEach((rawWord, index) => {
@@ -629,6 +640,7 @@ export const actionBuildDictionary = (
         }
 
         if (winnigIndex[key]) {
+            winnigIndex['offline'].words.push(word);
             winnigIndex[key].words.push(word);
         } else {
             winnigIndex[key] = {

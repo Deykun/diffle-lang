@@ -29,6 +29,7 @@ import './Settings.scss';
 
 import SettingsModes from './SettingsModes';
 import SettingsPreferences from './SettingsPreferences';
+import SettingsOffline from './SettingsOffline';
 import SettingsSources from './SettingsSources';
 
 const Settings = () => {
@@ -109,6 +110,7 @@ const Settings = () => {
               )}
           </details>
           <SettingsPreferences />
+          <SettingsOffline />
           <footer>
               <SettingsSources />
           </footer>

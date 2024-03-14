@@ -28,6 +28,13 @@ export default defineConfig({
           type: "image/png",
           purpose: "any maskable",
         }]
+      },
+      devOptions: {
+        enabled: true,
+        type: "module",
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,json,css,html,ico,png,svg}']
       }
     }),
   ],

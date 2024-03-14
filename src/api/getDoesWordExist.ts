@@ -51,6 +51,19 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
 
       cachedKeys[cacheKey] = result;
     } catch (error) {
+      // TODO add if pwa and second catch
+      const offlineResponse = await fetch(`./dictionary/${lang}/spelling/chunk-offline.json`);
+      const offlineResult = await offlineResponse.json();
+
+      if (offlineResult) {
+        const doesWordExist = offlineResult.includes(word);
+
+        return {
+          doesWordExist,
+          isError: false,
+        };
+      }
+
       return {
         doesWordExist: false,
         isError: true,
