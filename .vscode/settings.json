@@ -3,6 +3,16 @@
     "liveServer.settings.mount": [
         ["/diffle-lang", "./dist"]
     ],
+    "liveServer.settings.https": {
+        "enable": true, //set it true to enable the feature.
+        // https://www.youtube.com/watch?v=v4jgr0ppw8Q
+        // https://gist.github.com/prof3ssorSt3v3/edb2632a362b3731274cfab84e9973f9
+        // start chrome --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://127.0.0.1:5500 "https://127.0.0.1:5500/diffle-lang/"
+        // start chrome --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost:5500 "https://localhost:5500/diffle-lang/"
+        "cert": "C:/github/diffle-lang/scripts/https/diffle.crt", //full path
+        "key": "C:/github/diffle-lang/scripts/https/diffle-privateKey.key", //full path
+        "passphrase": "diffle"
+    },
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#93e6fc",
         "activityBar.background": "#93e6fc",
