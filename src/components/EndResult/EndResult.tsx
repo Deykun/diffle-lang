@@ -70,7 +70,7 @@ function EndResult() {
             subtotals={subtotals}
           />
           <div className="end-result-actions">
-              {gameMode === GameMode.Practice && (
+              {gameMode !== GameMode.Daily && (
               <Button
                 onClick={handleNewGame}
                 isLoading={isReseting}

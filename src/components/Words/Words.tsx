@@ -1,6 +1,8 @@
 import clsx from 'clsx';
-import { useMemo } from 'react';
+import { Suspense, lazy, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { Word as WordInterface, AffixStatus, GameMode } from '@common-types';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -11,8 +13,6 @@ import {
   selectWordToSubmit,
   selectWordState,
 } from '@store/selectors';
-
-import { Word as WordInterface, AffixStatus } from '@common-types';
 
 import useScrollEffect from '@hooks/useScrollEffect';
 
@@ -25,8 +25,11 @@ import WordTip from './WordTip';
 
 import './Words.scss';
 
+const WordSandbox = lazy(() => import('./WordSandbox'));
+
 const Words = () => {
   const guesses = useSelector(state => state.game.guesses);
+  const gameMode = useSelector(state => state.game.mode);
   const isGameEnded = useSelector(selectIsGameEnded);
   const hasLongGuesses = useSelector(state => state.game.hasLongGuesses);
   const isProcessing = useSelector(selectIsProcessing);
@@ -83,6 +86,11 @@ const Words = () => {
             );
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
+          {!isGameEnded && gameMode === GameMode.Sandbox && (
+          <Suspense>
+              <WordSandbox word={wordToSubmit} />
+          </Suspense>
+          )}
           <p
             className={clsx('status-tip', {
               'is-processing': isProcessing,

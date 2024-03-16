@@ -19,3 +19,16 @@ export const DICTIONARIES = {
         url: 'https://freedict.org/',
     },
 };
+
+export const EASTER_EGG_DAYS = {
+    '16.03': {
+        type: 'independence',
+        specialMode: 'sandbox',
+        emojis: [{
+            correct: ['🌿'],
+            position: ['🥟', '🥟', '🥟', '🥐'],
+            incorrect: ['🪽'],
+            typedKnownIncorrect: ['🦬', '🦅', '🐗'],
+        }],
+    },
+};

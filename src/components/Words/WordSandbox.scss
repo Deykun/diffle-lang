@@ -1,0 +1,19 @@
+.word-sandbox {
+  padding: 10px 0;
+  border-radius: 6px;
+  // border: 1px solid var(--border);
+  background-color: var(--text-weaker);
+  // background-color: var(--incorrect-contrast);
+  
+  > .word {
+    margin: 0 !important;
+  }
+
+  position: relative;
+  .word-sanbox-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    fill: var(--border);
+  }
+}

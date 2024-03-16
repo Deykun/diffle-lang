@@ -225,6 +225,7 @@ export enum GameMode {
   Daily = 'daily',
   Practice = 'practice',
   Share = 'share',
+  Sandbox = 'sandbox',
 }
 
 export enum GameStatus {
