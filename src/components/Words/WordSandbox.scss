@@ -1,19 +1,30 @@
+.word-sandbox-wrapper {
+  position: relative;
+
+  .word-sanbox-icon {
+    position: absolute;
+    top: -16px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    fill: var(--blue-on-background);
+    background-color: color-mix(in srgb, var(--text) 5%, var(--background));
+    padding: 6px;
+    border-radius: 6px;
+  }
+}
+
 .word-sandbox {
-  padding: 10px 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+  height: 60px;
   border-radius: 6px;
-  // border: 1px solid var(--border);
-  background-color: var(--text-weaker);
-  // background-color: var(--incorrect-contrast);
+  background-color: color-mix(in srgb, var(--text) 5%, var(--background));
   
   > .word {
     margin: 0 !important;
-  }
-
-  position: relative;
-  .word-sanbox-icon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    fill: var(--border);
   }
 }
