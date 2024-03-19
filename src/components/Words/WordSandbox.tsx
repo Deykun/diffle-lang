@@ -10,8 +10,7 @@ import { getWordReport } from '@api/getWordReport';
 
 import { useSelector } from '@store';
 import {
-  selectGameLanguageKeyboardInfo,
-  selectHasWordToGuessSpecialCharacters,
+  selectWordToSubmit,
 } from '@store/selectors';
 
 import IconEgg from '@components/Icons/IconEgg';
@@ -21,26 +20,21 @@ import Word from './Word';
 
 import './WordSandbox.scss';
 
-interface Props {
-  word: string,
-}
-
 const EMPY_WORD: WordInterface = {
   word: ' ',
   affixes: [{ type: AffixStatus.New, text: ' ' }],
 };
 
-const WordSandbox = ({
-  word,
-}: Props) => {
-  const setTimeoutDelay = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [debouncedWord, setDebouncedWord] = useState(word || ' ');
-  const [guess, setGuess] = useState<WordInterface>(EMPY_WORD);
+const WordSandbox = () => {
+  const wordToSubmit = useSelector(selectWordToSubmit);
   const lang = useSelector(state => state.game.language);
   const wordToGuess = useSelector(state => state.game.wordToGuess);
+  const setTimeoutDelay = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [debouncedWord, setDebouncedWord] = useState(wordToSubmit || ' ');
+  const [guess, setGuess] = useState<WordInterface>(EMPY_WORD);
 
   useEffect(() => {
-    console.log('elo', word);
+    console.log('elo', wordToSubmit);
   }, []);
 
   useEffect(() => {
@@ -70,9 +64,9 @@ const WordSandbox = ({
     }
 
     setTimeoutDelay.current = setTimeout(() => {
-      setDebouncedWord(word);
-    }, 1);
-  }, [word]);
+      setDebouncedWord(wordToSubmit);
+    }, 800);
+  }, [wordToSubmit]);
 
   return (
       <div className="word-sandbox-wrapper">

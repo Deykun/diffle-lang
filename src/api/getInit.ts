@@ -79,7 +79,7 @@ export const getInitMode = () => {
     const { stamp } = getNow();
 
     // Player should complete daily game before starting practice
-    const shouldForceDaily = lastGameMode === GameMode.Practice && lastStamp !== stamp;
+    const shouldForceDaily = lastGameMode !== GameMode.Daily && lastStamp !== stamp;
     const initGameModeFromStored = shouldForceDaily ? GameMode.Daily : lastGameMode;
 
     if (initGameModeFromStored) {
