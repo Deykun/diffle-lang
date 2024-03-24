@@ -24,7 +24,9 @@ export const getNow = () => {
   const month = nowUTC.getMonth() + 1;
   const day = nowUTC.getDate();
 
-  const stamp = `${(`${day}`).padStart(2, '0')}.${(`${month}`).padStart(2, '0')}.${year}`;
+  const stampDateWithoutYear = `${(`${day}`).padStart(2, '0')}.${(`${month}`).padStart(2, '0')}`;
+
+  const stamp = `${stampDateWithoutYear}.${year}`;
 
   const stampOnlyTime = [
     `${(`${nowUTC.getHours()}`).padStart(2, '0')}`,
@@ -36,6 +38,7 @@ export const getNow = () => {
 
   return {
     stamp,
+    stampDateWithoutYear,
     stampOnlyTime,
     year,
     month,

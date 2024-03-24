@@ -311,7 +311,7 @@ export const actionBuildDictionary = (
     const easterEggDays = {
         '01.01': {
             type: 'yearStart',
-            specialMode: 'sandbox',
+            specialMode: 'sandbox-live',
             emojis: [{
                 correct: ['🍾'],
                 position: ['🥳', '🎉', '✨', '🥂', '🎊'],
@@ -321,7 +321,7 @@ export const actionBuildDictionary = (
         },
         '14.02': {
             type: 'valentine',
-            specialMode: 'sandbox',
+            specialMode: 'sandbox-live',
             // emojis: [{
             //     correct: ['💚'],
             //     position: ['💛'],
@@ -331,7 +331,7 @@ export const actionBuildDictionary = (
         },
         '01.04': {
             type: 'normal',
-            specialMode: 'sandbox',
+            specialMode: 'sandbox-live',
             emojis: [{
                 correct: '🐸',
                 position: '🐝',
@@ -341,7 +341,7 @@ export const actionBuildDictionary = (
         },
         '31.12': {
             type: 'yearEnd',
-            specialMode: 'sandbox',
+            specialMode: 'sandbox-live',
             emojis: [{
                 correct: ['🍾'],
                 position: ['🥳', '🎉', '✨', '🥂', '🎊'],

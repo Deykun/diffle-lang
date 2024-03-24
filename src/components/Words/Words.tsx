@@ -23,11 +23,9 @@ import EndResult from '@components/EndResult/EndResult';
 import Word from './Word';
 import WordTip from './WordTip';
 
-import WordSandboxX from './WordSandbox';
-
 import './Words.scss';
 
-const WordSandbox = lazy(() => import('./WordSandbox'));
+const WordSandboxLive = lazy(() => import('./WordSandboxLive'));
 
 const Words = () => {
   const guesses = useSelector(state => state.game.guesses);
@@ -88,9 +86,9 @@ const Words = () => {
             );
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
-          {!isGameEnded && gameMode === GameMode.Sandbox && (
+          {!isGameEnded && gameMode === GameMode.SandboxLive && (
           <Suspense>
-              <WordSandbox />
+              <WordSandboxLive />
           </Suspense>
           )}
           <p

@@ -21,9 +21,9 @@ export const DICTIONARIES = {
 };
 
 export const EASTER_EGG_DAYS = {
-    '16.03': {
+    '24.03': {
         type: 'independence',
-        specialMode: 'sandbox',
+        specialMode: 'sandbox-live',
         emojis: [{
             correct: ['🌿'],
             position: ['🥟', '🥟', '🥟', '🥐'],

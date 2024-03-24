@@ -12,7 +12,10 @@
     @media (min-width: 502px) {
         border-left: 1px solid color-mix(in srgb, var(--border) 20%, transparent);
         border-right: 1px solid color-mix(in srgb, var(--border) 20%, transparent);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
     }
+
 
     padding: 7px;
     background-color: var(--background-transparent);
