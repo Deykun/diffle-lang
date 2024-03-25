@@ -410,3 +410,15 @@ export const selectGuessesStatsForLetters = createSelector(
   selectHasWordToGuessSpecialCharacters,
   getWordsAndLetters,
 );
+
+export const selectIsTodayEasterDay = createSelector(
+  (state: RootState) => state.game.today,
+  (state: RootState) => state.game.easterEggDaysDates,
+  (today, easterEggDaysDates) => {
+    const todayWithoutYear = today.split('.').slice(0, 2).join('.');
+
+    // TODO add max stamp check
+
+    return easterEggDaysDates.includes(todayWithoutYear);
+  },
+);

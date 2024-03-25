@@ -6,13 +6,18 @@ import { GameMode } from '@common-types';
 import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
-import { setWordToGuess } from '@store/gameSlice';
-import { selectGuessesStatsForLetters } from '@store/selectors';
+import { setGameMode, setWordToGuess } from '@store/gameSlice';
+import {
+  selectIsTodayEasterDay,
+  selectGuessesStatsForLetters,
+} from '@store/selectors';
 
 import getWordToGuess from '@api/getWordToGuess';
 
 import useVibrate from '@hooks/useVibrate';
+import usePanes from '@hooks/usePanes';
 
+import IconEgg from '@components/Icons/IconEgg';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import Button from '@components/Button/Button';
@@ -28,6 +33,7 @@ function EndResult() {
   const dispatch = useDispatch();
   const endStatus = useSelector(state => state.game.status);
   const gameLanguage = useSelector(state => state.game.language);
+  const isTodayEasterDay = useSelector(selectIsTodayEasterDay);
   const gameMode = useSelector(state => state.game.mode);
   const wordToGuess = useSelector(state => state.game.wordToGuess);
   const guesses = useSelector(state => state.game.guesses);
@@ -37,6 +43,7 @@ function EndResult() {
   const { t } = useTranslation();
 
   const { vibrate } = useVibrate();
+  const { changePane } = usePanes();
 
   useEffect(() => {
     vibrate({ duration: 100 });
@@ -77,6 +84,14 @@ function EndResult() {
               >
                   <IconGamepad />
                   <span>{t('common.newGame')}</span>
+              </Button>
+              )}
+              {gameMode === GameMode.Daily && isTodayEasterDay && (
+              <Button
+                onClick={() => setGameMode(GameMode.SandboxLive)}
+                isLoading={isReseting}
+              >
+                  <IconEgg />
               </Button>
               )}
               <ShareButton shouldShowSettings />

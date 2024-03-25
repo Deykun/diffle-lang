@@ -32,7 +32,7 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
-import getWordToGuess from '@api/getWordToGuess';
+import getWordToGuess, { getCatalogInfo } from '@api/getWordToGuess';
 
 import { setToast, track } from '@store/appSlice';
 import {
@@ -55,6 +55,7 @@ const initialState: RootGameState = {
   letters: { correct: {}, incorrect: {}, position: {} },
   guesses: [],
   rejectedWords: [],
+  easterEggDaysDates: [],
   hasLongGuesses: false,
   isProcessing: false,
   isLoadingGame: false,
@@ -70,6 +71,7 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
   state.caretShift = 0;
   state.guesses = [];
   state.rejectedWords = [];
+  state.easterEggDaysDates = [];
   state.status = wordToGuess ? GameStatus.Guessing : GameStatus.Unset;
   state.hasLongGuesses = false;
   state.letters = {
@@ -96,6 +98,26 @@ const updatePassedTimeInState = (state: RootGameState) => {
   state.lastUpdateTime = now;
   state.durationMS += timePassed;
 };
+
+export const resetEasterDays = createAsyncThunk(
+  'game/resetEasterDays',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState() as RootState;
+
+    const lang = state.game.language;
+
+    if (lang) {
+      const { easterEggDaysDates = [] } = await getCatalogInfo(lang);
+
+      return {
+        lang,
+        easterEggDaysDates,
+      };
+    }
+
+    return rejectWithValue(false);
+  },
+);
 
 export const submitAnswer = createAsyncThunk(
   'game/submitAnswer',
@@ -304,9 +326,9 @@ export const loadGame = createAsyncThunk(
                 }));
 
                 /*
-                                    Stats are saved directly from the state,
-                                    so we set the state, save the stats, and reset the state.
-                                */
+                    Stats are saved directly from the state,
+                    so we set the state, save the stats, and reset the state.
+                */
                 await dispatch(restoreGameState({
                   localStorageKeyForGame,
                   gameMode,
@@ -672,8 +694,19 @@ const gameSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(submitAnswer.pending, () => {
-      //
+    builder.addCase(resetEasterDays.pending, (state) => {
+      state.easterEggDaysDates = [];
+    }).addCase(resetEasterDays.fulfilled, (state, action) => {
+      const {
+        lang,
+        easterEggDaysDates,
+      } = action.payload;
+
+      if (state.language === lang) {
+        state.easterEggDaysDates = easterEggDaysDates;
+      }
+    }).addCase(resetEasterDays.rejected, (state) => {
+      state.easterEggDaysDates = [];
     }).addCase(submitAnswer.fulfilled, (state, action) => {
       state.isProcessing = false;
 

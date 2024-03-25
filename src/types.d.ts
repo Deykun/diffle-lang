@@ -250,6 +250,7 @@ export interface RootGameState {
   },
   guesses: Word[],
   rejectedWords: string[],
+  easterEggDaysDates: string[],
   hasLongGuesses: boolean,
   isProcessing: boolean,
   isLoadingGame: boolean,
