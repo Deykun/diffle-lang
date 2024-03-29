@@ -10,6 +10,11 @@ import {
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants.js';
 
+// TODO: use in future to remove those word from winning words pool
+export const romanNumerals = words => words.filter((word) => {
+    return /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
+});
+
 export const removeDiacratics = (word, lang) => {
     let wordToReturn = word;
 
@@ -351,8 +356,6 @@ export const actionBuildDictionary = (
         },
         ...EASTER_EGG_DAYS_FOR_LANG,
     };
-
-    const easterEggDaysDates = Object.keys(easterEggDays);
 
     const statistics = INITAL_DICTIONARY_STATISTICS;
 
@@ -752,10 +755,9 @@ export const actionBuildDictionary = (
     });
 
     statistics.meta = DICTIONARIES;
-    catalog.easterEggDaysDates = easterEggDaysDates;
+    catalog.easterEggDays = easterEggDays;
 
     fs.writeFileSync(`./public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
-    easterEggDays
     fs.writeFileSync(`./public/dictionary/${LANG}/info.json`, JSON.stringify(statistics, null, '\t'));
 
     console.log(' ');

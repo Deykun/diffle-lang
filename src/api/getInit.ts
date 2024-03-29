@@ -79,7 +79,11 @@ export const getInitMode = () => {
     const { stamp } = getNow();
 
     // Player should complete daily game before starting practice
-    const shouldForceDaily = lastGameMode !== GameMode.Daily && lastStamp !== stamp;
+    const newDailyPassRequired = lastGameMode !== GameMode.Daily && lastStamp !== stamp;
+    const lastModeIsSanbox = lastGameMode === GameMode.SandboxLive;
+
+    const shouldForceDaily = newDailyPassRequired || lastModeIsSanbox;
+
     const initGameModeFromStored = shouldForceDaily ? GameMode.Daily : lastGameMode;
 
     if (initGameModeFromStored) {

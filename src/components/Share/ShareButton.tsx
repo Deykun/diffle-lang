@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
@@ -8,13 +8,20 @@ import { GameMode, GameStatus } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
 import { track, setToast, toggleShareWords } from '@store/appSlice';
-import { selectGuessesStatsForLetters } from '@store/selectors';
+import {
+  selectIsTodayEasterDay,
+  selectGuessesStatsForLetters,
+} from '@store/selectors';
 
 import { getWordsIndexesChunks } from '@api/getDoesWordExist';
+import { getEasterDayInfoIfFetched } from '@api/getWordToGuess';
 
 import { copyMessage } from '@utils/copyMessage';
 import { getNow } from '@utils/date';
 import { getUrlHashForGameResult, maskValue } from '@utils/urlHash';
+import {
+  getRandomItem,
+} from '@utils/ts';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -28,9 +35,29 @@ import Modal from '@components/Modal/Modal';
 
 import './ShareButton.scss';
 
+type Emojis = {
+  correct?: string,
+  position?: string,
+  incorrect?: string,
+  typedKnownIncorrect?: string,
+}
+
+const DEFAULT_EMOJIS: Emojis = {
+  correct: '🟢',
+  position: '🟡',
+  incorrect: '⚪',
+  typedKnownIncorrect: '🔴',
+};
+
 interface Props {
   shouldShowSettings?: boolean,
 }
+
+// const getRandomItemFromList = <T>(list: T[]) => list[Math.floor(Math.random() * list.length)];
+
+// const getRandomItemFromList = <T>(list: Iterable<T>): T => {
+//   return list[Math.floor(Math.random() * list.length)];
+// };
 
 const ShareButton = ({ shouldShowSettings = false }: Props) => {
   const dispatch = useDispatch();
@@ -38,14 +65,43 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
   const shouldShareWords = useSelector(state => state.app.shouldShareWords);
   const guesses = useSelector(state => state.game.guesses);
   const guessedWords = guesses.map(({ word }) => word);
+  const isTodayEasterDay = useSelector(selectIsTodayEasterDay);
   const { words, letters, subtotals } = useSelector(selectGuessesStatsForLetters);
   const endStatus = useSelector(state => state.game.status);
   const wordToGuess = useSelector(state => state.game.wordToGuess);
   const gameMode = useSelector(state => state.game.mode);
   const [isOpen, setIsOpen] = useState(false);
+  const [emojis, setEmojis] = useState<Emojis>({});
 
   const { t } = useTranslation();
   const { vibrate } = useVibrate();
+
+  useEffect(() => {
+    if (!gameLanguage || !isTodayEasterDay) {
+      setEmojis({});
+    } else {
+      const { emojis: customEmojisSets } = getEasterDayInfoIfFetched(gameLanguage) || {};
+
+      if (Array.isArray(customEmojisSets)) {
+        const emojisSet = getRandomItem(customEmojisSets);
+
+        if (emojisSet) {
+          const customEmojis = {
+            correct: getRandomItem(emojisSet.correct),
+            position: getRandomItem(emojisSet.position),
+            incorrect: getRandomItem(emojisSet.incorrect),
+            typedKnownIncorrect: getRandomItem(emojisSet.typedKnownIncorrect),
+          };
+
+          setEmojis(customEmojis);
+        }
+      }
+    }
+
+    return () => {
+      setEmojis({});
+    };
+  }, [gameLanguage, isTodayEasterDay]);
 
   const textToCopy = useMemo(() => {
     const diffleUrl = window.location.href.split('?')[0];
@@ -73,7 +129,7 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
     const shareUrl = `${diffleUrl}${resultParam ? `?r=${resultParam}` : ''}`;
 
     const copyTitle = gameMode === GameMode.Daily ? `${stamp} – ${langShareMarker}` : `« ${wordToGuess} » – ${langShareMarker}`;
-    const copySubtotals = `🟢 ${subtotals.correct}  🟡 ${subtotals.position}  ⚪ ${subtotals.incorrect}  🔴 ${subtotals.typedKnownIncorrect}`;
+    const copySubtotals = `${emojis.correct || DEFAULT_EMOJIS.correct} ${subtotals.correct}  ${emojis.position || DEFAULT_EMOJIS.position} ${subtotals.position}  ${emojis.incorrect || DEFAULT_EMOJIS.incorrect} ${subtotals.incorrect}  ${emojis.typedKnownIncorrect || DEFAULT_EMOJIS.typedKnownIncorrect} ${subtotals.typedKnownIncorrect}`;
 
     if (isLost) {
       return `${copyTitle}

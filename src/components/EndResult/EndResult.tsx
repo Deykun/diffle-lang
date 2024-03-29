@@ -15,7 +15,6 @@ import {
 import getWordToGuess from '@api/getWordToGuess';
 
 import useVibrate from '@hooks/useVibrate';
-import usePanes from '@hooks/usePanes';
 
 import IconEgg from '@components/Icons/IconEgg';
 import IconGamepad from '@components/Icons/IconGamepad';
@@ -43,7 +42,6 @@ function EndResult() {
   const { t } = useTranslation();
 
   const { vibrate } = useVibrate();
-  const { changePane } = usePanes();
 
   useEffect(() => {
     vibrate({ duration: 100 });
@@ -59,6 +57,11 @@ function EndResult() {
       });
     }
   }, [dispatch, gameLanguage, gameMode, isReseting]);
+
+  const handleGoToSandbox = useCallback(() => {
+    dispatch(setGameMode(GameMode.SandboxLive));
+    dispatch(setWordToGuess(''));
+  }, [dispatch]);
 
   if (guesses.length === 0) {
     return null;
@@ -82,14 +85,14 @@ function EndResult() {
                 onClick={handleNewGame}
                 isLoading={isReseting}
               >
-                  <IconGamepad />
+                  {gameMode === GameMode.SandboxLive ? <IconEgg /> : <IconGamepad />}
                   <span>{t('common.newGame')}</span>
               </Button>
               )}
               {gameMode === GameMode.Daily && isTodayEasterDay && (
               <Button
-                onClick={() => setGameMode(GameMode.SandboxLive)}
-                isLoading={isReseting}
+                className="end-result-easter-egg"
+                onClick={handleGoToSandbox}
               >
                   <IconEgg />
               </Button>

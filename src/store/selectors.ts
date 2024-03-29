@@ -413,12 +413,17 @@ export const selectGuessesStatsForLetters = createSelector(
 
 export const selectIsTodayEasterDay = createSelector(
   (state: RootState) => state.game.today,
-  (state: RootState) => state.game.easterEggDaysDates,
-  (today, easterEggDaysDates) => {
+  (state: RootState) => state.game.easterEggDays,
+  (today, easterEggDays) => {
     const todayWithoutYear = today.split('.').slice(0, 2).join('.');
+
+    console.log({
+      today,
+      easterEggDays,
+    });
 
     // TODO add max stamp check
 
-    return easterEggDaysDates.includes(todayWithoutYear);
+    return Boolean(easterEggDays[todayWithoutYear]);
   },
 );

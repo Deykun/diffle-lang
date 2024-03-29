@@ -1,4 +1,4 @@
-import { GameMode } from '@common-types';
+import { GameMode, EasterDays } from '@common-types';
 
 import { getNow } from '@utils/date';
 
@@ -24,7 +24,7 @@ const getRandomIntForDaily = () => {
 type Catalog = {
   words: number,
   items: CatalogItem[],
-  easterEggDaysDates: string[]
+  easterEggDays: EasterDays,
 };
 
 type FetchedCatalogByKeys = {
@@ -32,6 +32,18 @@ type FetchedCatalogByKeys = {
 };
 
 const cachedCatalogs: FetchedCatalogByKeys = {};
+
+export const getEasterDayInfoIfFetched = (gameLanguage: string) => {
+  if (gameLanguage && cachedCatalogs[gameLanguage]) {
+    const { stampDateWithoutYear } = getNow();
+
+    if (cachedCatalogs[gameLanguage].easterEggDays[stampDateWithoutYear as keyof Catalog]) {
+      return cachedCatalogs[gameLanguage].easterEggDays[stampDateWithoutYear as keyof Catalog];
+    }
+  }
+
+  return undefined;
+};
 
 export const getCatalogInfo = async (gameLanguage: string) => {
   if (cachedCatalogs[gameLanguage]) {
@@ -42,13 +54,13 @@ export const getCatalogInfo = async (gameLanguage: string) => {
   const {
     words = 0,
     items = [],
-    easterEggDaysDates = [],
+    easterEggDays = {},
   }: Catalog = await catalogResponse.json();
 
   const cataolgResult = {
     words,
     items,
-    easterEggDaysDates,
+    easterEggDays,
   };
 
   cachedCatalogs[gameLanguage] = cataolgResult;

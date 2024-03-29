@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  RootState, RootGameState, ToastType, UsedLetters, GameStatus, GameMode,
+  RootState, RootGameState, ToastType, UsedLetters, EasterDays, GameStatus, GameMode,
 } from '@common-types';
 
 import {
@@ -55,7 +55,7 @@ const initialState: RootGameState = {
   letters: { correct: {}, incorrect: {}, position: {} },
   guesses: [],
   rejectedWords: [],
-  easterEggDaysDates: [],
+  easterEggDays: {},
   hasLongGuesses: false,
   isProcessing: false,
   isLoadingGame: false,
@@ -71,7 +71,6 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
   state.caretShift = 0;
   state.guesses = [];
   state.rejectedWords = [];
-  state.easterEggDaysDates = [];
   state.status = wordToGuess ? GameStatus.Guessing : GameStatus.Unset;
   state.hasLongGuesses = false;
   state.letters = {
@@ -107,11 +106,11 @@ export const resetEasterDays = createAsyncThunk(
     const lang = state.game.language;
 
     if (lang) {
-      const { easterEggDaysDates = [] } = await getCatalogInfo(lang);
+      const { easterEggDays = {} } = await getCatalogInfo(lang);
 
       return {
         lang,
-        easterEggDaysDates,
+        easterEggDays,
       };
     }
 
@@ -216,6 +215,8 @@ export const restoreGameState = createAsyncThunk(
       return rejectWithValue(SUBMIT_ERRORS.RESTORING_ERROR);
     }
 
+    const { easterEggDays = {} } = await getCatalogInfo(gameLanguage);
+
     const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
 
     return {
@@ -225,6 +226,7 @@ export const restoreGameState = createAsyncThunk(
       wordToGuess,
       wordsLetters,
       rejectedWords,
+      easterEggDays,
       lastUpdateTime,
       durationMS,
     };
@@ -695,18 +697,18 @@ const gameSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(resetEasterDays.pending, (state) => {
-      state.easterEggDaysDates = [];
+      state.easterEggDays = {};
     }).addCase(resetEasterDays.fulfilled, (state, action) => {
       const {
         lang,
-        easterEggDaysDates,
+        easterEggDays,
       } = action.payload;
 
       if (state.language === lang) {
-        state.easterEggDaysDates = easterEggDaysDates;
+        state.easterEggDays = easterEggDays;
       }
     }).addCase(resetEasterDays.rejected, (state) => {
-      state.easterEggDaysDates = [];
+      state.easterEggDays = {};
     }).addCase(submitAnswer.fulfilled, (state, action) => {
       state.isProcessing = false;
 
@@ -757,11 +759,13 @@ const gameSlice = createSlice({
       state.guesses.push({ word, affixes });
 
       updatePassedTimeInState(state);
-    }).addCase(submitAnswer.rejected, (state) => {
-      state.isProcessing = false;
-    }).addCase(loseGame.fulfilled, (state) => {
-      state.status = GameStatus.Lost;
     })
+      .addCase(submitAnswer.rejected, (state) => {
+        state.isProcessing = false;
+      })
+      .addCase(loseGame.fulfilled, (state) => {
+        state.status = GameStatus.Lost;
+      })
       .addCase(loseGame.rejected, () => {
       //
       })
@@ -782,6 +786,7 @@ const gameSlice = createSlice({
           status = GameStatus.Guessing,
           results,
           rejectedWords = [],
+          easterEggDays = {},
           wordToGuess,
           wordsLetters,
           lastUpdateTime,
@@ -791,6 +796,7 @@ const gameSlice = createSlice({
           status: GameStatus,
           results: WordReport[],
           rejectedWords: string[],
+          easterEggDays: EasterDays,
           wordToGuess: string,
           wordsLetters: {
             correct: UsedLetters,
@@ -811,6 +817,7 @@ const gameSlice = createSlice({
         state.wordToGuess = wordToGuess;
         state.guesses = guesses;
         state.rejectedWords = rejectedWords;
+        state.easterEggDays = easterEggDays;
         state.hasLongGuesses = guesses.some(({ word }) => word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS);
         state.lastUpdateTime = lastUpdateTime;
         state.durationMS = durationMS;
