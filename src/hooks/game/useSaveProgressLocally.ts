@@ -2,6 +2,10 @@ import { useEffect } from 'react';
 
 import { GameMode } from '@common-types';
 
+import { LOCAL_STORAGE } from '@const';
+
+import { getIsFirstStampInFuture } from '@utils/date';
+
 import { useDispatch, useSelector } from '@store';
 import { saveEndedGame } from '@store/gameSlice';
 import {
@@ -40,6 +44,17 @@ function useSaveProgressLocally() {
       if (gameMode === GameMode.Daily) {
         const localStorageKeyForDailyStamp = getLocalStorageKeyForDailyStamp({ gameLanguage });
         localStorage.setItem(localStorageKeyForDailyStamp, todayStamp);
+
+        const maxDailyStamp = localStorage.getItem(LOCAL_STORAGE.MAX_DAILY_STAMP) || '' as string;
+        if (!maxDailyStamp) {
+          localStorage.setItem(LOCAL_STORAGE.MAX_DAILY_STAMP, todayStamp);
+        } else {
+          const isNewerStamp = getIsFirstStampInFuture(maxDailyStamp, todayStamp);
+
+          if (isNewerStamp) {
+            localStorage.setItem(LOCAL_STORAGE.MAX_DAILY_STAMP, todayStamp);
+          }
+        }
       }
     }
   }, [gameLanguage, gameMode, todayStamp, wordToGuess]);

@@ -254,6 +254,7 @@ export const LOCAL_STORAGE = {
   SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
   SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',
+  MAX_DAILY_STAMP: 'diffle_max_daily_stamp',
 };
 
 /* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */

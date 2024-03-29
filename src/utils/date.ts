@@ -13,7 +13,7 @@ export const generateSeedForDay = (
 // https://stackoverflow.com/a/40975730/6743808
 const getDayIntoYear = (date: Date) => {
   return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
-}
+};
 
 export const getNow = () => {
   const nowLocal = new Date();
@@ -109,3 +109,7 @@ export const convertMillisecondsToTime = (milliseconds: number) => {
     seconds,
   };
 };
+
+export const getNumberFromStamp = (date: string) => Number(date.split('.').reverse().join(''));
+
+export const getIsFirstStampInFuture = (dateA: string, dateB: string) => getNumberFromStamp(dateA) > getNumberFromStamp(dateB);

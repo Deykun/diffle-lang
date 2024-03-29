@@ -11,7 +11,9 @@ import {
   LetterSubreport,
 } from '@common-types';
 
-import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
+import { getIsFirstStampInFuture } from '@utils/date';
+
+import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -417,12 +419,14 @@ export const selectIsTodayEasterDay = createSelector(
   (today, easterEggDays) => {
     const todayWithoutYear = today.split('.').slice(0, 2).join('.');
 
-    console.log({
-      today,
-      easterEggDays,
-    });
+    const maxDailyStamp = localStorage.getItem(LOCAL_STORAGE.MAX_DAILY_STAMP) || '' as string;
+    if (maxDailyStamp) {
+      const isMaxDateInFutureAndSomeoneProbablyCheated = getIsFirstStampInFuture(maxDailyStamp, today);
 
-    // TODO add max stamp check
+      if (isMaxDateInFutureAndSomeoneProbablyCheated) {
+        return false;
+      }
+    }
 
     return Boolean(easterEggDays[todayWithoutYear]);
   },
