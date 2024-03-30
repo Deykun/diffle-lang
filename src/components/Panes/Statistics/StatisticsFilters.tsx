@@ -5,7 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import { WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
-import { useSelector } from '@store';
+import { useDispatch, useSelector } from '@store';
+import { track } from '@store/appSlice';
 import {
   selectGameLanguageKeyboardInfo,
 } from '@store/selectors';
@@ -45,6 +46,7 @@ interface Props {
 }
 
 const StatisticsFilters = ({ setFiltersData }: Props) => {
+  const dispatch = useDispatch();
   const {
     paneParams: {
       modeFilter: paneModeFilter = '',
@@ -74,8 +76,10 @@ const StatisticsFilters = ({ setFiltersData }: Props) => {
       lengthFilter,
     };
 
+    dispatch(track({ name: 'click_statistics_filter', params: { filters: `${modeFilter}_${charactersFilter}_${lengthFilter}` } }));
+
     setFiltersData(filtersData);
-  }, [modeFilter, charactersFilter, lengthFilter, setFiltersData]);
+  }, [modeFilter, charactersFilter, lengthFilter, setFiltersData, dispatch]);
 
   useEffect(() => {
     // After changing language

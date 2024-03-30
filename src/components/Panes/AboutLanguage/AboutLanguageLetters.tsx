@@ -8,7 +8,7 @@ import download from 'downloadjs';
 import { DictionaryInfo, DictionaryInfoLetters, ToastType } from '@common-types';
 
 import { useDispatch, useSelector } from '@store';
-import { setToast } from '@store/appSlice';
+import { track, setToast } from '@store/appSlice';
 
 import { getNow } from '@utils/date';
 import { capitalize } from '@utils/format';
@@ -64,6 +64,8 @@ const AboutLanguageLetters = ({
       const { stampOnlyTime } = getNow();
 
       download(dataUrl, `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
+
+      dispatch(track({ name: `click_download_language_heatmap_${gameLanguage}` }));
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error);

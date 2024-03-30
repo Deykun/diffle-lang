@@ -7,7 +7,7 @@ import download from 'downloadjs';
 import { ToastType } from '@common-types';
 
 import { useDispatch, useSelector } from '@store';
-import { setToast } from '@store/appSlice';
+import { track, setToast } from '@store/appSlice';
 
 import { getNow } from '@utils/date';
 
@@ -50,6 +50,8 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
       const fullStamp = `${stamp} ${stampOnlyTime}`;
 
       download(dataUrl, `diffle-${fullStamp.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
+
+      dispatch(track({ name: 'click_download_statistics' }));
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error);
@@ -69,6 +71,7 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
 
     setIsOpen(false);
 
+    dispatch(track({ name: `click_remove_statistics_${gameLanguage}_${gameMode}` }));
     dispatch(setToast({ text: 'statistics.statisticsWasRemoved' }));
   };
 

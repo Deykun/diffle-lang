@@ -18,6 +18,7 @@
 - **Fix**: The winning word cannot be a proper Roman numeral (as they often end up in dictionaries)
 - **New**: Keyboard layout picker added to the About language
 - **Fix**: Czech QWERTZ layout missing "y" restored
+- **New**: New GA events to track
 
 #### Version 3.18.1 (12.03.2024)
 - **Fix**: Align keyboard heatmaps when the title breaks the line
