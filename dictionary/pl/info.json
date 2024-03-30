@@ -898,6 +898,7 @@
 			"tooLong": 10205,
 			"tooShort": 791,
 			"censored": 14,
+			"romanNumeral": 0,
 			"wrongLetters": 10,
 			"missingInSpellingDictionary": 3271
 		},

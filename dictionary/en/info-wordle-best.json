@@ -1,96 +1,96 @@
 {
 	"meta": {
-		"inSeconds": 91,
-		"words": 15920
+		"inSeconds": 93,
+		"words": 15918
 	},
 	"best": {
 		"max": [
 			{
 				"result": {
-					"total": 15920,
-					"green": 6043,
+					"total": 15918,
+					"green": 6041,
 					"orange": 23438,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "aesir",
 				"score": {
-					"max": 29481,
-					"maxGreen": 6043,
+					"max": 29479,
+					"maxGreen": 6041,
 					"maxOrange": 23438,
-					"green1_5": 32502.5,
-					"green2_0": 35524
+					"green1_5": 32499.5,
+					"green2_0": 35520
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 9250,
+					"total": 15918,
+					"green": 9248,
 					"orange": 20231,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "aries",
 				"score": {
-					"max": 29481,
-					"maxGreen": 9250,
+					"max": 29479,
+					"maxGreen": 9248,
 					"maxOrange": 20231,
-					"green1_5": 34106,
-					"green2_0": 38731
+					"green1_5": 34103,
+					"green2_0": 38727
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 6186,
+					"total": 15918,
+					"green": 6184,
 					"orange": 23295,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "arise",
 				"score": {
-					"max": 29481,
-					"maxGreen": 6186,
+					"max": 29479,
+					"maxGreen": 6184,
 					"maxOrange": 23295,
-					"green1_5": 32574,
-					"green2_0": 35667
+					"green1_5": 32571,
+					"green2_0": 35663
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 7413,
+					"total": 15918,
+					"green": 7411,
 					"orange": 22068,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "raise",
 				"score": {
-					"max": 29481,
-					"maxGreen": 7413,
+					"max": 29479,
+					"maxGreen": 7411,
 					"maxOrange": 22068,
-					"green1_5": 33187.5,
-					"green2_0": 36894
+					"green1_5": 33184.5,
+					"green2_0": 36890
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 7423,
+					"total": 15918,
+					"green": 7421,
 					"orange": 22058,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "serai",
 				"score": {
-					"max": 29481,
-					"maxGreen": 7423,
+					"max": 29479,
+					"maxGreen": 7421,
 					"maxOrange": 22058,
-					"green1_5": 33192.5,
-					"green2_0": 36904
+					"green1_5": 33189.5,
+					"green2_0": 36900
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 6073,
 					"orange": 23254,
-					"gray": 50273
+					"gray": 50263
 				},
 				"word": "arose",
 				"score": {
@@ -103,10 +103,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 7245,
 					"orange": 22082,
-					"gray": 50273
+					"gray": 50263
 				},
 				"word": "oreas",
 				"score": {
@@ -119,10 +119,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 7092,
 					"orange": 22235,
-					"gray": 50273
+					"gray": 50263
 				},
 				"word": "seora",
 				"score": {
@@ -135,10 +135,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 9044,
 					"orange": 19594,
-					"gray": 50962
+					"gray": 50952
 				},
 				"word": "arles",
 				"score": {
@@ -151,10 +151,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 5803,
 					"orange": 22835,
-					"gray": 50962
+					"gray": 50952
 				},
 				"word": "arsle",
 				"score": {
@@ -169,58 +169,26 @@
 		"maxGray": [
 			{
 				"result": {
-					"total": 15920,
-					"green": 3198,
-					"orange": 2230,
-					"gray": 74172
-				},
-				"word": "xxiii",
-				"score": {
-					"max": 5428,
-					"maxGreen": 3198,
-					"maxOrange": 2230,
-					"green1_5": 7027,
-					"green2_0": 8626
-				}
-			},
-			{
-				"result": {
-					"total": 15920,
-					"green": 3205,
-					"orange": 3072,
-					"gray": 73323
-				},
-				"word": "xviii",
-				"score": {
-					"max": 6277,
-					"maxGreen": 3205,
-					"maxOrange": 3072,
-					"green1_5": 7879.5,
-					"green2_0": 9482
-				}
-			},
-			{
-				"result": {
-					"total": 15920,
-					"green": 3444,
-					"orange": 3362,
-					"gray": 72794
+					"total": 15918,
+					"green": 3442,
+					"orange": 3360,
+					"gray": 72788
 				},
 				"word": "kikki",
 				"score": {
-					"max": 6806,
-					"maxGreen": 3444,
-					"maxOrange": 3362,
-					"green1_5": 8528,
-					"green2_0": 10250
+					"max": 6802,
+					"maxGreen": 3442,
+					"maxOrange": 3360,
+					"green1_5": 8523,
+					"green2_0": 10244
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 4186,
 					"orange": 2770,
-					"gray": 72644
+					"gray": 72634
 				},
 				"word": "fuffy",
 				"score": {
@@ -233,26 +201,26 @@
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 2246,
+					"total": 15918,
+					"green": 2244,
 					"orange": 4872,
-					"gray": 72482
+					"gray": 72474
 				},
 				"word": "xylyl",
 				"score": {
-					"max": 7118,
-					"maxGreen": 2246,
+					"max": 7116,
+					"maxGreen": 2244,
 					"maxOrange": 4872,
-					"green1_5": 8241,
-					"green2_0": 9364
+					"green1_5": 8238,
+					"green2_0": 9360
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 4045,
 					"orange": 3262,
-					"gray": 72293
+					"gray": 72283
 				},
 				"word": "fuzzy",
 				"score": {
@@ -265,10 +233,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 3829,
 					"orange": 3523,
-					"gray": 72248
+					"gray": 72238
 				},
 				"word": "wuzzy",
 				"score": {
@@ -281,10 +249,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 3061,
 					"orange": 4539,
-					"gray": 72000
+					"gray": 71990
 				},
 				"word": "ululu",
 				"score": {
@@ -297,10 +265,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 4973,
 					"orange": 2835,
-					"gray": 71792
+					"gray": 71782
 				},
 				"word": "bubby",
 				"score": {
@@ -313,10 +281,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 2291,
 					"orange": 5566,
-					"gray": 71743
+					"gray": 71733
 				},
 				"word": "whuff",
 				"score": {
@@ -326,15 +294,47 @@
 					"green1_5": 9002.5,
 					"green2_0": 10148
 				}
+			},
+			{
+				"result": {
+					"total": 15918,
+					"green": 2618,
+					"orange": 5283,
+					"gray": 71689
+				},
+				"word": "immix",
+				"score": {
+					"max": 7901,
+					"maxGreen": 2618,
+					"maxOrange": 5283,
+					"green1_5": 9210,
+					"green2_0": 10519
+				}
+			},
+			{
+				"result": {
+					"total": 15918,
+					"green": 3107,
+					"orange": 4849,
+					"gray": 71634
+				},
+				"word": "jugum",
+				"score": {
+					"max": 7956,
+					"maxGreen": 3107,
+					"maxOrange": 4849,
+					"green1_5": 9509.5,
+					"green2_0": 11063
+				}
 			}
 		],
 		"maxGreen": [
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11580,
 					"orange": 12693,
-					"gray": 55327
+					"gray": 55317
 				},
 				"word": "sanes",
 				"score": {
@@ -347,10 +347,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11403,
 					"orange": 13020,
-					"gray": 55177
+					"gray": 55167
 				},
 				"word": "sales",
 				"score": {
@@ -363,10 +363,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11297,
 					"orange": 11432,
-					"gray": 56871
+					"gray": 56861
 				},
 				"word": "sores",
 				"score": {
@@ -379,10 +379,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11270,
 					"orange": 16032,
-					"gray": 52298
+					"gray": 52288
 				},
 				"word": "cares",
 				"score": {
@@ -395,10 +395,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11215,
 					"orange": 15436,
-					"gray": 52949
+					"gray": 52939
 				},
 				"word": "bares",
 				"score": {
@@ -411,10 +411,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11125,
 					"orange": 13240,
-					"gray": 55235
+					"gray": 55225
 				},
 				"word": "sates",
 				"score": {
@@ -427,10 +427,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11055,
 					"orange": 17525,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "tares",
 				"score": {
@@ -443,10 +443,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11018,
 					"orange": 15844,
-					"gray": 52738
+					"gray": 52728
 				},
 				"word": "pares",
 				"score": {
@@ -459,10 +459,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10990,
 					"orange": 10648,
-					"gray": 57962
+					"gray": 57952
 				},
 				"word": "sones",
 				"score": {
@@ -475,10 +475,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10987,
 					"orange": 8154,
-					"gray": 60459
+					"gray": 60449
 				},
 				"word": "seres",
 				"score": {
@@ -493,10 +493,10 @@
 		"maxOrange": [
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 3739,
 					"orange": 24647,
-					"gray": 51214
+					"gray": 51204
 				},
 				"word": "osela",
 				"score": {
@@ -509,10 +509,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 4875,
 					"orange": 23705,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "astre",
 				"score": {
@@ -525,10 +525,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 3605,
 					"orange": 23697,
-					"gray": 52298
+					"gray": 52288
 				},
 				"word": "escar",
 				"score": {
@@ -541,26 +541,26 @@
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 6043,
+					"total": 15918,
+					"green": 6041,
 					"orange": 23438,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "aesir",
 				"score": {
-					"max": 29481,
-					"maxGreen": 6043,
+					"max": 29479,
+					"maxGreen": 6041,
 					"maxOrange": 23438,
-					"green1_5": 32502.5,
-					"green2_0": 35524
+					"green1_5": 32499.5,
+					"green2_0": 35520
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 5163,
 					"orange": 23417,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "arest",
 				"score": {
@@ -573,26 +573,26 @@
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 6186,
+					"total": 15918,
+					"green": 6184,
 					"orange": 23295,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "arise",
 				"score": {
-					"max": 29481,
-					"maxGreen": 6186,
+					"max": 29479,
+					"maxGreen": 6184,
 					"maxOrange": 23295,
-					"green1_5": 32574,
-					"green2_0": 35667
+					"green1_5": 32571,
+					"green2_0": 35663
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 6073,
 					"orange": 23254,
-					"gray": 50273
+					"gray": 50263
 				},
 				"word": "arose",
 				"score": {
@@ -605,26 +605,26 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 5332,
-					"orange": 23058,
-					"gray": 51210
+					"orange": 23056,
+					"gray": 51202
 				},
 				"word": "insea",
 				"score": {
-					"max": 28390,
+					"max": 28388,
 					"maxGreen": 5332,
-					"maxOrange": 23058,
-					"green1_5": 31056,
-					"green2_0": 33722
+					"maxOrange": 23056,
+					"green1_5": 31054,
+					"green2_0": 33720
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 5535,
 					"orange": 23045,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "aster",
 				"score": {
@@ -637,10 +637,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 3383,
 					"orange": 22994,
-					"gray": 53223
+					"gray": 53213
 				},
 				"word": "eskar",
 				"score": {
@@ -655,10 +655,10 @@
 		"green1_5": [
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11055,
 					"orange": 17525,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "tares",
 				"score": {
@@ -671,26 +671,26 @@
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 9250,
+					"total": 15918,
+					"green": 9248,
 					"orange": 20231,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "aries",
 				"score": {
-					"max": 29481,
-					"maxGreen": 9250,
+					"max": 29479,
+					"maxGreen": 9248,
 					"maxOrange": 20231,
-					"green1_5": 34106,
-					"green2_0": 38731
+					"green1_5": 34103,
+					"green2_0": 38727
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10753,
 					"orange": 17885,
-					"gray": 50962
+					"gray": 50952
 				},
 				"word": "lares",
 				"score": {
@@ -703,10 +703,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10271,
 					"orange": 18367,
-					"gray": 50962
+					"gray": 50952
 				},
 				"word": "rales",
 				"score": {
@@ -719,10 +719,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10480,
 					"orange": 18008,
-					"gray": 51112
+					"gray": 51102
 				},
 				"word": "nares",
 				"score": {
@@ -735,10 +735,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 9993,
 					"orange": 18587,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "rates",
 				"score": {
@@ -751,10 +751,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 9896,
 					"orange": 18432,
-					"gray": 51272
+					"gray": 51262
 				},
 				"word": "aotes",
 				"score": {
@@ -767,10 +767,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 9230,
 					"orange": 19350,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "teras",
 				"score": {
@@ -783,44 +783,44 @@
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 7423,
+					"total": 15918,
+					"green": 7421,
 					"orange": 22058,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "serai",
 				"score": {
-					"max": 29481,
-					"maxGreen": 7423,
+					"max": 29479,
+					"maxGreen": 7421,
 					"maxOrange": 22058,
-					"green1_5": 33192.5,
-					"green2_0": 36904
+					"green1_5": 33189.5,
+					"green2_0": 36900
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 7413,
+					"total": 15918,
+					"green": 7411,
 					"orange": 22068,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "raise",
 				"score": {
-					"max": 29481,
-					"maxGreen": 7413,
+					"max": 29479,
+					"maxGreen": 7411,
 					"maxOrange": 22068,
-					"green1_5": 33187.5,
-					"green2_0": 36894
+					"green1_5": 33184.5,
+					"green2_0": 36890
 				}
 			}
 		],
 		"green2_0": [
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11055,
 					"orange": 17525,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "tares",
 				"score": {
@@ -833,10 +833,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10753,
 					"orange": 17885,
-					"gray": 50962
+					"gray": 50952
 				},
 				"word": "lares",
 				"score": {
@@ -849,10 +849,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10480,
 					"orange": 18008,
-					"gray": 51112
+					"gray": 51102
 				},
 				"word": "nares",
 				"score": {
@@ -865,10 +865,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10271,
 					"orange": 18367,
-					"gray": 50962
+					"gray": 50952
 				},
 				"word": "rales",
 				"score": {
@@ -881,26 +881,26 @@
 			},
 			{
 				"result": {
-					"total": 15920,
-					"green": 9250,
+					"total": 15918,
+					"green": 9248,
 					"orange": 20231,
-					"gray": 50119
+					"gray": 50111
 				},
 				"word": "aries",
 				"score": {
-					"max": 29481,
-					"maxGreen": 9250,
+					"max": 29479,
+					"maxGreen": 9248,
 					"maxOrange": 20231,
-					"green1_5": 34106,
-					"green2_0": 38731
+					"green1_5": 34103,
+					"green2_0": 38727
 				}
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 9993,
 					"orange": 18587,
-					"gray": 51020
+					"gray": 51010
 				},
 				"word": "rates",
 				"score": {
@@ -913,10 +913,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 11270,
 					"orange": 16032,
-					"gray": 52298
+					"gray": 52288
 				},
 				"word": "cares",
 				"score": {
@@ -929,10 +929,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10875,
 					"orange": 16480,
-					"gray": 52245
+					"gray": 52235
 				},
 				"word": "dares",
 				"score": {
@@ -945,10 +945,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 9896,
 					"orange": 18432,
-					"gray": 51272
+					"gray": 51262
 				},
 				"word": "aotes",
 				"score": {
@@ -961,10 +961,10 @@
 			},
 			{
 				"result": {
-					"total": 15920,
+					"total": 15918,
 					"green": 10571,
 					"orange": 17068,
-					"gray": 51961
+					"gray": 51951
 				},
 				"word": "tales",
 				"score": {

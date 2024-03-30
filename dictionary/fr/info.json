@@ -950,6 +950,7 @@
 			"tooLong": 3761,
 			"tooShort": 262,
 			"censored": 0,
+			"romanNumeral": 0,
 			"wrongLetters": 1,
 			"missingInSpellingDictionary": 40
 		},
@@ -973,7 +974,7 @@
 			"fullName": "FreeDict",
 			"comments": [
 				"fra-deu-2023.05.29",
-				"fra-pol-2023.05.29"
+				"fra-ita-2023.05.29"
 			],
 			"url": "https://freedict.org/"
 		},
