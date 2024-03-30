@@ -24,6 +24,7 @@ import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
 import KeyboardHeatmap from '@components/Charts/KeyboardHeatmap';
+import KeyboardLayoutPicker from '@components/Keyboard/KeyboardLayoutPicker';
 
 import AboutLanguageChartFooter from './AboutLanguageChartFooter';
 import AboutLanguageChartLanguageTitle from './AboutLanguageChartLanguageTitle';
@@ -115,10 +116,11 @@ const AboutLanguageLetters = ({
               </div>
           </div>
           <div className="keyboard-heatmap-actions">
-              <Button className="keyboard-heatmap-action-edit" onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
+              <Button onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
                   <IconPencil />
               </Button>
-              <Button onClick={handleDownload} isInverted hasBorder={false}>
+              <KeyboardLayoutPicker shouldHideIfDisabled />
+              <Button className="about-language-download" onClick={handleDownload} isInverted hasBorder={false}>
                   <IconPicture />
                   <span>{t('common.download')}</span>
               </Button>

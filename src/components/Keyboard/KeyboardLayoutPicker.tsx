@@ -15,10 +15,16 @@ import {
 import IconKeyboard from '@components/Icons/IconKeyboard';
 import IconKeyboardAlt from '@components/Icons/IconKeyboardAlt';
 
+import Button from '@components/Button/Button';
 import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
-const KeyboardLayoutPicker = () => {
+interface Props {
+  isTile?: boolean,
+  shouldHideIfDisabled?: boolean,
+}
+
+const KeyboardLayoutPicker = ({ isTile = false, shouldHideIfDisabled = false }: Props) => {
   const dispatch = useDispatch();
 
   const keyboardLayoutIndex = useSelector(state => state.app.keyboardLayoutIndex);
@@ -55,19 +61,37 @@ const KeyboardLayoutPicker = () => {
     setIsOpen(false);
   };
 
+  const isDisabled = !gameLanguage || isGameUpdating || layoutVariants.length < 2;
+
+  if (shouldHideIfDisabled && isDisabled) {
+    return null;
+  }
+
   return (
       <>
-          <ButtonTile
-            onClick={() => setIsOpen(value => !value)}
-            isDisabled={!gameLanguage || isGameUpdating || layoutVariants.length < 2}
-          >
-              <IconKeyboard />
-              <span>
-                  {layoutVariants[keyboardLayoutIndex]
-                    ? layoutVariants[keyboardLayoutIndex].name
-                    : ''}
-              </span>
-          </ButtonTile>
+          {isTile ? (
+              <ButtonTile
+                onClick={() => setIsOpen(value => !value)}
+                isDisabled={isDisabled}
+              >
+                  <IconKeyboard />
+                  <span>
+                      {layoutVariants[keyboardLayoutIndex]
+                        ? layoutVariants[keyboardLayoutIndex].name
+                        : ''}
+                  </span>
+              </ButtonTile>
+          ) : (
+              <Button
+                onClick={() => setIsOpen(value => !value)}
+                isDisabled={isDisabled}
+                isInverted
+                isText
+                hasBorder={false}
+              >
+                  <IconKeyboard />
+              </Button>
+          )}
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('settings.keyboard')}</h3>

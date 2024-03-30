@@ -27,6 +27,8 @@ import {
 
 import useVibrate from '@hooks/useVibrate';
 
+import IconCopy from '@components/Icons/IconCopy';
+import IconCopyAlt from '@components/Icons/IconCopyAlt';
 import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconPencil from '@components/Icons/IconPencil';
 import IconShare from '@components/Icons/IconShare';
@@ -233,7 +235,7 @@ ${linkToCopy}`;
                           <ButtonTile
                             onClick={handleCopyOnlyLink}
                           >
-                              <IconShare />
+                              <IconCopyAlt />
                               <span>{t('common.copyResultLink')}</span>
                           </ButtonTile>
                       </li>
@@ -241,7 +243,7 @@ ${linkToCopy}`;
                           <ButtonTile
                             onClick={handleCopy}
                           >
-                              <IconShare />
+                              <IconCopy />
                               <span>{t('common.copyResult')}</span>
                           </ButtonTile>
                       </li>
