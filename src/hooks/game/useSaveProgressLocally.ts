@@ -49,7 +49,7 @@ function useSaveProgressLocally() {
         if (!maxDailyStamp) {
           localStorage.setItem(LOCAL_STORAGE.MAX_DAILY_STAMP, todayStamp);
         } else {
-          const isNewerStamp = getIsFirstStampInFuture(maxDailyStamp, todayStamp);
+          const isNewerStamp = getIsFirstStampInFuture(todayStamp, maxDailyStamp);
 
           if (isNewerStamp) {
             localStorage.setItem(LOCAL_STORAGE.MAX_DAILY_STAMP, todayStamp);

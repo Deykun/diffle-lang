@@ -97,7 +97,7 @@ function EndResult() {
                   <IconEgg />
               </Button>
               )}
-              <ShareButton shouldShowSettings />
+              {gameMode !== GameMode.SandboxLive && <ShareButton shouldShowSettings />}
           </div>
           <GoToDictionaryButton word={wordToGuess} />
           {gameMode === GameMode.Daily && (
