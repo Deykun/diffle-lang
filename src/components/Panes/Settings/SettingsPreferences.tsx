@@ -92,8 +92,7 @@ const SettingsPreferences = () => {
                   <CookiesPopup className="button-tile" isEditMode>
                       {totalOfCookiesPoliciesAccepted > 1
                         ? <IconCookies />
-                        : <IconCookie />
-                      }
+                        : <IconCookie />}
                       <span>{t('settings.privacyTitle')}</span>
                   </CookiesPopup>
               </li>
@@ -128,7 +127,7 @@ const SettingsPreferences = () => {
                   </ButtonTile>
               </li>
               <li>
-                  <KeyboardLayoutPicker />
+                  <KeyboardLayoutPicker isTile />
               </li>
               <li>
                   <ButtonTile isActive={isEnterSwapped} onClick={handleToggleEnterSwap}>

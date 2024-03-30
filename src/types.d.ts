@@ -225,6 +225,7 @@ export enum GameMode {
   Daily = 'daily',
   Practice = 'practice',
   Share = 'share',
+  SandboxLive = 'sandbox_live',
 }
 
 export enum GameStatus {
@@ -233,6 +234,19 @@ export enum GameStatus {
   Won = 'won',
   Lost = 'lost',
 }
+
+export type EasterDays = {
+  [date: string]: {
+    type: string,
+    specialMode: GameMode,
+    emojis?: {
+      correct: string[],
+      position: string[],
+      incorrect: string[],
+      typedKnownIncorrect: string[],
+    }[],
+  }
+};
 
 export interface RootGameState {
   language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'pl' | undefined,
@@ -249,6 +263,7 @@ export interface RootGameState {
   },
   guesses: Word[],
   rejectedWords: string[],
+  easterEggDays: EasterDays,
   hasLongGuesses: boolean,
   isProcessing: boolean,
   isLoadingGame: boolean,

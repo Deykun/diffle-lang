@@ -19,3 +19,5 @@ export const DICTIONARIES = {
         url: 'https://freedict.org/',
     },
 };
+
+export const EASTER_EGG_DAYS = { };

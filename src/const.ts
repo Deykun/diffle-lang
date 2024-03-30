@@ -15,7 +15,7 @@ const KEY_LINES_CS_VARIANTS = [{
   keyLines: [
     ['q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['backspace', 'y', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
     ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř'],
     ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
   ],
@@ -254,6 +254,7 @@ export const LOCAL_STORAGE = {
   SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
   SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',
+  MAX_DAILY_STAMP: 'diffle_max_daily_stamp',
 };
 
 /* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */

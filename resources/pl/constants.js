@@ -19,3 +19,26 @@ export const DICTIONARIES = {
         url: 'https://freedict.org/',
     },
 };
+
+export const EASTER_EGG_DAYS = {
+    '03.05': {
+        type: 'public',
+        specialMode: 'sandbox-live',
+        emojis: [{
+            correct: ['🗽'],
+            position: ['📜', '⚖️'],
+            incorrect: ['📃', '🏛️', '✒️'],
+            typedKnownIncorrect: ['🪶'],
+        }],
+    },
+    '11.11': {
+        type: 'public',
+        specialMode: 'sandbox-live',
+        emojis: [{
+            correct: ['🌿'],
+            position: ['🥟', '🥟', '🥟', '🥐'],
+            incorrect: ['🪽'],
+            typedKnownIncorrect: ['🦬', '🦅', '🐗'],
+        }],
+    },
+};

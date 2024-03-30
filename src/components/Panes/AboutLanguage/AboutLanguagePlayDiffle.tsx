@@ -9,7 +9,7 @@ import {
 
 import { copyMessage } from '@utils/copyMessage';
 
-import { useDispatch } from '@store';
+import { useDispatch, useSelector } from '@store';
 import { track, setToast } from '@store/appSlice';
 
 import usePanes from '@hooks/usePanes';
@@ -24,6 +24,7 @@ import './AboutLanguagePlayDiffle.scss';
 
 const AboutLanguagePlayDiffle = () => {
   const dispatch = useDispatch();
+  const gameLanguage = useSelector(state => state.game.language);
   const { t } = useTranslation();
 
   const { changePane } = usePanes();
@@ -35,7 +36,9 @@ const AboutLanguagePlayDiffle = () => {
     copyMessage(textToCopy);
 
     dispatch(setToast({ text: 'common.copied' }));
-  }, [dispatch]);
+
+    dispatch(track({ name: `click_copy_about_language_link_${gameLanguage}` }));
+  }, [dispatch, gameLanguage]);
 
   const handleGithubClick = useCallback(() => {
     dispatch(track({ name: 'click_github_link', params: { source: 'about-language' } }));

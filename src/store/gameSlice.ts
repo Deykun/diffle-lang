@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  RootState, RootGameState, ToastType, UsedLetters, GameStatus, GameMode,
+  RootState, RootGameState, ToastType, UsedLetters, EasterDays, GameStatus, GameMode,
 } from '@common-types';
 
 import {
@@ -32,7 +32,7 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
-import getWordToGuess from '@api/getWordToGuess';
+import getWordToGuess, { getCatalogInfo } from '@api/getWordToGuess';
 
 import { setToast, track } from '@store/appSlice';
 import {
@@ -55,6 +55,7 @@ const initialState: RootGameState = {
   letters: { correct: {}, incorrect: {}, position: {} },
   guesses: [],
   rejectedWords: [],
+  easterEggDays: {},
   hasLongGuesses: false,
   isProcessing: false,
   isLoadingGame: false,
@@ -96,6 +97,26 @@ const updatePassedTimeInState = (state: RootGameState) => {
   state.lastUpdateTime = now;
   state.durationMS += timePassed;
 };
+
+export const resetEasterDays = createAsyncThunk(
+  'game/resetEasterDays',
+  async (_, { getState, rejectWithValue }) => {
+    const state = getState() as RootState;
+
+    const lang = state.game.language;
+
+    if (lang) {
+      const { easterEggDays = {} } = await getCatalogInfo(lang);
+
+      return {
+        lang,
+        easterEggDays,
+      };
+    }
+
+    return rejectWithValue(false);
+  },
+);
 
 export const submitAnswer = createAsyncThunk(
   'game/submitAnswer',
@@ -194,6 +215,8 @@ export const restoreGameState = createAsyncThunk(
       return rejectWithValue(SUBMIT_ERRORS.RESTORING_ERROR);
     }
 
+    const { easterEggDays = {} } = await getCatalogInfo(gameLanguage);
+
     const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
 
     return {
@@ -203,6 +226,7 @@ export const restoreGameState = createAsyncThunk(
       wordToGuess,
       wordsLetters,
       rejectedWords,
+      easterEggDays,
       lastUpdateTime,
       durationMS,
     };
@@ -304,9 +328,9 @@ export const loadGame = createAsyncThunk(
                 }));
 
                 /*
-                                    Stats are saved directly from the state,
-                                    so we set the state, save the stats, and reset the state.
-                                */
+                    Stats are saved directly from the state,
+                    so we set the state, save the stats, and reset the state.
+                */
                 await dispatch(restoreGameState({
                   localStorageKeyForGame,
                   gameMode,
@@ -672,8 +696,19 @@ const gameSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(submitAnswer.pending, () => {
-      //
+    builder.addCase(resetEasterDays.pending, (state) => {
+      state.easterEggDays = {};
+    }).addCase(resetEasterDays.fulfilled, (state, action) => {
+      const {
+        lang,
+        easterEggDays,
+      } = action.payload;
+
+      if (state.language === lang) {
+        state.easterEggDays = easterEggDays;
+      }
+    }).addCase(resetEasterDays.rejected, (state) => {
+      state.easterEggDays = {};
     }).addCase(submitAnswer.fulfilled, (state, action) => {
       state.isProcessing = false;
 
@@ -724,11 +759,13 @@ const gameSlice = createSlice({
       state.guesses.push({ word, affixes });
 
       updatePassedTimeInState(state);
-    }).addCase(submitAnswer.rejected, (state) => {
-      state.isProcessing = false;
-    }).addCase(loseGame.fulfilled, (state) => {
-      state.status = GameStatus.Lost;
     })
+      .addCase(submitAnswer.rejected, (state) => {
+        state.isProcessing = false;
+      })
+      .addCase(loseGame.fulfilled, (state) => {
+        state.status = GameStatus.Lost;
+      })
       .addCase(loseGame.rejected, () => {
       //
       })
@@ -749,6 +786,7 @@ const gameSlice = createSlice({
           status = GameStatus.Guessing,
           results,
           rejectedWords = [],
+          easterEggDays = {},
           wordToGuess,
           wordsLetters,
           lastUpdateTime,
@@ -758,6 +796,7 @@ const gameSlice = createSlice({
           status: GameStatus,
           results: WordReport[],
           rejectedWords: string[],
+          easterEggDays: EasterDays,
           wordToGuess: string,
           wordsLetters: {
             correct: UsedLetters,
@@ -778,6 +817,7 @@ const gameSlice = createSlice({
         state.wordToGuess = wordToGuess;
         state.guesses = guesses;
         state.rejectedWords = rejectedWords;
+        state.easterEggDays = easterEggDays;
         state.hasLongGuesses = guesses.some(({ word }) => word.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS);
         state.lastUpdateTime = lastUpdateTime;
         state.durationMS = durationMS;

@@ -124,6 +124,18 @@
     margin-bottom: 12px;
 }
 
+.end-result-easter-egg {
+    padding: 0;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    border-radius: 60px;
+
+    svg {
+        height: 25px;
+        width: 25px;
+    }
+}
+
 .next-word-tip {
     margin-top: 10px;
     margin-bottom: 0;

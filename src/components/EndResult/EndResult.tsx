@@ -6,13 +6,17 @@ import { GameMode } from '@common-types';
 import { getNow } from '@utils/date';
 
 import { useSelector, useDispatch } from '@store';
-import { setWordToGuess } from '@store/gameSlice';
-import { selectGuessesStatsForLetters } from '@store/selectors';
+import { setGameMode, setWordToGuess } from '@store/gameSlice';
+import {
+  selectIsTodayEasterDay,
+  selectGuessesStatsForLetters,
+} from '@store/selectors';
 
 import getWordToGuess from '@api/getWordToGuess';
 
 import useVibrate from '@hooks/useVibrate';
 
+import IconEgg from '@components/Icons/IconEgg';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import Button from '@components/Button/Button';
@@ -28,6 +32,7 @@ function EndResult() {
   const dispatch = useDispatch();
   const endStatus = useSelector(state => state.game.status);
   const gameLanguage = useSelector(state => state.game.language);
+  const isTodayEasterDay = useSelector(selectIsTodayEasterDay);
   const gameMode = useSelector(state => state.game.mode);
   const wordToGuess = useSelector(state => state.game.wordToGuess);
   const guesses = useSelector(state => state.game.guesses);
@@ -53,6 +58,11 @@ function EndResult() {
     }
   }, [dispatch, gameLanguage, gameMode, isReseting]);
 
+  const handleGoToSandbox = useCallback(() => {
+    dispatch(setGameMode(GameMode.SandboxLive));
+    dispatch(setWordToGuess(''));
+  }, [dispatch]);
+
   if (guesses.length === 0) {
     return null;
   }
@@ -70,16 +80,24 @@ function EndResult() {
             subtotals={subtotals}
           />
           <div className="end-result-actions">
-              {gameMode === GameMode.Practice && (
+              {gameMode !== GameMode.Daily && (
               <Button
                 onClick={handleNewGame}
                 isLoading={isReseting}
               >
-                  <IconGamepad />
+                  {gameMode === GameMode.SandboxLive ? <IconEgg /> : <IconGamepad />}
                   <span>{t('common.newGame')}</span>
               </Button>
               )}
-              <ShareButton shouldShowSettings />
+              {gameMode === GameMode.Daily && isTodayEasterDay && (
+              <Button
+                className="end-result-easter-egg"
+                onClick={handleGoToSandbox}
+              >
+                  <IconEgg />
+              </Button>
+              )}
+              {gameMode !== GameMode.SandboxLive && <ShareButton shouldShowSettings />}
           </div>
           <GoToDictionaryButton word={wordToGuess} />
           {gameMode === GameMode.Daily && (

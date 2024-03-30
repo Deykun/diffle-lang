@@ -1,4 +1,4 @@
-import { GameMode } from '@common-types';
+import { GameMode, EasterDays } from '@common-types';
 
 import { getNow } from '@utils/date';
 
@@ -21,14 +21,57 @@ const getRandomIntForDaily = () => {
   return dateSeed;
 };
 
+type Catalog = {
+  words: number,
+  items: CatalogItem[],
+  easterEggDays: EasterDays,
+};
+
+type FetchedCatalogByKeys = {
+  [lang: string]: Catalog,
+};
+
+const cachedCatalogs: FetchedCatalogByKeys = {};
+
+export const getEasterDayInfoIfFetched = (gameLanguage: string) => {
+  if (gameLanguage && cachedCatalogs[gameLanguage]) {
+    const { stampDateWithoutYear } = getNow();
+
+    if (cachedCatalogs[gameLanguage].easterEggDays[stampDateWithoutYear as keyof Catalog]) {
+      return cachedCatalogs[gameLanguage].easterEggDays[stampDateWithoutYear as keyof Catalog];
+    }
+  }
+
+  return undefined;
+};
+
+export const getCatalogInfo = async (gameLanguage: string) => {
+  if (cachedCatalogs[gameLanguage]) {
+    return cachedCatalogs[gameLanguage];
+  }
+
+  const catalogResponse = await fetch(`./dictionary/${gameLanguage}/catalog.json`);
+  const {
+    words = 0,
+    items = [],
+    easterEggDays = {},
+  }: Catalog = await catalogResponse.json();
+
+  const cataolgResult = {
+    words,
+    items,
+    easterEggDays,
+  };
+
+  cachedCatalogs[gameLanguage] = cataolgResult;
+
+  return cataolgResult;
+};
+
 export const getWordToGuess = async (
   { gameMode, gameLanguage, seedNumber }: { gameMode: GameMode, gameLanguage: string, seedNumber?: number },
 ): Promise<string> => {
-  const catalogResponse = await fetch(`./dictionary/${gameLanguage}/catalog.json`);
-
-  const cataolgResult: { words: number, items: CatalogItem[] } = await catalogResponse.json();
-
-  const { words: totalNumberOfWords, items } = cataolgResult;
+  const { words: totalNumberOfWords, items } = await getCatalogInfo(gameLanguage);
 
   let randomInt: number;
   if (seedNumber) {

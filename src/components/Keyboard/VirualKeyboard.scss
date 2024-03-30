@@ -10,8 +10,10 @@
     border-top: 1px solid var(--border);
 
     @media (min-width: 502px) {
-        border-left: 1px solid color-mix(in srgb, var(--border) 20%, transparent);
-        border-right: 1px solid color-mix(in srgb, var(--border) 20%, transparent);
+        border-left: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
     }
 
     padding: 7px;
@@ -31,6 +33,7 @@
         opacity: 0;
         background-image: linear-gradient(to bottom, transparent, transparent);
         transition: all 0.3s ease-in-out;
+        mask: linear-gradient(to right, transparent 0, black 25px, black calc(100% - 25px), transparent);
     }
 
     .line {
@@ -56,6 +59,10 @@
 
     &.incorrect {
         border-color: var(--red);
+
+        @media (min-width: 502px) {
+            border-color: var(--red);
+        }
 
         &::before {
             opacity: 0.2;

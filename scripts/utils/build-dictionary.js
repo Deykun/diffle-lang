@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs, { stat } from 'fs';
 import * as fsExtra from "fs-extra";
 import chalk from 'chalk';
 
@@ -9,6 +9,8 @@ import {
     MINIMUM_LENGTH_FOR_A_WINNING_WORD,
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants.js';
+
+export const getIsRomanNumeral = word => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
 
 export const removeDiacratics = (word, lang) => {
     let wordToReturn = word;
@@ -303,17 +305,61 @@ export const actionBuildDictionary = (
         MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD = MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
         MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD = MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
         MAXIMUM_LENGTH_OF_WINNING_WORD = MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
+        EASTER_EGG_DAYS: EASTER_EGG_DAYS_FOR_LANG = {},
     },
     spellcheckerWords,
     winningWords,
 ) => {
+    const easterEggDays = {
+        '01.01': {
+            type: 'yearStart',
+            specialMode: 'sandbox-live',
+            emojis: [{
+                correct: ['🍾'],
+                position: ['🥳', '🎉', '✨', '🥂', '🎊'],
+                incorrect: ['🪩', '🗓️'],
+                typedKnownIncorrect: ['🧨', '💥', '💃🏻'],
+            }],
+        },
+        '14.02': {
+            type: 'valentine',
+            specialMode: 'sandbox-live',
+            emojis: [{
+                correct: ['💚'],
+                position: ['💛'],
+                incorrect: ['🤍'],
+                typedKnownIncorrect: ['❤️'],
+            }],
+        },
+        '01.04': {
+            type: 'normal',
+            specialMode: 'sandbox-live',
+            emojis: [{
+                correct: ['🐸'],
+                position: ['🐝'],
+                incorrect: ['🐨'],
+                typedKnownIncorrect: ['🐞'],
+            }],
+        },
+        '31.12': {
+            type: 'yearEnd',
+            specialMode: 'sandbox-live',
+            emojis: [{
+                correct: ['🍾'],
+                position: ['🥳', '🎉', '✨', '🥂', '🎊'],
+                incorrect: ['🪩', '🗓️'],
+                typedKnownIncorrect: ['🧨', '💥', '💃🏻'],
+            }],
+        },
+        ...EASTER_EGG_DAYS_FOR_LANG,
+    };
+
     const statistics = INITAL_DICTIONARY_STATISTICS;
 
     const hasOnlyWordleParam = process.argv.includes('only-wordle-perfect');
 
     if (hasOnlyWordleParam) {
-        const wordleWords = spellcheckerWords.filter((word) => word.length === 5);
-
+        const wordleWords = spellcheckerWords.filter((word) => word.length === 5 && !getIsRomanNumeral(word));
         
         console.log(`Checking ${chalk.green(wordleWords.length)} words against each other...`);
 
@@ -618,6 +664,12 @@ export const actionBuildDictionary = (
             return;
         }
 
+        if (getIsRomanNumeral(word)) {
+            statistics.winning.rejected.romanNumeral += 1;
+
+            return;
+        }
+
         statistics.winning.accepted.all += 1;
 
         const isWordWithSpecialCharacters = getIsWordWithSpecialCharacters(word);
@@ -705,6 +757,7 @@ export const actionBuildDictionary = (
     });
 
     statistics.meta = DICTIONARIES;
+    catalog.easterEggDays = easterEggDays;
 
     fs.writeFileSync(`./public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
     fs.writeFileSync(`./public/dictionary/${LANG}/info.json`, JSON.stringify(statistics, null, '\t'));

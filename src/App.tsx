@@ -12,6 +12,7 @@ import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
 import useAddTrackersScriptsIfNeeded from '@hooks/useAddTrackersScriptsIfNeeded';
 import usePanes from '@hooks/usePanes';
 import useTrackGlobal from '@hooks/useTrackGlobal';
+import useUnlockEasterDaysIfPossible from '@hooks/useUnlockEasterDaysIfPossible';
 
 import Header from '@components/Header';
 
@@ -44,6 +45,8 @@ function App() {
   useAppUpdateIfNeeded();
 
   useLangugeChangeIfNeeded();
+
+  useUnlockEasterDaysIfPossible();
 
   useAddTrackersScriptsIfNeeded();
 

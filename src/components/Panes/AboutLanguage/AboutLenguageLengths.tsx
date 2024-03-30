@@ -84,10 +84,10 @@ const AboutLenguageLengths = ({
               </div>
           </div>
           <div className="keyboard-heatmap-actions">
-              <Button className="keyboard-heatmap-action-edit" onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
+              <Button onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
                   <IconPencil />
               </Button>
-              <Button onClick={handleDownload} isInverted hasBorder={false}>
+              <Button className="about-language-download" onClick={handleDownload} isInverted hasBorder={false}>
                   <IconPicture />
                   <span>{t('common.download')}</span>
               </Button>

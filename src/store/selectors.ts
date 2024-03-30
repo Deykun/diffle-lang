@@ -11,7 +11,9 @@ import {
   LetterSubreport,
 } from '@common-types';
 
-import { SUPPORTED_DICTIONARY_BY_LANG } from '@const';
+import { getIsFirstStampInFuture } from '@utils/date';
+
+import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -409,4 +411,23 @@ export const selectGuessesStatsForLetters = createSelector(
   selectGuesses,
   selectHasWordToGuessSpecialCharacters,
   getWordsAndLetters,
+);
+
+export const selectIsTodayEasterDay = createSelector(
+  (state: RootState) => state.game.today,
+  (state: RootState) => state.game.easterEggDays,
+  (today, easterEggDays) => {
+    const todayWithoutYear = today.split('.').slice(0, 2).join('.');
+
+    const maxDailyStamp = localStorage.getItem(LOCAL_STORAGE.MAX_DAILY_STAMP) || '' as string;
+    if (maxDailyStamp) {
+      const isMaxDateInFutureAndSomeoneProbablyCheated = getIsFirstStampInFuture(maxDailyStamp, today);
+
+      if (isMaxDateInFutureAndSomeoneProbablyCheated) {
+        return false;
+      }
+    }
+
+    return Boolean(easterEggDays[todayWithoutYear]);
+  },
 );

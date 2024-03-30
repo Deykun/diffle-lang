@@ -11,7 +11,12 @@
     vertical-align: middle;
     min-width: min(42px, 8vw);
     opacity: 1;
-    transition: all 0.1s linear;
+    transition:
+        all 0.1s linear,
+        border 0s linear,
+        border-radius 0s linear,
+        background 0s linear,
+        color 0s linear;
     transition-delay: 0s;
 
     &.letter {
@@ -135,20 +140,6 @@
             background-color: var(--blue);
             animation: blink 1s linear infinite;
         }
-    }
-}
-
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
     }
 }
 

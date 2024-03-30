@@ -61,6 +61,7 @@ export const INITAL_DICTIONARY_STATISTICS = {
             tooLong: 0,
             tooShort: 0,
             censored: 0,
+            romanNumeral: 0,
             wrongLetters: 0,
             missingInSpellingDictionary: 0,
         },

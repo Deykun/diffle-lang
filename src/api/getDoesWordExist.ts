@@ -110,7 +110,7 @@ export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[
 };
 
 export const getWordsIndexesChunks = (words: string[], lang: string) => {
-  const keysWithWords = words.map((word) => ({ word, key: getNormalizedKey(word, lang) }));
+  const keysWithWords = words.map(word => ({ word, key: getNormalizedKey(word, lang) }));
   const hasAllWordsFetched = keysWithWords.every(
     ({ word, key }) => {
       if (!key) {
@@ -133,7 +133,7 @@ export const getWordsIndexesChunks = (words: string[], lang: string) => {
     return {
       word,
       key,
-      index: cachedKeys && cachedKeys[cacheKey] ? cachedKeys[cacheKey].findIndex((keyWords) => word === keyWords) : -1,
+      index: cachedKeys && cachedKeys[cacheKey] ? cachedKeys[cacheKey].findIndex(keyWords => word === keyWords) : -1,
     };
   });
 };

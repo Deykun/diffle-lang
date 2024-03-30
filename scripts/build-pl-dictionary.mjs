@@ -10,6 +10,7 @@ import {
     BLOCKED_PARTS,
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
     DICTIONARIES,
+    EASTER_EGG_DAYS,
 } from './../resources/pl/constants.js';
 
 const LANG = 'pl';
@@ -28,6 +29,7 @@ actionBuildDictionary(
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
+        EASTER_EGG_DAYS,
     },
     spellcheckerWords,
     winningWords,
