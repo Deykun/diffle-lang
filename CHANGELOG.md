@@ -14,6 +14,7 @@
 #### Version 3.19
 - **New**: Easter egg: sandbox live game mode added
 - **New**: Easter egg: custom emoji added
+- **New**: Copy only link added to share modal
 - **Fix**: The winning word cannot be a proper Roman numeral (as they often end up in dictionaries)
 
 #### Version 3.18.1 (12.03.2024)

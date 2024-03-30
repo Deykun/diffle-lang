@@ -99,14 +99,10 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
     };
   }, [gameLanguage, isTodayEasterDay]);
 
-  const textToCopy = useMemo(() => {
+  const linkToCopy = useMemo(() => {
     const diffleUrl = window.location.href.split('?')[0];
-    const { stamp } = getNow();
-
-    const isLost = endStatus === GameStatus.Lost;
 
     let resultParam = '';
-    const langShareMarker = gameLanguage ? SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker : '#diffle';
     if (shouldShareWords && gameLanguage) {
       const wordsWithIndexes = getWordsIndexesChunks(guessedWords, gameLanguage);
 
@@ -122,7 +118,15 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
       resultParam = maskValue(hashedValue);
     }
 
-    const shareUrl = `${diffleUrl}${resultParam ? `?r=${resultParam}` : ''}`;
+    return `${diffleUrl}${resultParam ? `?r=${resultParam}` : ''}`;
+  }, [gameLanguage, guessedWords, shouldShareWords, subtotals, wordToGuess]);
+
+  const textToCopy = useMemo(() => {
+    const { stamp } = getNow();
+
+    const isLost = endStatus === GameStatus.Lost;
+
+    const langShareMarker = gameLanguage ? SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker : '#diffle';
 
     const copyTitle = gameMode === GameMode.Daily ? `${stamp} – ${langShareMarker}` : `« ${wordToGuess} » – ${langShareMarker}`;
     const copySubtotals = `${emojis.correct || DEFAULT_EMOJIS.correct} ${subtotals.correct}  ${emojis.position || DEFAULT_EMOJIS.position} ${subtotals.position}  ${emojis.incorrect || DEFAULT_EMOJIS.incorrect} ${subtotals.incorrect}  ${emojis.typedKnownIncorrect || DEFAULT_EMOJIS.typedKnownIncorrect} ${subtotals.typedKnownIncorrect}`;
@@ -133,15 +137,15 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
 🏳️ ${t('end.in', { postProcess: 'interval', count: words })} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })} (${letters} ${t('end.lettersUsedShort')})
 ${copySubtotals}
       
-${shareUrl}`;
+${linkToCopy}`;
     }
     return `${copyTitle}
 
 ${letters} ${t('end.lettersUsed', { postProcess: 'interval', count: letters })} ${t('end.in', { postProcess: 'interval', count: words })} ${words} ${t('end.inWordsUsed', { postProcess: 'interval', count: words })}
 ${copySubtotals}
 
-${shareUrl}`;
-  }, [endStatus, gameLanguage, gameMode, guessedWords, letters, shouldShareWords, subtotals, t, wordToGuess, words]);
+${linkToCopy}`;
+  }, [emojis.correct, emojis.incorrect, emojis.position, emojis.typedKnownIncorrect, endStatus, gameLanguage, gameMode, letters, linkToCopy, subtotals.correct, subtotals.incorrect, subtotals.position, subtotals.typedKnownIncorrect, t, wordToGuess, words]);
 
   const handleCopy = useCallback(() => {
     if (!gameLanguage) {
@@ -162,6 +166,26 @@ ${shareUrl}`;
       },
     }));
   }, [gameLanguage, textToCopy, dispatch, letters, words]);
+
+  const handleCopyOnlyLink = useCallback(() => {
+    if (!gameLanguage) {
+      return;
+    }
+
+    setIsOpen(false);
+    copyMessage(linkToCopy);
+
+    dispatch(setToast({ text: 'common.copied' }));
+
+    dispatch(track({
+      name: 'game_result_link_copied',
+      params: {
+        lang: gameLanguage,
+        letters,
+        words,
+      },
+    }));
+  }, [gameLanguage, linkToCopy, dispatch, letters, words]);
 
   const handleToggleShareWords = useCallback(() => {
     vibrate();
@@ -207,7 +231,7 @@ ${shareUrl}`;
                       </li>
                       <li>
                           <ButtonTile
-                            onClick={handleToggleShareWords}
+                            onClick={handleCopyOnlyLink}
                           >
                               <IconShare />
                               <span>{t('common.copyResultLink')}</span>
