@@ -19,3 +19,16 @@ export const DICTIONARIES = {
         url: 'http://home.zcu.cz/~konopik/ppc/',
     },
 };
+
+export const EASTER_EGG_DAYS = {
+    '28.10': {
+        type: 'public',
+        specialMode: 'sandbox-live',
+        emojis: [{
+            correct: ['🌿'],
+            position: ['🍺', '🍻', '🦁'],
+            incorrect: ['🏰', '⛸️'],
+            typedKnownIncorrect: ['🏒'],
+        }],
+    },
+};

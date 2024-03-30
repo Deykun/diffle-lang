@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
@@ -40,7 +42,7 @@ type Emojis = {
   position?: string,
   incorrect?: string,
   typedKnownIncorrect?: string,
-}
+};
 
 const DEFAULT_EMOJIS: Emojis = {
   correct: '🟢',
@@ -52,12 +54,6 @@ const DEFAULT_EMOJIS: Emojis = {
 interface Props {
   shouldShowSettings?: boolean,
 }
-
-// const getRandomItemFromList = <T>(list: T[]) => list[Math.floor(Math.random() * list.length)];
-
-// const getRandomItemFromList = <T>(list: Iterable<T>): T => {
-//   return list[Math.floor(Math.random() * list.length)];
-// };
 
 const ShareButton = ({ shouldShowSettings = false }: Props) => {
   const dispatch = useDispatch();
@@ -195,7 +191,7 @@ ${shareUrl}`;
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('share.titleSettings')}</h3>
-                  <ul>
+                  <ul className="list-col-3">
                       <li>
                           <ButtonTile
                             isActive={shouldShareWords}
@@ -207,6 +203,14 @@ ${shareUrl}`;
                                   <br />
                                   <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
                               </span>
+                          </ButtonTile>
+                      </li>
+                      <li>
+                          <ButtonTile
+                            onClick={handleToggleShareWords}
+                          >
+                              <IconShare />
+                              <span>{t('common.copyResultLink')}</span>
                           </ButtonTile>
                       </li>
                       <li>

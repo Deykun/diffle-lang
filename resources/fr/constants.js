@@ -32,3 +32,16 @@ export const DICTIONARIES = {
         url: 'http://www.lexique.org/',
     },
 };
+
+export const EASTER_EGG_DAYS = {
+    '14.07': {
+        type: 'public',
+        specialMode: 'sandbox-live',
+        emojis: [{
+            correct: ['🌿', '🍾', '🐸'],
+            position: ['⚜️', '🗼', '🥐', '🥖', '🧀', '🍞'],
+            incorrect: ['🏰'],
+            typedKnownIncorrect: ['🎀','🍷', '🐓'],
+        }],
+    },
+};

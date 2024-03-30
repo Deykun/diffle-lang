@@ -10,10 +10,7 @@ import {
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants.js';
 
-// TODO: use in future to remove those word from winning words pool
-export const romanNumerals = words => words.filter((word) => {
-    return /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
-});
+export const getIsRomanNumeral = word => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
 
 export const removeDiacratics = (word, lang) => {
     let wordToReturn = word;
@@ -327,21 +324,21 @@ export const actionBuildDictionary = (
         '14.02': {
             type: 'valentine',
             specialMode: 'sandbox-live',
-            // emojis: [{
-            //     correct: ['💚'],
-            //     position: ['💛'],
-            //     incorrect: ['🤍'],
-            //     typedKnownIncorrect: ['❤️'],
-            // }],
+            emojis: [{
+                correct: ['💚'],
+                position: ['💛'],
+                incorrect: ['🤍'],
+                typedKnownIncorrect: ['❤️'],
+            }],
         },
         '01.04': {
             type: 'normal',
             specialMode: 'sandbox-live',
             emojis: [{
-                correct: '🐸',
-                position: '🐝',
-                incorrect: '🐨',
-                typedKnownIncorrect: '🐞',
+                correct: ['🐸'],
+                position: ['🐝'],
+                incorrect: ['🐨'],
+                typedKnownIncorrect: ['🐞'],
             }],
         },
         '31.12': {
@@ -362,8 +359,7 @@ export const actionBuildDictionary = (
     const hasOnlyWordleParam = process.argv.includes('only-wordle-perfect');
 
     if (hasOnlyWordleParam) {
-        const wordleWords = spellcheckerWords.filter((word) => word.length === 5);
-
+        const wordleWords = spellcheckerWords.filter((word) => word.length === 5 && !getIsRomanNumeral(word));
         
         console.log(`Checking ${chalk.green(wordleWords.length)} words against each other...`);
 
@@ -664,6 +660,12 @@ export const actionBuildDictionary = (
         const isBlockedWords = BLOCKED_WORDS.includes(word) || BLOCKED_PARTS.some((blockedPart) => word.includes(blockedPart));
         if (isBlockedWords) {
             statistics.winning.rejected.censored += 1; 
+
+            return;
+        }
+
+        if (getIsRomanNumeral(word)) {
+            statistics.winning.rejected.romanNumeral += 1;
 
             return;
         }

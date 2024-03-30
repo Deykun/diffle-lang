@@ -11,7 +11,12 @@
 
 ---
 
-#### Version 3.18.1
+#### Version 3.19
+- **New**: Easter egg: sandbox live game mode added
+- **New**: Easter egg: custom emoji added
+- **Fix**: The winning word cannot be a proper Roman numeral (as they often end up in dictionaries)
+
+#### Version 3.18.1 (12.03.2024)
 - **Fix**: Align keyboard heatmaps when the title breaks the line
 - **Fix**: Fixed the incorrect keyboard layout for languages other than French in the About language
 

@@ -10,6 +10,7 @@ import {
     BLOCKED_PARTS,
     DICTIONARIES,
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
+    EASTER_EGG_DAYS,
 } from './../resources/cs/constants.js';
 
 const LANG = 'cs';
@@ -29,6 +30,7 @@ actionBuildDictionary(
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
         MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD: 17,
+        EASTER_EGG_DAYS,
     },
     spellcheckerWords,
     winningWords,
