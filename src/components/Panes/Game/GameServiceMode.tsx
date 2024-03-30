@@ -20,7 +20,7 @@ const GameServiceMode = ({ today }: Props) => {
   const { t } = useTranslation();
 
   const handleGithubClick = useCallback(() => {
-    dispatch(track({ name: 'click_github_link', params: { source: 'settings' } }));
+    dispatch(track({ name: 'click_github_link', params: { source: 'service_mode' } }));
   }, [dispatch]);
 
   return (
