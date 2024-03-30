@@ -8,6 +8,7 @@
     "common.play": "Spiele",
     "common.newGame": "Neues Spiel",
     "common.copyResult": "Ergebnis kopieren",
+    "common.copyResultLink": "Copy only link",
     "common.copyLink": "Link kopieren",
     "common.copied": "Kopiert.",
     "common.checkInDictionary": "Suche nach \"{{word}}\"",
