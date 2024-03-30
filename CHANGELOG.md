@@ -17,6 +17,7 @@
 - **New**: Copy only link added to share modal
 - **Fix**: The winning word cannot be a proper Roman numeral (as they often end up in dictionaries)
 - **New**: Keyboard layout picker added to the About language
+- **Fix**: Czech QWERTZ layout missing "y" restored
 
 #### Version 3.18.1 (12.03.2024)
 - **Fix**: Align keyboard heatmaps when the title breaks the line

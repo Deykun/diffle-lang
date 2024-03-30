@@ -15,7 +15,7 @@ const KEY_LINES_CS_VARIANTS = [{
   keyLines: [
     ['q', 'w', 'e', 'r', 't', 'z', 'u', 'i', 'o', 'p'],
     ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['backspace', 'y', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
     ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř'],
     ['š', 'ť', 'ú', 'spacebar', 'ů', 'ý', 'ž'],
   ],
