@@ -406,6 +406,11 @@ export const saveEndedGame = createAsyncThunk(
     }
 
     const gameMode = state.game.mode;
+    const isModeWithoutStatistics = gameMode === GameMode.SandboxLive;
+    if (isModeWithoutStatistics) {
+      return rejectWithValue(false);
+    }
+
     const isShort = wordToGuess.length <= WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS;
     const hasSpecialCharacters = getHasSpecialCharacters(wordToGuess);
 

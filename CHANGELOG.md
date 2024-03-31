@@ -13,6 +13,7 @@
 
 #### Version 3.19.1
 - **New**: Egg icon added to easter egg mode
+- **Fix**: Do not save and hint for an easter egg mode
 
 #### Version 3.19 (01.04.2024)
 - **New**: Easter egg: sandbox live game mode added

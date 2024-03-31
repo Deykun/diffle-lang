@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane } from '@common-types';
+import { Pane, GameMode } from '@common-types';
 
 import { useSelector } from '@store';
 
@@ -67,7 +67,8 @@ const StatisticsHint = () => {
   }, [changePane, gameMode]);
 
   const isNiceNumberToHint = [5, 10].includes(wonStreak) || (wonStreak % 25 === 0 && wonStreak !== 0);
-  const shouldRender = gameLanguage && isNiceNumberToHint;
+  const isModeWithoutStatistics = gameMode === GameMode.SandboxLive;
+  const shouldRender = gameLanguage && isNiceNumberToHint && !isModeWithoutStatistics;
 
   if (!shouldRender) {
     return null;
