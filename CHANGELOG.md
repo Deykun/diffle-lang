@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.19
+#### Version 3.19.1
+- **New**: Egg icon added to easter egg mode
+
+#### Version 3.19 (01.04.2024)
 - **New**: Easter egg: sandbox live game mode added
 - **New**: Easter egg: custom emoji added
 - **New**: Copy only link added to share modal

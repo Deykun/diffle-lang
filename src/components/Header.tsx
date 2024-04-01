@@ -12,6 +12,7 @@ import useEffectChange from '@hooks/useEffectChange';
 import usePrevious from '@hooks/usePrevious';
 
 import IconClose from '@components/Icons/IconClose';
+import IconEgg from '@components/Icons/IconEgg';
 import IconHelp from '@components/Icons/IconHelp';
 import IconInfinity from '@components/Icons/IconInfinity';
 import IconLayers from '@components/Icons/IconLayers';
@@ -73,6 +74,7 @@ const Header = () => {
               <button className="header-title" onClick={() => changePane(Pane.Game)} type="button">
                   Diffle
                   {gameMode === GameMode.Practice && <IconInfinity />}
+                  {gameMode === GameMode.SandboxLive && <IconEgg className="header-title-icon-small" />}
               </button>
               {gameLanguage && (
               <LanguagePicker className="header-language-picker" place="header">
