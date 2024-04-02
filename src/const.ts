@@ -253,6 +253,7 @@ export const LOCAL_STORAGE = {
   IS_SMALL_KEYBOARD: 'diffle_is_small_keyboard',
   SHOULD_SWAP_ENTER: 'diffle_should_swap_enter',
   SHOULD_CONFIRM_ENTER: 'diffle_should_confirm_enter',
+  SHOULD_SHOW_DURATION: 'diffle_show_duration',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',
   MAX_DAILY_STAMP: 'diffle_max_daily_stamp',
 };

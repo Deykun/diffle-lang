@@ -14,6 +14,7 @@ import {
   getIsEnterSwapped,
   getShouldConfirmEnter,
   getShouldShareWords,
+  getShouldShowDuration,
 } from '@api/getInit';
 
 export const track = createAsyncThunk(
@@ -68,6 +69,7 @@ const initialState: RootAppState = {
   isEnterSwapped: getIsEnterSwapped(),
   shouldConfirmEnter: getShouldConfirmEnter(),
   shouldShareWords: getShouldShareWords(),
+  shouldShowDuration: getShouldShowDuration(),
 };
 
 const appSlice = createSlice({
@@ -141,6 +143,9 @@ const appSlice = createSlice({
     toggleShareWords(state) {
       state.shouldShareWords = !state.shouldShareWords;
     },
+    toggleShowDuration(state) {
+      state.shouldShowDuration = !state.shouldShowDuration;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -169,5 +174,6 @@ export const {
   toggleEnterSwap,
   toggleConfirmEnter,
   toggleShareWords,
+  toggleShowDuration,
 } = appSlice.actions;
 export default appSlice.reducer;
