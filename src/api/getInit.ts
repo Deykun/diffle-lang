@@ -155,3 +155,9 @@ export const getShouldShareWords = () => {
   // By default returns true
   return !shouldBlock;
 };
+
+export const getShouldShowDuration = () => {
+  const shouldShow = localStorage.getItem(LOCAL_STORAGE.SHOULD_SHOW_DURATION) === 'true';
+
+  return shouldShow;
+};

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
-import { track } from '@store/appSlice';
+import { track, toggleShowDuration } from '@store/appSlice';
 
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
@@ -15,6 +15,7 @@ import IconKeyboardDown from '@components/Icons/IconKeyboardDown';
 import IconMoon from '@components/Icons/IconMoon';
 import IconSun from '@components/Icons/IconSun';
 import IconSwap from '@components/Icons/IconSwap';
+import IconTimmer from '@components/Icons/IconTimmer';
 import IconVibrate from '@components/Icons/IconVibrate';
 import IconVibrateKeyboard from '@components/Icons/IconVibrateKeyboard';
 
@@ -28,6 +29,7 @@ import './Settings.scss';
 
 const SettingsPreferences = () => {
   const dispatch = useDispatch();
+  const shouldShowDuration = useSelector(state => state.app.shouldShowDuration);
   const cookies = useSelector(state => state.app.cookies);
   const totalOfCookiesPoliciesAccepted = Object.values(cookies).filter(Boolean).length;
 
@@ -66,6 +68,14 @@ const SettingsPreferences = () => {
     document.documentElement.classList.toggle('contrast');
   };
 
+  const handleToggleShowDuration = () => {
+    localStorage.setItem(LOCAL_STORAGE.SHOULD_SHOW_DURATION, shouldShowDuration ? 'false' : 'true');
+
+    dispatch(track({ name: `click_${shouldShowDuration ? 'turn_off_show_duration' : 'turn_on_show_duration'}` }));
+
+    dispatch(toggleShowDuration());
+  };
+
   return (
       <>
           <h2>{t('settings.preferencesTitle')}</h2>
@@ -100,6 +110,12 @@ const SettingsPreferences = () => {
                   <ButtonTile isActive={shouldVibrate} onClick={handleToggleVibrate}>
                       <IconVibrate />
                       <span className="button-tile-title-small">{t('settings.appVibration')}</span>
+                  </ButtonTile>
+              </li>
+              <li>
+                  <ButtonTile isActive={shouldShowDuration} onClick={handleToggleShowDuration}>
+                      <IconTimmer />
+                      <span className="button-tile-title-small">{t('settings.showGameDuration')}</span>
                   </ButtonTile>
               </li>
               <li>

@@ -219,6 +219,7 @@ export interface RootAppState {
   isEnterSwapped: boolean,
   shouldConfirmEnter: boolean,
   shouldShareWords: boolean,
+  shouldShowDuration: boolean,
 }
 
 export enum GameMode {

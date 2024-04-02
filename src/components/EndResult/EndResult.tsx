@@ -24,6 +24,7 @@ import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 import ShareButton from '@components/Share/ShareButton';
 import StatisticsHint from '@components/Panes/Statistics/StatisticsHint';
 
+import EndResultGameTime from './EndResultGameTime';
 import EndResultSummary from './EndResultSummary';
 
 import './EndResult.scss';
@@ -100,6 +101,7 @@ function EndResult() {
               {gameMode !== GameMode.SandboxLive && <ShareButton shouldShowSettings />}
           </div>
           <GoToDictionaryButton word={wordToGuess} />
+          <EndResultGameTime />
           {gameMode === GameMode.Daily && (
           <p
             className="next-word-tip"

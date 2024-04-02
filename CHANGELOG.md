@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.19.1
+#### Version 3.20
+- **New**: Optional display of game duration on the end screen added
+
+#### Version 3.19.1 (01.04.2024)
 - **New**: Egg icon added to easter egg mode
 - **Fix**: Do not save and hint for an easter egg mode
 
