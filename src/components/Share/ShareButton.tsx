@@ -4,9 +4,12 @@ import {
 } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import * as htmlToImage from 'html-to-image';
+import download from 'downloadjs';
+
 import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
-import { GameMode, GameStatus } from '@common-types';
+import { GameMode, GameStatus, ToastType } from '@common-types';
 
 import { useSelector, useDispatch } from '@store';
 import { track, setToast, toggleShareWords } from '@store/appSlice';
@@ -31,6 +34,7 @@ import IconCopy from '@components/Icons/IconCopy';
 import IconCopyAlt from '@components/Icons/IconCopyAlt';
 import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconPencil from '@components/Icons/IconPencil';
+import IconPicture from '@components/Icons/IconPicture';
 import IconShare from '@components/Icons/IconShare';
 
 import Button from '@components/Button/Button';
@@ -197,6 +201,30 @@ ${linkToCopy}`;
     dispatch(toggleShareWords());
   }, [dispatch, shouldShareWords, vibrate]);
 
+  const handleDownload = async () => {
+    const domElement = document.getElementById('sharable-result');
+
+    if (!domElement) {
+      return;
+    }
+
+    try {
+      const dataUrl = await htmlToImage.toJpeg(domElement);
+
+      const { stamp, stampOnlyTime } = getNow();
+      const fullStamp = `${stamp} ${stampOnlyTime}`;
+
+      download(dataUrl, `diffle-${fullStamp.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
+
+      dispatch(track({ name: 'click_download_result' }));
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+
+      dispatch(setToast({ type: ToastType.Incorrect, text: 'common.downloadError' }));
+    }
+  };
+
   const onClick = () => setIsOpen(value => !value);
 
   return (
@@ -217,7 +245,7 @@ ${linkToCopy}`;
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('share.titleSettings')}</h3>
-                  <ul className="list-col-3">
+                  <ul>
                       <li>
                           <ButtonTile
                             isActive={shouldShareWords}
@@ -230,6 +258,18 @@ ${linkToCopy}`;
                                   <small className="share-no-spoiler">{t('share.linkWithUsedWordsNoSpoilers')}</small>
                               </span>
                           </ButtonTile>
+                      </li>
+                      <li>
+
+                          <ButtonTile
+                            onClick={handleDownload}
+                          >
+                              <IconPicture />
+                              <span>
+                                  {t('common.download')}
+                              </span>
+                          </ButtonTile>
+
                       </li>
                       <li>
                           <ButtonTile
