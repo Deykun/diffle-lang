@@ -32,7 +32,7 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
-import mergeFlatAffixes from '@api/helpers';
+import { mergeFlatAffixes } from '@api/helpers';
 import getWordToGuess, { getCatalogInfo } from '@api/getWordToGuess';
 
 import { setToast, track } from '@store/appSlice';

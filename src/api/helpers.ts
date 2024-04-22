@@ -136,16 +136,18 @@ export const getIsKeyValid = (key: string = '') => {
 
 export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAffixes) => {
   const flatAffixesResult: FlatAffixes = {
-    start: flatAffixesA.start,
+    ...flatAffixesA,
     middle: [...flatAffixesA.middle],
-    end: flatAffixesA.end,
   };
 
-  if (flatAffixesResult.start.length > flatAffixesB.start.length) {
+  console.log('flatAffixesA', flatAffixesA);
+  console.log('flatAffixesB', flatAffixesB);
+
+  if (flatAffixesResult.start.length < flatAffixesB.start.length) {
     flatAffixesResult.start = flatAffixesB?.start || '';
   }
 
-  if (flatAffixesResult.end.length > flatAffixesB.end.length) {
+  if (flatAffixesResult.end.length < flatAffixesB.end.length) {
     flatAffixesResult.end = flatAffixesB?.end || '';
   }
 
@@ -164,6 +166,10 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
       }
     }
   });
+
+  console.log('flatAffixesResult',
+    flatAffixesResult,
+  );
 
   return flatAffixesResult;
 };

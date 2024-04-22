@@ -4,7 +4,7 @@ import { SUBMIT_ERRORS } from '@const';
 
 import getDoesWordExist, { DoesWordExistErrorType } from '@api/getDoesWordExist';
 import compareWords from '@api/utils/compareWords';
-import mergeFlatAffixes from '@api/utils/helpers';
+import { mergeFlatAffixes } from '@api/helpers';
 
 import { mergeLettersData } from '@utils/statistics';
 
@@ -109,9 +109,11 @@ const getFlatAffixes = (affixes: Affix[]) => {
     flatAffixes.end = affixes.at(-1)?.text || '';
   }
 
+  console.log('affixes', affixes);
+
   flatAffixes.middle = affixes.filter(affix => affix.type === AffixStatus.Correct
-    && !affix.isStart
-    && !affix.isEnd
+    && affix.isStart !== true
+    && affix.isEnd !== true
     && affix.text.length > 1).map(affix => affix.text);
 
   return flatAffixes;
@@ -216,6 +218,8 @@ export const getWordReportForMultipleWords = async (
 
     response.flatAffixes = mergeFlatAffixes(response.flatAffixes, flatAffixes);
   }
+
+  console.log('response.flatAffixes', response.flatAffixes);
 
   response.hasError = response.results.some(({ isError }) => isError === true);
   response.isWon = response.results.some(({ isWon }) => isWon === true);
