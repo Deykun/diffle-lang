@@ -249,6 +249,12 @@ export type EasterDays = {
   }
 };
 
+export interface FlatAffixes {
+  start: string,
+  middle: string[],
+  end: string,
+}
+
 export interface RootGameState {
   language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'pl' | undefined,
   mode: GameMode,
@@ -272,6 +278,7 @@ export interface RootGameState {
   lastUpdateTime: number,
   durationMS: number,
   lastWordAddedToStatitstic: string,
+  flatAffixes: FlatAffixes,
 }
 
 export interface RootState {

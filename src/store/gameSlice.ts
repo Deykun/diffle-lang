@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  RootState, RootGameState, ToastType, UsedLetters, EasterDays, GameStatus, GameMode,
+  RootState, RootGameState, ToastType, UsedLetters, EasterDays, GameStatus, GameMode, FlatAffixes,
 } from '@common-types';
 
 import {
@@ -32,6 +32,7 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import { getInitMode } from '@api/getInit';
 import getWordReport, { getWordReportForMultipleWords, WordReport } from '@api/getWordReport';
+import mergeFlatAffixes from '@api/helpers';
 import getWordToGuess, { getCatalogInfo } from '@api/getWordToGuess';
 
 import { setToast, track } from '@store/appSlice';
@@ -63,6 +64,11 @@ const initialState: RootGameState = {
   lastUpdateTime: 0,
   durationMS: 0,
   lastWordAddedToStatitstic: '',
+  flatAffixes: {
+    start: '',
+    middle: [],
+    end: '',
+  },
 };
 
 const resetGame = (state: RootGameState, wordToGuess: string) => {
@@ -198,11 +204,11 @@ export const restoreGameState = createAsyncThunk(
     durationMS: number,
   }, { dispatch, rejectWithValue }) => {
     if (!wordToGuess) {
-      return;
+      return rejectWithValue(SUBMIT_ERRORS.EMPTY_WORD_TO_GUESS);
     }
 
     const {
-      hasError, isWon, results, wordsLetters,
+      hasError, isWon, results, wordsLetters, flatAffixes,
     } = await getWordReportForMultipleWords(wordToGuess, guessesWords, { lang: gameLanguage });
 
     if (hasError) {
@@ -225,6 +231,7 @@ export const restoreGameState = createAsyncThunk(
       results,
       wordToGuess,
       wordsLetters,
+      flatAffixes,
       rejectedWords,
       easterEggDays,
       lastUpdateTime,
@@ -741,11 +748,15 @@ const gameSlice = createSlice({
       }
 
       const {
-        isWon, affixes = [], word, wordLetters,
+        isWon, affixes = [], word, wordLetters, flatAffixes,
       } = action.payload as WordReport;
 
       if (isWon) {
         state.status = GameStatus.Won;
+      }
+
+      if (flatAffixes) {
+        state.flatAffixes = mergeFlatAffixes(state.flatAffixes, flatAffixes);
       }
 
       state.wordToSubmit = '';
@@ -796,6 +807,7 @@ const gameSlice = createSlice({
           wordsLetters,
           lastUpdateTime,
           durationMS,
+          flatAffixes,
         } = action.payload as {
           gameMode: GameMode,
           status: GameStatus,
@@ -810,12 +822,17 @@ const gameSlice = createSlice({
           },
           lastUpdateTime: number,
           durationMS: number,
+          flatAffixes: FlatAffixes,
         };
 
         const guesses = results.map(({ word = '', affixes = [] }) => ({
           word,
           affixes,
         }));
+
+        if (flatAffixes) {
+          state.flatAffixes = mergeFlatAffixes(state.flatAffixes, flatAffixes);
+        }
 
         state.mode = gameMode;
         state.status = status;

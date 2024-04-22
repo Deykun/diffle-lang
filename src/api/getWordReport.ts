@@ -1,9 +1,10 @@
-import { Affix, AffixStatus, UsedLetters } from '@common-types';
+import { Affix, AffixStatus, FlatAffixes, UsedLetters } from '@common-types';
 
 import { SUBMIT_ERRORS } from '@const';
 
 import getDoesWordExist, { DoesWordExistErrorType } from '@api/getDoesWordExist';
 import compareWords from '@api/utils/compareWords';
+import mergeFlatAffixes from '@api/utils/helpers';
 
 import { mergeLettersData } from '@utils/statistics';
 
@@ -90,7 +91,31 @@ export interface WordReport {
     incorrect: UsedLetters,
     position: UsedLetters,
   },
+  flatAffixes?: FlatAffixes,
 }
+
+const getFlatAffixes = (affixes: Affix[]) => {
+  const flatAffixes: FlatAffixes = {
+    start: '',
+    middle: [],
+    end: '',
+  };
+
+  if (affixes.at(0)?.type === AffixStatus.Correct && affixes.at(0)?.isStart) {
+    flatAffixes.start = affixes.at(0)?.text || '';
+  }
+
+  if (affixes.at(-1)?.type === AffixStatus.Correct && affixes.at(-1)?.isEnd) {
+    flatAffixes.end = affixes.at(-1)?.text || '';
+  }
+
+  flatAffixes.middle = affixes.filter(affix => affix.type === AffixStatus.Correct
+    && !affix.isStart
+    && !affix.isEnd
+    && affix.text.length > 1).map(affix => affix.text);
+
+  return flatAffixes;
+};
 
 export const getWordReport = async (
   wordToGuess: string,
@@ -126,6 +151,8 @@ export const getWordReport = async (
 
   const { affixes, wordLetters } = temporaryTranslatorPatterns(wordToSubmit, pattern);
 
+  const flatAffixes = getFlatAffixes(affixes);
+
   if (start) {
     affixes[0].isStart = true;
   }
@@ -137,7 +164,7 @@ export const getWordReport = async (
   const isWon = wordToSubmit === wordToGuess;
 
   return {
-    isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters,
+    isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters, flatAffixes,
   };
 };
 
@@ -157,6 +184,7 @@ export const getWordReportForMultipleWords = async (
       incorrect: UsedLetters,
       position: UsedLetters,
     },
+    flatAffixes: FlatAffixes,
   } = {
     hasError: false,
     isWon: false,
@@ -165,6 +193,11 @@ export const getWordReportForMultipleWords = async (
       correct: {},
       incorrect: {},
       position: {},
+    },
+    flatAffixes: {
+      start: '',
+      middle: [],
+      end: '',
     },
   };
 
@@ -176,10 +209,12 @@ export const getWordReportForMultipleWords = async (
     response.results.push(wordReport);
 
     response.wordsLetters.correct = mergeLettersData(response.wordsLetters.correct, wordReport?.wordLetters?.correct);
-
     response.wordsLetters.incorrect = mergeLettersData(response.wordsLetters.incorrect, wordReport?.wordLetters?.incorrect);
-
     response.wordsLetters.position = mergeLettersData(response.wordsLetters.position, wordReport?.wordLetters?.position);
+
+    const flatAffixes = getFlatAffixes(wordReport?.affixes || []);
+
+    response.flatAffixes = mergeFlatAffixes(response.flatAffixes, flatAffixes);
   }
 
   response.hasError = response.results.some(({ isError }) => isError === true);

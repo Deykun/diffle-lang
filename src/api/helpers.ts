@@ -1,3 +1,5 @@
+import { FlatAffixes } from '@common-types';
+
 export const removeDiacratics = (word: string, lang?: string) => {
   let wordToReturn = word;
 
@@ -130,4 +132,38 @@ export const getIsKeyValid = (key: string = '') => {
   }
 
   return false;
+};
+
+export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAffixes) => {
+  const flatAffixesResult: FlatAffixes = {
+    start: flatAffixesA.start,
+    middle: [...flatAffixesA.middle],
+    end: flatAffixesA.end,
+  };
+
+  if (flatAffixesResult.start.length > flatAffixesB.start.length) {
+    flatAffixesResult.start = flatAffixesB?.start || '';
+  }
+
+  if (flatAffixesResult.end.length > flatAffixesB.end.length) {
+    flatAffixesResult.end = flatAffixesB?.end || '';
+  }
+
+  flatAffixesB.middle.forEach((flatAffix) => {
+    const hasMatchInState = flatAffixesResult.middle.some(stateAffix => stateAffix.startsWith(flatAffix)
+      || stateAffix.endsWith(flatAffix));
+
+    if (!hasMatchInState) {
+      const indexToExtend = flatAffixesResult.middle.findIndex(stateAffix => flatAffix.startsWith(stateAffix)
+        || flatAffix.endsWith(stateAffix));
+
+      if (indexToExtend >= 0) {
+        flatAffixesResult.middle[indexToExtend] = flatAffix;
+      } else {
+        flatAffixesResult.middle.push(flatAffix);
+      }
+    }
+  });
+
+  return flatAffixesResult;
 };
