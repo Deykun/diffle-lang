@@ -150,6 +150,9 @@ export enum AffixStatus {
   Position = 'position',
   Incorrect = 'incorrect',
   IncorrectOccurance = 'incorrect-occurrence',
+  IncorrectStart = 'incorrect-start',
+  IncorrectEnd = 'incorrect-end',
+  IncorrectMiddle = 'incorrect-middle',
 }
 
 export interface Affix {
@@ -157,6 +160,7 @@ export interface Affix {
   text: string,
   isStart?: boolean,
   isEnd?: boolean,
+  isSubmitted?: boolean,
   hasCaretBefore?: boolean,
   onClick?: () => void,
 }

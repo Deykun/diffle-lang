@@ -109,7 +109,7 @@ const getFlatAffixes = (affixes: Affix[]) => {
     flatAffixes.end = affixes.at(-1)?.text || '';
   }
 
-  console.log('affixes', affixes);
+  // console.log('affixes', affixes);
 
   flatAffixes.middle = affixes.filter(affix => affix.type === AffixStatus.Correct
     && affix.isStart !== true
@@ -219,7 +219,7 @@ export const getWordReportForMultipleWords = async (
     response.flatAffixes = mergeFlatAffixes(response.flatAffixes, flatAffixes);
   }
 
-  console.log('response.flatAffixes', response.flatAffixes);
+  // console.log('response.flatAffixes', response.flatAffixes);
 
   response.hasError = response.results.some(({ isError }) => isError === true);
   response.isWon = response.results.some(({ isWon }) => isWon === true);

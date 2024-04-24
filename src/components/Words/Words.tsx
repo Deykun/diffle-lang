@@ -11,6 +11,7 @@ import {
   selectIsGameEnded,
   selectIsProcessing,
   selectWordToSubmit,
+  selectKeyboardState,
   selectWordState,
 } from '@store/selectors';
 
@@ -35,10 +36,17 @@ const Words = () => {
   const isProcessing = useSelector(selectIsProcessing);
   const wordToSubmit = useSelector(selectWordToSubmit);
   const wordStatus = useSelector(selectWordState(wordToSubmit));
+  const keyboardStatus = useSelector(selectKeyboardState);
   const caretShift = useSelector(state => state.game.caretShift);
   const hasSpace = wordToSubmit.includes(' ');
-  const isIncorrect = wordStatus === AffixStatus.Incorrect;
-  const isTypedTooMuch = wordStatus === AffixStatus.IncorrectOccurance;
+  const isIncorrectType = [
+    AffixStatus.Incorrect,
+    AffixStatus.IncorrectOccurance,
+  ].includes(wordStatus) || [
+    AffixStatus.IncorrectStart,
+    AffixStatus.IncorrectMiddle,
+    AffixStatus.IncorrectEnd,
+  ].includes(keyboardStatus);
 
   const { t } = useTranslation();
 
@@ -59,12 +67,24 @@ const Words = () => {
       return 'game.checking';
     }
 
-    if (isIncorrect) {
+    if (wordStatus === AffixStatus.Incorrect) {
       return 'game.youCanUseIncorrectLetters';
     }
 
-    if (isTypedTooMuch) {
+    if (wordStatus === AffixStatus.IncorrectOccurance) {
       return 'game.youCanUseLettersTypedTooManyTimes';
+    }
+
+    if (keyboardStatus === AffixStatus.IncorrectStart) {
+      return 'game.youCanUseIncorrectStart';
+    }
+
+    if (keyboardStatus === AffixStatus.IncorrectMiddle) {
+      return 'game.youCanUseIncorrectMiddle';
+    }
+
+    if (keyboardStatus === AffixStatus.IncorrectEnd) {
+      return 'game.youCanUseIncorrectEnd';
     }
 
     if (hasSpace) {
@@ -72,7 +92,7 @@ const Words = () => {
     }
 
     return '';
-  }, [hasSpace, isIncorrect, isProcessing, isTypedTooMuch]);
+  }, [hasSpace, isProcessing, keyboardStatus, wordStatus]);
 
   const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
   const shouldBeShorter = guesses.length > 8;
@@ -82,7 +102,7 @@ const Words = () => {
           <WordTip />
           {guesses.map((guess) => {
             return (
-                <Word key={`guess-${guess.word}`} guess={guess} />
+                <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />
             );
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
@@ -94,7 +114,7 @@ const Words = () => {
           <p
             className={clsx('status-tip', {
               'is-processing': isProcessing,
-              'is-incorrect': isIncorrect || isTypedTooMuch,
+              'is-incorrect': isIncorrectType,
               space: hasSpace,
             })}
           >

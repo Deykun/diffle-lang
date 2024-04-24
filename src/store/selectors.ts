@@ -210,6 +210,8 @@ export const selectLetterSubreport = (letter: string) => createSelector(
   },
 );
 
+const selectFlatAffixes = (state: RootState) => state.game.flatAffixes;
+
 export const selectWordState = (word: string) => createSelector(
   selectWordToSubmit,
   selectWordToGuess,
@@ -217,7 +219,8 @@ export const selectWordState = (word: string) => createSelector(
   selectCorrectLetters,
   selectIncorrectLetters,
   selectPositionLetters,
-  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+  selectFlatAffixes,
+  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters, flatAffixes) => {
     const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
     const hasIncorrectLetterTyped = uniqueLettersInWord.some(
@@ -252,6 +255,21 @@ export const selectWordState = (word: string) => createSelector(
       return AffixStatus.IncorrectOccurance;
     }
 
+    const isWrongStart = !wordToSubmit.startsWith(flatAffixes.start);
+    if (isWrongStart) {
+      return AffixStatus.IncorrectStart;
+    }
+
+    const isWrongEnd = !wordToSubmit.endsWith(flatAffixes.end);
+    if (isWrongEnd) {
+      return AffixStatus.IncorrectEnd;
+    }
+
+    const isWrongMiddle = flatAffixes.middle.some(flatAffix => !wordToSubmit.includes(flatAffix));
+    if (isWrongMiddle) {
+      return AffixStatus.IncorrectMiddle;
+    }
+
     return AffixStatus.Unknown;
   },
 );
@@ -261,7 +279,8 @@ export const selectKeyboardState = createSelector(
   selectWordToSubmit,
   selectIncorrectLetters,
   selectPositionLetters,
-  (wordToGuess, wordToSubmit, incorrectLetter, positionLetters) => {
+  selectFlatAffixes,
+  (wordToGuess, wordToSubmit, incorrectLetter, positionLetters, flatAffixes) => {
     if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
       return AffixStatus.Unknown;
     }
@@ -303,6 +322,23 @@ export const selectKeyboardState = createSelector(
     });
 
     if (allKnownLettersAreTyped) {
+      if (flatAffixes) {
+        const isWrongStart = !wordToSubmit.startsWith(flatAffixes.start);
+        if (isWrongStart) {
+          return AffixStatus.IncorrectStart;
+        }
+
+        const isWrongEnd = !wordToSubmit.endsWith(flatAffixes.end);
+        if (isWrongEnd) {
+          return AffixStatus.IncorrectEnd;
+        }
+
+        const isWrongMiddle = flatAffixes.middle.some(flatAffix => !wordToSubmit.includes(flatAffix));
+        if (isWrongMiddle) {
+          return AffixStatus.IncorrectMiddle;
+        }
+      }
+
       return AffixStatus.Correct;
     }
 
@@ -322,7 +358,7 @@ export const selectKeyboardUsagePercentage = createSelector(
     const usedLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(incorrectLetter), ...Object.keys(positionLetters)])];
     const totalNumberOfUsedLetters = usedLetters.length;
 
-    return Math.round(totalNumberOfUsedLetters / totalNumberOfLetters * 100);
+    return Math.round((totalNumberOfUsedLetters / totalNumberOfLetters) * 100);
   },
 );
 

@@ -68,9 +68,13 @@
             box-shadow: 3px 0 3px var(--blue-weaker);
             box-shadow: 3px 0 3px var(--blue-transparentized);
         }
+    }
 
+    &.new,
+    &.correct {
         &.known-incorect,
-        &.known-typed-too-much {
+        &.known-typed-too-much,
+        &.known-missing-part {
             &::after {
                 content: '';
                 position: absolute;
@@ -89,7 +93,8 @@
             }
         }
 
-        &.known-typed-too-much {
+        &.known-typed-too-much,
+        &.known-missing-part {
             &::after {
                 border-bottom-color: var(--orange);
             }

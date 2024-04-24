@@ -140,8 +140,8 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
     middle: [...flatAffixesA.middle],
   };
 
-  console.log('flatAffixesA', flatAffixesA);
-  console.log('flatAffixesB', flatAffixesB);
+  // console.log('flatAffixesA', flatAffixesA);
+  // console.log('flatAffixesB', flatAffixesB);
 
   if (flatAffixesResult.start.length < flatAffixesB.start.length) {
     flatAffixesResult.start = flatAffixesB?.start || '';
@@ -167,9 +167,9 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
     }
   });
 
-  console.log('flatAffixesResult',
-    flatAffixesResult,
-  );
+  // console.log('flatAffixesResult',
+  //   flatAffixesResult,
+  // );
 
   return flatAffixesResult;
 };
