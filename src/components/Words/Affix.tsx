@@ -35,11 +35,19 @@ const Affix = ({
       return false;
     }
 
-    if (keyboardState === AffixStatus.IncorrectMiddle && !isStart && !isEnd) {
+    if (keyboardState === AffixStatus.IncorrectMiddle) {
       const missingAffixes = flatAffixes.middle.filter(flatAffix => !wordToSubmit.includes(flatAffix));
-      const isMissingAffix = !missingAffixes.some(missingFlatAffix => missingFlatAffix.includes(text));
+      const isOneOfMissingAffixes = missingAffixes.some(
+        missingFlatAffix => missingFlatAffix.includes(text) && !wordToSubmit.includes(text),
+      );
 
-      if (!isMissingAffix) {
+      console.log({
+        missingAffixes,
+        isOneOfMissingAffixes,
+        text,
+      });
+
+      if (isOneOfMissingAffixes) {
         return true;
       }
     }

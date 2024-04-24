@@ -70,6 +70,23 @@
         }
     }
 
+    &.new {
+        &.known-incorect,
+        &.known-typed-too-much {
+            &::after {
+                bottom: -10px;
+            }
+        }
+    }
+    
+    &.correct {
+        &.known-missing-part {
+            &::after {
+                bottom: -8px;
+            }
+        }
+    }
+
     &.new,
     &.correct {
         &.known-incorect,
@@ -79,7 +96,6 @@
                 content: '';
                 position: absolute;
                 left: calc(50% - 4px);
-                bottom: -10px;
                 height: 0;
                 width: 0;
                 border-radius: 6px;

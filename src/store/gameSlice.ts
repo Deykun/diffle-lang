@@ -87,6 +87,11 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
   state.isErrorLoading = false;
   state.lastUpdateTime = 0;
   state.durationMS = 0;
+  state.flatAffixes = {
+    start: '',
+    middle: [],
+    end: '',
+  };
 };
 
 const updatePassedTimeInState = (state: RootGameState) => {
