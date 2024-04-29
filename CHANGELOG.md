@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.20
+#### Version 3.20.1
+- **Fix**: The unnecessary "0" before "ms" in game duration has been removed
+
+#### Version 3.20 (02.04.2024)
 - **New**: Optional display of game duration on the end screen added
 
 #### Version 3.19.1 (01.04.2024)
