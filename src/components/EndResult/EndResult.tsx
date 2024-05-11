@@ -73,6 +73,7 @@ function EndResult() {
   return (
       <>
           <EndResultSummary
+            id="sharable-result"
             status={endStatus}
             wordToGuess={wordToGuess}
             guesses={guesses}

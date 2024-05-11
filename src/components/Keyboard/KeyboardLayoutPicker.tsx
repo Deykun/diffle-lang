@@ -89,7 +89,7 @@ const KeyboardLayoutPicker = ({ isTile = false, shouldHideIfDisabled = false }: 
                 isText
                 hasBorder={false}
               >
-                  <IconKeyboard />
+                  <IconKeyboardAlt />
               </Button>
           )}
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>

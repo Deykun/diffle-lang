@@ -13,6 +13,7 @@ import Word from '@components/Words/Word';
 import './EndResult.scss';
 
 interface Props {
+  id?: string,
   status: GameStatus,
   wordToGuess: string,
   guesses: WordInterface[],
@@ -27,6 +28,7 @@ interface Props {
 }
 
 function EndResultSummary({
+  id,
   status,
   wordToGuess,
   guesses,
@@ -55,7 +57,7 @@ function EndResultSummary({
   }
 
   return (
-      <div className={clsx('end-result', status)}>
+      <div id={id} className={clsx('end-result', status)}>
           <h3 className="title">
               {status === GameStatus.Lost && (
               <>
