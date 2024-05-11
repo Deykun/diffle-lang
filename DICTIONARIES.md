@@ -56,6 +56,15 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 #### A great source of information for Spanish dictionaries:
 https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-i-came-across
 
+### Italian 🇮🇹
+- https://www.libreitalia.org/ via https://git.libreoffice.org/dictionaries/+/refs/heads/master/it_IT 📔 (1.23 MB)
+- https://freedict.org 🎯
+- https://github.com/hermitdave/FrequencyWords/
+
+
+- https://github.com/kochd/word-lists/blob/main/italian.list (13 MB)
+- https://github.com/maehr/ocr-dictionaries-for-federal-sources/blob/master/dictionaries/it_full.txt (9.23 MB)
+
 ### French 🇫🇷
 - http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (~450k words - 19.1 MB)
 - https://freedict.org 🎯
@@ -71,6 +80,3 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 
 #### Not yet added to game
 
-### Italian
-- https://github.com/kochd/word-lists/blob/main/italian.list (13 MB)
-- https://github.com/maehr/ocr-dictionaries-for-federal-sources/blob/master/dictionaries/it_full.txt (9.23 MB)

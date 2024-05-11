@@ -197,6 +197,12 @@
 .button-tile-small {
   height: 100px;
 
+  svg {
+    height: 32px;
+    width: 32px;
+    margin-bottom: 5px;
+  }
+
   span {
     font-size: 12px;
   }

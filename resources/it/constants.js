@@ -12,6 +12,12 @@ export const DICTIONARIES = {
         fullName: 'LibreItalia',
         url: 'https://www.libreitalia.org/',
     },
+    spellcheckerAlt: {
+        dir: 'FrequencyWords',
+        shortName: 'FrequencyWords',
+        fullName: 'FrequencyWords',
+        url: 'https://github.com/hermitdave/FrequencyWords/',
+    },
     winning: {
         dir: 'FreeDict',
         shortName: 'FreeDict',
