@@ -8,7 +8,8 @@ import IconLoader from '@components/Icons/IconLoader';
 import './ButtonTile.scss';
 
 interface Props {
-  tagName?: ('button' | 'a')
+  tagName?: 'button' | 'a',
+  variant?: 'small' | '',
   className?: string,
   children: React.ReactNode,
   onClick?: (e: React.MouseEvent<HTMLElement>) => void,
@@ -26,6 +27,7 @@ interface Props {
 const ButtonTile = ({
   className = '',
   tagName,
+  variant = '',
   children,
   onClick,
   href,
@@ -56,6 +58,7 @@ const ButtonTile = ({
           'button-tile-active': isActive,
           'button-tile-inverse': isInverted,
           [className]: className,
+          [`button-tile-${variant}`]: variant,
         })}
         onClick={handleClick}
         href={href}

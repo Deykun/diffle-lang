@@ -194,6 +194,14 @@
   }
 }
 
+.button-tile-small {
+  height: 100px;
+
+  span {
+    font-size: 12px;
+  }
+}
+
 .button-tile-inverse {
   color: var(--background);
   background-color: var(--text);
@@ -301,5 +309,5 @@
                 filter: drop-shadow(0 0 5px var(--green));
             }
         }
-  }
+    }
 }
