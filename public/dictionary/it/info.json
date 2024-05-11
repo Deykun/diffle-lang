@@ -1,0 +1,885 @@
+{
+	"spellchecker": {
+		"all": 94283,
+		"accepted": {
+			"allUsedInGame": 92317,
+			"all": 93797,
+			"allWordleWords": 2776,
+			"withSpecialCharacters": 2367,
+			"withoutSpecialCharacters": 91430,
+			"length": {
+				"2": 91,
+				"3": 349,
+				"4": 1166,
+				"5": 2776,
+				"6": 5141,
+				"7": 9155,
+				"8": 11653,
+				"9": 14379,
+				"10": 14459,
+				"11": 12305,
+				"12": 9202,
+				"13": 5931,
+				"14": 3669,
+				"15": 2041,
+				"16": 1004,
+				"17": 476
+			}
+		},
+		"rejected": 1966,
+		"letters": {
+			"first": {
+				"s": 11804,
+				"a": 10594,
+				"i": 8601,
+				"c": 8144,
+				"p": 8018,
+				"r": 6671,
+				"m": 5123,
+				"t": 5064,
+				"d": 4337,
+				"b": 4211,
+				"e": 3745,
+				"f": 3259,
+				"g": 3006,
+				"o": 2806,
+				"v": 2433,
+				"l": 2278,
+				"n": 1667,
+				"u": 955,
+				"q": 393,
+				"z": 364,
+				"h": 91,
+				"k": 78,
+				"x": 52,
+				"j": 42,
+				"w": 36,
+				"y": 24,
+				"é": 1
+			},
+			"last": {
+				"o": 40425,
+				"e": 26563,
+				"a": 18787,
+				"i": 3360,
+				"à": 1994,
+				"s": 371,
+				"n": 329,
+				"r": 313,
+				"t": 256,
+				"l": 180,
+				"g": 146,
+				"ò": 134,
+				"m": 125,
+				"u": 94,
+				"d": 92,
+				"y": 71,
+				"é": 61,
+				"ù": 56,
+				"è": 56,
+				"ì": 54,
+				"k": 53,
+				"p": 48,
+				"h": 47,
+				"c": 46,
+				"x": 34,
+				"z": 27,
+				"f": 25,
+				"b": 24,
+				"v": 11,
+				"w": 9,
+				"j": 3,
+				"q": 3
+			},
+			"common": {
+				"a": 110198,
+				"i": 102295,
+				"o": 98539,
+				"e": 83507,
+				"t": 71306,
+				"r": 70777,
+				"n": 61055,
+				"c": 46875,
+				"s": 46222,
+				"l": 40839,
+				"m": 27341,
+				"d": 25139,
+				"p": 23295,
+				"g": 21520,
+				"u": 19855,
+				"b": 14977,
+				"z": 14265,
+				"f": 12684,
+				"v": 11681,
+				"h": 4049,
+				"à": 1995,
+				"q": 1294,
+				"k": 310,
+				"x": 189,
+				"y": 172,
+				"ò": 135,
+				"w": 127,
+				"j": 69,
+				"é": 68,
+				"è": 58,
+				"ì": 56,
+				"ù": 56
+			},
+			"inWordsWordle": {
+				"a": 1503,
+				"o": 1450,
+				"e": 1138,
+				"i": 1053,
+				"r": 912,
+				"n": 659,
+				"l": 658,
+				"s": 641,
+				"t": 626,
+				"c": 527,
+				"m": 437,
+				"u": 436,
+				"d": 365,
+				"p": 360,
+				"g": 322,
+				"b": 308,
+				"v": 240,
+				"f": 226,
+				"z": 137,
+				"h": 78,
+				"k": 42,
+				"à": 36,
+				"y": 30,
+				"ò": 26,
+				"q": 18,
+				"è": 16,
+				"j": 16,
+				"w": 15,
+				"ì": 14,
+				"x": 13,
+				"ù": 10,
+				"é": 9
+			},
+			"wordle": {
+				"0": {
+					"s": 262,
+					"a": 245,
+					"c": 227,
+					"p": 199,
+					"t": 197,
+					"m": 176,
+					"b": 175,
+					"l": 156,
+					"f": 133,
+					"d": 128,
+					"g": 121,
+					"o": 116,
+					"e": 112,
+					"r": 109,
+					"v": 105,
+					"n": 92,
+					"i": 78,
+					"u": 54,
+					"z": 32,
+					"h": 13,
+					"j": 12,
+					"k": 12,
+					"q": 11,
+					"w": 5,
+					"y": 4,
+					"é": 1,
+					"x": 1
+				},
+				"1": {
+					"a": 545,
+					"o": 409,
+					"e": 372,
+					"i": 360,
+					"r": 214,
+					"u": 209,
+					"l": 107,
+					"t": 76,
+					"m": 68,
+					"s": 65,
+					"n": 63,
+					"c": 50,
+					"p": 46,
+					"d": 38,
+					"v": 37,
+					"b": 30,
+					"g": 25,
+					"f": 20,
+					"h": 18,
+					"z": 7,
+					"w": 6,
+					"y": 4,
+					"k": 2,
+					"q": 2,
+					"x": 1,
+					"é": 1,
+					"ì": 1
+				},
+				"2": {
+					"r": 338,
+					"i": 260,
+					"n": 258,
+					"l": 243,
+					"a": 240,
+					"o": 206,
+					"s": 175,
+					"e": 158,
+					"t": 128,
+					"u": 114,
+					"c": 109,
+					"g": 97,
+					"m": 82,
+					"p": 78,
+					"d": 74,
+					"z": 56,
+					"b": 55,
+					"f": 40,
+					"v": 38,
+					"h": 8,
+					"q": 5,
+					"k": 5,
+					"x": 4,
+					"y": 4,
+					"j": 1
+				},
+				"3": {
+					"i": 316,
+					"n": 273,
+					"t": 265,
+					"r": 255,
+					"c": 212,
+					"l": 195,
+					"s": 169,
+					"e": 151,
+					"d": 138,
+					"m": 124,
+					"g": 97,
+					"z": 80,
+					"p": 77,
+					"b": 72,
+					"a": 70,
+					"v": 70,
+					"o": 61,
+					"u": 56,
+					"f": 51,
+					"h": 25,
+					"k": 10,
+					"w": 3,
+					"j": 2,
+					"y": 2,
+					"ì": 1,
+					"x": 1
+				},
+				"4": {
+					"o": 935,
+					"a": 748,
+					"e": 509,
+					"i": 143,
+					"s": 60,
+					"r": 50,
+					"n": 39,
+					"t": 37,
+					"à": 36,
+					"l": 33,
+					"ò": 26,
+					"m": 17,
+					"è": 16,
+					"y": 16,
+					"k": 15,
+					"h": 14,
+					"u": 14,
+					"ì": 12,
+					"ù": 10,
+					"d": 8,
+					"é": 7,
+					"x": 6,
+					"z": 5,
+					"f": 5,
+					"c": 4,
+					"g": 4,
+					"p": 3,
+					"b": 2,
+					"w": 1,
+					"j": 1
+				}
+			},
+			"inWords": {
+				"a": 71634,
+				"i": 67530,
+				"o": 67296,
+				"e": 59510,
+				"r": 54838,
+				"t": 51483,
+				"n": 48096,
+				"s": 36880,
+				"c": 36504,
+				"l": 33619,
+				"m": 23956,
+				"d": 22627,
+				"p": 20389,
+				"u": 18679,
+				"g": 18064,
+				"b": 13338,
+				"f": 11146,
+				"v": 10704,
+				"z": 9650,
+				"h": 4004,
+				"à": 1995,
+				"q": 1275,
+				"k": 292,
+				"x": 186,
+				"y": 169,
+				"ò": 135,
+				"w": 124,
+				"j": 69,
+				"é": 67,
+				"è": 58,
+				"ì": 56,
+				"ù": 56
+			}
+		},
+		"substrings": {
+			"first": {
+				"2": {
+					"in": 4996,
+					"ri": 3613,
+					"co": 3294,
+					"ca": 2426,
+					"di": 2132
+				},
+				"3": {
+					"con": 1399,
+					"dis": 1211,
+					"int": 1119,
+					"inc": 996,
+					"tra": 915
+				},
+				"4": {
+					"inte": 625,
+					"cont": 516,
+					"auto": 469,
+					"anti": 366,
+					"inca": 349
+				}
+			},
+			"middle": {
+				"2": {
+					"at": 16645,
+					"an": 15399,
+					"ar": 12983,
+					"ic": 12502,
+					"on": 11848
+				},
+				"3": {
+					"and": 6383,
+					"ent": 4587,
+					"ion": 3813,
+					"zza": 2944,
+					"ett": 2925
+				},
+				"4": {
+					"zion": 2661,
+					"izza": 2305,
+					"ment": 2296,
+					"azio": 1946,
+					"tric": 1812
+				}
+			},
+			"last": {
+				"2": {
+					"to": 11049,
+					"re": 10172,
+					"do": 7484,
+					"co": 4325,
+					"ne": 4302
+				},
+				"3": {
+					"ndo": 6997,
+					"ato": 6808,
+					"are": 6259,
+					"one": 3505,
+					"ico": 3503
+				},
+				"4": {
+					"ando": 5649,
+					"ione": 2682,
+					"bile": 1794,
+					"tore": 1786,
+					"ento": 1753
+				}
+			}
+		},
+		"wordle": {
+			"inWords": [
+				{
+					"word": "erano",
+					"score": {
+						"inWords": 5662,
+						"letterPosition": 1774,
+						"uniqueLetterPosition": 1774
+					},
+					"result": {
+						"total": 2776,
+						"green": 1774,
+						"orange": 3888,
+						"gray": 8218
+					}
+				},
+				{
+					"word": "orale",
+					"score": {
+						"inWords": 5661,
+						"letterPosition": 1274,
+						"uniqueLetterPosition": 1274
+					},
+					"result": {
+						"total": 2776,
+						"green": 1274,
+						"orange": 4387,
+						"gray": 8219
+					}
+				},
+				{
+					"word": "erosa",
+					"score": {
+						"inWords": 5644,
+						"letterPosition": 1449,
+						"uniqueLetterPosition": 1449
+					},
+					"result": {
+						"total": 2776,
+						"green": 1449,
+						"orange": 4195,
+						"gray": 8236
+					}
+				},
+				{
+					"word": "osare",
+					"score": {
+						"inWords": 5644,
+						"letterPosition": 1185,
+						"uniqueLetterPosition": 1185
+					},
+					"result": {
+						"total": 2776,
+						"green": 1185,
+						"orange": 4459,
+						"gray": 8236
+					}
+				},
+				{
+					"word": "reato",
+					"score": {
+						"inWords": 5629,
+						"letterPosition": 1921,
+						"uniqueLetterPosition": 1921
+					},
+					"result": {
+						"total": 2776,
+						"green": 1921,
+						"orange": 3708,
+						"gray": 8251
+					}
+				},
+				{
+					"word": "noria",
+					"score": {
+						"inWords": 5577,
+						"letterPosition": 1903,
+						"uniqueLetterPosition": 1903
+					},
+					"result": {
+						"total": 2776,
+						"green": 1903,
+						"orange": 3674,
+						"gray": 8303
+					}
+				},
+				{
+					"word": "raion",
+					"score": {
+						"inWords": 5577,
+						"letterPosition": 1014,
+						"uniqueLetterPosition": 1014
+					},
+					"result": {
+						"total": 2776,
+						"green": 1014,
+						"orange": 4563,
+						"gray": 8303
+					}
+				},
+				{
+					"word": "riano",
+					"score": {
+						"inWords": 5577,
+						"letterPosition": 1917,
+						"uniqueLetterPosition": 1917
+					},
+					"result": {
+						"total": 2776,
+						"green": 1917,
+						"orange": 3660,
+						"gray": 8303
+					}
+				},
+				{
+					"word": "lario",
+					"score": {
+						"inWords": 5576,
+						"letterPosition": 2290,
+						"uniqueLetterPosition": 2290
+					},
+					"result": {
+						"total": 2776,
+						"green": 2290,
+						"orange": 3286,
+						"gray": 8304
+					}
+				},
+				{
+					"word": "loira",
+					"score": {
+						"inWords": 5576,
+						"letterPosition": 1828,
+						"uniqueLetterPosition": 1828
+					},
+					"result": {
+						"total": 2776,
+						"green": 1828,
+						"orange": 3748,
+						"gray": 8304
+					}
+				}
+			],
+			"letterPosition": [
+				{
+					"word": "sarno",
+					"score": {
+						"inWords": 5165,
+						"letterPosition": 2353,
+						"uniqueLetterPosition": 2353
+					},
+					"result": {
+						"total": 2776,
+						"green": 2353,
+						"orange": 2812,
+						"gray": 8715
+					}
+				},
+				{
+					"word": "sarto",
+					"score": {
+						"inWords": 5132,
+						"letterPosition": 2345,
+						"uniqueLetterPosition": 2345
+					},
+					"result": {
+						"total": 2776,
+						"green": 2345,
+						"orange": 2787,
+						"gray": 8748
+					}
+				},
+				{
+					"word": "pario",
+					"score": {
+						"inWords": 5278,
+						"letterPosition": 2333,
+						"uniqueLetterPosition": 2333
+					},
+					"result": {
+						"total": 2776,
+						"green": 2333,
+						"orange": 2945,
+						"gray": 8602
+					}
+				},
+				{
+					"word": "mario",
+					"score": {
+						"inWords": 5355,
+						"letterPosition": 2310,
+						"uniqueLetterPosition": 2310
+					},
+					"result": {
+						"total": 2776,
+						"green": 2310,
+						"orange": 3045,
+						"gray": 8525
+					}
+				},
+				{
+					"word": "bario",
+					"score": {
+						"inWords": 5226,
+						"letterPosition": 2309,
+						"uniqueLetterPosition": 2309
+					},
+					"result": {
+						"total": 2776,
+						"green": 2309,
+						"orange": 2917,
+						"gray": 8654
+					}
+				},
+				{
+					"word": "carro",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2300,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 2776,
+						"green": 2300,
+						"orange": 2146,
+						"gray": 9434
+					}
+				},
+				{
+					"word": "lario",
+					"score": {
+						"inWords": 5576,
+						"letterPosition": 2290,
+						"uniqueLetterPosition": 2290
+					},
+					"result": {
+						"total": 2776,
+						"green": 2290,
+						"orange": 3286,
+						"gray": 8304
+					}
+				},
+				{
+					"word": "canio",
+					"score": {
+						"inWords": 5192,
+						"letterPosition": 2281,
+						"uniqueLetterPosition": 2281
+					},
+					"result": {
+						"total": 2776,
+						"green": 2281,
+						"orange": 2911,
+						"gray": 8688
+					}
+				},
+				{
+					"word": "sanno",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2273,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 2776,
+						"green": 2273,
+						"orange": 2041,
+						"gray": 9566
+					}
+				},
+				{
+					"word": "santo",
+					"score": {
+						"inWords": 4879,
+						"letterPosition": 2265,
+						"uniqueLetterPosition": 2265
+					},
+					"result": {
+						"total": 2776,
+						"green": 2265,
+						"orange": 2614,
+						"gray": 9001
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
+					"word": "sarno",
+					"score": {
+						"inWords": 5165,
+						"letterPosition": 2353,
+						"uniqueLetterPosition": 2353
+					},
+					"result": {
+						"total": 2776,
+						"green": 2353,
+						"orange": 2812,
+						"gray": 8715
+					}
+				},
+				{
+					"word": "sarto",
+					"score": {
+						"inWords": 5132,
+						"letterPosition": 2345,
+						"uniqueLetterPosition": 2345
+					},
+					"result": {
+						"total": 2776,
+						"green": 2345,
+						"orange": 2787,
+						"gray": 8748
+					}
+				},
+				{
+					"word": "pario",
+					"score": {
+						"inWords": 5278,
+						"letterPosition": 2333,
+						"uniqueLetterPosition": 2333
+					},
+					"result": {
+						"total": 2776,
+						"green": 2333,
+						"orange": 2945,
+						"gray": 8602
+					}
+				},
+				{
+					"word": "mario",
+					"score": {
+						"inWords": 5355,
+						"letterPosition": 2310,
+						"uniqueLetterPosition": 2310
+					},
+					"result": {
+						"total": 2776,
+						"green": 2310,
+						"orange": 3045,
+						"gray": 8525
+					}
+				},
+				{
+					"word": "bario",
+					"score": {
+						"inWords": 5226,
+						"letterPosition": 2309,
+						"uniqueLetterPosition": 2309
+					},
+					"result": {
+						"total": 2776,
+						"green": 2309,
+						"orange": 2917,
+						"gray": 8654
+					}
+				},
+				{
+					"word": "lario",
+					"score": {
+						"inWords": 5576,
+						"letterPosition": 2290,
+						"uniqueLetterPosition": 2290
+					},
+					"result": {
+						"total": 2776,
+						"green": 2290,
+						"orange": 3286,
+						"gray": 8304
+					}
+				},
+				{
+					"word": "canio",
+					"score": {
+						"inWords": 5192,
+						"letterPosition": 2281,
+						"uniqueLetterPosition": 2281
+					},
+					"result": {
+						"total": 2776,
+						"green": 2281,
+						"orange": 2911,
+						"gray": 8688
+					}
+				},
+				{
+					"word": "santo",
+					"score": {
+						"inWords": 4879,
+						"letterPosition": 2265,
+						"uniqueLetterPosition": 2265
+					},
+					"result": {
+						"total": 2776,
+						"green": 2265,
+						"orange": 2614,
+						"gray": 9001
+					}
+				},
+				{
+					"word": "dario",
+					"score": {
+						"inWords": 5283,
+						"letterPosition": 2262,
+						"uniqueLetterPosition": 2262
+					},
+					"result": {
+						"total": 2776,
+						"green": 2262,
+						"orange": 3021,
+						"gray": 8597
+					}
+				},
+				{
+					"word": "caino",
+					"score": {
+						"inWords": 5192,
+						"letterPosition": 2240,
+						"uniqueLetterPosition": 2240
+					},
+					"result": {
+						"total": 2776,
+						"green": 2240,
+						"orange": 2952,
+						"gray": 8688
+					}
+				}
+			]
+		}
+	},
+	"winning": {
+		"all": 15938,
+		"accepted": {
+			"all": 8000,
+			"withSpecialCharacters": 194,
+			"withoutSpecialCharacters": 7806,
+			"length": {
+				"4": 294,
+				"5": 747,
+				"6": 1192,
+				"7": 1793,
+				"8": 1964,
+				"9": 2010
+			}
+		},
+		"rejected": {
+			"all": 7938,
+			"tooLong": 5632,
+			"tooShort": 121,
+			"censored": 0,
+			"romanNumeral": 0,
+			"wrongLetters": 0,
+			"missingInSpellingDictionary": 2185
+		},
+		"lettersNotAcceptedInWinningWord": []
+	},
+	"meta": {
+		"nativeSpeakersFromWikipedia": 68000000,
+		"spellchecker": {
+			"dir": "LibreItalia",
+			"shortName": "LibreItalia",
+			"fullName": "LibreItalia",
+			"url": "https://www.libreitalia.org/"
+		},
+		"winning": {
+			"dir": "FreeDict",
+			"shortName": "FreeDict",
+			"fullName": "FreeDict",
+			"url": "https://freedict.org/"
+		}
+	}
+}

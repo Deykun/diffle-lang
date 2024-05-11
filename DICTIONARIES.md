@@ -73,3 +73,4 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 
 ### Italian
 - https://github.com/kochd/word-lists/blob/main/italian.list (13 MB)
+- https://github.com/maehr/ocr-dictionaries-for-federal-sources/blob/master/dictionaries/it_full.txt (9.23 MB)

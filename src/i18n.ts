@@ -7,6 +7,7 @@ import localeDe from './locales/de.json';
 import localeEn from './locales/en.json';
 import localeEs from './locales/es.json';
 import localeFr from './locales/fr.json';
+import localeIt from './locales/it.json';
 import localePl from './locales/pl.json';
 
 // TODO: manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
@@ -25,6 +26,9 @@ const resources = {
   },
   fr: {
     translation: localeFr,
+  },
+  it: {
+    translation: localeIt,
   },
   pl: {
     translation: localePl,

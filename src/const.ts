@@ -103,6 +103,16 @@ const KEY_LINES_FR_VARIANTS = [{
   ],
 }];
 
+const KEY_LINES_IT_VARIANTS = [{
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['à', 'è', 'é', 'ì', 'í', 'î', 'ò', 'ó', 'ù', 'ú'],
+  ],
+}];
+
 const KEY_LINES_PL_VARIANTS = [{
   name: 'QWERTY',
   keyLines: [
@@ -201,6 +211,21 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
       { url: 'https://www.cnrtl.fr/definition/{{word}}', name: 'CNRTL', hasExactMatchAlways: false },
     ],
     shareMarker: '🇫🇷 #diffle #difflefr',
+  },
+  it: {
+    code: 'it',
+    languages: ['it', 'it-IT'],
+    title: 'DIFFLE - gioco simile a Wordle (in polacco, senza limite di caratteri) 🇮🇹',
+    keyLinesVariants: KEY_LINES_IT_VARIANTS,
+    keyLinesToUse: KEY_LINES_IT_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_IT_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_IT_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    specialCharacters: ['à', 'è', 'é', 'ì', 'í', 'î', 'ò', 'ó', 'ù', 'ú'],
+    hasSpecialCharacters: true,
+    urls: [
+      { url: 'https://www.dizionario-italiano.it/dizionario-italiano.php?parola={{word}}', name: 'Dizionario Italiano', hasExactMatchAlways: true },
+    ],
+    shareMarker: '🇮🇹 #diffle #diffleit',
   },
   pl: {
     code: 'pl',

@@ -52,6 +52,14 @@ export const DICTIONARIES_BY_LANG: {
     href: 'http://www.lexique.org/',
     labelHTML: '<strong>Lexique.org</strong>',
   }],
+  it: [{
+    isSpeelchecker: true,
+    href: 'https://sjp.pl',
+    labelHTML: '<strong>sjp.pl</strong>',
+  }, {
+    href: 'https://freedict.org/',
+    labelHTML: '<strong>freedict.org</strong>',
+  }],
   pl: [{
     isSpeelchecker: true,
     href: 'https://sjp.pl',

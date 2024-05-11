@@ -250,7 +250,7 @@ export type EasterDays = {
 };
 
 export interface RootGameState {
-  language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'pl' | undefined,
+  language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'it' | 'pl' | undefined,
   mode: GameMode,
   today: string,
   wordToGuess: string,
