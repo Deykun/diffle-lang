@@ -12,8 +12,9 @@
 ---
 
 #### Version 3.22
-- **New**: typescript added in node
+- **New**: TypeScript added in node, shared files between node and app
 - **Fix**: Swear words have been removed from Italian winning words
+- **New**: All langs are using FrequencyWords as part of building winning dictionary
 
 #### Version 3.21 (12.05.2024)
 - **New**: Italian game language added
