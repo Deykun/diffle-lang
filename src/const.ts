@@ -147,7 +147,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   de: {
     code: 'de',
     languages: ['de', 'de-DE'],
-    isBeta: true,
     title: 'DIFFLE - das Spiel wie Wordle (auf Deutsch, ohne Zeichenbegrenzung) 🇩🇪',
     keyLinesVariants: KEY_LINES_DE_VARIANTS,
     keyLinesToUse: KEY_LINES_DE_VARIANTS[0].keyLines,
@@ -199,7 +198,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   fr: {
     code: 'fr',
     languages: ['fr'],
-    isBeta: true,
     title: 'DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷',
     keyLinesVariants: KEY_LINES_FR_VARIANTS,
     keyLinesToUse: KEY_LINES_FR_VARIANTS[0].keyLines,

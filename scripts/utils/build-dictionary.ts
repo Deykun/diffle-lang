@@ -3,6 +3,7 @@ import * as fsExtra from "fs-extra";
 import chalk from 'chalk';
 
 import { removeDiacratics, getNormalizedKey } from '../../src/api/helpers';
+import { formatLargeNumber } from '../../src/utils/format';
 
 import {
     INITAL_DICTIONARY_STATISTICS,
@@ -69,19 +70,19 @@ export const getWordSubstrings = (word: string) => {
 
 export const consoleStatistics = (statistics) => {
     console.log(`Spellchecker:`);
-    console.log(` - accepted words: ${chalk.green(statistics.spellchecker.accepted.all)}`);
-    console.log(`   - without special characters: ${chalk.green(statistics.spellchecker.accepted.withSpecialCharacters)}`);
-    console.log(`   - with special characters: ${chalk.green(statistics.spellchecker.accepted.withoutSpecialCharacters)}`);
-    console.log(`   - used in game: ${chalk.green(statistics.spellchecker.accepted.allUsedInGame)}`);
+    console.log(` - accepted words: ${chalk.green(formatLargeNumber(statistics.spellchecker.accepted.all))}`);
+    console.log(`   - without special characters: ${chalk.green(formatLargeNumber(statistics.spellchecker.accepted.withSpecialCharacters))}`);
+    console.log(`   - with special characters: ${chalk.green(formatLargeNumber(statistics.spellchecker.accepted.withoutSpecialCharacters))}`);
+    console.log(`   - used in game: ${chalk.green(formatLargeNumber(statistics.spellchecker.accepted.allUsedInGame))}`);
     console.log(' ');
     console.log(`Winning:`);
-    console.log(` - accepted words: ${chalk.green(statistics.winning.accepted.all)}`);
-    console.log(`   - without special characters: ${chalk.green(statistics.winning.accepted.withSpecialCharacters)}`);
-    console.log(`   - with special characters: ${chalk.green(statistics.winning.accepted.withoutSpecialCharacters)}`);
-    console.log(` - rejected words: ${chalk.red(statistics.winning.rejected.all)}`);
-    console.log(`   - too long: ${chalk.red(statistics.winning.rejected.tooLong)}`);
-    console.log(`   - too short: ${chalk.red(statistics.winning.rejected.tooShort)}`);
-    console.log(`   - probably a swear word: ${chalk.red(statistics.winning.rejected.censored)}`);
+    console.log(` - accepted words: ${chalk.green(formatLargeNumber(statistics.winning.accepted.all))}`);
+    console.log(`   - without special characters: ${chalk.green(formatLargeNumber(statistics.winning.accepted.withSpecialCharacters))}`);
+    console.log(`   - with special characters: ${chalk.green(formatLargeNumber(statistics.winning.accepted.withoutSpecialCharacters))}`);
+    console.log(` - rejected words: ${chalk.red(formatLargeNumber(statistics.winning.rejected.all))}`);
+    console.log(`   - too long: ${chalk.red(formatLargeNumber(statistics.winning.rejected.tooLong))}`);
+    console.log(`   - too short: ${chalk.red(formatLargeNumber(statistics.winning.rejected.tooShort))}`);
+    console.log(`   - probably a swear word: ${chalk.red(formatLargeNumber(statistics.winning.rejected.censored))}`);
 
     if (statistics.winning.lettersNotAcceptedInWinningWord.length > 0) {
         console.log(`   - not accepted letters (${statistics.winning.lettersNotAcceptedInWinningWord.join(',')}): ${chalk.red(statistics.winning.rejected.wrongLetters)} `);
@@ -315,7 +316,15 @@ export const actionBuildDictionary = (
     statistics.winning.all = winningWords.length;
 
     console.log(' ');
-    console.log(`Building a new dictionary for ${chalk.yellow(LANG.toUpperCase())}.`);
+    console.log(`Building a new diffle dictionary for ${chalk.yellow(LANG.toUpperCase())}`);
+
+    console.log(` - ${chalk.green(formatLargeNumber(spellcheckerWords.length))} spellchecker words`);
+    console.log(` - ${chalk.green(formatLargeNumber(winningWords.length))} winning words`);
+
+    if (winningWords.length < 5000) {
+        console.log('');
+        console.log(chalk.red('Number of words is very low!!'));
+    }
 
     console.log(' ');
     console.log(chalk.red('Removing dictionaries to genereted the new ones...'));

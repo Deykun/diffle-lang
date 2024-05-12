@@ -6,7 +6,7 @@ import  {
 
 import {
     getWordsFromDictionary,
-} from './utils/parse-dictionary.js'
+} from './utils/parse-dictionary'
 
 import {
     BLOCKED_WORDS,
@@ -21,6 +21,7 @@ const LANG = 'es';
 const spellcheckerDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
 const spellcheckerDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellcheckerAlt.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/dictionary.txt`, 'utf-8');
+const winningDictionaryAlt = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt.dir}/dictionary.txt`, 'utf-8');
 
 const spellcheckerWords1st = getWordsFromDictionary(spellcheckerDictionary1st, { pattern: 'word ignore', lang: LANG });
 const spellcheckerWords2nd = getWordsFromDictionary(spellcheckerDictionary2nd, { pattern: 'word ignore', lang: LANG });
@@ -28,7 +29,14 @@ const spellcheckerWords2nd = getWordsFromDictionary(spellcheckerDictionary2nd, {
 // It's not ideal because accents are excluded in different ways, so there are words with removed accents in this dataset
 const spellcheckerWords = [...new Set([...spellcheckerWords1st, ...spellcheckerWords2nd])];
 
-const winningWords = getWordsFromDictionary(winningDictionary, { pattern: 'word ignore', lang: LANG });
+const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
+    getWordsFromDictionary(winningDictionary, { pattern: 'word ignore', lang: LANG }),
+    getWordsFromDictionary(winningDictionaryAlt, { pattern: 'word ignore', lang: LANG }),
+].sort((a, b) => b.length - a.length);
+
+const winningWords = longestWinningWords.filter(
+    (word) => winningWordsDictionariesToCheck.every((wordlist) => wordlist.includes(word)),
+);
 
 actionBuildDictionary(
     {

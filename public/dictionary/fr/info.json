@@ -931,28 +931,28 @@
 		}
 	},
 	"winning": {
-		"all": 14172,
+		"all": 9636,
 		"accepted": {
-			"all": 10108,
-			"withSpecialCharacters": 2514,
-			"withoutSpecialCharacters": 7594,
+			"all": 7397,
+			"withSpecialCharacters": 1743,
+			"withoutSpecialCharacters": 5654,
 			"length": {
-				"4": 631,
-				"5": 1388,
-				"6": 1885,
-				"7": 2206,
-				"8": 2148,
-				"9": 1850
+				"4": 571,
+				"5": 1148,
+				"6": 1437,
+				"7": 1562,
+				"8": 1477,
+				"9": 1202
 			}
 		},
 		"rejected": {
-			"all": 4064,
-			"tooLong": 3761,
-			"tooShort": 262,
+			"all": 2239,
+			"tooLong": 1984,
+			"tooShort": 245,
 			"censored": 0,
 			"romanNumeral": 0,
-			"wrongLetters": 1,
-			"missingInSpellingDictionary": 40
+			"wrongLetters": 0,
+			"missingInSpellingDictionary": 10
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"ù",
@@ -986,6 +986,12 @@
 				"3.83"
 			],
 			"url": "http://www.lexique.org/"
+		},
+		"winningAlt2": {
+			"dir": "FrequencyWords",
+			"shortName": "FrequencyWords",
+			"fullName": "FrequencyWords",
+			"url": "https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/fr/fr_50k.txt"
 		}
 	}
 }

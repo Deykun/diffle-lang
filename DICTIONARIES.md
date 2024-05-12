@@ -39,6 +39,8 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 - https://freedict.org 🎯
 
 - https://github.com/kochd/word-lists/blob/main/english.list (6.19 MB)
+- https://github.com/jeremy-rifkin/Wordlist
+- https://github.com/david47k/top-english-wordlists
 
 ### Spanish 🇪🇸
 - https://github.com/lorenbrichter/Words/blob/master/Words/es.txt 📔 (6.73 MB)

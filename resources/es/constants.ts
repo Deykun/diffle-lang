@@ -24,6 +24,12 @@ export const DICTIONARIES = {
         fullName: 'FreeDict',
         url: 'https://freedict.org/',
     },
+    winningAlt: {
+        dir: 'FrequencyWords',
+        shortName: 'FrequencyWords',
+        fullName: 'FrequencyWords',
+        url: 'https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/es/es_50k.txt',
+    },
 };
 
 export const EASTER_EGG_DAYS = { };

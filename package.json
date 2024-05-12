@@ -20,7 +20,7 @@
     "post-build": "node scripts/post-build.mjs",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "about ? build-[lang]": "Calling build-[lang] only-wordle will find best wordle matches - it's very time consuming action (n^n)",
-    "build-cs": "node scripts/build-cs-dictionary.ts",
+    "build-cs": "tsx scripts/build-cs-dictionary.ts",
     "build-de": "tsx scripts/build-de-dictionary.ts",
     "build-en": "tsx scripts/build-en-dictionary.ts",
     "build-es": "tsx scripts/build-es-dictionary.ts",

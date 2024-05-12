@@ -18,6 +18,12 @@ export const DICTIONARIES = {
         fullName: 'slovniky.webz.cz',
         url: 'http://home.zcu.cz/~konopik/ppc/',
     },
+    winningAlt: {
+        dir: 'FrequencyWords',
+        shortName: 'FrequencyWords',
+        fullName: 'FrequencyWords',
+        url: 'https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/cs/cs_50k.txt',
+    },
 };
 
 export const EASTER_EGG_DAYS = {

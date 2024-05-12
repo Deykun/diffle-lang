@@ -879,28 +879,28 @@
 		}
 	},
 	"winning": {
-		"all": 32320,
+		"all": 8595,
 		"accepted": {
-			"all": 18072,
-			"withSpecialCharacters": 5913,
-			"withoutSpecialCharacters": 12159,
+			"all": 6293,
+			"withSpecialCharacters": 2440,
+			"withoutSpecialCharacters": 3853,
 			"length": {
-				"4": 1211,
-				"5": 2421,
-				"6": 3304,
-				"7": 3580,
-				"8": 3981,
-				"9": 3575
+				"4": 684,
+				"5": 1163,
+				"6": 1313,
+				"7": 1212,
+				"8": 1077,
+				"9": 844
 			}
 		},
 		"rejected": {
-			"all": 14248,
-			"tooLong": 10197,
-			"tooShort": 786,
-			"censored": 14,
+			"all": 2302,
+			"tooLong": 1495,
+			"tooShort": 456,
+			"censored": 9,
 			"romanNumeral": 0,
-			"wrongLetters": 10,
-			"missingInSpellingDictionary": 3241
+			"wrongLetters": 4,
+			"missingInSpellingDictionary": 338
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"q",
@@ -921,6 +921,12 @@
 			"shortName": "FreeDict",
 			"fullName": "FreeDict",
 			"url": "https://freedict.org/"
+		},
+		"winningAlt": {
+			"dir": "FrequencyWords",
+			"shortName": "FrequencyWords",
+			"fullName": "FrequencyWords",
+			"url": "https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/pl/pl_50k.txt"
 		}
 	}
 }

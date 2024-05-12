@@ -947,28 +947,28 @@
 		}
 	},
 	"winning": {
-		"all": 15965,
+		"all": 6728,
 		"accepted": {
-			"all": 12974,
-			"withSpecialCharacters": 7968,
-			"withoutSpecialCharacters": 5006,
+			"all": 5767,
+			"withSpecialCharacters": 3527,
+			"withoutSpecialCharacters": 2240,
 			"length": {
-				"4": 1132,
-				"5": 2352,
-				"6": 2701,
-				"7": 2828,
-				"8": 2374,
-				"9": 1587
+				"4": 603,
+				"5": 1195,
+				"6": 1229,
+				"7": 1247,
+				"8": 920,
+				"9": 573
 			}
 		},
 		"rejected": {
-			"all": 2991,
-			"tooLong": 2014,
-			"tooShort": 570,
+			"all": 961,
+			"tooLong": 599,
+			"tooShort": 299,
 			"censored": 1,
 			"romanNumeral": 0,
-			"wrongLetters": 71,
-			"missingInSpellingDictionary": 335
+			"wrongLetters": 38,
+			"missingInSpellingDictionary": 24
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"q",
@@ -988,6 +988,12 @@
 			"shortName": "slovniky.webz.cz",
 			"fullName": "slovniky.webz.cz",
 			"url": "http://home.zcu.cz/~konopik/ppc/"
+		},
+		"winningAlt": {
+			"dir": "FrequencyWords",
+			"shortName": "FrequencyWords",
+			"fullName": "FrequencyWords",
+			"url": "https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/cs/cs_50k.txt"
 		}
 	}
 }
