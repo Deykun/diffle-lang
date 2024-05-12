@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { UPDATE_BLOCK_DAILY } from '@const';
+import { isTestEnv, UPDATE_BLOCK_DAILY } from '@const';
 
 import { useSelector } from '@store';
 
@@ -27,7 +27,7 @@ const Game = () => {
     return (<IconLoader className="game-loader" />);
   }
 
-  const isUpdateScreenActive = todayStamp === UPDATE_BLOCK_DAILY;
+  const isUpdateScreenActive = todayStamp === UPDATE_BLOCK_DAILY && !isTestEnv;
 
   // To allow: sessionStorage.setItem('allowDate', '01.01.2000');
   const isUpdateScreenActiveButBypassed = isUpdateScreenActive && sessionStorage.getItem('allowDate') === UPDATE_BLOCK_DAILY;
