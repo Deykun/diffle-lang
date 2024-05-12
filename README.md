@@ -7,10 +7,10 @@ A Wordle-like game without a character limit, where every used word gives hints 
 The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
-|       	|     🇨🇿     	|      🇬🇧     	|     🇫🇷     	|     🇵🇱     	|      🇪🇸     	|     🇩🇪     	|
-|:-----:	|:----------:	|:-----------:	|:----------:	|:----------:	|:-----------:	|:----------:	|
-|       	|  **Czech** 	| **English** 	| **French** 	| **Polish** 	| **Spanish** 	| **German** 	|
-| Since 	| 02.02.2024 	|  19.01.2024 	| 03.03.2024 	| 30.07.2023 	|  21.02.2024 	| 19.02.2024 	|
+|       	|     🇨🇿     	|      🇬🇧     	|     🇫🇷     	|      🇮🇹     	|     🇵🇱     	|      🇪🇸     	|     🇩🇪     	|
+|:-----:	|:----------:	|:-----------:	|:----------:	|:-----------:	|:----------:	|:-----------:	|:----------:	|
+|       	|  **Czech** 	| **English** 	| **French** 	| **Italian** 	| **Polish** 	| **Spanish** 	| **German** 	|
+| Since 	| 02.02.2024 	|  19.01.2024 	| 02.03.2024 	|  12.05.2024 	| 30.07.2023 	|  21.02.2024 	| 19.02.2024 	|
 
 <!---
    https://www.tablesgenerator.com/markdown_tables
@@ -41,6 +41,7 @@ This app has a dedicated subpage with a meta-analysis of the dictionary, includi
 - https://deykun.github.io/diffle-lang/de?p=about-language 🇩🇪 
 - https://deykun.github.io/diffle-lang/en?p=about-language 🇬🇧
 - https://deykun.github.io/diffle-lang/fr?p=about-language 🇫🇷
+- https://deykun.github.io/diffle-lang/it?p=about-language 🇮🇹
 - https://deykun.github.io/diffle-lang/pl?p=about-language 🇵🇱
 - https://deykun.github.io/diffle-lang/es?p=about-language 🇪🇸
 

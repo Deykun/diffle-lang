@@ -59,8 +59,7 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 ### Italian 🇮🇹
 - https://www.libreitalia.org/ via https://git.libreoffice.org/dictionaries/+/refs/heads/master/it_IT 📔 (1.23 MB)
 - https://freedict.org 🎯
-- https://github.com/hermitdave/FrequencyWords/
-
+- https://github.com/hermitdave/FrequencyWords/ 📔
 
 - https://github.com/kochd/word-lists/blob/main/italian.list (13 MB)
 - https://github.com/maehr/ocr-dictionaries-for-federal-sources/blob/master/dictionaries/it_full.txt (9.23 MB)
