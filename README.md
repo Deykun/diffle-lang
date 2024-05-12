@@ -40,10 +40,10 @@ This app has a dedicated subpage with a meta-analysis of the dictionary, includi
 - https://deykun.github.io/diffle-lang/cs?p=about-language 🇨🇿 
 - https://deykun.github.io/diffle-lang/de?p=about-language 🇩🇪 
 - https://deykun.github.io/diffle-lang/en?p=about-language 🇬🇧
+- https://deykun.github.io/diffle-lang/es?p=about-language 🇪🇸
 - https://deykun.github.io/diffle-lang/fr?p=about-language 🇫🇷
 - https://deykun.github.io/diffle-lang/it?p=about-language 🇮🇹
 - https://deykun.github.io/diffle-lang/pl?p=about-language 🇵🇱
-- https://deykun.github.io/diffle-lang/es?p=about-language 🇪🇸
 
 ### A reactive keyboard
 I challenge you to find a better keyboard in any Wordle game. This keyboard reacts and provides hints while typing, with optional vibrations (which are longer when an incorrect letter is typed).
