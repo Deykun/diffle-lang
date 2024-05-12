@@ -224,8 +224,8 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     specialCharacters: ['à', 'è', 'é', 'ì', 'í', 'î', 'ò', 'ó', 'ù', 'ú'],
     hasSpecialCharacters: true,
     urls: [
-      { url: 'https://sapere.virgilio.it/parole/vocabolario/{{word}}', name: 'Virgilio Sapere', hasExactMatchAlways: false },
       { url: 'https://www.dizionario-italiano.it/dizionario-italiano.php?parola={{word}}', name: 'Dizionario Italiano', hasExactMatchAlways: false },
+      { url: 'https://sapere.virgilio.it/parole/vocabolario/{{word}}', name: 'Virgilio Sapere', hasExactMatchAlways: false },
     ],
     shareMarker: '🇮🇹 #diffle #diffleit',
   },
