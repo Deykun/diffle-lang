@@ -144,6 +144,7 @@
     "settings.sourceDictionaryWiningWords": "as winning words finder",
     "settings.lastDailyWordsTitle": "Yesterday's word",
     "settings.lastDailyWordsYesterday": "The yesterday's word was \"{{word}}\".",
+    "settings.lastDailyWordsCanBeWrongBecauseOfUpdate": "Yesterday's winning word could be wrong because a bigger update was released.",
     "settings.confirmInSeconds_zero": "Click in {{count}} seconds to confirm",
     "settings.confirmInSeconds_one": "Cilck in one second to confirm",
     "settings.confirmInSeconds_few": "Click in {{count}} seconds to confirm",
