@@ -2,7 +2,7 @@ import fs from 'fs';
 
 import  {
     actionBuildDictionary,
-} from './utils/build-dictionary.js';
+} from './utils/build-dictionary';
 
 import {
     getWordsFromDictionary,
@@ -14,7 +14,7 @@ import {
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
     DICTIONARIES,
     EASTER_EGG_DAYS,
-} from '../resources/fr/constants.js';
+} from '../resources/fr/constants';
 
 const LANG = 'fr';
 

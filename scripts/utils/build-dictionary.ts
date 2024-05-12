@@ -2,63 +2,21 @@ import fs, { stat } from 'fs';
 import * as fsExtra from "fs-extra";
 import chalk from 'chalk';
 
+import { removeDiacratics, getNormalizedKey } from '../../src/api/helpers';
+
 import {
     INITAL_DICTIONARY_STATISTICS,
     MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
     MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
     MINIMUM_LENGTH_FOR_A_WINNING_WORD,
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
-} from '../constants.js';
+} from '../constants';
 
-import {
-    removeDiacratics,
-} from './parse-dictionary.js'
+export const getIsRomanNumeral = (word: string) => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
 
-export const getIsRomanNumeral = word => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
+export const getIsWordWithSpecialCharacters = (word: string) => removeDiacratics(word) !== word;
 
-export const getIsWordWithSpecialCharacters = (word) => removeDiacratics(word) !== word;
-
-export const getNormalizedKey = (wordRaw, language) => {
-    const word = removeDiacratics(wordRaw);
-
-    if (word.length === 2) {
-        return '2ch';
-    }
-
-    if (word.length < 3) {
-        return '';
-    }
-
-    if (word.length === 3) {
-        return '3ch';
-    }
-
-    if (language === 'pl') {
-        /* 
-            "Nie" means no/not and in Polish you connect those for a lot of words ex:
-            nieżyje - not alive, nieładny - not pretty etc.
-
-            "Nie" is the beginning of 18.93% of words.
-            
-            So it gets its own subkey.
-        */
-        if (word.startsWith('nie')) {
-            if (word.length === 4) {
-                return `nie1ch`;
-            }
-
-            if (word.length === 5) {
-                return `nie2ch`;
-            }
-
-            return word.slice(0, 6);
-        }
-    }
-
-    return word.slice(0, 3);
-};
-
-const getAllPossibleSubstring = (word, substrLength) => word.split('').reduce((stack, _, index) => {
+const getAllPossibleSubstring = (word: string, substrLength: number) => word.split('').reduce((stack: string[], _, index) => {
     const sub = word.substr(index, substrLength);
     if (sub.length === substrLength) {
         stack.push(sub);
@@ -67,7 +25,7 @@ const getAllPossibleSubstring = (word, substrLength) => word.split('').reduce((s
     return stack;
 }, []);
 
-export const getWordSubstrings = (word) => {
+export const getWordSubstrings = (word: string) => {
     return [2, 3, 4].reduce((stack, chunkLength) => {
         const firstChunk = word.substr(0, chunkLength);
         if (firstChunk.length === chunkLength) {
@@ -204,12 +162,24 @@ const getMassWordleMassResult = (wordToCheck, words, canShowUpdate = true) => {
         if (shouldUpdate) {
             const progressPercent = (index / words.length) * 100;
 
-            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Validating Wordle best results - Word "${chalk.cyan(wordToCheck)}" agains "${chalk.cyan(wordToGuess)}"`);
+            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, '0'))}% - Validating Wordle best results - Word "${chalk.cyan(wordToCheck)}" agains "${chalk.cyan(wordToGuess)}"`);
         }
 
         return stack;
     }, { total: 0, green: 0, orange: 0, gray: 0 });
 };
+
+type actionBuildDictionaryParams = {
+    LANG: string,
+    BLOCKED_WORDS: string[],
+    BLOCKED_PARTS: string[],
+    LETTERS_NOT_ALLOWED_IN_WINNING_WORD: string[],
+    DICTIONARIES: any,
+    MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD?: number,
+    MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD?: number,
+    MAXIMUM_LENGTH_OF_WINNING_WORD?: number,
+    EASTER_EGG_DAYS: any,
+}
 
 export const actionBuildDictionary = (
     {
@@ -223,8 +193,8 @@ export const actionBuildDictionary = (
         MAXIMUM_LENGTH_OF_WINNING_WORD = MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
         EASTER_EGG_DAYS: EASTER_EGG_DAYS_FOR_LANG = {},
     },
-    spellcheckerWords,
-    winningWords,
+    spellcheckerWords: string[],
+    winningWords: string[],
 ) => {
     const easterEggDays = {
         '01.01': {
@@ -306,7 +276,7 @@ export const actionBuildDictionary = (
 
                 const timeStatus = timeDiffrenceInSeconds === 0 ? '' : `- ${timeDiffrenceInSeconds}s passed and ${timeLeftMinutes}m ${timeLeftSecondsToShow}s to finish.`;
     
-                console.log(`- ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Validating word "${chalk.cyan(word)}" ${timeStatus}`);
+                console.log(`- ${chalk.green(progressPercent.toFixed(1).padStart(4, '0'))}% - Validating word "${chalk.cyan(word)}" ${timeStatus}`);
             }
             
             return  {
@@ -338,7 +308,7 @@ export const actionBuildDictionary = (
     }
 
     // Used to finde the best wordle word
-    const wordleWords = [];
+    const wordleWords: string[] = [];
 
     statistics.winning.lettersNotAcceptedInWinningWord = LETTERS_NOT_ALLOWED_IN_WINNING_WORD;
     statistics.spellchecker.all = spellcheckerWords.length;

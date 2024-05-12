@@ -874,23 +874,23 @@
 	"winning": {
 		"all": 15938,
 		"accepted": {
-			"all": 9572,
+			"all": 9563,
 			"withSpecialCharacters": 199,
-			"withoutSpecialCharacters": 9373,
+			"withoutSpecialCharacters": 9364,
 			"length": {
-				"4": 422,
-				"5": 1036,
-				"6": 1477,
-				"7": 2174,
-				"8": 2255,
+				"4": 421,
+				"5": 1034,
+				"6": 1476,
+				"7": 2170,
+				"8": 2254,
 				"9": 2208
 			}
 		},
 		"rejected": {
-			"all": 6366,
+			"all": 6375,
 			"tooLong": 5632,
 			"tooShort": 121,
-			"censored": 0,
+			"censored": 9,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
 			"missingInSpellingDictionary": 613

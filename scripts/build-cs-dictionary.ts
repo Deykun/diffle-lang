@@ -2,11 +2,11 @@ import fs from 'fs';
 
 import  {
     actionBuildDictionary,
-} from './utils/build-dictionary.js';
+} from './utils/build-dictionary';
 
 import {
     getWordsFromDictionary,
-} from './utils/parse-dictionary.js'
+} from './utils/parse-dictionary'
 
 import {
     BLOCKED_WORDS,
@@ -14,7 +14,7 @@ import {
     DICTIONARIES,
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
     EASTER_EGG_DAYS,
-} from '../resources/cs/constants.js';
+} from '../resources/cs/constants';
 
 const LANG = 'cs';
 
