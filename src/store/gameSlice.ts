@@ -11,11 +11,13 @@ import {
   GIVE_UP_ERRORS,
   WORD_MAXLENGTH,
   WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS,
+  UPDATE_BLOCK_DAILY,
 } from '@const';
 
 import {
   getNow,
   getTimeUpdateFromTimeStamp,
+  getYesterdaysStamp,
 } from '@utils/date';
 import {
   getLocalStorageKeyForGame,
@@ -408,6 +410,12 @@ export const saveEndedGame = createAsyncThunk(
     const gameMode = state.game.mode;
     const isModeWithoutStatistics = gameMode === GameMode.SandboxLive;
     if (isModeWithoutStatistics) {
+      return rejectWithValue(false);
+    }
+
+    // We don't break streak for people that couldn't finish because of service mode screen
+    const wasGameBlockedByUpdate = gameMode === GameMode.Daily && [getNow().stamp, getYesterdaysStamp()].includes(UPDATE_BLOCK_DAILY);
+    if (wasGameBlockedByUpdate) {
       return rejectWithValue(false);
     }
 

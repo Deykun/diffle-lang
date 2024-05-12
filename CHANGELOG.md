@@ -11,6 +11,10 @@
 
 ---
 
+#### Version 3.22.1
+- **Fix**: Better hint for the out of date yesterday's word
+- **Fix**: Don't break streak for players affected by service mode screen
+
 #### Version 3.22
 - **New**: TypeScript added in node, shared files between node and app
 - **Fix**: Swear words have been removed from Italian winning words
