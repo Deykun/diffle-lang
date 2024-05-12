@@ -11,7 +11,11 @@
 
 ---
 
-#### Version 3.21
+#### Version 3.22
+- **New**: typescript added in node
+- **Fix**: Swear words have been removed from Italian winning words
+
+#### Version 3.21 (12.05.2024)
 - **New**: Italian game language added
 - **New**: Czech dictionary updated
 
