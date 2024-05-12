@@ -879,7 +879,7 @@
 		}
 	},
 	"winning": {
-		"all": 32363,
+		"all": 32320,
 		"accepted": {
 			"all": 18072,
 			"withSpecialCharacters": 5913,
@@ -894,13 +894,13 @@
 			}
 		},
 		"rejected": {
-			"all": 14291,
-			"tooLong": 10205,
-			"tooShort": 791,
+			"all": 14248,
+			"tooLong": 10197,
+			"tooShort": 786,
 			"censored": 14,
 			"romanNumeral": 0,
 			"wrongLetters": 10,
-			"missingInSpellingDictionary": 3271
+			"missingInSpellingDictionary": 3241
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"q",
