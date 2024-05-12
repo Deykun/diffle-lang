@@ -74,7 +74,7 @@ const LanguagePicker = ({ children, className, place }: Props) => {
     setIsOpen(value => !value);
   };
 
-  const shouldShowAboutInLanguages = SUPPORTED_LANGS.length === 5;
+  const shouldShowAboutInLanguages = SUPPORTED_LANGS.length % 3 !== 0;
 
   return (
       <>
@@ -94,10 +94,10 @@ const LanguagePicker = ({ children, className, place }: Props) => {
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('settings.language')}</h3>
-                  <ul className="list-col-3">
+                  <ul className="list-col-4">
                       {shouldShowAboutInLanguages && (
                       <li>
-                          <ButtonTile isInverted onClick={handleGoToAboutLanguage}>
+                          <ButtonTile isInverted onClick={handleGoToAboutLanguage} variant="small">
                               <IconBookOpen />
                               <span>
                                   {t('settings.statisticsTitle')}
@@ -114,6 +114,7 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                                 isActive={lang === i18n.language}
                                 onClick={() => handleLanguageChange(lang)}
                                 isDisabled={isGameUpdating}
+                                variant="small"
                               >
                                   <Image
                                     key={lang}

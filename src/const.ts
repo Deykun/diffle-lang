@@ -103,6 +103,16 @@ const KEY_LINES_FR_VARIANTS = [{
   ],
 }];
 
+const KEY_LINES_IT_VARIANTS = [{
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['à', 'è', 'é', 'ì', 'í', 'î', 'ò', 'ó', 'ù', 'ú'],
+  ],
+}];
+
 const KEY_LINES_PL_VARIANTS = [{
   name: 'QWERTY',
   keyLines: [
@@ -112,6 +122,8 @@ const KEY_LINES_PL_VARIANTS = [{
     ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
   ],
 }];
+
+const removeFunctionalKeys = (key: string) => !['backspace', 'enter', 'spacebar'].includes(key);
 
 export const SUPPORTED_DICTIONARY_BY_LANG: {
   [key: string]: Dictionary,
@@ -123,7 +135,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLinesVariants: KEY_LINES_CS_VARIANTS,
     keyLinesToUse: KEY_LINES_CS_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_CS_VARIANTS[0].keyLines.flatMap(key => key)],
-    characters: KEY_LINES_CS_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    characters: KEY_LINES_CS_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
     specialCharacters: ['á', 'č', 'ď', 'é', 'ě', 'í', 'ň', 'ó', 'ř', 'š', 'ť', 'ú', 'ů', 'ý', 'ž'],
     hasSpecialCharacters: true,
     urls: [
@@ -140,7 +152,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLinesVariants: KEY_LINES_DE_VARIANTS,
     keyLinesToUse: KEY_LINES_DE_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE_VARIANTS[0].keyLines.flatMap(key => key)],
-    characters: KEY_LINES_DE_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    characters: KEY_LINES_DE_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
     specialCharacters: ['ä', 'ö', 'ß', 'ü'],
     hasSpecialCharacters: true,
     urls: [
@@ -157,7 +169,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLinesVariants: KEY_LINES_EN_VARIANTS,
     keyLinesToUse: KEY_LINES_EN_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN_VARIANTS[0].keyLines.flatMap(key => key)],
-    characters: KEY_LINES_EN_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    characters: KEY_LINES_EN_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
     specialCharacters: [],
     hasSpecialCharacters: false,
     urls: [
@@ -175,7 +187,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLinesVariants: KEY_LINES_ES_VARIANTS,
     keyLinesToUse: KEY_LINES_ES_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES_VARIANTS[0].keyLines.flatMap(key => key)],
-    characters: KEY_LINES_ES_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    characters: KEY_LINES_ES_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
     specialCharacters: ['á', 'é', 'í', 'ó', 'ú', 'ü', 'ñ'],
     hasSpecialCharacters: true,
     urls: [
@@ -192,7 +204,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLinesVariants: KEY_LINES_FR_VARIANTS,
     keyLinesToUse: KEY_LINES_FR_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR_VARIANTS[0].keyLines.flatMap(key => key)],
-    characters: KEY_LINES_FR_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    characters: KEY_LINES_FR_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
     specialCharacters: ['à', 'â', 'æ', 'ç', 'é', 'è', 'ê', 'ë', 'î', 'ï', 'ô', 'œ', 'ù', 'û', 'ü'],
     hasSpecialCharacters: true,
     urls: [
@@ -202,6 +214,23 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     ],
     shareMarker: '🇫🇷 #diffle #difflefr',
   },
+  it: {
+    code: 'it',
+    languages: ['it'],
+    isBeta: true,
+    title: 'DIFFLE - gioco simile a Wordle (in polacco, senza limite di caratteri) 🇮🇹',
+    keyLinesVariants: KEY_LINES_IT_VARIANTS,
+    keyLinesToUse: KEY_LINES_IT_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_IT_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_IT_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
+    specialCharacters: ['à', 'è', 'é', 'ì', 'í', 'î', 'ò', 'ó', 'ù', 'ú'],
+    hasSpecialCharacters: true,
+    urls: [
+      { url: 'https://sapere.virgilio.it/parole/vocabolario/{{word}}', name: 'Virgilio Sapere', hasExactMatchAlways: false },
+      { url: 'https://www.dizionario-italiano.it/dizionario-italiano.php?parola={{word}}', name: 'Dizionario Italiano', hasExactMatchAlways: false },
+    ],
+    shareMarker: '🇮🇹 #diffle #diffleit',
+  },
   pl: {
     code: 'pl',
     languages: ['pl', 'pl-PL'],
@@ -209,7 +238,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     keyLinesVariants: KEY_LINES_PL_VARIANTS,
     keyLinesToUse: KEY_LINES_PL_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL_VARIANTS[0].keyLines.flatMap(key => key)],
-    characters: KEY_LINES_PL_VARIANTS[0].keyLines.flatMap(key => key).filter((key => !['backspace', 'enter', 'spacebar'].includes(key))),
+    characters: KEY_LINES_PL_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
     specialCharacters: ['ą', 'ć', 'ę', 'ł', 'ń', 'ó', 'ś', 'ź', 'ż'],
     hasSpecialCharacters: true,
     urls: [

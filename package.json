@@ -25,8 +25,9 @@
     "build-en": "node scripts/build-en-dictionary.mjs",
     "build-es": "node scripts/build-es-dictionary.mjs",
     "build-fr": "node scripts/build-fr-dictionary.mjs",
+    "build-it": "node scripts/build-it-dictionary.mjs",
     "build-pl": "node scripts/build-pl-dictionary.mjs",
-    "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-fr & yarn build-pl",
+    "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-fr & yarn build-it & yarn build-pl",
     "preview": "vite preview",
     "test": "jest",
     "test-e2e": "playwright test"
