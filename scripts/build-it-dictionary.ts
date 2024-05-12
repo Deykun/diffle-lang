@@ -14,7 +14,7 @@ import {
     DICTIONARIES,
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
     EASTER_EGG_DAYS,
-} from './../resources/it/constants.js';
+} from '../resources/it/constants.js';
 
 const LANG = 'it';
 
