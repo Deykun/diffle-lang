@@ -858,28 +858,28 @@
 		}
 	},
 	"winning": {
-		"all": 14783,
+		"all": 14770,
 		"accepted": {
-			"all": 10445,
+			"all": 10451,
 			"withSpecialCharacters": 1714,
-			"withoutSpecialCharacters": 8731,
+			"withoutSpecialCharacters": 8737,
 			"length": {
-				"4": 646,
+				"4": 647,
 				"5": 1327,
 				"6": 1911,
-				"7": 2305,
-				"8": 2344,
-				"9": 1912
+				"7": 2307,
+				"8": 2345,
+				"9": 1914
 			}
 		},
 		"rejected": {
-			"all": 4338,
-			"tooLong": 3571,
+			"all": 4319,
+			"tooLong": 3562,
 			"tooShort": 173,
 			"censored": 5,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
-			"missingInSpellingDictionary": 589
+			"missingInSpellingDictionary": 579
 		},
 		"lettersNotAcceptedInWinningWord": []
 	},

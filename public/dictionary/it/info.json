@@ -1,6 +1,6 @@
 {
 	"spellchecker": {
-		"all": 126522,
+		"all": 126521,
 		"accepted": {
 			"allUsedInGame": 124499,
 			"all": 126025,
@@ -26,7 +26,7 @@
 				"17": 491
 			}
 		},
-		"rejected": 2023,
+		"rejected": 2022,
 		"letters": {
 			"first": {
 				"s": 15957,

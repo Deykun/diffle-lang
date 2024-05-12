@@ -123,7 +123,7 @@ export const getWordsFromDictionary = (dictionary, {
   pattern,
   lang,
 }) => {
-  const supportedPatterns = ['word', 'ignore word', 'word ignore'];
+  const supportedPatterns = ['word', 'ignore word', 'word ignore', 'word/ignore'];
 
   if (!supportedPatterns.includes(pattern)) {
       throw 'An unknown pattern';
@@ -142,6 +142,10 @@ export const getWordsFromDictionary = (dictionary, {
 
   if (pattern === 'word ignore') {
     words = uniqueLines.map(line => line.split(' ')[0]).filter(Boolean)
+  }
+
+  if (pattern === 'word/ignore') {
+    words = uniqueLines.map(line => line.split('/')[0]).filter(Boolean)
   }
 
   const uniqueWords = [...new Set(words)];

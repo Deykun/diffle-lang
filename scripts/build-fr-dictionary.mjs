@@ -1,13 +1,12 @@
 import fs from 'fs';
 
-import {
-    getAllLineWords,
-} from './utils/parse-dictionary.js';
-
 import  {
-    getIsWordValid,
     actionBuildDictionary,
 } from './utils/build-dictionary.js';
+
+import {
+    getWordsFromDictionary,
+} from './utils/parse-dictionary.js'
 
 import {
     BLOCKED_WORDS,
@@ -24,13 +23,12 @@ const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ita/dictionary.txt`, 'utf-8');
 const winningDictionary4th = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt.dir}/dictionary.txt`, 'utf-8');
 
-
-const spellcheckerWords = getAllLineWords(spellcheckerDictionary, 'first').filter((word => getIsWordValid(word, LANG)));
+const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word ignore', lang: LANG });
 
 const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
-    getAllLineWords(winningDictionary1st, 'first'),
-    getAllLineWords(winningDictionary2nd, 'first'),
-    getAllLineWords(winningDictionary4th, 'first'),
+    getWordsFromDictionary(winningDictionary1st, { pattern: 'word ignore', lang: LANG }),
+    getWordsFromDictionary(winningDictionary2nd, { pattern: 'word ignore', lang: LANG }),
+    getWordsFromDictionary(winningDictionary4th, { pattern: 'word ignore', lang: LANG }),
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(

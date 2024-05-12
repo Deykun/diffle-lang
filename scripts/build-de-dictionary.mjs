@@ -5,7 +5,6 @@ import  {
 } from './utils/build-dictionary.js';
 
 import {
-    getIsWordValid,
     getWordsFromDictionary,
 } from './utils/parse-dictionary.js'
 

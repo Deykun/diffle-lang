@@ -1,9 +1,12 @@
 import fs from 'fs';
 
 import  {
-    getIsWordValid,
     actionBuildDictionary,
 } from './utils/build-dictionary.js';
+
+import {
+    getWordsFromDictionary,
+} from './utils/parse-dictionary.js'
 
 import {
     BLOCKED_WORDS,
@@ -19,10 +22,11 @@ const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARI
 const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ara/dictionary.txt`, 'utf-8');
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/jap/dictionary.txt`, 'utf-8');
 
-const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word, LANG)));
+const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word', lang: LANG });
 
-const winningWords1st = [...new Set(winningDictionary1st.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
-const winningWords2nd = [...new Set(winningDictionary2nd.split(/\r?\n/).map(line => (line.replace(/\s+/g,' ').split(' '))[0]).filter(Boolean))].map(word => word.toLowerCase());
+const winningWords1st = getWordsFromDictionary(winningDictionary1st, { pattern: 'word ignore', lang: LANG });
+const winningWords2nd = getWordsFromDictionary(winningDictionary2nd, { pattern: 'word ignore', lang: LANG });
+
 const winningWords = winningWords1st.length > winningWords2nd.length
     ? winningWords1st.filter(word => winningWords2nd.includes(word))
     : winningWords2nd.filter(word => winningWords1st.includes(word));
