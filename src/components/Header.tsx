@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { GameMode, Pane } from '@common-types';
 
 import { useSelector } from '@store';
-import { selectIsGameEnded } from '@store/selectors';
+import { selectIsGameEnded, selectIsTodayEasterDay } from '@store/selectors';
 
 import usePanes from '@hooks/usePanes';
 import useEffectChange from '@hooks/useEffectChange';
@@ -25,6 +25,8 @@ import './Header.scss';
 const Header = () => {
   const [flagKey, setFlagKey] = useState('');
   const [shouldShowShared, setShouldShowShared] = useState(false);
+  const isTodayEasterDay = useSelector(selectIsTodayEasterDay);
+  const today = useSelector(state => state.game.today);
   const gameLanguage = useSelector(state => state.game.language);
   const isGameEnded = useSelector(selectIsGameEnded);
   const wordToGuess = useSelector(state => state.game.wordToGuess);
@@ -75,6 +77,11 @@ const Header = () => {
                   Diffle
                   {gameMode === GameMode.Practice && <IconInfinity />}
                   {gameMode === GameMode.SandboxLive && <IconEgg className="header-title-icon-small" />}
+                  {isTodayEasterDay && (
+                  <span className="header-title-easter-day">
+                      {today.split('.').filter((_, index) => index !== 2).join('.')}
+                  </span>
+                  )}
               </button>
               {gameLanguage && (
               <LanguagePicker className="header-language-picker" place="header">

@@ -49,7 +49,7 @@ export const getNow = () => {
   };
 };
 
-const getNowAddDaysSeed = (numberOfDaysToAdd: number) => {
+const getNowWithAddDays = (numberOfDaysToAdd: number) => {
   const nowLocal = new Date();
   const dateUTC = new Date(nowLocal.getTime() + nowLocal.getTimezoneOffset() * 60 * 1000);
   dateUTC.setDate(dateUTC.getDate() + numberOfDaysToAdd);
@@ -59,15 +59,25 @@ const getNowAddDaysSeed = (numberOfDaysToAdd: number) => {
   const month = dateUTC.getMonth() + 1;
   const day = dateUTC.getDate();
 
-  return generateSeedForDay({ day, month, year });
+  const stampDateWithoutYear = `${(`${day}`).padStart(2, '0')}.${(`${month}`).padStart(2, '0')}`;
+  const stamp = `${stampDateWithoutYear}.${year}`;
+
+  return {
+    stamp,
+    seed: generateSeedForDay({ day, month, year }),
+  };
 };
 
 export const getYesterdaysSeed = () => {
-  return getNowAddDaysSeed(-1);
+  return getNowWithAddDays(-1).seed;
+};
+
+export const getYesterdaysStamp = () => {
+  return getNowWithAddDays(-1).stamp;
 };
 
 export const getTommorowSeed = () => {
-  return getNowAddDaysSeed(1);
+  return getNowWithAddDays(1).seed;
 };
 
 export const getTimeUpdateFromTimeStamp = (timeToCompare: number) => {

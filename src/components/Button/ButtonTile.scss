@@ -195,7 +195,7 @@
 }
 
 .button-tile-small {
-  height: 100px;
+  height: 90px;
 
   svg {
     height: 32px;
@@ -205,6 +205,13 @@
 
   span {
     font-size: 12px;
+  }
+
+  .button-tile-label {
+    svg {
+        height: 24px;
+        width: 24px;
+    }
   }
 }
 

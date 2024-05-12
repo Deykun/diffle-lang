@@ -19,6 +19,7 @@ Each directory features 🧾 `LICENSE`, 🧾 `README.md`, and 🧾 `dictionary.t
 ### Czech 🇨🇿 
 - https://gitlab.com/strepon/czech-cc0-dictionaries 📔 (12.07 MB)
 - http://slovniky.webz.cz via http://home.zcu.cz/~konopik/ppc/ 🎯
+- https://github.com/hermitdave/FrequencyWords/ 🎯 (50k words)
 
 - https://www.dicts.info/uddl.php and https://omegawiki.org/ (currently down) 📄 
 
@@ -27,6 +28,7 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 
 - http://www.aaabbb.de/WordList/WordList.php 📔 (34.5 MB)
 - https://freedict.org 🎯
+- https://github.com/hermitdave/FrequencyWords/ 🎯 (50k words)
 
 - https://github.com/WithEnglishWeCan/generated-german-words-full-list 🃏 (24.7 MB)
 - https://github.com/kochd/word-lists/blob/main/german.list (31.3 MB)
@@ -37,13 +39,18 @@ The current German spellchecker is based on words from Wikipedia articles (likel
 ### English 🇬🇧
 - https://github.com/dwyl/english-words/blob/master/words_alpha.txt 📔 (4.04 MB)
 - https://freedict.org 🎯
+- https://github.com/hermitdave/FrequencyWords/ 🎯 (50k words)
 
 - https://github.com/kochd/word-lists/blob/main/english.list (6.19 MB)
+- https://github.com/jeremy-rifkin/Wordlist
+- https://github.com/david47k/top-english-wordlists
 
 ### Spanish 🇪🇸
 - https://github.com/lorenbrichter/Words/blob/master/Words/es.txt 📔 (6.73 MB)
 - https://github.com/ManiacDC/TypingAid/blob/master/Wordlists/Wordlist%20Spanish.txt 📔 (850KB)
 - https://freedict.org 🎯
+- https://github.com/hermitdave/FrequencyWords/ 🎯 (50k words)
+
 - https://github.com/Alex44lel/RAE-Scraper/blob/master/scrapy/rae/cleaned_words.json - 📄🃏 (1.48 MB)
 - https://github.com/mananoreboton/en-es-en-Dic 📄
 - https://github.com/CAERMALO/Language_-_Spanish/blob/master/es_ES.dic 📄 (832 KB)
@@ -68,12 +75,14 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 - http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (~450k words - 19.1 MB)
 - https://freedict.org 🎯
 - http://www.lexique.org/ 🎯 (~140k words)
+- https://github.com/hermitdave/FrequencyWords/ 🎯 (50k words)
 
 - https://github.com/Kartmaan/Word_Stats/blob/master/ListeDeMots.txt 🃏 (3.72 MB)
 
 ### Polish 🇵🇱
 - https://sjp.pl/sl/growy/ 📔 (43.1 MB)
 - https://freedict.org 🎯
+- https://github.com/hermitdave/FrequencyWords/ 🎯 (50k words)
 
 #dictionary #wordlist #hunspell #spellchecker
 

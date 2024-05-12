@@ -1,14 +1,15 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { GameMode, Pane } from '@common-types';
+import { UPDATE_BLOCK_DAILY } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { loseGame } from '@store/gameSlice';
 import { selectIsGameEnded } from '@store/selectors';
 
-import { getYesterdaysSeed } from '@utils/date';
+import { getYesterdaysSeed, getYesterdaysStamp } from '@utils/date';
 
 import getWordToGuess from '@api/getWordToGuess';
 
@@ -62,6 +63,10 @@ const Settings = () => {
     changePane(Pane.Game);
   };
 
+  const wasYesterdayBlockedByUpdate = useMemo(() => {
+    return getYesterdaysStamp() === UPDATE_BLOCK_DAILY;
+  }, []);
+
   return (
       <div className="settings">
           <ul>
@@ -105,6 +110,11 @@ const Settings = () => {
                       {t('settings.lastDailyWordsYesterday', { word: yesterdayWord })}
                   </p>
                   <GoToDictionaryButton word={yesterdayWord} />
+                  {wasYesterdayBlockedByUpdate && (
+                  <small className="yesterday-day-tip">
+                      {t('settings.lastDailyWordsCanBeWrongBecauseOfUpdate')}
+                  </small>
+                  )}
               </div>
               )}
           </details>
