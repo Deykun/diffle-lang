@@ -73,6 +73,8 @@ export const getWordToGuess = async (
 ): Promise<string> => {
   const { words: totalNumberOfWords, items } = await getCatalogInfo(gameLanguage);
 
+  return 'bellezza';
+
   let randomInt: number;
   if (seedNumber) {
     randomInt = seedNumber;

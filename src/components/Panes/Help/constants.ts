@@ -60,6 +60,16 @@ export const HELP_EXAMPLES_BY_LANG: {
       words: ['hé', 'utile', 'inciter', 'navet', 'nuit'],
     },
   },
+  it: {
+    first: {
+      wordToGuess: 'iniziamo',
+      words: ['cucce', 'giocare', 'amorale', 'iddio', 'iniziamo'],
+    },
+    second: {
+      wordToGuess: 'bellezza',
+      words: ['gioco', 'laccare', 'parole', 'bacia', 'bellezza'],
+    },
+  },
   pl: {
     first: {
       wordToGuess: 'super',
