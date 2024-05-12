@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.21
+- **New**: Italian game language added
+
 #### Version 3.20.1
 - **Fix**: The unnecessary "0" before "ms" in game duration has been removed
 
