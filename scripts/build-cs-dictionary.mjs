@@ -1,9 +1,12 @@
 import fs from 'fs';
 
 import  {
-    getIsWordValid,
     actionBuildDictionary,
 } from './utils/build-dictionary.js';
+
+import {
+    getWordsFromDictionary,
+} from './utils/parse-dictionary.js'
 
 import {
     BLOCKED_WORDS,
@@ -18,9 +21,8 @@ const LANG = 'cs';
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/dictionary.txt`, 'utf-8');
 
-const spellcheckerWords = [...new Set(spellcheckerDictionary.split(/\r?\n/).filter(Boolean).map((word) => word.toLowerCase()))].filter((word => getIsWordValid(word, LANG)));
-
-const winningWords = [...new Set(winningDictionary.split(/\r?\n/).map(line => (line.trim().replace(/\s+/g,' ').split(' ')).at(-1)).filter(Boolean))].map(word => word.toLowerCase());
+const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word', lang: LANG });
+const winningWords = getWordsFromDictionary(winningDictionary, { pattern: 'ignore word', lang: LANG });
 
 actionBuildDictionary(
     {

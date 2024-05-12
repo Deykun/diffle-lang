@@ -849,7 +849,7 @@
 		}
 	},
 	"winning": {
-		"all": 34898,
+		"all": 34848,
 		"accepted": {
 			"all": 18067,
 			"withSpecialCharacters": 2729,
@@ -865,13 +865,13 @@
 			}
 		},
 		"rejected": {
-			"all": 16831,
-			"tooLong": 12333,
-			"tooShort": 377,
+			"all": 16781,
+			"tooLong": 12321,
+			"tooShort": 371,
 			"censored": 0,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
-			"missingInSpellingDictionary": 4121
+			"missingInSpellingDictionary": 4089
 		},
 		"lettersNotAcceptedInWinningWord": []
 	},
