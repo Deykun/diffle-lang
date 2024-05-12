@@ -13,8 +13,9 @@
 
 #### Version 3.21
 - **New**: Italian game language added
+- **New**: Czech dictionary updated
 
-#### Version 3.20.1
+#### Version 3.20.1 (29.04.2024)
 - **Fix**: The unnecessary "0" before "ms" in game duration has been removed
 
 #### Version 3.20 (02.04.2024)
