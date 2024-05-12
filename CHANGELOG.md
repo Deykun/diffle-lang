@@ -16,6 +16,7 @@
 - **Fix**: Swear words have been removed from Italian winning words
 - **New**: All langs are using FrequencyWords as part of building winning dictionary
 - **New**: A hint was added informing that yesterday's word could be wrong due to the update
+- **New**: There is a date shown in the header for Easter egg days
 
 #### Version 3.21 (12.05.2024)
 - **New**: Italian game language added

@@ -129,6 +129,8 @@
     justify-content: center;
     aspect-ratio: 1 / 1;
     border-radius: 60px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 
     svg {
         height: 25px;
