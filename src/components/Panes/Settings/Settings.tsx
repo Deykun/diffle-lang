@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from '@store';
 import { loseGame } from '@store/gameSlice';
 import { selectIsGameEnded } from '@store/selectors';
 
-import { getYesterdaysSeed, getYesterdaysStamp } from '@utils/date';
+import { getNow, getYesterdaysSeed, getYesterdaysStamp } from '@utils/date';
 
 import getWordToGuess from '@api/getWordToGuess';
 
@@ -64,7 +64,7 @@ const Settings = () => {
   };
 
   const wasYesterdayBlockedByUpdate = useMemo(() => {
-    return getYesterdaysStamp() === UPDATE_BLOCK_DAILY;
+    return [getNow().stamp, getYesterdaysStamp()].includes(UPDATE_BLOCK_DAILY);
   }, []);
 
   return (
