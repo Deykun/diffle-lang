@@ -2,7 +2,7 @@ import { Affix, AffixStatus, UsedLetters } from '@common-types';
 
 import { SUBMIT_ERRORS } from '@const';
 
-import getDoesWordExist, { DoesWordExistErrorType } from '@api/getDoesWordExist';
+import getDoesWordExist, { DoesWordExistErrorTypes } from '@api/getDoesWordExist';
 import compareWords from '@api/utils/compareWords';
 
 import { mergeLettersData } from '@utils/statistics';
@@ -101,7 +101,7 @@ export const getWordReport = async (
     const doesWordExistReport = await getDoesWordExist(wordToSubmit, lang);
 
     if (doesWordExistReport.isError) {
-      if (doesWordExistReport.errorType === DoesWordExistErrorType.Fetch) {
+      if (doesWordExistReport.errorType === DoesWordExistErrorTypes.Fetch) {
         return {
           isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_FETCH_ERROR,
         };
