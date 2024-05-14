@@ -7,7 +7,7 @@ import compareWords from '@api/utils/compareWords';
 
 import { mergeLettersData } from '@utils/statistics';
 
-export interface PatternReport {
+export type PatternReport = {
   affixes: Affix[],
   wordLetters: {
     correct: UsedLetters,
@@ -15,7 +15,7 @@ export interface PatternReport {
     position: UsedLetters,
   },
   current?: Affix
-}
+};
 
 export const temporaryTranslatorPatterns = (word: string, pattern: number[]): PatternReport => {
   const letters = Array.from(word);
@@ -79,7 +79,7 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
   return { affixes, wordLetters };
 };
 
-export interface WordReport {
+export type WordReport = {
   isError: boolean,
   type?: string,
   isWon: boolean,
@@ -90,7 +90,7 @@ export interface WordReport {
     incorrect: UsedLetters,
     position: UsedLetters,
   },
-}
+};
 
 export const getWordReport = async (
   wordToGuess: string,

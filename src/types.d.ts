@@ -12,12 +12,12 @@ export enum Pane {
   AboutLanguage = 'about-language',
 }
 
-export interface KeyLinesVariant {
+export type KeyLinesVariant = {
   name: string,
   keyLines: string[][],
-}
+};
 
-export interface Dictionary {
+export type Dictionary = {
   code?: string,
   languages: string[],
   title: string,
@@ -35,7 +35,7 @@ export interface Dictionary {
   }[],
   shareMarker?: string,
   maxWordLength?: number,
-}
+};
 
 export enum DictionaryInfoLetters {
   Common = 'common',
@@ -45,7 +45,7 @@ export enum DictionaryInfoLetters {
   InWordsWordle = 'inWordsWordle',
 }
 
-interface WordleResult {
+type WordleResult = {
   word: string,
   score: number,
   result: {
@@ -54,7 +54,7 @@ interface WordleResult {
     orange: number,
     gray: number,
   }
-}
+};
 
 export type DictionaryInfo = {
   spellchecker: {
@@ -152,20 +152,20 @@ export enum AffixStatus {
   IncorrectOccurance = 'incorrect-occurrence',
 }
 
-export interface Affix {
+export type Affix = {
   type: AffixStatus,
   text: string,
   isStart?: boolean,
   isEnd?: boolean,
   hasCaretBefore?: boolean,
   onClick?: () => void,
-}
+};
 
-export interface Word {
+export type Word = {
   word: string,
   affixes: Affix[],
   caretShift?: number,
-}
+};
 
 export enum LetterReportStatus {
   Ignored = 'ignored',
@@ -174,14 +174,14 @@ export enum LetterReportStatus {
   TooManyLetters = 'too-many-letters',
 }
 
-export interface LetterSubreport {
+export type LetterSubreport = {
   status: LetterReportStatus,
   isLimitKnown?: boolean,
   typedOccurrence?: number,
   confirmedOccurrence?: number,
-}
+};
 
-export interface Toast {
+export type Toast = {
   text: string,
   type: ToastType,
   timeoutSeconds: number,
@@ -189,7 +189,7 @@ export interface Toast {
   params: {
     [key: string]: string | number,
   },
-}
+};
 
 export enum CookiesName {
   GOOGLE_ANALYTICS = 'googleAnalytics',
@@ -197,13 +197,13 @@ export enum CookiesName {
   DIFFLE_LOCAL = 'diffleLocal',
 }
 
-export interface CookiesSettingsInterfence {
+export type CookiesSettingsInterfence = {
   [CookiesName.GOOGLE_ANALYTICS]: boolean,
   [CookiesName.DIFFLE_EXTERNAL]: boolean,
   [CookiesName.DIFFLE_LOCAL]: boolean,
-}
+};
 
-export interface RootAppState {
+export type RootAppState = {
   pane: {
     active: Pane,
     params: {
@@ -220,7 +220,7 @@ export interface RootAppState {
   shouldConfirmEnter: boolean,
   shouldShareWords: boolean,
   shouldShowDuration: boolean,
-}
+};
 
 export enum GameMode {
   Daily = 'daily',
@@ -249,7 +249,7 @@ export type EasterDays = {
   }
 };
 
-export interface RootGameState {
+export type RootGameState = {
   language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'it' | 'pl' | undefined,
   mode: GameMode,
   today: string,
@@ -272,16 +272,16 @@ export interface RootGameState {
   lastUpdateTime: number,
   durationMS: number,
   lastWordAddedToStatitstic: string,
-}
+};
 
-export interface RootState {
+export type RootState = {
   app: RootAppState,
   game: RootGameState,
-}
+};
 
-export interface UsedLetters {
+export type UsedLetters = {
   [key: string]: number,
-}
+};
 
 export enum BestWordleType {
   InWords = 'inWords',

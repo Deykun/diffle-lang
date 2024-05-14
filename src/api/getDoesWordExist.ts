@@ -67,10 +67,10 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
   };
 };
 
-interface KeyWithIndex {
+type KeyWithIndex = {
   key: string,
   index: number,
-}
+};
 
 export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[], lang: string): Promise<string[]> => {
   const words = [];

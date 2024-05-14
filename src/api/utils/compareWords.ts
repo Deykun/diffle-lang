@@ -1,9 +1,9 @@
 // Taken fron original: https://github.com/hedalu244/diffle/blob/main/main.ts
-interface DiffleResult {
+type DiffleResult = {
   pattern: (0 | 1 | 2 | 3)[],
   start: boolean,
   end: boolean,
-}
+};
 
 export const compareWords = (answer: string, guess: string) => {
   const table = Array.from({ length: answer.length + 1 }, () => Array.from({ length: guess.length + 1 }, () => (
@@ -31,17 +31,17 @@ export const compareWords = (answer: string, guess: string) => {
     }
   }
 
-  let best_score = -Infinity;
-  let best_results: DiffleResult[] = [];
+  let bestScore = -Infinity;
+  let bestResults: DiffleResult[] = [];
 
   table[answer.length][guess.length].paths.forEach((path) => {
-    const start = path[0] == '>';
-    const end = path[path.length - 1] == '>';
+    const start = path[0] === '>';
+    const end = path[path.length - 1] === '>';
     const pattern: (0 | 1 | 2 | 3)[] = Array.from({ length: guess.length }, () => 0);
-    const unused_letter: string[] = Array.from(answer);
+    const unusedLetter: string[] = Array.from(answer);
 
-    let accept_count = 0;
-    let streak_length = 0;
+    let acceptCount = 0;
+    let streakLength = 0;
     let score = 0;
     // Custom diffle-lang start and end should always win over coupling
     if (start) score += 1000;
@@ -52,20 +52,20 @@ export const compareWords = (answer: string, guess: string) => {
     for (let i = 0; i < path.length; i++) {
       switch (path[i]) {
         case '>':
-          accept_count++;
-          streak_length++;
-          pattern[b] = streak_length == 1 ? 2 : 3;
-          unused_letter.splice(unused_letter.indexOf(guess[b]), 1);
-          score += 3 * streak_length;
+          acceptCount++;
+          streakLength++;
+          pattern[b] = streakLength == 1 ? 2 : 3;
+          unusedLetter.splice(unusedLetter.indexOf(guess[b]), 1);
+          score += 3 * streakLength;
           a++;
           b++;
           break;
         case '+':
-          streak_length = 0;
+          streakLength = 0;
           a++;
           break;
         case '-':
-          streak_length = 0;
+          streakLength = 0;
           b++;
           break;
       }
@@ -73,27 +73,27 @@ export const compareWords = (answer: string, guess: string) => {
 
     // Yellow
     for (let i = 0; i < guess.length; i++) {
-      if (pattern[i] == 0 && unused_letter.includes(guess[i])) {
+      if (pattern[i] == 0 && unusedLetter.includes(guess[i])) {
         pattern[i] = 1;
-        unused_letter.splice(unused_letter.indexOf(guess[i]), 1);
+        unusedLetter.splice(unusedLetter.indexOf(guess[i]), 1);
       }
     }
 
     // If green in the middle the only marked character it turns it yellow
-    // if (accept_count == 1 && !start && !end) {
+    // if (acceptCount == 1 && !start && !end) {
     //     pattern[pattern.indexOf(2)] = 1;
     // }
 
-    if (best_score == score) {
-      best_results.push({ pattern, start, end });
-    } else if (best_score < score) {
-      best_score = score;
-      best_results = [{ pattern, start, end }];
+    if (bestScore == score) {
+      bestResults.push({ pattern, start, end });
+    } else if (bestScore < score) {
+      bestScore = score;
+      bestResults = [{ pattern, start, end }];
     }
   });
 
-  best_results.sort((a, b) => (a.pattern.join() < b.pattern.join() ? 1 : -1));
-  return best_results[0];
+  bestResults.sort((a, b) => (a.pattern.join() < b.pattern.join() ? 1 : -1));
+  return bestResults[0];
 };
 
 export default compareWords;

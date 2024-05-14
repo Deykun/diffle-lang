@@ -4,14 +4,14 @@ import CircleScale from '@components/CircleScale/CircleScale';
 
 import './KeyboardHeatmapKeyCap.scss';
 
-interface Props {
+type Props = {
   text: string,
   value: number,
   max: number,
   all: number,
   hasCircle?: boolean,
   hasTooltip?: boolean,
-}
+};
 
 function KeyboardHeatmapKeyCap({
   text,

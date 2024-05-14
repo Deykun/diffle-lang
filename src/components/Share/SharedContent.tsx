@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
-  Pane, GameStatus, GameMode, Word as WordInterface,
+  Pane, GameStatus, GameMode, Word as WordType,
 } from '@common-types';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
@@ -43,10 +43,10 @@ import EndResultSummary from '@components/EndResult/EndResultSummary';
 
 import './SharedContent.scss';
 
-interface SharedContentResult {
+type SharedContentResult = {
   isWon: boolean,
   wordToGuess: string,
-  guesses: WordInterface[],
+  guesses: WordType[],
   hasLongGuesses: boolean,
   words: number,
   letters: number,
@@ -56,7 +56,7 @@ interface SharedContentResult {
     incorrect: number,
     typedKnownIncorrect: number,
   }
-}
+};
 
 const EMPTY_SHARED_CONTENT_RESULT = {
   isWon: false,

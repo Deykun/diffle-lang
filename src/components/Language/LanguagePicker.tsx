@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane as PaneInterface } from '@common-types';
+import { Pane as PaneType } from '@common-types';
 
 import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
@@ -67,8 +67,8 @@ const LanguagePicker = ({ children, className, place }: Props) => {
   };
 
   const handleGoToAboutLanguage = () => {
-    if (pane !== PaneInterface.AboutLanguage) {
-      changePane(PaneInterface.AboutLanguage);
+    if (pane !== PaneType.AboutLanguage) {
+      changePane(PaneType.AboutLanguage);
     }
 
     setIsOpen(value => !value);

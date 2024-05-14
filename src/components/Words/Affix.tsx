@@ -2,13 +2,13 @@ import clsx from 'clsx';
 
 import { useSelector } from '@store';
 import { selectLetterState } from '@store/selectors';
-import { AffixStatus, Affix as AffixInterface } from '@common-types';
+import { AffixStatus, Affix as AffixType } from '@common-types';
 
 import './Affix.scss';
 
 const Affix = ({
   type, text, isStart, isEnd, hasCaretBefore, onClick,
-}: AffixInterface) => {
+}: AffixType) => {
   const keyCapType = useSelector(selectLetterState(text));
 
   const isKnownIncorrectTyped = keyCapType === AffixStatus.Incorrect;

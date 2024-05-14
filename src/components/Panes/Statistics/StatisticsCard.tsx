@@ -14,12 +14,12 @@ import StatisticsCardActiveFilters from './StatisticsCardActiveFilters';
 
 import './StatisticsCard.scss';
 
-interface StatisticForCard extends StatisticDataForCard, Filters {
+type StatisticForCard = StatisticDataForCard & Filters & {
   wonStreak?: number,
   lostStreak?: number,
   bestStreak?: number,
   worstStreak?: number,
-}
+};
 
 const BREAKPOINTS = {
   LETTERS: [90, 75, 60, 45, 35, 25],
