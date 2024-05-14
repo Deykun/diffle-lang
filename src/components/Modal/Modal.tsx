@@ -17,7 +17,7 @@ type Props = {
   children: React.ReactNode,
   isOpen: boolean,
   onClose: () => void,
-}
+};
 
 const Modal = ({
   classNameWraper = '', children, isOpen: isOpenProp, onClose,

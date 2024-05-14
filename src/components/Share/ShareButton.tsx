@@ -55,7 +55,7 @@ const DEFAULT_EMOJIS: Emojis = {
 
 type Props = {
   shouldShowSettings?: boolean,
-}
+};
 
 const ShareButton = ({ shouldShowSettings = false }: Props) => {
   const dispatch = useDispatch();

@@ -30,7 +30,7 @@ import './AboutLanguageLetters.scss';
 
 type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLenguageLengths = ({
   data,

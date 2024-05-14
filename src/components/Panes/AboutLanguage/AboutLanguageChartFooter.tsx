@@ -11,7 +11,7 @@ import './AboutLanguageChartFooter.scss';
 type Props = {
   lng?: string,
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageChartFooter = ({
   lng,

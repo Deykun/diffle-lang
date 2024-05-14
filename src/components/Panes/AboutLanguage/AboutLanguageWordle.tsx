@@ -17,7 +17,7 @@ import './AboutLanguageWordle.scss';
 
 type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageWordle = ({ data }: Props) => {
   const {
@@ -152,7 +152,7 @@ const AboutLanguageWordle = ({ data }: Props) => {
               <p>{t('statistics.bestWordleWordPopularLettersTitle')}</p>
               <ul className="about-language-wordle-positions-list">
                   {[1, 2, 3, 4, 5].map((position, index) => (
-                      // eslint-disable-next-line react/no-array-index-key
+
                       <li key={position}>
                           <strong>
                               {position}

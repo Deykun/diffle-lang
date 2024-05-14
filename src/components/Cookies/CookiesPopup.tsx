@@ -25,7 +25,7 @@ type Props = {
   className?: string,
   children?: React.ReactNode,
   isEditMode?: boolean,
-}
+};
 
 const CookiesPopup = ({ className, children, isEditMode = false }: Props) => {
   const dispatch = useDispatch();

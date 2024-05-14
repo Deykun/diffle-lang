@@ -8,7 +8,7 @@ type Props = {
   green: number,
   orange: number,
   total: number,
-}
+};
 
 const AboutLanguageWordleItem = ({
   word,

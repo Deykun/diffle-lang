@@ -11,7 +11,7 @@ type Props = {
   isInvert?: boolean,
   isPercentage?: boolean,
   isGreen?: boolean,
-}
+};
 
 function CircleScale({
   breakPoints,

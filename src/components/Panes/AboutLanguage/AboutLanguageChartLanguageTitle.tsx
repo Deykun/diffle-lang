@@ -8,7 +8,7 @@ import './AboutLanguageChartFooter.scss';
 
 type Props = {
   lng?: string,
-}
+};
 
 const AboutLanguageChartFooter = ({
   lng,

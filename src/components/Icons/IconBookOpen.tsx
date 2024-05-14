@@ -1,6 +1,6 @@
 type Props = {
   className?: string,
-}
+};
 
 const IconBookOpen = ({ className }: Props) => (
     <svg className={className} viewBox="0 0 24 24">

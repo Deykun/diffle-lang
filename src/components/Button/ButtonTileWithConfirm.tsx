@@ -14,7 +14,7 @@ type Props = {
   onClick: () => void,
   isDisabled?: boolean,
   secondsToConfirm?: number,
-}
+};
 
 const ButtonTileWithConfirm = ({
   className = '',

@@ -18,7 +18,7 @@ import './GoToDictionaryButton.scss';
 
 type Props = {
   word?: string,
-}
+};
 
 function GoToDictionaryButton({ word = '' }: Props) {
   const dispatch = useDispatch();

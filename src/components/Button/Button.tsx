@@ -22,7 +22,7 @@ type Props = {
   isLarge?: boolean,
   hasBorder?: boolean,
   dataTestId?: string,
-}
+};
 
 const Button = ({
   className = '',
@@ -73,6 +73,6 @@ const Button = ({
           {isLoading && <IconLoader className="button-loader" />}
       </Tag>
   );
-}
+};
 
 export default Button;

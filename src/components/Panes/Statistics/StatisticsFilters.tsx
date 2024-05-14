@@ -43,7 +43,7 @@ import '../Settings/Settings.scss';
 
 type Props = {
   setFiltersData: Dispatch<SetStateAction<Filters>>
-}
+};
 
 const StatisticsFilters = ({ setFiltersData }: Props) => {
   const dispatch = useDispatch();

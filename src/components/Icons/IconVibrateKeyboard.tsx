@@ -1,6 +1,6 @@
 type Props = {
   className?: string,
-}
+};
 
 const IconVibrateKeyboard = ({ className }: Props) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 26 26">

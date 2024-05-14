@@ -24,7 +24,7 @@ type Props = {
     incorrect: number,
     typedKnownIncorrect: number,
   },
-}
+};
 
 function EndResultSummary({
   status,

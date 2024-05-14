@@ -10,7 +10,7 @@ import './AboutLanguageNeighbours.scss';
 
 type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageNeighbours = ({
   data: {

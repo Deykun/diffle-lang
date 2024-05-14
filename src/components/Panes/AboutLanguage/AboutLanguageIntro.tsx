@@ -6,7 +6,7 @@ import AboutLanguageIntroSpecialCharacters from './AboutLanguageIntroSpecialChar
 
 type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageIntro = ({
   data: {

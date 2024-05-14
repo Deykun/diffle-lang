@@ -11,7 +11,7 @@ import './KeyCap.scss';
 
 type Props = {
   text: string,
-}
+};
 
 const KeyCapOccurance = ({ text }: Props) => {
   const {

@@ -17,7 +17,7 @@ import './KeyCap.scss';
 type Props = {
   text: string,
   onClick: (type?: AffixStatus | undefined) => void,
-}
+};
 
 const KeyCap = ({ text, onClick }: Props) => {
   const type = useSelector(selectLetterState(text));

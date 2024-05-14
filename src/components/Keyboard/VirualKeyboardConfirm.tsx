@@ -20,7 +20,7 @@ import './VirualKeyboardConfirm.scss';
 
 type Props = {
   closeConfirm: () => void;
-}
+};
 
 const VirualKeyboardConfirm = ({ closeConfirm }: Props) => {
   const dispatch = useDispatch();

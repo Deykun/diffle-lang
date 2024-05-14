@@ -34,7 +34,7 @@ import './AboutLanguageLetters.scss';
 type Props = {
   groupBy?: DictionaryInfoLetters,
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageLetters = ({
   groupBy: groupByInit = DictionaryInfoLetters.Common,

@@ -29,7 +29,7 @@ type Props = {
   className?: string,
   children?: React.ReactNode,
   place?: string,
-}
+};
 
 const LanguagePicker = ({ children, className, place }: Props) => {
   const dispatch = useDispatch();

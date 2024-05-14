@@ -22,7 +22,7 @@ import Modal from '@components/Modal/Modal';
 type Props = {
   isTile?: boolean,
   shouldHideIfDisabled?: boolean,
-}
+};
 
 const KeyboardLayoutPicker = ({ isTile = false, shouldHideIfDisabled = false }: Props) => {
   const dispatch = useDispatch();

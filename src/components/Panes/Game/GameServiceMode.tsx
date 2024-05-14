@@ -13,7 +13,7 @@ import './GameServiceMode.scss';
 
 type Props = {
   today: string,
-}
+};
 
 const GameServiceMode = ({ today }: Props) => {
   const dispatch = useDispatch();

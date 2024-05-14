@@ -10,7 +10,7 @@ import './Help.scss';
 type Props = {
   helpGuesses: WordInterface[],
   tEnd?: string,
-}
+};
 
 const HelpWords = ({ helpGuesses, tEnd = '' }: Props) => {
   const { t } = useTranslation();

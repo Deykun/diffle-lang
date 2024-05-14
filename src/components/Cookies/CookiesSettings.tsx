@@ -13,7 +13,7 @@ import './CookiesPopup.scss';
 type Props = {
   settings: CookiesSettingsInterfence,
   onChange: Dispatch<SetStateAction<CookiesSettingsInterfence>>,
-}
+};
 
 const CookiesSettings = ({ settings, onChange }: Props) => {
   const { t } = useTranslation();

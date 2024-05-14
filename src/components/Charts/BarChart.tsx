@@ -10,7 +10,7 @@ type Props = {
   entries: {
     [key: string]: number,
   }
-}
+};
 
 function BarChart({
   lng,

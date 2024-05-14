@@ -5,7 +5,7 @@ import CircleScale from '@components/CircleScale/CircleScale';
 type Props = {
   all: number,
   withSpecialCharacters: number,
-}
+};
 
 const AboutLanguageIntroSpecialCharacters = ({ all, withSpecialCharacters }: Props) => {
   const { t } = useTranslation();

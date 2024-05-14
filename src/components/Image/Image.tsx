@@ -7,7 +7,7 @@ type Props = {
   className?: string,
   src: string,
   alt?: string
-}
+};
 
 const Image = ({
   className,

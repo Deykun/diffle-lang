@@ -27,7 +27,7 @@ import './StatisticsActions.scss';
 type Props = {
   refreshStatitics: () => void,
   modeFilter: ModeFilter,
-}
+};
 
 const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   const dispatch = useDispatch();

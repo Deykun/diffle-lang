@@ -23,7 +23,7 @@ import './Settings.scss';
 
 type Props = {
   changePane: PaneChange,
-}
+};
 
 const SettingsModes = ({ changePane }: Props) => {
   const dispatch = useDispatch();

@@ -14,7 +14,7 @@ import Button from '@components/Button/Button';
 type Props = {
   filterGroupBy: BestWordleType,
   setFilterGroupBy: Dispatch<SetStateAction<BestWordleType>>,
-}
+};
 
 const AboutLanguageWordleFilters = ({
   filterGroupBy,

@@ -15,7 +15,7 @@ type Props = {
   groupBy: DictionaryInfoLetters,
   lng?: string,
   data: DictionaryInfo
-}
+};
 
 function KeyboardHeatmap({
   groupBy,
