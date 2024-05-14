@@ -21,7 +21,7 @@ import CookiesSettings from './CookiesSettings';
 
 import './CookiesPopup.scss';
 
-interface Props {
+type Props = {
   className?: string,
   children?: React.ReactNode,
   isEditMode?: boolean,

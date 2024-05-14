@@ -7,7 +7,7 @@ import IconLoader from '@components/Icons/IconLoader';
 
 import './ButtonTile.scss';
 
-interface Props {
+type Props = {
   tagName?: 'button' | 'a',
   variant?: 'small' | '',
   className?: string,
@@ -22,7 +22,7 @@ interface Props {
   isLoading?: boolean,
   isInverted?: boolean,
   dataTestId?: string,
-}
+};
 
 const ButtonTile = ({
   className = '',

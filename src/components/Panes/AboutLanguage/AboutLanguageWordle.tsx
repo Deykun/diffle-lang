@@ -15,7 +15,7 @@ import AboutLanguageWordleItem from './AboutLanguageWordleItem';
 
 import './AboutLanguageWordle.scss';
 
-interface Props {
+type Props = {
   data: DictionaryInfo
 }
 

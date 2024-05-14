@@ -11,7 +11,7 @@ import { capitalize } from '@utils/format';
 import KeyboardHeatmapKeyCap from './KeyboardHeatmapKeyCap';
 import './KeyboardHeatmap.scss';
 
-interface Props {
+type Props = {
   groupBy: DictionaryInfoLetters,
   lng?: string,
   data: DictionaryInfo

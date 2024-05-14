@@ -10,7 +10,7 @@ import ButtonTile from '@components/Button/ButtonTile';
 
 import './CookiesPopup.scss';
 
-interface Props {
+type Props = {
   settings: CookiesSettingsInterfence,
   onChange: Dispatch<SetStateAction<CookiesSettingsInterfence>>,
 }

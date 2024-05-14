@@ -18,7 +18,7 @@ import Modal from '@components/Modal/Modal';
 
 import './VirualKeyboardConfirm.scss';
 
-interface Props {
+type Props = {
   closeConfirm: () => void;
 }
 

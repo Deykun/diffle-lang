@@ -41,7 +41,7 @@ import { INITIAL_FILTERS } from './constants';
 
 import '../Settings/Settings.scss';
 
-interface Props {
+type Props = {
   setFiltersData: Dispatch<SetStateAction<Filters>>
 }
 

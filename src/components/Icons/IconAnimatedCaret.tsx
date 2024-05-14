@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import './IconAnimatedCaret.scss';
 
-interface Props {
+type Props = {
   className?: string,
   isOpen?: boolean,
 }

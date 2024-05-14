@@ -5,7 +5,7 @@ import CircleScale from '@components/CircleScale/CircleScale';
 
 import './BarChart.scss';
 
-interface Props {
+type Props = {
   lng?: string,
   entries: {
     [key: string]: number,

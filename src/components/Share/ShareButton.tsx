@@ -53,7 +53,7 @@ const DEFAULT_EMOJIS: Emojis = {
   typedKnownIncorrect: '🔴',
 };
 
-interface Props {
+type Props = {
   shouldShowSettings?: boolean,
 }
 

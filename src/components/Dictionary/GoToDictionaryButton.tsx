@@ -16,7 +16,7 @@ import Modal from '@components/Modal/Modal';
 
 import './GoToDictionaryButton.scss';
 
-interface Props {
+type Props = {
   word?: string,
 }
 

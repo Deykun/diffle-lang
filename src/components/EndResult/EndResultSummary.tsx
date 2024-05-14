@@ -12,7 +12,7 @@ import Word from '@components/Words/Word';
 
 import './EndResult.scss';
 
-interface Props {
+type Props = {
   status: GameStatus,
   wordToGuess: string,
   guesses: WordInterface[],

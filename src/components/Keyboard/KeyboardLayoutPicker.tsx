@@ -19,7 +19,7 @@ import Button from '@components/Button/Button';
 import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
-interface Props {
+type Props = {
   isTile?: boolean,
   shouldHideIfDisabled?: boolean,
 }

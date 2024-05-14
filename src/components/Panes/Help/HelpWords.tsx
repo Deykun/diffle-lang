@@ -7,7 +7,7 @@ import Word from '@components/Words/Word';
 
 import './Help.scss';
 
-interface Props {
+type Props = {
   helpGuesses: WordInterface[],
   tEnd?: string,
 }

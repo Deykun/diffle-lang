@@ -14,7 +14,7 @@ import KeyCapOccurance from './KeyCapOccurance';
 
 import './KeyCap.scss';
 
-interface Props {
+type Props = {
   text: string,
   onClick: (type?: AffixStatus | undefined) => void,
 }

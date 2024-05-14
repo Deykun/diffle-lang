@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import './CircleScale.scss';
 
-interface Props {
+type Props = {
   breakPoints: number[],
   value: number,
   shouldShowLabels?: boolean,

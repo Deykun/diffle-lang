@@ -11,7 +11,7 @@ import Button from '@components/Button/Button';
 
 import './GameServiceMode.scss';
 
-interface Props {
+type Props = {
   today: string,
 }
 

@@ -12,7 +12,7 @@ import IconClose from '@components/Icons/IconClose';
 
 import './Modal.scss';
 
-interface Props {
+type Props = {
   classNameWraper?: string,
   children: React.ReactNode,
   isOpen: boolean,

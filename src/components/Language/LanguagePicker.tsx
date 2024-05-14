@@ -25,7 +25,7 @@ import ReportTranslationBugButton from './ReportTranslationBugButton';
 
 import './LanguagePicker.scss';
 
-interface Props {
+type Props = {
   className?: string,
   children?: React.ReactNode,
   place?: string,

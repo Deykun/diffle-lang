@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import './AboutLanguageWordle.scss';
 
-interface Props {
+type Props = {
   word: string
   activeLetters: string[],
   green: number,

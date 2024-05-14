@@ -31,7 +31,7 @@ import AboutLanguageChartLanguageTitle from './AboutLanguageChartLanguageTitle';
 
 import './AboutLanguageLetters.scss';
 
-interface Props {
+type Props = {
   groupBy?: DictionaryInfoLetters,
   data: DictionaryInfo
 }
