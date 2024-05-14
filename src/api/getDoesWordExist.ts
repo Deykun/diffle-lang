@@ -9,8 +9,6 @@ export const DoesWordExistErrorTypes = {
   Fetch: 'fetch',
 } as const;
 
-export type ValueOf<T> = T[keyof T];
-
 type DoesWordExistErrorType = typeof DoesWordExistErrorTypes[keyof typeof DoesWordExistErrorTypes];
 
 type GetDoesWordExistReport = {
