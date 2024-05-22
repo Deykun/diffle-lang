@@ -15,8 +15,9 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
   },
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', 'eslint-plugin-react-compiler'],
   rules: {
+    'react-compiler/react-compiler': 'error',
     'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
     'arrow-parens': ['error', 'as-needed', {

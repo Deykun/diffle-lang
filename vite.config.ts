@@ -6,7 +6,13 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/diffle-lang/',
-  plugins: [react()],
+  plugins: [react({
+    babel: {
+      plugins: [
+        ['babel-plugin-react-compiler']
+      ]
+    }
+  })],
   resolve: {
     alias: {
       '@api': fileURLToPath(new URL('./src/api', import.meta.url)),
