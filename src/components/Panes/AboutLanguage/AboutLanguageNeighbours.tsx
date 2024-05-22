@@ -8,9 +8,9 @@ import { capitalize } from '@utils/format';
 
 import './AboutLanguageNeighbours.scss';
 
-interface Props {
+type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageNeighbours = ({
   data: {

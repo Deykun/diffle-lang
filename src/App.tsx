@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { Pane as PaneInterface } from '@common-types';
+import { Pane as PaneType } from '@common-types';
 
 import { LOCAL_STORAGE } from '@const';
 
@@ -73,11 +73,11 @@ function App() {
           <Header />
           <main>
               <Toast />
-              {pane === PaneInterface.Help && <Help />}
-              {pane === PaneInterface.Game && <Game />}
-              {pane === PaneInterface.Settings && <Settings />}
-              {pane === PaneInterface.Statistics && <Statistics />}
-              {pane === PaneInterface.AboutLanguage && <AboutLanguage />}
+              {pane === PaneType.Help && <Help />}
+              {pane === PaneType.Game && <Game />}
+              {pane === PaneType.Settings && <Settings />}
+              {pane === PaneType.Statistics && <Statistics />}
+              {pane === PaneType.AboutLanguage && <AboutLanguage />}
           </main>
           <CookiesPopup />
       </div>

@@ -3,7 +3,7 @@ import {
 } from 'react';
 import clsx from 'clsx';
 
-import { Word as WordInterface, AffixStatus } from '@common-types';
+import { Word as WordType, AffixStatus } from '@common-types';
 
 import { getWordReport } from '@api/getWordReport';
 
@@ -16,7 +16,7 @@ import Word from './Word';
 
 import './WordSandboxLive.scss';
 
-const EMPY_WORD: WordInterface = {
+const EMPY_WORD: WordType = {
   word: ' ',
   affixes: [{ type: AffixStatus.New, text: ' ' }],
 };
@@ -28,7 +28,7 @@ const WordSandboxLive = () => {
   const setTimeoutDebounce = useRef<ReturnType<typeof setTimeout> | null>(null);
   const setTimeoutThrottle = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [delayedWord, setDelayedWord] = useState(wordToSubmit || ' ');
-  const [guess, setGuess] = useState<WordInterface>(EMPY_WORD);
+  const [guess, setGuess] = useState<WordType>(EMPY_WORD);
 
   useEffect(() => {
     (async () => {

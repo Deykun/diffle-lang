@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Suspense, lazy, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Word as WordInterface, AffixStatus, GameMode } from '@common-types';
+import { Word as WordType, AffixStatus, GameMode } from '@common-types';
 
 import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 
@@ -42,7 +42,7 @@ const Words = () => {
 
   const { t } = useTranslation();
 
-  const submitGuess: WordInterface = useMemo(() => {
+  const submitGuess: WordType = useMemo(() => {
     const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: AffixStatus.New, text: letter }));
 
     return {

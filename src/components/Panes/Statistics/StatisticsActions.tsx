@@ -24,10 +24,10 @@ import Modal from '@components/Modal/Modal';
 
 import './StatisticsActions.scss';
 
-interface Props {
+type Props = {
   refreshStatitics: () => void,
   modeFilter: ModeFilter,
-}
+};
 
 const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   const dispatch = useDispatch();

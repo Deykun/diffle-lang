@@ -1,6 +1,6 @@
-interface Props {
+type Props = {
   className?: string,
-}
+};
 
 const IconCopy = ({ className }: Props) => (
     <svg className={className} lip-rule="evenodd" fillRule="evenodd" strokeLinejoin="round" strokeMiterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

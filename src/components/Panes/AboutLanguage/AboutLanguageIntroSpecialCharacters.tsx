@@ -2,10 +2,10 @@ import { useTranslation } from 'react-i18next';
 
 import CircleScale from '@components/CircleScale/CircleScale';
 
-interface Props {
+type Props = {
   all: number,
   withSpecialCharacters: number,
-}
+};
 
 const AboutLanguageIntroSpecialCharacters = ({ all, withSpecialCharacters }: Props) => {
   const { t } = useTranslation();

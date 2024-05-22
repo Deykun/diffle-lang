@@ -3,11 +3,11 @@ import { useState } from 'react';
 
 import './Image.scss';
 
-interface Props {
+type Props = {
   className?: string,
   src: string,
   alt?: string
-}
+};
 
 const Image = ({
   className,

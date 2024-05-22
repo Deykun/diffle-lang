@@ -8,10 +8,10 @@ import IconDictionary from '@components/Icons/IconDictionary';
 
 import './AboutLanguageChartFooter.scss';
 
-interface Props {
+type Props = {
   lng?: string,
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageChartFooter = ({
   lng,

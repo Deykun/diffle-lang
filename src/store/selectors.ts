@@ -3,7 +3,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import {
   RootState,
   Dictionary,
-  Word as WordInterface,
+  Word as WordType,
   AffixStatus,
   UsedLetters,
   GameStatus,
@@ -326,7 +326,7 @@ export const selectKeyboardUsagePercentage = createSelector(
   },
 );
 
-interface AffixStackInterface {
+type AffixStackType = {
   incorrectLetters: string[],
   subtotals: {
     correct: number,
@@ -334,15 +334,15 @@ interface AffixStackInterface {
     incorrect: number,
     typedKnownIncorrect: number,
   }
-}
+};
 
-interface GuessesStackInterface extends AffixStackInterface {
+type GuessesStackInterface = AffixStackType & {
   words: number,
-}
+};
 
-export const getWordsAndLetters = (guesses: WordInterface[], hasWordToGuessSpecialCharacters: boolean) => {
+export const getWordsAndLetters = (guesses: WordType[], hasWordToGuessSpecialCharacters: boolean) => {
   const { words, subtotals } = guesses.reduce((guessesStack: GuessesStackInterface, { affixes }) => {
-    const { subtotals: wordTotals, incorrectLetters: wordIncorrectLetters } = affixes.reduce((affixesStack: AffixStackInterface, affix) => {
+    const { subtotals: wordTotals, incorrectLetters: wordIncorrectLetters } = affixes.reduce((affixesStack: AffixStackType, affix) => {
       if (affix.type === AffixStatus.Correct) {
         affixesStack.subtotals.correct += affix.text.length;
       }

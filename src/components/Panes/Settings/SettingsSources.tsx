@@ -122,7 +122,8 @@ const SettingsSources = () => {
           </h2>
           <ul className={clsx({
             'list-col-3': (dictionaries.length + 1) % 3 === 0,
-          })}>
+          })}
+          >
               <li>
                   <ButtonTile onClick={() => changePane(Pane.AboutLanguage)}>
                       <IconBookOpen />

@@ -1,16 +1,16 @@
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AffixStatus, Word as WordInterface } from '@common-types';
+import { AffixStatus, Word as WordType } from '@common-types';
 
 import Word from '@components/Words/Word';
 
 import './Help.scss';
 
-interface Props {
-  helpGuesses: WordInterface[],
+type Props = {
+  helpGuesses: WordType[],
   tEnd?: string,
-}
+};
 
 const HelpWords = ({ helpGuesses, tEnd = '' }: Props) => {
   const { t } = useTranslation();

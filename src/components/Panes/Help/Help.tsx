@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane, Word as WordInterface } from '@common-types';
+import { Pane, Word as WordType } from '@common-types';
 
 import { SUPPORTED_LANGS } from '@const';
 
@@ -22,7 +22,7 @@ import HelpWords from './HelpWords';
 import './Help.scss';
 
 const Help = () => {
-  const [helpGuesses, setHelpGuesses] = useState<WordInterface[]>([]);
+  const [helpGuesses, setHelpGuesses] = useState<WordType[]>([]);
   const [isAlt, setIsAlt] = useState(false);
 
   const { t, i18n } = useTranslation();

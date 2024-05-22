@@ -53,9 +53,9 @@ const DEFAULT_EMOJIS: Emojis = {
   typedKnownIncorrect: '🔴',
 };
 
-interface Props {
+type Props = {
   shouldShowSettings?: boolean,
-}
+};
 
 const ShareButton = ({ shouldShowSettings = false }: Props) => {
   const dispatch = useDispatch();

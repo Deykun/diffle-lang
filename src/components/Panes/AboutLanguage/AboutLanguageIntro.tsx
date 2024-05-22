@@ -4,9 +4,9 @@ import { DictionaryInfo } from '@common-types';
 
 import AboutLanguageIntroSpecialCharacters from './AboutLanguageIntroSpecialCharacters';
 
-interface Props {
+type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLanguageIntro = ({
   data: {

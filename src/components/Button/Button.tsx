@@ -7,7 +7,7 @@ import IconLoader from '@components/Icons/IconLoader';
 
 import './Button.scss';
 
-interface Props {
+type Props = {
   tagName?: ('button' | 'a')
   className?: string,
   children: React.ReactNode,
@@ -22,9 +22,9 @@ interface Props {
   isLarge?: boolean,
   hasBorder?: boolean,
   dataTestId?: string,
-}
+};
 
-function Button({
+const Button = ({
   className = '',
   tagName,
   children,
@@ -39,7 +39,7 @@ function Button({
   isLarge = false,
   hasBorder = true,
   dataTestId,
-}: Props) {
+}: Props) => {
   const Tag = tagName || 'button';
 
   const { vibrate } = useVibrate();
@@ -73,6 +73,6 @@ function Button({
           {isLoading && <IconLoader className="button-loader" />}
       </Tag>
   );
-}
+};
 
 export default Button;

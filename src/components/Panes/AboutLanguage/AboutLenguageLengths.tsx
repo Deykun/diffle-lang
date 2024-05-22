@@ -28,9 +28,9 @@ import AboutLanguageChartLanguageTitle from './AboutLanguageChartLanguageTitle';
 
 import './AboutLanguageLetters.scss';
 
-interface Props {
+type Props = {
   data: DictionaryInfo
-}
+};
 
 const AboutLenguageLengths = ({
   data,
