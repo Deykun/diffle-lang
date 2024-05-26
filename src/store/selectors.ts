@@ -274,6 +274,29 @@ export const selectWordState = (word: string) => createSelector(
   },
 );
 
+const getIsTextMatchingOrder = (text: string, order: string[]) => {
+  const {
+    isMatching,
+  } = order.reduce((stack, subtext) => {
+    if (!stack.restString.includes(subtext)) {
+      return {
+        restString: '',
+        isMatching: false,
+      };
+    }
+
+    const [, ...rest] = stack.restString.split(subtext);
+    stack.restString = rest.join('');
+
+    return stack;
+  }, {
+    restString: text,
+    isMatching: true,
+  });
+
+  return isMatching;
+};
+
 export const selectKeyboardState = createSelector(
   selectWordToGuess,
   selectWordToSubmit,
@@ -322,8 +345,6 @@ export const selectKeyboardState = createSelector(
     });
 
     if (allKnownLettersAreTyped) {
-      console.log(flatAffixes);
-      
       if (flatAffixes) {
         const isWrongStart = !wordToSubmit.startsWith(flatAffixes.start);
         if (isWrongStart) {
@@ -340,6 +361,11 @@ export const selectKeyboardState = createSelector(
         const isWrongMiddle = flatAffixes.middle.some(flatAffix => !wordToSubmit.includes(flatAffix));
         if (isWrongMiddle) {
           return AffixStatus.IncorrectMiddle;
+        }
+
+        const isWrongOrder = !flatAffixes.correctOrders.some(order => getIsTextMatchingOrder(wordToSubmit, order));
+        if (isWrongOrder) {
+          return AffixStatus.IncorrectOrder;
         }
       }
 

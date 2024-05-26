@@ -153,6 +153,7 @@ export enum AffixStatus {
   IncorrectStart = 'incorrect-start',
   IncorrectEnd = 'incorrect-end',
   IncorrectMiddle = 'incorrect-middle',
+  IncorrectOrder = 'incorrect-order',
 }
 
 export type Affix = {
@@ -257,6 +258,7 @@ export type FlatAffixes = {
   start: string,
   notStart: string[],
   middle: string[],
+  correctOrders: string[][],
   notEnd: string[],
   end: string,
 };

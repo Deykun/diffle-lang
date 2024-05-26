@@ -45,6 +45,7 @@ const Words = () => {
   ].includes(wordStatus) || [
     AffixStatus.IncorrectStart,
     AffixStatus.IncorrectMiddle,
+    AffixStatus.IncorrectOrder,
     AffixStatus.IncorrectEnd,
   ].includes(keyboardStatus);
 
@@ -81,6 +82,10 @@ const Words = () => {
 
     if (keyboardStatus === AffixStatus.IncorrectMiddle) {
       return 'game.youCanUseIncorrectMiddle';
+    }
+
+    if (keyboardStatus === AffixStatus.IncorrectOrder) {
+      return 'game.youCanUseIncorrectOrder';
     }
 
     if (keyboardStatus === AffixStatus.IncorrectEnd) {

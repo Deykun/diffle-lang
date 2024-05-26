@@ -99,6 +99,7 @@ const getFlatAffixes = (affixes: Affix[]) => {
     start: '',
     notStart: [],
     middle: [],
+    correctOrders: [],
     notEnd: [],
     end: '',
   };
@@ -126,6 +127,11 @@ const getFlatAffixes = (affixes: Affix[]) => {
     && affix.isStart !== true
     && affix.isEnd !== true
     && affix.text.length > 1).map(affix => affix.text);
+
+  const order = affixes.filter(affix => affix.type === AffixStatus.Correct).map(({ text }) => text);
+  if (order.length >= 2) {
+    flatAffixes.correctOrders = [order];
+  }
 
   return flatAffixes;
 };
@@ -211,6 +217,7 @@ export const getWordReportForMultipleWords = async (
       start: '',
       notStart: [],
       middle: [],
+      correctOrders: [],
       notEnd: [],
       end: '',
     },
