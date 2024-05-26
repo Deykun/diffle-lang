@@ -24,9 +24,15 @@ const winningDictionaryAlt = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES
 
 const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word', lang: LANG });
 
+const frequencyWords = getWordsFromDictionary(winningDictionaryAlt, { pattern: 'word ignore', lang: LANG });
+
+/* Gets only X percentage of most popular words */
+const XPercentage = 829568 / 1491400; // 829k - first line with 1 frequency, 1491k - last line ~ 55.6%
+const frequencyWordsFirstXPercentage = frequencyWords.slice(0, Math.floor(frequencyWords.length * XPercentage));
+
 const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
     getWordsFromDictionary(winningDictionary, { pattern: 'word ignore', lang: LANG }),
-    getWordsFromDictionary(winningDictionaryAlt, { pattern: 'word ignore', lang: LANG }),
+    frequencyWordsFirstXPercentage,
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(

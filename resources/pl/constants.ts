@@ -24,7 +24,7 @@ export const DICTIONARIES = {
         fullName: 'FrequencyWords',
         url: 'https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/pl/pl_50k.txt',
     },
-};
+} as const;
 
 export const EASTER_EGG_DAYS = {
     '03.05': {
