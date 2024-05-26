@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.22.2
+#### Version 3.23
+- **New**: Harder winning words for the Polish game
+
+#### Version 3.22.2 (13.05.2024)
 - **Fix**: Refreshed page for new dictionaries
 - **New**: GA tracking of force updating
 
