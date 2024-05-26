@@ -3,7 +3,7 @@ type GetAppStatusReport = {
   shouldResetStore: boolean,
 };
 
-const LAST_BREAKING_CHANGES_APP = '2.0';
+const LAST_BREAKING_CHANGES_APP = '3.23';
 const LAST_BREAKING_CHANGES_STORE = '2.0';
 
 export const getAppStatus = async (): Promise<GetAppStatusReport> => {

@@ -1,6 +1,6 @@
-interface Props {
+type Props = {
   className?: string,
-}
+};
 
 const IconSwap = ({ className }: Props) => (
     <svg className={className} xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" viewBox="0 0 25 24">

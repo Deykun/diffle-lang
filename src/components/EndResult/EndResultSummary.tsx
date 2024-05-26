@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Word as WordInterface, AffixStatus, GameStatus } from '@common-types';
+import { Word as WordType, AffixStatus, GameStatus } from '@common-types';
 
 import IconFancyCheck from '@components/Icons/IconFancyCheck';
 import IconFancyThumbDown from '@components/Icons/IconFancyThumbDown';
@@ -12,10 +12,10 @@ import Word from '@components/Words/Word';
 
 import './EndResult.scss';
 
-interface Props {
+type Props = {
   status: GameStatus,
   wordToGuess: string,
-  guesses: WordInterface[],
+  guesses: WordType[],
   words: number,
   letters: number,
   subtotals: {
@@ -24,7 +24,7 @@ interface Props {
     incorrect: number,
     typedKnownIncorrect: number,
   },
-}
+};
 
 function EndResultSummary({
   status,
@@ -36,7 +36,7 @@ function EndResultSummary({
 }: Props) {
   const { t } = useTranslation();
 
-  const lostWord: WordInterface = useMemo(() => {
+  const lostWord: WordType = useMemo(() => {
     const affixes = [{
       type: AffixStatus.Incorrect,
       text: wordToGuess,

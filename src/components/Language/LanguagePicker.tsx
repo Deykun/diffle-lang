@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane as PaneInterface } from '@common-types';
+import { Pane as PaneType } from '@common-types';
 
 import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
@@ -25,11 +25,11 @@ import ReportTranslationBugButton from './ReportTranslationBugButton';
 
 import './LanguagePicker.scss';
 
-interface Props {
+type Props = {
   className?: string,
   children?: React.ReactNode,
   place?: string,
-}
+};
 
 const LanguagePicker = ({ children, className, place }: Props) => {
   const dispatch = useDispatch();
@@ -67,14 +67,14 @@ const LanguagePicker = ({ children, className, place }: Props) => {
   };
 
   const handleGoToAboutLanguage = () => {
-    if (pane !== PaneInterface.AboutLanguage) {
-      changePane(PaneInterface.AboutLanguage);
+    if (pane !== PaneType.AboutLanguage) {
+      changePane(PaneType.AboutLanguage);
     }
 
     setIsOpen(value => !value);
   };
 
-  const shouldShowAboutInLanguages = SUPPORTED_LANGS.length === 5;
+  const shouldShowAboutInLanguages = SUPPORTED_LANGS.length % 3 !== 0;
 
   return (
       <>
@@ -94,10 +94,10 @@ const LanguagePicker = ({ children, className, place }: Props) => {
           <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
               <div className="settings">
                   <h3>{t('settings.language')}</h3>
-                  <ul className="list-col-3">
+                  <ul className="list-col-4">
                       {shouldShowAboutInLanguages && (
                       <li>
-                          <ButtonTile isInverted onClick={handleGoToAboutLanguage}>
+                          <ButtonTile isInverted onClick={handleGoToAboutLanguage} variant="small">
                               <IconBookOpen />
                               <span>
                                   {t('settings.statisticsTitle')}
@@ -114,6 +114,7 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                                 isActive={lang === i18n.language}
                                 onClick={() => handleLanguageChange(lang)}
                                 isDisabled={isGameUpdating}
+                                variant="small"
                               >
                                   <Image
                                     key={lang}

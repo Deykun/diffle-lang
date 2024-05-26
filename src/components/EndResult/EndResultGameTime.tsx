@@ -42,7 +42,7 @@ const EndResultGameTime = () => {
               {duration.seconds}
               <small>
                   .
-                  {`${duration.milliseconds}`.padStart(4, '0')}
+                  {`${duration.milliseconds}`.padStart(3, '0')}
               </small>
           </strong>
           {' '}

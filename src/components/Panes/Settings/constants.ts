@@ -12,6 +12,9 @@ export const DICTIONARIES_BY_LANG: {
   }, {
     href: 'http://home.zcu.cz/~konopik/ppc/',
     labelHTML: '<strong>slovniky.webz.cz</strong> z <strong>home.zcu.cz</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
   }],
   de: [{
     isSpeelchecker: true,
@@ -20,6 +23,9 @@ export const DICTIONARIES_BY_LANG: {
   }, {
     href: 'https://freedict.org/',
     labelHTML: '<strong>freedict.org</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
   }],
   en: [{
     isSpeelchecker: true,
@@ -28,6 +34,9 @@ export const DICTIONARIES_BY_LANG: {
   }, {
     href: 'https://freedict.org/',
     labelHTML: '<strong>freedict.org</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
   }],
   es: [{
     isSpeelchecker: true,
@@ -40,6 +49,9 @@ export const DICTIONARIES_BY_LANG: {
   }, {
     href: 'https://freedict.org/',
     labelHTML: '<strong>freedict.org</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
   }],
   fr: [{
     isSpeelchecker: true,
@@ -51,6 +63,21 @@ export const DICTIONARIES_BY_LANG: {
   }, {
     href: 'http://www.lexique.org/',
     labelHTML: '<strong>Lexique.org</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
+  }],
+  it: [{
+    isSpeelchecker: true,
+    href: 'https://www.libreitalia.org',
+    labelHTML: '<strong>LibreItalia.org</strong>',
+  }, {
+    isSpeelchecker: true,
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
+  }, {
+    href: 'https://freedict.org/',
+    labelHTML: '<strong>freedict.org</strong>',
   }],
   pl: [{
     isSpeelchecker: true,
@@ -59,5 +86,8 @@ export const DICTIONARIES_BY_LANG: {
   }, {
     href: 'https://freedict.org/',
     labelHTML: '<strong>freedict.org</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
   }],
 };

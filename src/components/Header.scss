@@ -76,6 +76,16 @@
             .header-title-icon-small {
                 height: 0.3em;
             }
+
+            .header-title-easter-day {
+                position: absolute;
+                left: 50%;
+                bottom: 3px;
+                font-size: 10px;
+                line-height: 10px;
+                transform: translateX(-50%);
+                color: var(--text-weaker);
+            }
     
             padding-right: 10px;
         }

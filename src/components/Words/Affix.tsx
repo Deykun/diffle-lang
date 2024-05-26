@@ -3,13 +3,13 @@ import clsx from 'clsx';
 
 import { useSelector } from '@store';
 import { selectWordToSubmit, selectLetterState, selectKeyboardState } from '@store/selectors';
-import { AffixStatus, Affix as AffixInterface } from '@common-types';
+import { AffixStatus, Affix as AffixType } from '@common-types';
 
 import './Affix.scss';
 
 const Affix = ({
   type, text, isStart, isEnd, hasCaretBefore, onClick, isSubmitted = false,
-}: AffixInterface) => {
+}: AffixType) => {
   const wordToSubmit = useSelector(selectWordToSubmit);
   const keyCapType = useSelector(selectLetterState(text));
   const keyboardState = useSelector(selectKeyboardState);

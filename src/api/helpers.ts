@@ -68,6 +68,20 @@ export const removeDiacratics = (word: string, lang?: string) => {
       .replaceAll('ü', 'u');
   }
 
+  if (!lang || lang === 'it') {
+    wordToReturn = wordToReturn
+      .replaceAll('à', 'a')
+      .replaceAll('è', 'e')
+      .replaceAll('é', 'e')
+      .replaceAll('ì', 'i')
+      .replaceAll('í', 'i')
+      .replaceAll('î', 'i')
+      .replaceAll('ò', 'o')
+      .replaceAll('ó', 'o')
+      .replaceAll('ù', 'u')
+      .replaceAll('ú', 'u');
+  }
+
   if (!lang || lang === 'pl') {
     wordToReturn = wordToReturn
       .replaceAll('ą', 'a')
@@ -140,16 +154,17 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
     middle: [...flatAffixesA.middle],
   };
 
-  // console.log('flatAffixesA', flatAffixesA);
-  // console.log('flatAffixesB', flatAffixesB);
-
   if (flatAffixesResult.start.length < flatAffixesB.start.length) {
     flatAffixesResult.start = flatAffixesB?.start || '';
   }
 
+  flatAffixesResult.notStart = [...new Set([...flatAffixesResult.notStart, ...flatAffixesB.notStart])];
+
   if (flatAffixesResult.end.length < flatAffixesB.end.length) {
     flatAffixesResult.end = flatAffixesB?.end || '';
   }
+
+  flatAffixesResult.notEnd = [...new Set([...flatAffixesResult.notEnd, ...flatAffixesB.notEnd])];
 
   flatAffixesB.middle.forEach((flatAffix) => {
     const hasMatchInState = flatAffixesResult.middle.some(stateAffix => stateAffix.startsWith(flatAffix)
@@ -167,9 +182,7 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
     }
   });
 
-  // console.log('flatAffixesResult',
-  //   flatAffixesResult,
-  // );
+  console.log(flatAffixesResult);
 
   return flatAffixesResult;
 };

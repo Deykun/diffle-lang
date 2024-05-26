@@ -25,6 +25,14 @@
             }
         }
 
+        &.list-col-4 {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+            @media (max-width: 360px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
         li {
             flex-basis: 100%;
         }
@@ -65,4 +73,10 @@
             color: var(--green-stronge);
         }
     }
+}
+
+.yesterday-day-tip {
+    display: block;
+    font-size: 80%;
+    margin-top: 20px;
 }

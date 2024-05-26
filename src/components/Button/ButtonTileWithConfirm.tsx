@@ -8,13 +8,13 @@ import useVibrate from '@hooks/useVibrate';
 
 import ButtonTile from '@components/Button/ButtonTile';
 
-interface Props {
+type Props = {
   className?: string,
   children: React.ReactNode,
   onClick: () => void,
   isDisabled?: boolean,
   secondsToConfirm?: number,
-}
+};
 
 const ButtonTileWithConfirm = ({
   className = '',

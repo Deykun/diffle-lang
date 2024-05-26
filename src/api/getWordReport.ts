@@ -2,13 +2,13 @@ import { Affix, AffixStatus, FlatAffixes, UsedLetters } from '@common-types';
 
 import { SUBMIT_ERRORS } from '@const';
 
-import getDoesWordExist, { DoesWordExistErrorType } from '@api/getDoesWordExist';
+import getDoesWordExist, { DoesWordExistErrorTypes } from '@api/getDoesWordExist';
 import compareWords from '@api/utils/compareWords';
 import { mergeFlatAffixes } from '@api/helpers';
 
 import { mergeLettersData } from '@utils/statistics';
 
-export interface PatternReport {
+export type PatternReport = {
   affixes: Affix[],
   wordLetters: {
     correct: UsedLetters,
@@ -16,7 +16,7 @@ export interface PatternReport {
     position: UsedLetters,
   },
   current?: Affix
-}
+};
 
 export const temporaryTranslatorPatterns = (word: string, pattern: number[]): PatternReport => {
   const letters = Array.from(word);
@@ -80,7 +80,7 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
   return { affixes, wordLetters };
 };
 
-export interface WordReport {
+export type WordReport = {
   isError: boolean,
   type?: string,
   isWon: boolean,
@@ -92,24 +92,35 @@ export interface WordReport {
     position: UsedLetters,
   },
   flatAffixes?: FlatAffixes,
-}
+};
 
 const getFlatAffixes = (affixes: Affix[]) => {
   const flatAffixes: FlatAffixes = {
     start: '',
+    notStart: [],
     middle: [],
+    notEnd: [],
     end: '',
   };
 
-  if (affixes.at(0)?.type === AffixStatus.Correct && affixes.at(0)?.isStart) {
-    flatAffixes.start = affixes.at(0)?.text || '';
+  if (affixes.length === 0) {
+    return flatAffixes;
   }
 
-  if (affixes.at(-1)?.type === AffixStatus.Correct && affixes.at(-1)?.isEnd) {
-    flatAffixes.end = affixes.at(-1)?.text || '';
+  const firstAffix = affixes[0];
+  const lastAffix = affixes[affixes.length - 1];
+
+  if (firstAffix.type === AffixStatus.Correct && firstAffix.isStart) {
+    flatAffixes.start = firstAffix.text;
+  } else {
+    flatAffixes.notStart.push(firstAffix.text[0]);
   }
 
-  // console.log('affixes', affixes);
+  if (lastAffix.type === AffixStatus.Correct && lastAffix.isEnd) {
+    flatAffixes.end = lastAffix.text;
+  } else {
+    flatAffixes.notEnd.push(lastAffix.text[lastAffix.text.length - 1]);
+  }
 
   flatAffixes.middle = affixes.filter(affix => affix.type === AffixStatus.Correct
     && affix.isStart !== true
@@ -128,7 +139,7 @@ export const getWordReport = async (
     const doesWordExistReport = await getDoesWordExist(wordToSubmit, lang);
 
     if (doesWordExistReport.isError) {
-      if (doesWordExistReport.errorType === DoesWordExistErrorType.Fetch) {
+      if (doesWordExistReport.errorType === DoesWordExistErrorTypes.Fetch) {
         return {
           isError: true, word: wordToSubmit, isWon: false, type: SUBMIT_ERRORS.WORD_FETCH_ERROR,
         };
@@ -198,7 +209,9 @@ export const getWordReportForMultipleWords = async (
     },
     flatAffixes: {
       start: '',
+      notStart: [],
       middle: [],
+      notEnd: [],
       end: '',
     },
   };
@@ -218,8 +231,6 @@ export const getWordReportForMultipleWords = async (
 
     response.flatAffixes = mergeFlatAffixes(response.flatAffixes, flatAffixes);
   }
-
-  // console.log('response.flatAffixes', response.flatAffixes);
 
   response.hasError = response.results.some(({ isError }) => isError === true);
   response.isWon = response.results.some(({ isWon }) => isWon === true);

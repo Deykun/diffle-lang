@@ -9,9 +9,9 @@ import { selectLetterSubreport } from '@store/selectors';
 
 import './KeyCap.scss';
 
-interface Props {
+type Props = {
   text: string,
-}
+};
 
 const KeyCapOccurance = ({ text }: Props) => {
   const {

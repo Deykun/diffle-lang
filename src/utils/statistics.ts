@@ -23,12 +23,12 @@ export enum LengthFilter {
   Long = 'long',
 }
 
-interface LocalStorageStatisticInput {
+type LocalStorageStatisticInput = {
   gameMode: GameMode | ModeFilter,
   gameLanguage: string,
   hasSpecialCharacters: boolean,
   isShort: boolean,
-}
+};
 
 export const getLocalStorageKeyForStat = ({
   gameLanguage, gameMode, hasSpecialCharacters, isShort,
@@ -36,16 +36,16 @@ export const getLocalStorageKeyForStat = ({
   return `diffle_stats_${gameLanguage}_${gameMode}_${hasSpecialCharacters ? 'special' : 'no_special'}_${isShort ? 'short' : 'long'}`;
 };
 
-interface LocalStorageStreakInput {
+type LocalStorageStreakInput = {
   gameMode?: GameMode | ModeFilter,
   gameLanguage: string,
-}
+};
 
 export const getLocalStorageKeyForStreak = ({ gameLanguage, gameMode }: LocalStorageStreakInput) => {
   return `diffle_streak_${gameLanguage}_${gameMode || ModeFilter.All}`;
 };
 
-export interface Statistic {
+export type Statistic = {
   meta: string[],
   totals: {
     won: number,
@@ -90,7 +90,7 @@ export interface Statistic {
     word: string,
     words: number,
   },
-}
+};
 
 const EMPTY_STATISTIC = {
   meta: ['empty'],
@@ -202,12 +202,12 @@ export const removeStatisticsByGameMode = ({ gameLanguage, gameMode }: { gameLan
   localStorage.removeItem(keyOfStreakToRemove);
 };
 
-export interface Streak {
+export type Streak = {
   wonStreak: number,
   lostStreak: number,
   bestStreak: number,
   worstStreak: number,
-}
+};
 
 const EMPTY_STREAK = {
   wonStreak: 0,
@@ -248,9 +248,9 @@ export const saveStreak = ({ gameLanguage, gameMode }: LocalStorageStreakInput, 
   localStorage.setItem(key, streakToSave);
 };
 
-export interface SaveGame extends LocalStorageStatisticInput {
+export type SaveGame = LocalStorageStatisticInput & {
   wordToGuess: string,
-}
+};
 
 const mergeStatistics = (statistics: Statistic[]): Statistic => {
   return statistics.reduce((stack: Statistic, statistic) => {
@@ -329,13 +329,13 @@ const mergeStatistics = (statistics: Statistic[]): Statistic => {
   }, EMPTY_STATISTIC);
 };
 
-interface KeyForFilters {
+type KeyForFilters = {
   gameLanguage: string,
   keyModeFilter: ModeFilter,
   keyCharactersFilter: CharactersFilter,
   keyLengthFilter: LengthFilter,
   key: string,
-}
+};
 
 const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: KeyForFilters[], keyModeFilter) => {
   [CharactersFilter.NoSpecial, CharactersFilter.Special].forEach((keyCharactersFilter) => {
@@ -365,12 +365,12 @@ const KEYS_FOR_FILTERS = [ModeFilter.Daily, ModeFilter.Practice].reduce((stack: 
   return stack;
 }, []);
 
-export interface Filters {
+export type Filters = {
   gameLanguage?: string,
   modeFilter: ModeFilter,
   charactersFilter: CharactersFilter,
   lengthFilter: LengthFilter,
-}
+};
 
 export const getStatisticFiltersForKeys = (
   gameLanguage: string,
@@ -439,7 +439,7 @@ export const getStreakForFilter = (
   return getStreak({ gameLanguage, gameMode: modeFilter });
 };
 
-export interface StatisticDataForCard {
+export type StatisticDataForCard = {
   totalGames: number,
   totalWon: number,
   totalLost: number,
@@ -469,7 +469,7 @@ export interface StatisticDataForCard {
   lettersIncorrect: number,
   lettersTypedKnownIncorrect: number,
   keyboardUsed: number,
-}
+};
 
 const getMedianFromMedianData = (medianData: { [value: number]: number }) => {
   const totalDataInMedian = Object.values(medianData).reduce((stack, totalForValue) => stack + totalForValue, 0);

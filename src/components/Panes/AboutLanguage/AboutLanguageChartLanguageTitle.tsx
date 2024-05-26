@@ -6,9 +6,9 @@ import Image from '@components/Image/Image';
 
 import './AboutLanguageChartFooter.scss';
 
-interface Props {
+type Props = {
   lng?: string,
-}
+};
 
 const AboutLanguageChartFooter = ({
   lng,

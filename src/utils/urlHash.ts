@@ -1,10 +1,10 @@
 import { getIsKeyValid } from '@api/helpers';
 
-interface ChunkInfo {
+type ChunkInfo = {
   word?: string,
   key: string,
   index: number,
-}
+};
 
 export const getChunkKeyPartWithPreviousUsedAsShadow = (key: string, previousKey: string | undefined = '') => {
   if (!getIsKeyValid(key)) {
@@ -90,7 +90,7 @@ export const transformShortKeyToChunkInfo = (shortKey: string): ChunkInfo[] => {
   return chunksInfos;
 };
 
-interface Params {
+type Params = {
   wordToGuess: string,
   dayIntoYear: number | undefined,
   wordsWithIndexes: {
@@ -104,7 +104,7 @@ interface Params {
     incorrect: number,
     typedKnownIncorrect: number,
   },
-}
+};
 
 export const getUrlHashForGameResult = ({
   wordToGuess = '',

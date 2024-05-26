@@ -11,7 +11,32 @@
 
 ---
 
-#### Version 3.20
+#### Version 3.23
+- **New**: Harder winning words for the Polish game
+
+#### Version 3.22.2 (13.05.2024)
+- **Fix**: Refreshed page for new dictionaries
+- **New**: GA tracking of force updating
+
+#### Version 3.22.1 (12.05.2024)
+- **Fix**: Better hint for the out of date yesterday's word
+- **Fix**: Don't break streak for players affected by service mode screen
+
+#### Version 3.22 (12.05.2024)
+- **New**: TypeScript added in node, shared files between node and app
+- **Fix**: Swear words have been removed from Italian winning words
+- **New**: All langs are using FrequencyWords as part of building winning dictionary
+- **New**: A hint was added informing that yesterday's word could be wrong due to the update
+- **New**: There is a date shown in the header for Easter egg days
+
+#### Version 3.21 (12.05.2024)
+- **New**: Italian game language added
+- **New**: Czech dictionary updated
+
+#### Version 3.20.1 (29.04.2024)
+- **Fix**: The unnecessary "0" before "ms" in game duration has been removed
+
+#### Version 3.20 (02.04.2024)
 - **New**: Optional display of game duration on the end screen added
 
 #### Version 3.19.1 (01.04.2024)

@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { Pane, RootAppState, RootState, ToastType, CookiesName } from '@common-types';
+import {
+  Pane, RootAppState, RootState, ToastType, CookiesName,
+} from '@common-types';
 
 import { isDev } from '@const';
 

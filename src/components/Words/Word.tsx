@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Word as WordInterface, AffixStatus } from '@common-types';
+import { Word as WordType, AffixStatus } from '@common-types';
 
 import { useDispatch } from '@store';
 import { setCaretShift } from '@store/gameSlice';
@@ -8,7 +8,7 @@ import Affix from '@components/Words/Affix';
 
 import './Words.scss';
 
-const Word = ({ guess, isSubmitted = false }: { guess: WordInterface, isSubmitted?: boolean }) => {
+const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: boolean }) => {
   const dispatch = useDispatch();
 
   const handleClickGenerator = (letterIndex: number) => () => {

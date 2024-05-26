@@ -11,10 +11,10 @@ import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 
 import Button from '@components/Button/Button';
 
-interface Props {
+type Props = {
   filterGroupBy: BestWordleType,
   setFilterGroupBy: Dispatch<SetStateAction<BestWordleType>>,
-}
+};
 
 const AboutLanguageWordleFilters = ({
   filterGroupBy,

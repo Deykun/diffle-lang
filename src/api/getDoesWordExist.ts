@@ -4,15 +4,17 @@ type FetchedWordsListByKeys = {
   [key: string]: string[]
 };
 
-export enum DoesWordExistErrorType {
-  TooShort = 'too_short',
-  Fetch = 'fetch',
-}
+export const DoesWordExistErrorTypes = {
+  TooShort: 'too_short',
+  Fetch: 'fetch',
+} as const;
+
+type DoesWordExistErrorType = typeof DoesWordExistErrorTypes[keyof typeof DoesWordExistErrorTypes];
 
 type GetDoesWordExistReport = {
   doesWordExist: boolean,
   isError: boolean,
-  errorType?: DoesWordExistErrorType,
+  errorType?: DoesWordExistErrorType
 };
 
 const cachedKeys: FetchedWordsListByKeys = {};
@@ -26,7 +28,7 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
     return {
       doesWordExist: false,
       isError: true,
-      errorType: DoesWordExistErrorType.TooShort,
+      errorType: DoesWordExistErrorTypes.TooShort,
     };
   }
 
@@ -54,7 +56,7 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
       return {
         doesWordExist: false,
         isError: true,
-        errorType: DoesWordExistErrorType.Fetch,
+        errorType: DoesWordExistErrorTypes.Fetch,
       };
     }
   }
@@ -67,10 +69,10 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
   };
 };
 
-interface KeyWithIndex {
+type KeyWithIndex = {
   key: string,
   index: number,
-}
+};
 
 export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[], lang: string): Promise<string[]> => {
   const words = [];

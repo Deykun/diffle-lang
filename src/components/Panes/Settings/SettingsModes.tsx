@@ -21,9 +21,9 @@ import ButtonTile from '@components/Button/ButtonTile';
 
 import './Settings.scss';
 
-interface Props {
+type Props = {
   changePane: PaneChange,
-}
+};
 
 const SettingsModes = ({ changePane }: Props) => {
   const dispatch = useDispatch();

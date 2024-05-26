@@ -194,6 +194,27 @@
   }
 }
 
+.button-tile-small {
+  height: 90px;
+
+  svg {
+    height: 32px;
+    width: 32px;
+    margin-bottom: 5px;
+  }
+
+  span {
+    font-size: 12px;
+  }
+
+  .button-tile-label {
+    svg {
+        height: 24px;
+        width: 24px;
+    }
+  }
+}
+
 .button-tile-inverse {
   color: var(--background);
   background-color: var(--text);
@@ -301,5 +322,5 @@
                 filter: drop-shadow(0 0 5px var(--green));
             }
         }
-  }
+    }
 }
