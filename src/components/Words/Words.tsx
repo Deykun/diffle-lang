@@ -36,7 +36,7 @@ const Words = () => {
   const isProcessing = useSelector(selectIsProcessing);
   const wordToSubmit = useSelector(selectWordToSubmit);
   const wordStatus = useSelector(selectWordState(wordToSubmit));
-  const keyboardStatus = useSelector(selectKeyboardState);
+  const { status: keyboardStatus, details } = useSelector(selectKeyboardState);
   const caretShift = useSelector(state => state.game.caretShift);
   const hasSpace = wordToSubmit.includes(' ');
   const isIncorrectType = [
@@ -48,6 +48,10 @@ const Words = () => {
     AffixStatus.IncorrectOrder,
     AffixStatus.IncorrectEnd,
   ].includes(keyboardStatus);
+
+  console.log({
+    keyboardStatus, details,
+  })
 
   const { t } = useTranslation();
 

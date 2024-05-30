@@ -12,7 +12,7 @@ const Affix = ({
 }: AffixType) => {
   const wordToSubmit = useSelector(selectWordToSubmit);
   const keyCapType = useSelector(selectLetterState(text));
-  const keyboardState = useSelector(selectKeyboardState);
+  const { status: keyboardState } = useSelector(selectKeyboardState);
   const flatAffixes = useSelector(state => state.game.flatAffixes);
 
   const isKnownIncorrectTyped = keyCapType === AffixStatus.Incorrect;

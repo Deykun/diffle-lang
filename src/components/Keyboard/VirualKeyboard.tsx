@@ -23,7 +23,7 @@ const VirualKeyboard = () => {
   const isSmallKeyboard = useSelector(state => state.app.isSmallKeyboard);
   const { keyLinesToUse, allowedKeys } = useSelector(selectGameLanguageKeyboardInfo);
   const isGameEnded = useSelector(selectIsGameEnded);
-  const type = useSelector(selectKeyboardState);
+  const { status: type } = useSelector(selectKeyboardState);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
   const { vibrateKeyboard, vibrateKeyboardIncorrect } = useVibrate();

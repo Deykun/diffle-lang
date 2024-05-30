@@ -114,12 +114,14 @@ const getFlatAffixes = (affixes: Affix[]) => {
   if (firstAffix.type === AffixStatus.Correct && firstAffix.isStart) {
     flatAffixes.start = firstAffix.text;
   } else {
+  // } else if (firstAffix.isStart) {
     flatAffixes.notStart.push(firstAffix.text[0]);
   }
 
   if (lastAffix.type === AffixStatus.Correct && lastAffix.isEnd) {
     flatAffixes.end = lastAffix.text;
   } else {
+  // } else if (lastAffix.isEnd) {
     flatAffixes.notEnd.push(lastAffix.text[lastAffix.text.length - 1]);
   }
 
