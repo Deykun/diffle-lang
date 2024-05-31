@@ -50,7 +50,7 @@
     "game.frSpecialCharacters": "specialne",
     "game.plSpecialCharacter": "polski",
     "game.plSpecialCharacters": "polskich",
-    "game.youCanUseIncorrectLetters": "Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.",
+    "game.youCanUseIncorrectLetters": "Twoje słowo <strong>nie może</strong> być hasłem, ale możesz go użyć szukając hasła.<br />(niepoprawna litera użyta w słowie)",
     "game.youCanUseLettersTypedTooManyTimes": "Możesz użyć tego słowa, ale <strong>nie może</strong> ono być hasłem.<br />(poprawna litera użyta zbyt wiele razy)",
     "game.youCanUseSpace": "Hasła <strong>nie mają</strong> spacji, ale możesz jej używać (zostanie usunięta).",
     "game.spacesRemoved": "Usunięto spacje.",

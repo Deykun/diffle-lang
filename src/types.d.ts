@@ -150,6 +150,10 @@ export enum AffixStatus {
   Position = 'position',
   Incorrect = 'incorrect',
   IncorrectOccurance = 'incorrect-occurrence',
+  IncorrectStart = 'incorrect-start',
+  IncorrectEnd = 'incorrect-end',
+  IncorrectMiddle = 'incorrect-middle',
+  IncorrectOrder = 'incorrect-order',
 }
 
 export type Affix = {
@@ -157,6 +161,7 @@ export type Affix = {
   text: string,
   isStart?: boolean,
   isEnd?: boolean,
+  isSubmitted?: boolean,
   hasCaretBefore?: boolean,
   onClick?: () => void,
 };
@@ -249,6 +254,15 @@ export type EasterDays = {
   }
 };
 
+export type FlatAffixes = {
+  start: string,
+  notStart: string[],
+  middle: string[],
+  correctOrders: string[][],
+  notEnd: string[],
+  end: string,
+};
+
 export type RootGameState = {
   language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'it' | 'pl' | undefined,
   mode: GameMode,
@@ -272,6 +286,7 @@ export type RootGameState = {
   lastUpdateTime: number,
   durationMS: number,
   lastWordAddedToStatitstic: string,
+  flatAffixes: FlatAffixes,
 };
 
 export type RootState = {
