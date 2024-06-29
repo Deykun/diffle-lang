@@ -24,6 +24,7 @@ import ButtonTile from '@components/Button/ButtonTile';
 import CookiesPopup from '@components/Cookies/CookiesPopup';
 import LanguagePicker from '@components/Language/LanguagePicker';
 import KeyboardLayoutPicker from '@components/Keyboard/KeyboardLayoutPicker';
+import SettingsAccessibility from '@components/Panes/Settings/SettingsAccessibility';
 
 import './Settings.scss';
 
@@ -93,10 +94,7 @@ const SettingsPreferences = () => {
                   </ButtonTile>
               </li>
               <li>
-                  <ButtonTile className="button-tile-active--contrast" onClick={handleToggleHighContrastMode}>
-                      <IconContrast />
-                      <span>{t('settings.highContrastMode')}</span>
-                  </ButtonTile>
+                  <SettingsAccessibility />
               </li>
               <li>
                   <CookiesPopup className="button-tile" isEditMode>

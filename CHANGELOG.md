@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.23
+#### Version 3.24
+- **New**: Accessibility preview for contrast has been added
+
+#### Version 3.23 (26.05.2024)
 - **New**: Harder winning words for the Polish game
 
 #### Version 3.22.2 (13.05.2024)
