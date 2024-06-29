@@ -7,7 +7,6 @@ import { track, toggleShowDuration } from '@store/appSlice';
 
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
-import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
 import IconCookie from '@components/Icons/IconCookie';
 import IconCookies from '@components/Icons/IconCookies';
@@ -57,16 +56,6 @@ const SettingsPreferences = () => {
     dispatch(track({ name: `click_change_to_${isLightThemeBeforeToggle ? 'dark' : 'light'}_mode` }));
 
     document.documentElement.classList.toggle('light');
-  };
-
-  const handleToggleHighContrastMode = () => {
-    const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
-
-    localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
-
-    dispatch(track({ name: `click_${isHighContrastBeforeToggle ? 'turn_off_contrast' : 'turn_on_contrast'}` }));
-
-    document.documentElement.classList.toggle('contrast');
   };
 
   const handleToggleShowDuration = () => {
