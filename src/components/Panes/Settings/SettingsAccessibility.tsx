@@ -56,6 +56,7 @@ const SettingsAccessibility = () => {
   return (
       <>
           <ButtonTile
+            className="button-tile-active--contrast"
             onClick={() => setIsOpen(value => !value)}
           >
               <IconContrast />
