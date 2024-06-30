@@ -122,6 +122,7 @@
     "settings.gameModeTitle": "Modes de jeu",
     "settings.labelFinishGame": "Terminer",
     "settings.labelFinishGameLonger": "Devinez le mot de passe d'aujourd'hui pour déverrouiller.",
+    "settings.labelYouCanSeeSharedWords": "You guessed today's password, so you can see them.",
     "settings.preferencesTitle": "Préférences",
     "settings.highContrastMode": "Contraste élevé",
     "settings.lightMode": "Mode Clair",
