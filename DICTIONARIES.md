@@ -88,3 +88,4 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 
 #### Not yet added to game
 
+https://github.com/emrahcom/turkce_kelimeler/blob/master/sozluk.xml - 🃏 (22.2 MB) Turkish

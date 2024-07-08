@@ -263,6 +263,7 @@ export const SUBMIT_ERRORS = {
   WORD_DOES_NOT_EXIST: 'word_does_not_exist',
   WORD_FETCH_ERROR: 'word_fetch_error',
   RESTORING_ERROR: 'restoring_error',
+  EMPTY_WORD_TO_GUESS: 'empty_word_to_guess',
 };
 
 export const GIVE_UP_ERRORS = {

@@ -1,9 +1,10 @@
-import { Affix, AffixStatus, UsedLetters } from '@common-types';
+import { Affix, AffixStatus, FlatAffixes, UsedLetters } from '@common-types';
 
 import { SUBMIT_ERRORS } from '@const';
 
 import getDoesWordExist, { DoesWordExistErrorTypes } from '@api/getDoesWordExist';
 import compareWords from '@api/utils/compareWords';
+import { mergeFlatAffixes } from '@api/helpers';
 
 import { mergeLettersData } from '@utils/statistics';
 
@@ -90,6 +91,49 @@ export type WordReport = {
     incorrect: UsedLetters,
     position: UsedLetters,
   },
+  flatAffixes?: FlatAffixes,
+};
+
+const getFlatAffixes = (affixes: Affix[]) => {
+  const flatAffixes: FlatAffixes = {
+    start: '',
+    notStart: [],
+    middle: [],
+    correctOrders: [],
+    notEnd: [],
+    end: '',
+  };
+
+  if (affixes.length === 0) {
+    return flatAffixes;
+  }
+
+  const firstAffix = affixes[0];
+  const lastAffix = affixes[affixes.length - 1];
+
+  if (firstAffix.type === AffixStatus.Correct && firstAffix.isStart) {
+    flatAffixes.start = firstAffix.text;
+  } else if (!firstAffix.isStart) {
+    flatAffixes.notStart.push(firstAffix.text[0]);
+  }
+
+  if (lastAffix.type === AffixStatus.Correct && lastAffix.isEnd) {
+    flatAffixes.end = lastAffix.text;
+  } else if (!lastAffix.isEnd) {
+    flatAffixes.notEnd.push(lastAffix.text[lastAffix.text.length - 1]);
+  }
+
+  flatAffixes.middle = affixes.filter(affix => affix.type === AffixStatus.Correct
+    && affix.isStart !== true
+    && affix.isEnd !== true
+    && affix.text.length > 1).map(affix => affix.text);
+
+  const order = affixes.filter(affix => affix.type === AffixStatus.Correct).map(({ text }) => text);
+  if (order.length >= 2) {
+    flatAffixes.correctOrders = [order];
+  }
+
+  return flatAffixes;
 };
 
 export const getWordReport = async (
@@ -134,10 +178,12 @@ export const getWordReport = async (
     affixes[affixes.length - 1].isEnd = true;
   }
 
+  const flatAffixes = getFlatAffixes(affixes);
+
   const isWon = wordToSubmit === wordToGuess;
 
   return {
-    isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters,
+    isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters, flatAffixes,
   };
 };
 
@@ -157,6 +203,7 @@ export const getWordReportForMultipleWords = async (
       incorrect: UsedLetters,
       position: UsedLetters,
     },
+    flatAffixes: FlatAffixes,
   } = {
     hasError: false,
     isWon: false,
@@ -165,6 +212,14 @@ export const getWordReportForMultipleWords = async (
       correct: {},
       incorrect: {},
       position: {},
+    },
+    flatAffixes: {
+      start: '',
+      notStart: [],
+      middle: [],
+      correctOrders: [],
+      notEnd: [],
+      end: '',
     },
   };
 
@@ -176,10 +231,12 @@ export const getWordReportForMultipleWords = async (
     response.results.push(wordReport);
 
     response.wordsLetters.correct = mergeLettersData(response.wordsLetters.correct, wordReport?.wordLetters?.correct);
-
     response.wordsLetters.incorrect = mergeLettersData(response.wordsLetters.incorrect, wordReport?.wordLetters?.incorrect);
-
     response.wordsLetters.position = mergeLettersData(response.wordsLetters.position, wordReport?.wordLetters?.position);
+
+    const flatAffixes = getFlatAffixes(wordReport?.affixes || []);
+
+    response.flatAffixes = mergeFlatAffixes(response.flatAffixes, flatAffixes);
   }
 
   response.hasError = response.results.some(({ isError }) => isError === true);

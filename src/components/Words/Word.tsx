@@ -8,7 +8,7 @@ import Affix from '@components/Words/Affix';
 
 import './Words.scss';
 
-const Word = ({ guess }: { guess: WordType }) => {
+const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: boolean }) => {
   const dispatch = useDispatch();
 
   const handleClickGenerator = (letterIndex: number) => () => {
@@ -50,6 +50,7 @@ const Word = ({ guess }: { guess: WordType }) => {
                   type={type}
                   isStart={isStart}
                   isEnd={isEnd}
+                  isSubmitted={isSubmitted}
                   hasCaretBefore={hasCaretBefore}
                   onClick={isNew ? handleClickGenerator(index) : undefined}
                 />

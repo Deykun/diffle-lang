@@ -68,14 +68,34 @@
             box-shadow: 3px 0 3px var(--blue-weaker);
             box-shadow: 3px 0 3px var(--blue-transparentized);
         }
+    }
 
+    &.new {
         &.known-incorect,
         &.known-typed-too-much {
+            &::after {
+                bottom: -10px;
+            }
+        }
+    }
+    
+    &.correct {
+        &.known-missing-part {
+            &::after {
+                bottom: -8px;
+            }
+        }
+    }
+
+    &.new,
+    &.correct {
+        &.known-incorect,
+        &.known-typed-too-much,
+        &.known-missing-part {
             &::after {
                 content: '';
                 position: absolute;
                 left: calc(50% - 4px);
-                bottom: -10px;
                 height: 0;
                 width: 0;
                 border-radius: 6px;
@@ -89,7 +109,8 @@
             }
         }
 
-        &.known-typed-too-much {
+        &.known-typed-too-much,
+        &.known-missing-part {
             &::after {
                 border-bottom-color: var(--orange);
             }

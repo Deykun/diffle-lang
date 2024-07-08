@@ -11,6 +11,7 @@ import {
   selectIsGameEnded,
   selectIsProcessing,
   selectWordToSubmit,
+  selectKeyboardState,
   selectWordState,
 } from '@store/selectors';
 
@@ -35,10 +36,18 @@ const Words = () => {
   const isProcessing = useSelector(selectIsProcessing);
   const wordToSubmit = useSelector(selectWordToSubmit);
   const wordStatus = useSelector(selectWordState(wordToSubmit));
+  const { status: keyboardStatus } = useSelector(selectKeyboardState);
   const caretShift = useSelector(state => state.game.caretShift);
   const hasSpace = wordToSubmit.includes(' ');
-  const isIncorrect = wordStatus === AffixStatus.Incorrect;
-  const isTypedTooMuch = wordStatus === AffixStatus.IncorrectOccurance;
+  const isIncorrectType = [
+    AffixStatus.Incorrect,
+    AffixStatus.IncorrectOccurance,
+  ].includes(wordStatus) || [
+    AffixStatus.IncorrectStart,
+    AffixStatus.IncorrectMiddle,
+    AffixStatus.IncorrectOrder,
+    AffixStatus.IncorrectEnd,
+  ].includes(keyboardStatus);
 
   const { t } = useTranslation();
 
@@ -54,25 +63,45 @@ const Words = () => {
 
   useScrollEffect('bottom', [wordToSubmit]);
 
-  const tiptext = useMemo(() => {
+  const {
+    isImpossibleToWin,
+    tiptext,
+  } = useMemo(() => {
+    let text = '';
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    let isImpossibleToWin = false;
+
     if (isProcessing) {
-      return 'game.checking';
+      text = 'game.checking';
     }
 
-    if (isIncorrect) {
-      return 'game.youCanUseIncorrectLetters';
+    if (wordStatus === AffixStatus.Incorrect) {
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectLetters';
+    } else if (wordStatus === AffixStatus.IncorrectOccurance) {
+      isImpossibleToWin = true;
+      text = 'game.youCanUseLettersTypedTooManyTimes';
+    } else if (keyboardStatus === AffixStatus.IncorrectStart) {
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectStart';
+    } else if (keyboardStatus === AffixStatus.IncorrectMiddle) {
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectMiddle';
+    } else if (keyboardStatus === AffixStatus.IncorrectOrder) {
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectOrder';
+    } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectEnd';
+    } else if (hasSpace) {
+      text = 'game.youCanUseSpace';
     }
 
-    if (isTypedTooMuch) {
-      return 'game.youCanUseLettersTypedTooManyTimes';
-    }
-
-    if (hasSpace) {
-      return 'game.youCanUseSpace';
-    }
-
-    return '';
-  }, [hasSpace, isIncorrect, isProcessing, isTypedTooMuch]);
+    return {
+      isImpossibleToWin,
+      tiptext: text,
+    };
+  }, [hasSpace, isProcessing, keyboardStatus, wordStatus]);
 
   const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
   const shouldBeShorter = guesses.length > 8;
@@ -82,7 +111,7 @@ const Words = () => {
           <WordTip />
           {guesses.map((guess) => {
             return (
-                <Word key={`guess-${guess.word}`} guess={guess} />
+                <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />
             );
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
@@ -94,11 +123,22 @@ const Words = () => {
           <p
             className={clsx('status-tip', {
               'is-processing': isProcessing,
-              'is-incorrect': isIncorrect || isTypedTooMuch,
+              'is-incorrect': isIncorrectType,
               space: hasSpace,
             })}
           >
               {isProcessing && <IconDashedCircle />}
+              {!isProcessing && isImpossibleToWin && (
+              <>
+                  <span
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: t('game.youCanUseThisWordButNotWin'),
+                    }}
+                  />
+                  <br />
+              </>
+              )}
               {tiptext && (
               <span
                 // eslint-disable-next-line react/no-danger

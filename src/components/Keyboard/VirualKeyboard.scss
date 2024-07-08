@@ -57,7 +57,10 @@
         margin-bottom: min(6px, 1vw);
     }
 
-    &.incorrect {
+    &.incorrect,
+    &.incorrect-start,
+    &.incorrect-middle,
+    &.incorrect-end {
         border-color: var(--red);
 
         @media (min-width: 502px) {

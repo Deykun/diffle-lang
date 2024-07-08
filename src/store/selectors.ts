@@ -17,6 +17,9 @@ import { LOCAL_STORAGE, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
+import { getLetterOccuranceInWord } from './utils/getLetterOccuranceInWord';
+import { getKeyboardState } from './utils/getKeyboardState';
+
 export const selectIsProcessing = (state: RootState) => state.game.isProcessing;
 export const selectWordToGuess = (state: RootState) => state.game.wordToGuess;
 export const selectWordToSubmit = (state: RootState) => state.game.wordToSubmit;
@@ -93,10 +96,6 @@ const selectIncorrectLetters = (state: RootState) => state.game.letters.incorrec
 const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
 export const selectGuesses = (state: RootState) => state.game.guesses;
-
-// hello -> 2
-// https://stackoverflow.com/a/72347965/6743808 - claims is the fastest
-const getLetterOccuranceInWord = (letter: string, word: string) => word.length - word.replaceAll(letter, '').length;
 
 const getLetterState = (
   letter: string,
@@ -210,6 +209,8 @@ export const selectLetterSubreport = (letter: string) => createSelector(
   },
 );
 
+const selectFlatAffixes = (state: RootState) => state.game.flatAffixes;
+
 export const selectWordState = (word: string) => createSelector(
   selectWordToSubmit,
   selectWordToGuess,
@@ -217,7 +218,8 @@ export const selectWordState = (word: string) => createSelector(
   selectCorrectLetters,
   selectIncorrectLetters,
   selectPositionLetters,
-  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
+  selectFlatAffixes,
+  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters, flatAffixes) => {
     const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
     const hasIncorrectLetterTyped = uniqueLettersInWord.some(
@@ -252,6 +254,21 @@ export const selectWordState = (word: string) => createSelector(
       return AffixStatus.IncorrectOccurance;
     }
 
+    const isWrongStart = !wordToSubmit.startsWith(flatAffixes.start);
+    if (isWrongStart) {
+      return AffixStatus.IncorrectStart;
+    }
+
+    const isWrongEnd = !wordToSubmit.endsWith(flatAffixes.end);
+    if (isWrongEnd) {
+      return AffixStatus.IncorrectEnd;
+    }
+
+    const isWrongMiddle = flatAffixes.middle.some(flatAffix => !wordToSubmit.includes(flatAffix));
+    if (isWrongMiddle) {
+      return AffixStatus.IncorrectMiddle;
+    }
+
     return AffixStatus.Unknown;
   },
 );
@@ -261,53 +278,11 @@ export const selectKeyboardState = createSelector(
   selectWordToSubmit,
   selectIncorrectLetters,
   selectPositionLetters,
-  (wordToGuess, wordToSubmit, incorrectLetter, positionLetters) => {
-    if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
-      return AffixStatus.Unknown;
-    }
-
-    const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))].filter(letter => letter !== ' ');
-
-    const hasIncorrectLetterTyped = uniqueWordLetters.some((uniqueLetter) => {
-      const isIncorrect = incorrectLetter[uniqueLetter] > 0;
-      if (!isIncorrect) {
-        return false;
-      }
-
-      const isCorrectSometimes = positionLetters[uniqueLetter] > 0;
-      if (isCorrectSometimes) {
-        const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
-
-        return occurrencesOfLetterInSubmitWord > positionLetters[uniqueLetter];
-      }
-
-      return true;
+  selectFlatAffixes,
+  (wordToGuess, wordToSubmit, incorrectLetter, positionLetters, flatAffixes) => {
+    return getKeyboardState({
+      wordToGuess, wordToSubmit, incorrectLetter, positionLetters, flatAffixes,
     });
-
-    if (hasIncorrectLetterTyped) {
-      return AffixStatus.Incorrect;
-    }
-
-    const hasWordToGuessSpecialCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
-    const hasWordToSubmitSpecialCharacters = wordToSubmit && getHasSpecialCharacters(wordToSubmit);
-    const specialCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
-    if (specialCharacterTypedWhenNotNeeded) {
-      return AffixStatus.Incorrect;
-    }
-
-    const uniqueRequiredLetters = Object.keys(positionLetters);
-    const allKnownLettersAreTyped = uniqueRequiredLetters.every((uniqueLetter) => {
-      const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
-
-      return occurrencesOfLetterInSubmitWord >= positionLetters[uniqueLetter];
-    });
-
-    if (allKnownLettersAreTyped) {
-      return AffixStatus.Correct;
-    }
-
-    // If not all known letters are typed, we know that the word is incorrect, but we don't display it.
-    return AffixStatus.Unknown;
   },
 );
 
@@ -322,7 +297,7 @@ export const selectKeyboardUsagePercentage = createSelector(
     const usedLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(incorrectLetter), ...Object.keys(positionLetters)])];
     const totalNumberOfUsedLetters = usedLetters.length;
 
-    return Math.round(totalNumberOfUsedLetters / totalNumberOfLetters * 100);
+    return Math.round((totalNumberOfUsedLetters / totalNumberOfLetters) * 100);
   },
 );
 

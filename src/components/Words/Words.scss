@@ -39,12 +39,6 @@
             letter-spacing: 0.05em;
         }
 
-        &.is-incorrect {
-            strong {
-                color: var(--red);
-            }
-        }
-
         &.is-processing {
             opacity: 1;
 

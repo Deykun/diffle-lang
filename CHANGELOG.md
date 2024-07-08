@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.25
+#### Version 3.26
+- **New**: Richer word hints based on the typed letters
+
+#### Version 3.25 (30.06.2024)
 - **New**: The used words automatically unlock when the daily game is won, with additional information provided as to why
 
 #### Version 3.24 (29.06.2024)
