@@ -78,34 +78,22 @@ const Words = () => {
     if (wordStatus === AffixStatus.Incorrect) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectLetters';
-    }
-
-    if (wordStatus === AffixStatus.IncorrectOccurance) {
+    } else if (wordStatus === AffixStatus.IncorrectOccurance) {
       isImpossibleToWin = true;
       text = 'game.youCanUseLettersTypedTooManyTimes';
-    }
-
-    if (keyboardStatus === AffixStatus.IncorrectStart) {
+    } else if (keyboardStatus === AffixStatus.IncorrectStart) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectStart';
-    }
-
-    if (keyboardStatus === AffixStatus.IncorrectMiddle) {
+    } else if (keyboardStatus === AffixStatus.IncorrectMiddle) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectMiddle';
-    }
-
-    if (keyboardStatus === AffixStatus.IncorrectOrder) {
+    } else if (keyboardStatus === AffixStatus.IncorrectOrder) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectOrder';
-    }
-
-    if (keyboardStatus === AffixStatus.IncorrectEnd) {
+    } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectEnd';
-    }
-
-    if (hasSpace) {
+    } else if (hasSpace) { 
       text = 'game.youCanUseSpace';
     }
 
@@ -140,7 +128,7 @@ const Words = () => {
             })}
           >
               {isProcessing && <IconDashedCircle />}
-              {isImpossibleToWin && (
+              {!isProcessing && isImpossibleToWin && (
               <>
                   <span
                     // eslint-disable-next-line react/no-danger
@@ -151,7 +139,7 @@ const Words = () => {
                   <br />
               </>
               )}
-              {tiptext && (
+              {!isProcessing && tiptext && (
               <span
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
