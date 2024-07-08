@@ -93,7 +93,7 @@ const Words = () => {
     } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectEnd';
-    } else if (hasSpace) { 
+    } else if (hasSpace) {
       text = 'game.youCanUseSpace';
     }
 
@@ -139,7 +139,7 @@ const Words = () => {
                   <br />
               </>
               )}
-              {!isProcessing && tiptext && (
+              {tiptext && (
               <span
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
