@@ -122,6 +122,7 @@
     "settings.gameModeTitle": "Spielmodi",
     "settings.labelFinishGame": "Fertig",
     "settings.labelFinishGameLonger": "Errate das heutige Passwort, um zu entsperren.",
+    "settings.labelYouCanSeeSharedWords": "Du hast das heutige Passwort erraten, also kannst du sie sehen.",
     "settings.preferencesTitle": "Einstellungen",
     "settings.highContrastMode": "Hoher Kontrast",
     "settings.lightMode": "Hellmodus",
