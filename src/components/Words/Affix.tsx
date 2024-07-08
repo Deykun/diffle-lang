@@ -41,12 +41,6 @@ const Affix = ({
         missingFlatAffix => missingFlatAffix.includes(text) && !wordToSubmit.includes(text),
       );
 
-      console.log({
-        missingAffixes,
-        isOneOfMissingAffixes,
-        text,
-      });
-
       if (isOneOfMissingAffixes) {
         return true;
       }

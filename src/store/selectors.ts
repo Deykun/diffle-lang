@@ -222,13 +222,6 @@ export const selectWordState = (word: string) => createSelector(
   (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters, flatAffixes) => {
     const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
-    // console.log({
-    //   uniqueLettersInWord,
-    // })
-    // console.log({
-    //   wordToSubmit, wordToGuess, specialCharacters, correctLetters, incorrectLetter, positionLetters, flatAffixes,
-    // })
-
     const hasIncorrectLetterTyped = uniqueLettersInWord.some(
       letter => getLetterState(
         letter,
