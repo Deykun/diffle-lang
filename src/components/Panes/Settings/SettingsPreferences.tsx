@@ -7,7 +7,6 @@ import { track, toggleShowDuration } from '@store/appSlice';
 
 import useKeyboardSettings from '@hooks/useKeyboardSettings';
 
-import IconContrast from '@components/Icons/IconContrast';
 import IconCheckConfirm from '@components/Icons/IconCheckConfirm';
 import IconCookie from '@components/Icons/IconCookie';
 import IconCookies from '@components/Icons/IconCookies';
@@ -24,6 +23,7 @@ import ButtonTile from '@components/Button/ButtonTile';
 import CookiesPopup from '@components/Cookies/CookiesPopup';
 import LanguagePicker from '@components/Language/LanguagePicker';
 import KeyboardLayoutPicker from '@components/Keyboard/KeyboardLayoutPicker';
+import SettingsAccessibility from '@components/Panes/Settings/SettingsAccessibility';
 
 import './Settings.scss';
 
@@ -58,16 +58,6 @@ const SettingsPreferences = () => {
     document.documentElement.classList.toggle('light');
   };
 
-  const handleToggleHighContrastMode = () => {
-    const isHighContrastBeforeToggle = document.documentElement.classList.contains('contrast');
-
-    localStorage.setItem(LOCAL_STORAGE.THEME_CONTRAST, isHighContrastBeforeToggle ? 'false' : 'true');
-
-    dispatch(track({ name: `click_${isHighContrastBeforeToggle ? 'turn_off_contrast' : 'turn_on_contrast'}` }));
-
-    document.documentElement.classList.toggle('contrast');
-  };
-
   const handleToggleShowDuration = () => {
     localStorage.setItem(LOCAL_STORAGE.SHOULD_SHOW_DURATION, shouldShowDuration ? 'false' : 'true');
 
@@ -93,10 +83,7 @@ const SettingsPreferences = () => {
                   </ButtonTile>
               </li>
               <li>
-                  <ButtonTile className="button-tile-active--contrast" onClick={handleToggleHighContrastMode}>
-                      <IconContrast />
-                      <span>{t('settings.highContrastMode')}</span>
-                  </ButtonTile>
+                  <SettingsAccessibility />
               </li>
               <li>
                   <CookiesPopup className="button-tile" isEditMode>

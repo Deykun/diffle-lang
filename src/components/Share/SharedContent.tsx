@@ -305,7 +305,7 @@ const SharedContent = () => {
                         subtotals={subtotals}
                       />
                       <br />
-                      <details>
+                      <details open={canUserSeeUsedWords}>
                           <summary
                             className={clsx({
                               'summary-disabled': !canUserSeeUsedWords,
@@ -326,9 +326,15 @@ const SharedContent = () => {
                           </div>
                       </details>
                       {!canUserSeeUsedWords && (
-                      <p className="shared-content-words-why-blocked">
+                      <p className="shared-content-words-tip shared-content-words-tip--blocked">
                           <IconFingerprint />
                           <span>{t('settings.labelFinishGameLonger')}</span>
+                      </p>
+                      )}
+                      {canUserSeeUsedWords && (
+                      <p className="shared-content-words-tip shared-content-words-tip--unblocked">
+                          <IconFingerprint />
+                          <span>{t('settings.labelYouCanSeeSharedWords')}</span>
                       </p>
                       )}
                   </>

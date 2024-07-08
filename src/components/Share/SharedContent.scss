@@ -42,7 +42,7 @@
     margin-bottom: 12px;
 }
 
-.shared-content-words-why-blocked {
+.shared-content-words-tip {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,11 +60,26 @@
     svg {
         width: 18px;
         height: 18px;
-        fill: var(--incorrect-red-contrast);
     }
-
+ 
     span {
         color: var(--text-weaker);
         font-size: 11px;
     }
+
+    &--blocked {
+        svg {
+            fill: var(--incorrect-red-contrast);
+        }
+    }
+
+    &--unblocked {
+        svg {
+            fill: var(--green-stronger);
+        }
+    }
+}
+
+details[open] + .shared-content-words-tip {
+    margin-top: 25px;
 }

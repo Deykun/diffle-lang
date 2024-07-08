@@ -11,7 +11,13 @@
 
 ---
 
-#### Version 3.23
+#### Version 3.25
+- **New**: The used words automatically unlock when the daily game is won, with additional information provided as to why
+
+#### Version 3.24 (29.06.2024)
+- **New**: Accessibility preview for contrast has been added
+
+#### Version 3.23 (26.05.2024)
 - **New**: Harder winning words for the Polish game
 
 #### Version 3.22.2 (13.05.2024)

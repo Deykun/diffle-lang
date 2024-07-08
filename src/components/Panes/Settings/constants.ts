@@ -1,3 +1,32 @@
+import { AffixStatus } from '@common-types';
+
+export const EXAMPLE_WORD = {
+  word: 'diffle',
+  affixes: [
+    {
+      type: AffixStatus.Correct,
+      text: 'di',
+      isStart: true,
+    },
+    {
+      type: AffixStatus.Incorrect,
+      text: 'f',
+    },
+    {
+      type: AffixStatus.Incorrect,
+      text: 'f',
+    },
+    {
+      type: AffixStatus.Correct,
+      text: 'e',
+    },
+    {
+      type: AffixStatus.Position,
+      text: 'l',
+    },
+  ],
+};
+
 export const DICTIONARIES_BY_LANG: {
   [key: string]: {
     isSpeelchecker?: true,
