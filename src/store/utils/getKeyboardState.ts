@@ -40,6 +40,7 @@ export const getKeyboardState = ({
   positionLetters: UsedLetters,
   flatAffixes: FlatAffixes,
 }) => {
+  console.log('dd')
   if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
     return {
       status: AffixStatus.Unknown,

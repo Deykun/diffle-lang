@@ -162,11 +162,11 @@ export const submitAnswer = createAsyncThunk(
       return { isError: true, type: SUBMIT_ERRORS.HAS_SPACE };
     }
 
-    if (state.game.guesses.some(({ word }) => word === wordToSubmit)) {
-      dispatch(setToast({ text: 'game.wordAlreadyUsed' }));
+    // if (state.game.guesses.some(({ word }) => word === wordToSubmit)) {
+    //   dispatch(setToast({ text: 'game.wordAlreadyUsed' }));
 
-      return { isError: true, type: SUBMIT_ERRORS.ALREADY_SUBMITED };
-    }
+    //   return { isError: true, type: SUBMIT_ERRORS.ALREADY_SUBMITED };
+    // }
 
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     dispatch(gameSlice.actions.setProcessing(true));
@@ -237,6 +237,8 @@ export const restoreGameState = createAsyncThunk(
     const { easterEggDays = {} } = await getCatalogInfo(gameLanguage);
 
     const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
+
+    console.log('wordsLetters', wordsLetters);
 
     return {
       gameMode,

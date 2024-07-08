@@ -49,9 +49,14 @@ const Words = () => {
     AffixStatus.IncorrectEnd,
   ].includes(keyboardStatus);
 
-  console.log({
-    keyboardStatus, details,
-  })
+  // console.log({
+  //   wordStatus,
+  //   keyboardStatus,
+  // })
+
+  // console.log({
+  //   keyboardStatus, details,
+  // });
 
   const { t } = useTranslation();
 
@@ -67,40 +72,56 @@ const Words = () => {
 
   useScrollEffect('bottom', [wordToSubmit]);
 
-  const tiptext = useMemo(() => {
+  const {
+    isImpossibleToWin,
+    tiptext,
+  } = useMemo(() => {
+    let text = '';
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    let isImpossibleToWin = false;
+
     if (isProcessing) {
-      return 'game.checking';
+      text = 'game.checking';
     }
 
     if (wordStatus === AffixStatus.Incorrect) {
-      return 'game.youCanUseIncorrectLetters';
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectLetters';
     }
 
     if (wordStatus === AffixStatus.IncorrectOccurance) {
-      return 'game.youCanUseLettersTypedTooManyTimes';
+      isImpossibleToWin = true;
+      text = 'game.youCanUseLettersTypedTooManyTimes';
     }
 
     if (keyboardStatus === AffixStatus.IncorrectStart) {
-      return 'game.youCanUseIncorrectStart';
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectStart';
     }
 
     if (keyboardStatus === AffixStatus.IncorrectMiddle) {
-      return 'game.youCanUseIncorrectMiddle';
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectMiddle';
     }
 
     if (keyboardStatus === AffixStatus.IncorrectOrder) {
-      return 'game.youCanUseIncorrectOrder';
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectOrder';
     }
 
     if (keyboardStatus === AffixStatus.IncorrectEnd) {
-      return 'game.youCanUseIncorrectEnd';
+      isImpossibleToWin = true;
+      text = 'game.youCanUseIncorrectEnd';
     }
 
     if (hasSpace) {
-      return 'game.youCanUseSpace';
+      text = 'game.youCanUseSpace';
     }
 
-    return '';
+    return {
+      isImpossibleToWin,
+      tiptext: text,
+    };
   }, [hasSpace, isProcessing, keyboardStatus, wordStatus]);
 
   const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
@@ -128,6 +149,17 @@ const Words = () => {
             })}
           >
               {isProcessing && <IconDashedCircle />}
+              {isImpossibleToWin && (
+              <>
+                  <span
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: t('game.youCanUseThisWordButNotWin'),
+                    }}
+                  />
+                  <br />
+              </>
+              )}
               {tiptext && (
               <span
                 // eslint-disable-next-line react/no-danger

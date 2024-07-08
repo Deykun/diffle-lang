@@ -184,7 +184,5 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
 
   flatAffixesResult.correctOrders = [...flatAffixesResult.correctOrders, ...flatAffixesB.correctOrders];
 
-  console.log(flatAffixesResult);
-
   return flatAffixesResult;
 };
