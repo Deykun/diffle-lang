@@ -16,7 +16,7 @@ const getIsTextMatchingOrder = (text: string, order: string[]) => {
     }
 
     const [, ...rest] = stack.restString.split(subtext);
-    stack.restString = rest.join('');
+    stack.restString = rest.join(subtext);
 
     return stack;
   }, {
@@ -40,7 +40,6 @@ export const getKeyboardState = ({
   positionLetters: UsedLetters,
   flatAffixes: FlatAffixes,
 }) => {
-  console.log('dd')
   if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
     return {
       status: AffixStatus.Unknown,
