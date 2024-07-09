@@ -60,7 +60,7 @@
     "game.youCanUseIncorrectStart": "(nieprawidłowy początek słowa)",
     "game.youCanUseIncorrectEnd": "(nieprawidłowe zakończenie słowa)",
     "game.youCanUseIncorrectMiddle": "(niektóre litery powinny być obok siebie)",
-    "game.youCanUseIncorrectOrder": "(niektóre litery są niewłaściwej kolejności)",
+    "game.youCanUseIncorrectOrder": "(niektóre litery są w niewłaściwej kolejności)",
     "game.spacesRemoved": "Usunięto spacje.",
     "game.isNotInDictionary": "Brak słowa w słowniku.",
     "game.wordAlreadyUsed": "To słowo zostało już wykorzystane.",
