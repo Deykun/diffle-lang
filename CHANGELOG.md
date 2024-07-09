@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.26
+#### Version 3.26.1
+- **Fix**: Two affixes with the same letters in the order aren't marked as a mistake by hints
+
+#### Version 3.26 (08.07.2024)
 - **New**: Richer word hints based on the typed letters
 
 #### Version 3.25 (30.06.2024)
