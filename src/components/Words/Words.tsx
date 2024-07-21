@@ -73,9 +73,7 @@ const Words = () => {
 
     if (isProcessing) {
       text = 'game.checking';
-    }
-
-    if (wordStatus === AffixStatus.Incorrect) {
+    } else if (wordStatus === AffixStatus.Incorrect) {
       isImpossibleToWin = true;
       text = 'game.youCanUseIncorrectLetters';
     } else if (wordStatus === AffixStatus.IncorrectOccurance) {

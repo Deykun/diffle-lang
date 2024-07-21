@@ -11,7 +11,11 @@
 
 ---
 
-#### Version 3.26.1
+#### Version 3.27
+- **New**: All words can be checked in an external dictionary at the ending screen
+- **Fix**: Incorrect tip while processing the word
+
+#### Version 3.26.1 (09.07.2024)
 - **Fix**: Two affixes with the same letters in the order aren't marked as a mistake by hints
 
 #### Version 3.26 (08.07.2024)
