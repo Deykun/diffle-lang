@@ -57,7 +57,7 @@ function GoToDictionaryButton({ word = '' }: Props) {
                 onClick={handleDictionaryClick}
                 isInverted
               >
-                  {hasExactMatch ? <IconDictionary /> : <IconBook />}
+                  {hasExactMatch ? <IconDictionary className="go-to-dictionary-icon" /> : <IconBook className="go-to-dictionary-icon" />}
                   {hasExactMatch
                     ? <span>{t('common.checkInDictionaryWithName', { word, name: mainName })}</span>
                     : <span>{t('common.checkInDictionary', { word })}</span>}

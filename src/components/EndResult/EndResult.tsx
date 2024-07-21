@@ -20,7 +20,8 @@ import IconEgg from '@components/Icons/IconEgg';
 import IconGamepad from '@components/Icons/IconGamepad';
 
 import Button from '@components/Button/Button';
-import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
+import GoToDictionaryButtons from '@components/Dictionary/GoToDictionaryButtons';
+
 import ShareButton from '@components/Share/ShareButton';
 import StatisticsHint from '@components/Panes/Statistics/StatisticsHint';
 
@@ -100,7 +101,7 @@ function EndResult() {
               )}
               {gameMode !== GameMode.SandboxLive && <ShareButton shouldShowSettings />}
           </div>
-          <GoToDictionaryButton word={wordToGuess} />
+          <GoToDictionaryButtons words={guesses.map(({ word }) => word)} />
           <EndResultGameTime />
           {gameMode === GameMode.Daily && (
           <p

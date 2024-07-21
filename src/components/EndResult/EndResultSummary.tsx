@@ -26,14 +26,14 @@ type Props = {
   },
 };
 
-function EndResultSummary({
+const EndResultSummary = ({
   status,
   wordToGuess,
   guesses,
   words,
   letters,
   subtotals,
-}: Props) {
+}: Props) => {
   const { t } = useTranslation();
 
   const lostWord: WordType = useMemo(() => {
@@ -121,6 +121,6 @@ function EndResultSummary({
           </div>
       </div>
   );
-}
+};
 
 export default EndResultSummary;
