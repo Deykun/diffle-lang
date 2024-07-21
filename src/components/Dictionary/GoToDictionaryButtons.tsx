@@ -1,9 +1,11 @@
 import { useState } from 'react';
 // import clsx from 'clsx';
+import IconAnimatedArrow from '@components/Icons/IconAnimatedArrow';
+
 import Button from '@components/Button/Button';
 import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
-// import './CircleScale.scss';
+import './GoToDictionaryButtons.scss';
 
 type Props = {
   words: string[],
@@ -23,27 +25,31 @@ const GoToDictionaryButtons = ({
   }
 
   return (
-      <div>
-          <Button
-            onClick={() => setIndex(index - 1)}
-            isDisabled={index === 0}
-            isInverted
-            isText
-            hasBorder={false}
-          >
-              {'<'}
-          </Button>
+      <>
           <GoToDictionaryButton word={words[index]} />
-          <Button
-            onClick={() => setIndex(index + 1)}
-            isDisabled={index === (words.length - 1)}
-            isInverted
-            isText
-            hasBorder={false}
-          >
-              {'>'}
-          </Button>
-      </div>
+          <div className="go-to-dictionary-buttons">
+              <Button
+                className="go-to-dictionary-buttons-arrow"
+                onClick={() => setIndex(index - 1)}
+                isDisabled={index === 0}
+                isInverted
+                isText
+                hasBorder={false}
+              >
+                  <IconAnimatedArrow direction="left" />
+              </Button>
+              <Button
+                className="go-to-dictionary-buttons-arrow"
+                onClick={() => setIndex(index + 1)}
+                isDisabled={index === (words.length - 1)}
+                isInverted
+                isText
+                hasBorder={false}
+              >
+                  <IconAnimatedArrow direction="right" />
+              </Button>
+          </div>
+      </>
   );
 };
 

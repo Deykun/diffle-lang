@@ -102,7 +102,6 @@ function EndResult() {
               )}
               {gameMode !== GameMode.SandboxLive && <ShareButton shouldShowSettings />}
           </div>
-          <GoToDictionaryButton word={wordToGuess} />
           <GoToDictionaryButtons words={guesses.map(({ word }) => word)} />
           <EndResultGameTime />
           {gameMode === GameMode.Daily && (

@@ -1,0 +1,78 @@
+.icon-animated-arrow {
+  display: inline-block;
+  position: relative;
+  width: 14px;
+  height: 14px;
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.3);
+  
+  &::after,
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 7px;
+    width: 3px;
+    position: absolute;
+    background-color: transparent;
+    border-bottom: 9px solid var(--text-alt);
+    box-sizing: content-box;
+    transition: 0.15s ease-in-out;
+  }
+}
+
+.icon-animated-arrow {
+  &--left {
+    left: -25%;
+    &::before {
+      transform: rotate(225deg);
+    }
+  
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:active {
+      &::before {
+        transform: rotate(250deg);
+      }
+    
+      &::after {
+        transform: rotate(-70deg);
+      }
+    }
+  }
+
+  &--right {
+    right: -25%;
+    &::before {
+      transform: rotate(-225deg);
+    }
+  
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &:active {
+      &::before {
+        transform: rotate(-250deg);
+      }
+    
+      &::after {
+        transform: rotate(70deg);
+      }
+    }
+  }
+}
+
+// details[open] summary .icon-animated-caret,
+// details.is-closing summary .icon-animated-caret,
+// .icon-animated-caret-open {    
+//   top: calc(50% - 14px);
+
+//   &::before {
+//     transform: rotate(-45deg);
+//   }
+
+//   &::after {
+//     transform: rotate(45deg);
+//   }
+// }

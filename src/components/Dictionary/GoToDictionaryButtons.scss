@@ -1,0 +1,19 @@
+.go-to-dictionary-buttons {
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.go-to-dictionary-buttons-arrow {
+  transform: scale(0.8);
+  opacity: 0.3;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:disabled {
+    opacity: 0.1;
+  }
+}
