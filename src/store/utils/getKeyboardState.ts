@@ -30,13 +30,13 @@ const getIsTextMatchingOrder = (text: string, order: string[]) => {
 export const getKeyboardState = ({
   wordToGuess,
   wordToSubmit,
-  incorrectLetter,
+  incorrectLetters,
   positionLetters,
   flatAffixes,
 }: {
   wordToGuess: string,
   wordToSubmit: string,
-  incorrectLetter: UsedLetters,
+  incorrectLetters: UsedLetters,
   positionLetters: UsedLetters,
   flatAffixes: FlatAffixes,
 }) => {
@@ -49,7 +49,7 @@ export const getKeyboardState = ({
   const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))].filter(letter => letter !== ' ');
 
   const incorrectTyppedLetters = uniqueWordLetters.filter((uniqueLetter) => {
-    const isIncorrect = incorrectLetter[uniqueLetter] > 0;
+    const isIncorrect = typeof incorrectLetters[uniqueLetter] === 'number';
     if (!isIncorrect) {
       return false;
     }

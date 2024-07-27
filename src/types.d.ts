@@ -159,6 +159,7 @@ export enum AffixStatus {
 export type Affix = {
   type: AffixStatus,
   text: string,
+  wordIndex?: number,
   isStart?: boolean,
   isEnd?: boolean,
   isSubmitted?: boolean,

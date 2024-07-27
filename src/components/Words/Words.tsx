@@ -107,9 +107,9 @@ const Words = () => {
   return (
       <div className={clsx('words', { narrow: shouldBeNarrower, shorter: shouldBeShorter })}>
           <WordTip />
-          {guesses.map((guess) => {
+          {guesses.map((guess, index) => {
             return (
-                <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />
+                <Word key={`guess-${guess.word}`} guess={guess} wordIndex={index} isSubmitted />
             );
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}

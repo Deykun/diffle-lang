@@ -24,11 +24,11 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
 
   const { affixes, wordLetters } = pattern.reduce((stack: PatternReport, value: number, index: number) => {
     const letter = letters[index];
-    const { type, text } = stack.current || {};
-
     const shouldClose = value < 3;
 
     if (shouldClose) {
+      const { type, text } = stack.current || {};
+
       if (type && text) {
         stack.affixes.push({ type, text });
         stack.current = { type: AffixStatus.Unknown, text: '' };
@@ -36,6 +36,8 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
     }
 
     if (value === 2 || value === 3) {
+      const { text } = stack.current || {};
+
       stack.current = ({ type: AffixStatus.Correct, text: `${text}${letter}` });
 
       stack.wordLetters.correct[letter] = stack.wordLetters.correct[letter] ? stack.wordLetters.correct[letter] + 1 : 1;

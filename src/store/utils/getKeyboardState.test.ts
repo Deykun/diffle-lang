@@ -10,7 +10,7 @@ describe('getKeyboardState', () => {
       expect(getKeyboardState({
         wordToGuess: 'start',
         wordToSubmit: 'start',
-        incorrectLetter: {},
+        incorrectLetters: {},
         positionLetters: {},
         flatAffixes: {
           start: '',

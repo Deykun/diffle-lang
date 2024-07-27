@@ -239,8 +239,6 @@ export const restoreGameState = createAsyncThunk(
 
     const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
 
-    console.log('wordsLetters', wordsLetters);
-
     return {
       gameMode,
       status: statusToReturn,

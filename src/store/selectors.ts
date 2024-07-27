@@ -97,15 +97,25 @@ const selectPositionLetters = (state: RootState) => state.game.letters.position;
 
 export const selectGuesses = (state: RootState) => state.game.guesses;
 
-const getLetterState = (
+const getLetterState = ({
+  letter,
+  wordToSubmit,
+  wordToGuess,
+  wordIndex,
+  correctLetters,
+  incorrectLetters,
+  positionLetters,
+  specialCharacters,
+}: {
   letter: string,
   wordToSubmit: string,
   wordToGuess: string,
+  wordIndex?: number,
   correctLetters: UsedLetters,
-  incorrectLetter: UsedLetters,
+  incorrectLetters: UsedLetters,
   positionLetters: UsedLetters,
   specialCharacters: string[],
-) => {
+}) => {
   const isSpecialCharacter = specialCharacters.includes(letter);
 
   if (isSpecialCharacter) {
@@ -117,17 +127,24 @@ const getLetterState = (
     }
   }
 
-  if (incorrectLetter[letter]) {
+  if (typeof incorrectLetters[letter] === 'number') {
     const isCorrectSometimes = positionLetters[letter] > 0;
     if (isCorrectSometimes) {
       const occurrencesOfLetterInSubmitedWord = getLetterOccuranceInWord(letter, wordToSubmit);
 
       const isCorrectSometimesButHereNumberOfOccuranceIsTooHigh = occurrencesOfLetterInSubmitedWord > positionLetters[letter];
-
       if (isCorrectSometimesButHereNumberOfOccuranceIsTooHigh) {
         return AffixStatus.IncorrectOccurance;
       }
+
+      if (typeof wordIndex === 'number' && wordIndex > incorrectLetters[letter]) {
+        return AffixStatus.Incorrect;
+      }
     } else {
+      if (typeof wordIndex === 'number') {
+        return wordIndex > incorrectLetters[letter] ? AffixStatus.Incorrect : AffixStatus.Unknown;
+      }
+
       return AffixStatus.Incorrect;
     }
   }
@@ -143,15 +160,17 @@ const getLetterState = (
   return AffixStatus.Unknown;
 };
 
-export const selectLetterState = (letter: string) => createSelector(
+export const selectLetterState = (letter: string, wordIndex?: number) => createSelector(
   selectWordToSubmit,
   selectWordToGuess,
   selectGameLanguageKeyboardInfo,
   selectCorrectLetters,
   selectIncorrectLetters,
   selectPositionLetters,
-  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters) => {
-    return getLetterState(letter, wordToSubmit, wordToGuess, correctLetters, incorrectLetter, positionLetters, specialCharacters);
+  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetters, positionLetters) => {
+    return getLetterState({
+      letter, wordToSubmit, wordToGuess, wordIndex, correctLetters, incorrectLetters, positionLetters, specialCharacters,
+    });
   },
 );
 
@@ -159,8 +178,8 @@ export const selectLetterSubreport = (letter: string) => createSelector(
   selectWordToSubmit,
   selectIncorrectLetters,
   selectPositionLetters,
-  (wordToSubmit, incorrectLetter, positionLetters): LetterSubreport => {
-    const isLimitKnown = Boolean(incorrectLetter[letter]);
+  (wordToSubmit, incorrectLetters, positionLetters): LetterSubreport => {
+    const isLimitKnown = typeof incorrectLetters[letter] === 'number';
     const confirmedOccurrence = positionLetters[letter] ?? 0;
 
     if (confirmedOccurrence === 0) {
@@ -219,19 +238,19 @@ export const selectWordState = (word: string) => createSelector(
   selectIncorrectLetters,
   selectPositionLetters,
   selectFlatAffixes,
-  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetter, positionLetters, flatAffixes) => {
+  (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetters, positionLetters, flatAffixes) => {
     const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
     const hasIncorrectLetterTyped = uniqueLettersInWord.some(
-      letter => getLetterState(
+      letter => getLetterState({
         letter,
         wordToSubmit,
         wordToGuess,
         correctLetters,
-        incorrectLetter,
+        incorrectLetters,
         positionLetters,
         specialCharacters,
-      ) === AffixStatus.Incorrect,
+      }) === AffixStatus.Incorrect,
     );
 
     if (hasIncorrectLetterTyped) {
@@ -239,15 +258,15 @@ export const selectWordState = (word: string) => createSelector(
     }
 
     const hasTypedTooMuch = uniqueLettersInWord.some(
-      letter => getLetterState(
+      letter => getLetterState({
         letter,
         wordToSubmit,
         wordToGuess,
         correctLetters,
-        incorrectLetter,
+        incorrectLetters,
         positionLetters,
         specialCharacters,
-      ) === AffixStatus.IncorrectOccurance,
+      }) === AffixStatus.IncorrectOccurance,
     );
 
     if (hasTypedTooMuch) {
@@ -279,9 +298,9 @@ export const selectKeyboardState = createSelector(
   selectIncorrectLetters,
   selectPositionLetters,
   selectFlatAffixes,
-  (wordToGuess, wordToSubmit, incorrectLetter, positionLetters, flatAffixes) => {
+  (wordToGuess, wordToSubmit, incorrectLetters, positionLetters, flatAffixes) => {
     return getKeyboardState({
-      wordToGuess, wordToSubmit, incorrectLetter, positionLetters, flatAffixes,
+      wordToGuess, wordToSubmit, incorrectLetters, positionLetters, flatAffixes,
     });
   },
 );
@@ -291,10 +310,10 @@ export const selectKeyboardUsagePercentage = createSelector(
   selectCorrectLetters,
   selectIncorrectLetters,
   selectPositionLetters,
-  ({ characters }, correctLetters, incorrectLetter, positionLetters) => {
+  ({ characters }, correctLetters, incorrectLetters, positionLetters) => {
     const totalNumberOfLetters = characters.length;
 
-    const usedLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(incorrectLetter), ...Object.keys(positionLetters)])];
+    const usedLetters = [...new Set([...Object.keys(correctLetters), ...Object.keys(incorrectLetters), ...Object.keys(positionLetters)])];
     const totalNumberOfUsedLetters = usedLetters.length;
 
     return Math.round((totalNumberOfUsedLetters / totalNumberOfLetters) * 100);

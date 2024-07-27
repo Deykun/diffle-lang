@@ -8,10 +8,10 @@ import { AffixStatus, Affix as AffixType } from '@common-types';
 import './Affix.scss';
 
 const Affix = ({
-  type, text, isStart, isEnd, hasCaretBefore, onClick, isSubmitted = false,
+  type, text, wordIndex, isStart, isEnd, hasCaretBefore, onClick, isSubmitted = false,
 }: AffixType) => {
   const wordToSubmit = useSelector(selectWordToSubmit);
-  const keyCapType = useSelector(selectLetterState(text));
+  const keyCapType = useSelector(selectLetterState(text, wordIndex));
   const { status: keyboardState } = useSelector(selectKeyboardState);
   const flatAffixes = useSelector(state => state.game.flatAffixes);
 
