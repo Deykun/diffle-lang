@@ -172,8 +172,9 @@ export const submitAnswer = createAsyncThunk(
     dispatch(gameSlice.actions.setProcessing(true));
 
     const { wordToGuess } = state.game;
+    const wordIndex = state.game.guesses.length;
 
-    const result = await getWordReport(wordToGuess, wordToSubmit, { lang });
+    const result = await getWordReport(wordToGuess, wordToSubmit, { wordIndex, lang });
 
     const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
     if (isWordDoesNotExistError) {
@@ -785,7 +786,7 @@ const gameSlice = createSlice({
 
       state.letters = {
         correct: mergeLettersData(state.letters.correct, wordLetters?.correct),
-        incorrect: mergeLettersData(state.letters.incorrect, wordLetters?.incorrect),
+        incorrect: mergeLettersData(state.letters.incorrect, wordLetters?.incorrect, { isIncorrect: true }),
         position: mergeLettersData(state.letters.position, wordLetters?.position),
       };
 
