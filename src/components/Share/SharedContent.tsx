@@ -317,9 +317,9 @@ const SharedContent = () => {
                           </summary>
                           <div className="details-content shared-content-words">
                               <div className={clsx('words', { narrow: shouldBeNarrower, shorter: shouldBeShorter })}>
-                                  {guesses.map((guess) => {
+                                  {guesses.map((guess, index) => {
                                     return (
-                                        <Word key={`guess-${guess.word}`} guess={guess} />
+                                        <Word key={`guess-${guess.word}`} wordIndex={index} guess={guess} />
                                     );
                                   })}
                               </div>
