@@ -136,6 +136,18 @@
                 color: var(--incorrect-red-contrast);
                 border-color: var(--incorrect-red);
                 background-color: var(--incorrect-red);
+
+                .contrast & {
+                    color: var(--red-contrast);
+                    background-image: repeating-linear-gradient(
+                        -45deg,
+                        color-mix(in srgb, var(--red) 50%, transparent) 0px,
+                        color-mix(in srgb, var(--red) 50%, transparent) 10px,
+                        var(--red) 10px,
+                        var(--red) 20px
+                    );
+                    border-color: var(--red);
+                }
             }
         }
     }
