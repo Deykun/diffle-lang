@@ -1,4 +1,6 @@
-import { Affix, AffixStatus, FlatAffixes, UsedLetters } from '@common-types';
+import {
+  Affix, AffixStatus, FlatAffixes, UsedLetters, UsedLettersByType,
+} from '@common-types';
 
 import { SUBMIT_ERRORS } from '@const';
 
@@ -10,11 +12,7 @@ import { mergeLettersData } from '@utils/statistics';
 
 export type PatternReport = {
   affixes: Affix[],
-  wordLetters: {
-    correct: UsedLetters,
-    incorrect: UsedLetters,
-    position: UsedLetters,
-  },
+  wordLetters: UsedLettersByType,
   current?: Affix
 };
 
@@ -24,11 +22,11 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
 
   const { affixes, wordLetters } = pattern.reduce((stack: PatternReport, value: number, index: number) => {
     const letter = letters[index];
-    const { type, text } = stack.current || {};
-
     const shouldClose = value < 3;
 
     if (shouldClose) {
+      const { type, text } = stack.current || {};
+
       if (type && text) {
         stack.affixes.push({ type, text });
         stack.current = { type: AffixStatus.Unknown, text: '' };
@@ -42,9 +40,9 @@ export const temporaryTranslatorPatterns = (word: string, pattern: number[]): Pa
 
       stack.wordLetters.correct[letter] = stack.wordLetters.correct[letter] ? stack.wordLetters.correct[letter] + 1 : 1;
       /*
-                All discovered letters from the winning word are added to the position counter (correct position is a position too),
-                which tells us how many occurrences of the letter are in the word.
-            */
+        All discovered letters from the winning word are added to the position counter (correct position is a position too),
+        which tells us how many occurrences of the letter are in the word.
+      */
       stack.wordLetters.position[letter] = stack.wordLetters.position[letter] ? stack.wordLetters.position[letter] + 1 : 1;
     }
 
@@ -86,11 +84,7 @@ export type WordReport = {
   isWon: boolean,
   word: string,
   affixes?: Affix[],
-  wordLetters?: {
-    correct: UsedLetters,
-    incorrect: UsedLetters,
-    position: UsedLetters,
-  },
+  wordLetters?: UsedLettersByType,
   flatAffixes?: FlatAffixes,
 };
 
@@ -136,10 +130,44 @@ const getFlatAffixes = (affixes: Affix[]) => {
   return flatAffixes;
 };
 
+const getAffixesWithErrorMarkersForIncorrect = ({ affixes, wordIndex, wordsLetters }: {
+  affixes: Affix[],
+  wordIndex?: number,
+  wordsLetters?: UsedLettersByType,
+}) => {
+  if (typeof wordIndex !== 'number' || !wordsLetters) {
+    return affixes;
+  }
+
+  return affixes.map((affix) => {
+    if (affix.type !== AffixStatus.Incorrect) {
+      return affix;
+    }
+
+    const hasLetterConfirmedAsIncorrect = typeof wordsLetters.incorrect[affix.text] === 'number';
+
+    if (hasLetterConfirmedAsIncorrect && wordIndex > wordsLetters.incorrect[affix.text]) {
+      affix.subtype = 'typed-incorrect';
+    }
+
+    return affix;
+  });
+};
+
 export const getWordReport = async (
   wordToGuess: string,
   wordToSubmit: string,
-  { lang, shouldCheckIfExist = true }: { lang: string, shouldCheckIfExist?: boolean },
+  {
+    lang,
+    wordIndex,
+    wordsLetters,
+    shouldCheckIfExist = true,
+  }: {
+    lang: string,
+    wordIndex?: number,
+    wordsLetters?: UsedLettersByType,
+    shouldCheckIfExist?: boolean
+  },
 ) => {
   if (shouldCheckIfExist) {
     const doesWordExistReport = await getDoesWordExist(wordToSubmit, lang);
@@ -170,6 +198,15 @@ export const getWordReport = async (
 
   const { affixes, wordLetters } = temporaryTranslatorPatterns(wordToSubmit, pattern);
 
+  if (typeof wordIndex === 'number') {
+    // It replaces incorrect value with index of the word when it occured it is adjust
+    wordLetters.incorrect = Object.keys(wordLetters.incorrect).reduce((stack: UsedLetters, letter) => {
+      stack[letter] = wordIndex;
+
+      return stack;
+    }, {});
+  }
+
   if (start) {
     affixes[0].isStart = true;
   }
@@ -178,12 +215,14 @@ export const getWordReport = async (
     affixes[affixes.length - 1].isEnd = true;
   }
 
+  const affixesWithSubtypes = getAffixesWithErrorMarkersForIncorrect({ affixes, wordIndex, wordsLetters });
+
   const flatAffixes = getFlatAffixes(affixes);
 
   const isWon = wordToSubmit === wordToGuess;
 
   return {
-    isError: false, isWon, word: wordToSubmit, result, affixes, wordLetters, flatAffixes,
+    isError: false, isWon, word: wordToSubmit, result, affixes: affixesWithSubtypes, wordLetters, flatAffixes,
   };
 };
 
@@ -198,11 +237,7 @@ export const getWordReportForMultipleWords = async (
     hasError: boolean,
     isWon: boolean,
     results: WordReport[],
-    wordsLetters: {
-      correct: UsedLetters,
-      incorrect: UsedLetters,
-      position: UsedLetters,
-    },
+    wordsLetters: UsedLettersByType,
     flatAffixes: FlatAffixes,
   } = {
     hasError: false,
@@ -224,14 +259,24 @@ export const getWordReportForMultipleWords = async (
   };
 
   // eslint-disable-next-line no-restricted-syntax
-  for (const wordToSubmit of wordsToSubmit) {
+  for (const [wordIndex, wordToSubmit] of wordsToSubmit.entries()) {
     // eslint-disable-next-line no-await-in-loop
-    const wordReport = await getWordReport(wordToGuess, wordToSubmit, { lang, shouldCheckIfExist });
+    const wordReport = await getWordReport(
+      wordToGuess,
+      wordToSubmit,
+      {
+        wordIndex, lang, wordsLetters: response.wordsLetters, shouldCheckIfExist,
+      },
+    );
 
     response.results.push(wordReport);
 
     response.wordsLetters.correct = mergeLettersData(response.wordsLetters.correct, wordReport?.wordLetters?.correct);
-    response.wordsLetters.incorrect = mergeLettersData(response.wordsLetters.incorrect, wordReport?.wordLetters?.incorrect);
+    response.wordsLetters.incorrect = mergeLettersData(
+      response.wordsLetters.incorrect,
+      wordReport?.wordLetters?.incorrect,
+      { isIncorrect: true },
+    );
     response.wordsLetters.position = mergeLettersData(response.wordsLetters.position, wordReport?.wordLetters?.position);
 
     const flatAffixes = getFlatAffixes(wordReport?.affixes || []);

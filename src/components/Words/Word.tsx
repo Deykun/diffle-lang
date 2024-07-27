@@ -34,6 +34,7 @@ const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: b
             {
               text,
               type,
+              subtype,
               isStart,
               isEnd,
             },
@@ -48,6 +49,7 @@ const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: b
                   key={`text-${index}`}
                   text={text}
                   type={type}
+                  subtype={subtype}
                   isStart={isStart}
                   isEnd={isEnd}
                   isSubmitted={isSubmitted}

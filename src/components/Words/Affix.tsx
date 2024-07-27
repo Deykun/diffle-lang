@@ -8,7 +8,7 @@ import { AffixStatus, Affix as AffixType } from '@common-types';
 import './Affix.scss';
 
 const Affix = ({
-  type, text, isStart, isEnd, hasCaretBefore, onClick, isSubmitted = false,
+  type, subtype, text, isStart, isEnd, hasCaretBefore, onClick, isSubmitted = false,
 }: AffixType) => {
   const wordToSubmit = useSelector(selectWordToSubmit);
   const keyCapType = useSelector(selectLetterState(text));
@@ -53,6 +53,7 @@ const Affix = ({
       <span // eslint-disable-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events
         className={clsx('affix', type, {
           letter: text.length === 1,
+          'typed-incorrect': subtype === 'typed-incorrect',
           'known-incorect': isKnownIncorrectTyped,
           'known-typed-too-much': isKnownTypedTooMuch,
           'known-missing-part': isKnownMissingAffix,

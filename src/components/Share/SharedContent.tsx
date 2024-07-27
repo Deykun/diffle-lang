@@ -316,7 +316,10 @@ const SharedContent = () => {
                               <IconAnimatedCaret className="details-icon" />
                           </summary>
                           <div className="details-content shared-content-words">
-                              <div className={clsx('words', { narrow: shouldBeNarrower, shorter: shouldBeShorter })}>
+                              <div className={clsx('words', {
+                                'words--is-ended': true, narrow: shouldBeNarrower, shorter: shouldBeShorter,
+                              })}
+                              >
                                   {guesses.map((guess) => {
                                     return (
                                         <Word key={`guess-${guess.word}`} guess={guess} />

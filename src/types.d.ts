@@ -158,7 +158,9 @@ export enum AffixStatus {
 
 export type Affix = {
   type: AffixStatus,
+  subtype?: 'typed-incorrect',
   text: string,
+  wordIndex?: number,
   isStart?: boolean,
   isEnd?: boolean,
   isSubmitted?: boolean,
@@ -271,11 +273,7 @@ export type RootGameState = {
   caretShift: number,
   wordToSubmit: string,
   status: GameStatus,
-  letters: {
-    correct: UsedLetters,
-    incorrect: UsedLetters,
-    position: UsedLetters,
-  },
+  letters: UsedLettersByType,
   guesses: Word[],
   rejectedWords: string[],
   easterEggDays: EasterDays,
@@ -296,6 +294,12 @@ export type RootState = {
 
 export type UsedLetters = {
   [key: string]: number,
+};
+
+export type UsedLettersByType = {
+  correct: UsedLetters,
+  incorrect: UsedLetters,
+  position: UsedLetters,
 };
 
 export enum BestWordleType {

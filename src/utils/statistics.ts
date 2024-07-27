@@ -538,11 +538,27 @@ export const getStatisticCardDataFromStatistics = (statistic: Statistic): Statis
   };
 };
 
-export const mergeLettersData = (lettersA: UsedLetters, lettersB: UsedLetters = {}) => {
+export const mergeLettersData = (lettersA: UsedLetters, lettersB: UsedLetters = {}, params?: { isIncorrect?: boolean }) => {
   const uniqueLetters = [...new Set([
     ...Object.keys(lettersA),
     ...Object.keys(lettersB),
   ])].filter(Boolean);
+
+  if (params?.isIncorrect) {
+    return uniqueLetters.reduce((lettersStack: UsedLetters, letter) => {
+      if (typeof lettersA[letter] === 'number') {
+        if (typeof lettersB[letter] === 'number') {
+          lettersStack[letter] = Math.min(lettersA[letter], lettersB[letter]);
+        } else {
+          lettersStack[letter] = lettersA[letter];
+        }
+      } else {
+        lettersStack[letter] = lettersB[letter];
+      }
+
+      return lettersStack;
+    }, {});
+  }
 
   const mergedLettersData = uniqueLetters.reduce((lettersStack: UsedLetters, letter) => {
     lettersStack[letter] = Math.max((lettersA[letter] ?? 0), (lettersB[letter] ?? 0));

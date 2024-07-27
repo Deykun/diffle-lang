@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  RootState, RootGameState, ToastType, UsedLetters, EasterDays, GameStatus, GameMode, FlatAffixes,
+  RootState, RootGameState, ToastType, UsedLettersByType, EasterDays, GameStatus, GameMode, FlatAffixes,
 } from '@common-types';
 
 import {
@@ -171,9 +171,10 @@ export const submitAnswer = createAsyncThunk(
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     dispatch(gameSlice.actions.setProcessing(true));
 
-    const { wordToGuess } = state.game;
+    const { wordToGuess, letters } = state.game;
+    const wordIndex = state.game.guesses.length;
 
-    const result = await getWordReport(wordToGuess, wordToSubmit, { lang });
+    const result = await getWordReport(wordToGuess, wordToSubmit, { wordIndex, lang, wordsLetters: letters });
 
     const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
     if (isWordDoesNotExistError) {
@@ -237,8 +238,6 @@ export const restoreGameState = createAsyncThunk(
     const { easterEggDays = {} } = await getCatalogInfo(gameLanguage);
 
     const statusToReturn = status ?? (isWon ? GameStatus.Won : GameStatus.Guessing);
-
-    console.log('wordsLetters', wordsLetters);
 
     return {
       gameMode,
@@ -785,7 +784,7 @@ const gameSlice = createSlice({
 
       state.letters = {
         correct: mergeLettersData(state.letters.correct, wordLetters?.correct),
-        incorrect: mergeLettersData(state.letters.incorrect, wordLetters?.incorrect),
+        incorrect: mergeLettersData(state.letters.incorrect, wordLetters?.incorrect, { isIncorrect: true }),
         position: mergeLettersData(state.letters.position, wordLetters?.position),
       };
 
@@ -836,11 +835,7 @@ const gameSlice = createSlice({
           rejectedWords: string[],
           easterEggDays: EasterDays,
           wordToGuess: string,
-          wordsLetters: {
-            correct: UsedLetters,
-            incorrect: UsedLetters,
-            position: UsedLetters,
-          },
+          wordsLetters: UsedLettersByType,
           lastUpdateTime: number,
           durationMS: number,
           flatAffixes: FlatAffixes,
