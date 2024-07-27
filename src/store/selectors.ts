@@ -101,7 +101,6 @@ const getLetterState = ({
   letter,
   wordToSubmit,
   wordToGuess,
-  wordIndex,
   correctLetters,
   incorrectLetters,
   positionLetters,
@@ -110,7 +109,6 @@ const getLetterState = ({
   letter: string,
   wordToSubmit: string,
   wordToGuess: string,
-  wordIndex?: number,
   correctLetters: UsedLetters,
   incorrectLetters: UsedLetters,
   positionLetters: UsedLetters,
@@ -136,15 +134,7 @@ const getLetterState = ({
       if (isCorrectSometimesButHereNumberOfOccuranceIsTooHigh) {
         return AffixStatus.IncorrectOccurance;
       }
-
-      if (typeof wordIndex === 'number' && wordIndex > incorrectLetters[letter]) {
-        return AffixStatus.Incorrect;
-      }
     } else {
-      if (typeof wordIndex === 'number') {
-        return wordIndex > incorrectLetters[letter] ? AffixStatus.Incorrect : AffixStatus.Unknown;
-      }
-
       return AffixStatus.Incorrect;
     }
   }
@@ -160,7 +150,7 @@ const getLetterState = ({
   return AffixStatus.Unknown;
 };
 
-export const selectLetterState = (letter: string, wordIndex?: number) => createSelector(
+export const selectLetterState = (letter: string) => createSelector(
   selectWordToSubmit,
   selectWordToGuess,
   selectGameLanguageKeyboardInfo,
@@ -169,7 +159,7 @@ export const selectLetterState = (letter: string, wordIndex?: number) => createS
   selectPositionLetters,
   (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetters, positionLetters) => {
     return getLetterState({
-      letter, wordToSubmit, wordToGuess, wordIndex, correctLetters, incorrectLetters, positionLetters, specialCharacters,
+      letter, wordToSubmit, wordToGuess, correctLetters, incorrectLetters, positionLetters, specialCharacters,
     });
   },
 );

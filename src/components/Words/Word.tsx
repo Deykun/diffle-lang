@@ -8,7 +8,7 @@ import Affix from '@components/Words/Affix';
 
 import './Words.scss';
 
-const Word = ({ guess, wordIndex, isSubmitted = false }: { guess: WordType, wordIndex?: number, isSubmitted?: boolean }) => {
+const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: boolean }) => {
   const dispatch = useDispatch();
 
   const handleClickGenerator = (letterIndex: number) => () => {
@@ -34,6 +34,7 @@ const Word = ({ guess, wordIndex, isSubmitted = false }: { guess: WordType, word
             {
               text,
               type,
+              subtype,
               isStart,
               isEnd,
             },
@@ -47,8 +48,8 @@ const Word = ({ guess, wordIndex, isSubmitted = false }: { guess: WordType, word
                   // eslint-disable-next-line react/no-array-index-key
                   key={`text-${index}`}
                   text={text}
-                  wordIndex={wordIndex}
                   type={type}
+                  subtype={subtype}
                   isStart={isStart}
                   isEnd={isEnd}
                   isSubmitted={isSubmitted}

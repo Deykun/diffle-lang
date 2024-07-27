@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import {
-  RootState, RootGameState, ToastType, UsedLetters, EasterDays, GameStatus, GameMode, FlatAffixes,
+  RootState, RootGameState, ToastType, UsedLettersByType, EasterDays, GameStatus, GameMode, FlatAffixes,
 } from '@common-types';
 
 import {
@@ -171,10 +171,10 @@ export const submitAnswer = createAsyncThunk(
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     dispatch(gameSlice.actions.setProcessing(true));
 
-    const { wordToGuess } = state.game;
+    const { wordToGuess, letters } = state.game;
     const wordIndex = state.game.guesses.length;
 
-    const result = await getWordReport(wordToGuess, wordToSubmit, { wordIndex, lang });
+    const result = await getWordReport(wordToGuess, wordToSubmit, { wordIndex, lang, wordsLetters: letters });
 
     const isWordDoesNotExistError = result.isError && result.type === SUBMIT_ERRORS.WORD_DOES_NOT_EXIST;
     if (isWordDoesNotExistError) {
@@ -835,11 +835,7 @@ const gameSlice = createSlice({
           rejectedWords: string[],
           easterEggDays: EasterDays,
           wordToGuess: string,
-          wordsLetters: {
-            correct: UsedLetters,
-            incorrect: UsedLetters,
-            position: UsedLetters,
-          },
+          wordsLetters: UsedLettersByType,
           lastUpdateTime: number,
           durationMS: number,
           flatAffixes: FlatAffixes,

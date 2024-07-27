@@ -105,11 +105,11 @@ const Words = () => {
   const shouldBeShorter = guesses.length > 8;
 
   return (
-      <div className={clsx('words', { narrow: shouldBeNarrower, shorter: shouldBeShorter })}>
+      <div className={clsx('words', { 'words--is-ended': isGameEnded, narrow: shouldBeNarrower, shorter: shouldBeShorter })}>
           <WordTip />
-          {guesses.map((guess, index) => {
+          {guesses.map((guess) => {
             return (
-                <Word key={`guess-${guess.word}`} guess={guess} wordIndex={index} isSubmitted />
+                <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />
             );
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}

@@ -70,38 +70,53 @@
         }
     }
 
-    &.incorrect,
-    &.new,
-    &.correct {
-        &.known-incorect,
-        &.known-typed-too-much,
-        &.known-missing-part {
-            &::after {
-                content: '';
-                position: absolute;
-                left: calc(50% - 4px);
-                bottom: -8px;
-                height: 0;
-                width: 0;
-                border-radius: 6px;
-                border: 4px solid transparent;
-            }
+    &.known-incorect,
+    &.known-typed-too-much,
+    &.known-missing-part {
+        &::after {
+            display: none;
+            content: '';
+            position: absolute;
+            left: calc(50% - 4px);
+            bottom: -10px;
+            height: 0;
+            width: 0;
+            border-radius: 6px;
+            border: 4px solid transparent;
         }
     }
 
-    &.new,
-    &.incorrect {
-        &.known-incorect {
-            &::after {
-                border-bottom-color: var(--incorrect-red-contrast);
-            }
+    &.known-missing-part {
+        &::after {
+            bottom: -8px;
         }
+    }
 
-        &.known-typed-too-much,
-        &.known-missing-part {
+    &.known-incorect {
+        &::after {
+            border-bottom-color: var(--incorrect-red-contrast);
+        }
+    }
+
+    &.known-typed-too-much,
+    &.known-missing-part {
+        &::after {
+            border-bottom-color: var(--orange);
+        }
+    }
+    
+    &.new {
+        &.known-incorect,
+        &.known-typed-too-much {
             &::after {
-                border-bottom-color: var(--orange);
+                display: block;
             }
+        }   
+    }
+
+    &.correct.known-missing-part {
+        &::after {
+            display: block;
         }
     }
 
@@ -115,6 +130,14 @@
         color: var(--incorrect-contrast);
         background-color: var(--incorrect);
         border-color: var(--incorrect);
+    
+        &.typed-incorrect {
+            .words.words--is-ended & {
+                color: var(--incorrect-red-contrast);
+                border-color: var(--incorrect-red);
+                background-color: var(--incorrect-red);
+            }
+        }
     }
 
     &.position {

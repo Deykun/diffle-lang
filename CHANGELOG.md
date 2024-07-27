@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.27
+#### Version 3.28
+- **New**: After winning and viewing the shared results, we can see which letters caused the red points to be added
+
+#### Version 3.27 (21.07.2024)
 - **New**: All words can be checked in an external dictionary at the ending screen
 - **Fix**: Incorrect tip while processing the word
 
