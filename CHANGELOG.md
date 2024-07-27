@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.28
+#### Version 3.28.1
+- **Fix**: Accessibility contrast increased for red dotted letters
+
+#### Version 3.28 (27.07.2024)
 - **New**: After winning and viewing the shared results, we can see which letters caused the red points to be added
 
 #### Version 3.27 (21.07.2024)
