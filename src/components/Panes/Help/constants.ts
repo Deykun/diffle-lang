@@ -50,6 +50,16 @@ export const HELP_EXAMPLES_BY_LANG: {
       words: ['ablandad', 'etica', 'gatos', 'pairo', 'perrito'],
     },
   },
+  fi: {
+    first: {
+      wordToGuess: 'juosta',
+      words: ['yö', 'aivot', 'leivos', 'joka', 'juosta'],
+    },
+    second: {
+      wordToGuess: 'loistava',
+      words: ['puu', 'tieto', 'edustavuus', 'litra', 'loistava'],
+    },
+  },
   fr: {
     first: {
       wordToGuess: 'fleur',

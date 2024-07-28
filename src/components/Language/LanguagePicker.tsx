@@ -21,8 +21,6 @@ import ButtonTile from '@components/Button/ButtonTile';
 import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
-import ReportTranslationBugButton from './ReportTranslationBugButton';
-
 import './LanguagePicker.scss';
 
 type Props = {
@@ -74,7 +72,8 @@ const LanguagePicker = ({ children, className, place }: Props) => {
     setIsOpen(value => !value);
   };
 
-  const shouldShowAboutInLanguages = SUPPORTED_LANGS.length % 3 !== 0;
+  // Change when new language is added if it makes the layout look better
+  const shouldShowAboutInLanguages = false;
 
   return (
       <>
@@ -138,9 +137,10 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                   {!shouldShowAboutInLanguages && (
                   <div>
                       <br />
-                      <br />
                       <Button
                         onClick={handleGoToAboutLanguage}
+                        isInverted
+                        isText
                       >
                           <IconBookOpen />
                           <span>
@@ -154,7 +154,6 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                       <br />
                   </div>
                   )}
-                  <ReportTranslationBugButton />
               </div>
           </Modal>
       </>

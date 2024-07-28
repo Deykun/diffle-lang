@@ -82,6 +82,17 @@ export const DICTIONARIES_BY_LANG: {
     href: 'https://github.com/hermitdave/FrequencyWords',
     labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
   }],
+  fi: [{
+    isSpeelchecker: true,
+    href: 'https://www.kotus.fi/',
+    labelHTML: '<strong>Kotus</strong>',
+  }, {
+    href: 'https://freedict.org/',
+    labelHTML: '<strong>freedict.org</strong>',
+  }, {
+    href: 'https://github.com/hermitdave/FrequencyWords',
+    labelHTML: 'hermitdave <strong>FrequencyWords</strong>',
+  }],
   fr: [{
     isSpeelchecker: true,
     href: 'https://grammalecte.net',

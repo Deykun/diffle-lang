@@ -65627,7 +65627,7 @@ puudutus		substantiivi	39
 puudutusaine		substantiivi	
 puuesine		substantiivi	
 puuetikka		substantiivi	
-puuh		interjektio	99
+puuh		interjektio	99t"
 puuha		substantiivi	10
 puuhaaja		substantiivi	10
 puuhaarukka		substantiivi	
