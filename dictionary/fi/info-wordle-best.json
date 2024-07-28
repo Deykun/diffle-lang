@@ -1,0 +1,980 @@
+{
+	"meta": {
+		"inSeconds": 1,
+		"words": 3415
+	},
+	"best": {
+		"max": [
+			{
+				"result": {
+					"total": 3415,
+					"green": 2690,
+					"orange": 3313,
+					"gray": 11072
+				},
+				"word": "kasti",
+				"score": {
+					"max": 6003,
+					"maxGreen": 2690,
+					"maxOrange": 3313,
+					"green1_5": 7348,
+					"green2_0": 8693
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2382,
+					"orange": 3621,
+					"gray": 11072
+				},
+				"word": "taksi",
+				"score": {
+					"max": 6003,
+					"maxGreen": 2382,
+					"maxOrange": 3621,
+					"green1_5": 7194,
+					"green2_0": 8385
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2482,
+					"orange": 3503,
+					"gray": 11090
+				},
+				"word": "kausi",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2482,
+					"maxOrange": 3503,
+					"green1_5": 7226,
+					"green2_0": 8467
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 1442,
+					"orange": 4543,
+					"gray": 11090
+				},
+				"word": "kiuas",
+				"score": {
+					"max": 5985,
+					"maxGreen": 1442,
+					"maxOrange": 4543,
+					"green1_5": 6706,
+					"green2_0": 7427
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2388,
+					"orange": 3597,
+					"gray": 11090
+				},
+				"word": "kiusa",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2388,
+					"maxOrange": 3597,
+					"green1_5": 7179,
+					"green2_0": 8373
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2170,
+					"orange": 3815,
+					"gray": 11090
+				},
+				"word": "sukia",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2170,
+					"maxOrange": 3815,
+					"green1_5": 7070,
+					"green2_0": 8155
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2347,
+					"orange": 3629,
+					"gray": 11099
+				},
+				"word": "koisa",
+				"score": {
+					"max": 5976,
+					"maxGreen": 2347,
+					"maxOrange": 3629,
+					"green1_5": 7149.5,
+					"green2_0": 8323
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2190,
+					"orange": 3786,
+					"gray": 11099
+				},
+				"word": "kosia",
+				"score": {
+					"max": 5976,
+					"maxGreen": 2190,
+					"maxOrange": 3786,
+					"green1_5": 7071,
+					"green2_0": 8166
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 1429,
+					"orange": 4547,
+					"gray": 11099
+				},
+				"word": "oksia",
+				"score": {
+					"max": 5976,
+					"maxGreen": 1429,
+					"maxOrange": 4547,
+					"green1_5": 6690.5,
+					"green2_0": 7405
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2277,
+					"orange": 3694,
+					"gray": 11104
+				},
+				"word": "kitua",
+				"score": {
+					"max": 5971,
+					"maxGreen": 2277,
+					"maxOrange": 3694,
+					"green1_5": 7109.5,
+					"green2_0": 8248
+				}
+			}
+		],
+		"maxGray": [
+			{
+				"result": {
+					"total": 3415,
+					"green": 693,
+					"orange": 72,
+					"gray": 16310
+				},
+				"word": "mömmö",
+				"score": {
+					"max": 765,
+					"maxGreen": 693,
+					"maxOrange": 72,
+					"green1_5": 1111.5,
+					"green2_0": 1458
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 777,
+					"orange": 266,
+					"gray": 16032
+				},
+				"word": "jäädä",
+				"score": {
+					"max": 1043,
+					"maxGreen": 777,
+					"maxOrange": 266,
+					"green1_5": 1431.5,
+					"green2_0": 1820
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 944,
+					"orange": 127,
+					"gray": 16004
+				},
+				"word": "löllö",
+				"score": {
+					"max": 1071,
+					"maxGreen": 944,
+					"maxOrange": 127,
+					"green1_5": 1543,
+					"green2_0": 2015
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 882,
+					"orange": 222,
+					"gray": 15971
+				},
+				"word": "bebee",
+				"score": {
+					"max": 1104,
+					"maxGreen": 882,
+					"maxOrange": 222,
+					"green1_5": 1545,
+					"green2_0": 1986
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 856,
+					"orange": 278,
+					"gray": 15941
+				},
+				"word": "nynny",
+				"score": {
+					"max": 1134,
+					"maxGreen": 856,
+					"maxOrange": 278,
+					"green1_5": 1562,
+					"green2_0": 1990
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 1028,
+					"orange": 244,
+					"gray": 15803
+				},
+				"word": "sössö",
+				"score": {
+					"max": 1272,
+					"maxGreen": 1028,
+					"maxOrange": 244,
+					"green1_5": 1786,
+					"green2_0": 2300
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 539,
+					"orange": 752,
+					"gray": 15784
+				},
+				"word": "fyffe",
+				"score": {
+					"max": 1291,
+					"maxGreen": 539,
+					"maxOrange": 752,
+					"green1_5": 1560.5,
+					"green2_0": 1830
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 1304,
+					"orange": 69,
+					"gray": 15702
+				},
+				"word": "kökkö",
+				"score": {
+					"max": 1373,
+					"maxGreen": 1304,
+					"maxOrange": 69,
+					"green1_5": 2025,
+					"green2_0": 2677
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 896,
+					"orange": 504,
+					"gray": 15675
+				},
+				"word": "jäämä",
+				"score": {
+					"max": 1400,
+					"maxGreen": 896,
+					"maxOrange": 504,
+					"green1_5": 1848,
+					"green2_0": 2296
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 759,
+					"orange": 687,
+					"gray": 15629
+				},
+				"word": "löyly",
+				"score": {
+					"max": 1446,
+					"maxGreen": 759,
+					"maxOrange": 687,
+					"green1_5": 1825.5,
+					"green2_0": 2205
+				}
+			}
+		],
+		"maxGreen": [
+			{
+				"result": {
+					"total": 3415,
+					"green": 2853,
+					"orange": 2606,
+					"gray": 11616
+				},
+				"word": "kaita",
+				"score": {
+					"max": 5459,
+					"maxGreen": 2853,
+					"maxOrange": 2606,
+					"green1_5": 6885.5,
+					"green2_0": 8312
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2822,
+					"orange": 1239,
+					"gray": 13014
+				},
+				"word": "katka",
+				"score": {
+					"max": 4061,
+					"maxGreen": 2822,
+					"maxOrange": 1239,
+					"green1_5": 5472,
+					"green2_0": 6883
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2792,
+					"orange": 328,
+					"gray": 13955
+				},
+				"word": "kakka",
+				"score": {
+					"max": 3120,
+					"maxGreen": 2792,
+					"maxOrange": 328,
+					"green1_5": 4516,
+					"green2_0": 5912
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2776,
+					"orange": 1766,
+					"gray": 12533
+				},
+				"word": "kanta",
+				"score": {
+					"max": 4542,
+					"maxGreen": 2776,
+					"maxOrange": 1766,
+					"green1_5": 5930,
+					"green2_0": 7318
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2723,
+					"orange": 2440,
+					"gray": 11912
+				},
+				"word": "katti",
+				"score": {
+					"max": 5163,
+					"maxGreen": 2723,
+					"maxOrange": 2440,
+					"green1_5": 6524.5,
+					"green2_0": 7886
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2720,
+					"orange": 1731,
+					"gray": 12624
+				},
+				"word": "kahta",
+				"score": {
+					"max": 4451,
+					"maxGreen": 2720,
+					"maxOrange": 1731,
+					"green1_5": 5811,
+					"green2_0": 7171
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2712,
+					"orange": 2333,
+					"gray": 12030
+				},
+				"word": "paita",
+				"score": {
+					"max": 5045,
+					"maxGreen": 2712,
+					"maxOrange": 2333,
+					"green1_5": 6401,
+					"green2_0": 7757
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2708,
+					"orange": 2499,
+					"gray": 11868
+				},
+				"word": "katki",
+				"score": {
+					"max": 5207,
+					"maxGreen": 2708,
+					"maxOrange": 2499,
+					"green1_5": 6561,
+					"green2_0": 7915
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2707,
+					"orange": 1573,
+					"gray": 12795
+				},
+				"word": "parta",
+				"score": {
+					"max": 4280,
+					"maxGreen": 2707,
+					"maxOrange": 1573,
+					"green1_5": 5633.5,
+					"green2_0": 6987
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2703,
+					"orange": 1988,
+					"gray": 12384
+				},
+				"word": "kalsa",
+				"score": {
+					"max": 4691,
+					"maxGreen": 2703,
+					"maxOrange": 1988,
+					"green1_5": 6042.5,
+					"green2_0": 7394
+				}
+			}
+		],
+		"maxOrange": [
+			{
+				"result": {
+					"total": 3415,
+					"green": 481,
+					"orange": 5152,
+					"gray": 11442
+				},
+				"word": "inaus",
+				"score": {
+					"max": 5633,
+					"maxGreen": 481,
+					"maxOrange": 5152,
+					"green1_5": 5873.5,
+					"green2_0": 6114
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 994,
+					"orange": 4968,
+					"gray": 11113
+				},
+				"word": "aktio",
+				"score": {
+					"max": 5962,
+					"maxGreen": 994,
+					"maxOrange": 4968,
+					"green1_5": 6459,
+					"green2_0": 6956
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 856,
+					"orange": 4930,
+					"gray": 11289
+				},
+				"word": "altis",
+				"score": {
+					"max": 5786,
+					"maxGreen": 856,
+					"maxOrange": 4930,
+					"green1_5": 6214,
+					"green2_0": 6642
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 480,
+					"orange": 4873,
+					"gray": 11722
+				},
+				"word": "islam",
+				"score": {
+					"max": 5353,
+					"maxGreen": 480,
+					"maxOrange": 4873,
+					"green1_5": 5593,
+					"green2_0": 5833
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 752,
+					"orange": 4871,
+					"gray": 11452
+				},
+				"word": "trial",
+				"score": {
+					"max": 5623,
+					"maxGreen": 752,
+					"maxOrange": 4871,
+					"green1_5": 5999,
+					"green2_0": 6375
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 782,
+					"orange": 4869,
+					"gray": 11424
+				},
+				"word": "astin",
+				"score": {
+					"max": 5651,
+					"maxGreen": 782,
+					"maxOrange": 4869,
+					"green1_5": 6042,
+					"green2_0": 6433
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 1013,
+					"orange": 4783,
+					"gray": 11279
+				},
+				"word": "alkio",
+				"score": {
+					"max": 5796,
+					"maxGreen": 1013,
+					"maxOrange": 4783,
+					"green1_5": 6302.5,
+					"green2_0": 6809
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 1095,
+					"orange": 4676,
+					"gray": 11304
+				},
+				"word": "airut",
+				"score": {
+					"max": 5771,
+					"maxGreen": 1095,
+					"maxOrange": 4676,
+					"green1_5": 6318.5,
+					"green2_0": 6866
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 971,
+					"orange": 4653,
+					"gray": 11451
+				},
+				"word": "ansio",
+				"score": {
+					"max": 5624,
+					"maxGreen": 971,
+					"maxOrange": 4653,
+					"green1_5": 6109.5,
+					"green2_0": 6595
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 778,
+					"orange": 4631,
+					"gray": 11666
+				},
+				"word": "alien",
+				"score": {
+					"max": 5409,
+					"maxGreen": 778,
+					"maxOrange": 4631,
+					"green1_5": 5798,
+					"green2_0": 6187
+				}
+			}
+		],
+		"green1_5": [
+			{
+				"result": {
+					"total": 3415,
+					"green": 2690,
+					"orange": 3313,
+					"gray": 11072
+				},
+				"word": "kasti",
+				"score": {
+					"max": 6003,
+					"maxGreen": 2690,
+					"maxOrange": 3313,
+					"green1_5": 7348,
+					"green2_0": 8693
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2482,
+					"orange": 3503,
+					"gray": 11090
+				},
+				"word": "kausi",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2482,
+					"maxOrange": 3503,
+					"green1_5": 7226,
+					"green2_0": 8467
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2382,
+					"orange": 3621,
+					"gray": 11072
+				},
+				"word": "taksi",
+				"score": {
+					"max": 6003,
+					"maxGreen": 2382,
+					"maxOrange": 3621,
+					"green1_5": 7194,
+					"green2_0": 8385
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2388,
+					"orange": 3597,
+					"gray": 11090
+				},
+				"word": "kiusa",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2388,
+					"maxOrange": 3597,
+					"green1_5": 7179,
+					"green2_0": 8373
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2607,
+					"orange": 3247,
+					"gray": 11221
+				},
+				"word": "karsi",
+				"score": {
+					"max": 5854,
+					"maxGreen": 2607,
+					"maxOrange": 3247,
+					"green1_5": 7157.5,
+					"green2_0": 8461
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2347,
+					"orange": 3629,
+					"gray": 11099
+				},
+				"word": "koisa",
+				"score": {
+					"max": 5976,
+					"maxGreen": 2347,
+					"maxOrange": 3629,
+					"green1_5": 7149.5,
+					"green2_0": 8323
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2622,
+					"orange": 3201,
+					"gray": 11252
+				},
+				"word": "kilta",
+				"score": {
+					"max": 5823,
+					"maxGreen": 2622,
+					"maxOrange": 3201,
+					"green1_5": 7134,
+					"green2_0": 8445
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2277,
+					"orange": 3694,
+					"gray": 11104
+				},
+				"word": "kitua",
+				"score": {
+					"max": 5971,
+					"maxGreen": 2277,
+					"maxOrange": 3694,
+					"green1_5": 7109.5,
+					"green2_0": 8248
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2502,
+					"orange": 3338,
+					"gray": 11235
+				},
+				"word": "ratki",
+				"score": {
+					"max": 5840,
+					"maxGreen": 2502,
+					"maxOrange": 3338,
+					"green1_5": 7091,
+					"green2_0": 8342
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2469,
+					"orange": 3385,
+					"gray": 11221
+				},
+				"word": "raski",
+				"score": {
+					"max": 5854,
+					"maxGreen": 2469,
+					"maxOrange": 3385,
+					"green1_5": 7088.5,
+					"green2_0": 8323
+				}
+			}
+		],
+		"green2_0": [
+			{
+				"result": {
+					"total": 3415,
+					"green": 2690,
+					"orange": 3313,
+					"gray": 11072
+				},
+				"word": "kasti",
+				"score": {
+					"max": 6003,
+					"maxGreen": 2690,
+					"maxOrange": 3313,
+					"green1_5": 7348,
+					"green2_0": 8693
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2482,
+					"orange": 3503,
+					"gray": 11090
+				},
+				"word": "kausi",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2482,
+					"maxOrange": 3503,
+					"green1_5": 7226,
+					"green2_0": 8467
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2607,
+					"orange": 3247,
+					"gray": 11221
+				},
+				"word": "karsi",
+				"score": {
+					"max": 5854,
+					"maxGreen": 2607,
+					"maxOrange": 3247,
+					"green1_5": 7157.5,
+					"green2_0": 8461
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2622,
+					"orange": 3201,
+					"gray": 11252
+				},
+				"word": "kilta",
+				"score": {
+					"max": 5823,
+					"maxGreen": 2622,
+					"maxOrange": 3201,
+					"green1_5": 7134,
+					"green2_0": 8445
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2382,
+					"orange": 3621,
+					"gray": 11072
+				},
+				"word": "taksi",
+				"score": {
+					"max": 6003,
+					"maxGreen": 2382,
+					"maxOrange": 3621,
+					"green1_5": 7194,
+					"green2_0": 8385
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2388,
+					"orange": 3597,
+					"gray": 11090
+				},
+				"word": "kiusa",
+				"score": {
+					"max": 5985,
+					"maxGreen": 2388,
+					"maxOrange": 3597,
+					"green1_5": 7179,
+					"green2_0": 8373
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2502,
+					"orange": 3338,
+					"gray": 11235
+				},
+				"word": "ratki",
+				"score": {
+					"max": 5840,
+					"maxGreen": 2502,
+					"maxOrange": 3338,
+					"green1_5": 7091,
+					"green2_0": 8342
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2495,
+					"orange": 3342,
+					"gray": 11238
+				},
+				"word": "kilsa",
+				"score": {
+					"max": 5837,
+					"maxGreen": 2495,
+					"maxOrange": 3342,
+					"green1_5": 7084.5,
+					"green2_0": 8332
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2347,
+					"orange": 3629,
+					"gray": 11099
+				},
+				"word": "koisa",
+				"score": {
+					"max": 5976,
+					"maxGreen": 2347,
+					"maxOrange": 3629,
+					"green1_5": 7149.5,
+					"green2_0": 8323
+				}
+			},
+			{
+				"result": {
+					"total": 3415,
+					"green": 2469,
+					"orange": 3385,
+					"gray": 11221
+				},
+				"word": "raski",
+				"score": {
+					"max": 5854,
+					"maxGreen": 2469,
+					"maxOrange": 3385,
+					"green1_5": 7088.5,
+					"green2_0": 8323
+				}
+			}
+		]
+	}
+}
