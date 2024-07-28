@@ -43,7 +43,7 @@ const SettingsSources = () => {
       return [];
     }
 
-    return DICTIONARIES_BY_LANG[gameLanguage];
+    return DICTIONARIES_BY_LANG[gameLanguage] || [];
   }, [gameLanguage]);
 
   // TODO: move to useQuery()

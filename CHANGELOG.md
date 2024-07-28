@@ -11,7 +11,12 @@
 
 ---
 
-#### Version 3.28.1
+#### Version 3.29
+- **New**: Finnish game language added
+- **New**: Incorrect color affix improved
+- **Fix**: Fixed an error on desktop when navigator.vibrate is called
+
+#### Version 3.28.1 (27.07.2024)
 - **Fix**: Accessibility contrast increased for red dotted letters
 
 #### Version 3.28 (27.07.2024)

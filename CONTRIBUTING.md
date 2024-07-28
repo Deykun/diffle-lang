@@ -8,10 +8,10 @@
 7. Create the `build-[langCode]-dictionary.mjs` script in the `scripts` folder.
 8. Include `build-[langCode]` in the `scripts` section of `package.json`.
 9. Add the new language to `SUPPORTED_DICTIONARY_BY_LANG` in `src/const.ts`.
-10. Incorporate the flag for the language from [Flag Icons](https://github.com/lipis/flag-icons) (4x3). Compress it with https://jakearchibald.github.io/svgomg/.
+10. Incorporate the flag for the language from [Flag Icons](https://github.com/lipis/flag-icons) (4x3). Compress it with https://jakearchibald.github.io/svgomg/ and add to `public/flags/[langCode].svg`
 11. Update `language` as an allowed string in the `RootGameState` within `types.d.ts`.
 12. Include example words in `src\components\Panes\Help\constants.ts`. The easiest way to find them is to override getWordToGuess with our expected word and play to identify words that can be used as examples.
-13. Add an srr index for the language at `public-ssr/[langCode]` and `scripts\post-build.mjs`
+13. Add an srr index for the language at `public-ssr/[langCode]` and `scripts\post-build.ts`
 14. Remember to include a custom open graph image.
 15. Add dictionaries to `src\components\Panes\Settings\constants.tsx`
 16. If everything works run `build-[lang] only-wordle-perfect`

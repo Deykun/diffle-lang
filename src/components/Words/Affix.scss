@@ -133,9 +133,9 @@
     
         &.typed-incorrect {
             .words.words--is-ended & {
-                color: var(--incorrect-red-contrast);
-                border-color: var(--incorrect-red);
-                background-color: var(--incorrect-red);
+                color: var(--incorrect-red);
+                border-color: var(--incorrect-red-contrast);
+                background-color: var(--incorrect-red-contrast);
 
                 .contrast & {
                     color: var(--red-contrast);

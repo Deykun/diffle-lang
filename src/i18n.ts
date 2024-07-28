@@ -6,6 +6,7 @@ import localeCs from './locales/cs.json';
 import localeDe from './locales/de.json';
 import localeEn from './locales/en.json';
 import localeEs from './locales/es.json';
+import localeFi from './locales/fi.json';
 import localeFr from './locales/fr.json';
 import localeIt from './locales/it.json';
 import localePl from './locales/pl.json';
@@ -23,6 +24,9 @@ const resources = {
   },
   es: {
     translation: localeEs,
+  },
+  fi: {
+    translation: localeFi,
   },
   fr: {
     translation: localeFr,

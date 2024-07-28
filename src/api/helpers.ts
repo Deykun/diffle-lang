@@ -49,6 +49,15 @@ export const removeDiacratics = (word: string, lang?: string) => {
       .replaceAll('ñ', 'n');
   }
 
+  if (!lang || lang === 'fi') {
+    wordToReturn = wordToReturn
+      .replaceAll('å', 'a')
+      .replaceAll('ä', 'a')
+      .replaceAll('ö', 'o')
+      .replaceAll('š', 's')
+      .replaceAll('ž', 'z');
+  }
+
   if (!lang || lang === 'fr') {
     wordToReturn = wordToReturn
       .replaceAll('à', 'a')
