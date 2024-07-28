@@ -104,6 +104,17 @@
 
         &.position::before {
             background-color: var(--orange);
+
+            .contrast & {
+                background-image: repeating-linear-gradient(
+                    45deg,
+                    var(--incorrect) 0px,
+                    var(--incorrect) 4px,
+                    var(--orange) 4px,
+                    var(--orange) 8px
+                );
+                border-color: var(--orange);
+            }
         }
 
         &.incorrect::before {
@@ -112,6 +123,16 @@
 
         &.incorrect.typed::before {
             background-color: var(--incorrect-red-contrast);
+
+            .contrast & {
+                color: var(--red-contrast);
+                background-color: var(--incorrect-red-contrast);
+                background-image: radial-gradient(color-mix(in srgb, var(--background) 40%, transparent) 20%, transparent 0), /* polka dots */
+                    radial-gradient(color-mix(in srgb, var(--background) 40%, transparent) 20%, transparent 0);
+                background-size: 10px 10px;
+                background-position: 0px 0px, 5px 5px;
+                border-color: var(--incorrect-red-contrast);
+            }
         }
     }
 }
