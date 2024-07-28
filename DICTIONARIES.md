@@ -71,6 +71,11 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 - https://github.com/kochd/word-lists/blob/main/italian.list (13 MB)
 - https://github.com/maehr/ocr-dictionaries-for-federal-sources/blob/master/dictionaries/it_full.txt (9.23 MB)
 
+### Finnish 🇫🇮
+- https://www.kotus.fi/ 📔 (104k words)
+- https://freedict.org 🎯
+- https://github.com/hermitdave/FrequencyWords/ 📔
+
 ### French 🇫🇷
 - http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (~450k words - 19.1 MB)
 - https://freedict.org 🎯
