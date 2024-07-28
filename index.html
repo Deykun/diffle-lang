@@ -1,176 +1,281 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<!-- langHead -->
-        <title>DIFFLE - the game like Wordle (without character limit)</title>
-        <meta name="description" content="Each used word provides hints about the position and order of letters in the solution.">
-        <meta  property="og:title" content="DIFFLE - the game like Wordle (without character limit)">
-        <meta  property="og:description" content="Each used word provides hints about the position and order of letters in the solution." >
-        <meta  property="og:image" content="https://deykun.github.io/diffle-lang/diffle-word-game.jpg" >
-        <meta  property="og:image:alt" content="diffle wordle" >
-<!-- /langHead -->
-        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
-        <style>
-            body {
-                background-color: #222222;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <!-- langHead -->
+    <title>DIFFLE - the game like Wordle (without character limit)</title>
+    <meta
+      name="description"
+      content="Each used word provides hints about the position and order of letters in the solution."
+    />
+    <meta
+      property="og:title"
+      content="DIFFLE - the game like Wordle (without character limit)"
+    />
+    <meta
+      property="og:description"
+      content="Each used word provides hints about the position and order of letters in the solution."
+    />
+    <meta
+      property="og:image"
+      content="https://deykun.github.io/diffle-lang/diffle-word-game.jpg"
+    />
+    <meta property="og:image:alt" content="diffle wordle" />
+    <!-- /langHead -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      body {
+        background-color: #222222;
+      }
 
-            .help-no-js {
-                max-width: 400px;
-                margin: 30px auto;
-                text-align: center;
-                font-family: 'Baloo 2', sans-serif;
-                color: #3e3e3e;
-            }
+      .help-no-js {
+        max-width: 400px;
+        margin: 30px auto;
+        text-align: center;
+        font-family: "Baloo 2", sans-serif;
+        color: #3e3e3e;
+      }
 
-            .help-no-js h1 {
-                color: #3c3c3c;
-                margin-bottom: 20px;
-            }
+      .help-no-js h1 {
+        color: #3c3c3c;
+        margin-bottom: 20px;
+      }
 
-            .help-no-js p {
-                font-size: 14px;
-                line-height: 1.5;
-                margin-bottom: 10px;
-            }
+      .help-no-js p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
 
-            .help-no-js ul {
-                list-style: none;
-                margin: 0;
-                margin-top: 30px;
-                padding: 0;
-            }
+      .help-no-js ul {
+        list-style: none;
+        margin: 0;
+        margin-top: 30px;
+        padding: 0;
+      }
 
-            .help-no-js a {
-                display: inline-block;
-                color: #3c3c3c;
-                text-decoration: none;
-                letter-spacing: 0.05em;
-                margin-bottom: 12px;
-                transition: 0.1s ease-in-out;
-            }
+      .help-no-js a {
+        display: inline-block;
+        color: #3c3c3c;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+        transition: 0.1s ease-in-out;
+      }
 
-            .help-no-js a img {
-                display: inline-block;
-                vertical-align: middle;
-                margin-right: 5px;
-                width: 12px;
-                height: 12px;
-                object-fit: cover;
-                border-radius: 50%;
-                filter: contrast(0.8) saturate(0.7);
-            }
+      .help-no-js a img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+        width: 12px;
+        height: 12px;
+        object-fit: cover;
+        border-radius: 50%;
+        filter: contrast(0.8) saturate(0.7);
+      }
 
-            .help-no-js a:hover {
-                color: #646464;
-            }
+      .help-no-js a:hover {
+        color: #646464;
+      }
 
-            .help-no-js .about-short {
-                margin-top: 50px;
-                border-top: 1px dashed #5bff1045;
-                padding-top: 20px;
-                text-align: justify;
-            }
+      .help-no-js .about-short {
+        margin-top: 50px;
+        border-top: 1px dashed #5bff1045;
+        padding-top: 20px;
+        text-align: justify;
+      }
 
-            .help-no-js .about-short p {
-                color: #585e5645;
-                font-size: 12px;
-                line-height: 1.4;
-                margin-top: 0;
-                margin-bottom: 5px;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="root">
-            <div class="help-no-js">
-<!-- langNoJsContent -->
-                <strong>DIFFLE</strong>
-                <h1>What is Diffle?</h1>
-                <p>Diffle is a game inspired by Wordle without a character limit. If you enjoy wordle, this game is for you.</p>
-                <h1>How to play Diffle?</h1>
-                <p>The goal is to guess the password using the fewest number of letters and words possible.</p>
-                <p>After each attempt, the letters will be marked with the appropriate color.</p>
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/cs" title="Hra jako Wordle">
-                                <img src="./flags/cs.svg" alt="">
-                                DIFFLE v češtině
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/de" title="Das Spiel wie Wordle">
-                                <img src="./flags/de.svg" alt="">
-                                DIFFLE auf Deutsch
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/en" title="Wordle-like game">
-                                <img src="./flags/en.svg" alt="">
-                                DIFFLE in English
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/es" title="Juego similar a Wordle">
-                                <img src="./flags/es.svg" alt="">
-                                DIFFLE en español
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/fr" title="Jeu similaire à Wordle">
-                                <img src="./flags/fr.svg" alt="">
-                                DIFFLE en français
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/it" title="Gioco simile a Wordle">
-                                <img src="./flags/it.svg" alt="">
-                                DIFFLE in italiano
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://deykun.github.io/diffle-lang/pl" title="Gra jak wordle">
-                                <img src="./flags/pl.svg" alt="">
-                                DIFFLE po polsku
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="about-short">
-                    <p>
-                       "Diffle" a versatile and multilingual word-guessing game, offers an engaging linguistic challenge for players across different language backgrounds. With support for German, Polish, Czech, and English, Diffle transcends linguistic boundaries, providing an inclusive gaming experience. Players can seamlessly switch between languages, making it an ideal choice for a diverse player base. The game's interface and clues are thoughtfully crafted in each language, ensuring that players can enjoy the same immersive experience regardless of the language they choose.
-                    </p>
-                    <p lang="de">
-                        Die Vielseitigkeit von "Diffle", einem mehrsprachigen Worträtselspiel, bietet eine fesselnde sprachliche Herausforderung für Spieler unterschiedlicher Sprachhintergründe. Mit Unterstützung für Deutsch, Polnisch, Tschechisch und Englisch überwindet Diffle sprachliche Grenzen und bietet eine inklusive Spielerfahrung. Spieler können nahtlos zwischen den Sprachen wechseln, was es zu einer idealen Wahl für eine vielfältige Spielerbasis macht. Die Benutzeroberfläche und Hinweise des Spiels sind sorgfältig in jeder Sprache gestaltet, um sicherzustellen, dass Spieler das gleiche eindringliche Erlebnis genießen können, unabhängig von der gewählten Sprache.
-                    </p>
-                    <p lang="pl">
-                        "Diffle" to wszechstronna i wielojęzyczna gra w odgadywanie słów, oferująca fascynujące wyzwanie językowe dla graczy z różnych tła językowych. Z obsługą niemieckiego, polskiego, czeskiego i angielskiego Diffle przekracza granice językowe, zapewniając inkludencyjne doświadczenie gamingowe. Gracze mogą płynnie przełączać się między językami, co czyni ją idealnym wyborem dla zróżnicowanej bazy graczy. Interfejs gry oraz wskazówki są starannie opracowane w każdym języku, zapewniając, że gracze mogą cieszyć się tą samą immersyjną rozgrywką bez względu na wybrany język.
-                    </p>
-                </div>
-<!-- /langNoJsContent -->	
-            </div>
+      .help-no-js .about-short p {
+        color: #585e5645;
+        font-size: 12px;
+        line-height: 1.4;
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="help-no-js">
+        <!-- langNoJsContent -->
+        <strong>DIFFLE</strong>
+        <h1>What is Diffle?</h1>
+        <p>
+          Diffle is a game inspired by Wordle without a character limit. If you
+          enjoy wordle, this game is for you.
+        </p>
+        <h1>How to play Diffle?</h1>
+        <p>
+          The goal is to guess the password using the fewest number of letters
+          and words possible.
+        </p>
+        <p>
+          After each attempt, the letters will be marked with the appropriate
+          color.
+        </p>
+        <nav>
+          <ul>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/cs"
+                title="Hra jako Wordle"
+              >
+                <img src="./flags/cs.svg" alt="" />
+                DIFFLE v češtině
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/de"
+                title="Das Spiel wie Wordle"
+              >
+                <img src="./flags/de.svg" alt="" />
+                DIFFLE auf Deutsch
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/en"
+                title="Wordle-like game"
+              >
+                <img src="./flags/en.svg" alt="" />
+                DIFFLE in English
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/es"
+                title="Juego similar a Wordle"
+              >
+                <img src="./flags/es.svg" alt="" />
+                DIFFLE en español
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/fi"
+                title="Wordlen kaltainen peli"
+              >
+                <img src="./flags/fi.svg" alt="" />
+                DIFFLE suomeksi
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/fr"
+                title="Jeu similaire à Wordle"
+              >
+                <img src="./flags/fr.svg" alt="" />
+                DIFFLE en français
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/it"
+                title="Gioco simile a Wordle"
+              >
+                <img src="./flags/it.svg" alt="" />
+                DIFFLE in italiano
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://deykun.github.io/diffle-lang/pl"
+                title="Gra jak wordle"
+              >
+                <img src="./flags/pl.svg" alt="" />
+                DIFFLE po polsku
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="about-short">
+          <p>
+            "Diffle" a versatile and multilingual word-guessing game, offers an
+            engaging linguistic challenge for players across different language
+            backgrounds. With support for German, Polish, Czech, and English,
+            Diffle transcends linguistic boundaries, providing an inclusive
+            gaming experience. Players can seamlessly switch between languages,
+            making it an ideal choice for a diverse player base. The game's
+            interface and clues are thoughtfully crafted in each language,
+            ensuring that players can enjoy the same immersive experience
+            regardless of the language they choose.
+          </p>
+          <p lang="de">
+            Die Vielseitigkeit von "Diffle", einem mehrsprachigen
+            Worträtselspiel, bietet eine fesselnde sprachliche Herausforderung
+            für Spieler unterschiedlicher Sprachhintergründe. Mit Unterstützung
+            für Deutsch, Polnisch, Tschechisch und Englisch überwindet Diffle
+            sprachliche Grenzen und bietet eine inklusive Spielerfahrung.
+            Spieler können nahtlos zwischen den Sprachen wechseln, was es zu
+            einer idealen Wahl für eine vielfältige Spielerbasis macht. Die
+            Benutzeroberfläche und Hinweise des Spiels sind sorgfältig in jeder
+            Sprache gestaltet, um sicherzustellen, dass Spieler das gleiche
+            eindringliche Erlebnis genießen können, unabhängig von der gewählten
+            Sprache.
+          </p>
+          <p lang="pl">
+            "Diffle" to wszechstronna i wielojęzyczna gra w odgadywanie słów,
+            oferująca fascynujące wyzwanie językowe dla graczy z różnych tła
+            językowych. Z obsługą niemieckiego, polskiego, czeskiego i
+            angielskiego Diffle przekracza granice językowe, zapewniając
+            inkludencyjne doświadczenie gamingowe. Gracze mogą płynnie
+            przełączać się między językami, co czyni ją idealnym wyborem dla
+            zróżnicowanej bazy graczy. Interfejs gry oraz wskazówki są starannie
+            opracowane w każdym języku, zapewniając, że gracze mogą cieszyć się
+            tą samą immersyjną rozgrywką bez względu na wybrany język.
+          </p>
         </div>
-        <div id="root-modal"></div>
-        <script type="module" src="/src/main.tsx"></script>
-    </body>
+        <!-- /langNoJsContent -->
+      </div>
+    </div>
+    <div id="root-modal"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
