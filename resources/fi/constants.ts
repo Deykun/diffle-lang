@@ -26,4 +26,15 @@ export const DICTIONARIES = {
     },
 };
 
-export const EASTER_EGG_DAYS = { };
+export const EASTER_EGG_DAYS = {
+    '06.12': {
+        type: 'public',
+        specialMode: 'sandbox-live',
+        emojis: [{
+            correct: ['🌿', '🌲'],
+            position: ['🦌', '🏒', '⛷️', '🛷'],
+            incorrect: ['🪽', '🐻‍❄️', '⛸️'],
+            typedKnownIncorrect: ['🐻'],
+        }],
+    },
+};

@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.30.1
+- **Fix**: Missing Finnish Easter Day added
+
 #### Version 3.30
 - **New**: Strawberry pattern is incorrect when high contrast is turned on
 - **New**: High contrast mode also affects documents with counters on the end screen
