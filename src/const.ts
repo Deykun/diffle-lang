@@ -67,6 +67,16 @@ const KEY_LINES_ES_VARIANTS = [{
   ],
 }];
 
+const KEY_LINES_FI_VARIANTS = [{
+  name: 'QWERTY',
+  keyLines: [
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+    ['backspace', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'enter'],
+    ['å', 'ä', 'ö', 'spacebar', 'š', 'ž'],
+  ],
+}];
+
 /*
   I had a hard time deciding which letters should stay.
   Some are used in fewer than 200 words in a 460k dictionary.
@@ -194,6 +204,23 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
       { url: 'https://www.fbbva.es/diccionario/{{word}}', name: 'Diccionario - Fundación BBVA', hasExactMatchAlways: false },
     ],
     shareMarker: '🇪🇸 #diffle #difflees',
+  },
+  fi: {
+    code: 'es',
+    languages: ['es'],
+    isBeta: true,
+    title: 'DIFFLE - peli kuin Wordle (ilman merkkirajoitusta) 🇫🇮',
+    keyLinesVariants: KEY_LINES_FI_VARIANTS,
+    keyLinesToUse: KEY_LINES_FI_VARIANTS[0].keyLines,
+    allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FI_VARIANTS[0].keyLines.flatMap(key => key)],
+    characters: KEY_LINES_FI_VARIANTS[0].keyLines.flatMap(key => key).filter(removeFunctionalKeys),
+    specialCharacters: ['å', 'ä', 'ö', 'š', 'ž'],
+    hasSpecialCharacters: true,
+    urls: [
+      { url: 'https://www.suomisanakirja.fi/{{word}}', name: 'Suomi Sanakirja', hasExactMatchAlways: false },
+      { url: 'https://www.suomienglantisanakirja.fi/{{word}}', name: 'Suomi-englanti sanakirja', hasExactMatchAlways: false },
+    ],
+    shareMarker: '🇫🇮 #diffle #diffleefi',
   },
   fr: {
     code: 'fr',

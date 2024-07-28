@@ -266,7 +266,7 @@ export type FlatAffixes = {
 };
 
 export type RootGameState = {
-  language: 'cs' | 'de' | 'en' | 'es' | 'fr' | 'it' | 'pl' | undefined,
+  language: 'cs' | 'de' | 'en' | 'es' | 'fi' | 'fr' | 'it' | 'pl' | undefined,
   mode: GameMode,
   today: string,
   wordToGuess: string,

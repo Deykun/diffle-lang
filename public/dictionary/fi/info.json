@@ -1,0 +1,883 @@
+{
+	"spellchecker": {
+		"all": 101998,
+		"accepted": {
+			"allUsedInGame": 92799,
+			"all": 101268,
+			"allWordleWords": 3415,
+			"withSpecialCharacters": 25005,
+			"withoutSpecialCharacters": 76263,
+			"length": {
+				"2": 51,
+				"3": 256,
+				"4": 1182,
+				"5": 3415,
+				"6": 4666,
+				"7": 6629,
+				"8": 9209,
+				"9": 12062,
+				"10": 13385,
+				"11": 11659,
+				"12": 9890,
+				"13": 8442,
+				"14": 6973,
+				"15": 4980,
+				"16": 3257,
+				"17": 2294,
+				"18": 1441,
+				"19": 942,
+				"20": 535
+			}
+		},
+		"rejected": 9199,
+		"letters": {
+			"first": {
+				"k": 15136,
+				"p": 10588,
+				"s": 9908,
+				"t": 8894,
+				"v": 7686,
+				"l": 6993,
+				"m": 6666,
+				"h": 6090,
+				"r": 5578,
+				"a": 4318,
+				"n": 3011,
+				"e": 2842,
+				"j": 2641,
+				"i": 2237,
+				"o": 1953,
+				"y": 1693,
+				"u": 1412,
+				"b": 779,
+				"f": 771,
+				"d": 666,
+				"ä": 560,
+				"g": 428,
+				"c": 158,
+				"ö": 139,
+				"š": 46,
+				"w": 43,
+				"z": 23,
+				"q": 7,
+				"x": 1,
+				"å": 1
+			},
+			"last": {
+				"a": 24242,
+				"i": 19068,
+				"s": 13667,
+				"n": 12645,
+				"o": 8008,
+				"ä": 7560,
+				"e": 5743,
+				"u": 5255,
+				"ö": 1737,
+				"y": 1446,
+				"t": 1223,
+				"r": 211,
+				"l": 141,
+				"m": 63,
+				"k": 53,
+				"g": 52,
+				"h": 37,
+				"p": 32,
+				"d": 24,
+				"c": 13,
+				"w": 11,
+				"x": 10,
+				"f": 10,
+				"v": 7,
+				"b": 5,
+				"š": 2,
+				"j": 2,
+				"z": 1
+			},
+			"common": {
+				"i": 126763,
+				"a": 123914,
+				"t": 93720,
+				"s": 80420,
+				"e": 73095,
+				"u": 72375,
+				"k": 71431,
+				"n": 69323,
+				"l": 63195,
+				"o": 59449,
+				"r": 43303,
+				"ä": 34116,
+				"p": 33241,
+				"m": 32403,
+				"v": 26202,
+				"h": 23468,
+				"y": 23261,
+				"j": 14017,
+				"d": 8167,
+				"ö": 8071,
+				"g": 3149,
+				"f": 2020,
+				"b": 1959,
+				"c": 368,
+				"w": 113,
+				"z": 105,
+				"š": 87,
+				"x": 32,
+				"q": 18,
+				"ž": 9,
+				"å": 1
+			},
+			"inWordsWordle": {
+				"i": 1568,
+				"a": 1514,
+				"k": 1003,
+				"s": 966,
+				"t": 952,
+				"u": 934,
+				"o": 925,
+				"e": 890,
+				"r": 803,
+				"l": 786,
+				"n": 651,
+				"p": 589,
+				"h": 560,
+				"m": 519,
+				"ä": 471,
+				"v": 398,
+				"y": 326,
+				"j": 243,
+				"d": 162,
+				"ö": 156,
+				"b": 104,
+				"g": 69,
+				"f": 69,
+				"c": 17,
+				"š": 16,
+				"w": 9,
+				"z": 6,
+				"q": 3,
+				"ž": 1,
+				"x": 1
+			},
+			"wordle": {
+				"0": {
+					"k": 463,
+					"p": 322,
+					"s": 302,
+					"t": 279,
+					"l": 278,
+					"r": 257,
+					"h": 256,
+					"m": 218,
+					"v": 209,
+					"n": 139,
+					"a": 119,
+					"j": 112,
+					"e": 62,
+					"b": 53,
+					"i": 52,
+					"o": 49,
+					"u": 48,
+					"f": 46,
+					"y": 32,
+					"ä": 32,
+					"d": 28,
+					"g": 25,
+					"š": 9,
+					"c": 8,
+					"ö": 6,
+					"w": 5,
+					"z": 4,
+					"q": 2
+				},
+				"1": {
+					"a": 750,
+					"i": 542,
+					"u": 509,
+					"e": 373,
+					"o": 371,
+					"ä": 226,
+					"y": 181,
+					"ö": 87,
+					"l": 73,
+					"r": 54,
+					"h": 42,
+					"s": 42,
+					"n": 34,
+					"t": 30,
+					"m": 28,
+					"k": 24,
+					"p": 23,
+					"v": 10,
+					"j": 6,
+					"d": 3,
+					"w": 3,
+					"c": 2,
+					"z": 1,
+					"b": 1
+				},
+				"2": {
+					"i": 314,
+					"r": 309,
+					"t": 298,
+					"l": 291,
+					"k": 268,
+					"s": 265,
+					"n": 237,
+					"p": 189,
+					"o": 187,
+					"u": 184,
+					"h": 181,
+					"a": 146,
+					"m": 118,
+					"e": 116,
+					"y": 62,
+					"ä": 58,
+					"d": 45,
+					"v": 45,
+					"ö": 27,
+					"b": 19,
+					"f": 18,
+					"j": 16,
+					"g": 14,
+					"c": 4,
+					"š": 2,
+					"q": 1,
+					"z": 1
+				},
+				"3": {
+					"t": 440,
+					"k": 425,
+					"s": 313,
+					"l": 227,
+					"m": 209,
+					"i": 205,
+					"r": 205,
+					"n": 194,
+					"e": 154,
+					"p": 154,
+					"v": 148,
+					"j": 110,
+					"h": 97,
+					"o": 92,
+					"a": 92,
+					"d": 90,
+					"u": 88,
+					"b": 40,
+					"y": 38,
+					"g": 33,
+					"ä": 31,
+					"f": 11,
+					"ö": 8,
+					"š": 5,
+					"c": 3,
+					"w": 1,
+					"z": 1,
+					"ž": 1
+				},
+				"4": {
+					"a": 886,
+					"i": 772,
+					"o": 348,
+					"u": 304,
+					"ä": 291,
+					"e": 283,
+					"s": 161,
+					"n": 118,
+					"y": 105,
+					"ö": 61,
+					"t": 37,
+					"r": 15,
+					"l": 13,
+					"k": 4,
+					"h": 3,
+					"m": 3,
+					"b": 3,
+					"p": 2,
+					"g": 2,
+					"d": 2,
+					"x": 1,
+					"c": 1
+				}
+			},
+			"inWords": {
+				"i": 75629,
+				"a": 67549,
+				"t": 61950,
+				"s": 56313,
+				"e": 53220,
+				"k": 49584,
+				"u": 47430,
+				"l": 46868,
+				"n": 45283,
+				"o": 45041,
+				"r": 37787,
+				"m": 27856,
+				"p": 27406,
+				"v": 23837,
+				"ä": 21869,
+				"h": 21728,
+				"y": 16587,
+				"j": 12979,
+				"d": 7861,
+				"ö": 7230,
+				"g": 3008,
+				"b": 1871,
+				"f": 1864,
+				"c": 326,
+				"w": 110,
+				"š": 84,
+				"z": 77,
+				"x": 30,
+				"q": 18,
+				"ž": 9,
+				"å": 1
+			}
+		},
+		"substrings": {
+			"first": {
+				"2": {
+					"ka": 4092,
+					"va": 2945,
+					"ko": 2683,
+					"ku": 2431,
+					"ma": 2302
+				},
+				"3": {
+					"val": 794,
+					"per": 719,
+					"maa": 685,
+					"kan": 645,
+					"kar": 564
+				},
+				"4": {
+					"puol": 383,
+					"vesi": 274,
+					"liik": 268,
+					"vast": 268,
+					"yksi": 265
+				}
+			},
+			"middle": {
+				"2": {
+					"in": 18247,
+					"is": 17040,
+					"st": 15651,
+					"tt": 11604,
+					"ne": 11484
+				},
+				"3": {
+					"ine": 8879,
+					"ist": 5786,
+					"ain": 3376,
+					"lli": 3029,
+					"ikk": 2994
+				},
+				"4": {
+					"aine": 2388,
+					"isuu": 1884,
+					"line": 1374,
+					"ises": 1344,
+					"sest": 1338
+				}
+			},
+			"last": {
+				"2": {
+					"en": 9335,
+					"us": 7988,
+					"ti": 6221,
+					"ta": 3933,
+					"ri": 3021
+				},
+				"3": {
+					"nen": 8895,
+					"sti": 3011,
+					"uus": 2496,
+					"taa": 2243,
+					"tus": 2091
+				},
+				"4": {
+					"inen": 8506,
+					"suus": 1712,
+					"esti": 1422,
+					"ttaa": 1301,
+					"taja": 789
+				}
+			}
+		},
+		"wordle": {
+			"inWords": [
+				{
+					"word": "kasti",
+					"score": {
+						"inWords": 6003,
+						"letterPosition": 2690,
+						"uniqueLetterPosition": 2690
+					},
+					"result": {
+						"total": 3415,
+						"green": 2690,
+						"orange": 3313,
+						"gray": 11072
+					}
+				},
+				{
+					"word": "taksi",
+					"score": {
+						"inWords": 6003,
+						"letterPosition": 2382,
+						"uniqueLetterPosition": 2382
+					},
+					"result": {
+						"total": 3415,
+						"green": 2382,
+						"orange": 3621,
+						"gray": 11072
+					}
+				},
+				{
+					"word": "kausi",
+					"score": {
+						"inWords": 5985,
+						"letterPosition": 2482,
+						"uniqueLetterPosition": 2482
+					},
+					"result": {
+						"total": 3415,
+						"green": 2482,
+						"orange": 3503,
+						"gray": 11090
+					}
+				},
+				{
+					"word": "kiuas",
+					"score": {
+						"inWords": 5985,
+						"letterPosition": 1442,
+						"uniqueLetterPosition": 1442
+					},
+					"result": {
+						"total": 3415,
+						"green": 1442,
+						"orange": 4543,
+						"gray": 11090
+					}
+				},
+				{
+					"word": "kiusa",
+					"score": {
+						"inWords": 5985,
+						"letterPosition": 2388,
+						"uniqueLetterPosition": 2388
+					},
+					"result": {
+						"total": 3415,
+						"green": 2388,
+						"orange": 3597,
+						"gray": 11090
+					}
+				},
+				{
+					"word": "sukia",
+					"score": {
+						"inWords": 5985,
+						"letterPosition": 2170,
+						"uniqueLetterPosition": 2170
+					},
+					"result": {
+						"total": 3415,
+						"green": 2170,
+						"orange": 3815,
+						"gray": 11090
+					}
+				},
+				{
+					"word": "koisa",
+					"score": {
+						"inWords": 5976,
+						"letterPosition": 2347,
+						"uniqueLetterPosition": 2347
+					},
+					"result": {
+						"total": 3415,
+						"green": 2347,
+						"orange": 3629,
+						"gray": 11099
+					}
+				},
+				{
+					"word": "kosia",
+					"score": {
+						"inWords": 5976,
+						"letterPosition": 2190,
+						"uniqueLetterPosition": 2190
+					},
+					"result": {
+						"total": 3415,
+						"green": 2190,
+						"orange": 3786,
+						"gray": 11099
+					}
+				},
+				{
+					"word": "oksia",
+					"score": {
+						"inWords": 5976,
+						"letterPosition": 1429,
+						"uniqueLetterPosition": 1429
+					},
+					"result": {
+						"total": 3415,
+						"green": 1429,
+						"orange": 4547,
+						"gray": 11099
+					}
+				},
+				{
+					"word": "kitua",
+					"score": {
+						"inWords": 5971,
+						"letterPosition": 2277,
+						"uniqueLetterPosition": 2277
+					},
+					"result": {
+						"total": 3415,
+						"green": 2277,
+						"orange": 3694,
+						"gray": 11104
+					}
+				}
+			],
+			"letterPosition": [
+				{
+					"word": "kaita",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2853,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2853,
+						"orange": 2606,
+						"gray": 11616
+					}
+				},
+				{
+					"word": "katka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2822,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2822,
+						"orange": 1239,
+						"gray": 13014
+					}
+				},
+				{
+					"word": "kakka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2792,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2792,
+						"orange": 328,
+						"gray": 13955
+					}
+				},
+				{
+					"word": "kanta",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2776,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2776,
+						"orange": 1766,
+						"gray": 12533
+					}
+				},
+				{
+					"word": "katti",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2723,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2723,
+						"orange": 2440,
+						"gray": 11912
+					}
+				},
+				{
+					"word": "kahta",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2720,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2720,
+						"orange": 1731,
+						"gray": 12624
+					}
+				},
+				{
+					"word": "paita",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2712,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2712,
+						"orange": 2333,
+						"gray": 12030
+					}
+				},
+				{
+					"word": "katki",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2708,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2708,
+						"orange": 2499,
+						"gray": 11868
+					}
+				},
+				{
+					"word": "parta",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2707,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2707,
+						"orange": 1573,
+						"gray": 12795
+					}
+				},
+				{
+					"word": "kalsa",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 2703,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 3415,
+						"green": 2703,
+						"orange": 1988,
+						"gray": 12384
+					}
+				}
+			],
+			"uniqueLetterPosition": [
+				{
+					"word": "kasti",
+					"score": {
+						"inWords": 6003,
+						"letterPosition": 2690,
+						"uniqueLetterPosition": 2690
+					},
+					"result": {
+						"total": 3415,
+						"green": 2690,
+						"orange": 3313,
+						"gray": 11072
+					}
+				},
+				{
+					"word": "kilta",
+					"score": {
+						"inWords": 5823,
+						"letterPosition": 2622,
+						"uniqueLetterPosition": 2622
+					},
+					"result": {
+						"total": 3415,
+						"green": 2622,
+						"orange": 3201,
+						"gray": 11252
+					}
+				},
+				{
+					"word": "karsi",
+					"score": {
+						"inWords": 5854,
+						"letterPosition": 2607,
+						"uniqueLetterPosition": 2607
+					},
+					"result": {
+						"total": 3415,
+						"green": 2607,
+						"orange": 3247,
+						"gray": 11221
+					}
+				},
+				{
+					"word": "kulta",
+					"score": {
+						"inWords": 5189,
+						"letterPosition": 2589,
+						"uniqueLetterPosition": 2589
+					},
+					"result": {
+						"total": 3415,
+						"green": 2589,
+						"orange": 2600,
+						"gray": 11886
+					}
+				},
+				{
+					"word": "kusta",
+					"score": {
+						"inWords": 5369,
+						"letterPosition": 2563,
+						"uniqueLetterPosition": 2563
+					},
+					"result": {
+						"total": 3415,
+						"green": 2563,
+						"orange": 2806,
+						"gray": 11706
+					}
+				},
+				{
+					"word": "pakti",
+					"score": {
+						"inWords": 5626,
+						"letterPosition": 2552,
+						"uniqueLetterPosition": 2552
+					},
+					"result": {
+						"total": 3415,
+						"green": 2552,
+						"orange": 3074,
+						"gray": 11449
+					}
+				},
+				{
+					"word": "kansi",
+					"score": {
+						"inWords": 5702,
+						"letterPosition": 2535,
+						"uniqueLetterPosition": 2535
+					},
+					"result": {
+						"total": 3415,
+						"green": 2535,
+						"orange": 3167,
+						"gray": 11373
+					}
+				},
+				{
+					"word": "kunta",
+					"score": {
+						"inWords": 5054,
+						"letterPosition": 2535,
+						"uniqueLetterPosition": 2535
+					},
+					"result": {
+						"total": 3415,
+						"green": 2535,
+						"orange": 2519,
+						"gray": 12021
+					}
+				},
+				{
+					"word": "lasti",
+					"score": {
+						"inWords": 5786,
+						"letterPosition": 2505,
+						"uniqueLetterPosition": 2505
+					},
+					"result": {
+						"total": 3415,
+						"green": 2505,
+						"orange": 3281,
+						"gray": 11289
+					}
+				},
+				{
+					"word": "karmi",
+					"score": {
+						"inWords": 5407,
+						"letterPosition": 2503,
+						"uniqueLetterPosition": 2503
+					},
+					"result": {
+						"total": 3415,
+						"green": 2503,
+						"orange": 2904,
+						"gray": 11668
+					}
+				}
+			]
+		}
+	},
+	"winning": {
+		"all": 6212,
+		"accepted": {
+			"all": 4413,
+			"withSpecialCharacters": 891,
+			"withoutSpecialCharacters": 3522,
+			"length": {
+				"4": 366,
+				"5": 925,
+				"6": 852,
+				"7": 794,
+				"8": 815,
+				"9": 661
+			}
+		},
+		"rejected": {
+			"all": 1799,
+			"tooLong": 1403,
+			"tooShort": 135,
+			"censored": 0,
+			"romanNumeral": 0,
+			"wrongLetters": 0,
+			"missingInSpellingDictionary": 261
+		},
+		"lettersNotAcceptedInWinningWord": []
+	},
+	"meta": {
+		"nativeSpeakersFromWikipedia": 1457000000,
+		"spellchecker": {
+			"dir": "Kotus",
+			"shortName": "Kotus",
+			"fullName": "Kotimaisten kielten keskus",
+			"url": "https://www.kotus.fi/"
+		},
+		"winning": {
+			"dir": "FreeDict",
+			"shortName": "FreeDict",
+			"fullName": "FreeDict",
+			"url": "https://freedict.org/"
+		},
+		"winningAlt": {
+			"dir": "FrequencyWords",
+			"shortName": "FrequencyWords",
+			"fullName": "FrequencyWords",
+			"url": "https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/en/en_50k.txt"
+		}
+	}
+}

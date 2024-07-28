@@ -1,6 +1,6 @@
 export const BLOCKED_WORDS = [];
 
-export const BLOCKED_PARTS = [''];
+export const BLOCKED_PARTS = [];
 
 export const LETTERS_NOT_ALLOWED_IN_WINNING_WORD = [];
 

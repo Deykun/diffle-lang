@@ -24,10 +24,11 @@
     "build-de": "tsx scripts/build-de-dictionary.ts",
     "build-en": "tsx scripts/build-en-dictionary.ts",
     "build-es": "tsx scripts/build-es-dictionary.ts",
+    "build-fi": "tsx scripts/build-fi-dictionary.ts",
     "build-fr": "tsx scripts/build-fr-dictionary.ts",
     "build-it": "tsx scripts/build-it-dictionary.ts",
     "build-pl": "tsx scripts/build-pl-dictionary.ts",
-    "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-fr & yarn build-it & yarn build-pl",
+    "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-fi & yarn build-fr & yarn build-it & yarn build-pl",
     "preview": "vite preview",
     "test": "jest",
     "test-e2e": "playwright test"
