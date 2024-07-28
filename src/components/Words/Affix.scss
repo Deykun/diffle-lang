@@ -139,14 +139,12 @@
 
                 .contrast & {
                     color: var(--red-contrast);
-                    background-image: repeating-linear-gradient(
-                        -45deg,
-                        color-mix(in srgb, var(--red) 50%, transparent) 0px,
-                        color-mix(in srgb, var(--red) 50%, transparent) 10px,
-                        var(--red) 10px,
-                        var(--red) 20px
-                    );
-                    border-color: var(--red);
+                    background-color: var(--incorrect-red-contrast);
+                    border-color: var(--incorrect-red-contrast);
+                    background-image: radial-gradient(color-mix(in srgb, var(--background) 40%, transparent) 20%, transparent 0), /* polka dots */
+                        radial-gradient(color-mix(in srgb, var(--background) 40%, transparent) 20%, transparent 0);
+                    background-size: 20px 20px;
+                    background-position: 20px 20px, 10px 10px;
                 }
             }
         }

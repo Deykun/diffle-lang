@@ -11,7 +11,11 @@
 
 ---
 
-#### Version 3.29.1
+#### Version 3.30
+- **New**: Strawberry pattern is incorrect when high contrast is turned on
+- **New**: High contrast mode also affects documents with counters on the end screen
+
+#### Version 3.29.1 (28.08.2024)
 - **Fix**: Fixed broken Finnish Open Graph image link
 
 #### Version 3.29 (28.08.2024)
