@@ -6,24 +6,47 @@ function useVibrate() {
   const shouldKeyboardVibrate = useSelector(state => state.app.shouldKeyboardVibrate);
 
   const vibrate = useCallback(({ isInverted = false, duration = 40 } = {}) => {
-    if (shouldVibrate && !isInverted) {
-      navigator?.vibrate(duration);
-    }
+    try {
+      if (!navigator.vibrate) {
+        return;
+      }
 
-    if (!shouldVibrate && isInverted) {
-      navigator?.vibrate(duration);
+      if (shouldVibrate && !isInverted) {
+        navigator.vibrate(duration);
+      }
+
+      if (!shouldVibrate && isInverted) {
+        navigator.vibrate(duration);
+      }
+    } catch {
+      // Unsupported
     }
   }, [shouldVibrate]);
 
   const vibrateKeyboard = useCallback(({ duration = 25 } = {}) => {
-    if (shouldKeyboardVibrate) {
-      navigator?.vibrate(duration);
+    try {
+      if (!navigator.vibrate) {
+        return;
+      }
+
+      if (shouldKeyboardVibrate) {
+        navigator.vibrate(duration);
+      }
+    } catch {
+      // Unsupported
     }
   }, [shouldKeyboardVibrate]);
 
   const vibrateKeyboardIncorrect = useCallback(({ duration = 50 } = {}) => {
-    if (shouldKeyboardVibrate) {
-      navigator?.vibrate(duration);
+    try {
+      if (!navigator.vibrate) {
+        return;
+      }
+      if (shouldKeyboardVibrate) {
+        navigator.vibrate(duration);
+      }
+    } catch {
+      // Unsupported
     }
   }, [shouldKeyboardVibrate]);
 

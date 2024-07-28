@@ -22,7 +22,7 @@ https://crowdin.com/project/diffle-lang
 [![Crowdin](https://badges.crowdin.net/diffle-lang/localized.svg)](https://crowdin.com/project/diffle-lang)
 
 # App screenshots
-![diffle lang app screenshots](./app-screenshots.png)
+![diffle lang app screenshots](./app-screenshots.jpg)
 
 ### Polskie DIFFLE 🇵🇱
 DIFFLE gra jak Wordle (po polsku, bez limitu znaków), każde użyte słowo podpowiada pozycję i kolejność liter w haśle.
