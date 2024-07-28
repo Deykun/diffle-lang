@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.29
+#### Version 3.29.1
+- **Fix**: Fixed broken Finnish Open Graph image link
+
+#### Version 3.29 (28.08.2024)
 - **New**: Finnish game language added
 - **New**: Incorrect color affix improved
 - **Fix**: Fixed an error on desktop when navigator.vibrate is called
