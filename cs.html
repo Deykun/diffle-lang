@@ -1,109 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="cs">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <title>DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+            <title>DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿</title>
         <meta name="description" content="Každé použité slovo naznačuje pozici a pořadí písmen v hesle.">
         <meta  property="og:title" content="DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿" >
         <meta  property="og:description" content="Každé použité slovo naznačuje pozici a pořadí písmen v hesle." >
         <meta  property="og:image" content="https://deykun.github.io/diffle-lang/wordle-czech.png" >
         <meta  property="og:image:alt" content="ceske diffle" >
-        <link rel="apple-touch-icon" sizes="57x57" href="/diffle-lang/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="/diffle-lang/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="/diffle-lang/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="/diffle-lang/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="/diffle-lang/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="/diffle-lang/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="/diffle-lang/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="/diffle-lang/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="/diffle-lang/apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="/diffle-lang/android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/diffle-lang/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="/diffle-lang/favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/diffle-lang/favicon-16x16.png">
-        <link rel="manifest" href="/diffle-lang/manifest.json">
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
-        <style>
-            body {
-                background-color: #222222;
-            }
+    <link rel="apple-touch-icon" sizes="57x57" href="/diffle-lang/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/diffle-lang/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/diffle-lang/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/diffle-lang/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/diffle-lang/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/diffle-lang/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/diffle-lang/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/diffle-lang/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/diffle-lang/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/diffle-lang/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/diffle-lang/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/diffle-lang/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/diffle-lang/favicon-16x16.png" />
+    <link rel="manifest" href="/diffle-lang/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <style>
+      body {
+        background-color: #222222;
+      }
 
-            .help-no-js {
-                max-width: 400px;
-                margin: 30px auto;
-                text-align: center;
-                font-family: 'Baloo 2', sans-serif;
-                color: #3e3e3e;
-            }
+      .help-no-js {
+        max-width: 400px;
+        margin: 30px auto;
+        text-align: center;
+        font-family: "Baloo 2", sans-serif;
+        color: #3e3e3e;
+      }
 
-            .help-no-js h1 {
-                color: #3c3c3c;
-                margin-bottom: 20px;
-            }
+      .help-no-js h1 {
+        color: #3c3c3c;
+        margin-bottom: 20px;
+      }
 
-            .help-no-js p {
-                font-size: 14px;
-                line-height: 1.5;
-                margin-bottom: 10px;
-            }
+      .help-no-js p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
 
-            .help-no-js ul {
-                list-style: none;
-                margin: 0;
-                margin-top: 30px;
-                padding: 0;
-            }
+      .help-no-js ul {
+        list-style: none;
+        margin: 0;
+        margin-top: 30px;
+        padding: 0;
+      }
 
-            .help-no-js a {
-                display: inline-block;
-                color: #3c3c3c;
-                text-decoration: none;
-                letter-spacing: 0.05em;
-                margin-bottom: 12px;
-                transition: 0.1s ease-in-out;
-            }
+      .help-no-js a {
+        display: inline-block;
+        color: #3c3c3c;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+        transition: 0.1s ease-in-out;
+      }
 
-            .help-no-js a img {
-                display: inline-block;
-                vertical-align: middle;
-                margin-right: 5px;
-                width: 12px;
-                height: 12px;
-                object-fit: cover;
-                border-radius: 50%;
-                filter: contrast(0.8) saturate(0.7);
-            }
+      .help-no-js a img {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+        width: 12px;
+        height: 12px;
+        object-fit: cover;
+        border-radius: 50%;
+        filter: contrast(0.8) saturate(0.7);
+      }
 
-            .help-no-js a:hover {
-                color: #646464;
-            }
+      .help-no-js a:hover {
+        color: #646464;
+      }
 
-            .help-no-js .about-short {
-                margin-top: 50px;
-                border-top: 1px dashed #5bff1045;
-                padding-top: 20px;
-                text-align: justify;
-            }
+      .help-no-js .about-short {
+        margin-top: 50px;
+        border-top: 1px dashed #5bff1045;
+        padding-top: 20px;
+        text-align: justify;
+      }
 
-            .help-no-js .about-short p {
-                color: #585e5645;
-                font-size: 12px;
-                line-height: 1.4;
-                margin-top: 0;
-                margin-bottom: 5px;
-            }
-        </style>
-      <script type="module" crossorigin src="/diffle-lang/assets/index-cc9c9c93.js"></script>
-      <link rel="stylesheet" href="/diffle-lang/assets/index-ed6e3828.css">
-    </head>
-    <body>
-        <div id="root">
-            <div class="help-no-js">
-                <h2>Co je Diffle?</h2>
+      .help-no-js .about-short p {
+        color: #585e5645;
+        font-size: 12px;
+        line-height: 1.4;
+        margin-top: 0;
+        margin-bottom: 5px;
+      }
+    </style>
+    <script type="module" crossorigin src="/diffle-lang/assets/index-cc9c9c93.js"></script>
+    <link rel="stylesheet" href="/diffle-lang/assets/index-ed6e3828.css">
+  </head>
+  <body>
+    <div id="root">
+      <div class="help-no-js">
+                        <h2>Co je Diffle?</h2>
                 <p>Diffle je hra inspirovaná Wordle bez omezení počtu znaků. Pokud máte rádi Wordle, tato hra je pro vás</p>
                 <h2>Jak se hraje Diffle?</h2>
                 <p>Cílem je uhodnout heslo s co nejmenším počtem písmen a slov.</p>
@@ -121,10 +149,10 @@
                     <p>
                         Wordle, poutavá hra na hádání slov, si získala srdce hráčů svou jednoduchostí a zábavnou výzvou pro jejich mysl. Cílem hry je odhalit tajné pětileté slovo v co nejmenším počtu pokusů. Každý tip odhaluje, zda jsou určitá písmena na správném místě a zda se vyskytují ve slově vůbec. Tato minimalistická hra vyžaduje kombinaci dedukce a náhody, což ji činí vhodnou pro hráče všech věkových skupin. S jednoduchým rozhraním a návykovým konceptem se Wordle stala oblíbeným způsobem, jak procvičovat slovní zásobu a kreativní myšlení. Je to nejen výzva pro individuální hráče, ale také způsob, jak sdílet radost ze slov a propojit komunitu prostřednictvím lingvistické zábavy.
                     </p>
-                </div>	
-            </div>
-        </div>
-        <div id="root-modal"></div>
-        
-    </body>
+                </div>
+      </div>
+    </div>
+    <div id="root-modal"></div>
+    
+  </body>
 </html>
