@@ -22,6 +22,7 @@ import Game from '@components/Panes/Game/Game';
 import Help from '@components/Panes/Help/Help';
 import Settings from '@components/Panes/Settings/Settings';
 import Statistics from '@components/Panes/Statistics/Statistics';
+import Summary from '@components/Panes/Summary/Summary';
 import AboutLanguage from '@components/Panes/AboutLanguage/AboutLanguage';
 
 import Toast from '@components/Toast/Toast';
@@ -77,6 +78,7 @@ function App() {
               {pane === PaneType.Game && <Game />}
               {pane === PaneType.Settings && <Settings />}
               {pane === PaneType.Statistics && <Statistics />}
+              {pane === PaneType.Summary && <Summary />}
               {pane === PaneType.AboutLanguage && <AboutLanguage />}
           </main>
           <CookiesPopup />

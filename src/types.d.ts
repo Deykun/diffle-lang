@@ -9,6 +9,7 @@ export enum Pane {
   Game = 'game',
   Settings = 'settings',
   Statistics = 'statistics',
+  Summary = 'summary',
   AboutLanguage = 'about-language',
 }
 
