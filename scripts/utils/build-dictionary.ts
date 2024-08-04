@@ -1,4 +1,4 @@
-import fs, { stat } from 'fs';
+import fs from 'fs';
 import * as fsExtra from "fs-extra";
 import chalk from 'chalk';
 
@@ -12,6 +12,8 @@ import {
     MINIMUM_LENGTH_FOR_A_WINNING_WORD,
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants';
+
+import { getHexwordStatus } from './get-hexword';
 
 export const getIsRomanNumeral = (word: string) => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
 
@@ -170,7 +172,7 @@ const getMassWordleMassResult = (wordToCheck, words, canShowUpdate = true) => {
     }, { total: 0, green: 0, orange: 0, gray: 0 });
 };
 
-type actionBuildDictionaryParams = {
+type ActionBuildDictionaryParams = {
     LANG: string,
     BLOCKED_WORDS: string[],
     BLOCKED_PARTS: string[],
@@ -193,7 +195,7 @@ export const actionBuildDictionary = (
         MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD = MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
         MAXIMUM_LENGTH_OF_WINNING_WORD = MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
         EASTER_EGG_DAYS: EASTER_EGG_DAYS_FOR_LANG = {},
-    },
+    }: ActionBuildDictionaryParams,
     spellcheckerWords: string[],
     winningWords: string[],
 ) => {
@@ -354,6 +356,11 @@ export const actionBuildDictionary = (
                     });
                 }
 
+                const hexwordStatus = getHexwordStatus(word);
+                if (hexwordStatus) {
+
+                }
+
                 const wordLength = word.length;
                 incrementValueForStat(statistics.spellchecker.accepted.length, wordLength);
     
@@ -424,7 +431,7 @@ export const actionBuildDictionary = (
             if (shouldUpdate) {
                 const progressPercent = (index / statistics.spellchecker.all) * 100;
 
-                console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Creating spelling chunks and word stasts... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
+                console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, '0'))}% - Creating spelling chunks and word stasts... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
             }
         } else {
             statistics.spellchecker.rejected += 1;

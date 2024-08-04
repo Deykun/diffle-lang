@@ -809,6 +809,13 @@
 					}
 				}
 			]
+		},
+		"hexwords": {
+			"3": 0,
+			"6": 0,
+			"8": 0,
+			"total": 0,
+			"exact": 0
 		}
 	},
 	"winning": {
@@ -855,7 +862,7 @@
 			"dir": "FrequencyWords",
 			"shortName": "FrequencyWords",
 			"fullName": "FrequencyWords",
-			"url": "https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/cs/cs_50k.txt"
+			"url": "https://github.com/hermitdave/FrequencyWords/blob/master/content/2018/en/en_50k.txt"
 		}
 	}
 }

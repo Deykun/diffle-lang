@@ -117,6 +117,27 @@ export type DictionaryInfo = {
       bestGreen1_5: WordleResult[],
       bestGreen2_0: WordleResult[],
     },
+  },
+  winning: {
+    all: number,
+    accepted: {
+      all: number,
+      withSpecialCharacters: number,
+      withoutSpecialCharacters: number,
+      length: {
+        [length: string]: number,
+      }
+    },
+    rejected: {
+      all: number,
+      tooLong: number,
+      tooShort: number,
+      censored: number,
+      romanNumeral: number,
+      wrongLetters: number,
+      missingInSpellingDictionary: number,
+    },
+    lettersNotAcceptedInWinningWord: string[],
   }
   meta: {
     nativeSpeakersFromWikipedia: number,

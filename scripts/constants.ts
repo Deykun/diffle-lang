@@ -1,3 +1,5 @@
+import { DictionaryInfo } from '@common-types';
+
 export const MINIMUM_LENGTH_FOR_A_WINNING_WORD = 4;
 
 /*
@@ -11,7 +13,7 @@ export const MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD = 15;
 
 export const MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE = 20;
 
-export const INITAL_DICTIONARY_STATISTICS = {
+export const INITAL_DICTIONARY_STATISTICS: DictionaryInfo  = {
     spellchecker: {
         all: 0,
         accepted: {
@@ -46,6 +48,13 @@ export const INITAL_DICTIONARY_STATISTICS = {
             inWords: {},
             letterPosition: {},
             uniqueLetterPosition: {},
+        },
+        hexwords: {
+            total: 0,
+            exact: 0,
+            3: 0,
+            6: 0,
+            8: 0,
         },
     },
     winning: {
