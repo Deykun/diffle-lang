@@ -1,0 +1,100 @@
+.year-summary-table {
+  // display: grid;
+  // gap: 5px;
+  // grid-template-columns: repeat(5, 1fr);
+  font-size: 18px;
+  color: var(--text-weaker);
+  text-shadow: 0 0 10px var(--background);
+
+  h3 {
+    color: var(--text);
+  }
+
+  .year-summary-value {
+    line-height: 22px;
+    font-size: 22px;
+    color: var(--text);
+
+    &.year-summary-value--active {
+      font-size: 28px;
+      color: var(--blue-stronger);
+    }
+  }
+
+  .circle-scale-border-checked {
+    border-color: var(--blue) !important;
+    border-color: color-mix(in srgb, var(--blue) 50%, transparent) !important;
+    background-color: color-mix(in srgb,  var(--border) 25%, transparent) !important;
+  }
+}
+
+.year-summary-table-row {
+  overflow: hidden;
+  padding: 20px;
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  position: relative;
+
+  &.year-summary-table-row--active {
+    position: sticky;
+    top: 60px;
+    bottom: 10px;
+    z-index: 1;
+    border: 1px solid var(--blue);
+    background-color: var(--background);
+  }
+}
+
+.year-summary-table-row-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  h3 {
+    span {
+      color: var(--blue);
+      font-size: 70%;
+      margin-right: 10px;
+    }
+  }
+}
+
+.year-summary-table-games {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+
+  svg {
+    height: 24px;
+    fill: var(--text);
+  }
+
+  > span {
+    position: relative;
+  }
+
+  .circle-scale {
+    width: 200%;
+  }
+}
+
+.year-summary-table-letters {
+  position: relative;
+
+  .circle-scale {
+    width: 1500%;
+  }
+}
+
+.year-summary-value-pin-button {
+  position: absolute;
+  bottom: 15px;
+  right: 8px;
+
+  // &.no-border {
+  //   padding-right: 0;
+  // }
+}

@@ -1,49 +1,1506 @@
 {
 	"best": {
-		"word": "hilt",
-		"letters": 18
+		"word": "semen",
+		"letters": 14
 	},
 	"worst": {
-		"word": "electrode",
-		"letters": 51
+		"word": "obscenity",
+		"letters": 71
 	},
 	"totalWords": {
-		"2": 2,
-		"3": 18,
-		"4": 19,
-		"5": 10,
-		"6": 4,
-		"7": 2,
-		"8": 1,
-		"9": 2
+		"2": 6,
+		"3": 26,
+		"4": 31,
+		"5": 25,
+		"6": 15,
+		"7": 6,
+		"8": 6,
+		"9": 3,
+		"11": 2,
+		"13": 1
 	},
 	"totalLetters": {
-		"18": 1,
+		"14": 1,
+		"17": 2,
+		"18": 4,
 		"19": 5,
-		"20": 1,
-		"21": 1,
-		"22": 4,
-		"23": 4,
-		"24": 6,
-		"25": 6,
-		"26": 3,
-		"27": 4,
-		"28": 3,
-		"29": 1,
-		"30": 4,
-		"31": 2,
-		"32": 1,
+		"20": 2,
+		"21": 2,
+		"22": 7,
+		"23": 8,
+		"24": 9,
+		"25": 9,
+		"26": 6,
+		"27": 10,
+		"28": 5,
+		"29": 5,
+		"30": 8,
+		"31": 5,
+		"32": 2,
 		"33": 3,
-		"34": 1,
-		"35": 2,
-		"36": 2,
-		"39": 1,
-		"44": 1,
-		"45": 1,
-		"51": 1
+		"34": 5,
+		"35": 3,
+		"36": 4,
+		"37": 2,
+		"39": 2,
+		"40": 1,
+		"41": 1,
+		"44": 3,
+		"45": 2,
+		"51": 1,
+		"54": 1,
+		"61": 1,
+		"71": 2
 	},
-	"gamesPlayed": 58,
-	"medianWords": 3.5,
-	"medianLetters": 25.5,
-	"activePlayers": 9
+	"gamesPlayed": 123,
+	"medianWords": 4,
+	"medianLetters": 27,
+	"activePlayers": 14,
+	"byUser": {
+		"Dzemik_Skrytozerca": {
+			"4": {
+				"best": {
+					"word": "radish",
+					"letters": 24
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 27
+				},
+				"totalWords": {
+					"4": 1,
+					"5": 1
+				},
+				"totalLetters": {
+					"24": 1,
+					"27": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 4.5,
+				"medianLetters": 25.5
+			},
+			"5": {
+				"best": {
+					"word": "cholera",
+					"letters": 29
+				},
+				"worst": {
+					"word": "cholera",
+					"letters": 29
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"29": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 29
+			},
+			"6": {
+				"best": {
+					"word": "eddy",
+					"letters": 36
+				},
+				"worst": {
+					"word": "eddy",
+					"letters": 36
+				},
+				"totalWords": {
+					"6": 1
+				},
+				"totalLetters": {
+					"36": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 6,
+				"medianLetters": 36
+			},
+			"7": {
+				"best": {
+					"word": "arcade",
+					"letters": 18
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 61
+				},
+				"totalWords": {
+					"2": 2,
+					"3": 2,
+					"6": 2
+				},
+				"totalLetters": {
+					"18": 2,
+					"22": 1,
+					"23": 1,
+					"45": 1,
+					"61": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 2.5,
+				"medianLetters": 22.5
+			},
+			"8": {
+				"best": {
+					"word": "font",
+					"letters": 21
+				},
+				"worst": {
+					"word": "fanatic",
+					"letters": 39
+				},
+				"totalWords": {
+					"3": 2,
+					"4": 1,
+					"5": 2,
+					"6": 1
+				},
+				"totalLetters": {
+					"21": 1,
+					"24": 1,
+					"26": 1,
+					"31": 1,
+					"32": 1,
+					"39": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 4.5,
+				"medianLetters": 28.5
+			},
+			"9": {
+				"best": {
+					"word": "irony",
+					"letters": 22
+				},
+				"worst": {
+					"word": "electrode",
+					"letters": 45
+				},
+				"totalWords": {
+					"3": 4,
+					"4": 1,
+					"8": 1
+				},
+				"totalLetters": {
+					"22": 2,
+					"23": 1,
+					"25": 1,
+					"27": 1,
+					"45": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 3,
+				"medianLetters": 24
+			},
+			"10": {
+				"best": {
+					"word": "component",
+					"letters": 19
+				},
+				"worst": {
+					"word": "missile",
+					"letters": 36
+				},
+				"totalWords": {
+					"2": 1,
+					"4": 1,
+					"6": 1
+				},
+				"totalLetters": {
+					"19": 1,
+					"34": 1,
+					"36": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 4,
+				"medianLetters": 34
+			},
+			"year": {
+				"best": {
+					"word": "arcade",
+					"letters": 18
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 61
+				},
+				"totalWords": {
+					"2": 3,
+					"3": 8,
+					"4": 5,
+					"5": 3,
+					"6": 5,
+					"8": 1
+				},
+				"totalLetters": {
+					"18": 2,
+					"19": 1,
+					"21": 1,
+					"22": 3,
+					"23": 2,
+					"24": 2,
+					"25": 1,
+					"26": 1,
+					"27": 2,
+					"29": 1,
+					"31": 1,
+					"32": 1,
+					"34": 1,
+					"36": 2,
+					"39": 1,
+					"45": 2,
+					"61": 1
+				},
+				"gamesPlayed": 25,
+				"medianWords": 4,
+				"medianLetters": 26
+			}
+		},
+		"Kronos": {
+			"6": {
+				"best": {
+					"word": "eddy",
+					"letters": 34
+				},
+				"worst": {
+					"word": "eddy",
+					"letters": 34
+				},
+				"totalWords": {
+					"5": 1
+				},
+				"totalLetters": {
+					"34": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 5,
+				"medianLetters": 34
+			},
+			"7": {
+				"best": {
+					"word": "semen",
+					"letters": 14
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 36
+				},
+				"totalWords": {
+					"2": 1,
+					"5": 2
+				},
+				"totalLetters": {
+					"14": 1,
+					"27": 1,
+					"36": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 5,
+				"medianLetters": 27
+			},
+			"8": {
+				"best": {
+					"word": "font",
+					"letters": 17
+				},
+				"worst": {
+					"word": "fanatic",
+					"letters": 22
+				},
+				"totalWords": {
+					"2": 1,
+					"3": 5
+				},
+				"totalLetters": {
+					"17": 1,
+					"18": 1,
+					"19": 2,
+					"20": 1,
+					"22": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 2.5,
+				"medianLetters": 18.5
+			},
+			"9": {
+				"best": {
+					"word": "drink",
+					"letters": 19
+				},
+				"worst": {
+					"word": "imperial",
+					"letters": 29
+				},
+				"totalWords": {
+					"3": 2,
+					"4": 2
+				},
+				"totalLetters": {
+					"19": 1,
+					"24": 1,
+					"28": 1,
+					"29": 1
+				},
+				"gamesPlayed": 4,
+				"medianWords": 3.5,
+				"medianLetters": 26
+			},
+			"10": {
+				"best": {
+					"word": "missile",
+					"letters": 23
+				},
+				"worst": {
+					"word": "hilt",
+					"letters": 25
+				},
+				"totalWords": {
+					"3": 2,
+					"5": 1
+				},
+				"totalLetters": {
+					"23": 1,
+					"24": 1,
+					"25": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 3,
+				"medianLetters": 24
+			},
+			"year": {
+				"best": {
+					"word": "semen",
+					"letters": 14
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 36
+				},
+				"totalWords": {
+					"2": 2,
+					"3": 9,
+					"4": 2,
+					"5": 4
+				},
+				"totalLetters": {
+					"14": 1,
+					"17": 1,
+					"18": 1,
+					"19": 3,
+					"20": 1,
+					"22": 1,
+					"23": 1,
+					"24": 2,
+					"25": 1,
+					"27": 1,
+					"28": 1,
+					"29": 1,
+					"34": 1,
+					"36": 1
+				},
+				"gamesPlayed": 17,
+				"medianWords": 3,
+				"medianLetters": 23
+			}
+		},
+		"Deykun": {
+			"4": {
+				"best": {
+					"word": "keel",
+					"letters": 23
+				},
+				"worst": {
+					"word": "radish",
+					"letters": 24
+				},
+				"totalWords": {
+					"5": 2
+				},
+				"totalLetters": {
+					"23": 1,
+					"24": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 5,
+				"medianLetters": 23.5
+			},
+			"5": {
+				"best": {
+					"word": "cholera",
+					"letters": 17
+				},
+				"worst": {
+					"word": "cholera",
+					"letters": 17
+				},
+				"totalWords": {
+					"3": 1
+				},
+				"totalLetters": {
+					"17": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 3,
+				"medianLetters": 17
+			},
+			"7": {
+				"best": {
+					"word": "arcade",
+					"letters": 22
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 71
+				},
+				"totalWords": {
+					"4": 1,
+					"5": 1,
+					"6": 1,
+					"7": 1,
+					"8": 1,
+					"13": 1
+				},
+				"totalLetters": {
+					"22": 1,
+					"25": 1,
+					"27": 1,
+					"32": 1,
+					"37": 1,
+					"71": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 6.5,
+				"medianLetters": 29.5
+			},
+			"8": {
+				"best": {
+					"word": "bowl",
+					"letters": 26
+				},
+				"worst": {
+					"word": "fanatic",
+					"letters": 37
+				},
+				"totalWords": {
+					"6": 3,
+					"7": 1,
+					"8": 1
+				},
+				"totalLetters": {
+					"26": 2,
+					"30": 1,
+					"31": 1,
+					"37": 1
+				},
+				"gamesPlayed": 5,
+				"medianWords": 6,
+				"medianLetters": 30
+			},
+			"9": {
+				"best": {
+					"word": "electrode",
+					"letters": 25
+				},
+				"worst": {
+					"word": "punish",
+					"letters": 36
+				},
+				"totalWords": {
+					"4": 1,
+					"6": 1,
+					"7": 1
+				},
+				"totalLetters": {
+					"25": 1,
+					"30": 1,
+					"36": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 6,
+				"medianLetters": 30
+			},
+			"10": {
+				"best": {
+					"word": "hilt",
+					"letters": 18
+				},
+				"worst": {
+					"word": "missile",
+					"letters": 22
+				},
+				"totalWords": {
+					"4": 2
+				},
+				"totalLetters": {
+					"18": 1,
+					"22": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 4,
+				"medianLetters": 20
+			},
+			"year": {
+				"best": {
+					"word": "cholera",
+					"letters": 17
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 71
+				},
+				"totalWords": {
+					"3": 1,
+					"4": 4,
+					"5": 4,
+					"6": 5,
+					"7": 4,
+					"8": 2,
+					"13": 1
+				},
+				"totalLetters": {
+					"17": 1,
+					"18": 1,
+					"22": 2,
+					"23": 2,
+					"24": 1,
+					"25": 2,
+					"26": 2,
+					"27": 1,
+					"30": 2,
+					"31": 1,
+					"32": 1,
+					"35": 1,
+					"36": 1,
+					"37": 2,
+					"71": 1
+				},
+				"gamesPlayed": 21,
+				"medianWords": 6,
+				"medianLetters": 26
+			}
+		},
+		"Greyman": {
+			"4": {
+				"best": {
+					"word": "keel",
+					"letters": 26
+				},
+				"worst": {
+					"word": "radish",
+					"letters": 30
+				},
+				"totalWords": {
+					"5": 2
+				},
+				"totalLetters": {
+					"26": 1,
+					"30": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 5,
+				"medianLetters": 28
+			},
+			"7": {
+				"best": {
+					"word": "drown",
+					"letters": 23
+				},
+				"worst": {
+					"word": "ditch",
+					"letters": 27
+				},
+				"totalWords": {
+					"4": 3
+				},
+				"totalLetters": {
+					"23": 1,
+					"25": 1,
+					"27": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 4,
+				"medianLetters": 25
+			},
+			"8": {
+				"best": {
+					"word": "honest",
+					"letters": 23
+				},
+				"worst": {
+					"word": "honest",
+					"letters": 23
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"23": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 23
+			},
+			"9": {
+				"best": {
+					"word": "drink",
+					"letters": 24
+				},
+				"worst": {
+					"word": "electrode",
+					"letters": 51
+				},
+				"totalWords": {
+					"4": 4,
+					"5": 1,
+					"9": 1
+				},
+				"totalLetters": {
+					"24": 1,
+					"25": 1,
+					"26": 1,
+					"27": 1,
+					"31": 1,
+					"51": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 4,
+				"medianLetters": 26.5
+			},
+			"10": {
+				"best": {
+					"word": "component",
+					"letters": 19
+				},
+				"worst": {
+					"word": "missile",
+					"letters": 28
+				},
+				"totalWords": {
+					"2": 1,
+					"4": 2
+				},
+				"totalLetters": {
+					"19": 1,
+					"22": 1,
+					"28": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 4,
+				"medianLetters": 22
+			},
+			"year": {
+				"best": {
+					"word": "component",
+					"letters": 19
+				},
+				"worst": {
+					"word": "electrode",
+					"letters": 51
+				},
+				"totalWords": {
+					"2": 1,
+					"4": 10,
+					"5": 3,
+					"9": 1
+				},
+				"totalLetters": {
+					"19": 1,
+					"22": 1,
+					"23": 2,
+					"24": 1,
+					"25": 2,
+					"26": 2,
+					"27": 2,
+					"28": 1,
+					"30": 1,
+					"31": 1,
+					"51": 1
+				},
+				"gamesPlayed": 15,
+				"medianWords": 4,
+				"medianLetters": 26
+			}
+		},
+		"kwiecik": {
+			"4": {
+				"best": {
+					"word": "keel",
+					"letters": 29
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 29
+				},
+				"totalWords": {
+					"6": 1
+				},
+				"totalLetters": {
+					"29": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 6,
+				"medianLetters": 29
+			},
+			"9": {
+				"best": {
+					"word": "imperial",
+					"letters": 24
+				},
+				"worst": {
+					"word": "rapport",
+					"letters": 33
+				},
+				"totalWords": {
+					"3": 1,
+					"5": 3
+				},
+				"totalLetters": {
+					"24": 1,
+					"33": 3
+				},
+				"gamesPlayed": 4,
+				"medianWords": 4,
+				"medianLetters": 28.5
+			},
+			"10": {
+				"best": {
+					"word": "component",
+					"letters": 31
+				},
+				"worst": {
+					"word": "hilt",
+					"letters": 44
+				},
+				"totalWords": {
+					"3": 1,
+					"9": 1
+				},
+				"totalLetters": {
+					"31": 1,
+					"44": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 6,
+				"medianLetters": 37.5
+			},
+			"year": {
+				"best": {
+					"word": "imperial",
+					"letters": 24
+				},
+				"worst": {
+					"word": "hilt",
+					"letters": 44
+				},
+				"totalWords": {
+					"3": 2,
+					"5": 3,
+					"6": 1,
+					"9": 1
+				},
+				"totalLetters": {
+					"24": 1,
+					"29": 1,
+					"31": 1,
+					"33": 3,
+					"44": 1
+				},
+				"gamesPlayed": 7,
+				"medianWords": 5,
+				"medianLetters": 33
+			}
+		},
+		"Felonious_Gru": {
+			"4": {
+				"best": {
+					"word": "radish",
+					"letters": 26
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 30
+				},
+				"totalWords": {
+					"5": 1,
+					"6": 1
+				},
+				"totalLetters": {
+					"26": 1,
+					"30": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 5.5,
+				"medianLetters": 28
+			},
+			"5": {
+				"best": {
+					"word": "cholera",
+					"letters": 34
+				},
+				"worst": {
+					"word": "cholera",
+					"letters": 34
+				},
+				"totalWords": {
+					"5": 1
+				},
+				"totalLetters": {
+					"34": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 5,
+				"medianLetters": 34
+			},
+			"6": {
+				"best": {
+					"word": "eddy",
+					"letters": 25
+				},
+				"worst": {
+					"word": "eddy",
+					"letters": 25
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"25": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 25
+			},
+			"7": {
+				"best": {
+					"word": "arcade",
+					"letters": 24
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 71
+				},
+				"totalWords": {
+					"4": 1,
+					"5": 1,
+					"6": 1,
+					"8": 1,
+					"11": 1
+				},
+				"totalLetters": {
+					"24": 1,
+					"29": 1,
+					"30": 1,
+					"44": 1,
+					"71": 1
+				},
+				"gamesPlayed": 5,
+				"medianWords": 6,
+				"medianLetters": 30
+			},
+			"8": {
+				"best": {
+					"word": "stupid",
+					"letters": 25
+				},
+				"worst": {
+					"word": "mast",
+					"letters": 30
+				},
+				"totalWords": {
+					"4": 2,
+					"5": 1,
+					"6": 1
+				},
+				"totalLetters": {
+					"25": 1,
+					"27": 2,
+					"30": 1
+				},
+				"gamesPlayed": 4,
+				"medianWords": 4.5,
+				"medianLetters": 26
+			},
+			"9": {
+				"best": {
+					"word": "electrode",
+					"letters": 24
+				},
+				"worst": {
+					"word": "imperial",
+					"letters": 39
+				},
+				"totalWords": {
+					"3": 1,
+					"5": 2
+				},
+				"totalLetters": {
+					"24": 1,
+					"28": 1,
+					"39": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 5,
+				"medianLetters": 28
+			},
+			"10": {
+				"best": {
+					"word": "hilt",
+					"letters": 21
+				},
+				"worst": {
+					"word": "hilt",
+					"letters": 21
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"21": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 21
+			},
+			"year": {
+				"best": {
+					"word": "hilt",
+					"letters": 21
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 71
+				},
+				"totalWords": {
+					"3": 1,
+					"4": 5,
+					"5": 6,
+					"6": 3,
+					"8": 1,
+					"11": 1
+				},
+				"totalLetters": {
+					"21": 1,
+					"24": 2,
+					"25": 2,
+					"26": 1,
+					"27": 2,
+					"28": 1,
+					"29": 1,
+					"30": 3,
+					"34": 1,
+					"39": 1,
+					"44": 1,
+					"71": 1
+				},
+				"gamesPlayed": 17,
+				"medianWords": 5,
+				"medianLetters": 28
+			}
+		},
+		"Heheszki": {
+			"4": {
+				"best": {
+					"word": "radish",
+					"letters": 27
+				},
+				"worst": {
+					"word": "radish",
+					"letters": 27
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"27": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 27
+			},
+			"7": {
+				"best": {
+					"word": "obscenity",
+					"letters": 34
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 34
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"34": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 34
+			},
+			"8": {
+				"best": {
+					"word": "mast",
+					"letters": 20
+				},
+				"worst": {
+					"word": "mast",
+					"letters": 20
+				},
+				"totalWords": {
+					"3": 1
+				},
+				"totalLetters": {
+					"20": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 3,
+				"medianLetters": 20
+			},
+			"9": {
+				"best": {
+					"word": "rapport",
+					"letters": 30
+				},
+				"worst": {
+					"word": "imperial",
+					"letters": 35
+				},
+				"totalWords": {
+					"3": 1,
+					"4": 2
+				},
+				"totalLetters": {
+					"30": 2,
+					"35": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 4,
+				"medianLetters": 30
+			},
+			"year": {
+				"best": {
+					"word": "mast",
+					"letters": 20
+				},
+				"worst": {
+					"word": "imperial",
+					"letters": 35
+				},
+				"totalWords": {
+					"3": 2,
+					"4": 4
+				},
+				"totalLetters": {
+					"20": 1,
+					"27": 1,
+					"30": 2,
+					"34": 1,
+					"35": 1
+				},
+				"gamesPlayed": 6,
+				"medianWords": 3.5,
+				"medianLetters": 28.5
+			}
+		},
+		"bade": {
+			"7": {
+				"best": {
+					"word": "obscenity",
+					"letters": 29
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 29
+				},
+				"totalWords": {
+					"3": 1
+				},
+				"totalLetters": {
+					"29": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 3,
+				"medianLetters": 29
+			},
+			"9": {
+				"best": {
+					"word": "punish",
+					"letters": 23
+				},
+				"worst": {
+					"word": "punish",
+					"letters": 23
+				},
+				"totalWords": {
+					"3": 1
+				},
+				"totalLetters": {
+					"23": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 3,
+				"medianLetters": 23
+			},
+			"year": {
+				"best": {
+					"word": "punish",
+					"letters": 23
+				},
+				"worst": {
+					"word": "obscenity",
+					"letters": 29
+				},
+				"totalWords": {
+					"3": 2
+				},
+				"totalLetters": {
+					"23": 1,
+					"29": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 3,
+				"medianLetters": 26
+			}
+		},
+		"Papa_gregorio": {
+			"8": {
+				"best": {
+					"word": "honest",
+					"letters": 25
+				},
+				"worst": {
+					"word": "honest",
+					"letters": 25
+				},
+				"totalWords": {
+					"3": 1
+				},
+				"totalLetters": {
+					"25": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 3,
+				"medianLetters": 25
+			},
+			"year": {
+				"best": {
+					"word": "honest",
+					"letters": 25
+				},
+				"worst": {
+					"word": "honest",
+					"letters": 25
+				},
+				"totalWords": {
+					"3": 1
+				},
+				"totalLetters": {
+					"25": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 3,
+				"medianLetters": 25
+			}
+		},
+		"razALgul": {
+			"4": {
+				"best": {
+					"word": "radish",
+					"letters": 34
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 40
+				},
+				"totalWords": {
+					"7": 1,
+					"8": 1
+				},
+				"totalLetters": {
+					"34": 1,
+					"40": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 7.5,
+				"medianLetters": 37
+			},
+			"5": {
+				"best": {
+					"word": "cholera",
+					"letters": 54
+				},
+				"worst": {
+					"word": "cholera",
+					"letters": 54
+				},
+				"totalWords": {
+					"9": 1
+				},
+				"totalLetters": {
+					"54": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 9,
+				"medianLetters": 54
+			},
+			"7": {
+				"best": {
+					"word": "semen",
+					"letters": 28
+				},
+				"worst": {
+					"word": "semen",
+					"letters": 28
+				},
+				"totalWords": {
+					"5": 1
+				},
+				"totalLetters": {
+					"28": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 5,
+				"medianLetters": 28
+			},
+			"year": {
+				"best": {
+					"word": "semen",
+					"letters": 28
+				},
+				"worst": {
+					"word": "cholera",
+					"letters": 54
+				},
+				"totalWords": {
+					"5": 1,
+					"7": 1,
+					"8": 1,
+					"9": 1
+				},
+				"totalLetters": {
+					"28": 1,
+					"34": 1,
+					"40": 1,
+					"54": 1
+				},
+				"gamesPlayed": 4,
+				"medianWords": 7.5,
+				"medianLetters": 37
+			}
+		},
+		"UbogiKrewny": {
+			"4": {
+				"best": {
+					"word": "keel",
+					"letters": 31
+				},
+				"worst": {
+					"word": "radish",
+					"letters": 41
+				},
+				"totalWords": {
+					"7": 1,
+					"8": 1
+				},
+				"totalLetters": {
+					"31": 1,
+					"41": 1
+				},
+				"gamesPlayed": 2,
+				"medianWords": 7.5,
+				"medianLetters": 36
+			},
+			"5": {
+				"best": {
+					"word": "cholera",
+					"letters": 35
+				},
+				"worst": {
+					"word": "cholera",
+					"letters": 35
+				},
+				"totalWords": {
+					"6": 1
+				},
+				"totalLetters": {
+					"35": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 6,
+				"medianLetters": 35
+			},
+			"year": {
+				"best": {
+					"word": "keel",
+					"letters": 31
+				},
+				"worst": {
+					"word": "radish",
+					"letters": 41
+				},
+				"totalWords": {
+					"6": 1,
+					"7": 1,
+					"8": 1
+				},
+				"totalLetters": {
+					"31": 1,
+					"35": 1,
+					"41": 1
+				},
+				"gamesPlayed": 3,
+				"medianWords": 7,
+				"medianLetters": 35
+			}
+		},
+		"gedzior84": {
+			"4": {
+				"best": {
+					"word": "sterile",
+					"letters": 27
+				},
+				"worst": {
+					"word": "sterile",
+					"letters": 27
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"27": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 27
+			},
+			"year": {
+				"best": {
+					"word": "sterile",
+					"letters": 27
+				},
+				"worst": {
+					"word": "sterile",
+					"letters": 27
+				},
+				"totalWords": {
+					"4": 1
+				},
+				"totalLetters": {
+					"27": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 4,
+				"medianLetters": 27
+			}
+		},
+		"conradowl": {
+			"4": {
+				"best": {
+					"word": "keel",
+					"letters": 28
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 28
+				},
+				"totalWords": {
+					"5": 1
+				},
+				"totalLetters": {
+					"28": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 5,
+				"medianLetters": 28
+			},
+			"year": {
+				"best": {
+					"word": "keel",
+					"letters": 28
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 28
+				},
+				"totalWords": {
+					"5": 1
+				},
+				"totalLetters": {
+					"28": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 5,
+				"medianLetters": 28
+			}
+		},
+		"def": {
+			"4": {
+				"best": {
+					"word": "keel",
+					"letters": 44
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 44
+				},
+				"totalWords": {
+					"11": 1
+				},
+				"totalLetters": {
+					"44": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 11,
+				"medianLetters": 44
+			},
+			"year": {
+				"best": {
+					"word": "keel",
+					"letters": 44
+				},
+				"worst": {
+					"word": "keel",
+					"letters": 44
+				},
+				"totalWords": {
+					"11": 1
+				},
+				"totalLetters": {
+					"44": 1
+				},
+				"gamesPlayed": 1,
+				"medianWords": 11,
+				"medianLetters": 44
+			}
+		}
+	},
+	"wordsByDates": {
+		"27.10.2024": "component",
+		"14.10.2024": "hilt",
+		"13.10.2024": "missile",
+		"22.09.2024": "irony",
+		"19.09.2024": "drink",
+		"18.09.2024": "punish",
+		"13.09.2024": "imperial",
+		"12.09.2024": "electrode",
+		"08.09.2024": "rapport",
+		"27.08.2024": "honest",
+		"26.08.2024": "bowl",
+		"25.08.2024": "stupid",
+		"14.08.2024": "fanatic",
+		"09.08.2024": "mast",
+		"06.08.2024": "font",
+		"29.07.2024": "drown",
+		"22.07.2024": "obscenity",
+		"18.07.2024": "ditch",
+		"16.07.2024": "arcade",
+		"11.07.2024": "handicap",
+		"02.07.2024": "semen",
+		"18.06.2024": "eddy",
+		"06.05.2024": "cholera",
+		"28.04.2024": "sterile",
+		"27.04.2024": "radish",
+		"04.04.2024": "keel"
+	}
 }

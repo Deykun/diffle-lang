@@ -384,13 +384,13 @@ const parseHejto = () => {
 
       let lang = '';
 
-      if (url.includes('/pl')) {
+      if (url.includes('/pl') || url.includes('/diffle-lang/?r=')) {
         lang = 'pl';
       } else if (url.includes('/en')) {
         lang = 'en';
       } else if (url.includes('/it')) {
         lang = 'it';
-      } else if (url.includes('/de')) {
+      } else if (url.includes('lang/de')) {
         lang = 'de';
       } else if (url.includes('/fr')) {
         lang = 'fr';
@@ -400,7 +400,7 @@ const parseHejto = () => {
       const value = rHash ? demaskValue(rHash) : '';
 
       let result;
-      if (value) {
+      if (value && lang) {
         const [wordWithOptionalDay, correct, position, incorrect, knownIncorrect, ...words] = value.replace('!(', '').replace(')!', '').split('.');
         
         const [word, dayOfYear] = wordWithOptionalDay.split('-');
@@ -424,7 +424,7 @@ const parseHejto = () => {
         commentBodyEl.setAttribute('data-hp-badge', `${nick}`);
       }
 
-      if (nick) {
+      if (nick && lang) {
         stack[nick] = {
           date,
           nick,
@@ -525,7 +525,7 @@ window.HejtoParser.ui.eventsSubscribers.removeAll = {
 window.HejtoParser.ui.eventsSubscribers.open = {
   selector: '#open-all',
   handleClick: () => {
-    const links = Array.from(document.querySelectorAll('.flex.flex-col.gap-4 > .flex.flex-col.gap-4 time'));
+    const links = Array.from(document.querySelectorAll('.flex.flex-col.gap-4 > .flex.flex-col.gap-4 > .bg-paper-light-primary > :first-child time'));
 
     links.forEach((el) => {
       const link = el.parentNode.getAttribute('href');

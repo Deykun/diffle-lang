@@ -1,17 +1,25 @@
-import { YearSummaryInfo } from '@common-types';
 import { useTranslation } from 'react-i18next';
+
+import { YearSummaryInfo } from '@common-types';
+
+import IconFirework from '@components/Icons/IconFirework';
+
+import './YearSummaryHeader.scss';
 
 type Props = {
   summary: YearSummaryInfo;
 };
 
 const YearSummaryHeader = ({ summary }: Props) => {
-  const { gamesPlayed, activePlayers, medianWords, medianLetters } = summary;
+  const {
+    gamesPlayed, activePlayers, medianWords, medianLetters,
+  } = summary;
 
   const { t } = useTranslation();
 
   return (
-      <section className="summary">
+      <section className="year-summary-header">
+          <IconFirework className="year-summary-header-icon" />
           <h1>Hejto 2024</h1>
           <p
             // eslint-disable-next-line react/no-danger

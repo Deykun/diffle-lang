@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { YearSummaryInfo } from '@common-types';
@@ -8,6 +7,7 @@ import { useSelector } from '@store';
 import IconLoader from '@components/Icons/IconLoader';
 
 import YearSummaryHeader from './YearSummaryHeader';
+import YearSummaryTable from './YearSummaryTable';
 
 import './YearSummary.scss';
 
@@ -40,10 +40,13 @@ const Summary = () => {
       <div className="summary">
           {isLoading && <IconLoader className="summary-content-loader" />}
           {data && (
-          <YearSummaryHeader summary={data} />
+          <>
+              <YearSummaryHeader summary={data} />
+              <YearSummaryTable summary={data} />
+          </>
           )}
-          {/* <pre>{JSON.stringify(data, null, 4)}</pre> */}
-          {/* <SummaryAll all={all} byLang={byLang} /> */}
+
+          <pre>{JSON.stringify(data?.wordsByDates, null, 4)}</pre>
       </div>
   );
 };

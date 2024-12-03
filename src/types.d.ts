@@ -315,15 +315,24 @@ export enum BestWordleType {
   BestGreen2_0 = 'bestGreen2_0',
 }
 
-export type YearSummaryInfo = {
+type ResultsInfo = {
   totalWords: {
-    [total: number]: number;
+    [total: string]: number;
   };
   totalLetters: {
-    [total: number]: number;
+    [total: string]: number;
   };
   gamesPlayed: number;
   medianWords: number;
   medianLetters: number;
+};
+
+export type YearSummaryInfo = YearlyInfo & {
   activePlayers: number,
+  byUser: {
+    [username: string]: {
+      year: ResultsInfo,
+      [month: string]: ResultsInfo,
+    }
+  }
 };

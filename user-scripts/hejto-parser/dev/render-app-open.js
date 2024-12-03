@@ -7,7 +7,7 @@ export const getAppOpen = () => {
 window.HejtoParser.ui.eventsSubscribers.open = {
   selector: '#open-all',
   handleClick: () => {
-    const links = Array.from(document.querySelectorAll('.flex.flex-col.gap-4 > .flex.flex-col.gap-4 time'));
+    const links = Array.from(document.querySelectorAll('.flex.flex-col.gap-4 > .flex.flex-col.gap-4 > .bg-paper-light-primary > :first-child time'));
 
     links.forEach((el) => {
       const link = el.parentNode.getAttribute('href');
