@@ -69,6 +69,7 @@ const initHejtoParser = async () => {
     };
 
     /* import @/render-app-copy.js */
+    /* import @/render-app-open.js */
     /* import @/render-app.js */
 
     parse();

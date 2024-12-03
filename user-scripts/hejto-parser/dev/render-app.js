@@ -174,6 +174,7 @@ export const renderApp = () => {
 
   render(`<aside class="hp-nav" data-active="${content}">
     ${getAppCopy()}
+    ${getAppOpen()}
   </aside>`, 'hp-app');
 };
 

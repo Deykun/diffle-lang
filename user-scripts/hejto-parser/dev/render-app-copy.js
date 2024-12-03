@@ -13,15 +13,6 @@ const getSourceTextToCopy = (source, value) => {
   return `
   results.resultsBySource['${source}'] = [
     ${(value || window.diffle[source]).map((item) => {
-      const description = item.detailsUrl ? [item.description, getDetails(item.detailsUrl)].filter(Boolean).join(' |||| ') : item.description;
-
-      if (item.detailsUrl) {
-        console.log(item.detailsUrl);
-        console.log(getDetails(item.detailsUrl));
-      }
-
-      const descriptionToCopy = (description || '').substring(0, 3000);
-
       return JSON.stringify(item);
     }).join(', ')}
   ]; 

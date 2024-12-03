@@ -1,7 +1,7 @@
 window.diffle = {};
 
 export const parseHejto = () => {
-  const source = location.href.split('#')[0];
+  const source = location.href.split('#')[0].replace('?close=1', '');
   const links = Array.from(document.querySelectorAll('.parsed a[href*="diffle-lang"]'));
 
   const resultsByNick = links.reduce((stack, el) => {
@@ -81,4 +81,8 @@ export const parseHejto = () => {
   }
 
   saveSource(source, window.diffle[source]);
+
+  if (location.href.includes('close=1')) {
+    window.close();
+  }
 };
