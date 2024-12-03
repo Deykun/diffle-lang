@@ -1,0 +1,13 @@
+.summary {
+  section {
+    margin-bottom: 50px;
+  }
+
+  .summary-content-loader {
+    margin-top: 100px;
+    fill: var(--text-weaker);
+    width: 96px;
+    height: 96px;
+    animation: spin infinite linear 1s;
+  }
+}

@@ -44,5 +44,6 @@
 	},
 	"gamesPlayed": 58,
 	"medianWords": 3.5,
-	"medianLetters": 25.5
+	"medianLetters": 25.5,
+	"activePlayers": 9
 }

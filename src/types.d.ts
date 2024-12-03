@@ -9,7 +9,7 @@ export enum Pane {
   Game = 'game',
   Settings = 'settings',
   Statistics = 'statistics',
-  Summary = 'summary',
+  YearSummary = 'hejto-2024',
   AboutLanguage = 'about-language',
 }
 
@@ -314,3 +314,16 @@ export enum BestWordleType {
   BestGreen1_5 = 'bestGreen1_5',
   BestGreen2_0 = 'bestGreen2_0',
 }
+
+export type YearSummaryInfo = {
+  totalWords: {
+    [total: number]: number;
+  };
+  totalLetters: {
+    [total: number]: number;
+  };
+  gamesPlayed: number;
+  medianWords: number;
+  medianLetters: number;
+  activePlayers: number,
+};
