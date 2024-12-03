@@ -29,6 +29,7 @@
     "build-it": "tsx scripts/build-it-dictionary.ts",
     "build-pl": "tsx scripts/build-pl-dictionary.ts",
     "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-fi & yarn build-fr & yarn build-it & yarn build-pl",
+    "build-hejto": "tsx scripts/hejto/2024-summary-data.ts",
     "preview": "vite preview",
     "test": "jest",
     "test-e2e": "playwright test",
