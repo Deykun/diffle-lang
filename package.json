@@ -31,7 +31,10 @@
     "build-langs": "yarn build-cs & yarn build-de & yarn build-en & yarn build-es & yarn build-fi & yarn build-fr & yarn build-it & yarn build-pl",
     "preview": "vite preview",
     "test": "jest",
-    "test-e2e": "playwright test"
+    "test-e2e": "playwright test",
+    "build-us": "tsx user-scripts/hejto-parser/build.ts",
+    "dev-us": "nodemon --watch user-scripts/hejto-parser --exec npm run build-us",
+    "dev-us-server": "tsx user-scripts/hejto-parser/dev-script.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.18.1",
@@ -71,9 +74,11 @@
     "eslint-plugin-react": "7.28.0",
     "eslint-plugin-react-hooks": "4.3.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "express": "^4.21.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
+    "nodemon": "^3.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
