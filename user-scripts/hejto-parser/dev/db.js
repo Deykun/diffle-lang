@@ -3,7 +3,7 @@ const saveSource = (source, value) => {
 
   unitsBySource[source] = value;
 
-  localStorage.setItem('wikiparse-units', JSON.stringify(unitsBySource));
+  localStorage.setItem('hejtoparse-units', JSON.stringify(unitsBySource));
 };
 
 const getDetailsKey = (url) => url.split(location.host).at(-1).replace('&autoclose=1', '');

@@ -2,8 +2,6 @@ window.diffle = {};
 
 export const parseHejto = () => {
   const source = location.href.split('#')[0];
-  const parsedResults = [];
-
   const links = Array.from(document.querySelectorAll('.parsed a[href*="diffle-lang"]'));
 
   const resultsByNick = links.reduce((stack, el) => {
@@ -11,9 +9,26 @@ export const parseHejto = () => {
 
     if (commentBodyEl) {
       const nickEl = commentBodyEl.querySelector('a[href*="/uzytkownik/"]');
-      const nick = nickEl?.getAttribute('href')?.replace('/uzytkownik/', '')
+      const nick = nickEl?.getAttribute('href')?.replace('/uzytkownik/', '');
+
+      const date = commentBodyEl.innerText?.match(/[0-3][0-9].[0-9][0-9].202[3|4]/)?.[0];
 
       const url = el.href;
+
+      let lang = '';
+
+      if (url.includes('/pl')) {
+        lang = 'pl';
+      } else if (url.includes('/en')) {
+        lang = 'en';
+      } else if (url.includes('/it')) {
+        lang = 'it';
+      } else if (url.includes('/de')) {
+        lang = 'de';
+      } else if (url.includes('/fr')) {
+        lang = 'fr';
+      }
+
       const rHash = url.split('r=')[1];
       const value = rHash ? demaskValue(rHash) : '';
 
@@ -28,25 +43,36 @@ export const parseHejto = () => {
 
         commentBodyEl.setAttribute('data-hp-badge', `${nick} ${word} (${totalLetters} in ${totalWords}): ${correct} 🟢 ${position} 🟡 ${incorrect} ⚪ ${knownIncorrect} 🔴`);
      
+        result = {
+          word,
+          correct: Number(correct),
+          position: Number(position),
+          incorrect: Number(incorrect),
+          knownIncorrect: Number(knownIncorrect),
+          totalWords,
+          totalLetters,
+          date,
+        }
       } else {
         commentBodyEl.setAttribute('data-hp-badge', `${nick}`);
       }
 
-
-
-      stack.push({
-        nickEl,
-        commentBodyEl,
-        el,
-        url,
-        value,
-      });
+      if (nick) {
+        stack[nick] = {
+          date,
+          nick,
+          lang,
+          url,
+          value,
+          result,
+        };
+      }
     }
 
     return stack;
-  }, []);
-
-  console.log(resultsByNick)
+  }, {});
+  
+  const parsedResults = Object.values(resultsByNick);
   
   if (window.diffle[source]) {
     window.diffle[source] = [...window.diffle[source], parsedResults];

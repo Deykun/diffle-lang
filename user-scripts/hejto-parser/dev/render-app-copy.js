@@ -11,8 +11,8 @@ export const getAppCopy = () => {
 
 const getSourceTextToCopy = (source, value) => {
   return `
-  urls.unitBySource['${source}'] = [
-    ${(value || window.parsedDE[source]).filter((item) => item.thumbnailUrl).map((item) => {
+  results.resultsBySource['${source}'] = [
+    ${(value || window.diffle[source]).map((item) => {
       const description = item.detailsUrl ? [item.description, getDetails(item.detailsUrl)].filter(Boolean).join(' |||| ') : item.description;
 
       if (item.detailsUrl) {
@@ -22,15 +22,7 @@ const getSourceTextToCopy = (source, value) => {
 
       const descriptionToCopy = (description || '').substring(0, 3000);
 
-      return `{
-        locationName: '${item.locationName}',
-        locationUrl: '${item.locationUrl.replace('?only=details', '')}',
-        thumbnailUrl: ${item.thumbnailUrl ? `'${item.thumbnailUrl}'` : 'undefined'},
-        description: '${descriptionToCopy}',
-        type: [${(item.type || []).map((v) => `'${v}'`).join(',')}],
-        source: '${item.source}',
-        sourceTitle: '${item.sourceTitle}',
-      }`;
+      return JSON.stringify(item);
     }).join(', ')}
   ]; 
 `;
@@ -41,7 +33,7 @@ window.HejtoParser.ui.eventsSubscribers.copyCode = {
   handleClick: () => {
     const source = location.href.split('#')[0];
 
-    if (window.parsedDE[source]) {
+    if (window.diffle[source]) {
       console.log('Copied!');
 
       copyText(getSourceTextToCopy(source));
@@ -67,8 +59,8 @@ window.HejtoParser.ui.eventsSubscribers.copyCodeAll = {
 window.HejtoParser.ui.eventsSubscribers.removeAll = {
   selector: '#remove-all',
   handleClick: () => {
-    // localStorage.removeItem('wikiparse-units');
-    localStorage.clear();
+    localStorage.removeItem('hejtoparse-units');
+    // localStorage.clear();
     console.log('Removed!');
   },
 };

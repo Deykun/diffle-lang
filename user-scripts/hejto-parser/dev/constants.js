@@ -2,9 +2,9 @@ const getFromLocalStorage = (key, defaultValues = {}) => (localStorage.getItem(k
   ? { ...defaultValues, ...JSON.parse(localStorage.getItem(key)) }
   : { ...defaultValues });
 
-const getSourcesFromLS = () => getFromLocalStorage('wikiparse-units', {});
+const getSourcesFromLS = () => getFromLocalStorage('hejtoparse-units', {});
 
-const getSettingsFromLS = () => getFromLocalStorage('wikiparse-state', {});
+const getSettingsFromLS = () => getFromLocalStorage('hejtoparse-state', {});
 
 window.HejtoParser = {
   version: 'SCRIPT_VERSION',

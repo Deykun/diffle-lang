@@ -15,9 +15,9 @@ const getFromLocalStorage = (key, defaultValues = {}) => (localStorage.getItem(k
   ? { ...defaultValues, ...JSON.parse(localStorage.getItem(key)) }
   : { ...defaultValues });
 
-const getSourcesFromLS = () => getFromLocalStorage('wikiparse-units', {});
+const getSourcesFromLS = () => getFromLocalStorage('hejtoparse-units', {});
 
-const getSettingsFromLS = () => getFromLocalStorage('wikiparse-state', {});
+const getSettingsFromLS = () => getFromLocalStorage('hejtoparse-state', {});
 
 window.HejtoParser = {
   version: 'SCRIPT_VERSION',
@@ -87,7 +87,7 @@ const initHejtoParser = async () => {
 
   unitsBySource[source] = value;
 
-  localStorage.setItem('wikiparse-units', JSON.stringify(unitsBySource));
+  localStorage.setItem('hejtoparse-units', JSON.stringify(unitsBySource));
 };
 
 const getDetailsKey = (url) => url.split(location.host).at(-1).replace('&autoclose=1', '');
@@ -365,8 +365,6 @@ const getRadiobox = (params) => {
 
 const parseHejto = () => {
   const source = location.href.split('#')[0];
-  const parsedResults = [];
-
   const links = Array.from(document.querySelectorAll('.parsed a[href*="diffle-lang"]'));
 
   const resultsByNick = links.reduce((stack, el) => {
@@ -374,9 +372,26 @@ const parseHejto = () => {
 
     if (commentBodyEl) {
       const nickEl = commentBodyEl.querySelector('a[href*="/uzytkownik/"]');
-      const nick = nickEl?.getAttribute('href')?.replace('/uzytkownik/', '')
+      const nick = nickEl?.getAttribute('href')?.replace('/uzytkownik/', '');
+
+      const date = commentBodyEl.innerText?.match(/[0-3][0-9].[0-9][0-9].202[3|4]/)?.[0];
 
       const url = el.href;
+
+      let lang = '';
+
+      if (url.includes('/pl')) {
+        lang = 'pl';
+      } else if (url.includes('/en')) {
+        lang = 'en';
+      } else if (url.includes('/it')) {
+        lang = 'it';
+      } else if (url.includes('/de')) {
+        lang = 'de';
+      } else if (url.includes('/fr')) {
+        lang = 'fr';
+      }
+
       const rHash = url.split('r=')[1];
       const value = rHash ? demaskValue(rHash) : '';
 
@@ -391,25 +406,36 @@ const parseHejto = () => {
 
         commentBodyEl.setAttribute('data-hp-badge', `${nick} ${word} (${totalLetters} in ${totalWords}): ${correct} 🟢 ${position} 🟡 ${incorrect} ⚪ ${knownIncorrect} 🔴`);
      
+        result = {
+          word,
+          correct: Number(correct),
+          position: Number(position),
+          incorrect: Number(incorrect),
+          knownIncorrect: Number(knownIncorrect),
+          totalWords,
+          totalLetters,
+          date,
+        }
       } else {
         commentBodyEl.setAttribute('data-hp-badge', `${nick}`);
       }
 
-
-
-      stack.push({
-        nickEl,
-        commentBodyEl,
-        el,
-        url,
-        value,
-      });
+      if (nick) {
+        stack[nick] = {
+          date,
+          nick,
+          lang,
+          url,
+          value,
+          result,
+        };
+      }
     }
 
     return stack;
-  }, []);
-
-  console.log(resultsByNick)
+  }, {});
+  
+  const parsedResults = Object.values(resultsByNick);
   
   if (window.diffle[source]) {
     window.diffle[source] = [...window.diffle[source], parsedResults];
@@ -437,8 +463,8 @@ const getAppCopy = () => {
 
 const getSourceTextToCopy = (source, value) => {
   return `
-  urls.unitBySource['${source}'] = [
-    ${(value || window.parsedDE[source]).filter((item) => item.thumbnailUrl).map((item) => {
+  results.resultsBySource['${source}'] = [
+    ${(value || window.diffle[source]).map((item) => {
       const description = item.detailsUrl ? [item.description, getDetails(item.detailsUrl)].filter(Boolean).join(' |||| ') : item.description;
 
       if (item.detailsUrl) {
@@ -448,15 +474,7 @@ const getSourceTextToCopy = (source, value) => {
 
       const descriptionToCopy = (description || '').substring(0, 3000);
 
-      return `{
-        locationName: '${item.locationName}',
-        locationUrl: '${item.locationUrl.replace('?only=details', '')}',
-        thumbnailUrl: ${item.thumbnailUrl ? `'${item.thumbnailUrl}'` : 'undefined'},
-        description: '${descriptionToCopy}',
-        type: [${(item.type || []).map((v) => `'${v}'`).join(',')}],
-        source: '${item.source}',
-        sourceTitle: '${item.sourceTitle}',
-      }`;
+      return JSON.stringify(item);
     }).join(', ')}
   ]; 
 `;
@@ -467,7 +485,7 @@ window.HejtoParser.ui.eventsSubscribers.copyCode = {
   handleClick: () => {
     const source = location.href.split('#')[0];
 
-    if (window.parsedDE[source]) {
+    if (window.diffle[source]) {
       console.log('Copied!');
 
       copyText(getSourceTextToCopy(source));
@@ -493,8 +511,8 @@ window.HejtoParser.ui.eventsSubscribers.copyCodeAll = {
 window.HejtoParser.ui.eventsSubscribers.removeAll = {
   selector: '#remove-all',
   handleClick: () => {
-    // localStorage.removeItem('wikiparse-units');
-    localStorage.clear();
+    localStorage.removeItem('hejtoparse-units');
+    // localStorage.clear();
     console.log('Removed!');
   },
 };
