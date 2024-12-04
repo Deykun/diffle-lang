@@ -10,6 +10,8 @@ import { results as results3 } from "./parts/part-3";
 import { results as results4 } from "./parts/part-4";
 import { results as results5 } from "./parts/part-5";
 import { results as results6 } from "./parts/part-6";
+import { results as results7 } from "./parts/part-7";
+import { results as results8 } from "./parts/part-8";
 
 export const resultsBySource: {
   [url: string]: ParsedHejtoResult[];
@@ -22,7 +24,7 @@ export const resultsBySource: {
   ...results6.resultsBySource,
 };
 
-const { resultsByUser, resultsByLang, wordsByDate } = Object.values(resultsBySource)
+const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.values(resultsBySource)
   .flatMap((v) => v)
   .reduce(
     (
@@ -34,6 +36,11 @@ const { resultsByUser, resultsByLang, wordsByDate } = Object.values(resultsBySou
             };
           };
         };
+        resultsByWord: {
+          [lang: string]: {
+              [word: string]: ParsedHejtoResult[];
+          };
+        },
         resultsByLang: {
           [lang: string]: ParsedHejtoResult[];
         };
@@ -53,6 +60,18 @@ const { resultsByUser, resultsByLang, wordsByDate } = Object.values(resultsBySou
 
       if (lang && !stack.resultsByLang[lang]) {
         stack.resultsByLang[lang] = [];
+      }
+
+      if (lang && word) {
+        if (!stack.resultsByWord[lang]) {
+          stack.resultsByWord[lang] = {};
+        }
+
+        if (stack.resultsByWord[lang][word]) {
+          stack.resultsByWord[lang][word].push(item);
+        } else {
+          stack.resultsByWord[lang][word] = [item];
+        }
       }
 
       if (lang && date && word) {
@@ -90,6 +109,7 @@ const { resultsByUser, resultsByLang, wordsByDate } = Object.values(resultsBySou
     },
     {
       resultsByUser: {},
+      resultsByWord: {},
       resultsByLang: {},
       wordsByDate: {},
     }
@@ -125,6 +145,18 @@ const acceptedWordsByLang = langs.reduce((stack, lang) => {
   stack[lang] = Object.values(wordsByDates[lang]);
 
   return stack;
+}, {});
+
+const scoreByWords = langs.reduce((globalStack, lang) => {
+  globalStack[lang] = Object.entries(resultsByWord[lang]).reduce((stack, [word, results]) => {
+    if (acceptedWordsByLang[lang].includes(word)) {
+      stack[word] = getInfoAboutResults(results);
+    }
+
+    return stack;
+  })
+
+  return globalStack;
 }, {});
 
 const usersSummary = Object.entries(resultsByUser).reduce(
@@ -167,6 +199,7 @@ langs.forEach((lang) => {
         activePlayers: Object.keys(resultsByUser[lang]).length,
         byUser: usersSummary[lang],
         wordsByDates: wordsByDates[lang],
+        scoreByWords,
       },
       null,
       "\t"

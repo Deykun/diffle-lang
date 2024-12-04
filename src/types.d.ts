@@ -325,6 +325,14 @@ type ResultsInfo = {
   gamesPlayed: number;
   medianWords: number;
   medianLetters: number;
+  best: {
+    word: string,
+    letters: number,
+  };
+  worst: {
+    word: string,
+    letters: number,
+  };
 };
 
 export type YearSummaryInfo = YearlyInfo & {

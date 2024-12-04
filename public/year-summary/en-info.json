@@ -1502,5 +1502,355 @@
 		"28.04.2024": "sterile",
 		"27.04.2024": "radish",
 		"04.04.2024": "keel"
+	},
+	"scoreByWords": {
+		"pl": [
+			"marynarz",
+			[
+				{
+					"date": "05.11.2024",
+					"nick": "Heheszki",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=hkyY4QTMtIXYt5CZxUTL6J3ducTN00ybwVnLw4iMx4yMuUTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.15.3.12.0.upo-457.wrz-51d.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 15,
+						"position": 3,
+						"incorrect": 12,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 30,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "Felonious_Gru",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=QIpMGO0ETLyFWbuMzMt0Wek5SN5cjMtMXYu5COjJTL1h2YuAjL54CNucTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.17.4.9.0.chu-2c8.nas-2795.dym-33.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 17,
+						"position": 4,
+						"incorrect": 9,
+						"knownIncorrect": 0,
+						"totalWords": 4,
+						"totalLetters": 30,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "nxo",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=hkyY4QTMtIXYt5iZlNTLyB3cuAjL34iMuETMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.11.2.7.0.spr-3ef.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 11,
+						"position": 2,
+						"incorrect": 7,
+						"knownIncorrect": 0,
+						"totalWords": 2,
+						"totalLetters": 20,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "Kotuduchawinny",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=QIpMGO0ETLyFWbuQ2YyITLr9GcuAjL24SMuITMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.12.1.6.0.pok-22cd.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 12,
+						"position": 1,
+						"incorrect": 6,
+						"knownIncorrect": 0,
+						"totalWords": 2,
+						"totalLetters": 19,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "djsclub",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=hkyY4QTMuYTZz0ich1mLidjMtQXYs5CM40SdpJmLw4SMx4yMuEjMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.21.3.11.0.biu-80.lat-27b.mar-3e6.148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 21,
+						"position": 3,
+						"incorrect": 11,
+						"knownIncorrect": 0,
+						"totalWords": 4,
+						"totalLetters": 35,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "Dzemik_Skrytozerca",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=QIpMGO0EjLwM2Mx0ich1mL00yb0BnLw4iMx4CMuQTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.14.0.12.0.pto-4.mar-13c0.148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 14,
+						"position": 0,
+						"incorrect": 12,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 26,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "conradowl",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=QIpMGO0ETLyFWbuI2Ml1ick9mLjdTMtkncw5CMtIWey5CN50SdytmLw4yMx4iMukTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.19.2.13.0.kru-94.ryb-0.pry-17c.odr-e3b.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 19,
+						"position": 2,
+						"incorrect": 13,
+						"knownIncorrect": 0,
+						"totalWords": 5,
+						"totalLetters": 34,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "Greyman",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=ESKjhDNx4yY1QTMtIXYuIjZy0ibp5CO0UWLu9WbuAjL44CMuIjMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.22.0.8.0.mon-e48.in-2f2.ar-145c.148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 22,
+						"position": 0,
+						"incorrect": 8,
+						"knownIncorrect": 0,
+						"totalWords": 4,
+						"totalLetters": 30,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "kwiecik",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=hkyY4QTMtIXYt5iMiZTLhd3auAjL54SMuMTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.13.1.9.0.kwa-6b2.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 13,
+						"position": 1,
+						"incorrect": 9,
+						"knownIncorrect": 0,
+						"totalWords": 2,
+						"totalLetters": 23,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "radziol",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=QIpMGO0ETLyFWbuQWMy0ycvtmL5QmMtknc65iMidTYx0ieyBnLw4iNx4iMugTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.18.2.16.0.prz-1a7b2.zry-2d9.kos-21d.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 18,
+						"position": 2,
+						"incorrect": 16,
+						"knownIncorrect": 0,
+						"totalWords": 4,
+						"totalLetters": 36,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "kamin",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=ESKjhDNx0ich1mLiFWLkVmYuIDMmJTLu92auAjL44CMuYTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.16.0.8.0.kon-2f02.bed-ab.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 16,
+						"position": 0,
+						"incorrect": 8,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 24,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "Cybulion",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=hkyY4QTMtIXYt5SM0ATMtIXYuEGO10ieyRXZp5mLw4CMx4SNuUTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.15.5.10.0.nietrz-58a.ar-1041.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 15,
+						"position": 5,
+						"incorrect": 10,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 30,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "Gilgamesh",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=ESKjhDNx0ich1mLhlTMtQXdy5SYzMWLz92auQjZx0CZ5dnLx4iMx4SMuIjMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.22.1.12.1.wyd-1f4.kos-c3a.rut-19a.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 22,
+						"position": 1,
+						"incorrect": 12,
+						"knownIncorrect": 1,
+						"totalWords": 4,
+						"totalLetters": 35,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "yourgrandma",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=QIpMGO0ETLyFWbuUmZz0ichpmLyUWNx0SY6NnLmFTLrVXZuAjL54CNukTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.19.4.9.0.euk-1f.sza-15e2.jar-3fe.mar-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 19,
+						"position": 4,
+						"incorrect": 9,
+						"knownIncorrect": 0,
+						"totalWords": 4,
+						"totalLetters": 32,
+						"date": "05.11.2024"
+					}
+				},
+				{
+					"date": "05.11.2024",
+					"nick": "wihajster",
+					"lang": "pl",
+					"url": "https://deykun.github.io/diffle-lang/pl?r=ESKjhDNx0icuEDOtoXYuI2Yi1SZp1mLw4CMx4CNuQTMuATMz0ieyFmb5JXYthSI",
+					"value": "!(marynarz-310.14.4.10.0.mie-bcb.az-81.r-148c)!",
+					"result": {
+						"word": "marynarz",
+						"correct": 14,
+						"position": 4,
+						"incorrect": 10,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 28,
+						"date": "05.11.2024"
+					}
+				}
+			]
+		],
+		"en": [
+			"component",
+			[
+				{
+					"date": "27.10.2024",
+					"nick": "Dzemik_Skrytozerca",
+					"lang": "en",
+					"url": "https://deykun.github.io/diffle-lang/en?r=ESK4cDNt02bj5SMz0SbvhmLw4CNuIjLzEjLxAzMtQnbl52bw12bjhSI",
+					"value": "!(component-301.13.2.4.0.hom-31.com-478)!",
+					"result": {
+						"word": "component",
+						"correct": 13,
+						"position": 2,
+						"incorrect": 4,
+						"knownIncorrect": 0,
+						"totalWords": 2,
+						"totalLetters": 19,
+						"date": "27.10.2024"
+					}
+				},
+				{
+					"date": "27.10.2024",
+					"nick": "Kronos",
+					"lang": "en",
+					"url": "https://deykun.github.io/diffle-lang/en?r=QIpgzN00SbvNmLwUWLuFWbuEzM00CZuVnLw4iNuEjL3EjLxAzMtQnbl52bw12bjhSI",
+					"value": "!(component-301.17.1.6.0.und-431.man-e0.com-478)!",
+					"result": {
+						"word": "component",
+						"correct": 17,
+						"position": 1,
+						"incorrect": 6,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 24,
+						"date": "27.10.2024"
+					}
+				},
+				{
+					"nick": "Deykun",
+					"lang": "en",
+					"url": "https://deykun.github.io/diffle-lang/en?r=hkCO3QTLt5CO00iZvNmLyU2Mtg2Yz4SMx0ibptmLz0ib1JmL0QTLs9WbuIjNt0WYn5CMuQTMuEjLwIjLxAzMtQnbl52bw12bjhSI",
+					"value": "!(component-301.20.1.14.0.gam-62.mol-44.bun-3.kin-11.3ch-3e2.cof-48.m-478)!",
+					"result": {
+						"word": "component",
+						"correct": 20,
+						"position": 1,
+						"incorrect": 14,
+						"knownIncorrect": 0,
+						"totalWords": 7,
+						"totalLetters": 35
+					}
+				},
+				{
+					"date": "27.10.2024",
+					"nick": "Greyman",
+					"lang": "en",
+					"url": "https://deykun.github.io/diffle-lang/en?r=ESK4cDNt02bj5SZ00ibv1mLw4SNuEjLzEjLxAzMtQnbl52bw12bjhSI",
+					"value": "!(component-301.13.1.5.0.mon-4e.com-478)!",
+					"result": {
+						"word": "component",
+						"correct": 13,
+						"position": 1,
+						"incorrect": 5,
+						"knownIncorrect": 0,
+						"totalWords": 2,
+						"totalLetters": 19,
+						"date": "27.10.2024"
+					}
+				},
+				{
+					"date": "27.10.2024",
+					"nick": "kwiecik",
+					"lang": "en",
+					"url": "https://deykun.github.io/diffle-lang/en?r=hkCO3QTLt5yYmNjL1I2Nt42bj5CMuATMuMjL4EjLxAzMtQnbl52bw12bjhSI",
+					"value": "!(component-301.18.3.10.0.con-7b5.3fc.m-478)!",
+					"result": {
+						"word": "component",
+						"correct": 18,
+						"position": 3,
+						"incorrect": 10,
+						"knownIncorrect": 0,
+						"totalWords": 3,
+						"totalLetters": 31,
+						"date": "27.10.2024"
+					}
+				}
+			]
+		]
 	}
 }

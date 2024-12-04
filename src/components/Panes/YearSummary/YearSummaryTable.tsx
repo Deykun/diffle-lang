@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { YearSummaryInfo } from '@common-types';
 
+import { useSelector } from '@store';
+
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconPin from '@components/Icons/IconPin';
 
@@ -20,6 +22,7 @@ type Props = {
 const periodFilters = ['year', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(String)];
 
 const YearSummaryTable = ({ summary }: Props) => {
+  const gameLanguage = useSelector(state => state.game.language);
   const [selected, setSelected] = useState('');
   const [period, setPeriod] = useState('year');
   const [sortBy, setSortBy] = useState<
@@ -40,7 +43,10 @@ const YearSummaryTable = ({ summary }: Props) => {
     // playersByTotalPlayed.
     const knownUsernames = Object.keys(summary.byUser).filter(username => summary.byUser[username][period]);
 
-    const minimumNumberOfGamesForRanked = period === 'year' ? 25 : 4;
+    let minimumNumberOfGamesForRanked = period === 'year' ? 50 : 4;
+    if (gameLanguage !== 'pl') {
+      minimumNumberOfGamesForRanked = period === 'year' ? 2 : 1;
+    }
 
     const usersThatPlayedMoreAtleastXTimes = knownUsernames.filter(
       username => summary.byUser[username][period].gamesPlayed >= minimumNumberOfGamesForRanked,
@@ -48,13 +54,23 @@ const YearSummaryTable = ({ summary }: Props) => {
 
     return {
       totalPlayed: knownUsernames.sort(
-        (a, b) => summary.byUser[b][period].gamesPlayed - summary.byUser[a][period].gamesPlayed,
+        (a, b) => {
+          if (summary.byUser[b][period].gamesPlayed === summary.byUser[a][period].gamesPlayed) {
+            if (summary.byUser[a][period].medianLetters === summary.byUser[b][period].medianLetters) {
+              return summary.byUser[a][period].medianWords - summary.byUser[b][period].medianWords;
+            }
+
+            return summary.byUser[a][period].medianLetters - summary.byUser[b][period].medianLetters;
+          }
+
+          return summary.byUser[b][period].gamesPlayed - summary.byUser[a][period].gamesPlayed
+        },
       ).slice(0, 75),
       bestMedianLetters: [...usersThatPlayedMoreAtleastXTimes].sort(
         (a, b) => summary.byUser[a][period].medianLetters - summary.byUser[b][period].medianLetters,
       ).slice(0, 75),
     };
-  }, [summary, period]);
+  }, [summary, period, gameLanguage]);
 
   if (!summary) {
     return null;
@@ -62,7 +78,7 @@ const YearSummaryTable = ({ summary }: Props) => {
 
   return (
       <>
-          <nav className="heatmap-keyboard-filters">
+          <nav>
               {Object.keys(usernamesBy).map(sortByValue => (
                   <Button
                     key={sortByValue}
@@ -76,7 +92,6 @@ const YearSummaryTable = ({ summary }: Props) => {
                       {/* {t(`statistics.filter${capitalize(infoLetter)}`)} */}
                   </Button>
               ))}
-
               <div>
                   {periodFilters.map(periodValue => (
                       <Button
@@ -87,7 +102,6 @@ const YearSummaryTable = ({ summary }: Props) => {
                         isText={periodValue !== period}
                       >
                           {periodValue !== 'year' ? periodValue.padStart(2, '0') : periodValue}
-                          {/* {t(`statistics.filter${capitalize(infoLetter)}`)} */}
                       </Button>
                   ))}
               </div>
@@ -109,13 +123,10 @@ const YearSummaryTable = ({ summary }: Props) => {
                                   {sortBy === 'totalPlayed'
                               && (
                               <CircleScale
-                                breakPoints={[360, 280, 200, 140, 90, 60, 40, 20]}
-                                // startFrom={-25}
+                                breakPoints={period === 'year' ? [360, 280, 200, 140, 90, 60, 40, 20] : [20, 16, 12, 8, 4]}
+                                startFrom={period === 'year' ? 0 : 6}
                                 value={summary.byUser[username][period].gamesPlayed}
                                 shouldShowLabels={false}
-                                // isGreen
-                                // isInvert
-                                // isPercentage
                               />
                               )}
                               </span>
@@ -139,14 +150,12 @@ const YearSummaryTable = ({ summary }: Props) => {
                                 value={summary.byUser[username][period]?.medianLetters}
                                 shouldShowLabels={false}
                                 isInvert
-                                // isGreen
                               />
                               )}
                           </strong>
                           {' '}
                           <span>
                               {t('statistics.letters')}
-
                           </span>
                           {' '}
                           <span>{t('statistics.medianWordsBefore')}</span>
@@ -155,6 +164,34 @@ const YearSummaryTable = ({ summary }: Props) => {
                           {' '}
                           <span>{t('statistics.medianWords')}</span>
                       </p>
+                      <div className="year-summary-table-best-worst">
+                          <span>
+                              {'» '}
+                              <span className="year-summary-table-best-worst-word">
+                                {summary.byUser[username][period].worst.word}
+                              </span>
+                              {' «'}
+                              {' '}
+                              <small className="year-summary-table-best-worst-value">
+                                  {summary.byUser[username][period].worst.letters}
+                                  {' '}
+                                  {t('end.lettersUsedShort')}
+                              </small>
+                          </span>
+                          <span>
+                              {'» '}
+                              <span className="year-summary-table-best-worst-word">
+                                {summary.byUser[username][period].best.word}
+                              </span>
+                              {' «'}
+                              {' '}
+                              <small className="year-summary-table-best-worst-value">
+                                  {summary.byUser[username][period].best.letters}
+                                  {' '}
+                                  {t('end.lettersUsedShort')}
+                              </small>
+                          </span>
+                      </div>
                       <Button
                         className="year-summary-value-pin-button"
                         onClick={() => setSelected((previousUsername) => {

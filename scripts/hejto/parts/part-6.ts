@@ -20031,13 +20031,13 @@ results.resultsBySource[
     value:
       "[Ý\tPÍIN\fKN\fKMËK\u000bËNN\u000b\u001bÙ\u000bXY\f\u000bÛZKM\fËÚ\u001cMMM\u000bÛZKLÌKZ[ËLØ\nH",
     result: {
-      word: "[Ý\tPÍIN\fKN\fKMËK\u000bËNN\u000b\u001bÙ\u000bXY\f\u000bÛZKM\fËÚ\u001cMMM\u000bÛZKLÌKZ[ËLØ\nH",
-      correct: null,
-      position: null,
-      incorrect: null,
-      knownIncorrect: null,
-      totalWords: 0,
-      totalLetters: null,
+      word: "miotła",
+      correct: 17,
+      position: 6,
+      incorrect: 21,
+      knownIncorrect: 0,
+      totalWords: 6,
+      totalLetters: 44,
       date: "21.03.2024",
     },
   },
@@ -25546,13 +25546,13 @@ results.resultsBySource[
     value:
       "ÍINPÚ\\Ý\u0018ZËMÌËËKL\u000b\u000bËNN\u000bÝÚKY\u000eXËM\u000bL\u000e\u000bLLÌËL\u0019JH",
     result: {
-      word: "ÍINPÚ\\Ý\u0018ZËMÌËËKL\u000b\u000bËNN\u000bÝÚKY\u000eXËM\u000bL\u000e\u000bLLÌËL\u0019JH",
-      correct: null,
-      position: null,
-      incorrect: null,
-      knownIncorrect: null,
-      totalWords: 0,
-      totalLetters: null,
+      word: "świstak",
+      correct: 27,
+      position: 1,
+      incorrect: 10,
+      knownIncorrect: 0,
+      totalWords: 6,
+      totalLetters: 38,
       date: "13.03.2024",
     },
   },
@@ -32250,63 +32250,63 @@ results.resultsBySource[
   {
     date: "08.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "the_moon",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "vinclav",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "segregator",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "WszechpoteznyEtyzer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Anteczek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
@@ -32318,203 +32318,203 @@ results.resultsBySource[
   {
     date: "10.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Instruktor.Prowadzacy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "bernsteinka",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "WszechpoteznyEtyzer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "meciasek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Anteczek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "kwiecik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "the_good_the_bad_the_ugly",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "Endrevoir",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "10.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
@@ -32526,196 +32526,196 @@ results.resultsBySource[
   {
     date: "11.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "bernsteinka",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Ziemniak",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "pavel194",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "meciasek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "kwiecik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Dzemik_Skrytozerca",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "11.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
@@ -32727,125 +32727,125 @@ results.resultsBySource[
   {
     date: "12.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Instruktor.Prowadzacy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Szuuz_Ekleer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Endrevoir",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Orzech",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "kwiecik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Kowal04",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK1EWNto3c35CM20Se6NnLlBTYtw2br5SY4EWLhJ3ZuAjL34CMuAjMuUWarR3c5p3c3hSI",
     value: "!(wszystkie.20.0.7.0.gra-a8a.kol-a0e.szy-60.wsz-5a5)!",
     result: {
@@ -32861,70 +32861,70 @@ results.resultsBySource[
   {
     date: "12.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "ChomikowyPedziwiatr",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "12.01.2024",
     nick: "Sofie",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK1EWNuIWY10iezdnL1ITZtMXek5CO1cTLzF2auImMxETLyB3cuAjL54yMuUjMuUWarR3c5p3c3hSI",
     value: "!(wszystkie.25.3.9.0.spr-112b.kas-758.dys-e25.wsz-5ab.5a5)!",
     result: {
@@ -32941,7 +32941,7 @@ results.resultsBySource[
   {
     date: "12.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpUTY10iezdnLwkTZtk2d65iM2QWLhJHcuAjL14yMuYTMuUWarR3c5p3c3hSI",
     value: "!(wszystkie.16.3.5.0.pra-d62.zwi-e90.wsz-5a5)!",
     result: {
@@ -32958,7 +32958,7 @@ results.resultsBySource[
   {
     date: "12.01.2024",
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK1EWNto3c35yMiZTLhd3auAjL34iMuUTMuUWarR3c5p3c3hSI",
     value: "!(wszystkie.15.2.7.0.kwa-6b3.wsz-5a5)!",
     result: {
@@ -32980,7 +32980,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMtEmez5SMx0yY11mL5YTMt4WZ65SM3IWLvR3cuQjM40yalNnLmNTLul2cuYGZyETLzl3duAjL3EjLw4SNy4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.25.0.17.0.wys-12df.sin-3f.sek-824.sto-b71.zen-169.muc-11.sza-1892)!",
@@ -32998,7 +32998,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuADM50CchpnLjJTMtMXYq5CMukjLx4COx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.18.1.9.0.jas-12c.zap-900.sza-1892)!",
     result: {
@@ -33015,7 +33015,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMtEmez5iNyITLs9GcuMGO00ic5dnLlBzMtMXZn5SNlJTLs9meuAjL5EjLw4iNx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.16.0.19.0.zol-2e5.ges-30e.wyr-48c.pol-226.sza-1892)!",
     result: {
@@ -33032,7 +33032,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cukTNtQXYm5iY4UTL6JHdllmbuAjLyEjL04COx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.18.4.12.0.nietrz-58b.fat-59.sza-1892)!",
     result: {
@@ -33049,7 +33049,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKykDOx0SY6NnLjNDNt8mez5SYy0Cd6NnLjFWL0NXdugjMlFTLllGcuAjLyEjLx4COy4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.28.1.12.0.pie-1e28.ust-ac.szt-2a.szo-43c.sza-1892)!",
     result: {
@@ -33066,7 +33066,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuQjMtoXYt5CO3QTLpx2cuYzMx0yYlBnL4kTLvpneuAjL1EjLz4CMy4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.20.3.15.0.zzo-98.pec-136.sli-478.maz-24.sza-1892)!",
     result: {
@@ -33083,7 +33083,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "nxo",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKykDOx0SY6NnL1kDNx0SYrNnL5YTMtc3bz5SZwkTLvB3cuAjLxEjLz4yNx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.17.3.11.0.spo-90e.sow-169.ska-1495.sza-1892)!",
     result: {
@@ -33100,7 +33100,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4EjLmZDOx0SY6NnL2UWL0FmeuYmY24SOwQWMtMXY65CNkJTLjFGbuMmZwQWL6JHcukjL0IjL14iMz4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.32.5.24.9.prz-d0fc.lac-2d4.zas-1d09.6bf.zat-e6.sza-186f.1892)!",
@@ -33118,7 +33118,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuY2YtsWar5yY2ETLjF2auADMz0Sa3NmLkVWLvpneuEjL5EjL14SOx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.19.5.19.1.zzo-ed.cwi-300.kac-16c.kik-cf.sza-1892)!",
     result: {
@@ -33135,7 +33135,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMtEmez5yMh1SYpNnLw0yahhmLw0ychdmLmZTMtoWYm5CN4MTMtUWaw5CZzETLiVmeuQjMy0CZh5mL5UWOtsWe35yNkJTLs9meuAjL3IjL14yMz4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.33.5.27.0.zol-2d7.wyk-9e9.nad-224.zeb-13d.pie-1384.faj-16f.gas-0.hak-0.sia-a3.sza-1892)!",
@@ -33153,7 +33153,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "sqnland",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4EjLwkTOx0SY6NnL0MmYtkmek5SNmNTLpx2cuEzM00yahxmLzYTMto3bu5iMhZTLlJHduAjL1EjLz4CMy4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.20.3.15.0.tre-6a2.noz-163.lak-431.sli-3f5.dzi-bc4.sza-1990.1892)!",
@@ -33171,7 +33171,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4EjL1YTOtEmez5CO4gTLjp3cuQTYzETLhJHcuAjLzEjLz4yNx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.17.3.13.0.pra-13a4.szc-888.sza-965.1892)!",
     result: {
@@ -33188,7 +33188,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMtEmez5iNjJTLu9GduEDN00ieh1mLhBjMtknez5yM0gTLhp3cuQjM40yalNnLxYTLrVneugTNhdTL6JHcuAjL3EjLx4CNy4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.24.1.17.0.prz-7a58.zuk-61.sek-824.sza-843.szy-20a.maz-441.ton-2c6.sza-1892)!",
@@ -33206,7 +33206,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMuIzN4ETLhp3cuUDO40ychtmL2IzYtEmcn5yMwMTLjV3auUGOklTMtoncw5SN5MTLs9meuMjL4EjLz4COy4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.28.3.18.3.zol-395.prz-19d8e.kuc-303.gra-c26.kas-885.sza-1872.1892)!",
@@ -33224,7 +33224,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4EjLlVDOx0SY6NnL5MjMtk2az5CMugjLx4COx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.18.1.8.0.ski-239.sza-185e.1892)!",
     result: {
@@ -33241,7 +33241,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuMjN10CbhNnLklzNtQXYr5iY4UTL6JHdllmbuAjLyEjL34CMy4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.20.7.12.0.nietrz-58b.kat-79d.sal-563.sza-1892)!",
     result: {
@@ -33258,7 +33258,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4EjL0kDOx4CM5gTMuADNm1SY6NnL5ITL0p3cuUjZyETLhR3cuAjLxEjLw4CM04SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.40.0.11.0.sta-12f5.szt-29.sza-f40.1890.1894.1892)!",
     result: {
@@ -33275,7 +33275,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Dzemik_Skrytozerca",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKykDOx4yNlRmLwQTMx4SZ1gTMtEmez5SOzcTL0p3cuMTOx0SZpBnLjVjMtQWY65CNzETL6FGbuYWNy0iel1mLwMmNz0ychpnLxEjLxMjL04CN14SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.54.4.31.11.zas-36c0.mez-25f.laz-134.zad-25c.pie-193.szt-739.sza-185e.1140.de7.1892)!",
@@ -33293,7 +33293,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKykDOx4iMzEWLhp3cuYmNy0ychRnLiJmMtQnbh5yM4UTLzF2auUGM0ETLllGcuAjLzEjL24CNy4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.24.6.13.0.pie-140e.kas-583.ant-2bb.tas-26f.sza-a32.1892)!",
@@ -33311,7 +33311,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMtEmez5COykTLuFmYuUGO30Cd6NnL2QWNx0icrNnL3UWLvpneuAjL1EjLz4CNy4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.24.3.15.0.zzo-e7.skr-15d6.szt-78e.ban-928.sza-1892)!",
     result: {
@@ -33328,7 +33328,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuEWMx0CdhRnLzkzYt4WYw5SOjBzMt42br5SN50ycltmL4kTLvpneuEjLzEjLx4CMz4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.30.1.13.1.zzo-98.kes-95.kon-30c9.pan-c93.tat-11a.sza-1892)!",
@@ -33346,7 +33346,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuQWMwMTLu92auEjMx0yavdnLkNTMtIWd65SM3gTMuYmN4EjLxITOx0SY6NnL5EmZtQXY65yY2UTL1x2cuYjZhRTLk9GcuUjL0IjLy4yMz4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.33.2.24.5.pod-4af6.slu-56c.zat-fa9.sza-1921.186f.1871.zub-13d.wok-121.kon-301d.sza-1892)!",
@@ -33364,7 +33364,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITO4ETLhp3cuEjNtMXdw5yMwUTMtIXYr5iZmhTL6FmeuAjLzEjLx4SOx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.19.1.13.0.zaz-8ff.kar-1503.pus-61.sza-1892)!",
     result: {
@@ -33381,7 +33381,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKykDOx0SY6NnLjZTNtUHbz5yY5gTL0FmeuQWMh1SbhpnL1gjNtMWYw5yN4YTLvJneuAjL4EjLx4CMy4SarNHN4USNDVSY0FmezhSI",
     value:
       "!(szatański.20.1.18.0.zro-687.pac-685.zam-a1d.zat-89c.slu-56c.sza-1892)!",
@@ -33399,7 +33399,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiM5gTMtEmez5yM5ETLiF2ZuATMy0yc1xmL2UWL0FmeukDN3MTL6JHcuAjL3EjLx4iMy4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.22.1.17.0.prz-3749.zat-e6.lus-210.gab-193.sza-1892)!",
     result: {
@@ -33416,7 +33416,7 @@ results.resultsBySource[
   {
     date: "14.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKykDOx0SY6NnLmFmNz0ychpnL3YzNtwWYn5CMucjLz4SNx4SarNHN4USNDVSY0FmezhSI",
     value: "!(szatański.15.3.7.0.gal-767.zas-36af.sza-1892)!",
     result: {
@@ -33438,7 +33438,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmL5QzNz0ieyBnLw4iMx4CMucjL0NXZnhSI",
     value: "!(gest.7.0.12.0.prz-3749.ges-2)!",
     result: {
@@ -33455,7 +33455,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuEjMy0yc1BnLyAjZy0ibvtmLw4SMx4CMucjL0NXZnhSI",
     value: "!(gest.7.0.11.0.kon-2f02.pus-221.ges-2)!",
     result: {
@@ -33472,7 +33472,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMuUTOtMXZn5iY2YzMtoncw5CMuATMuAjLwEjL0NXZnhSI",
     value: "!(gest.10.0.10.0.prz-366b.ges-95.2)!",
     result: {
@@ -33489,7 +33489,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuQDNy0SeydmL0YjMtk2dn5yYy0Cb1hmLw4iNx4CMukjL0NXZnhSI",
     value: "!(gest.9.0.16.0.hul-2c.gwi-264.gry-244.ges-2)!",
     result: {
@@ -33506,7 +33506,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLlZWLzVmauEmZ20SawVnLw4iMx4SMugjL0NXZnhSI",
     value: "!(gest.8.1.12.0.upi-6fa.jes-fe.ges-2)!",
     result: {
@@ -33523,7 +33523,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIjL1kTLzV2ZuQWNz0yb0NnLw4yNuEjLwEjL0NXZnhSI",
     value: "!(gest.10.1.7.0.sto-35d.ges-95.2)!",
     result: {
@@ -33540,7 +33540,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuEmMtMXdn5iZiFTL6J3ZuAjL44SMukjL0NXZnhSI",
     value: "!(gest.9.1.8.0.grz-1bf.gus-2a.ges-2)!",
     result: {
@@ -33557,7 +33557,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLkZWLzVmauATLrVGduUWOx0Cd1JmLmdjYtEGbw5CMuYTMuIjLwEjL0NXZnhSI",
     value: "!(gest.10.2.16.0.pla-b7f.but-19e.tek-0.jes-fd.ges-2)!",
     result: {
@@ -33574,7 +33574,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Szuuz_Ekleer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMukzMx0ycldmL1cTLnV2duATLnlHduYGNtQXdr5SMuQTMuMjL0EjL0NXZnhSI",
     value: "!(gest.14.3.14.1.kut-4f.tyg-0.weg-75.ges-139.2)!",
     result: {
@@ -33591,7 +33591,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuUmZtMXZq5CN4ETL0N3ducjMtsWdl5CMuQTMuEjLxEjL0NXZnhSI",
     value: "!(gest.11.1.14.0.euk-27.wst-184.jes-fe.ges-2)!",
     result: {
@@ -33608,7 +33608,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5SYyQTL1R3cuUGO10ieyRXZp5mLw4yNx4iMugjL0NXZnhSI",
     value: "!(gest.8.2.17.0.nietrz-58e.stu-42a.ges-2)!",
     result: {
@@ -33625,7 +33625,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLkZWLzVmauYmN00SZoNmL0EjYtQXZt5CMt8Gbl5CMtQXZz5SZwQTMtUWaw5CMuUTMuIjL1EjL0NXZnhSI",
     value:
       "!(gest.15.2.15.0.pie-140e.set-0.elo-0.met-b14.che-46f.jes-fd.ges-2)!",
@@ -33643,7 +33643,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Orzech",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLmNWNx0CbvBnLw4iMx4SMuUjL0NXZnhSI",
     value: "!(gest.5.1.12.0.pol-15cf.ges-2)!",
     result: {
@@ -33660,7 +33660,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuMGOtQXZz5yY5ETL09mbuIjNk1SYyBnLw4yMx4iMugjL0NXZnhSI",
     value: "!(gest.8.2.13.0.pra-d62.not-19c.set-8c.ges-2)!",
     result: {
@@ -33677,7 +33677,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuQTMto2bz5yNhdTYx0ieyBnLw4SNx4iMuYjL0NXZnhSI",
     value: "!(gest.6.2.15.0.prz-1a7a7.soj-14.ges-2)!",
     result: {
@@ -33694,7 +33694,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5iZtMXZm5CZm1yclpmL2UWLiVGZuATL1RXZuEWYy0yYl1mL3gjMtI3bw5CMuYTMuAjL2EjL0NXZnhSI",
     value: "!(gest.16.0.16.0.por-287.mec-2aa.etu-0.deb-e6.jes-fd.fes-f.ges-2)!",
     result: {
@@ -33711,7 +33711,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLm1yclZmL2YTLzVGduUmZtMXZq5yYl1ycrVmLmV2MtIHcz5SMukTMuEjL2EjL0NXZnhSI",
     value: "!(gest.16.1.19.1.spr-3ef.eks-ec.jes-fe.tes-66.fes-f.ges-2)!",
     result: {
@@ -33728,7 +33728,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "meciasek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5iN20yclRnLkZWLzVmauEWZz0CdzVnLzIjZtIWe35CMuITMuEjL0EjL0NXZnhSI",
     value: "!(gest.14.1.12.0.wyb-f23.ust-3ea.jes-fd.tes-66.ges-2)!",
     result: {
@@ -33745,7 +33745,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy4SN50ycldmL5ETL092ZuEGOh1SYydmLw4yNuEjLyEjL0NXZnhSI",
     value: "!(gest.12.1.7.0.gra-a8a.got-19.ges-95.2)!",
     result: {
@@ -33762,7 +33762,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLkJWLzVHcuYmZx0SYp1mLy4SNx4iMugjL0NXZnhSI",
     value: "!(gest.8.2.15.2.mia-1ff.pus-bd.ges-2)!",
     result: {
@@ -33779,7 +33779,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Bigos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuQGOh1CZ5dnLk1yYvZmLkZWLzVmauATL0V2cuETL6VGduUzMt0Wdw5iMuMjMuIjLxEjL0NXZnhSI",
     value: "!(gest.11.2.23.2.pum-35.tez-1.set-0.jes-fd.foc-d.wyd-a8d.ges-2)!",
     result: {
@@ -33796,7 +33796,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuIDM40CboNmL3IzNz0ieyBnLw4COx4CMucjL0NXZnhSI",
     value: "!(gest.7.0.18.0.prz-3727.chl-802.ges-2)!",
     result: {
@@ -33813,7 +33813,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "WszechpoteznyEtyzer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuYjNtMXZ05CZm1yclpmLyITLuV2cuYjMtYWdi5iZmRmMtoncw5CMuUTMuEjL2EjL0NXZnhSI",
     value: "!(gest.16.1.15.0.prz-2dff.buf-26.sen-22.jes-fd.tes-66.ges-2)!",
     result: {
@@ -33830,7 +33830,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "sqnland",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuYWLzVmZuU2MtA3b05SMtkHaj5CZ50ib6NnLw4CNx4SMukjL0NXZnhSI",
     value: "!(gest.9.1.14.0.szn-9d.chy-1.top-3e.fes-f.ges-2)!",
     result: {
@@ -33847,7 +33847,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmL2YTLzVGduUTLtVHcuYmZz0ichpmLw4iMx4CMukjL0NXZnhSI",
     value: "!(gest.9.0.12.0.jar-3ff.pum-5.tes-66.ges-2)!",
     result: {
@@ -33864,7 +33864,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Endrevoir",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5iN20yclRnLhFTNtIXaw5SO10ya6NnLw4COx4iMukjL0NXZnhSI",
     value: "!(gest.9.2.18.0.szk-59.pir-51a.tes-66.ges-2)!",
     result: {
@@ -33881,7 +33881,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5yN2YTMtMXZ65iZx0ya1VmLw4CMx4CMukjL0NXZnhSI",
     value: "!(gest.9.0.10.0.euk-1f.zes-1667.ges-2)!",
     result: {
@@ -33898,7 +33898,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Anteczek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmL2YTLzVGduMjY20SY3tmLw4yMx4SMukjL0NXZnhSI",
     value: "!(gest.9.1.13.0.kwa-6b3.tes-66.ges-2)!",
     result: {
@@ -33915,7 +33915,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Dzemik_Skrytozerca",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5iN20yclRnLm1yclZmLlZGZtQXe35SOiNTMtIXYr5CMucTMuAjLyEjL0NXZnhSI",
     value: "!(gest.12.0.17.0.kar-13b9.wyt-dfe.fes-f.tes-66.ges-2)!",
     result: {
@@ -33932,7 +33932,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKy0ycldmLw0SZ3JnLkFWM10ievBnLw4SMx4iMucjL0NXZnhSI",
     value: "!(gest.7.2.11.0.poz-51ad.rwe-0.ges-2)!",
     result: {
@@ -33949,7 +33949,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMtMXZn5CZm1yclpmL2YTLzVGduUTMi1Cdl1mL0AjMtQnbl5CMuETMuAjL0EjL0NXZnhSI",
     value: "!(gest.14.0.11.0.ent-204.met-b15.tes-66.jes-fd.ges-2)!",
     result: {
@@ -33966,7 +33966,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuEDZ10yY6NnLzATNx0ichtmLw4yMx4SMuUjL0NXZnhSI",
     value: "!(gest.5.1.13.0.kar-1503.szc-5d1.ges-2)!",
     result: {
@@ -33983,7 +33983,7 @@ results.resultsBySource[
   {
     date: "15.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpITLzV2ZuQWLhdWZuAjL34SMuYjL0NXZnhSI",
     value: "!(gest.6.1.7.0.ega-d.ges-2)!",
     result: {
@@ -34229,7 +34229,7 @@ results.resultsBySource[
   {
     date: "20.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpUGZtIXYt5CMt0GZv5iZtIXYj5SZlJTLhJXYuQTL0FGduMWNtIWYy5iZ1kTMtEmc05CZwQTMtUWaw5CMuQTMuUjL3IjLu9GdhJXYthSI",
     value:
       "!(maraton.27.5.14.0.pie-140d.tra-195f.rab-5c.tat-4.ara-2ee.car-f.odm-0.mar-de)!",
@@ -34459,196 +34459,196 @@ results.resultsBySource[
   {
     date: "08.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Orzech",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "the_moon",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Oczk",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Aksal89",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "l.k.",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "bernsteinka",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Ziemniak",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "3cik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "the_good_the_bad_the_ugly",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "08.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
@@ -34660,14 +34660,14 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/",
     value: "",
   },
   {
     date: "13.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFmL2EWZy0ibvtmL2MWMtM3br5yMy0Cd15mLhhTYtEmcn5CMukjLy4iMy4CdrlGbm52brhSI",
     value: "!(konflikt.22.2.9.0.gra-a8a.nut-23.kos-1c6.kon-2ea6.af6)!",
     result: {
@@ -34684,14 +34684,14 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh5CO3EmMuIDMmJTLu92auAjLwEjLw4iNx4CdrlGbm52",
     value: "",
   },
   {
     date: "13.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh1ibvtmLxUGOt42bt5CN50Sas9mL0E2NtwWYw5SMukjLy4COx4CdrlGbm52brhSI",
     value: "!(konflikt.18.2.9.1.pal-7a4.oli-94.mon-8e1.kon-af6)!",
     result: {
@@ -34708,7 +34708,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh1ibvtmL1MDNt42bt5yY00yZv5mLwYWL6NHcuAjLwEjLx4iNx4CdrlGbm52brhSI",
     value: "!(konflikt.16.1.10.0.psz-f0.nog-4c.mon-435.kon-af6)!",
     result: {
@@ -34725,7 +34725,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "the_moon",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYuADMm5iMwYmMt42br5CMucjLw4iNx4CdrlGbm52brhSI",
     value: "!(konflikt.16.0.7.0.kon-2f02.f00.af6)!",
     result: {
@@ -34742,7 +34742,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh5yM4YWLu92aukTNtg2Yy4yMzETLu9GduMzYtQ3bs5SYmFTLsh2YuMmZwQWL6JHcuIjL2EjL14yNy4CdrlGbm52brhSI",
     value:
       "!(konflikt.27.5.16.2.prz-d0fc.chl-1fa.lot-c3.ton-133.2ch-59.kon-f83.af6)!",
@@ -34760,7 +34760,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFmLzgjZuEGN5IjLwYWMy0ibvtmLxMTNt02br5CMugjLw4SNy4CdrlGbm52brhSI",
     value: "!(konflikt.25.0.8.0.kom-531.kon-21f0.294a.f83.af6)!",
     result: {
@@ -34777,7 +34777,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Ziemniak",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92auMTO50CbvtmLzEDOtwWYr5SMugjLy4iNx4CdrlGbm52brhSI",
     value: "!(konflikt.16.2.8.1.kal-813.kol-993.kon-af6)!",
     result: {
@@ -34794,7 +34794,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "nxo",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh5yN1YWMt42br5iZ00yboNmLwATMtQ3bs5iZlNTLyB3cuAjL1EjLy4iMy4CdrlGbm52brhSI",
     value: "!(konflikt.22.2.15.0.spr-3ef.lot-100.cho-4f.kon-1f57.af6)!",
     result: {
@@ -34811,7 +34811,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Szuuz_Ekleer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYuAjZxITLu92auYGNtQXdr5CMuYjLy4CNx4CdrlGbm52brhSI",
     value: "!(konflikt.14.2.6.0.kut-4f.kon-21f0.af6)!",
     result: {
@@ -34828,7 +34828,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92auIjZx0yavtmLhhDNtQ3br5SZwQTMtUWaw5CMukjLy4COx4CdrlGbm52brhSI",
     value: "!(konflikt.18.2.9.0.pie-140e.kot-48a.kok-1f2.kon-af6)!",
     result: {
@@ -34845,7 +34845,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYuETYm5yNzUTMt42br5SOz0CZvdnLwYWMy4iZ4ImMt42br5iZiFTL6J3ZuEjL2EjLw4COy4CdrlGbm52brhSI",
     value:
       "!(konflikt.28.0.16.1.grz-1bf.kon-2b8f.21f0.wod-39.kon-1537.fa1.af6)!",
@@ -34863,7 +34863,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5SMlhTLu9WbuEWYx0ibvdmL0AjMtQnbl5CMukjLy4SOx4CdrlGbm52brhSI",
     value: "!(konflikt.19.2.9.0.ent-204.gon-1aa.mon-8e1.kon-af6)!",
     result: {
@@ -34880,7 +34880,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Orzech",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5iZjVTMtw2bw5CMugjLy4iMx4CdrlGbm52brhSI",
     value: "!(konflikt.12.2.8.0.pol-15cf.kon-af6)!",
     result: {
@@ -34897,25 +34897,25 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92auATLpxGduYzN5ITLu92auEGNtsmbv5iZlNTLyB3cuEjL1EjLy4SMy4CdrlGbm52",
     value:
       "Û\u001aZÝ\u000bKMKKÜ\u001cLÙYÛËM\u0018KÛÛLMÍ\u001b\u001aKL\u000bÛÛXYH",
     result: {
-      word: "Û\u001aZÝ\u000bKMKKÜ\u001cLÙYÛËM\u0018KÛÛLMÍ\u001b\u001aKL\u000bÛÛXYH",
-      correct: null,
-      position: null,
-      incorrect: null,
-      knownIncorrect: null,
-      totalWords: 0,
-      totalLetters: null,
+      word: "konflikt",
+      correct: 21,
+      position: 2,
+      incorrect: 15,
+      knownIncorrect: 1,
+      totalWords: 5,
+      totalLetters: 38,
       date: "13.01.2024",
     },
   },
   {
     date: "13.01.2024",
     nick: "3cik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh1ibvtmLzkTZtw2br5CMuYjLy4iMx4CdrlGbm52brhSI",
     value: "!(konflikt.12.2.6.0.kol-e93.kon-af6)!",
     result: {
@@ -34932,7 +34932,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "tosiu",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFmLkFGOugDNwIjLwYDZuQmN10ibvtmL1QTMtQ3br5yMmZjMuAjZxIjLiNmYx0ibvtmLxIjL5MjL04SM04CdrlGbm52brhSI",
     value:
       "!(konflikt.41.4.39.21.kon-1bcb.21f0.26f3.kot-145.kon-56d.d60.2048.8ad.af6)!",
@@ -34950,7 +34950,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92auUDNx0CdvtmL2MTNtg2Yv5yMj1CdvxmLhhTMtQXds5SZ4UTL6JHdllmbuAjL2EjL54iNy4CdrlGbm52brhSI",
     value:
       "!(konflikt.26.9.16.0.nietrz-58e.lut-18a.lot-c3.och-536.kot-145.kon-af6)!",
@@ -34968,7 +34968,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92aukDZtQ3br5iNxUWLu92aukTNx0ybrlmLyYDZtEmcw5CMugjLz4CMy4CdrlGbm52brhSI",
     value: "!(konflikt.20.3.8.0.pra-d62.iko-159.kon-e16.kot-d9.kon-af6)!",
     result: {
@@ -34985,7 +34985,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh5SMhZWLu92auMTYz0ibvRmLklTLj9mbuczMtUnb35SZyIWL6JHcuAjL2EjLx4SNy4CdrlGbm52brhSI",
     value: "!(konflikt.25.1.16.0.prz-b2e.wnu-37.noc-9d.don-3a3.kon-fa1.af6)!",
     result: {
@@ -35002,7 +35002,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5SMlhTLu9WbuMzYt42bs5yMzETLu9GduUDOjNWL6JHcuAjLzEjL04iMy4CdrlGbm52brhSI",
     value: "!(konflikt.22.4.13.0.prz-cc85.ton-133.lon-c3.mon-8e1.kon-af6)!",
     result: {
@@ -35019,7 +35019,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Dzemik_Skrytozerca",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5yNz0SZvtmL4QTMtE2br5iM5YTLpx2auMjN30CbptmLiJTLt1WauYjL4EjL14yNy4CdrlGbm52brhSI",
     value:
       "!(konflikt.27.5.18.6.imm-2b.kil-763.kli-692.koa-148.koe-37.kon-af6)!",
@@ -35037,7 +35037,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh1ibvtmLxUGOt42bt5SN1UTLvR3cuUTM4ETL0l3duEjLzEjLy4yNx4CdrlGbm52brhSI",
     value: "!(konflikt.17.2.13.1.wyt-1815.sto-555.mon-8e1.kon-af6)!",
     result: {
@@ -35054,7 +35054,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5CMtsWdi5SZ1MTLyVGZuAjLyEjLy4iMx4CdrlGbm52brhSI",
     value: "!(konflikt.12.2.12.0.der-35e.buk-0.kon-af6)!",
     result: {
@@ -35071,7 +35071,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpYjZh5CZ0QTMt42br5iZyQTLu9WbuYWMtsWdl5CMucjLy4SMy4CdrlGbm52brhSI",
     value: "!(konflikt.21.2.7.0.euk-1f.mon-42f.kon-144d.af6)!",
     result: {
@@ -35088,7 +35088,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "rm-rf",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5SN1QTLvJ3auYjMx0ybstmL0kTNtUWat5CMuQjLz4SMy4CdrlGbm52brhSI",
     value: "!(konflikt.21.3.4.0.mie-594.klo-126.kro-455.kon-af6)!",
     result: {
@@ -35105,7 +35105,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYuMDOm1ibvtmL3QTMt82Zv5CZhFTNto3bw5CMugjLy4SOx4CdrlGbm52brhSI",
     value: "!(konflikt.19.2.8.0.poz-51ad.ogo-147.kon-f83.af6)!",
     result: {
@@ -35122,7 +35122,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Bigos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESK2YWYt42br5SO10CajJjLklTLj9mbuYmMz0CblRmL1MTLtVHcuMjL1EjLy4SMy4CdrlGbm52brhSI",
     value: "!(konflikt.21.2.15.3.pum-35.del-32f.noc-9d.2ch-59.kon-af6)!",
     result: {
@@ -35139,7 +35139,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92auMWOy0CblJnL2cTL09mbuUTYz0yb0NnL4MWLulmYuUDOz0CbvdnLwITLsdWYuQjL5EjL44SNy4CdrlGbm52brhSI",
     value:
       "!(konflikt.25.8.19.4.agl-20.wol-385.bin-c8.sto-3a5.not-76.rel-29c.kon-af6)!",
@@ -35157,7 +35157,7 @@ results.resultsBySource[
   {
     date: "13.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFmLwYjMy4yM4YWLu92auUWNtE2a15CMukjLx4CMy4CdrlGbm52brhSI",
     value: "!(konflikt.20.1.9.0.uka-5e.kon-f83.2260.af6)!",
     result: {
@@ -35187,7 +35187,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLi5yY5kTLkFmcuAzNy0CbvpnLw4SMx4CMuETMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.11.0.11.0.zol-270.rad-99c.b-1cd)!",
     result: {
@@ -35204,7 +35204,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYhJnL2MDNtUnYv5iM2UTL6RmeuczYy0yYi9mLw4iMx4iMuUTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.15.2.12.0.obc-2c7.zdz-562.obu-436.rab-1cd)!",
     result: {
@@ -35221,7 +35221,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYucjMhBTMto3by5yNhdTYx0ieyBnLw4yMx4CMuMTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.13.0.13.0.prz-1a7a7.roz-10a27.ab-1cd)!",
     result: {
@@ -35238,7 +35238,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYy5CMy0iav1mL0IWL6VnYuMWNy0ibvRnL1MWLrVGcuUDZj1yboNmLmRmMx0yc5dnLw4SOx4CMucjMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.27.0.19.0.wys-12df.cho-cd5.pek-c5.ton-25c.buz-b4.moj-20.rab-1cd)!",
@@ -35256,7 +35256,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLiFmcuY2YtEmcw5yM5UTLlJHduYWYtknck5CO50yb6pnLw4SNx4CMuQjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.24.0.15.0.zzo-98.dry-af.tre-593.pra-cf.rab-1cd)!",
     result: {
@@ -35273,7 +35273,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYy5CMuAjLw4yNucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.7.0.0.0.rab-1cd)!",
     result: {
@@ -35289,7 +35289,7 @@ results.resultsBySource[
   },
   {
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYuczMtoWYy5iYxYTLyFGaucDNy0icv1mLiRTY10ievBnLw4SNx4SMuUjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.25.1.15.0.poz-5a4b.mor-247.har-61b.raj-37.b-1cd)!",
     result: {
@@ -35305,7 +35305,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLiFmcuY2Y10CbhJmLyMWMtsWYw5yMhZTMtwWYuUmZz0SZppnLw4yMx4iMuQjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.24.2.13.0.zie-3fe.al-16a3.pak-1c2.bal-5cf.rab-1cd)!",
     result: {
@@ -35322,7 +35322,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYy5SY10CbvtmL5QzNz0ieyBnLw4SNx4iMuYTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.16.2.15.0.prz-3749.kol-5a.rab-1cd)!",
     result: {
@@ -35339,7 +35339,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYukzMtcWey5SYkZTLy9WbukDZ00yalxmLw4SMx4CMukTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.19.0.11.0.lek-4d9.mor-6da.ryg-39.ab-1cd)!",
     result: {
@@ -35356,7 +35356,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLiFmL1ETLhdncuEWZy0SZyJmLhZTMt8mcz5CZl1yb6pnLw4yMx4SMuYTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.16.1.13.0.zzo-ed.sro-16a.bre-2ea.rwa-15.ab-1cd)!",
     result: {
@@ -35373,7 +35373,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Szuuz_Ekleer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYuMzMx0CcuAzY50CZh5iN50yc5JnL1UmMtw2b65SMtw2by5iZ00Cd1tmLw4CNx4CMuEzMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.31.0.14.0.kut-4f.rol-1.zol-2e5.rys-96.ad-9c0.p-133.b-1cd)!",
@@ -35391,7 +35391,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Instruktor.Prowadzacy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLiFmcuUTMtIWY35yNyITLjFmYuAjL04iMuMTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.13.2.4.0.bac-227.wab-15.rab-1cd)!",
     result: {
@@ -35408,14 +35408,14 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLiFmcugjYtEGbm5SZ5ITL1h2YuQWMwMTLu92auATLslnYuETZ00yZlxmL2kTLzlncuEjYy0yb6NnLw0SYtNmL1YWLhpncucjMhBTMto3by5yYmBDZtoncw5iMx4yNz4SMuQzMucDOlQzQlE2dvJWYyghSI",
     value: "",
   },
   {
     date: "16.01.2024",
     nick: "nxo",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYhJnL0ATNt0mYv5iZ10Cd5JmLwYTL39GZuUGM50ybwNnLx4yNx4SMuMjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.23.1.17.1.spo-90e.dow-60.byt-5f.obm-504.rab-1cd)!",
     result: {
@@ -35432,7 +35432,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFjL5QTLiFmcuIWNhFTLs9GcuE2M10CbvpnLx4SOx4SMuQTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.14.1.19.1.zol-53a.pol-1a5b.rab-49.1cd)!",
     result: {
@@ -35449,7 +35449,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "sqnland",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLiFmL4gjMtIWeuYWOy0iYhJnLk1iYlpnL0QWL6VGduImZy0CZvxmLw4yMx4SMuEjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.21.1.13.0.lod-2fb.tez-d4.zeb-d.rab-29f.yb-288.ab-1cd)!",
     result: {
@@ -35466,7 +35466,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYy5SNhNTL0FmL0YWLyV2duQWNx0yYq9mLw4CNx4yMuQTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.14.3.14.0.ojc-15d.wer-f4.at-3a5.rab-1cd)!",
     result: {
@@ -35483,7 +35483,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYy5iNjdTLhJHduAjLy4CMuMTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.13.0.2.0.tra-7c6.rab-1cd)!",
     result: {
@@ -35500,7 +35500,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYhJnLldTLhJneuUjZtknc05yYlRmMt8mcw5iZt8GZ35CNto2bn5iM0ETLu9meuQTN10ybsNnLw4iMy4CMuEzMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.31.0.22.0.slo-554.zon-142.goj-4.wdo-f.pro-2dec.try-f5.zra-7e.rab-1cd)!",
@@ -35518,7 +35518,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYhJnLwkTMtw2by5SYj1yZ1JnL0IWMtIXZm5iYmVDOtQ2bw5yNl1yb6pnLw4SOx4SMuYjMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.26.1.19.0.zzo-e7.pod-85fb.fer-1b4.rug-ca.rol-190.rab-1cd)!",
@@ -35536,7 +35536,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "kwiecik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLi5SMyETLm5yYj1yYh5SYj1yZ15SNkFTLwVmcugzMx0yb3RmLwcTNtQ3c35SY00SatNnLw4CNy4SMukzMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.39.1.24.0.smi-4a.wst-570.dwo-138.rep-1d5.ug-ca.ac-cc.f-121.b-1cd)!",
@@ -35554,7 +35554,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYugDOy0iY55SNx0SY35SZk1iYlJnLkBjNt8mci5iN50ic1pnL4UTY30ieyBnLy4yNx4SMuQjMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.24.1.17.2.prz-7a58.zur-96.bro-60d.reb-de.wa-15.yb-288.ab-1cd)!",
@@ -35572,7 +35572,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLi5yMzETLw5yYi1CdhJnLmRjNtI3bt5CO5YTLy9GZuYzNtMWZs5CO50yb6pnLw4yNx4SMuAzMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.30.1.17.0.zzo-98.lec-76.dor-698.mor-64f.rat-bc.p-133.b-1cd)!",
@@ -35590,7 +35590,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKkNWMtIWYy5COwETLvRXdukTYz0SZs9mL2YWY00CZvBnLw4iMx4CMugTMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.18.0.12.0.pod-4af6.ole-3a9.uto-108.rab-1cd)!",
     result: {
@@ -35607,7 +35607,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCZjFTLi5yMzETLw5CMjlTLkFmcuUjZyETLhR3cuAjL14SMuIjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.22.1.5.0.sta-12f5.rad-9c0.p-133.b-1cd)!",
     result: {
@@ -35624,7 +35624,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "WszechpoteznyEtyzer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYhJnLyMjMtIXYk5iMiRTLsFWbuMTLup3duMGZj1CbhBnLw4SMx4SMuQjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.24.1.11.0.pal-cdc.wzn-3.mal-4b2.dar-232.rab-1cd)!",
     result: {
@@ -35641,7 +35641,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5yMxETLsVnYuAjYx0Sd6NnLmFTLrVXZuAjLyEjLx4CMx4SZkVHajhSI",
     value: "!(chude.10.1.12.0.euk-1f.szu-1b0.bul-113.chu-f0)!",
     result: {
@@ -35658,7 +35658,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpQ2Yx0iYuMzMx0CchJnL4ITZtIXYt5SO3YTLvJneuIWYk1SY6NmLw4CNx4SMuQjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.24.1.14.0.cza-dab.zro-679.mar-e28.rap-133.b-1cd)!",
     result: {
@@ -35675,7 +35675,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "meciasek",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpM2Yx0iYuATLtFmL0IGOtsmL4EmMtcXZuATYz0ycvJnL2QTOx0CdvBnLwIzMx0Cb5dnLz4iMy4SMuAjMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.20.1.22.3.wyl-1320.pot-1946.ros-3a0.ew-2a8.k-8b4.am-0.b-1cc)!",
@@ -35693,7 +35693,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKjNWMtIWYy5CNx0SY3JnL0MDNt8mc35CZiRTLnFmbuADMm1Sbk9mLkBDNx0SZpBnLw4iNx4SMucTMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.17.1.16.0.pie-140d.odm-f00.nag-4bd.wro-434.rwa-14.rab-1cc)!",
@@ -35711,7 +35711,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpM2Yx0iYhJnL2YjNx0ichBnLkBTMtQXY35iMiRTLsFWbuUzN2ETLsFmeuAjL44SMuUjMucDOlQzQlE2dvJWYyhSI",
     value: "!(rabować.25.1.8.0.zal-1675.mal-4b2.wat-10d.par-1666.rab-1cc)!",
     result: {
@@ -35728,7 +35728,7 @@ results.resultsBySource[
   {
     date: "16.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyYjFTLiFmcuIWZkJTLvJHcuQWOj1CZ5dnL2IWOtcWYu5SN1ITLhlmYuADMz0CblpnLw4SNx4iMuQjMucDOlQzQlE2dvJWYyhSI",
     value:
       "!(rabować.24.2.15.0.zel-300.bia-255.nag-9b6.wyd-c9d.pro-2deb.rab-1cc)!",
@@ -35751,7 +35751,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIDZy0SauNnLhRmNtw2b65CMucjLx4SMx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.11.1.7.0.zol-6da.sni-2d2)!",
     result: {
@@ -35768,7 +35768,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMtkmbukjYi1Sa3NnLlJTYtoXY65CMuYjLx4CNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.14.1.6.0.zaz-a2e.swi-bb9.ni-2d2)!",
     result: {
@@ -35785,7 +35785,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMtkmbz5yYkNTL6VmaucTNx0ielxmL4YmMtIWZ65iYldTLvx2cuAjLyEjLx4SNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.15.1.12.0.slo-7eb.zeb-2f8.lez-157.jez-3dc.sni-2d2)!",
     result: {
@@ -35802,7 +35802,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuUjZx0ibpBnL5ADOtkmb15CNyETL6lmbuMGNz0iel1mLwATMx0ie5dnL2kTLu9mL4kTLvpneuAjL2EjLw4COy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value:
       "!(śnieżny.28.0.16.0.zzo-98.on-96.wyz-1100.mez-34c.niz-124.uni-809.pin-1f5.sni-2d2)!",
@@ -35820,7 +35820,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIDZy0SauNnL1UWOtUWai5SNzkjYtQ2bw5CMukjLw4CNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.14.0.9.0.pod-b935.bie-9e5.sni-2d2)!",
     result: {
@@ -35837,7 +35837,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMtkmbz5CO0czMtoncw5CMukjLx4CMx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.10.1.9.0.prz-3748.sni-2d2)!",
     result: {
@@ -35854,7 +35854,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "nxo",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMuYTZx0SauNnL1UzMtMXa35SZwkTLvB3cuAjLyEjLx4iNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.16.1.12.0.spo-90e.wis-355.sni-1e6.2d2)!",
     result: {
@@ -35871,7 +35871,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "wojtasg",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIDZy0SauNnLlJzMx0Cb5dnLw4yNuIjL44SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.8.2.7.0.wyl-132e.sni-2d2)!",
     result: {
@@ -35888,7 +35888,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJjL5IzMuETZy4COyIjLzQTMtkmbz5SYmFTLzlXbuAjLyEjLx4SOy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.29.1.12.0.mys-1fa.sni-143.228.2e1.329.2d2)!",
     result: {
@@ -35905,7 +35905,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "sqnland",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMtkmbz5yN1ETL6VGbuEzMtUnej5SO1ETL69GbuAjLyEjLw4yMx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.13.0.12.0.loz-159.czu-31.lez-157.sni-2d2)!",
     result: {
@@ -35922,7 +35922,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIDZy4iNlFTLp52cuIGM10Cbl5yY4MTLs9meuAjLzEjLz4yMx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.13.3.13.0.zol-38c.el-50b.sni-1e6.2d2)!",
     result: {
@@ -35939,7 +35939,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Orzech",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuEmM0ETL6VmYuATL552YllmbuY2Y1ETLs9GcuAjL0EjLx4iMy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.22.1.14.0.pol-15cf.niecny-0.bez-142a.sni-2d2)!",
     result: {
@@ -35956,7 +35956,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIDZy4SMlJTLp52cugTMt4Wan5yYukjMuAzMuUTMuETMtg2Yy4CM30yY5pXZp5mLkZzMtoXZq5SNlRTLsVmeuUjNx0ie5xmLyUTL39WbllmbuQGM0ETLllGcuAjLzIjLy4yNz4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value:
       "!(śnieżny.37.2.23.0.pie-140d.niemow-52.lyz-165.zel-4e5.jez-36d.niezyc-70.2ch-11.15.30.29.c.gin-18.sni-2e1.2d2)!",
@@ -35974,7 +35974,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuMTZx0SYydnL4kTLvpneuAjLwEjLx4iMx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.12.1.10.0.zzo-98.wra-1e3.sni-2d2)!",
     result: {
@@ -35991,7 +35991,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp5mL5ImYtk2duQTZy0SZs5SNmJTMtEGdz5CMukjLw4iNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.16.0.9.0.sta-12f5.le-2e4.wi-bb9.ni-2d2)!",
     result: {
@@ -36008,7 +36008,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuATL3lnellmbuQTZy0CbvpnL3E2NhFTL6JHcuAjLzEjLy4SNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.15.2.13.0.prz-1a7a7.zol-2e4.niezyw-0.sni-2d2)!",
     result: {
@@ -36025,7 +36025,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJjLxUmMtkmbz5SZzETL6VGbugDNy0ielpmL5UTLoN2MuYWYtMWd65SNjdTLhJHduAjL3EjLx4CMy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value:
       "!(śnieżny.20.1.17.0.tra-7c5.zuc-af.3ch-59.jez-248.lez-13e.sni-2e1.2d2)!",
@@ -36043,7 +36043,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMuETZy0SauNnLhNjMtwWatVWau5iY4UTL6JHdllmbuAjL0EjLw4SMy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.21.0.14.0.nietrz-58b.niemil-23a.sni-2e1.2d2)!",
     result: {
@@ -36060,7 +36060,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuM2Mx0iezBnLzImMtIWZ65CMukjLy4SMx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.11.2.9.0.zeb-2b3.psz-13c.sni-2d2)!",
     result: {
@@ -36077,7 +36077,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMtkmbz5yMj1iev1WZp5mL3UWLvpneuAjLyEjLx4CNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.14.1.12.0.zzo-e7.niemoz-c3.sni-2d2)!",
     result: {
@@ -36094,7 +36094,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuQmNt42cs5yM4MTMtUWaw5COzITLpt2cuAjLyEjLx4iNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.16.1.12.0.ski-238.pie-1383.lsn-6d.sni-2d2)!",
     result: {
@@ -36111,7 +36111,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuIWYk1SY6NmLw4COuAjL44SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.8.0.8.0.cza-dab.sni-2d2)!",
     result: {
@@ -36128,7 +36128,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Bigos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpIDZy0SauNnLkVzNtUWaw5SN4UWLyl3duQTZy0CbvpnL0MTLtVHcuYjLwIjLz4CMy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.20.3.20.6.pum-34.zol-2e4.wyr-e85.pie-75d.sni-2d2)!",
     result: {
@@ -36144,7 +36144,7 @@ results.resultsBySource[
   },
   {
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJjL3UjMuIWNy4SN3ETLp5mLxkjNtk2duQzYtkWbz5iZ4UTMtkmek5yNwgTLn9GcuEjLwIjLx4SOy4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value:
       "!(śnieżny.29.1.20.1.pog-807.dzi-158f.smi-c4.wi-691.ni-175.25b.257.2d2)!",
@@ -36161,7 +36161,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "the_good_the_bad_the_ugly",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuMmNy0iY1xmLjRzMtoXZt5CNykTL6FmeuAjLxEjLw4COx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.18.0.11.0.zaz-924.mez-34c.lub-26c.sni-2d2)!",
     result: {
@@ -36178,7 +36178,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "Endrevoir",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkiMkJTLp52cuMmMz0SY6VnLw4yMuIjL44SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.8.2.3.0.uza-32c.sni-2d2)!",
     result: {
@@ -36195,7 +36195,7 @@ results.resultsBySource[
   {
     date: "19.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKyQmMtkmbz5CM0EWLllmYuQTLslneuUjZhRTLk9GcuAjLyEjLx4SNx4SeuNkQlUzQlUWauJUOlUzQlgSI",
     value: "!(śnieżny.15.1.12.0.pod-4af5.zyl-4.bie-a40.sni-2d2)!",
     result: {
@@ -36217,7 +36217,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaucjYx0CZ1NmLihjMto2bw5CMukjLw4SMx4SZkVHajhSI",
     value: "!(chude.11.0.9.0.poj-28b.cud-1b7.hu-f0)!",
     result: {
@@ -36234,7 +36234,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5yYy0yY1RmLhhTNtonc0VWau5CMuQTMuMjL54SZkVHajhSI",
     value: "!(chude.9.3.14.0.nietrz-58a.duc-2c.chu-f0)!",
     result: {
@@ -36251,7 +36251,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5iY0kTLz92aukDOh1SYydmLw4SOuAjL34SZkVHajhSI",
     value: "!(chude.7.0.9.0.gra-a89.kos-94b.chu-f0)!",
     result: {
@@ -36268,7 +36268,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5CNx0yY1RmLxMmMtQXdi5iMwYmMt42br5CMuMTMuIjL44SZkVHajhSI",
     value: "!(chude.8.2.13.0.kon-2f02.but-2c1.duc-14.chu-f0)!",
     result: {
@@ -36285,7 +36285,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5yYy0yc1tmL0ATOtIHc15CMuUTMuAjL54SZkVHajhSI",
     value: "!(chude.9.0.15.0.upr-904.kus-2c.chu-f0)!",
     result: {
@@ -36302,7 +36302,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5SZ30CaucjM10yauQmYtMWZk5yY5ITLyVGaukjL0IjL34yMx4SZkVHajhSI",
     value: "!(chude.13.7.24.9.her-29c.dec-bd.k-527.h-7e.chu-f0)!",
     result: {
@@ -36319,7 +36319,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1h2YuIGZx0CZ1JmL5MTNtUmc05COkNTLllmeuAjL1EjLx4CMx4SZkVHajhSI",
     value: "!(chude.10.1.15.0.zie-3d8.tre-539.bud-1db.chu-f0)!",
     result: {
@@ -36336,7 +36336,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5SO0czMtoncw5CMuETMuIjL34SZkVHajhSI",
     value: "!(chude.7.2.11.0.prz-3749.chu-f0)!",
     result: {
@@ -36353,7 +36353,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Felonious_Gru",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaucjYx0CZ1NmLmdDNtw2bw5CMucjLx4CMx4SZkVHajhSI",
     value: "!(chude.10.1.7.0.pol-47f.cud-1b7.hu-f0)!",
     result: {
@@ -36370,7 +36370,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1Sdo5SMk1CZ1NmLwADOtMXZk5iZ5ITLyF2duAjL0EjLx4SMx4SZkVHajhSI",
     value: "!(chude.11.1.14.0.war-29f.des-800.cud-d1.hu-f0)!",
     result: {
@@ -36387,7 +36387,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "nxo",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1SdoNmLmV2MtIHcz5CMuATMuAjL34SZkVHajhSI",
     value: "!(chude.7.0.10.0.spr-3ef.chu-f0)!",
     result: {
@@ -36404,7 +36404,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1hmLxQWLkV3YukzYz0SdsBnL3ITLrVXZuIjL2EjLx4SMx4SZkVHajhSI",
     value: "!(chude.11.1.16.2.euk-27.plu-3c9.cud-d1.hu-f0)!",
     result: {
@@ -36421,7 +36421,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1h2YuQTMtMWdk5SMjFTLtlHZuEWLnxWduQGM0ETLllGcuAjL1EjLz4iMx4SZkVHajhSI",
     value: "!(chude.12.3.15.0.pie-140d.ulg-a.dym-1c1.duc-14.chu-f0)!",
     result: {
@@ -36438,7 +36438,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "segregator",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1h2YuMzYz0SdsBnLzITMtIXe35iMucTMuAjL44SZkVHajhSI",
     value: "!(chude.8.0.17.2.wyr-123.plu-3c3.chu-f0)!",
     result: {
@@ -36455,7 +36455,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL15yYhJTLl5iMlFTLs5iN1kTLhh2YuAjLyEjLw4CNx4SZkVHajhSI",
     value: "!(chude.14.0.12.0.cha-956.l-1e2.e-2ac.u-f0)!",
     result: {
@@ -36472,7 +36472,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "kwiecik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1SdoNmLiNWMtQWdi5iMiZTLhd3auAjL1EjLy4CMx4SZkVHajhSI",
     value: "!(chude.10.2.15.0.kwa-6b2.bud-1cb.chu-f0)!",
     result: {
@@ -36489,7 +36489,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpAjZtUHaj5iZj1CajNjLkNTLkVnYuEjMz0CZl1mLlJWMtsWds5yMwITL05WZuAjL2EjLz4CNx4SZkVHajhSI",
     value: "!(chude.14.3.16.0.ent-203.luk-1be.med-321.bud-3d.3ch-cf.chu-f0)!",
     result: {
@@ -36506,7 +36506,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1Sdo5SM2ITLsV2YuYjYtUWat5yMmVTMtIXYw5CMuUTMuEjL54SZkVHajhSI",
     value: "!(chude.9.1.15.0.par-15f3.mie-b6.cel-261.hu-f0)!",
     result: {
@@ -36523,7 +36523,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1hmLxQWLkVnL2QTMt4WZj5iM2QWLhJHcuAjLwEjLw4yMx4SZkVHajhSI",
     value: "!(chude.13.0.10.0.pra-d62.cen-146.ud-d1.hu-f0)!",
     result: {
@@ -36540,7 +36540,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm5yMm1SdoNmL3E2NhFTL6JHcuAjLxEjLy4iMx4SZkVHajhSI",
     value: "!(chude.12.2.11.0.prz-1a7a7.chu-f3.f0)!",
     result: {
@@ -36557,7 +36557,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "WszechpoteznyEtyzer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1SdoNmLhRzMtwWZj5SNilTMtoncw5CMuETMuEjL44SZkVHajhSI",
     value: "!(chude.8.1.11.0.prz-19b5.cel-34a.chu-f0)!",
     result: {
@@ -36574,7 +36574,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "sqnland",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1h2YuITOtg2Yz4CO2QTL5JHcuMTOtw2br5CMuQTMuAjL54SZkVHajhSI",
     value: "!(chude.9.0.14.0.kol-93.pry-468.3ch-92.chu-f0)!",
     result: {
@@ -36591,7 +36591,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1hmLkRWLkV3YukTYtg2Yz4iZmFTLhlWbuAjLyEjLx4iMx4SZkVHajhSI",
     value: "!(chude.12.1.12.0.mia-1ff.3ch-a9.cud-dd.hu-f0)!",
     result: {
@@ -36608,7 +36608,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1Sdo5iMyQWLlp3YuMmYtIXYw5CMuMTMuAjL54SZkVHajhSI",
     value: "!(chude.9.0.13.0.par-bc.cze-d22.hu-f0)!",
     result: {
@@ -36625,7 +36625,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1hmLw0SbuEmYx0ya15iMxMTL0l3YuATLkVnYuQGZtQWdj5SNhFTLsVGZuYWZz0icwNnLxEjLwMjLw4CMy4SZkVHajhSI",
     value:
       "!(chude.20.0.30.11.spr-3ef.del-1a5.cud-dd.bud-0.cyt-312.uk-1ba.m-0.hu-f0)!",
@@ -36643,7 +36643,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1h2YuQmYtMWZk5SOm1CajNjLlNTLk9WbuQjM3MTL6JHcuAjL2EjLy4yMx4SZkVHajhSI",
     value: "!(chude.13.2.16.0.prz-3724.mod-3e.3ch-f9.dec-bd.chu-f0)!",
     result: {
@@ -36660,7 +36660,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkCMm1SdoNmLl1ia1RnLlVTMtIXZ35CZhFTNto3bw5CMuYTMuAjL54SZkVHajhSI",
     value: "!(chude.9.0.16.0.poz-51ad.wer-15e.tuj-e.chu-f0)!",
     result: {
@@ -36677,7 +36677,7 @@ results.resultsBySource[
   {
     date: "17.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKwYWL1h2YuETLlR2duETZtIXZk5iMiFTLoN2MukTZ10Cbl1mLwcTLhRHcuAjL2EjLy4iMx4SZkVHajhSI",
     value: "!(chude.12.2.16.0.pta-70.mel-5e9.3ch-1b2.der-e1.wde-1.chu-f0)!",
     result: {
@@ -36699,7 +36699,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Romanson",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buQmZj1ycvRmLlNzMt8Gdz5SNjRGOx0ieyBnLw4iMx4iMuYTMuEGZ1R3cvhSI",
     value: "!(ostuda.16.2.12.0.prz-18dc5.sto-33e.dos-cfd.ost-d43)!",
     result: {
@@ -36716,7 +36716,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Deykun",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3bugDOtg2Yz4iN0YTL5p3cuQmZj1ycvRmLmBTMtM3bo5yMmZjMtM3bw5CMtQ3bq5iZhJTL0FWbukDOh1SYydmLy4SOx4yMuYjMuEGZ1R3cvhSI",
     value:
       "!(ostuda.26.3.19.2.gra-a89.mat-2af.jot-0.pos-26f3.hos-10f.dos-cfd.szy-646.3ch-88.ost-d43)!",
@@ -36734,7 +36734,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "kamin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKzQDZtQnLmhTLhN3buIDMmJTLu92auAjL34CMuMTMuEGZ1R3cvhSI",
     value: "!(ostuda.13.0.7.0.kon-2f02.osa-8f.t-d43)!",
     result: {
@@ -36751,7 +36751,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Kronos",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1Cdz9mLjZ2YtM3bk5iM2YWMt8mcw5iNxUTLllmeuAjL54iMuQTMuEGZ1R3cvhSI",
     value: "!(ostuda.14.2.9.0.zie-516.pro-1f62.dos-cfc.ost-d43)!",
     result: {
@@ -36768,7 +36768,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "razALgul",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QmLyQDZtQ3cv5yYyITL0NXduUmYz0Sd0NnLwQTLzVHcuATL0VnYuITMtQXYq5CM30icldmLx4SOx4CNuYjMuEGZ1R3cvhSI",
     value:
       "!(ostuda.26.4.19.1.ger-70.jat-12.but-0.pus-40.stu-3be.ust-22c.ost-d42.d43)!",
@@ -36785,7 +36785,7 @@ results.resultsBySource[
   },
   {
     nick: "Heheszki",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKzQDZtQ3cuETL1R3buQjY4ITLr9GcugzYz0yb5dnLw4SNx4SMuUTMuEGZ1R3cvhSI",
     value: "!(ostuda.15.1.15.0.wyo-3c8.pok-28b4.otu-1.st-d43)!",
     result: {
@@ -36801,7 +36801,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "AbenoKyerto",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL05SZ30ibz9mLkljNt8mci5CZhRzMtM3bw5CMt0Wdz5CNy0ia1tmLw4CNx4iMuMjMuEGZ1R3cvhSI",
     value: "!(ostuda.23.2.14.0.kuj-24.sum-0.pos-34ad.bro-69d.osn-7e.t-d43)!",
     result: {
@@ -36818,7 +36818,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Dzielny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buMmZwQWL6JHcuAjL54SMuETMuEGZ1R3cvhSI",
     value: "!(ostuda.11.1.9.0.prz-d0fc.ost-d43)!",
     result: {
@@ -36835,7 +36835,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "conradowl",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QmL2YDNtQ3cv5CMiBTMtw2br5SNz0ycvNnLyQTMx0ich1mLx4iMx4iMucTMuEGZ1R3cvhSI",
     value: "!(ostuda.17.2.12.1.mar-1142.sos-35.kol-10b0.ost-466.d43)!",
     result: {
@@ -36852,7 +36852,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "nxo",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1Cdz5yMxITL1tmLkNTLzJ2buYWZz0icwNnLx4CNx4iMucTMuEGZ1R3cvhSI",
     value: "!(ostuda.17.2.14.1.spr-3ef.obs-3d.ku-213.st-d43)!",
     result: {
@@ -36869,7 +36869,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "PatykiemPisane",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3bukDN3MTL6JHcuAjLwEjLy4SOuEGZ1R3cvhSI",
     value: "!(ostuda.9.2.10.0.prz-3749.ost-d43)!",
     result: {
@@ -36886,7 +36886,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "sqnland",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1Cdz9mL4gTL1RnLw0Sb1NnL3QWL5p3YuImMz0ic1JmLw4SMx4SMuYTMuEGZ1R3cvhSI",
     value: "!(ostuda.16.1.11.0.bur-32b.czy-d7.sum-0.tu-88.ost-d43)!",
     result: {
@@ -36903,7 +36903,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Kotuduchawinny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKzQDZtQ3cuETL1RnLyYTOtEGcv5SNwITLu9WbuITOm1icvtmLw4yMx4CMugTMuEGZ1R3cvhSI",
     value: "!(ostuda.18.0.13.0.kor-f92.mon-205.opa-962.tu-1.st-d43)!",
     result: {
@@ -36920,7 +36920,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "radziol",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk5iZjRWL0N3buUjNtQ3b35yNhdTYx0ieyBnLw4yMx4CMucTMuEGZ1R3cvhSI",
     value: "!(ostuda.17.0.13.0.prz-1a7a7.wot-65.ost-dcf.d43)!",
     result: {
@@ -36937,7 +36937,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Tomekku",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buETZtUHdz5SOyIWMtM2bw5yNy0ya1VmLy4yMx4iMuYTMuEGZ1R3cvhSI",
     value: "!(ostuda.16.2.13.2.euk-27.poc-1b29.stu-e1.ost-d43)!",
     result: {
@@ -36954,7 +36954,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "UbogiKrewny",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buATOx0ycv1mL1ETLjVHZuATL0NXdukDZx0Se0NnLkBDNx0SZpBnLw4SMx4yMukTMuEGZ1R3cvhSI",
     value: "!(ostuda.19.3.11.0.pie-140d.sty-1d9.ust-0.duc-15.mos-190.ost-d43)!",
     result: {
@@ -36971,7 +36971,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Bujnik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1CduYGOuUGOtE2cv5iZlNTLyB3cuEjL54iMuYTMuEGZ1R3cvhSI",
     value: "!(ostuda.16.2.9.1.spr-3ef.osa-8e.8f.t-d43)!",
     result: {
@@ -36988,7 +36988,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Greyman",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1CduETL15iN2QTL0N3bugTOz0yb6NnLjZTLoN2MuIDM00CbhBnLyATNx0ichtmLx4SOx4yMuAjMuEGZ1R3cvhSI",
     value:
       "!(ostuda.20.3.19.1.kar-1502.pal-402.3ch-6c.szo-398.ost-466.u-1.t-d43)!",
@@ -37006,7 +37006,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Cybulion",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKzQDZtQ3cv5SY4UTL6JHdllmbuAjLwEjLy4SOuEGZ1R3cvhSI",
     value: "!(ostuda.9.2.10.0.nietrz-58a.ost-d43)!",
     result: {
@@ -37023,7 +37023,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "Gilgamesh",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3bucDZj1ycvRmLjdTMx0SY6NnL2EjMx0yavBnLy4SNx4iMuMTMuEGZ1R3cvhSI",
     value: "!(ostuda.13.2.15.2.pok-1216.sza-117c.dos-cd7.ost-d43)!",
     result: {
@@ -37040,7 +37040,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "yourgrandma",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buUjZh1CdvRmLmFTLrVXZuAjL34yMuITMuEGZ1R3cvhSI",
     value: "!(ostuda.12.3.7.0.euk-1f.dot-af5.ost-d43)!",
     result: {
@@ -37057,7 +37057,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "sugardaddy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1CduYGOtE2cv5SOlNTLoN2MuU2Mj1yZvBnLzMTLk92dugTNx0ybyVmLw4iMx4CMuEjMuEGZ1R3cvhSI",
     value: "!(ostuda.21.0.12.0.ero-158.wod-33.pog-c3e.3ch-3e9.osa-8f.t-d43)!",
     result: {
@@ -37074,7 +37074,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "def",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKzQDZuY2Yk5yM4QjLw4CM2UmL2YDNtQ3cv5SO2UTLz92auMDMy0CduVmLy4iNx4SMuMzMuEGZ1R3cvhSI",
     value: "!(ostuda.33.1.16.2.ent-203.kos-569.ost-466.e60.0.483.dcf.d43)!",
     result: {
@@ -37091,7 +37091,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "jakibytulogin",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buQTOtoWdi5SMh1SdstmL2IzNz0ieyBnLw4COx4iMuITMuEGZ1R3cvhSI",
     value: "!(ostuda.12.2.18.0.prz-3726.klu-a1.buj-94.ost-d43)!",
     result: {
@@ -37108,7 +37108,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "ranunculus",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QmL2YDNuQjY00Cdz9mLw0ycvZmLkFWM10ievBnLw4SMx4CMuAjMuEGZ1R3cvhSI",
     value: "!(ostuda.20.0.11.0.poz-51ad.fos-0.ost-4b4.466.d43)!",
     result: {
@@ -37125,7 +37125,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "ulsterboy",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=QIpMDNk1Cdz9mL0MDZy0ycvBnLkZ2YtM3bk5CO0MTLhR3cuYmZx0SYp1mLy4yMx4SNuAjMuEGZ1R3cvhSI",
     value: "!(ostuda.20.5.13.2.mia-1ff.sta-348.dos-cfd.pos-2d34.ost-d43)!",
     result: {
@@ -37142,7 +37142,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "serotonin_enjoyer",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=ESKzQDZtQ3cv5yMyQjYto3by5CN40ybsVmLw4CMx4SMuMTMuEGZ1R3cvhSI",
     value: "!(ostuda.13.1.10.0.elo-84.roz-b423.ost-d43)!",
     result: {
@@ -37159,7 +37159,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "kwiecik",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3buQmNzMTLz9GcuIjY20SY3tmLw4yMx4iMuQTMuEGZ1R3cvhSI",
     value: "!(ostuda.14.2.13.0.kwa-6b2.pos-336d.ost-d43)!",
     result: {
@@ -37176,7 +37176,7 @@ results.resultsBySource[
   {
     date: "18.01.2024",
     nick: "the_good_the_bad_the_ugly",
-    lang: "de",
+    lang: "pl",
     url: "https://deykun.github.io/diffle-lang/?r=hkyM0QWL0N3bugzNx0SdoNmLw0ybnVnLzUWLt9GcuImMx0ic5dnLx4COx4iMucTMuEGZ1R3cvhSI",
     value: "!(ostuda.17.2.18.1.wyr-12b.pom-e3.ugo-0.chu-178.ost-d43)!",
     result: {
@@ -39499,16 +39499,16 @@ results.resultsBySource[
     url: "https://deykun.github.io/diffle-lang/?r=hkiNmFWLu92auATLpxGduYzN5ITLu92auEGNtsmbv5iZlNTLyB3cuEjL1EjLy4SMy4CdrlGbm52",
     value:
       "Û\u001aZÝ\u000bKMKKÜ\u001cLÙYÛËM\u0018KÛÛLMÍ\u001b\u001aKL\u000bÛÛXYH",
-    result: {
-      word: "Û\u001aZÝ\u000bKMKKÜ\u001cLÙYÛËM\u0018KÛÛLMÍ\u001b\u001aKL\u000bÛÛXYH",
-      correct: null,
-      position: null,
-      incorrect: null,
-      knownIncorrect: null,
-      totalWords: 0,
-      totalLetters: null,
-      date: "13.01.2024",
-    },
+      result: {
+        word: "konflikt",
+        correct: 21,
+        position: 2,
+        incorrect: 15,
+        knownIncorrect: 1,
+        totalWords: 5,
+        totalLetters: 38,
+        date: "13.01.2024",
+      },
   },
   {
     date: "13.01.2024",
