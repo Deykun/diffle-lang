@@ -155,7 +155,7 @@ results.resultsBySource[
     value:
       "[\u001b\u0019KLNLËMK\u000b\u000b[ÜNM\u000b[\u001b\u000bLXM\u000b[\u000bM\u000b[\u000bMM\nH",
     result: {
-      word: "[\u001b\u0019KLNLËMK\u000b\u000b[ÜNM\u000b[\u001b\u000bLXM\u000b[\u000bM\u000b[\u000bMM\nH",
+      word: "valle",
       correct: 16,
       position: 1,
       incorrect: 8,
@@ -457,7 +457,7 @@ results.resultsBySource[
     url: "https://deykun.github.io/diffle-lang/it?r=hkiZz0icv1mL5gTLy9mZuEmMtQmcv5SNx0icv5mLxIWMtMXay5CMuYjL14CNy4SNwITLh5WamJ3",
     value: "Ü[KL\rK\u000bK\u000b\\ËLXKÜLMKÜ\u000bLKÜN\u000eK[ÜLÙH",
     result: {
-      word: "Ü[KL\rK\u000bK\u000b\\ËLXKÜLMKÜ\u000bLKÜN\u000eK[ÜLÙH",
+      word: "morfina",
       correct: 24,
       position: 5,
       incorrect: 6,
