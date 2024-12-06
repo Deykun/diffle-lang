@@ -339,9 +339,16 @@ export type YearSummaryInfo = YearlyInfo & {
   activePlayers: number,
   byUser: {
     [username: string]: {
-      year: ResultsInfo,
-      [month: string]: ResultsInfo,
-    }
+      best30: ResultsInfo,
+      results: {
+        year: ResultsInfo,
+        [month: string]: ResultsInfo,
+      },
+      dates: {
+        year: string[],
+        [month: string]: string[],
+      },
+    },
   },
   rankByWords: {
     [word: string]: ResultsInfo,

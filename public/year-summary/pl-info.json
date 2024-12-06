@@ -118,6 +118,43 @@
 	"activePlayers": 102,
 	"byUser": {
 		"Heheszki": {
+			"best50": {
+				"best": {
+					"word": "most",
+					"letters": 14
+				},
+				"worst": {
+					"word": "pęknięcie",
+					"letters": 32
+				},
+				"totalWords": {
+					"2": 12,
+					"3": 29,
+					"4": 7,
+					"5": 2
+				},
+				"totalLetters": {
+					"14": 1,
+					"17": 1,
+					"19": 1,
+					"20": 1,
+					"21": 6,
+					"22": 1,
+					"23": 6,
+					"24": 4,
+					"25": 3,
+					"26": 6,
+					"27": 6,
+					"28": 3,
+					"29": 2,
+					"30": 5,
+					"31": 3,
+					"32": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 25.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -450,6 +487,35 @@
 			}
 		},
 		"Felonious_Gru": {
+			"best50": {
+				"best": {
+					"word": "jajo",
+					"letters": 14
+				},
+				"worst": {
+					"word": "ręcznik",
+					"letters": 24
+				},
+				"totalWords": {
+					"2": 8,
+					"3": 35,
+					"4": 7
+				},
+				"totalLetters": {
+					"14": 2,
+					"17": 2,
+					"18": 3,
+					"19": 5,
+					"20": 6,
+					"21": 7,
+					"22": 8,
+					"23": 7,
+					"24": 10
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 21.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -1042,6 +1108,31 @@
 			}
 		},
 		"nxo": {
+			"best50": {
+				"best": {
+					"word": "post",
+					"letters": 16
+				},
+				"worst": {
+					"word": "heros",
+					"letters": 21
+				},
+				"totalWords": {
+					"2": 45,
+					"3": 5
+				},
+				"totalLetters": {
+					"16": 2,
+					"17": 15,
+					"18": 8,
+					"19": 7,
+					"20": 12,
+					"21": 6
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2,
+				"medianLetters": 18.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -1599,6 +1690,37 @@
 			}
 		},
 		"Kotuduchawinny": {
+			"best50": {
+				"best": {
+					"word": "mierny",
+					"letters": 14
+				},
+				"worst": {
+					"word": "kurtyna",
+					"letters": 24
+				},
+				"totalWords": {
+					"2": 18,
+					"3": 26,
+					"4": 6
+				},
+				"totalLetters": {
+					"14": 1,
+					"15": 2,
+					"16": 2,
+					"17": 2,
+					"18": 7,
+					"19": 7,
+					"20": 2,
+					"21": 5,
+					"22": 11,
+					"23": 10,
+					"24": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -2295,6 +2417,37 @@
 			}
 		},
 		"Dzemik_Skrytozerca": {
+			"best50": {
+				"best": {
+					"word": "strzała",
+					"letters": 14
+				},
+				"worst": {
+					"word": "odlotowy",
+					"letters": 24
+				},
+				"totalWords": {
+					"2": 22,
+					"3": 27,
+					"4": 1
+				},
+				"totalLetters": {
+					"14": 1,
+					"15": 2,
+					"16": 4,
+					"17": 4,
+					"18": 2,
+					"19": 3,
+					"20": 4,
+					"21": 5,
+					"22": 10,
+					"23": 10,
+					"24": 5
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 21.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -2931,6 +3084,35 @@
 			}
 		},
 		"conradowl": {
+			"best50": {
+				"best": {
+					"word": "żaden",
+					"letters": 11
+				},
+				"worst": {
+					"word": "koniec",
+					"letters": 20
+				},
+				"totalWords": {
+					"2": 29,
+					"3": 20,
+					"4": 1
+				},
+				"totalLetters": {
+					"11": 1,
+					"13": 1,
+					"14": 2,
+					"15": 3,
+					"16": 10,
+					"17": 9,
+					"18": 6,
+					"19": 11,
+					"20": 7
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2,
+				"medianLetters": 16.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -3562,6 +3744,36 @@
 			}
 		},
 		"Greyman": {
+			"best50": {
+				"best": {
+					"word": "penis",
+					"letters": 12
+				},
+				"worst": {
+					"word": "merdać",
+					"letters": 23
+				},
+				"totalWords": {
+					"2": 23,
+					"3": 19,
+					"4": 8
+				},
+				"totalLetters": {
+					"12": 1,
+					"14": 2,
+					"16": 4,
+					"17": 5,
+					"18": 5,
+					"19": 8,
+					"20": 6,
+					"21": 6,
+					"22": 10,
+					"23": 3
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 19.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -4149,6 +4361,35 @@
 			}
 		},
 		"kwiecik": {
+			"best50": {
+				"best": {
+					"word": "sprzęt",
+					"letters": 16
+				},
+				"worst": {
+					"word": "narodziny",
+					"letters": 24
+				},
+				"totalWords": {
+					"2": 23,
+					"3": 25,
+					"4": 2
+				},
+				"totalLetters": {
+					"16": 1,
+					"17": 1,
+					"18": 4,
+					"19": 4,
+					"20": 9,
+					"21": 7,
+					"22": 3,
+					"23": 13,
+					"24": 8
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -4608,6 +4849,31 @@
 			}
 		},
 		"radziol": {
+			"best50": {
+				"best": {
+					"word": "penis",
+					"letters": 18
+				},
+				"worst": {
+					"word": "etap",
+					"letters": 23
+				},
+				"totalWords": {
+					"2": 36,
+					"3": 14
+				},
+				"totalLetters": {
+					"18": 7,
+					"19": 13,
+					"20": 5,
+					"21": 11,
+					"22": 9,
+					"23": 5
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -5164,6 +5430,33 @@
 			}
 		},
 		"kamin": {
+			"best50": {
+				"best": {
+					"word": "miło",
+					"letters": 13
+				},
+				"worst": {
+					"word": "kłótnia",
+					"letters": 20
+				},
+				"totalWords": {
+					"2": 22,
+					"3": 28
+				},
+				"totalLetters": {
+					"13": 3,
+					"14": 7,
+					"15": 2,
+					"16": 5,
+					"17": 5,
+					"18": 12,
+					"19": 11,
+					"20": 5
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 17.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -5802,6 +6095,40 @@
 			}
 		},
 		"Cybulion": {
+			"best50": {
+				"best": {
+					"word": "męska",
+					"letters": 5
+				},
+				"worst": {
+					"word": "gospoda",
+					"letters": 22
+				},
+				"totalWords": {
+					"1": 5,
+					"2": 45
+				},
+				"totalLetters": {
+					"5": 1,
+					"6": 1,
+					"7": 2,
+					"8": 1,
+					"10": 1,
+					"13": 4,
+					"14": 3,
+					"15": 4,
+					"16": 1,
+					"17": 1,
+					"18": 1,
+					"19": 7,
+					"20": 7,
+					"21": 13,
+					"22": 3
+				},
+				"gamesPlayed": 50,
+				"medianWords": 1.5,
+				"medianLetters": 18.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -6338,6 +6665,35 @@
 			}
 		},
 		"Gilgamesh": {
+			"best50": {
+				"best": {
+					"word": "merdać",
+					"letters": 12
+				},
+				"worst": {
+					"word": "wygoda",
+					"letters": 21
+				},
+				"totalWords": {
+					"2": 14,
+					"3": 34,
+					"4": 2
+				},
+				"totalLetters": {
+					"12": 1,
+					"14": 4,
+					"15": 2,
+					"16": 3,
+					"17": 6,
+					"18": 11,
+					"19": 10,
+					"20": 9,
+					"21": 4
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 17.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -6953,6 +7309,35 @@
 			}
 		},
 		"yourgrandma": {
+			"best50": {
+				"best": {
+					"word": "żaden",
+					"letters": 13
+				},
+				"worst": {
+					"word": "cynizm",
+					"letters": 21
+				},
+				"totalWords": {
+					"2": 20,
+					"3": 28,
+					"4": 2
+				},
+				"totalLetters": {
+					"13": 2,
+					"14": 4,
+					"15": 6,
+					"16": 6,
+					"17": 3,
+					"18": 5,
+					"19": 11,
+					"20": 8,
+					"21": 5
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 17.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -7604,6 +7989,36 @@
 			}
 		},
 		"wihajster": {
+			"best50": {
+				"best": {
+					"word": "miło",
+					"letters": 18
+				},
+				"worst": {
+					"word": "ustny",
+					"letters": 27
+				},
+				"totalWords": {
+					"2": 31,
+					"3": 16,
+					"4": 3
+				},
+				"totalLetters": {
+					"18": 3,
+					"19": 8,
+					"20": 6,
+					"21": 9,
+					"22": 5,
+					"23": 4,
+					"24": 1,
+					"25": 4,
+					"26": 6,
+					"27": 4
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"7": {
 					"best": {
@@ -7895,6 +8310,36 @@
 			}
 		},
 		"Kronos": {
+			"best50": {
+				"best": {
+					"word": "romski",
+					"letters": 13
+				},
+				"worst": {
+					"word": "odpisać",
+					"letters": 23
+				},
+				"totalWords": {
+					"2": 15,
+					"3": 27,
+					"4": 8
+				},
+				"totalLetters": {
+					"13": 1,
+					"15": 1,
+					"16": 1,
+					"17": 3,
+					"18": 5,
+					"19": 5,
+					"20": 8,
+					"21": 12,
+					"22": 11,
+					"23": 3
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -8376,6 +8821,32 @@
 			}
 		},
 		"ranunculus": {
+			"best50": {
+				"best": {
+					"word": "puls",
+					"letters": 14
+				},
+				"worst": {
+					"word": "rekin",
+					"letters": 20
+				},
+				"totalWords": {
+					"2": 34,
+					"3": 16
+				},
+				"totalLetters": {
+					"14": 2,
+					"15": 5,
+					"16": 12,
+					"17": 7,
+					"18": 8,
+					"19": 10,
+					"20": 6
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2,
+				"medianLetters": 16.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -8988,6 +9459,35 @@
 			}
 		},
 		"Deykun": {
+			"best50": {
+				"best": {
+					"word": "miło",
+					"letters": 12
+				},
+				"worst": {
+					"word": "narodziny",
+					"letters": 21
+				},
+				"totalWords": {
+					"2": 5,
+					"3": 33,
+					"4": 12
+				},
+				"totalLetters": {
+					"12": 2,
+					"14": 6,
+					"15": 3,
+					"16": 7,
+					"17": 5,
+					"18": 9,
+					"19": 5,
+					"20": 8,
+					"21": 5
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 17.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -9816,6 +10316,45 @@
 			}
 		},
 		"Szuuz_Ekleer": {
+			"best50": {
+				"best": {
+					"word": "posag",
+					"letters": 14
+				},
+				"worst": {
+					"word": "widelczyk",
+					"letters": 31
+				},
+				"totalWords": {
+					"2": 11,
+					"3": 20,
+					"4": 15,
+					"5": 3,
+					"6": 1
+				},
+				"totalLetters": {
+					"14": 2,
+					"15": 4,
+					"16": 4,
+					"17": 2,
+					"19": 4,
+					"20": 2,
+					"21": 4,
+					"22": 5,
+					"23": 3,
+					"24": 5,
+					"25": 2,
+					"26": 1,
+					"27": 4,
+					"28": 1,
+					"29": 2,
+					"30": 3,
+					"31": 2
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 21.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -10521,6 +11060,37 @@
 			}
 		},
 		"Sorokawojcie.ch": {
+			"best50": {
+				"best": {
+					"word": "etap",
+					"letters": 15
+				},
+				"worst": {
+					"word": "bula",
+					"letters": 25
+				},
+				"totalWords": {
+					"2": 18,
+					"3": 27,
+					"4": 5
+				},
+				"totalLetters": {
+					"15": 1,
+					"16": 3,
+					"17": 2,
+					"18": 4,
+					"19": 4,
+					"20": 2,
+					"21": 2,
+					"22": 15,
+					"23": 11,
+					"24": 4,
+					"25": 2
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 21.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -11039,6 +11609,43 @@
 			}
 		},
 		"razALgul": {
+			"best50": {
+				"best": {
+					"word": "kretyn",
+					"letters": 14
+				},
+				"worst": {
+					"word": "felga",
+					"letters": 31
+				},
+				"totalWords": {
+					"2": 1,
+					"3": 11,
+					"4": 24,
+					"5": 13,
+					"6": 1
+				},
+				"totalLetters": {
+					"14": 1,
+					"15": 1,
+					"19": 2,
+					"20": 1,
+					"21": 2,
+					"22": 4,
+					"23": 4,
+					"24": 4,
+					"25": 6,
+					"26": 5,
+					"27": 3,
+					"28": 3,
+					"29": 5,
+					"30": 6,
+					"31": 3
+				},
+				"gamesPlayed": 50,
+				"medianWords": 3.5,
+				"medianLetters": 25.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -12419,6 +13026,34 @@
 			}
 		},
 		"PatykiemPisane": {
+			"best50": {
+				"best": {
+					"word": "posag",
+					"letters": 16
+				},
+				"worst": {
+					"word": "wakat",
+					"letters": 24
+				},
+				"totalWords": {
+					"2": 34,
+					"3": 16
+				},
+				"totalLetters": {
+					"16": 3,
+					"17": 1,
+					"18": 3,
+					"19": 3,
+					"20": 9,
+					"21": 13,
+					"22": 9,
+					"23": 8,
+					"24": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -12933,6 +13568,46 @@
 			}
 		},
 		"gedzior84": {
+			"best50": {
+				"best": {
+					"word": "swap",
+					"letters": 10
+				},
+				"worst": {
+					"word": "trojka",
+					"letters": 31
+				},
+				"totalWords": {
+					"2": 8,
+					"3": 22,
+					"4": 15,
+					"5": 5
+				},
+				"totalLetters": {
+					"10": 1,
+					"11": 1,
+					"15": 1,
+					"16": 1,
+					"17": 2,
+					"18": 2,
+					"19": 3,
+					"20": 4,
+					"21": 2,
+					"22": 4,
+					"23": 5,
+					"24": 4,
+					"25": 3,
+					"26": 3,
+					"27": 2,
+					"28": 6,
+					"29": 2,
+					"30": 3,
+					"31": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 22.5
+			},
 			"results": {
 				"2": {
 					"best": {
@@ -13436,6 +14111,43 @@
 			}
 		},
 		"bernsteinka": {
+			"best50": {
+				"best": {
+					"word": "dania",
+					"letters": 16
+				},
+				"worst": {
+					"word": "beztrosko",
+					"letters": 31
+				},
+				"totalWords": {
+					"2": 7,
+					"3": 20,
+					"4": 21,
+					"5": 2
+				},
+				"totalLetters": {
+					"16": 3,
+					"17": 1,
+					"18": 2,
+					"19": 1,
+					"20": 1,
+					"21": 2,
+					"22": 3,
+					"23": 1,
+					"24": 5,
+					"25": 7,
+					"26": 3,
+					"27": 4,
+					"28": 6,
+					"29": 4,
+					"30": 2,
+					"31": 5
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 24.5
+			},
 			"results": {
 				"2": {
 					"best": {
@@ -13824,6 +14536,36 @@
 			}
 		},
 		"AbenoKyerto": {
+			"best50": {
+				"best": {
+					"word": "mlecz",
+					"letters": 14
+				},
+				"worst": {
+					"word": "chat",
+					"letters": 24
+				},
+				"totalWords": {
+					"2": 7,
+					"3": 37,
+					"4": 6
+				},
+				"totalLetters": {
+					"14": 2,
+					"15": 2,
+					"16": 2,
+					"17": 2,
+					"19": 5,
+					"20": 4,
+					"21": 2,
+					"22": 10,
+					"23": 13,
+					"24": 8
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 21.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -14572,6 +15314,46 @@
 			}
 		},
 		"Tomekku": {
+			"best50": {
+				"best": {
+					"word": "kretyn",
+					"letters": 16
+				},
+				"worst": {
+					"word": "fałda",
+					"letters": 36
+				},
+				"totalWords": {
+					"2": 3,
+					"3": 16,
+					"4": 23,
+					"5": 7,
+					"6": 1
+				},
+				"totalLetters": {
+					"16": 1,
+					"17": 1,
+					"18": 1,
+					"20": 2,
+					"23": 5,
+					"24": 3,
+					"25": 4,
+					"26": 2,
+					"27": 4,
+					"28": 3,
+					"29": 4,
+					"30": 5,
+					"31": 2,
+					"32": 3,
+					"33": 3,
+					"34": 3,
+					"35": 1,
+					"36": 3
+				},
+				"gamesPlayed": 50,
+				"medianWords": 3.5,
+				"medianLetters": 27.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -15636,6 +16418,48 @@
 			}
 		},
 		"ulsterboy": {
+			"best50": {
+				"best": {
+					"word": "rozłam",
+					"letters": 14
+				},
+				"worst": {
+					"word": "sumienie",
+					"letters": 38
+				},
+				"totalWords": {
+					"2": 5,
+					"3": 13,
+					"4": 18,
+					"5": 10,
+					"6": 4
+				},
+				"totalLetters": {
+					"14": 1,
+					"16": 1,
+					"17": 1,
+					"18": 2,
+					"21": 2,
+					"23": 2,
+					"24": 1,
+					"25": 8,
+					"26": 4,
+					"27": 6,
+					"28": 2,
+					"29": 3,
+					"30": 1,
+					"31": 1,
+					"32": 3,
+					"33": 3,
+					"34": 1,
+					"35": 5,
+					"36": 2,
+					"38": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 3.5,
+				"medianLetters": 26.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -16355,6 +17179,44 @@
 			}
 		},
 		"UbogiKrewny": {
+			"best50": {
+				"best": {
+					"word": "mierny",
+					"letters": 16
+				},
+				"worst": {
+					"word": "wanta",
+					"letters": 35
+				},
+				"totalWords": {
+					"2": 1,
+					"3": 6,
+					"4": 14,
+					"5": 19,
+					"6": 6,
+					"7": 4
+				},
+				"totalLetters": {
+					"16": 1,
+					"20": 1,
+					"23": 1,
+					"24": 3,
+					"25": 2,
+					"26": 4,
+					"27": 8,
+					"28": 2,
+					"29": 4,
+					"30": 3,
+					"31": 2,
+					"32": 4,
+					"33": 5,
+					"34": 6,
+					"35": 4
+				},
+				"gamesPlayed": 50,
+				"medianWords": 4.5,
+				"medianLetters": 28.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -16850,6 +17712,42 @@
 			}
 		},
 		"Mazia": {
+			"best50": {
+				"best": {
+					"word": "rosa",
+					"letters": 16
+				},
+				"worst": {
+					"word": "zbawienie",
+					"letters": 33
+				},
+				"totalWords": {
+					"2": 8,
+					"3": 24,
+					"4": 16,
+					"5": 2
+				},
+				"totalLetters": {
+					"16": 3,
+					"18": 2,
+					"19": 2,
+					"20": 2,
+					"21": 1,
+					"23": 4,
+					"24": 4,
+					"25": 5,
+					"26": 3,
+					"27": 3,
+					"28": 3,
+					"29": 5,
+					"31": 8,
+					"32": 4,
+					"33": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 25.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -17146,6 +18044,40 @@
 			}
 		},
 		"def": {
+			"best50": {
+				"best": {
+					"word": "teoria",
+					"letters": 14
+				},
+				"worst": {
+					"word": "opiumista",
+					"letters": 26
+				},
+				"totalWords": {
+					"2": 10,
+					"3": 31,
+					"4": 8,
+					"5": 1
+				},
+				"totalLetters": {
+					"14": 5,
+					"15": 3,
+					"16": 2,
+					"17": 1,
+					"18": 2,
+					"19": 6,
+					"20": 4,
+					"21": 7,
+					"22": 3,
+					"23": 4,
+					"24": 6,
+					"25": 6,
+					"26": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 20.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -17728,6 +18660,59 @@
 			}
 		},
 		"the_good_the_bad_the_ugly": {
+			"best50": {
+				"best": {
+					"word": "pokój",
+					"letters": 15
+				},
+				"worst": {
+					"word": "pogardzać",
+					"letters": 64
+				},
+				"totalWords": {
+					"2": 7,
+					"3": 14,
+					"4": 11,
+					"5": 8,
+					"6": 6,
+					"7": 1,
+					"8": 2,
+					"10": 1
+				},
+				"totalLetters": {
+					"15": 1,
+					"19": 3,
+					"20": 1,
+					"21": 1,
+					"22": 1,
+					"23": 1,
+					"24": 3,
+					"25": 5,
+					"26": 4,
+					"27": 1,
+					"28": 1,
+					"29": 2,
+					"30": 1,
+					"33": 3,
+					"34": 2,
+					"35": 3,
+					"36": 1,
+					"37": 1,
+					"39": 2,
+					"40": 2,
+					"43": 1,
+					"44": 2,
+					"45": 1,
+					"47": 3,
+					"57": 1,
+					"59": 1,
+					"61": 1,
+					"64": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 3.5,
+				"medianLetters": 31.5
+			},
 			"results": {
 				"1": {
 					"best": {
@@ -18289,6 +19274,45 @@
 			}
 		},
 		"jakibytulogin": {
+			"best50": {
+				"best": {
+					"word": "etol",
+					"letters": 19
+				},
+				"worst": {
+					"word": "krabojad",
+					"letters": 40
+				},
+				"totalWords": {
+					"2": 11,
+					"3": 22,
+					"4": 12,
+					"5": 5
+				},
+				"totalLetters": {
+					"19": 1,
+					"20": 2,
+					"21": 3,
+					"22": 4,
+					"24": 5,
+					"25": 3,
+					"26": 2,
+					"27": 5,
+					"28": 1,
+					"29": 6,
+					"30": 3,
+					"31": 3,
+					"32": 4,
+					"33": 2,
+					"34": 2,
+					"35": 2,
+					"36": 1,
+					"40": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 2.5,
+				"medianLetters": 27.5
+			},
 			"results": {
 				"1": {
 					"best": {

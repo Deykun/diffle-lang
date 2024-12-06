@@ -24,9 +24,18 @@ type Props = {
 const periodFilters = ['year', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(String)];
 
 const sortByLabelByValue = {
-  totalPlayed: 'games',
-  bestMedianLetters: 'median',
-  bestDailyResults: 'daily',
+  en: {
+    totalPlayed: 'Games',
+    bestMedianLetters: 'Median',
+    bestDailyResults: "Day's best result",
+    bestMedianFrom50BestResults: 'Median (Top 50)',
+  },
+  pl: {
+    totalPlayed: 'Gry',
+    bestMedianLetters: 'Mediana',
+    bestDailyResults: 'Wynik dnia',
+    bestMedianFrom50BestResults: 'Mediana (Top 50)',
+  },
 };
 
 const YearSummaryTable = ({ summary }: Props) => {
@@ -36,6 +45,7 @@ const YearSummaryTable = ({ summary }: Props) => {
   const [sortBy, setSortBy] = useState<
   'totalPlayed' |
   'bestMedianLetters' |
+  'bestMedianFrom50BestResults' |
   'bestDailyResults'
   >('bestMedianLetters');
 
@@ -85,7 +95,22 @@ const YearSummaryTable = ({ summary }: Props) => {
       bestMedianLetters: [...usersThatPlayedMoreAtleastXTimes].sort(
         (a, b) => summary.byUser[a].results[period].medianLetters - summary.byUser[b].results[period].medianLetters,
       ).slice(0, 75),
-      bestDailyResults: knownUsernames.sort(
+      bestMedianFrom50BestResults: [...knownUsernames].filter(
+        username => Boolean(summary.byUser[username].best50),
+      ).sort(
+        (a, b) => {
+          if (summary.byUser[a].best50.medianLetters === summary.byUser[b].best50.medianLetters) {
+            if (summary.byUser[a].results[period].medianWords === summary.byUser[b].results[period].medianWords) {
+              return summary.byUser[a].results.year.gamesPlayed - summary.byUser[b].results.year.gamesPlayed;
+            }
+
+            return summary.byUser[a].results[period].medianWords - summary.byUser[b].results[period].medianWords;
+          }
+
+          return summary.byUser[a].best50.medianLetters - summary.byUser[b].best50.medianLetters;
+        },
+      ).slice(0, 75),
+      bestDailyResults: [...knownUsernames].sort(
         (a, b) => {
           const bestB = (summary.byUser[b].dates[period]?.length || 0);
           const bestA = (summary.byUser[a].dates[period]?.length || 0);
@@ -108,9 +133,6 @@ const YearSummaryTable = ({ summary }: Props) => {
       ).slice(0, 10),
     };
   }, [summary, period, gameLanguage]);
-
-  // console.log(summary.rankByWords);
-  // console.log(dataBy);
 
   if (!summary) {
     return null;
@@ -141,7 +163,7 @@ const YearSummaryTable = ({ summary }: Props) => {
               </div>
           </div>
           <nav>
-              {['bestDailyResults', 'bestMedianLetters', 'totalPlayed'].map(sortByValue => (
+              {['bestDailyResults', 'bestMedianLetters', 'bestMedianFrom50BestResults', 'totalPlayed'].map(sortByValue => (
                   <Button
                     key={sortByValue}
                     // @ts-expect-error No one sane should define abstract types just to deal with this nonsense.
@@ -149,8 +171,9 @@ const YearSummaryTable = ({ summary }: Props) => {
                     isInverted
                     hasBorder={false}
                     isText={sortByValue !== sortBy}
+                    isDisabled={period !== 'year' && sortByValue === 'bestMedianFrom50BestResults'}
                   >
-                      {sortByLabelByValue[sortByValue] || sortByValue}
+                      {sortByLabelByValue[gameLanguage][sortByValue] || sortByLabelByValue.en[sortByValue]}
                   </Button>
               ))}
               <div className="year-summary-period-nav">
@@ -161,6 +184,7 @@ const YearSummaryTable = ({ summary }: Props) => {
                         isInverted
                         hasBorder={false}
                         isText={periodValue !== period}
+                        isDisabled={sortBy === 'bestMedianFrom50BestResults'}
                       >
                           {periodValue !== 'year' ? periodValue : 2024}
                       </Button>

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
-import { YearSummaryInfo } from '@common-types';
+import { YearSummaryInfo, ResultsInfo } from '@common-types';
 
 import { useSelector } from '@store';
 
@@ -32,7 +32,17 @@ const YearSummaryTableItem = ({
 }: Props) => {
   const { t } = useTranslation();
 
-  const totalBestDaily = summary.byUser[username].dates[period]?.length;
+  const resultsData = sortBy === 'bestMedianFrom50BestResults'
+    ? summary.byUser[username].best50 as ResultsInfo
+    : summary.byUser[username].results[period] as ResultsInfo;
+
+  const totalBestDaily = sortBy === 'bestMedianFrom50BestResults' ? 0 : summary.byUser[username].dates[period]?.length;
+  const {
+    gamesPlayed,
+    medianLetters,
+    worst,
+    best,
+  } = resultsData;
 
   return (
       <div className={clsx('year-summary-table-row', { 'year-summary-table-row--active': selected === username })}>
@@ -46,13 +56,13 @@ const YearSummaryTableItem = ({
               </h3>
               <strong className="year-summary-table-games">
                   <span className={clsx('year-summary-value', { 'year-summary-value--active': sortBy === 'totalPlayed' })}>
-                      {summary.byUser[username].results[period].gamesPlayed}
+                      {gamesPlayed}
                       {sortBy === 'totalPlayed'
                         && (
                         <CircleScale
                           breakPoints={period === 'year' ? [360, 280, 200, 140, 90, 60, 40, 20] : [20, 16, 12, 8, 4]}
                           startFrom={period === 'year' ? 0 : 6}
-                          value={summary.byUser[username].results[period].gamesPlayed}
+                          value={gamesPlayed}
                           shouldShowLabels={false}
                         />
                         )}
@@ -63,17 +73,17 @@ const YearSummaryTableItem = ({
           <p>
               <strong className="year-summary-table-letters">
                   <span className={clsx('year-summary-value', {
-                    'year-summary-value--active': sortBy === 'bestMedianLetters',
+                    'year-summary-value--active': ['bestMedianLetters', 'bestMedianFrom50BestResults'].includes(sortBy),
                   })}
                   >
-                      {summary.byUser[username].results[period]?.medianLetters.toFixed(1)}
+                      {medianLetters.toFixed(1)}
                   </span>
-                  {sortBy === 'bestMedianLetters'
+                  {['bestMedianLetters', 'bestMedianFrom50BestResults'].includes(sortBy)
                     && (
                     <CircleScale
                       breakPoints={[32, 31, 29, 28, 27, 25, 24]}
                       startFrom={-22}
-                      value={summary.byUser[username].results[period]?.medianLetters}
+                      value={medianLetters}
                       shouldShowLabels={false}
                       isInvert
                     />
@@ -94,12 +104,12 @@ const YearSummaryTableItem = ({
               <span>
                   {'» '}
                   <span className="year-summary-table-best-worst-word">
-                      {summary.byUser[username].results[period].worst.word}
+                      {worst.word}
                   </span>
                   {' «'}
                   {' '}
                   <small className="year-summary-table-best-worst-value">
-                      {summary.byUser[username].results[period].worst.letters}
+                      {worst.letters}
                       {' '}
                       {t('end.lettersUsedShort')}
                   </small>
@@ -107,12 +117,12 @@ const YearSummaryTableItem = ({
               <span>
                   {'» '}
                   <span className="year-summary-table-best-worst-word">
-                      {summary.byUser[username].results[period].best.word}
+                      {best.word}
                   </span>
                   {' «'}
                   {' '}
                   <small className="year-summary-table-best-worst-value">
-                      {summary.byUser[username].results[period].best.letters}
+                      {best.letters}
                       {' '}
                       {t('end.lettersUsedShort')}
                   </small>
