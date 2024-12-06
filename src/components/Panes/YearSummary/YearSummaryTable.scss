@@ -1,8 +1,5 @@
 .year-summary-table {
   --green-card: #00ac22;
-  // display: grid;
-  // gap: 5px;
-  // grid-template-columns: repeat(5, 1fr);
   font-size: 18px;
   color: var(--text-weaker);
   text-shadow: 0 0 10px var(--background);
@@ -30,6 +27,13 @@
     border-color: var(--blue) !important;
     border-color: color-mix(in srgb, var(--text) 15%, transparent) !important;
     background-color: color-mix(in srgb,  var(--border) 5%, transparent) !important;
+  }
+}
+
+.year-summary-period-nav {
+  button {
+    padding-left: 2px;
+    padding-right: 2px;
   }
 }
 
@@ -114,6 +118,36 @@
     color: var(--text);
     font-size: 12px;
     margin-left: 6px;
+  }
+}
+
+.year-summary-table-daily {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: end;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+
+  svg {
+    height: 18px;
+    fill: var(--text);
+  }
+
+  .year-summary-value {
+    font-size: 18px;
+    line-height: 15px;
+    position: relative;
+
+    &.year-summary-value--active {
+      font-size: 24px;
+    }
+
+    .circle-scale {
+      width: 300%;
+    }
   }
 }
 

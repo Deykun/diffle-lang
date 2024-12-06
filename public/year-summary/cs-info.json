@@ -1,0 +1,157 @@
+{
+	"all": {
+		"best": {
+			"word": "bestie",
+			"letters": 30
+		},
+		"worst": {
+			"word": "švýcarsko",
+			"letters": 162
+		},
+		"totalWords": {
+			"7": 1,
+			"32": 1
+		},
+		"totalLetters": {
+			"30": 1,
+			"162": 1
+		},
+		"gamesPlayed": 2,
+		"medianWords": 19.5,
+		"medianLetters": 96
+	},
+	"activePlayers": 1,
+	"byUser": {
+		"Deykun": {
+			"results": {
+				"2": {
+					"best": {
+						"word": "švýcarsko",
+						"letters": 162
+					},
+					"worst": {
+						"word": "švýcarsko",
+						"letters": 162
+					},
+					"totalWords": {
+						"32": 1
+					},
+					"totalLetters": {
+						"162": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 32,
+					"medianLetters": 162
+				},
+				"6": {
+					"best": {
+						"word": "bestie",
+						"letters": 30
+					},
+					"worst": {
+						"word": "bestie",
+						"letters": 30
+					},
+					"totalWords": {
+						"7": 1
+					},
+					"totalLetters": {
+						"30": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 7,
+					"medianLetters": 30
+				},
+				"year": {
+					"best": {
+						"word": "bestie",
+						"letters": 30
+					},
+					"worst": {
+						"word": "švýcarsko",
+						"letters": 162
+					},
+					"totalWords": {
+						"7": 1,
+						"32": 1
+					},
+					"totalLetters": {
+						"30": 1,
+						"162": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 19.5,
+					"medianLetters": 96
+				}
+			},
+			"dates": {
+				"2": [
+					"12.02.2024"
+				],
+				"6": [
+					"30.06.2024"
+				],
+				"year": [
+					"12.02.2024",
+					"30.06.2024"
+				]
+			}
+		}
+	},
+	"wordsByDates": {
+		"30.06.2024": "bestie",
+		"12.02.2024": "švýcarsko"
+	},
+	"datesByWords": {
+		"bestie": "30.06.2024",
+		"švýcarsko": "12.02.2024"
+	},
+	"rankByWords": {
+		"švýcarsko": {
+			"best": {
+				"word": "švýcarsko",
+				"letters": 162
+			},
+			"worst": {
+				"word": "švýcarsko",
+				"letters": 162
+			},
+			"totalWords": {
+				"32": 1
+			},
+			"totalLetters": {
+				"162": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 32,
+			"medianLetters": 162
+		},
+		"bestie": {
+			"best": {
+				"word": "bestie",
+				"letters": 30
+			},
+			"worst": {
+				"word": "bestie",
+				"letters": 30
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"30": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 30
+		}
+	},
+	"worstWords": [
+		"švýcarsko",
+		"bestie"
+	],
+	"bestWords": [
+		"bestie",
+		"švýcarsko"
+	]
+}

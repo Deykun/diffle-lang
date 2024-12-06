@@ -1,4 +1,5 @@
 import fs from "fs";
+import chalk from 'chalk';
 
 import { ParsedHejtoResult } from "./hejto-types";
 
@@ -12,6 +13,7 @@ import { results as results5 } from "./parts/part-5";
 import { results as results6 } from "./parts/part-6";
 import { results as results7 } from "./parts/part-7";
 import { results as results8 } from "./parts/part-8";
+import { results as results9 } from "./parts/part-9";
 
 export const resultsBySource: {
   [url: string]: ParsedHejtoResult[];
@@ -22,6 +24,9 @@ export const resultsBySource: {
   ...results4.resultsBySource,
   ...results5.resultsBySource,
   ...results6.resultsBySource,
+  ...results7.resultsBySource,
+  ...results8.resultsBySource,
+  ...results9.resultsBySource,
 };
 
 const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.values(resultsBySource)
@@ -67,10 +72,12 @@ const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.valu
           stack.resultsByWord[lang] = {};
         }
 
-        if (stack.resultsByWord[lang][word]) {
-          stack.resultsByWord[lang][word].push(item);
-        } else {
-          stack.resultsByWord[lang][word] = [item];
+        if (typeof word === 'string' && word.length > 3) {
+          if (stack.resultsByWord[lang][word]) {
+            stack.resultsByWord[lang][word].push(item);
+          } else {
+            stack.resultsByWord[lang][word] = [item];
+          }
         }
       }
 
@@ -115,6 +122,8 @@ const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.valu
     }
   );
 
+console.log(chalk.green(`Results dicitonaries created.`));
+
 const langs = Object.keys(resultsByLang);
 
 const wordsByDates = langs.reduce((globalStack, lang) => {
@@ -141,42 +150,85 @@ const wordsByDates = langs.reduce((globalStack, lang) => {
   return globalStack;
 }, {});
 
+const datesByWords = langs.reduce((stack, lang) => {
+  stack[lang] = Object.fromEntries(Object.entries(wordsByDates[lang]).map(([key, value]) => ([value, key])));
+  
+  return stack;
+}, {});
+
+console.log('Words by dates index created.');
+
 const acceptedWordsByLang = langs.reduce((stack, lang) => {
   stack[lang] = Object.values(wordsByDates[lang]);
 
   return stack;
 }, {});
 
-const scoreByWords = langs.reduce((globalStack, lang) => {
+const rankByWords = langs.reduce((globalStack, lang) => {
   globalStack[lang] = Object.entries(resultsByWord[lang]).reduce((stack, [word, results]) => {
-    if (acceptedWordsByLang[lang].includes(word)) {
+    if (word && acceptedWordsByLang[lang].includes(word)) {
       stack[word] = getInfoAboutResults(results);
     }
 
     return stack;
-  })
+  }, {})
 
   return globalStack;
+}, {});
+
+const wordsByRank = langs.reduce((stack, lang) => {
+  stack[lang] = {
+    worstWords: [...Object.keys(rankByWords[lang])].sort(
+        (a, b) => rankByWords[lang][b].medianLetters - rankByWords[lang][a].medianLetters,
+    ).slice(0, 50),
+    bestWords: [...Object.keys(rankByWords[lang])].sort(
+      (a, b) => rankByWords[lang][a].medianLetters - rankByWords[lang][b].medianLetters,
+    ).slice(0, 50),
+  };
+
+  return stack;
 }, {});
 
 const usersSummary = Object.entries(resultsByUser).reduce(
   (stack, [lang, resultsByNickForLang]) => {
     stack[lang] = Object.keys(resultsByNickForLang).reduce((stack, nick) => {
-      const acceptedResults = Object.values(resultsByNickForLang[nick]).filter(({ result }) => acceptedWordsByLang[lang].includes(result.word));
+      const acceptedResults = Object.values(resultsByNickForLang[nick]).filter(({ result }) => acceptedWordsByLang[lang].includes(result?.word));
 
-      const userStatsByMonths = [1,2,3,4,5,6,7,8,9,10,11,12].reduce((stack, month) => {
+      const bestForDates = acceptedResults.filter(
+        ({ result }) => result?.word && rankByWords[lang][result.word].best.letters === result.totalLetters
+      ).map(({ result }) => result?.date || '') || [];
+
+      const {
+        userStatsByMonths,
+        bestForDatesForMonths,
+      } = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].reduce((stack, month) => {
         const acceptedResultsForMonth = acceptedResults.filter((item) => Number(item?.result?.date?.split('.')[1]) === month);
 
         if (acceptedResultsForMonth.length > 0) {
-          stack[month] = getInfoAboutResults(acceptedResultsForMonth);
+          stack.userStatsByMonths[month] = getInfoAboutResults(acceptedResultsForMonth);
+        }
+
+        const bestForDatesForMonth = bestForDates.filter((date) => date.endsWith(`${month}.2024`));
+        
+        if (bestForDatesForMonth.length > 0) {
+          stack.bestForDatesForMonths[month] = bestForDatesForMonth;
         }
 
         return stack;
-      }, {});
+      }, {
+        userStatsByMonths: {},
+        bestForDatesForMonths: {},
+      });
 
       stack[nick] = {
-        year: getInfoAboutResults(acceptedResults),
-        ...userStatsByMonths,
+        results: {
+          year: getInfoAboutResults(acceptedResults),
+          ...userStatsByMonths,
+        },
+        dates: {
+          year: bestForDates,
+          ...bestForDatesForMonths,
+        }
       }
 
       return stack;
@@ -187,19 +239,19 @@ const usersSummary = Object.entries(resultsByUser).reduce(
   {}
 );
 
-
-
 langs.forEach((lang) => {
-
   fs.writeFileSync(
     `./public/year-summary/${lang}-info.json`,
     JSON.stringify(
       {
-        ...getInfoAboutResults(resultsByLang[lang]),
+        all: getInfoAboutResults(resultsByLang[lang]),
         activePlayers: Object.keys(resultsByUser[lang]).length,
         byUser: usersSummary[lang],
         wordsByDates: wordsByDates[lang],
-        scoreByWords,
+        datesByWords: datesByWords[lang],
+        rankByWords: rankByWords[lang],
+        worstWords: wordsByRank[lang].worstWords,
+        bestWords: wordsByRank[lang].bestWords
       },
       null,
       "\t"

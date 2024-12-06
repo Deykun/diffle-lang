@@ -342,5 +342,8 @@ export type YearSummaryInfo = YearlyInfo & {
       year: ResultsInfo,
       [month: string]: ResultsInfo,
     }
-  }
+  },
+  rankByWords: {
+    [word: string]: ResultsInfo,
+  },
 };

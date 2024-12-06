@@ -553,3 +553,160 @@ results.resultsBySource[
     },
   },
 ];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/12-02-2024-flag-cz-diffle-difflecs-162-pismen-v-32-slovech-large-green-circle-60"
+] = [
+  {
+    date: "12.02.2024",
+    nick: "Deykun",
+    lang: "cs",
+    url: "https://deykun.github.io/diffle-lang/cs?r=QIpEWMtkndz5iNkFTLyFmduQTLkVmauMmNtUGd15yYtMXYj5CNkFTLvx2cuIjMx0yYvtmLiFWL4V2cuATLlV2duATLkJ3cuAjNts2by5SNx0ychNmL2YGNtg2Yz4CN30ya15CN0MTLvt2cuQGZx0CboNmLllTLuVnZuMzMtMWay5SMzITLrVGZucDZtEGZ65yYy0iahZnLw0yY29mL0ITLs9GcuEDOz0CajNjLjNTMtUHdz5iYyUTLoN2MucjMy0CbhZnLygTLrV2YuATLs9mduAzMz0Cbp5SMt0WYt5SNy0CblRmL5UjL3gjL1EjLwYjLvt2cyF2YEJUJzMUJ2FTQlUzQlgSI",
+    value:
+      "!(švýcarsko.60.15.87.59.del-25.mam-1.il-330.vol-0.cek-82.val-227.3ch-52b.stu-13c.3ch-381.pol-24.ovc-0.vaj-2c.zda-d7.dek-231.ric-33.fun-9e.chl-1dd.sko-344.uk-74.3ch-4f6.cas-15.rok-60.srd-0.wee-0.sex-ab.koc-122.slo-1d4.cas-c.ute-6c.jed-4.var-1d6.svy-1a)!",
+    result: {
+      word: "švýcarsko",
+      correct: 60,
+      position: 15,
+      incorrect: 87,
+      knownIncorrect: 59,
+      totalWords: 32,
+      totalLetters: 162,
+      date: "12.02.2024",
+    },
+  },
+];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/30-06-2024-flag-cz-diffle-difflecs-grywebowe-30-pismen-v-7-slovech-large-green-c"
+] = [
+  {
+    date: "30.06.2024",
+    nick: "Deykun",
+    lang: "cs",
+    url: "https://deykun.github.io/diffle-lang/cs?r=QIpMWOtMXZi5SNz0CajNjLmJTLzV2YuYmY5MTLzVmbuETOx0ycvBnLw0SZyhmLzITMtg2Yz4CMuMTMuAjL3EjLygTMtUWa0NXZihSI",
+    value:
+      "!(bestie-182.17.0.13.0.3ch-123.hre-0.pos-191.nes-39bf.ces-2f.3ch-35.bes-9c)!",
+    result: {
+      word: "bestie",
+      correct: 17,
+      position: 0,
+      incorrect: 13,
+      knownIncorrect: 0,
+      totalWords: 7,
+      totalLetters: 30,
+      date: "30.06.2024",
+    },
+  },
+];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/dzisiaj-ladnie-siadlo-ale-i-haslo-proste-13-07-2024-diffle-difflefr-27-lettres-e"
+] = [
+  {
+    date: "13.07.2024",
+    nick: "nxo",
+    lang: "fr",
+    url: "https://deykun.github.io/diffle-lang/fr?r=hkiMtQmLy0SbuETLnVnauATMt42bi5CMukjLx4yNx4SN5ETLl12cGFUJzMUJhRWdqhSI",
+    value: "!(judaïsme-195.17.1.9.0.bon-10.jug-1.m-2.d-2)!",
+    result: {
+      word: "judaïsme",
+      correct: 17,
+      position: 1,
+      incorrect: 9,
+      knownIncorrect: 0,
+      totalWords: 4,
+      totalLetters: 27,
+      date: "13.07.2024",
+    },
+  },
+];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/dzisiaj-nawet-z-pomoca-google-bylo-ciezko-alle-haslo-siedzi-11-07-2024-diffle-di"
+] = [
+  {
+    date: "11.07.2024",
+    nick: "nxo",
+    lang: "fr",
+    url: "https://deykun.github.io/diffle-lang/fr?r=ESKx4CMtEWauQTMtwWeukTLtVnLi1SbhNnLx0yahRmLy0CbvBnLwETLu9mYuMjL5EjLw4CNy4yM5ETLzl2btFWazhSI",
+    value:
+      "!(siamois-193.24.0.19.3.bon-10.pol-2.dak-1.sam-b.um-9.yl-14.ia-0.1)!",
+    result: {
+      word: "siamois",
+      correct: 24,
+      position: 0,
+      incorrect: 19,
+      knownIncorrect: 3,
+      totalWords: 8,
+      totalLetters: 43,
+      date: "11.07.2024",
+    },
+  },
+];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/dzisiejszego-nie-znalem-zawsze-jakies-nowe-slowko-diffle-bawi-diffle-uczy-10-07-"
+] = [
+  {
+    date: "10.07.2024",
+    nick: "nxo",
+    lang: "fr",
+    url: "https://deykun.github.io/diffle-lang/fr?r=ESKw4iZx0CZuEjLy0SYiFmLw0iYhNnLz0CbvBnLwETLu9mYuUjL2EjLx4SOy4iM5ETLuVWbvRmYhhSI",
+    value: "!(abdomen-192.29.1.16.5.bon-10.pol-3.sab-0.aba-2.1.d-1f.0)!",
+    result: {
+      word: "abdomen",
+      correct: 29,
+      position: 1,
+      incorrect: 16,
+      knownIncorrect: 5,
+      totalWords: 7,
+      totalLetters: 46,
+      date: "10.07.2024",
+    },
+  },
+];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/moze-bede-czesciej-na-francuskie-zagladal-06-07-2024-diffle-difflefr-grywebowe-2"
+] = [
+  {
+    date: "06.07.2024",
+    nick: "nxo",
+    lang: "fr",
+    url: "https://deykun.github.io/diffle-lang/fr?r=hkSOt4WZw5CMt4WYj5COz0ibp1mLwETLu9mYuAjLwEjLw4SMx4CO4ETLsFmb5EUJzMUJwhSI",
+    value: "!(pénal-188.11.0.10.0.bon-10.min-38.can-0.pen-9)!",
+    result: {
+      word: "pénal",
+      correct: 11,
+      position: 0,
+      incorrect: 10,
+      knownIncorrect: 0,
+      totalWords: 4,
+      totalLetters: 21,
+      date: "06.07.2024",
+    },
+  },
+];
+
+results.resultsBySource[
+  "https://www.hejto.pl/wpis/nawet-proste-deykun-tutaj-tez-czesc-komunikatu-pojawia-siebpo-angielsku-09-07-20"
+] = [
+  {
+    date: "09.07.2024",
+    nick: "nxo",
+    lang: "fr",
+    url: "https://deykun.github.io/diffle-lang/fr?r=ESKw4CMh1ich5CMtUmcj5CMx0ibvJmLy4CMx4SMukTMuETOx0SZyhTQlMzQlQ3YhJXYjhSI",
+    value: "!(caractère-191.19.1.10.2.bon-10.cre-0.ar-a0.0)!",
+    result: {
+      word: "caractère",
+      correct: 19,
+      position: 1,
+      incorrect: 10,
+      knownIncorrect: 2,
+      totalWords: 4,
+      totalLetters: 30,
+      date: "09.07.2024",
+    },
+  },
+];

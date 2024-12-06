@@ -394,6 +394,10 @@ const parseHejto = () => {
         lang = 'de';
       } else if (url.includes('/fr')) {
         lang = 'fr';
+      } else if (url.includes('/es')) {
+        lang = 'es';
+      } else if (url.includes('/cs')) {
+        lang = 'cs';
       }
 
       const rHash = url.split('r=')[1];

@@ -12,7 +12,10 @@ type Props = {
 
 const YearSummaryHeader = ({ summary }: Props) => {
   const {
-    gamesPlayed, activePlayers, medianWords, medianLetters,
+    gamesPlayed, medianWords, medianLetters,
+  } = summary.all;
+  const {
+    activePlayers,
   } = summary;
 
   const { t } = useTranslation();

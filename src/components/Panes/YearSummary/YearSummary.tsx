@@ -45,8 +45,6 @@ const Summary = () => {
               <YearSummaryTable summary={data} />
           </>
           )}
-
-          <pre>{JSON.stringify(data?.wordsByDates, null, 4)}</pre>
       </div>
   );
 };

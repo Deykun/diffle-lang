@@ -4,7 +4,7 @@ export type ParsedHejtoResult = {
   lang?: string,
   url: string,
   value: string,
-  result: {
+  result?: {
     word: string,
     correct: number,
     position: number,
