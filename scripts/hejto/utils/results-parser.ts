@@ -2,11 +2,12 @@ import { ParsedHejtoResult } from '../hejto-types';
 import { results } from '../parts/part-1';
 
 const getMedian = (medianData: { [value: number]: number }) => {
-  const totalDataInMedian = Object.values(medianData).reduce((stack, totalForValue) => stack + totalForValue, 0);
+  const { 0: zero, ...medianDataWithouZero } = medianData;
+  const totalDataInMedian = Object.values(medianDataWithouZero).reduce((stack, totalForValue) => stack + totalForValue, 0);
   const medianIndex = Math.floor(totalDataInMedian / 2);
   const shouldUseAverage = totalDataInMedian % 2 === 0;
 
-  const sortedData = Object.entries(medianData).sort(([valueA], [valueB]) => Number(valueA) - Number(valueB));
+  const sortedData = Object.entries(medianDataWithouZero).sort(([valueA], [valueB]) => Number(valueA) - Number(valueB));
 
   let currenIndex = 0;
   // eslint-disable-next-line no-plusplus

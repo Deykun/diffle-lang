@@ -32,11 +32,18 @@ const YearSummaryTableItem = ({
 }: Props) => {
   const { t } = useTranslation();
 
-  const resultsData = sortBy === 'bestMedianFrom50BestResults'
-    ? summary.byUser[username].best50 as ResultsInfo
-    : summary.byUser[username].results[period] as ResultsInfo;
+  let resultsData = summary.byUser[username].results[period] as ResultsInfo;
 
-  const totalBestDaily = sortBy === 'bestMedianFrom50BestResults' ? 0 : summary.byUser[username].dates[period]?.length;
+  if (sortBy === 'bestMedianFrom50BestResults') {
+    resultsData = summary.byUser[username].best50 as ResultsInfo;
+  } else if (sortBy === 'bestMedianFrom50HardestWordsResults') {
+    resultsData = summary.byUser[username].hardest50 as ResultsInfo;
+  }
+
+  const totalBestDaily = ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy)
+    ? 0
+    : summary.byUser[username].dates[period]?.length;
+
   const {
     gamesPlayed,
     medianLetters,
@@ -73,12 +80,12 @@ const YearSummaryTableItem = ({
           <p>
               <strong className="year-summary-table-letters">
                   <span className={clsx('year-summary-value', {
-                    'year-summary-value--active': ['bestMedianLetters', 'bestMedianFrom50BestResults'].includes(sortBy),
+                    'year-summary-value--active': sortBy.startsWith('bestMedian'),
                   })}
                   >
                       {medianLetters.toFixed(1)}
                   </span>
-                  {['bestMedianLetters', 'bestMedianFrom50BestResults'].includes(sortBy)
+                  {sortBy.startsWith('bestMedian')
                     && (
                     <CircleScale
                       breakPoints={[32, 31, 29, 28, 27, 25, 24]}

@@ -28,13 +28,15 @@ const sortByLabelByValue = {
     totalPlayed: 'Games',
     bestMedianLetters: 'Median',
     bestDailyResults: "Day's best result",
-    bestMedianFrom50BestResults: 'Median (Top 50)',
+    bestMedianFrom50HardestWordsResults: 'Median (50 worst words)',
+    bestMedianFrom50BestResults: 'Median (50 best results)',
   },
   pl: {
     totalPlayed: 'Gry',
     bestMedianLetters: 'Mediana',
     bestDailyResults: 'Wynik dnia',
-    bestMedianFrom50BestResults: 'Mediana (Top 50)',
+    bestMedianFrom50HardestWordsResults: 'Mediana (50 najtrudniejszych słów)',
+    bestMedianFrom50BestResults: 'Mediana (50 najlepszych wyników)',
   },
 };
 
@@ -46,6 +48,7 @@ const YearSummaryTable = ({ summary }: Props) => {
   'totalPlayed' |
   'bestMedianLetters' |
   'bestMedianFrom50BestResults' |
+  'bestMedianFrom50HardestWordsResults' |
   'bestDailyResults'
   >('bestMedianLetters');
 
@@ -91,7 +94,7 @@ const YearSummaryTable = ({ summary }: Props) => {
 
           return summary.byUser[b].results[period].gamesPlayed - summary.byUser[a].results[period].gamesPlayed;
         },
-      ).slice(0, 75),
+      ),
       bestMedianLetters: [...usersThatPlayedMoreAtleastXTimes].sort(
         (a, b) => summary.byUser[a].results[period].medianLetters - summary.byUser[b].results[period].medianLetters,
       ).slice(0, 75),
@@ -108,6 +111,21 @@ const YearSummaryTable = ({ summary }: Props) => {
           }
 
           return summary.byUser[a].best50.medianLetters - summary.byUser[b].best50.medianLetters;
+        },
+      ).slice(0, 75),
+      bestMedianFrom50HardestWordsResults: [...knownUsernames].filter(
+        username => Boolean(summary.byUser[username].hardest50),
+      ).sort(
+        (a, b) => {
+          if (summary.byUser[a].hardest50.medianLetters === summary.byUser[b].hardest50.medianLetters) {
+            if (summary.byUser[a].results[period].medianWords === summary.byUser[b].results[period].medianWords) {
+              return summary.byUser[a].results.year.gamesPlayed - summary.byUser[b].results.year.gamesPlayed;
+            }
+
+            return summary.byUser[a].results[period].medianWords - summary.byUser[b].results[period].medianWords;
+          }
+
+          return summary.byUser[a].hardest50.medianLetters - summary.byUser[b].hardest50.medianLetters;
         },
       ).slice(0, 75),
       bestDailyResults: [...knownUsernames].sort(
@@ -162,8 +180,8 @@ const YearSummaryTable = ({ summary }: Props) => {
                   </ul>
               </div>
           </div>
-          <nav>
-              {['bestDailyResults', 'bestMedianLetters', 'bestMedianFrom50BestResults', 'totalPlayed'].map(sortByValue => (
+          <nav className="year-summary-nav">
+              {['bestDailyResults', 'bestMedianLetters', 'bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults', 'totalPlayed'].map(sortByValue => (
                   <Button
                     key={sortByValue}
                     // @ts-expect-error No one sane should define abstract types just to deal with this nonsense.
@@ -171,12 +189,12 @@ const YearSummaryTable = ({ summary }: Props) => {
                     isInverted
                     hasBorder={false}
                     isText={sortByValue !== sortBy}
-                    isDisabled={period !== 'year' && sortByValue === 'bestMedianFrom50BestResults'}
+                    isDisabled={period !== 'year' && ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortByValue)}
                   >
-                      {sortByLabelByValue[gameLanguage][sortByValue] || sortByLabelByValue.en[sortByValue]}
+                      {sortByLabelByValue[gameLanguage]?.[sortByValue] || sortByLabelByValue.en[sortByValue]}
                   </Button>
               ))}
-              <div className="year-summary-period-nav">
+              <div className="year-summary-period-nav" style={{ opacity: ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy) ? 0 : 100 }}>
                   {periodFilters.map(periodValue => (
                       <Button
                         key={periodValue}
@@ -184,7 +202,7 @@ const YearSummaryTable = ({ summary }: Props) => {
                         isInverted
                         hasBorder={false}
                         isText={periodValue !== period}
-                        isDisabled={sortBy === 'bestMedianFrom50BestResults'}
+                        isDisabled={['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy)}
                       >
                           {periodValue !== 'year' ? periodValue : 2024}
                       </Button>

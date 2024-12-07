@@ -224,8 +224,15 @@ const usersSummary = Object.entries(resultsByUser).reduce(
         (a, b) => (a.result?.totalLetters || 0) - (b.result?.totalLetters || 0)
       ).slice(0, 50) : undefined;
 
+      const hardest50Results = [...acceptedResults].filter(
+        ({ result }) =>  wordsByRank[lang].worstWords.includes(result?.word)
+      ).sort(
+        (a, b) => (a.result?.totalLetters || 0) - (b.result?.totalLetters || 0)
+      );
+
       stack[nick] = {
         best50: best50Results ? getInfoAboutResults(best50Results) : undefined,
+        hardest50: hardest50Results && hardest50Results.length > 35 ? getInfoAboutResults(hardest50Results) : undefined,
         results: {
           year: getInfoAboutResults(acceptedResults),
           ...userStatsByMonths,
