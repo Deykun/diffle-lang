@@ -130,7 +130,15 @@ const getStatisticForKey = (key: string): Statistic => {
     const state = JSON.parse(savedState) as Statistic;
 
     if (!state.medianData?.rejectedWords) {
-      state.medianData.rejectedWords = {};
+      if (!state.medianData) {
+        state.medianData = {
+          letters: {},
+          words: {},
+          rejectedWords: {},
+        };
+      } else {
+        state.medianData.rejectedWords = {};
+      }
     }
 
     return state;
@@ -252,7 +260,7 @@ export type SaveGame = LocalStorageStatisticInput & {
   wordToGuess: string,
 };
 
-const mergeStatistics = (statistics: Statistic[]): Statistic => {
+export const mergeStatistics = (statistics: Statistic[]): Statistic => {
   return statistics.reduce((stack: Statistic, statistic) => {
     const totalGamesStack = stack.totals.won + stack.totals.lost;
     const totalGameStatToAdd = statistic.totals.won + statistic.totals.lost;

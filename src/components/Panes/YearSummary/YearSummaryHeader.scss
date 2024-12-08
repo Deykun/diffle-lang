@@ -1,0 +1,35 @@
+.year-summary-header {
+  h1 {
+    font-size: 30px;
+  }
+
+  .year-summary-header-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+  }
+
+  .year-sumamry-header-main {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  p {
+    color: var(--text-weaker);
+    gap: 24px;
+    margin-bottom: 12px;
+
+    strong {
+      color: var(--text);    
+      font-size: 20px;
+    }
+  }
+}
+
+.year-summary-special-text {
+  background: linear-gradient(45deg, var(--green-stronger), var(--green), var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}

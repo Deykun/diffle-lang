@@ -1,0 +1,180 @@
+.year-summary-table {
+  --green-card: #00ac22;
+  font-size: 18px;
+  color: var(--text-weaker);
+  text-shadow: 0 0 10px var(--background);
+
+  h3 {
+    color: var(--text);
+  }
+
+  .year-summary-value {
+    line-height: 24px;
+    font-size: 26px;
+    color: var(--text);
+
+    &.year-summary-value--active {
+      font-size: 28px;
+      font-size: 800;
+      color: var(--green-card);
+      -webkit-text-stroke: 4px var(--background);
+      text-stroke: 4px var(--background);
+      paint-order: stroke fill; 
+    }
+  }
+
+  .circle-scale-border-checked {
+    border-color: var(--blue) !important;
+    border-color: color-mix(in srgb, var(--text) 15%, transparent) !important;
+    background-color: color-mix(in srgb,  var(--border) 5%, transparent) !important;
+  }
+}
+
+.year-summary-nav {
+  margin-bottom: 12px;
+
+  button {
+    small {
+      margin-left: 6px;
+      font-size: 60%;
+    }
+  }
+}
+
+.year-summary-period-nav {
+  button {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+.year-summary-table-row {
+  overflow: hidden;
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  margin-bottom: 15px;
+  position: relative;
+  padding: 20px;
+  
+  @media (max-width: 400px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &.year-summary-table-row--active {
+    position: sticky;
+    top: 60px;
+    bottom: -4px;
+    z-index: 1;
+    border: 1px solid var(--green-card);
+    background-color: var(--background);
+    box-shadow: 0 0 15px 5px var(--background);
+  }
+}
+
+.year-summary-table-row-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  h3 {
+    span {
+      color: var(--blue);
+      font-size: 70%;
+      margin-right: 10px;
+
+      @media (max-width: 360px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.year-summary-table-games {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+
+  svg {
+    height: 24px;
+    fill: var(--text);
+  }
+
+  > span {
+    position: relative;
+  }
+
+  .circle-scale {
+    width: 100%;
+  }
+}
+
+.year-summary-table-letters {
+  position: relative;
+
+  .circle-scale {
+    width: 1750%;
+  }
+}
+
+.year-summary-table-best-worst {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 15px;
+
+  .year-summary-table-best-worst-word {
+    color: color-mix(in srgb, var(--text) 80%, transparent)
+  }
+
+  .year-summary-table-best-worst-value {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 12px;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+.year-summary-table-daily {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: inline-flex;
+  align-items: end;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+
+  svg {
+    height: 18px;
+    fill: var(--text);
+  }
+
+  .year-summary-value {
+    font-size: 18px;
+    line-height: 15px;
+    position: relative;
+
+    &.year-summary-value--active {
+      font-size: 24px;
+    }
+
+    .circle-scale {
+      width: 300%;
+    }
+  }
+}
+
+.year-summary-value-pin-button {
+  position: absolute;
+  bottom: -2px;
+  right: -8px;
+}

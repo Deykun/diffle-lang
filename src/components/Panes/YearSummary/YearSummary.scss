@@ -1,0 +1,26 @@
+.summary {
+  section {
+    margin-bottom: 50px;
+  }
+
+  .summary-content-loader {
+    margin-top: 100px;
+    fill: var(--text-weaker);
+    width: 96px;
+    height: 96px;
+    animation: spin infinite linear 1s;
+  }
+
+  .about-language-small-key-cap {
+    display: inline-block;
+    vertical-align: middle;
+    width: 21px;
+    height: 21px;
+    font-size: 12px;
+    line-height: 17px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    letter-spacing: 0;
+    border: 2px solid color-mix(in srgb, var(--text) 15%, transparent);
+}
+}
