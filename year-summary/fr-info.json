@@ -1,0 +1,225 @@
+{
+	"all": {
+		"best": {
+			"word": "pénal",
+			"letters": 21
+		},
+		"worst": {
+			"word": "abdomen",
+			"letters": 46
+		},
+		"totalWords": {
+			"4": 3,
+			"7": 1,
+			"8": 1
+		},
+		"totalLetters": {
+			"21": 1,
+			"27": 1,
+			"30": 1,
+			"43": 1,
+			"46": 1
+		},
+		"gamesPlayed": 5,
+		"medianWords": 4,
+		"medianLetters": 30
+	},
+	"activePlayers": 1,
+	"byUser": {
+		"nxo": {
+			"results": {
+				"7": {
+					"best": {
+						"word": "pénal",
+						"letters": 21
+					},
+					"worst": {
+						"word": "abdomen",
+						"letters": 46
+					},
+					"totalWords": {
+						"4": 3,
+						"7": 1,
+						"8": 1
+					},
+					"totalLetters": {
+						"21": 1,
+						"27": 1,
+						"30": 1,
+						"43": 1,
+						"46": 1
+					},
+					"gamesPlayed": 5,
+					"medianWords": 4,
+					"medianLetters": 30
+				},
+				"year": {
+					"best": {
+						"word": "pénal",
+						"letters": 21
+					},
+					"worst": {
+						"word": "abdomen",
+						"letters": 46
+					},
+					"totalWords": {
+						"4": 3,
+						"7": 1,
+						"8": 1
+					},
+					"totalLetters": {
+						"21": 1,
+						"27": 1,
+						"30": 1,
+						"43": 1,
+						"46": 1
+					},
+					"gamesPlayed": 5,
+					"medianWords": 4,
+					"medianLetters": 30
+				}
+			},
+			"dates": {
+				"7": [
+					"13.07.2024",
+					"11.07.2024",
+					"10.07.2024",
+					"06.07.2024",
+					"09.07.2024"
+				],
+				"year": [
+					"13.07.2024",
+					"11.07.2024",
+					"10.07.2024",
+					"06.07.2024",
+					"09.07.2024"
+				]
+			}
+		}
+	},
+	"wordsByDates": {
+		"13.07.2024": "judaïsme",
+		"11.07.2024": "siamois",
+		"10.07.2024": "abdomen",
+		"09.07.2024": "caractère",
+		"06.07.2024": "pénal"
+	},
+	"datesByWords": {
+		"judaïsme": "13.07.2024",
+		"siamois": "11.07.2024",
+		"abdomen": "10.07.2024",
+		"caractère": "09.07.2024",
+		"pénal": "06.07.2024"
+	},
+	"rankByWords": {
+		"judaïsme": {
+			"best": {
+				"word": "judaïsme",
+				"letters": 27
+			},
+			"worst": {
+				"word": "judaïsme",
+				"letters": 27
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"27": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 27
+		},
+		"siamois": {
+			"best": {
+				"word": "siamois",
+				"letters": 43
+			},
+			"worst": {
+				"word": "siamois",
+				"letters": 43
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"43": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 43
+		},
+		"abdomen": {
+			"best": {
+				"word": "abdomen",
+				"letters": 46
+			},
+			"worst": {
+				"word": "abdomen",
+				"letters": 46
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"46": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 46
+		},
+		"pénal": {
+			"best": {
+				"word": "pénal",
+				"letters": 21
+			},
+			"worst": {
+				"word": "pénal",
+				"letters": 21
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"21": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 21
+		},
+		"caractère": {
+			"best": {
+				"word": "caractère",
+				"letters": 30
+			},
+			"worst": {
+				"word": "caractère",
+				"letters": 30
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"30": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 30
+		}
+	},
+	"hardestWords": [
+		"abdomen",
+		"siamois",
+		"caractère",
+		"judaïsme",
+		"pénal"
+	],
+	"bestWords": [
+		"pénal",
+		"judaïsme",
+		"caractère",
+		"siamois",
+		"abdomen"
+	]
+}

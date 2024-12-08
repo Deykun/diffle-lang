@@ -1,0 +1,857 @@
+{
+	"all": {
+		"best": {
+			"word": "classico",
+			"letters": 15
+		},
+		"worst": {
+			"word": "deferenza",
+			"letters": 83
+		},
+		"totalWords": {
+			"2": 1,
+			"3": 3,
+			"4": 2,
+			"5": 3,
+			"6": 1,
+			"7": 5,
+			"8": 3,
+			"9": 1,
+			"10": 1,
+			"11": 1,
+			"12": 1,
+			"16": 1,
+			"18": 1
+		},
+		"totalLetters": {
+			"15": 1,
+			"16": 1,
+			"20": 2,
+			"22": 1,
+			"25": 2,
+			"27": 1,
+			"31": 1,
+			"32": 1,
+			"34": 1,
+			"35": 1,
+			"36": 1,
+			"39": 1,
+			"43": 1,
+			"45": 1,
+			"47": 3,
+			"48": 1,
+			"49": 1,
+			"58": 1,
+			"69": 1,
+			"83": 1
+		},
+		"gamesPlayed": 24,
+		"medianWords": 6.5,
+		"medianLetters": 35.5
+	},
+	"activePlayers": 2,
+	"byUser": {
+		"Felonious_Gru": {
+			"results": {
+				"6": {
+					"best": {
+						"word": "botte",
+						"letters": 43
+					},
+					"worst": {
+						"word": "topologia",
+						"letters": 45
+					},
+					"totalWords": {
+						"7": 1,
+						"9": 1
+					},
+					"totalLetters": {
+						"43": 1,
+						"45": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 8,
+					"medianLetters": 44
+				},
+				"7": {
+					"best": {
+						"word": "rotto",
+						"letters": 16
+					},
+					"worst": {
+						"word": "deferenza",
+						"letters": 83
+					},
+					"totalWords": {
+						"3": 2,
+						"4": 2,
+						"5": 3,
+						"6": 1,
+						"7": 3,
+						"8": 3,
+						"11": 1,
+						"16": 1,
+						"18": 1
+					},
+					"totalLetters": {
+						"16": 1,
+						"20": 1,
+						"22": 1,
+						"25": 2,
+						"27": 1,
+						"31": 1,
+						"32": 1,
+						"34": 1,
+						"35": 1,
+						"36": 1,
+						"39": 1,
+						"47": 3,
+						"69": 1,
+						"83": 1
+					},
+					"gamesPlayed": 17,
+					"medianWords": 7,
+					"medianLetters": 34
+				},
+				"8": {
+					"best": {
+						"word": "palermo",
+						"letters": 20
+					},
+					"worst": {
+						"word": "sigaretta",
+						"letters": 58
+					},
+					"totalWords": {
+						"3": 1,
+						"7": 1,
+						"12": 1
+					},
+					"totalLetters": {
+						"20": 1,
+						"48": 1,
+						"58": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 7,
+					"medianLetters": 48
+				},
+				"9": {
+					"best": {
+						"word": "aneddoto",
+						"letters": 49
+					},
+					"worst": {
+						"word": "aneddoto",
+						"letters": 49
+					},
+					"totalWords": {
+						"10": 1
+					},
+					"totalLetters": {
+						"49": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 10,
+					"medianLetters": 49
+				},
+				"year": {
+					"best": {
+						"word": "rotto",
+						"letters": 16
+					},
+					"worst": {
+						"word": "deferenza",
+						"letters": 83
+					},
+					"totalWords": {
+						"3": 3,
+						"4": 2,
+						"5": 3,
+						"6": 1,
+						"7": 5,
+						"8": 3,
+						"9": 1,
+						"10": 1,
+						"11": 1,
+						"12": 1,
+						"16": 1,
+						"18": 1
+					},
+					"totalLetters": {
+						"16": 1,
+						"20": 2,
+						"22": 1,
+						"25": 2,
+						"27": 1,
+						"31": 1,
+						"32": 1,
+						"34": 1,
+						"35": 1,
+						"36": 1,
+						"39": 1,
+						"43": 1,
+						"45": 1,
+						"47": 3,
+						"48": 1,
+						"49": 1,
+						"58": 1,
+						"69": 1,
+						"83": 1
+					},
+					"gamesPlayed": 23,
+					"medianWords": 7,
+					"medianLetters": 36
+				}
+			},
+			"dates": {
+				"6": [
+					"29.06.2024",
+					"30.06.2024"
+				],
+				"7": [
+					"19.07.2024",
+					"01.07.2024",
+					"04.07.2024",
+					"08.07.2024",
+					"09.07.2024",
+					"10.07.2024",
+					"11.07.2024",
+					"14.07.2024",
+					"15.07.2024",
+					"17.07.2024",
+					"22.07.2024",
+					"20.07.2024",
+					"16.07.2024",
+					"13.07.2024",
+					"02.07.2024",
+					"23.07.2024"
+				],
+				"8": [
+					"06.08.2024",
+					"28.08.2024",
+					"31.08.2024"
+				],
+				"9": [
+					"30.09.2024"
+				],
+				"year": [
+					"19.07.2024",
+					"29.06.2024",
+					"01.07.2024",
+					"04.07.2024",
+					"06.08.2024",
+					"08.07.2024",
+					"09.07.2024",
+					"10.07.2024",
+					"11.07.2024",
+					"14.07.2024",
+					"15.07.2024",
+					"17.07.2024",
+					"22.07.2024",
+					"30.09.2024",
+					"20.07.2024",
+					"28.08.2024",
+					"16.07.2024",
+					"13.07.2024",
+					"02.07.2024",
+					"30.06.2024",
+					"23.07.2024",
+					"31.08.2024"
+				]
+			}
+		},
+		"JeanValjean": {
+			"results": {
+				"7": {
+					"best": {
+						"word": "classico",
+						"letters": 15
+					},
+					"worst": {
+						"word": "classico",
+						"letters": 15
+					},
+					"totalWords": {
+						"2": 1
+					},
+					"totalLetters": {
+						"15": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 2,
+					"medianLetters": 15
+				},
+				"year": {
+					"best": {
+						"word": "classico",
+						"letters": 15
+					},
+					"worst": {
+						"word": "classico",
+						"letters": 15
+					},
+					"totalWords": {
+						"2": 1
+					},
+					"totalLetters": {
+						"15": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 2,
+					"medianLetters": 15
+				}
+			},
+			"dates": {
+				"7": [
+					"03.07.2024"
+				],
+				"year": [
+					"03.07.2024"
+				]
+			}
+		}
+	},
+	"wordsByDates": {
+		"30.09.2024": "aneddoto",
+		"31.08.2024": "documento",
+		"28.08.2024": "palermo",
+		"06.08.2024": "sigaretta",
+		"23.07.2024": "morfina",
+		"22.07.2024": "fecola",
+		"20.07.2024": "tornado",
+		"19.07.2024": "premio",
+		"17.07.2024": "deferenza",
+		"16.07.2024": "angioino",
+		"15.07.2024": "sgombrare",
+		"14.07.2024": "odio",
+		"13.07.2024": "fruizione",
+		"11.07.2024": "valle",
+		"10.07.2024": "recita",
+		"09.07.2024": "logico",
+		"08.07.2024": "donnola",
+		"04.07.2024": "gotta",
+		"03.07.2024": "classico",
+		"02.07.2024": "zenzero",
+		"01.07.2024": "rotto",
+		"30.06.2024": "botte",
+		"29.06.2024": "topologia"
+	},
+	"datesByWords": {
+		"aneddoto": "30.09.2024",
+		"documento": "31.08.2024",
+		"palermo": "28.08.2024",
+		"sigaretta": "06.08.2024",
+		"morfina": "23.07.2024",
+		"fecola": "22.07.2024",
+		"tornado": "20.07.2024",
+		"premio": "19.07.2024",
+		"deferenza": "17.07.2024",
+		"angioino": "16.07.2024",
+		"sgombrare": "15.07.2024",
+		"odio": "14.07.2024",
+		"fruizione": "13.07.2024",
+		"valle": "11.07.2024",
+		"recita": "10.07.2024",
+		"logico": "09.07.2024",
+		"donnola": "08.07.2024",
+		"gotta": "04.07.2024",
+		"classico": "03.07.2024",
+		"zenzero": "02.07.2024",
+		"rotto": "01.07.2024",
+		"botte": "30.06.2024",
+		"topologia": "29.06.2024"
+	},
+	"rankByWords": {
+		"premio": {
+			"best": {
+				"word": "premio",
+				"letters": 20
+			},
+			"worst": {
+				"word": "premio",
+				"letters": 20
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"20": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 20
+		},
+		"topologia": {
+			"best": {
+				"word": "topologia",
+				"letters": 45
+			},
+			"worst": {
+				"word": "topologia",
+				"letters": 45
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"45": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 45
+		},
+		"rotto": {
+			"best": {
+				"word": "rotto",
+				"letters": 16
+			},
+			"worst": {
+				"word": "rotto",
+				"letters": 16
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"16": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 16
+		},
+		"gotta": {
+			"best": {
+				"word": "gotta",
+				"letters": 34
+			},
+			"worst": {
+				"word": "gotta",
+				"letters": 34
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"34": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 34
+		},
+		"sigaretta": {
+			"best": {
+				"word": "sigaretta",
+				"letters": 58
+			},
+			"worst": {
+				"word": "sigaretta",
+				"letters": 58
+			},
+			"totalWords": {
+				"12": 1
+			},
+			"totalLetters": {
+				"58": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 12,
+			"medianLetters": 58
+		},
+		"donnola": {
+			"best": {
+				"word": "donnola",
+				"letters": 47
+			},
+			"worst": {
+				"word": "donnola",
+				"letters": 47
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"47": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 47
+		},
+		"logico": {
+			"best": {
+				"word": "logico",
+				"letters": 25
+			},
+			"worst": {
+				"word": "logico",
+				"letters": 25
+			},
+			"totalWords": {
+				"5": 1
+			},
+			"totalLetters": {
+				"25": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 5,
+			"medianLetters": 25
+		},
+		"recita": {
+			"best": {
+				"word": "recita",
+				"letters": 36
+			},
+			"worst": {
+				"word": "recita",
+				"letters": 36
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"36": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 36
+		},
+		"valle": {
+			"best": {
+				"word": "valle",
+				"letters": 25
+			},
+			"worst": {
+				"word": "valle",
+				"letters": 25
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"25": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 25
+		},
+		"odio": {
+			"best": {
+				"word": "odio",
+				"letters": 27
+			},
+			"worst": {
+				"word": "odio",
+				"letters": 27
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"27": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 27
+		},
+		"sgombrare": {
+			"best": {
+				"word": "sgombrare",
+				"letters": 47
+			},
+			"worst": {
+				"word": "sgombrare",
+				"letters": 47
+			},
+			"totalWords": {
+				"11": 1
+			},
+			"totalLetters": {
+				"47": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 11,
+			"medianLetters": 47
+		},
+		"deferenza": {
+			"best": {
+				"word": "deferenza",
+				"letters": 83
+			},
+			"worst": {
+				"word": "deferenza",
+				"letters": 83
+			},
+			"totalWords": {
+				"18": 1
+			},
+			"totalLetters": {
+				"83": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 18,
+			"medianLetters": 83
+		},
+		"fecola": {
+			"best": {
+				"word": "fecola",
+				"letters": 32
+			},
+			"worst": {
+				"word": "fecola",
+				"letters": 32
+			},
+			"totalWords": {
+				"6": 1
+			},
+			"totalLetters": {
+				"32": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 6,
+			"medianLetters": 32
+		},
+		"aneddoto": {
+			"best": {
+				"word": "aneddoto",
+				"letters": 49
+			},
+			"worst": {
+				"word": "aneddoto",
+				"letters": 49
+			},
+			"totalWords": {
+				"10": 1
+			},
+			"totalLetters": {
+				"49": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 10,
+			"medianLetters": 49
+		},
+		"tornado": {
+			"best": {
+				"word": "tornado",
+				"letters": 22
+			},
+			"worst": {
+				"word": "tornado",
+				"letters": 22
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"22": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 22
+		},
+		"palermo": {
+			"best": {
+				"word": "palermo",
+				"letters": 20
+			},
+			"worst": {
+				"word": "palermo",
+				"letters": 20
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"20": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 20
+		},
+		"angioino": {
+			"best": {
+				"word": "angioino",
+				"letters": 47
+			},
+			"worst": {
+				"word": "angioino",
+				"letters": 47
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"47": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 47
+		},
+		"fruizione": {
+			"best": {
+				"word": "fruizione",
+				"letters": 39
+			},
+			"worst": {
+				"word": "fruizione",
+				"letters": 39
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"39": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 39
+		},
+		"zenzero": {
+			"best": {
+				"word": "zenzero",
+				"letters": 69
+			},
+			"worst": {
+				"word": "zenzero",
+				"letters": 69
+			},
+			"totalWords": {
+				"16": 1
+			},
+			"totalLetters": {
+				"69": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 16,
+			"medianLetters": 69
+		},
+		"botte": {
+			"best": {
+				"word": "botte",
+				"letters": 43
+			},
+			"worst": {
+				"word": "botte",
+				"letters": 43
+			},
+			"totalWords": {
+				"9": 1
+			},
+			"totalLetters": {
+				"43": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 9,
+			"medianLetters": 43
+		},
+		"morfina": {
+			"best": {
+				"word": "morfina",
+				"letters": 35
+			},
+			"worst": {
+				"word": "morfina",
+				"letters": 35
+			},
+			"totalWords": {
+				"5": 1
+			},
+			"totalLetters": {
+				"35": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 5,
+			"medianLetters": 35
+		},
+		"documento": {
+			"best": {
+				"word": "documento",
+				"letters": 48
+			},
+			"worst": {
+				"word": "documento",
+				"letters": 48
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"48": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 48
+		},
+		"classico": {
+			"best": {
+				"word": "classico",
+				"letters": 15
+			},
+			"worst": {
+				"word": "classico",
+				"letters": 31
+			},
+			"totalWords": {
+				"2": 1,
+				"5": 1
+			},
+			"totalLetters": {
+				"15": 1,
+				"31": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 3.5,
+			"medianLetters": 23
+		}
+	},
+	"hardestWords": [
+		"deferenza",
+		"zenzero",
+		"sigaretta",
+		"aneddoto",
+		"documento",
+		"sgombrare",
+		"donnola",
+		"angioino",
+		"topologia",
+		"botte",
+		"fruizione",
+		"recita",
+		"morfina",
+		"gotta",
+		"fecola",
+		"odio",
+		"logico",
+		"valle",
+		"classico",
+		"tornado",
+		"premio",
+		"palermo",
+		"rotto"
+	],
+	"bestWords": [
+		"rotto",
+		"palermo",
+		"premio",
+		"tornado",
+		"classico",
+		"valle",
+		"logico",
+		"odio",
+		"fecola",
+		"gotta",
+		"morfina",
+		"recita",
+		"fruizione",
+		"botte",
+		"topologia",
+		"donnola",
+		"angioino",
+		"sgombrare",
+		"documento",
+		"aneddoto",
+		"sigaretta",
+		"zenzero",
+		"deferenza"
+	]
+}
