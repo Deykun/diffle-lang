@@ -804,14 +804,14 @@
 			"medianLetters": 23
 		}
 	},
-	"worstWords": [
+	"hardestWords": [
 		"deferenza",
 		"zenzero",
 		"sigaretta",
 		"aneddoto",
 		"documento",
-		"donnola",
 		"sgombrare",
+		"donnola",
 		"angioino",
 		"topologia",
 		"botte",
@@ -831,12 +831,12 @@
 	],
 	"bestWords": [
 		"rotto",
-		"premio",
 		"palermo",
+		"premio",
 		"tornado",
 		"classico",
-		"logico",
 		"valle",
+		"logico",
 		"odio",
 		"fecola",
 		"gotta",
@@ -846,8 +846,8 @@
 		"botte",
 		"topologia",
 		"donnola",
-		"sgombrare",
 		"angioino",
+		"sgombrare",
 		"documento",
 		"aneddoto",
 		"sigaretta",

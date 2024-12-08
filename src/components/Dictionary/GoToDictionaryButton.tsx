@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 import { useSelector, useDispatch } from '@store';
 import { selectGameLanguageKeyboardInfo } from '@store/selectors';
@@ -18,9 +19,10 @@ import './GoToDictionaryButton.scss';
 
 type Props = {
   word?: string,
+  className?: string,
 };
 
-function GoToDictionaryButton({ word = '' }: Props) {
+const GoToDictionaryButton = ({ word = '', className = '' }: Props) => {
   const dispatch = useDispatch();
   const gameLanguage = useSelector(state => state.game.language);
   const { urls } = useSelector(selectGameLanguageKeyboardInfo);
@@ -48,7 +50,11 @@ function GoToDictionaryButton({ word = '' }: Props) {
 
   return (
       <>
-          <span className="buttons-connected">
+          <span
+            className={clsx('buttons-connected', {
+              [className]: className,
+            })}
+          >
               <Button
                 tagName="a"
                 href={mainUrl.replace('{{word}}', word)}
@@ -97,6 +103,6 @@ function GoToDictionaryButton({ word = '' }: Props) {
           </Modal>
       </>
   );
-}
+};
 
 export default GoToDictionaryButton;

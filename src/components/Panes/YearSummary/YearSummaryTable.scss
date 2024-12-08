@@ -32,6 +32,13 @@
 
 .year-summary-nav {
   margin-bottom: 12px;
+
+  button {
+    small {
+      margin-left: 6px;
+      font-size: 60%;
+    }
+  }
 }
 
 .year-summary-period-nav {

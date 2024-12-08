@@ -1,19 +1,16 @@
 import { useMemo, useState } from 'react';
-import clsx from 'clsx';
-import { useTranslation } from 'react-i18next';
 
 import { YearSummaryInfo } from '@common-types';
 
 import { useSelector } from '@store';
 
-import IconGamepad from '@components/Icons/IconGamepad';
-import IconPin from '@components/Icons/IconPin';
-
-import CircleScale from '@components/CircleScale/CircleScale';
-
 import Button from '@components/Button/Button';
 
+import useEventT from './hooks/useEventT';
+
 import YearSummaryTableItem from './YearSummaryTableItem';
+import YearSummaryWordsTable from './YearSummaryWordsTable';
+
 
 import './YearSummaryTable.scss';
 
@@ -22,23 +19,6 @@ type Props = {
 };
 
 const periodFilters = ['year', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(String)];
-
-const sortByLabelByValue = {
-  en: {
-    totalPlayed: 'Games',
-    bestMedianLetters: 'Median',
-    bestDailyResults: "Day's best result",
-    bestMedianFrom50HardestWordsResults: 'Median (50 worst words)',
-    bestMedianFrom50BestResults: 'Median (50 best results)',
-  },
-  pl: {
-    totalPlayed: 'Gry',
-    bestMedianLetters: 'Mediana',
-    bestDailyResults: 'Wynik dnia',
-    bestMedianFrom50HardestWordsResults: 'Mediana (50 najtrudniejszych słów)',
-    bestMedianFrom50BestResults: 'Mediana (50 najlepszych wyników)',
-  },
-};
 
 const YearSummaryTable = ({ summary }: Props) => {
   const gameLanguage = useSelector(state => state.game.language);
@@ -52,7 +32,7 @@ const YearSummaryTable = ({ summary }: Props) => {
   'bestDailyResults'
   >('bestMedianLetters');
 
-  const { t } = useTranslation();
+  const { eventT } = useEventT();
 
   const dataBy = useMemo(() => {
     if (!summary) {
@@ -143,57 +123,44 @@ const YearSummaryTable = ({ summary }: Props) => {
           return bestB - bestA;
         },
       ).slice(0, 75),
-      worstWords: [...Object.keys(summary.rankByWords)].sort(
-        (a, b) => summary.rankByWords[b].medianLetters - summary.rankByWords[a].medianLetters,
-      ).slice(0, 10),
-      bestWords: [...Object.keys(summary.rankByWords)].sort(
-        (a, b) => summary.rankByWords[a].medianLetters - summary.rankByWords[b].medianLetters,
-      ).slice(0, 10),
+      hardestWords: summary.hardestWords,
+      bestWords: summary.bestWords,
     };
   }, [summary, period, gameLanguage]);
 
-  if (!summary) {
+  if (!summary || !gameLanguage) {
     return null;
   }
 
   return (
       <>
-          <div>
-              <div>
-                  <h3>Hardest to guess</h3>
-                  <ul>
-                      {(dataBy?.worstWords || []).map(word => (
-                          <li>
-                              {word}
-                          </li>
-                      ))}
-                  </ul>
-              </div>
-              <div>
-                  <h3>Easist to guess</h3>
-                  <ul>
-                      {(dataBy?.bestWords || []).map(word => (
-                          <li>
-                              {word}
-                          </li>
-                      ))}
-                  </ul>
-              </div>
-          </div>
+          <YearSummaryWordsTable summary={summary} bestWords={dataBy.bestWords} hardestWords={dataBy.hardestWords} />
           <nav className="year-summary-nav">
-              {['bestDailyResults', 'bestMedianLetters', 'bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults', 'totalPlayed'].map(sortByValue => (
-                  <Button
-                    key={sortByValue}
-                    // @ts-expect-error No one sane should define abstract types just to deal with this nonsense.
-                    onClick={() => setSortBy(sortByValue)}
-                    isInverted
-                    hasBorder={false}
-                    isText={sortByValue !== sortBy}
-                    isDisabled={period !== 'year' && ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortByValue)}
-                  >
-                      {sortByLabelByValue[gameLanguage]?.[sortByValue] || sortByLabelByValue.en[sortByValue]}
-                  </Button>
-              ))}
+              {['bestDailyResults', 'bestMedianLetters', 'totalPlayed', 'bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].map((sortByValue) => {
+                return (
+                    <Button
+                      key={sortByValue}
+                      // @ts-expect-error No one sane should define abstract types just to deal with this nonsense.
+                      onClick={() => setSortBy(sortByValue)}
+                      isInverted
+                      hasBorder={false}
+                      isText={sortByValue !== sortBy}
+                      isDisabled={period !== 'year' && ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortByValue)}
+                    >
+                        <span>
+
+                            {eventT(`label.${sortByValue}`)}
+                            {eventT(`label.description.${sortByValue}`, '') && (
+                            <small>
+                                {' '}
+                                {eventT(`label.description.${sortByValue}`)}
+                            </small>
+                            )}
+                        </span>
+
+                    </Button>
+                );
+              })}
               <div className="year-summary-period-nav" style={{ opacity: ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy) ? 0 : 100 }}>
                   {periodFilters.map(periodValue => (
                       <Button

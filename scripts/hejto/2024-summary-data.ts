@@ -178,11 +178,43 @@ const rankByWords = langs.reduce((globalStack, lang) => {
 
 const wordsByRank = langs.reduce((stack, lang) => {
   stack[lang] = {
-    worstWords: [...Object.keys(rankByWords[lang])].sort(
-        (a, b) => rankByWords[lang][b].medianLetters - rankByWords[lang][a].medianLetters,
+    hardestWords: [...Object.keys(rankByWords[lang])].sort(
+        (a, b) => {
+          const medianLettersA = rankByWords[lang][a].medianLetters;
+          const medianLettersB = rankByWords[lang][b].medianLetters;
+
+          if (medianLettersA === medianLettersB) {
+            const medianWordsA = rankByWords[lang][a].medianWords;
+            const medianWordsB = rankByWords[lang][b].medianWords;
+
+            if (medianWordsA === medianWordsB) {
+              return rankByWords[lang][b].gamesPlayed - rankByWords[lang][a].gamesPlayed;
+            }
+
+            return medianWordsB - medianWordsA;
+          }
+
+          return medianLettersB - medianLettersA;
+        },
     ).slice(0, 50),
     bestWords: [...Object.keys(rankByWords[lang])].sort(
-      (a, b) => rankByWords[lang][a].medianLetters - rankByWords[lang][b].medianLetters,
+      (a, b) => {
+        const medianLettersA = rankByWords[lang][a].medianLetters;
+        const medianLettersB = rankByWords[lang][b].medianLetters;
+
+        if (medianLettersA === medianLettersB) {
+          const medianWordsA = rankByWords[lang][a].medianWords;
+          const medianWordsB = rankByWords[lang][b].medianWords;
+
+          if (medianWordsA === medianWordsB) {
+            return rankByWords[lang][b].gamesPlayed - rankByWords[lang][a].gamesPlayed;
+          }
+
+          return medianWordsA - medianWordsB;
+        }
+
+        return medianLettersA - medianLettersB;
+      },
     ).slice(0, 50),
   };
 
@@ -225,7 +257,7 @@ const usersSummary = Object.entries(resultsByUser).reduce(
       ).slice(0, 50) : undefined;
 
       const hardest50Results = [...acceptedResults].filter(
-        ({ result }) =>  wordsByRank[lang].worstWords.includes(result?.word)
+        ({ result }) =>  wordsByRank[lang].hardestWords.includes(result?.word)
       ).sort(
         (a, b) => (a.result?.totalLetters || 0) - (b.result?.totalLetters || 0)
       );
@@ -262,7 +294,7 @@ langs.forEach((lang) => {
         wordsByDates: wordsByDates[lang],
         datesByWords: datesByWords[lang],
         rankByWords: rankByWords[lang],
-        worstWords: wordsByRank[lang].worstWords,
+        hardestWords: wordsByRank[lang].hardestWords,
         bestWords: wordsByRank[lang].bestWords
       },
       null,

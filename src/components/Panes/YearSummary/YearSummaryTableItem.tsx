@@ -14,6 +14,8 @@ import CircleScale from '@components/CircleScale/CircleScale';
 
 import Button from '@components/Button/Button';
 
+import useEventT from './hooks/useEventT';
+
 import './YearSummaryTable.scss';
 
 type Props = {
@@ -31,6 +33,7 @@ const YearSummaryTableItem = ({
   setSelected,
 }: Props) => {
   const { t } = useTranslation();
+  const { eventT } = useEventT();
 
   let resultsData = summary.byUser[username].results[period] as ResultsInfo;
 

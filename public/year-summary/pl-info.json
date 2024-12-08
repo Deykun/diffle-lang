@@ -1145,8 +1145,8 @@
 				"totalWords": {
 					"2": 2,
 					"3": 11,
-					"4": 15,
-					"5": 11,
+					"4": 14,
+					"5": 13,
 					"6": 6
 				},
 				"totalLetters": {
@@ -1159,7 +1159,6 @@
 					"29": 1,
 					"30": 1,
 					"31": 2,
-					"33": 1,
 					"34": 2,
 					"35": 2,
 					"36": 4,
@@ -1167,6 +1166,7 @@
 					"38": 2,
 					"39": 2,
 					"40": 1,
+					"41": 2,
 					"42": 1,
 					"44": 4,
 					"45": 2,
@@ -1176,9 +1176,9 @@
 					"51": 1,
 					"52": 1
 				},
-				"gamesPlayed": 45,
-				"medianWords": 4,
-				"medianLetters": 36
+				"gamesPlayed": 46,
+				"medianWords": 3.5,
+				"medianLetters": 35.5
 			},
 			"results": {
 				"1": {
@@ -1782,7 +1782,7 @@
 					"4": 12,
 					"5": 7,
 					"6": 12,
-					"7": 4,
+					"7": 5,
 					"8": 2
 				},
 				"totalLetters": {
@@ -1805,16 +1805,16 @@
 					"44": 1,
 					"46": 1,
 					"47": 1,
-					"48": 1,
+					"48": 2,
 					"49": 2,
 					"52": 1,
 					"54": 1,
 					"61": 1,
 					"64": 1
 				},
-				"gamesPlayed": 43,
-				"medianWords": 5,
-				"medianLetters": 37
+				"gamesPlayed": 44,
+				"medianWords": 4.5,
+				"medianLetters": 37.5
 			},
 			"results": {
 				"1": {
@@ -2555,7 +2555,7 @@
 				"totalWords": {
 					"2": 3,
 					"3": 2,
-					"4": 5,
+					"4": 4,
 					"5": 10,
 					"6": 6,
 					"7": 6,
@@ -2572,7 +2572,7 @@
 					"27": 1,
 					"30": 1,
 					"34": 1,
-					"35": 2,
+					"35": 1,
 					"36": 1,
 					"38": 1,
 					"39": 2,
@@ -2588,11 +2588,11 @@
 					"55": 2,
 					"56": 1,
 					"59": 2,
-					"60": 3,
+					"60": 2,
 					"61": 1,
 					"62": 2,
 					"64": 1,
-					"66": 1,
+					"66": 2,
 					"70": 1,
 					"73": 1,
 					"74": 1,
@@ -2600,9 +2600,9 @@
 					"86": 1,
 					"89": 1
 				},
-				"gamesPlayed": 47,
-				"medianWords": 6,
-				"medianLetters": 46
+				"gamesPlayed": 46,
+				"medianWords": 5.5,
+				"medianLetters": 45
 			},
 			"results": {
 				"1": {
@@ -3281,8 +3281,8 @@
 				"totalWords": {
 					"2": 1,
 					"3": 12,
-					"4": 12,
-					"5": 17,
+					"4": 13,
+					"5": 16,
 					"6": 2,
 					"7": 3,
 					"8": 1,
@@ -3290,9 +3290,8 @@
 				},
 				"totalLetters": {
 					"19": 1,
-					"23": 1,
 					"24": 2,
-					"25": 2,
+					"25": 3,
 					"26": 1,
 					"27": 2,
 					"28": 3,
@@ -3985,38 +3984,36 @@
 			},
 			"hardest50": {
 				"best": {
-					"word": "kadzidło",
-					"letters": 20
+					"word": "pojęcie",
+					"letters": 23
 				},
 				"worst": {
 					"word": "nagrywać",
 					"letters": 61
 				},
 				"totalWords": {
-					"2": 1,
-					"3": 7,
-					"4": 17,
+					"3": 8,
+					"4": 18,
 					"5": 8,
-					"6": 7,
+					"6": 6,
 					"7": 4,
 					"8": 1
 				},
 				"totalLetters": {
-					"20": 1,
 					"23": 1,
 					"25": 3,
 					"26": 1,
-					"27": 2,
+					"27": 3,
 					"28": 1,
 					"30": 2,
-					"31": 2,
+					"31": 3,
 					"32": 2,
 					"33": 2,
 					"34": 3,
 					"35": 2,
 					"36": 1,
 					"37": 2,
-					"38": 2,
+					"38": 1,
 					"39": 2,
 					"40": 4,
 					"41": 1,
@@ -4030,7 +4027,7 @@
 				},
 				"gamesPlayed": 45,
 				"medianWords": 4,
-				"medianLetters": 36
+				"medianLetters": 35
 			},
 			"results": {
 				"1": {
@@ -5134,30 +5131,31 @@
 			},
 			"hardest50": {
 				"best": {
-					"word": "zagęstnik",
-					"letters": 27
+					"word": "rabować",
+					"letters": 26
 				},
 				"worst": {
 					"word": "szatański",
 					"letters": 65
 				},
 				"totalWords": {
-					"3": 5,
-					"4": 16,
-					"5": 14,
+					"3": 6,
+					"4": 14,
+					"5": 15,
 					"6": 7,
 					"7": 4,
 					"8": 1,
 					"10": 3
 				},
 				"totalLetters": {
+					"26": 1,
 					"27": 1,
 					"29": 1,
 					"30": 3,
-					"32": 2,
+					"32": 1,
 					"33": 2,
 					"34": 1,
-					"35": 5,
+					"35": 4,
 					"36": 2,
 					"37": 3,
 					"38": 6,
@@ -5166,7 +5164,7 @@
 					"41": 3,
 					"42": 1,
 					"43": 1,
-					"45": 1,
+					"45": 2,
 					"46": 1,
 					"47": 2,
 					"48": 1,
@@ -5180,7 +5178,7 @@
 				},
 				"gamesPlayed": 50,
 				"medianWords": 4.5,
-				"medianLetters": 37.5
+				"medianLetters": 38.5
 			},
 			"results": {
 				"1": {
@@ -5776,8 +5774,8 @@
 				},
 				"totalWords": {
 					"2": 1,
-					"3": 5,
-					"4": 10,
+					"3": 4,
+					"4": 12,
 					"5": 8,
 					"6": 10,
 					"7": 2,
@@ -5788,13 +5786,13 @@
 				},
 				"totalLetters": {
 					"18": 1,
-					"22": 2,
+					"22": 1,
 					"24": 2,
 					"28": 1,
-					"29": 2,
+					"29": 3,
 					"30": 2,
 					"31": 2,
-					"32": 2,
+					"32": 3,
 					"33": 2,
 					"37": 1,
 					"38": 2,
@@ -5815,9 +5813,9 @@
 					"66": 1,
 					"76": 1
 				},
-				"gamesPlayed": 44,
-				"medianWords": 4.5,
-				"medianLetters": 39.5
+				"gamesPlayed": 45,
+				"medianWords": 5,
+				"medianLetters": 39
 			},
 			"results": {
 				"1": {
@@ -7066,17 +7064,18 @@
 					"letters": 60
 				},
 				"totalWords": {
-					"4": 12,
+					"4": 13,
 					"5": 13,
 					"6": 11,
 					"7": 4,
-					"8": 7
+					"8": 6
 				},
 				"totalLetters": {
 					"21": 1,
 					"25": 2,
-					"26": 2,
-					"28": 3,
+					"26": 1,
+					"28": 4,
+					"30": 1,
 					"32": 2,
 					"33": 1,
 					"34": 2,
@@ -7086,7 +7085,7 @@
 					"38": 2,
 					"39": 6,
 					"40": 2,
-					"42": 3,
+					"42": 2,
 					"43": 2,
 					"45": 2,
 					"46": 1,
@@ -7099,7 +7098,7 @@
 				},
 				"gamesPlayed": 47,
 				"medianWords": 5,
-				"medianLetters": 39
+				"medianLetters": 38
 			},
 			"results": {
 				"1": {
@@ -7757,9 +7756,9 @@
 				"totalWords": {
 					"3": 4,
 					"4": 16,
-					"5": 14,
-					"6": 8,
-					"7": 3,
+					"5": 15,
+					"6": 7,
+					"7": 2,
 					"8": 1,
 					"9": 3,
 					"13": 1
@@ -7780,17 +7779,16 @@
 					"36": 2,
 					"37": 1,
 					"38": 2,
-					"39": 6,
+					"39": 5,
 					"40": 3,
 					"41": 1,
 					"42": 1,
-					"43": 1,
+					"43": 2,
 					"44": 2,
 					"46": 1,
 					"47": 2,
 					"48": 2,
 					"49": 1,
-					"50": 1,
 					"52": 1,
 					"55": 1,
 					"71": 1,
@@ -7798,9 +7796,9 @@
 					"78": 1,
 					"97": 1
 				},
-				"gamesPlayed": 50,
-				"medianWords": 4.5,
-				"medianLetters": 38.5
+				"gamesPlayed": 49,
+				"medianWords": 5,
+				"medianLetters": 39
 			},
 			"results": {
 				"1": {
@@ -9323,9 +9321,9 @@
 				"totalWords": {
 					"2": 1,
 					"3": 5,
-					"4": 12,
-					"5": 13,
-					"6": 8,
+					"4": 14,
+					"5": 12,
+					"6": 7,
 					"7": 6,
 					"8": 2,
 					"10": 1
@@ -9336,14 +9334,14 @@
 					"25": 2,
 					"27": 1,
 					"29": 2,
-					"30": 1,
+					"30": 2,
 					"31": 3,
-					"32": 3,
+					"32": 4,
 					"33": 1,
 					"34": 2,
 					"35": 1,
 					"36": 2,
-					"37": 3,
+					"37": 1,
 					"38": 4,
 					"40": 3,
 					"41": 6,
@@ -10018,11 +10016,11 @@
 					"4": 1,
 					"5": 7,
 					"6": 11,
-					"7": 9,
+					"7": 10,
 					"8": 7,
 					"9": 2,
 					"10": 3,
-					"11": 2,
+					"11": 1,
 					"13": 2
 				},
 				"totalLetters": {
@@ -10037,16 +10035,15 @@
 					"41": 5,
 					"42": 4,
 					"43": 4,
-					"44": 3,
+					"44": 2,
 					"45": 1,
-					"46": 3,
+					"46": 4,
 					"48": 1,
 					"50": 1,
 					"51": 2,
 					"52": 1,
-					"53": 4,
+					"53": 5,
 					"55": 1,
-					"61": 1,
 					"62": 1,
 					"73": 1
 				},
@@ -34347,108 +34344,108 @@
 			"medianLetters": 31
 		}
 	},
-	"worstWords": [
+	"hardestWords": [
 		"indagować",
 		"waloński",
 		"iliryjski",
 		"rzęsorek",
 		"surfować",
-		"przesuwać",
 		"asystować",
+		"przesuwać",
 		"odejmować",
 		"kruszarka",
 		"floruit",
-		"opiumista",
 		"pogardzać",
+		"opiumista",
 		"szatański",
 		"arsenian",
 		"zagęstnik",
 		"natron",
 		"migotanie",
+		"comeback",
 		"faksymile",
 		"synonimia",
-		"comeback",
 		"beztrosko",
-		"obskurnie",
-		"posępnie",
 		"omometr",
-		"akonityna",
-		"odżegnać",
+		"posępnie",
+		"obskurnie",
 		"altówka",
+		"akonityna",
 		"zdumiewać",
 		"usługiwać",
-		"mineralne",
-		"dociekać",
-		"pęknięcie",
-		"nagrywać",
-		"zbawienie",
+		"odżegnać",
 		"odwach",
+		"nagrywać",
+		"pęknięcie",
+		"dociekać",
 		"interfejs",
+		"mineralne",
+		"zbawienie",
 		"eminencja",
-		"pojęcie",
-		"aranżacja",
-		"osłabiać",
-		"uprzednio",
 		"odnośnik",
+		"aranżacja",
+		"uprzednio",
+		"osłabiać",
+		"pojęcie",
 		"walabia",
-		"chasydzki",
+		"krabojad",
 		"japończyk",
 		"filozofia",
-		"krabojad",
-		"mówienie",
-		"kadzidło",
-		"mannitol"
+		"chasydzki",
+		"mannitol",
+		"rabować",
+		"mocznica"
 	],
 	"bestWords": [
 		"penis",
-		"rekin",
 		"koniec",
 		"post",
 		"nosze",
+		"rekin",
 		"puls",
 		"most",
 		"etap",
-		"onyks",
 		"mierny",
-		"wygoda",
+		"onyks",
 		"miło",
-		"dzicz",
+		"wygoda",
 		"kretyn",
-		"całun",
-		"moczary",
+		"dzicz",
 		"pomidor",
 		"rukola",
+		"całun",
+		"moczary",
 		"posag",
-		"mlecz",
 		"wakat",
-		"puszka",
-		"enter",
+		"mlecz",
 		"wesele",
+		"puszka",
+		"rosa",
+		"enter",
 		"demon",
 		"sztos",
-		"rosa",
-		"trunek",
 		"cynizm",
-		"brąz",
-		"piana",
-		"sinus",
+		"trunek",
 		"wiadukt",
+		"kanister",
+		"sinus",
 		"enigma",
 		"taki",
-		"wódz",
-		"kanister",
+		"brąz",
+		"piana",
 		"polon",
-		"dania",
+		"wódz",
 		"hades",
+		"cisza",
 		"uczynek",
 		"masło",
-		"cisza",
 		"pokój",
-		"ustny",
-		"kłótnia",
-		"przez",
+		"dania",
 		"wagon",
+		"grzaniec",
+		"fiasko",
+		"choleryk",
 		"żaden",
-		"grzaniec"
+		"fanatyk"
 	]
 }

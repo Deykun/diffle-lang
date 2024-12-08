@@ -1,0 +1,95 @@
+.year-summary-table--word {
+  margin-bottom: 32px;
+}
+
+.year-summary-table-row-word {
+  overflow: hidden;
+  padding: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  position: relative;
+
+  .year-summary-table-row-title {
+    margin-bottom: 8px;
+
+    h3 {
+      @media (max-width: 420px) {
+        font-size: 16px;
+      }
+
+      span {
+        @media (max-width: 360px) {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  .year-summary-table-games {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+  
+    svg {
+      height: 20px;
+      fill: var(--text);
+    }
+  
+    > span {
+      position: relative;
+    }
+  
+    .circle-scale {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .year-summary-value {
+      line-height: 20px;
+      font-size: 18px;
+
+      &.year-summary-value--active {
+        line-height: 20px;
+        font-size: 20px;
+        font-size: 800;
+      }
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+.year-summary-dictionary {
+  button, a {
+    display: none;
+  };
+
+  > :first-child {
+    position: absolute;
+    bottom: -2px;
+    right: -8px;
+    display: block;
+    border: none;
+
+    svg {
+      color: var(--text-weaker);
+      margin: 0 !important;
+    }
+    
+    span {
+      display: none;
+    }
+
+    &:hover {
+      svg {
+        color: var(--text);
+      }
+    }
+  }
+}
