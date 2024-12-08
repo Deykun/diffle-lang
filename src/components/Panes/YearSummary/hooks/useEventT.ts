@@ -15,7 +15,7 @@ const eventDictionary: {
     'label.bestDailyResults': "Day's best result",
     'label.bestMedianFrom50HardestWordsResults': 'Median',
     'label.bestMedianFrom50BestResults': 'Median',
-    'label.description.bestMedianFrom50HardestWordsResults': '(50 worst words)',
+    'label.description.bestMedianFrom50HardestWordsResults': '(50 hardest words)',
     'label.description.bestMedianFrom50BestResults': '(50 best results)',
   },
   pl: {

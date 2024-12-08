@@ -18,6 +18,14 @@ type Props = {
   summary: YearSummaryInfo;
 };
 
+const listFilters = [
+  'bestDailyResults',
+  'bestMedianLetters',
+  'totalPlayed',
+  'bestMedianFrom50BestResults',
+  'bestMedianFrom50HardestWordsResults',
+];
+
 const periodFilters = ['year', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(String)];
 
 const YearSummaryTable = ({ summary }: Props) => {
@@ -25,11 +33,11 @@ const YearSummaryTable = ({ summary }: Props) => {
   const [selected, setSelected] = useState('');
   const [period, setPeriod] = useState('year');
   const [sortBy, setSortBy] = useState<
-  'totalPlayed' |
+  'bestDailyResults' |
   'bestMedianLetters' |
+  'totalPlayed' |
   'bestMedianFrom50BestResults' |
-  'bestMedianFrom50HardestWordsResults' |
-  'bestDailyResults'
+  'bestMedianFrom50HardestWordsResults'
   >('bestMedianLetters');
 
   const { eventT } = useEventT();
@@ -136,7 +144,7 @@ const YearSummaryTable = ({ summary }: Props) => {
       <>
           <YearSummaryWordsTable summary={summary} bestWords={dataBy.bestWords} hardestWords={dataBy.hardestWords} />
           <nav className="year-summary-nav">
-              {['bestDailyResults', 'bestMedianLetters', 'totalPlayed', 'bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].map((sortByValue) => {
+              {listFilters.map((sortByValue) => {
                 return (
                     <Button
                       key={sortByValue}
@@ -145,7 +153,8 @@ const YearSummaryTable = ({ summary }: Props) => {
                       isInverted
                       hasBorder={false}
                       isText={sortByValue !== sortBy}
-                      isDisabled={period !== 'year' && ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortByValue)}
+                      isDisabled={period !== 'year'
+                      && ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortByValue)}
                     >
                         <span>
 
@@ -161,7 +170,10 @@ const YearSummaryTable = ({ summary }: Props) => {
                     </Button>
                 );
               })}
-              <div className="year-summary-period-nav" style={{ opacity: ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy) ? 0 : 100 }}>
+              <div
+                className="year-summary-period-nav"
+                style={{ opacity: ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy) ? 0 : 100 }}
+              >
                   {periodFilters.map(periodValue => (
                       <Button
                         key={periodValue}
@@ -177,7 +189,7 @@ const YearSummaryTable = ({ summary }: Props) => {
               </div>
           </nav>
           <div className="year-summary-table">
-              {dataBy[sortBy].map((username, index) => (
+              {(dataBy[sortBy] || []).map((username, index) => (
                   <YearSummaryTableItem
                     index={index}
                     key={username}

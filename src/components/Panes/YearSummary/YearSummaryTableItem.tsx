@@ -1,10 +1,7 @@
-import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
 import { YearSummaryInfo, ResultsInfo } from '@common-types';
-
-import { useSelector } from '@store';
 
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconCrown from '@components/Icons/IconCrown';
@@ -14,17 +11,20 @@ import CircleScale from '@components/CircleScale/CircleScale';
 
 import Button from '@components/Button/Button';
 
-import useEventT from './hooks/useEventT';
-
 import './YearSummaryTable.scss';
 
 type Props = {
+  index: number,
   summary: YearSummaryInfo;
+  sortBy: string,
+  period: string,
+  username: string,
+  selected: string;
+  setSelected: (value: string) => void,
 };
 
 const YearSummaryTableItem = ({
   index,
-  key,
   summary,
   sortBy,
   period,
@@ -33,7 +33,6 @@ const YearSummaryTableItem = ({
   setSelected,
 }: Props) => {
   const { t } = useTranslation();
-  const { eventT } = useEventT();
 
   let resultsData = summary.byUser[username].results[period] as ResultsInfo;
 
@@ -156,9 +155,7 @@ const YearSummaryTableItem = ({
           )}
           <Button
             className="year-summary-value-pin-button"
-            onClick={() => setSelected((previousUsername) => {
-              return previousUsername === username ? '' : username;
-            })}
+            onClick={() => setSelected(username === selected ? '' : username)}
             isInverted
             hasBorder={false}
             isText={selected !== username}

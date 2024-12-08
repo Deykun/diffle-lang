@@ -1,22 +1,14 @@
-import { useMemo, useState } from 'react';
 import clsx from 'clsx';
 import { useTranslation } from 'react-i18next';
 
-import { YearSummaryInfo, ResultsInfo } from '@common-types';
-
-import { useSelector } from '@store';
+import { ResultsInfo } from '@common-types';
 
 import IconGamepad from '@components/Icons/IconGamepad';
-import IconCrown from '@components/Icons/IconCrown';
-import IconPin from '@components/Icons/IconPin';
 
 import CircleScale from '@components/CircleScale/CircleScale';
 
 import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
-import Button from '@components/Button/Button';
-
-import useEventT from './hooks/useEventT';
 
 type Props = {
   index: number,
