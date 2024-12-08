@@ -11,10 +11,13 @@
 
 ---
 
-#### Version 3.30.1
+#### Version 3.31
+- **New**: annual summary for hejto.pl users added
+
+#### Version 3.30.1 (28.07.2024)
 - **Fix**: Missing Finnish Easter Day added
 
-#### Version 3.30
+#### Version 3.30 (28.07.2024)
 - **New**: Strawberry pattern is incorrect when high contrast is turned on
 - **New**: High contrast mode also affects documents with counters on the end screen
 
