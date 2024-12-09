@@ -19,9 +19,10 @@ type Props = {
 };
 
 const listFilters = [
-  'bestDailyResults',
   'bestMedianLetters',
   'totalPlayed',
+  'bestDailyResults',
+  'worstDailyResults',
   'bestMedianFrom50BestResults',
   'bestMedianFrom50HardestWordsResults',
 ];
@@ -34,6 +35,7 @@ const YearSummaryTable = ({ summary }: Props) => {
   const [period, setPeriod] = useState('year');
   const [sortBy, setSortBy] = useState<
   'bestDailyResults' |
+  'worstDailyResults' |
   'bestMedianLetters' |
   'totalPlayed' |
   'bestMedianFrom50BestResults' |
@@ -126,6 +128,21 @@ const YearSummaryTable = ({ summary }: Props) => {
             }
 
             return summary.byUser[a].results[period].medianLetters - summary.byUser[b].results[period].medianLetters;
+          }
+
+          return bestB - bestA;
+        },
+      ).slice(0, 75),
+      worstDailyResults: [...knownUsernames].sort(
+        (a, b) => {
+          const bestB = (summary.byUser[b].worstDates[period]?.length || 0);
+          const bestA = (summary.byUser[a].worstDates[period]?.length || 0);
+          if (bestA === bestB) {
+            if (summary.byUser[a].results[period].medianLetters === summary.byUser[b].results[period].medianLetters) {
+              return summary.byUser[b].results[period].medianWords - summary.byUser[a].results[period].medianWords;
+            }
+
+            return summary.byUser[b].results[period].medianLetters - summary.byUser[a].results[period].medianLetters;
           }
 
           return bestB - bestA;

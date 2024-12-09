@@ -13,6 +13,7 @@ const eventDictionary: {
     'label.totalPlayed': 'Games',
     'label.bestMedianLetters': 'Median',
     'label.bestDailyResults': "Day's best result",
+    'label.worstDailyResults': "Day's worst result",
     'label.bestMedianFrom50HardestWordsResults': 'Median',
     'label.bestMedianFrom50BestResults': 'Median',
     'label.description.bestMedianFrom50HardestWordsResults': '(50 hardest words)',
@@ -25,10 +26,12 @@ const eventDictionary: {
     'label.totalPlayed': 'Gry',
     'label.bestMedianLetters': 'Mediana',
     'label.bestDailyResults': 'Wynik dnia',
+    'label.worstDailyResults': 'Wynik dnia',
     'label.bestMedianFrom50HardestWordsResults': 'Mediana',
     'label.bestMedianFrom50BestResults': 'Mediana',
     'label.description.bestMedianFrom50HardestWordsResults': '(50 najtrudniejszych słów)',
     'label.description.bestMedianFrom50BestResults': '(50 najlepszych wyników)',
+    'label.description.worstDailyResults': '(najgorszy)',
   },
 };
 

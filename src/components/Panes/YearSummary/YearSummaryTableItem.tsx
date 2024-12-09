@@ -5,6 +5,7 @@ import { YearSummaryInfo, ResultsInfo } from '@common-types';
 
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconCrown from '@components/Icons/IconCrown';
+import IconFlagWhite from '@components/Icons/IconFlag';
 import IconPin from '@components/Icons/IconPin';
 
 import CircleScale from '@components/CircleScale/CircleScale';
@@ -42,9 +43,13 @@ const YearSummaryTableItem = ({
     resultsData = summary.byUser[username].hardest50 as ResultsInfo;
   }
 
-  const totalBestDaily = ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy)
+  const totalBestDaily = ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults', 'worstDailyResults'].includes(sortBy)
     ? 0
     : summary.byUser[username].dates[period]?.length;
+
+  const totalWorstDaily = sortBy !== 'worstDailyResults'
+    ? 0
+    : summary.byUser[username].worstDates[period]?.length;
 
   const {
     gamesPlayed,
@@ -137,6 +142,22 @@ const YearSummaryTableItem = ({
                   </small>
               </span>
           </div>
+          {totalWorstDaily > 0 && (
+          <strong className="year-summary-table-daily">
+              <IconFlagWhite />
+              <span className={clsx('year-summary-value', { 'year-summary-value--active': sortBy === 'worstDailyResults' })}>
+                  {totalWorstDaily}
+                  {sortBy === 'worstDailyResults'
+                    && (
+                    <CircleScale
+                      breakPoints={period === 'year' ? [50, 40, 30, 20, 10, 5] : [14, 12, 9, 8, 6, 5, 3, 2]}
+                      value={totalWorstDaily}
+                      shouldShowLabels={false}
+                    />
+                    )}
+              </span>
+          </strong>
+          )}
           {totalBestDaily > 0 && (
           <strong className="year-summary-table-daily">
               <IconCrown />
