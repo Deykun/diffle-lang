@@ -230,9 +230,14 @@ const usersSummary = Object.entries(resultsByUser).reduce(
         ({ result }) => result?.word && rankByWords[lang][result.word].best.letters === result.totalLetters
       ).map(({ result }) => result?.date || '') || [];
 
+      const worstForDates = acceptedResults.filter(
+        ({ result }) => result?.word && rankByWords[lang][result.word].worst.letters === result.totalLetters
+      ).map(({ result }) => result?.date || '') || [];
+
       const {
         userStatsByMonths,
         bestForDatesForMonths,
+        worstForDatesForMonths,
       } = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].reduce((stack, month) => {
         const acceptedResultsForMonth = acceptedResults.filter((item) => Number(item?.result?.date?.split('.')[1]) === month);
 
@@ -246,10 +251,17 @@ const usersSummary = Object.entries(resultsByUser).reduce(
           stack.bestForDatesForMonths[month] = bestForDatesForMonth;
         }
 
+        const worstForDatesForMonth = worstForDates.filter((date) => date.endsWith(`${month}.2024`));
+        
+        if (worstForDatesForMonth.length > 0) {
+          stack.worstForDatesForMonths[month] = worstForDatesForMonth;
+        }
+
         return stack;
       }, {
         userStatsByMonths: {},
         bestForDatesForMonths: {},
+        worstForDatesForMonths: {},
       });
 
       const best50Results = acceptedResults.length >= 50 ? [...acceptedResults].sort(
@@ -272,6 +284,10 @@ const usersSummary = Object.entries(resultsByUser).reduce(
         dates: {
           year: bestForDates,
           ...bestForDatesForMonths,
+        },
+        worstDates: {
+          year: worstForDates,
+          ...worstForDatesForMonths,
         }
       }
 
@@ -295,7 +311,7 @@ langs.forEach((lang) => {
         datesByWords: datesByWords[lang],
         rankByWords: rankByWords[lang],
         hardestWords: wordsByRank[lang].hardestWords,
-        bestWords: wordsByRank[lang].bestWords
+        bestWords: wordsByRank[lang].bestWords,
       },
       null,
       "\t"

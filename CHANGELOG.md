@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.31
+#### Version 3.32
+- **New**: the worst daily results counter has been added to the annual summary
+
+#### Version 3.31 (08.12.2024)
 - **New**: annual summary for hejto.pl users added
 
 #### Version 3.30.1 (28.07.2024)
