@@ -14,6 +14,7 @@ import { results as results6 } from "./parts/part-6";
 import { results as results7 } from "./parts/part-7";
 import { results as results8 } from "./parts/part-8";
 import { results as results9 } from "./parts/part-9";
+import { results as results10 } from "./parts/part-10";
 
 export const resultsBySource: {
   [url: string]: ParsedHejtoResult[];
@@ -27,9 +28,10 @@ export const resultsBySource: {
   ...results7.resultsBySource,
   ...results8.resultsBySource,
   ...results9.resultsBySource,
+  ...results10.resultsBySource,
 };
 
-const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.values(resultsBySource)
+const { resultsByUser, datesWithoutWordsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.values(resultsBySource)
   .flatMap((v) => v)
   .reduce(
     (
@@ -41,6 +43,11 @@ const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.valu
             };
           };
         };
+        datesWithoutWordsByUser: {
+          [lang: string]: {
+            [nick: string]: string[],
+          };
+        },
         resultsByWord: {
           [lang: string]: {
               [word: string]: ParsedHejtoResult[];
@@ -110,12 +117,23 @@ const { resultsByUser, resultsByLang, resultsByWord, wordsByDate } = Object.valu
           stack.resultsByUser[lang][nick][word] = item;
           stack.resultsByLang[lang].push(item);
         }
+      } else if (lang && nick && date) {
+        if (!stack.datesWithoutWordsByUser[lang]) {
+          stack.datesWithoutWordsByUser[lang] = {};
+        }
+
+        if (!stack.datesWithoutWordsByUser[lang][nick]) {
+          stack.datesWithoutWordsByUser[lang][nick] = [];
+        }
+
+        stack.datesWithoutWordsByUser[lang][nick][date] = true;
       }
 
       return stack;
     },
     {
       resultsByUser: {},
+      datesWithoutWordsByUser: {},
       resultsByWord: {},
       resultsByLang: {},
       wordsByDate: {},
