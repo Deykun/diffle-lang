@@ -1,78 +1,113 @@
 .words {
-    .word-tip,
-    .status-tip {
-        color: var(--text-alt);
-        letter-spacing: 0.03em;
+  .word-tip,
+  .status-tip {
+    color: var(--text-alt);
+    letter-spacing: 0.03em;
+  }
+
+  .word-tip {
+    font-size: 70%;
+    margin-bottom: 15px;
+    transition: 0.3s;
+
+    strong {
+      color: var(--red);
     }
 
-    .word-tip {
-        font-size: 70%;
-        margin-bottom: 15px;
-
-        strong {
-            color: var(--red);
-        }
-
-        &.has-special-character strong {
-            color: var(--green);
-        }
+    &.has-special-character strong {
+      color: var(--green);
     }
 
-    .status-tip {
-        font-size: 60%;
-        margin: 20px 0 10px;
-        min-height: 35px;
-        opacity: 0.7;
-
-        .contrast & {
-            opacity: 1;
-        }
-
-        > * {
-            display: inline-block;
-            vertical-align: middle;
-            margin-bottom: 5px;
-        }
-
-        strong {
-            color: var(--text);
-            letter-spacing: 0.05em;
-        }
-
-        &.is-processing {
-            opacity: 1;
-
-            svg {
-                width: 24px;
-                height: 24px;
-                margin-right: 5px;
-                animation: spin infinite linear reverse 1s;
-                fill: var(--green);            
-            }
-        }
+    &.word-tip--not-followed {
+      color: var(--text);
     }
+  }
+
+  .status-tip {
+    font-size: 60%;
+    margin: 20px 0 10px;
+    min-height: 35px;
+    opacity: 0.7;
+
+    .contrast & {
+      opacity: 1;
+    }
+
+    > * {
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 5px;
+    }
+
+    strong {
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+
+    &.is-processing {
+      opacity: 1;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 5px;
+        animation: spin infinite linear reverse 1s;
+        fill: var(--green);
+      }
+    }
+  }
 }
 
 .word {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    margin-bottom: 16px;
-    transition: all 0.2s ease-in-out;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 16px;
+  transition: all 0.2s ease-in-out;
 
-    > * {
-        flex-shrink: 0;
-    }
+  > * {
+    flex-shrink: 0;
+  }
 }
 
 .words.narrow {
-    .word {
-        margin-bottom: 8px;
-    }
+  .word {
+    margin-bottom: 8px;
+  }
 }
 
 .words.shorter {
-    .word {
-        margin-bottom: 12px;
+  .word {
+    margin-bottom: 12px;
+  }
+}
+
+.word-go-to-dictionary {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+
+  > a,
+  > button {
+    padding: 0 3px;
+    height: 24px;
+    line-height: 24px;
+
+    svg {
+      width: 16px;
+      filter: drop-shadow(0 0 3px var(--background))
+        drop-shadow(0 0 3px var(--background))
+        drop-shadow(0 0 3px var(--background));
+      margin-left: 0 !important;
+      margin-right: 0 !important;
     }
+
+    display: none;
+
+    &:last-child {
+      display: inline-flex;
+    }
+  }
 }

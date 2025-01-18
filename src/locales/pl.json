@@ -116,6 +116,7 @@
     "end.nextDaily_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
     "end.nextDaily_other": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
     "end.nextDailyShort": "nowe za {{count}}g",
+    "end.wordPopularityPosition": "To <strong>{{position}}</strong> słowo według popularności w słowniku.",
     "end.completed": "zaliczony",
     "end.gameDuration": "Czas gry",
     "settings.title": "Ustawienia",

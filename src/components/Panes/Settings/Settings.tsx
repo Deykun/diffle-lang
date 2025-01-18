@@ -26,6 +26,8 @@ import IconInfinity from '@components/Icons/IconInfinity';
 import ButtonTile from '@components/Button/ButtonTile';
 import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
+import WordPopularity from '@features/wordPopularity/components/WordPopularity';
+
 import './Settings.scss';
 
 import SettingsModes from './SettingsModes';
@@ -110,6 +112,7 @@ const Settings = () => {
                       {t('settings.lastDailyWordsYesterday', { word: yesterdayWord })}
                   </p>
                   <GoToDictionaryButton word={yesterdayWord} />
+                  <WordPopularity word={yesterdayWord} />
                   {wasYesterdayBlockedByUpdate && (
                   <small className="yesterday-day-tip">
                       {t('settings.lastDailyWordsCanBeWrongBecauseOfUpdate')}

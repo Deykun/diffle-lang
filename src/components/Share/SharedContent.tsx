@@ -322,7 +322,11 @@ const SharedContent = () => {
                               >
                                   {guesses.map((guess) => {
                                     return (
-                                        <Word key={`guess-${guess.word}`} guess={guess} />
+                                        <Word
+                                          key={`guess-${guess.word}`}
+                                          guess={guess}
+                                          shouldLinkToDictionary
+                                        />
                                     );
                                   })}
                               </div>

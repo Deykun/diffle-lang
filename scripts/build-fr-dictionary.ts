@@ -22,7 +22,9 @@ const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARI
 const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/deu/dictionary.txt`, 'utf-8');
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/ita/dictionary.txt`, 'utf-8');
 const winningDictionary4th = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt.dir}/dictionary.txt`, 'utf-8');
-const winningDictionary5th = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt2.dir}/dictionary.txt`, 'utf-8');
+const frequencyDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.popularity.dir}/dictionary.txt`, 'utf-8');
+
+const frequencyWords = getWordsFromDictionary(frequencyDictionary, { pattern: 'word ignore', lang: LANG });
 
 const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word ignore', lang: LANG });
 
@@ -30,7 +32,7 @@ const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
     getWordsFromDictionary(winningDictionary1st, { pattern: 'word ignore', lang: LANG }),
     getWordsFromDictionary(winningDictionary2nd, { pattern: 'word ignore', lang: LANG }),
     getWordsFromDictionary(winningDictionary4th, { pattern: 'word ignore', lang: LANG }),
-    getWordsFromDictionary(winningDictionary5th, { pattern: 'word ignore', lang: LANG }),
+    frequencyWords,
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(
@@ -49,4 +51,5 @@ actionBuildDictionary(
     },
     spellcheckerWords,
     winningWords,
+    frequencyWords,
 );

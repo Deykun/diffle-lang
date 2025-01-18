@@ -119,6 +119,7 @@
     "end.nextDaily_many": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDaily_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyShort": "next in {{count}}h",
+    "end.wordPopularityPosition": "This is the <strong>{{position}}</strong> word by popularity in the dictionary.",
     "end.completed": "completed",
     "end.gameDuration": "Duration of the game",
     "settings.title": "Settings",

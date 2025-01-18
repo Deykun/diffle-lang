@@ -9,11 +9,9 @@ import CircleScale from '@components/CircleScale/CircleScale';
 
 import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
 
-
 type Props = {
   index: number,
   word: string,
-  // summary: YearSummaryInfo;
   resultInfo?: ResultsInfo,
 };
 

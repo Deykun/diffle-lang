@@ -31,7 +31,7 @@ export const DICTIONARIES = {
         ],
         url: 'http://www.lexique.org/',
     },
-    winningAlt2: {
+    popularity: {
         dir: 'FrequencyWords',
         shortName: 'FrequencyWords',
         fullName: 'FrequencyWords',

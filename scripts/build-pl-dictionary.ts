@@ -20,11 +20,11 @@ const LANG = 'pl';
 
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/dictionary.txt`, 'utf-8');
-const winningDictionaryAlt = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt.dir}/dictionary.txt`, 'utf-8');
+const frequencyDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.popularity.dir}/dictionary.txt`, 'utf-8');
 
 const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word', lang: LANG });
 
-const frequencyWords = getWordsFromDictionary(winningDictionaryAlt, { pattern: 'word ignore', lang: LANG });
+const frequencyWords = getWordsFromDictionary(frequencyDictionary, { pattern: 'word ignore', lang: LANG });
 
 /* Gets only X percentage of most popular words */
 const XPercentage = 829568 / 1491400; // 829k - first line with 1 frequency, 1491k - last line ~ 55.6%
@@ -50,4 +50,5 @@ actionBuildDictionary(
     },
     spellcheckerWords,
     winningWords,
+    frequencyWords,
 );

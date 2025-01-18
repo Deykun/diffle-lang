@@ -18,7 +18,7 @@ export const DICTIONARIES = {
         fullName: 'FreeDict',
         url: 'https://freedict.org/',
     },
-    winningAlt: {
+    popularity: {
         dir: 'FrequencyWords',
         shortName: 'FrequencyWords',
         fullName: 'FrequencyWords',

@@ -1,4 +1,4 @@
-import fs, { stat } from 'fs';
+import fs from 'fs';
 import * as fsExtra from "fs-extra";
 import chalk from 'chalk';
 
@@ -12,6 +12,9 @@ import {
     MINIMUM_LENGTH_FOR_A_WINNING_WORD,
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants';
+
+import type { EasterDays, Catalog } from '../../src/types.d';
+import { GameMode } from '../../src/types.d';
 
 export const getIsRomanNumeral = (word: string) => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
 
@@ -196,11 +199,12 @@ export const actionBuildDictionary = (
     },
     spellcheckerWords: string[],
     winningWords: string[],
+    frequencyWords?: string[],
 ) => {
-    const easterEggDays = {
+    const easterEggDays: EasterDays = {
         '01.01': {
             type: 'yearStart',
-            specialMode: 'sandbox-live',
+            specialMode: GameMode.SandboxLive,
             emojis: [{
                 correct: ['🍾'],
                 position: ['🥳', '🎉', '✨', '🥂', '🎊'],
@@ -210,7 +214,7 @@ export const actionBuildDictionary = (
         },
         '14.02': {
             type: 'valentine',
-            specialMode: 'sandbox-live',
+            specialMode: GameMode.SandboxLive,
             emojis: [{
                 correct: ['💚'],
                 position: ['💛'],
@@ -220,7 +224,7 @@ export const actionBuildDictionary = (
         },
         '01.04': {
             type: 'normal',
-            specialMode: 'sandbox-live',
+            specialMode: GameMode.SandboxLive,
             emojis: [{
                 correct: ['🐸'],
                 position: ['🐝'],
@@ -230,7 +234,7 @@ export const actionBuildDictionary = (
         },
         '31.12': {
             type: 'yearEnd',
-            specialMode: 'sandbox-live',
+            specialMode: GameMode.SandboxLive,
             emojis: [{
                 correct: ['🍾'],
                 position: ['🥳', '🎉', '✨', '🥂', '🎊'],
@@ -499,6 +503,10 @@ export const actionBuildDictionary = (
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfSpellingChunks} created chunks...`));
 
+    if (!fs.existsSync(`./public/dictionary/${LANG}/spelling`)) {
+        fs.mkdirSync(`./public/dictionary/${LANG}/spelling`);
+    }
+
     Object.keys(spellingIndex).forEach((key, index) => {
         // Unique words
         spellingIndex[key].words = [...new Set(spellingIndex[key].words)];
@@ -517,8 +525,24 @@ export const actionBuildDictionary = (
     console.log(' ');
     console.log(chalk.blue(`Creating winning chunks from ${statistics.winning.all} words...`));
 
-    const winnigIndex = {};
-    const winningWordsLengths = {};
+    const winnigIndex: {
+        [key: string]: {
+            key: string,
+            words: string[],
+        }
+    } = {};
+    const winningWordsLengths: {
+        [length: string]: number,
+    } = {};
+    const popularityIndex: {
+        [key: string]: {
+            key: string,
+            byWord: {
+                [word: string]: number,
+            },
+        }
+    } = {};
+    let maxPopularityPosition = 0;
 
     winningWords.forEach((rawWord, index) => {
         const word = rawWord.trim();
@@ -584,6 +608,27 @@ export const actionBuildDictionary = (
             };
         }
 
+        const frequencyIndex = frequencyWords?.findIndex((wordToCheck) => wordToCheck === word);
+
+        if (frequencyIndex && frequencyIndex >= 0) {
+            const position = frequencyIndex + 1;
+
+            if (position > maxPopularityPosition) {
+                maxPopularityPosition = position;
+            }
+
+            if (popularityIndex[key]) {
+                popularityIndex[key].byWord[word] = position;
+            } else {
+                popularityIndex[key] = {
+                    key,
+                    byWord: {
+                        [word]: position,
+                    },
+                };
+            }
+        }
+
         const wordLength = word.length;
         winningWordsLengths[wordLength] = winningWordsLengths[wordLength] ? winningWordsLengths[wordLength] + 1 : 1;
         statistics.winning.accepted.length[wordLength] = statistics.winning.accepted.length[wordLength] ? statistics.winning.accepted.length[wordLength] + 1 : 1;
@@ -593,7 +638,7 @@ export const actionBuildDictionary = (
         if (shouldUpdate) {
             const progressPercent = (index / statistics.winning.all) * 100;
 
-            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Creating winning chunks... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
+            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, '0'))}% - Creating winning chunks... - Word "${chalk.cyan(word)}" added to "${chalk.cyan(key)}"`);
         }
     });
 
@@ -615,16 +660,22 @@ export const actionBuildDictionary = (
         console.log(` - words with ${length} letters: ${chalk.green(winningWordsLengths[length])}`);
     });
 
-    const catalog = {
+    const catalog: Catalog = {
         words: 0,
         items: [],
         winningWordsLengths,
+        easterEggDays,
+        maxPopularityPosition: 0,
     };
 
     const totalNumberOfWinningChunks = Object.keys(winnigIndex).length;
 
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfWinningChunks} created chunks...`));
+
+    if (!fs.existsSync(`./public/dictionary/${LANG}/winning`)) {
+        fs.mkdirSync(`./public/dictionary/${LANG}/winning`);
+    }
 
     Object.keys(winnigIndex).forEach((key, index) => {
         // Unique words
@@ -647,12 +698,33 @@ export const actionBuildDictionary = (
         if (shouldUpdate) {
             const progressPercent = (index / totalNumberOfWinningChunks) * 100;
 
-            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Saving winning chunks... - Chunk "${chalk.cyan(key)}" was saved`);
+            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, '0'))}% - Saving winning chunks... - Chunk "${chalk.cyan(key)}" was saved`);
+        }
+    });
+
+    const totalNumberOfPopularityChunks = Object.keys(popularityIndex).length;
+
+    console.log(' ');
+    console.log(chalk.blue(`Saving ${totalNumberOfWinningChunks} created chunks...`));
+
+    if (!fs.existsSync(`./public/dictionary/${LANG}/popularity`)) {
+        fs.mkdirSync(`./public/dictionary/${LANG}/popularity`);
+    }
+
+    Object.keys(popularityIndex).forEach((key, index) => {
+        fs.writeFileSync(`./public/dictionary/${LANG}/popularity/chunk-${key}.json`, JSON.stringify(popularityIndex[key].byWord));
+
+        const shouldUpdate = index % 200 === 0;
+
+        if (shouldUpdate) {
+            const progressPercent = (index / totalNumberOfPopularityChunks) * 100;
+
+            console.log(`  - ${chalk.green(progressPercent.toFixed(1).padStart(4, 0))}% - Saving popularity chunks... - Chunk "${chalk.cyan(key)}" was saved`);
         }
     });
 
     statistics.meta = DICTIONARIES;
-    catalog.easterEggDays = easterEggDays;
+    catalog.maxPopularityPosition = maxPopularityPosition;
 
     fs.writeFileSync(`./public/dictionary/${LANG}/catalog.json`, JSON.stringify(catalog));
     fs.writeFileSync(`./public/dictionary/${LANG}/info.json`, JSON.stringify(statistics, null, '\t'));

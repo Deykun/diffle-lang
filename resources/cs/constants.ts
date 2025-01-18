@@ -18,7 +18,7 @@ export const DICTIONARIES = {
         fullName: 'slovniky.webz.cz',
         url: 'http://home.zcu.cz/~konopik/ppc/',
     },
-    winningAlt: {
+    popularity: {
         dir: 'FrequencyWords',
         shortName: 'FrequencyWords',
         fullName: 'FrequencyWords',
