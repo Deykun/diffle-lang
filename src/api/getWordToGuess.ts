@@ -1,4 +1,4 @@
-import type { GameMode, Catalog } from '@common-types';
+import { GameMode, Catalog } from '@common-types';
 
 import { getNow } from '@utils/date';
 

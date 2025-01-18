@@ -1,36 +1,46 @@
 import { useQuery } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
 
-import getWordPopularityPosition from '@api/getWordPopularityPosition';
-import { useSelector, useDispatch } from '@store';
+import { formatLargeNumber } from '@utils/format';
 
-// import './GoToDictionaryButton.scss';
+import { useSelector } from '@store';
+
+import getWordPopularityPosition from '@features/wordPopularity/api/getWordPopularityPosition';
+
+import './WordPopularity.scss';
 
 type Props = {
   word: string,
 };
 
 const WordPopularity = ({ word }: Props) => {
-  // const dispatch = useDispatch();
   const gameLanguage = useSelector(state => state.game.language);
+
+  const { t } = useTranslation();
 
   const {
     isLoading,
     // error,
-    data,
+    data: position,
   } = useQuery({
     queryFn: () => getWordPopularityPosition(word, gameLanguage || ''),
     queryKey: [`popularity-${gameLanguage}`, gameLanguage, word],
   });
 
-  if (isLoading || !data) {
+  if (isLoading || !position || position === 0) {
     return null;
   }
 
   return (
-      <p>
-          dsd
-          {data}
-      </p>
+      <p
+        className="word-position-by-popularity"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: t('end.wordPopularityPosition', {
+            position: formatLargeNumber(position),
+          }),
+        }}
+      />
   );
 };
 

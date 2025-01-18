@@ -82,6 +82,7 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
   state.caretShift = 0;
   state.guesses = [];
   state.rejectedWords = [];
+  state.mode = state.mode ?? GameMode.Daily;
   state.status = wordToGuess ? GameStatus.Guessing : GameStatus.Unset;
   state.hasLongGuesses = false;
   state.letters = {

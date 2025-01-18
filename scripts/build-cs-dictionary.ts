@@ -20,13 +20,15 @@ const LANG = 'cs';
 
 const spellcheckerDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`, 'utf-8');
 const winningDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/dictionary.txt`, 'utf-8');
-const winningDictionaryAlt = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winningAlt.dir}/dictionary.txt`, 'utf-8');
+const frequencyDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.popularity.dir}/dictionary.txt`, 'utf-8');
+
+const frequencyWords = getWordsFromDictionary(frequencyDictionary, { pattern: 'word ignore', lang: LANG });
 
 const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word', lang: LANG });
 
 const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
     getWordsFromDictionary(winningDictionary, { pattern: 'ignore word', lang: LANG }),
-    getWordsFromDictionary(winningDictionaryAlt, { pattern: 'word ignore', lang: LANG }),
+    frequencyWords,
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(
@@ -45,4 +47,5 @@ actionBuildDictionary(
     },
     spellcheckerWords,
     winningWords,
+    frequencyWords,
 );

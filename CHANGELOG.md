@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.33.1
+#### Version 3.34
+- **New**: The word's position in the frequency dictionary is shown at the end of the game
+
+#### Version 3.33.1 (18.01.2025)
 - **Fix**: Missing toast for special words has been added
 
 #### Version 3.33 (18.01.2024)

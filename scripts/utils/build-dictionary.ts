@@ -503,6 +503,10 @@ export const actionBuildDictionary = (
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfSpellingChunks} created chunks...`));
 
+    if (!fs.existsSync(`./public/dictionary/${LANG}/spelling`)) {
+        fs.mkdirSync(`./public/dictionary/${LANG}/spelling`);
+    }
+
     Object.keys(spellingIndex).forEach((key, index) => {
         // Unique words
         spellingIndex[key].words = [...new Set(spellingIndex[key].words)];
@@ -669,6 +673,10 @@ export const actionBuildDictionary = (
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfWinningChunks} created chunks...`));
 
+    if (!fs.existsSync(`./public/dictionary/${LANG}/winning`)) {
+        fs.mkdirSync(`./public/dictionary/${LANG}/winning`);
+    }
+
     Object.keys(winnigIndex).forEach((key, index) => {
         // Unique words
         winnigIndex[key].words = [...new Set(winnigIndex[key].words)];
@@ -698,6 +706,10 @@ export const actionBuildDictionary = (
 
     console.log(' ');
     console.log(chalk.blue(`Saving ${totalNumberOfWinningChunks} created chunks...`));
+
+    if (!fs.existsSync(`./public/dictionary/${LANG}/popularity`)) {
+        fs.mkdirSync(`./public/dictionary/${LANG}/popularity`);
+    }
 
     Object.keys(popularityIndex).forEach((key, index) => {
         fs.writeFileSync(`./public/dictionary/${LANG}/popularity/chunk-${key}.json`, JSON.stringify(popularityIndex[key].byWord));
