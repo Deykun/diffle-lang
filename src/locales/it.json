@@ -27,8 +27,9 @@
     "language.de": "Tedesco",
     "language.en": "Inglese",
     "language.es": "Spagnolo",
-    "language.it": "Italiano",
+    "language.fi": "Finnish",
     "language.fr": "Francese",
+    "language.it": "Italiano",
     "language.pl": "Polacco",
     "game.modeDaily": "Giornaliero",
     "game.modePractice": "Pratica",
@@ -47,6 +48,8 @@
     "game.deSpecialCharacters": "speciali",
     "game.esSpecialCharacter": "speciale",
     "game.esSpecialCharacters": "speciali",
+    "game.fiSpecialCharacter": "special",
+    "game.fiSpecialCharacters": "special",
     "game.frSpecialCharacter": "speciale",
     "game.frSpecialCharacters": "speciali",
     "game.itSpecialCharacter": "special",
@@ -262,5 +265,7 @@
     "statistics.filterWordleBestTitle": "Bilanciamento dei colori",
     "statistics.filterBestGreen1_5": "1,5 × verde + 1 × giallo",
     "statistics.filterBestGreen2_0": "2 × verde + 1 × giallo",
-    "statistics.bestWordleWordPopularLettersTitle": "Lettere più popolari in una data posizione"
+    "statistics.bestWordleWordPopularLettersTitle": "Lettere più popolari in una data posizione",
+    "feature.specialWord.wasActivated": "The special word has been activated!",
+    "feature.specialWord.wasDeactivated": "The special word has been deactivated!"
 }
