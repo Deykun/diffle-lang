@@ -29,7 +29,6 @@ import useVibrate from '@hooks/useVibrate';
 
 import IconCopy from '@components/Icons/IconCopy';
 import IconCopyAlt from '@components/Icons/IconCopyAlt';
-import IconEraser from '@components/Icons/IconEraser';
 import IconFingerprint from '@components/Icons/IconFingerprint';
 import IconPencil from '@components/Icons/IconPencil';
 import IconShare from '@components/Icons/IconShare';
