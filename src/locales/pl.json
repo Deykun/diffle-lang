@@ -262,5 +262,7 @@
     "statistics.filterWordleBestTitle": "Balans kolorów",
     "statistics.filterBestGreen1_5": "1.5 × zielony + 1 × żółty",
     "statistics.filterBestGreen2_0": "2 × zielony + 1 × żółty",
-    "statistics.bestWordleWordPopularLettersTitle": "Najpopularniejsze litery na danej pozycji"
+    "statistics.bestWordleWordPopularLettersTitle": "Najpopularniejsze litery na danej pozycji",
+    "feature.specialWord.wasActivated": "Specjalne słowo zostało włączone!",
+    "feature.specialWord.wasDeactivated": "Specjalne słowo zostało wyłączone!"
 }

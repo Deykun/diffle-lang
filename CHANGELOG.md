@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.33
+#### Version 3.33.1
+- **Fix**: Missing toast for special words has been added
+
+#### Version 3.33 (18.01.2024)
 - **New**: Special word modifier: Typing "hejto" will add a custom tag used on the platform for Wordle-like games
 
 #### Version 3.32 (09.12.2024)

@@ -265,5 +265,7 @@
     "statistics.filterWordleBestTitle": "Color balance",
     "statistics.filterBestGreen1_5": "1.5 × green + 1 × yellow",
     "statistics.filterBestGreen2_0": "2 × green + 1 × yellow",
-    "statistics.bestWordleWordPopularLettersTitle": "Most popular letters at a given position"
+    "statistics.bestWordleWordPopularLettersTitle": "Most popular letters at a given position",
+    "feature.specialWord.wasActivated": "The special word has been activated!",
+    "feature.specialWord.wasDeactivated": "The special word has been deactivated!"
 }
