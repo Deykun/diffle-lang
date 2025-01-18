@@ -266,6 +266,6 @@
     "statistics.filterBestGreen1_5": "1.5 × zelená + 1 × žlutá",
     "statistics.filterBestGreen2_0": "2 × zelená + 1 × žlutá",
     "statistics.bestWordleWordPopularLettersTitle": "Nejoblíbenější písmena na dané pozici",
-    "feature.specialWord.wasActivated": "The special word has been activated!",
-    "feature.specialWord.wasDeactivated": "The special word has been deactivated!"
+    "feature.specialWord.wasActivated": "Speciální slovo bylo aktivováno!",
+    "feature.specialWord.wasDeactivated": "Speciální slovo bylo deaktivováno!"
 }
