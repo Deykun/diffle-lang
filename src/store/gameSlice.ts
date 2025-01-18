@@ -47,10 +47,6 @@ import {
   selectGuessesStatsForLetters,
 } from '@store/selectors';
 
-import {
-  toggleSpecialWordIfApplied,
-} from '@features/specialWords/actions';
-
 const initialState: RootGameState = {
   language: undefined,
   mode: getInitMode(),
@@ -719,16 +715,12 @@ const gameSlice = createSlice({
         if (state.caretShift === 0) {
           state.wordToSubmit += typedToAdd;
 
-          toggleSpecialWordIfApplied(state.wordToSubmit);
-
           return;
         }
 
         const position = state.wordToSubmit.length + state.caretShift; // caretShift is negative
 
         state.wordToSubmit = `${state.wordToSubmit.slice(0, position)}${typedToAdd}${state.wordToSubmit.slice(position)}`;
-
-        toggleSpecialWordIfApplied(state.wordToSubmit);
       }
     },
     setProcessing(state, action) {
