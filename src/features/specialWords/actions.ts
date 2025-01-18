@@ -5,9 +5,11 @@ import { SPECIAL_WORDS_ACTIONS } from '@features/specialWords/const';
 export const toggleSpecialWordIfApplied = (specialWord: string) => {
   const action = SPECIAL_WORDS_ACTIONS[specialWord];
 
-  let response = {
+  const response: {
+    wasApplied: boolean,
+    isActive?: boolean,
+  } = {
     wasApplied: false,
-    isActive: false,
   };
 
   if (action) {
