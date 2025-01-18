@@ -6,11 +6,13 @@ import {
   selectGameLanguageKeyboardInfo,
   selectHasWordToGuessSpecialCharacters,
 } from '@store/selectors';
+import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import './Words.scss';
 
 const WordTip = () => {
   const gameLanguage = useSelector(state => state.game.language);
+  const wordToSubmit = useSelector(state => state.game.wordToSubmit);
   const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
   const hasWordToGuessSpecialCharacters = useSelector(selectHasWordToGuessSpecialCharacters);
 
@@ -34,7 +36,9 @@ const WordTip = () => {
 
   return (
       <p
-        className="word-tip"
+        className={clsx('word-tip', {
+          'word-tip--not-followed': getHasSpecialCharacters(wordToSubmit),
+        })}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: t('game.withoutSpecialCharacters', { specialCharacters: t(`game.${gameLanguage}SpecialCharacters`) }),

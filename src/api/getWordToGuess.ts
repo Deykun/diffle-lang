@@ -43,12 +43,16 @@ export const getCatalogInfo = async (gameLanguage: string) => {
     words = 0,
     items = [],
     easterEggDays = {},
+    winningWordsLengths = {},
+    maxPopularityPosition = 0,
   }: Catalog = await catalogResponse.json();
 
-  const cataolgResult = {
+  const cataolgResult: Catalog = {
     words,
     items,
     easterEggDays,
+    winningWordsLengths,
+    maxPopularityPosition,
   };
 
   cachedCatalogs[gameLanguage] = cataolgResult;

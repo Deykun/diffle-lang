@@ -14,6 +14,7 @@
 #### Version 3.34
 - **New**: The word's position in the frequency dictionary is shown at the end of the game
 - **New**: Checking word meanings has been removed from the end screen and added to the shared result (we can check other words)
+- **New**: When the tip about special characters is not followed, the warning has more contrast
 
 #### Version 3.33.1 (18.01.2025)
 - **Fix**: Missing toast for special words has been added
