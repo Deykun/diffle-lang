@@ -257,6 +257,22 @@ export type EasterDays = {
   }
 };
 
+export type CatalogItem = {
+  key: string,
+  endIndex: number,
+  keyWords: number,
+};
+
+export type Catalog = {
+  words: number,
+  items: CatalogItem[],
+  winningWordsLengths: {
+    [length: string]: number,
+  },
+  easterEggDays: EasterDays,
+  maxPopularityPosition: number,
+};
+
 export type FlatAffixes = {
   start: string,
   notStart: string[],

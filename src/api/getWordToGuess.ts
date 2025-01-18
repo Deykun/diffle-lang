@@ -1,4 +1,4 @@
-import { GameMode, EasterDays } from '@common-types';
+import type { GameMode, Catalog } from '@common-types';
 
 import { getNow } from '@utils/date';
 
@@ -9,22 +9,10 @@ const getRandomInt = (min: number, max: number): number => {
   return Math.floor(Math.random() * (maxFloor - minCeil) + minCeil); // The maximum is exclusive and the minimum is inclusive
 };
 
-type CatalogItem = {
-  key: string,
-  endIndex: number,
-  keyWords: number,
-};
-
 const getRandomIntForDaily = () => {
   const { dateSeed } = getNow();
 
   return dateSeed;
-};
-
-type Catalog = {
-  words: number,
-  items: CatalogItem[],
-  easterEggDays: EasterDays,
 };
 
 type FetchedCatalogByKeys = {

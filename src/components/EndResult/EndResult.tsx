@@ -25,6 +25,8 @@ import GoToDictionaryButtons from '@components/Dictionary/GoToDictionaryButtons'
 import ShareButton from '@components/Share/ShareButton';
 import StatisticsHint from '@components/Panes/Statistics/StatisticsHint';
 
+import WordPopularity from '@features/wordPopularity/components/WordPopularity';
+
 import EndResultGameTime from './EndResultGameTime';
 import EndResultSummary from './EndResultSummary';
 
@@ -102,6 +104,7 @@ function EndResult() {
               {gameMode !== GameMode.SandboxLive && <ShareButton shouldShowSettings />}
           </div>
           <GoToDictionaryButtons words={guesses.map(({ word }) => word)} />
+          <WordPopularity word={wordToGuess} />
           <EndResultGameTime />
           {gameMode === GameMode.Daily && (
           <p
