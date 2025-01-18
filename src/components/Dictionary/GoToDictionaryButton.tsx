@@ -20,9 +20,14 @@ import './GoToDictionaryButton.scss';
 type Props = {
   word?: string,
   className?: string,
+  isText?: boolean,
+  hasBorder?: boolean,
+  shouldShowLabel?: boolean,
 };
 
-const GoToDictionaryButton = ({ word = '', className = '' }: Props) => {
+const GoToDictionaryButton = ({
+  word = '', className = '', isText, hasBorder, shouldShowLabel = true,
+}: Props) => {
   const dispatch = useDispatch();
   const gameLanguage = useSelector(state => state.game.language);
   const { urls } = useSelector(selectGameLanguageKeyboardInfo);
@@ -62,16 +67,25 @@ const GoToDictionaryButton = ({ word = '', className = '' }: Props) => {
                 rel="noopener noreferrer"
                 onClick={handleDictionaryClick}
                 isInverted
+                isText={isText}
+                hasBorder={hasBorder}
               >
                   {hasExactMatch ? <IconDictionary className="go-to-dictionary-icon" /> : <IconBook className="go-to-dictionary-icon" />}
-                  {hasExactMatch
-                    ? <span>{t('common.checkInDictionaryWithName', { word, name: mainName })}</span>
-                    : <span>{t('common.checkInDictionary', { word })}</span>}
+                  <span className={clsx({
+                    'sr-only': shouldShowLabel === false,
+                  })}
+                  >
+                      {hasExactMatch
+                        ? t('common.checkInDictionaryWithName', { word, name: mainName })
+                        : t('common.checkInDictionary', { word })}
+                  </span>
               </Button>
               {!hasExactMatch && (
               <Button
                 onClick={onClick}
                 isInverted
+                isText={isText}
+                hasBorder={hasBorder}
               >
                   <IconBookmark />
               </Button>

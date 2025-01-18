@@ -6,9 +6,17 @@ import { setCaretShift } from '@store/gameSlice';
 
 import Affix from '@components/Words/Affix';
 
+import GoToDictionaryButton from '@components/Dictionary/GoToDictionaryButton';
+
 import './Words.scss';
 
-const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: boolean }) => {
+type Props = {
+  guess: WordType,
+  isSubmitted?: boolean,
+  shouldLinkToDictionary?: boolean,
+};
+
+const Word = ({ guess, isSubmitted = false, shouldLinkToDictionary = false }: Props) => {
   const dispatch = useDispatch();
 
   const handleClickGenerator = (letterIndex: number) => () => {
@@ -58,6 +66,15 @@ const Word = ({ guess, isSubmitted = false }: { guess: WordType, isSubmitted?: b
                 />
             );
           })}
+          {shouldLinkToDictionary && (
+          <GoToDictionaryButton
+            className="word-go-to-dictionary"
+            word={guess.word}
+            isText
+            hasBorder={false}
+            shouldShowLabel={false}
+          />
+          )}
       </div>
   );
 };
