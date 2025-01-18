@@ -27,8 +27,9 @@
     "language.de": "Deutsch",
     "language.en": "Englisch",
     "language.es": "Spanisch",
-    "language.it": "Italienisch",
+    "language.fi": "Finnish",
     "language.fr": "Französisch",
+    "language.it": "Italienisch",
     "language.pl": "Polnisch",
     "game.modeDaily": "Täglich",
     "game.modePractice": "Übungen",
@@ -47,6 +48,8 @@
     "game.deSpecialCharacters": "deutschen Zeichen",
     "game.esSpecialCharacter": "Sonderzeichen",
     "game.esSpecialCharacters": "Sonderzeichen",
+    "game.fiSpecialCharacter": "special",
+    "game.fiSpecialCharacters": "special",
     "game.frSpecialCharacter": "Sonderzeichen",
     "game.frSpecialCharacters": "Sonderzeichen",
     "game.itSpecialCharacter": "special",
@@ -262,5 +265,7 @@
     "statistics.filterWordleBestTitle": "Farbbalance",
     "statistics.filterBestGreen1_5": "1.5 × grün + 1 × gelb",
     "statistics.filterBestGreen2_0": "2 × grün + 1 × gelb",
-    "statistics.bestWordleWordPopularLettersTitle": "Beliebteste Buchstaben an einer bestimmten Position"
+    "statistics.bestWordleWordPopularLettersTitle": "Beliebteste Buchstaben an einer bestimmten Position",
+    "feature.specialWord.wasActivated": "The special word has been activated!",
+    "feature.specialWord.wasDeactivated": "The special word has been deactivated!"
 }
