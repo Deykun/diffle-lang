@@ -27,7 +27,7 @@
     "language.de": "Niemiecki",
     "language.en": "Angielski",
     "language.es": "Hiszpański",
-    "language.fi": "Finnish",
+    "language.fi": "Fiński",
     "language.fr": "Francuski",
     "language.it": "Włoski",
     "language.pl": "Polski",
@@ -63,7 +63,7 @@
     "game.youCanUseIncorrectStart": "(nieprawidłowy początek słowa)",
     "game.youCanUseIncorrectEnd": "(nieprawidłowe zakończenie słowa)",
     "game.youCanUseIncorrectMiddle": "(niektóre litery powinny być obok siebie)",
-    "game.youCanUseIncorrectOrder": "(niektóre litery są niewłaściwej kolejności)",
+    "game.youCanUseIncorrectOrder": "(niektóre litery są w niewłaściwej kolejności)",
     "game.spacesRemoved": "Usunięto spacje.",
     "game.isNotInDictionary": "Brak słowa w słowniku.",
     "game.wordAlreadyUsed": "To słowo zostało już wykorzystane.",
@@ -266,6 +266,6 @@
     "statistics.filterBestGreen1_5": "1.5 × zielony + 1 × żółty",
     "statistics.filterBestGreen2_0": "2 × zielony + 1 × żółty",
     "statistics.bestWordleWordPopularLettersTitle": "Najpopularniejsze litery na danej pozycji",
-    "feature.specialWord.wasActivated": "The special word has been activated!",
-    "feature.specialWord.wasDeactivated": "The special word has been deactivated!"
+    "feature.specialWord.wasActivated": "Specjalne słowo zostało włączone!",
+    "feature.specialWord.wasDeactivated": "Specjalne słowo zostało wyłączone!"
 }
