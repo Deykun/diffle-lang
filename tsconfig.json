@@ -33,7 +33,8 @@
       "@common-types": ["./src/types.d"],
       "@store": ["./src/store"],
       "@store*": ["./src/store*", "./src/store*/index"],
-      "@utils*": ["./src/utils*", "./src/utils*/index"]
+      "@utils*": ["./src/utils*", "./src/utils*/index"],
+      "@features*": ["./src/features*", "./src/features*/index"]
     }
   },
   "include": [

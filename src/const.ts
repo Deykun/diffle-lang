@@ -311,6 +311,7 @@ export const LOCAL_STORAGE = {
   SHOULD_SHOW_DURATION: 'diffle_show_duration',
   SHOULD_SHARE_WORDS: 'diffle_should_share_words',
   MAX_DAILY_STAMP: 'diffle_max_daily_stamp',
+  CUSTOM_TAG: 'diffle_custom_tag',
 };
 
 /* I don't want to gather reports from possible forks because I cannot update them. ~ deykun */

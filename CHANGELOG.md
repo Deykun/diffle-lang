@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.32
+#### Version 3.33
+- **New**: Special word modifier: Typing "hejto" will add a custom tag used on the platform for Wordle-like games
+
+#### Version 3.32 (09.12.2024)
 - **New**: the worst daily results counter has been added to the annual summary
 
 #### Version 3.31 (08.12.2024)

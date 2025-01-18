@@ -37,6 +37,8 @@ import Button from '@components/Button/Button';
 import ButtonTile from '@components/Button/ButtonTile';
 import Modal from '@components/Modal/Modal';
 
+import RemoveCustomTagButton from '@features/specialWords/components/RemoveCustomTagButton';
+
 import './ShareButton.scss';
 
 type Emojis = {
@@ -130,7 +132,10 @@ const ShareButton = ({ shouldShowSettings = false }: Props) => {
 
     const langShareMarker = gameLanguage ? SUPPORTED_DICTIONARY_BY_LANG[gameLanguage].shareMarker : '#diffle';
 
-    const copyTitle = gameMode === GameMode.Daily ? `${stamp} – ${langShareMarker}` : `« ${wordToGuess} » – ${langShareMarker}`;
+    const customTag = localStorage.getItem(LOCAL_STORAGE.CUSTOM_TAG) || '' as string;
+    const customShareTag = customTag ? ` ${customTag}` : '';
+
+    const copyTitle = gameMode === GameMode.Daily ? `${stamp} – ${langShareMarker}${customShareTag}` : `« ${wordToGuess} » – ${langShareMarker}${customShareTag}`;
     const copySubtotals = `${emojis.correct || DEFAULT_EMOJIS.correct} ${subtotals.correct}  ${emojis.position || DEFAULT_EMOJIS.position} ${subtotals.position}  ${emojis.incorrect || DEFAULT_EMOJIS.incorrect} ${subtotals.incorrect}  ${emojis.typedKnownIncorrect || DEFAULT_EMOJIS.typedKnownIncorrect} ${subtotals.typedKnownIncorrect}`;
 
     if (isLost) {
@@ -248,6 +253,7 @@ ${linkToCopy}`;
                           </ButtonTile>
                       </li>
                   </ul>
+                  <RemoveCustomTagButton />
               </div>
           </Modal>
       </>
