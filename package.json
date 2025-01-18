@@ -12,7 +12,7 @@
   "version": "3.32",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3001",
     "dev-test": "vite --port 2001",
     "start": "vite --port 3001",
     "build": "tsc && vite build && node scripts/post-build.mjs",

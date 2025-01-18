@@ -15,6 +15,7 @@ export default defineConfig({
       '@const': fileURLToPath(new URL('./src/const', import.meta.url)),
       '@store': fileURLToPath(new URL('./src/store', import.meta.url)),
       "@utils": fileURLToPath(new URL('./src/utils', import.meta.url)),
+      '@features': fileURLToPath(new URL('./src/features', import.meta.url)),
       '@common-types': fileURLToPath(new URL('./src/types.d', import.meta.url)),
     }
   }
