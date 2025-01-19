@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.35
+#### Version 3.35.1
+- **Bug**: The Italian title doesn't indicate that the game is in Polish
+
+#### Version 3.35 (19.01.2025)
 - **New**: Adding support for the Home and End keys
 
 #### Version 3.34 (18.01.2025)
