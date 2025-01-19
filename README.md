@@ -8,13 +8,13 @@ The website: https://deykun.github.io/diffle-lang/
 
 Supported languages:
 - **Czech** since 02.02.2024 🇨🇿
+- **German** since 19.02.2024 🇩🇪
 - **English** since 19.01.2024 🇬🇧
 - **Finnish** since 28.07.2024 🇫🇮
 - **French** since 02.03.2024 🇫🇷
 - **Italian** since 15.05.2024 🇮🇹
 - **Polish** since 30.07.2023 🇵🇱
 - **Spanish** since 21.02.2024 🇪🇸
-- **German** since 19.02.2024 🇩🇪
 
 ### Report a translation bug
 https://crowdin.com/project/diffle-lang
