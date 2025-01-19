@@ -670,8 +670,20 @@ const gameSlice = createSlice({
         return;
       }
 
+      if (typed === 'home') {
+        state.caretShift = -state.wordToSubmit.length;
+
+        return;
+      }
+
       if (typed === 'arrowright') {
         state.caretShift = Math.min(state.caretShift + 1, 0);
+
+        return;
+      }
+
+      if (typed === 'end') {
+        state.caretShift = 0;
 
         return;
       }
