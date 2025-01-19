@@ -27,7 +27,7 @@
     "language.de": "Allemand",
     "language.en": "Anglais",
     "language.es": "Espagnol",
-    "language.fi": "Finnish",
+    "language.fi": "Finnois",
     "language.fr": "Français",
     "language.it": "Italien",
     "language.pl": "Polonais",
@@ -48,8 +48,8 @@
     "game.deSpecialCharacters": "spéciaux",
     "game.esSpecialCharacter": "spéciaux",
     "game.esSpecialCharacters": "spéciaux",
-    "game.fiSpecialCharacter": "special",
-    "game.fiSpecialCharacters": "special",
+    "game.fiSpecialCharacter": "spéciaux",
+    "game.fiSpecialCharacters": "spéciaux",
     "game.frSpecialCharacter": "spéciaux",
     "game.frSpecialCharacters": "spéciaux",
     "game.itSpecialCharacter": "spéciaux",
@@ -266,6 +266,6 @@
     "statistics.filterBestGreen1_5": "1,5 × vert + 1 × jaune",
     "statistics.filterBestGreen2_0": "2 × vert + 1 × jaune",
     "statistics.bestWordleWordPopularLettersTitle": "Lettres les plus populaires à chaque position donnée",
-    "feature.specialWord.wasActivated": "The special word has been activated!",
-    "feature.specialWord.wasDeactivated": "The special word has been deactivated!"
+    "feature.specialWord.wasActivated": "Le mot spécial a été activé !",
+    "feature.specialWord.wasDeactivated": "Le mot spécial a été désactivé !"
 }
