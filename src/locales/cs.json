@@ -27,8 +27,9 @@
     "language.de": "němčina",
     "language.en": "angličtina",
     "language.es": "spanělština",
-    "language.it": "Italština",
+    "language.fi": "Finština",
     "language.fr": "francouzština",
+    "language.it": "Italština",
     "language.pl": "polština",
     "game.modeDaily": "Denně",
     "game.modePractice": "Praxe",
@@ -47,6 +48,8 @@
     "game.deSpecialCharacters": "speciální",
     "game.esSpecialCharacter": "speciální",
     "game.esSpecialCharacters": "speciální",
+    "game.fiSpecialCharacter": "speciální",
+    "game.fiSpecialCharacters": "speciální",
     "game.frSpecialCharacter": "speciální",
     "game.frSpecialCharacters": "speciální",
     "game.itSpecialCharacter": "speciální",
@@ -262,5 +265,7 @@
     "statistics.filterWordleBestTitle": "Barevná rovnováha",
     "statistics.filterBestGreen1_5": "1.5 × zelená + 1 × žlutá",
     "statistics.filterBestGreen2_0": "2 × zelená + 1 × žlutá",
-    "statistics.bestWordleWordPopularLettersTitle": "Nejoblíbenější písmena na dané pozici"
+    "statistics.bestWordleWordPopularLettersTitle": "Nejoblíbenější písmena na dané pozici",
+    "feature.specialWord.wasActivated": "Speciální slovo bylo aktivováno!",
+    "feature.specialWord.wasDeactivated": "Speciální slovo bylo deaktivováno!"
 }
