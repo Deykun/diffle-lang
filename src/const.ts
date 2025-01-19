@@ -245,7 +245,7 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'it',
     languages: ['it'],
     isBeta: true,
-    title: 'DIFFLE - il gioco simile a Wordle (senza limite di caratteri) 🇮🇹',
+    title: 'DIFFLE - gioco simile a Wordle (in italiano, senza limite di caratteri) 🇮🇹',
     keyLinesVariants: KEY_LINES_IT_VARIANTS,
     keyLinesToUse: KEY_LINES_IT_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_IT_VARIANTS[0].keyLines.flatMap(key => key)],
