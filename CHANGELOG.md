@@ -11,8 +11,11 @@
 
 ---
 
-#### Version 3.35.1
-- **Bug**: The Italian title doesn't indicate that the game is in Polish
+#### Version 3.35.2
+- **Fix**: The broken background blur on the keyboard was fixed in Chrome
+
+#### Version 3.35.1 (19.01.2025)
+- **Fix**: The Italian title doesn't indicate that the game is in Polish
 
 #### Version 3.35 (19.01.2025)
 - **New**: Adding support for the Home and End keys
