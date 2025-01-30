@@ -100,14 +100,14 @@ export const getKeyboardState = ({
       if (isWrongStart) {
         return {
           status: AffixStatus.IncorrectStart,
-          details: flatAffixes.start,
+          details: `${flatAffixes.start}•`,
         };
       }
 
       if (flatAffixes.notStart.includes(wordToSubmit[0])) {
         return {
           status: AffixStatus.IncorrectStart,
-          details: wordToSubmit[0],
+          details: `${wordToSubmit[0]}•`,
         };
       }
 
@@ -115,14 +115,14 @@ export const getKeyboardState = ({
       if (isWrongEnd) {
         return {
           status: AffixStatus.IncorrectEnd,
-          details: flatAffixes.end,
+          details: `•${flatAffixes.end}`,
         };
       }
 
       if (flatAffixes.notEnd.includes(wordToSubmit[wordToSubmit.length - 1])) {
         return {
           status: AffixStatus.IncorrectEnd,
-          details: wordToSubmit[wordToSubmit.length - 1],
+          details: `•${wordToSubmit[wordToSubmit.length - 1]}`,
         };
       }
 
@@ -131,7 +131,7 @@ export const getKeyboardState = ({
       if (isWrongMiddle) {
         return {
           status: AffixStatus.IncorrectMiddle,
-          details: wrongMiddles.join(', '),
+          details: wrongMiddles.join('•'),
         };
       }
 
@@ -141,7 +141,7 @@ export const getKeyboardState = ({
         if (isWrongOrder) {
           return {
             status: AffixStatus.IncorrectOrder,
-            details: wrongOrders.join(', '),
+            details: wrongOrders.map(order => order.join('•')).join(', '),
           };
         }
       }

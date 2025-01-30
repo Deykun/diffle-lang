@@ -231,54 +231,78 @@ export const selectWordState = (word: string) => createSelector(
   (wordToSubmit, wordToGuess, { specialCharacters }, correctLetters, incorrectLetters, positionLetters, flatAffixes) => {
     const uniqueLettersInWord = [...new Set(word.split(''))].filter(letter => ![' '].includes(letter));
 
-    const hasIncorrectLetterTyped = uniqueLettersInWord.some(
-      letter => getLetterState({
+    const lettersStatusPairs = uniqueLettersInWord.map(
+      letter => ({
         letter,
-        wordToSubmit,
-        wordToGuess,
-        correctLetters,
-        incorrectLetters,
-        positionLetters,
-        specialCharacters,
-      }) === AffixStatus.Incorrect,
+        status: getLetterState({
+          letter,
+          wordToSubmit,
+          wordToGuess,
+          correctLetters,
+          incorrectLetters,
+          positionLetters,
+          specialCharacters,
+        }),
+      }),
+    );
+
+    const hasIncorrectLetterTyped = lettersStatusPairs.some(
+      ({ status }) => status === AffixStatus.Incorrect,
     );
 
     if (hasIncorrectLetterTyped) {
-      return AffixStatus.Incorrect;
+      const details = lettersStatusPairs.filter(
+        ({ status }) => status === AffixStatus.Incorrect,
+      ).map(({ letter }) => letter).join(', ');
+
+      return {
+        status: AffixStatus.Incorrect,
+        details,
+      };
     }
 
-    const hasTypedTooMuch = uniqueLettersInWord.some(
-      letter => getLetterState({
-        letter,
-        wordToSubmit,
-        wordToGuess,
-        correctLetters,
-        incorrectLetters,
-        positionLetters,
-        specialCharacters,
-      }) === AffixStatus.IncorrectOccurance,
+    const hasTypedTooMuch = lettersStatusPairs.some(
+      ({ status }) => status === AffixStatus.IncorrectOccurance,
     );
 
     if (hasTypedTooMuch) {
-      return AffixStatus.IncorrectOccurance;
+      const details = lettersStatusPairs.filter(
+        ({ status }) => status === AffixStatus.IncorrectOccurance,
+      ).map(({ letter }) => letter).join(', ');
+
+      return {
+        status: AffixStatus.IncorrectOccurance,
+        details,
+      };
     }
 
     const isWrongStart = !wordToSubmit.startsWith(flatAffixes.start);
     if (isWrongStart) {
-      return AffixStatus.IncorrectStart;
+      return {
+        status: AffixStatus.IncorrectStart,
+        details: `${flatAffixes.start}•`,
+      };
     }
 
     const isWrongEnd = !wordToSubmit.endsWith(flatAffixes.end);
     if (isWrongEnd) {
-      return AffixStatus.IncorrectEnd;
+      return {
+        status: AffixStatus.IncorrectEnd,
+        details: `•${flatAffixes.end}`,
+      };
     }
 
     const isWrongMiddle = flatAffixes.middle.some(flatAffix => !wordToSubmit.includes(flatAffix));
     if (isWrongMiddle) {
-      return AffixStatus.IncorrectMiddle;
+      return {
+        status: AffixStatus.IncorrectMiddle,
+        // details: skipped because not used?
+      };
     }
 
-    return AffixStatus.Unknown;
+    return {
+      status: AffixStatus.Unknown,
+    };
   },
 );
 

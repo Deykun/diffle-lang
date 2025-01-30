@@ -6,13 +6,9 @@
   }
 
   .status-tip-details {
-    margin-left: 6px;
-
-    strong {
+      margin-left: 0.5em;
       text-transform: uppercase;
       letter-spacing: 0.1em !important;
-      color: var(--red) !important;
-    }
   }
 
   .word-tip {

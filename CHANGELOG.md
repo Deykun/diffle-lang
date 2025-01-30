@@ -12,7 +12,7 @@
 ---
 
 #### Version 3.36
-- **New**: Keyboard tips tell where is the problem in the tip
+- **New**: Word tips now show the letters involved in the problem
 - **New**: Tips for typed words: Order can be implied from two colored ones, with one in the wrong position
 
 #### Version 3.35.2 (20.01.2025)

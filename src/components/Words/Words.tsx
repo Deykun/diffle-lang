@@ -35,7 +35,7 @@ const Words = () => {
   const hasLongGuesses = useSelector(state => state.game.hasLongGuesses);
   const isProcessing = useSelector(selectIsProcessing);
   const wordToSubmit = useSelector(selectWordToSubmit);
-  const wordStatus = useSelector(selectWordState(wordToSubmit));
+  const { status: wordStatus, details: wordDetails } = useSelector(selectWordState(wordToSubmit));
   const { status: keyboardStatus, details: keyboardDetails } = useSelector(selectKeyboardState);
   const caretShift = useSelector(state => state.game.caretShift);
   const hasSpace = wordToSubmit.includes(' ');
@@ -75,9 +75,11 @@ const Words = () => {
       text = 'game.checking';
     } else if (wordStatus === AffixStatus.Incorrect) {
       isImpossibleToWin = true;
+      details = wordDetails ?? '';
       text = 'game.youCanUseIncorrectLetters';
     } else if (wordStatus === AffixStatus.IncorrectOccurance) {
       isImpossibleToWin = true;
+      details = wordDetails ?? '';
       text = 'game.youCanUseLettersTypedTooManyTimes';
     } else if (keyboardStatus === AffixStatus.IncorrectStart) {
       isImpossibleToWin = true;
@@ -104,7 +106,14 @@ const Words = () => {
       tipText: text,
       tipDetails: details,
     };
-  }, [hasSpace, isProcessing, keyboardStatus, keyboardDetails, wordStatus]);
+  }, [
+    hasSpace,
+    isProcessing,
+    keyboardStatus,
+    keyboardDetails,
+    wordStatus,
+    wordDetails,
+  ]);
 
   const shouldBeNarrower = hasLongGuesses
     || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
@@ -139,7 +148,7 @@ const Words = () => {
               {!isProcessing && isImpossibleToWin && (
               <>
                   <span
-                    // eslint-disable-next-line react/no-danger
+              // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
                       __html: t('game.youCanUseThisWordButNotWin'),
                     }}
@@ -149,6 +158,7 @@ const Words = () => {
               )}
               {tipText && (
               <>
+                  <span>(</span>
                   <span
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
@@ -156,14 +166,11 @@ const Words = () => {
                     }}
                   />
                   {tipDetails && (
-                  <span className="status-tip-details">
-                      (
-                      <strong>
-                          {tipDetails}
-                      </strong>
-                      )
-                  </span>
+                  <strong className="status-tip-details">
+                      {tipDetails}
+                  </strong>
                   )}
+                  <span>)</span>
               </>
               )}
           </p>
