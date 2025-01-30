@@ -11,7 +11,11 @@
 
 ---
 
-#### Version 3.36
+#### Version 3.36.1
+- **Fix**: String for sandbox mode has been corrected
+- **Fix**: actions/upload-artifact and actions/download-artifact has ben updated from @v3 to @v4
+
+#### Version 3.36 (30.01.2025)
 - **New**: Word tips now show the letters involved in the problem
 - **New**: Tips for typed words: Order can be implied from two colored ones, with one in the wrong position
 
