@@ -29,7 +29,7 @@ export const DICTIONARIES = {
 export const EASTER_EGG_DAYS = {
     '03.05': {
         type: 'public',
-        specialMode: 'sandbox-live',
+        specialMode: 'sandbox_live',
         emojis: [{
             correct: ['🗽'],
             position: ['📜', '⚖️'],
@@ -39,7 +39,7 @@ export const EASTER_EGG_DAYS = {
     },
     '11.11': {
         type: 'public',
-        specialMode: 'sandbox-live',
+        specialMode: 'sandbox_live',
         emojis: [{
             correct: ['🌿'],
             position: ['🥟', '🥟', '🥟', '🥐'],
