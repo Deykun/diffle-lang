@@ -125,6 +125,18 @@ const getFlatAffixes = (affixes: Affix[]) => {
   const order = affixes.filter(affix => affix.type === AffixStatus.Correct).map(({ text }) => text);
   if (order.length >= 2) {
     flatAffixes.correctOrders = [order];
+  } else if (order.length === 1) {
+    /*  TEST -> E (green), S (orange), T (grey). This implies the order: S, E */
+    const specialCaseOrder = affixes.filter(
+      affix => [AffixStatus.Correct, AffixStatus.Position].includes(affix.type),
+    ).map(({ type, text }) => ({ type, text }));
+
+    if (specialCaseOrder.length === 2) {
+      // We have wrong position so this order is reversed
+      const reversedOrder = [specialCaseOrder[1].text, specialCaseOrder[0].text];
+
+      flatAffixes.correctOrders = [reversedOrder];
+    }
   }
 
   return flatAffixes;

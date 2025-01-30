@@ -39,7 +39,10 @@ export const getKeyboardState = ({
   incorrectLetters: UsedLetters,
   positionLetters: UsedLetters,
   flatAffixes: FlatAffixes,
-}) => {
+}): {
+  status: AffixStatus,
+  details?: string,
+} => {
   if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
     return {
       status: AffixStatus.Unknown,
@@ -72,14 +75,15 @@ export const getKeyboardState = ({
     };
   }
 
-  // TODO: add info at the end if no special letter typed
   const hasWordToGuessSpecialCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
   const hasWordToSubmitSpecialCharacters = wordToSubmit && getHasSpecialCharacters(wordToSubmit);
   const specialCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
   if (specialCharacterTypedWhenNotNeeded) {
+    const uniqueSpecialCharactersTyped = [...new Set(wordToSubmit.split('').filter(letter => getHasSpecialCharacters(letter)))];
+
     return {
       status: AffixStatus.Incorrect,
-      details: [], // TODO: add special
+      details: uniqueSpecialCharactersTyped.join(', '),
     };
   }
 
@@ -96,14 +100,14 @@ export const getKeyboardState = ({
       if (isWrongStart) {
         return {
           status: AffixStatus.IncorrectStart,
-          details: flatAffixes.start,
+          details: `${flatAffixes.start}•`,
         };
       }
 
       if (flatAffixes.notStart.includes(wordToSubmit[0])) {
         return {
           status: AffixStatus.IncorrectStart,
-          details: wordToSubmit[0],
+          details: `${wordToSubmit[0]}•`,
         };
       }
 
@@ -111,14 +115,14 @@ export const getKeyboardState = ({
       if (isWrongEnd) {
         return {
           status: AffixStatus.IncorrectEnd,
-          details: flatAffixes.end,
+          details: `•${flatAffixes.end}`,
         };
       }
 
       if (flatAffixes.notEnd.includes(wordToSubmit[wordToSubmit.length - 1])) {
         return {
           status: AffixStatus.IncorrectEnd,
-          details: wordToSubmit[wordToSubmit.length - 1],
+          details: `•${wordToSubmit[wordToSubmit.length - 1]}`,
         };
       }
 
@@ -127,7 +131,7 @@ export const getKeyboardState = ({
       if (isWrongMiddle) {
         return {
           status: AffixStatus.IncorrectMiddle,
-          details: wrongMiddles.join(', '),
+          details: wrongMiddles.join('•'),
         };
       }
 
@@ -137,7 +141,7 @@ export const getKeyboardState = ({
         if (isWrongOrder) {
           return {
             status: AffixStatus.IncorrectOrder,
-            details: wrongOrders.join(', '),
+            details: wrongOrders.map(order => order.join('•')).join(', '),
           };
         }
       }
