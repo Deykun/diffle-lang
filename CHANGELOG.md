@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.35.2
+#### Version 3.36
+- **New**: Tips for typed words: Order can be implied from two colored ones, with one in the wrong position
+
+#### Version 3.35.2 (20.01.2025)
 - **Fix**: The broken background blur on the keyboard was fixed in Chrome
 
 #### Version 3.35.1 (19.01.2025)
