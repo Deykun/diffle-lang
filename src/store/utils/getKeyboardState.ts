@@ -39,7 +39,10 @@ export const getKeyboardState = ({
   incorrectLetters: UsedLetters,
   positionLetters: UsedLetters,
   flatAffixes: FlatAffixes,
-}) => {
+}): {
+  status: AffixStatus,
+  details?: string,
+} => {
   if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
     return {
       status: AffixStatus.Unknown,
@@ -72,14 +75,15 @@ export const getKeyboardState = ({
     };
   }
 
-  // TODO: add info at the end if no special letter typed
   const hasWordToGuessSpecialCharacters = wordToGuess && getHasSpecialCharacters(wordToGuess);
   const hasWordToSubmitSpecialCharacters = wordToSubmit && getHasSpecialCharacters(wordToSubmit);
   const specialCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
   if (specialCharacterTypedWhenNotNeeded) {
+    const uniqueSpecialCharactersTyped = [...new Set(wordToSubmit.split('').filter(letter => getHasSpecialCharacters(letter)))];
+
     return {
       status: AffixStatus.Incorrect,
-      details: [], // TODO: add special
+      details: uniqueSpecialCharactersTyped.join(', '),
     };
   }
 

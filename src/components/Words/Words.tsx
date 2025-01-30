@@ -36,23 +36,25 @@ const Words = () => {
   const isProcessing = useSelector(selectIsProcessing);
   const wordToSubmit = useSelector(selectWordToSubmit);
   const wordStatus = useSelector(selectWordState(wordToSubmit));
-  const { status: keyboardStatus } = useSelector(selectKeyboardState);
+  const { status: keyboardStatus, details: keyboardDetails } = useSelector(selectKeyboardState);
   const caretShift = useSelector(state => state.game.caretShift);
   const hasSpace = wordToSubmit.includes(' ');
-  const isIncorrectType = [
-    AffixStatus.Incorrect,
-    AffixStatus.IncorrectOccurance,
-  ].includes(wordStatus) || [
-    AffixStatus.IncorrectStart,
-    AffixStatus.IncorrectMiddle,
-    AffixStatus.IncorrectOrder,
-    AffixStatus.IncorrectEnd,
-  ].includes(keyboardStatus);
+  const isIncorrectType = [AffixStatus.Incorrect, AffixStatus.IncorrectOccurance].includes(
+    wordStatus,
+  )
+    || [
+      AffixStatus.IncorrectStart,
+      AffixStatus.IncorrectMiddle,
+      AffixStatus.IncorrectOrder,
+      AffixStatus.IncorrectEnd,
+    ].includes(keyboardStatus);
 
   const { t } = useTranslation();
 
   const submitGuess: WordType = useMemo(() => {
-    const affixes = (wordToSubmit || ' ').split('').map(letter => ({ type: AffixStatus.New, text: letter }));
+    const affixes = (wordToSubmit || ' ')
+      .split('')
+      .map(letter => ({ type: AffixStatus.New, text: letter }));
 
     return {
       word: wordToSubmit,
@@ -63,11 +65,9 @@ const Words = () => {
 
   useScrollEffect('bottom', [wordToSubmit]);
 
-  const {
-    isImpossibleToWin,
-    tiptext,
-  } = useMemo(() => {
+  const { isImpossibleToWin, tipText, tipDetails } = useMemo(() => {
     let text = '';
+    let details = '';
     // eslint-disable-next-line @typescript-eslint/no-shadow
     let isImpossibleToWin = false;
 
@@ -81,15 +81,19 @@ const Words = () => {
       text = 'game.youCanUseLettersTypedTooManyTimes';
     } else if (keyboardStatus === AffixStatus.IncorrectStart) {
       isImpossibleToWin = true;
+      details = keyboardDetails ?? '';
       text = 'game.youCanUseIncorrectStart';
     } else if (keyboardStatus === AffixStatus.IncorrectMiddle) {
       isImpossibleToWin = true;
+      details = keyboardDetails ?? '';
       text = 'game.youCanUseIncorrectMiddle';
     } else if (keyboardStatus === AffixStatus.IncorrectOrder) {
       isImpossibleToWin = true;
+      details = keyboardDetails ?? '';
       text = 'game.youCanUseIncorrectOrder';
     } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
       isImpossibleToWin = true;
+      details = keyboardDetails ?? '';
       text = 'game.youCanUseIncorrectEnd';
     } else if (hasSpace) {
       text = 'game.youCanUseSpace';
@@ -97,20 +101,26 @@ const Words = () => {
 
     return {
       isImpossibleToWin,
-      tiptext: text,
+      tipText: text,
+      tipDetails: details,
     };
-  }, [hasSpace, isProcessing, keyboardStatus, wordStatus]);
+  }, [hasSpace, isProcessing, keyboardStatus, keyboardDetails, wordStatus]);
 
-  const shouldBeNarrower = hasLongGuesses || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
+  const shouldBeNarrower = hasLongGuesses
+    || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
   const shouldBeShorter = guesses.length > 8;
 
   return (
-      <div className={clsx('words', { 'words--is-ended': isGameEnded, narrow: shouldBeNarrower, shorter: shouldBeShorter })}>
+      <div
+        className={clsx('words', {
+          'words--is-ended': isGameEnded,
+          narrow: shouldBeNarrower,
+          shorter: shouldBeShorter,
+        })}
+      >
           <WordTip />
           {guesses.map((guess) => {
-            return (
-                <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />
-            );
+            return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
           })}
           {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
           {!isGameEnded && gameMode === GameMode.SandboxLive && (
@@ -137,13 +147,24 @@ const Words = () => {
                   <br />
               </>
               )}
-              {tiptext && (
-              <span
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{
-                  __html: t(tiptext),
-                }}
-              />
+              {tipText && (
+              <>
+                  <span
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={{
+                      __html: t(tipText),
+                    }}
+                  />
+                  {tipDetails && (
+                  <span className="status-tip-details">
+                      (
+                      <strong>
+                          {tipDetails}
+                      </strong>
+                      )
+                  </span>
+                  )}
+              </>
               )}
           </p>
       </div>
