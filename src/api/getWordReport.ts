@@ -132,7 +132,7 @@ const getFlatAffixes = (affixes: Affix[]) => {
     ).map(({ type, text }) => ({ type, text }));
 
     if (specialCaseOrder.length === 2) {
-      // Reversed
+      // We have wrong position so this order is reversed
       const reversedOrder = [specialCaseOrder[1].text, specialCaseOrder[0].text];
 
       flatAffixes.correctOrders = [reversedOrder];
