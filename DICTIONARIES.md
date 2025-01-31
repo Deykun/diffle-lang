@@ -70,11 +70,15 @@ https://github.com/nhershy/SpanishDictionaryCreator/blob/main/README.md#sources-
 
 - https://github.com/kochd/word-lists/blob/main/italian.list (13 MB)
 - https://github.com/maehr/ocr-dictionaries-for-federal-sources/blob/master/dictionaries/it_full.txt (9.23 MB)
+- http://www.yorku.ca/lbianchi/italian.html via http://www.yorku.ca/lbianchi/italian_words/index.html (from 1996)
+- https://www.listediparole.it/ 🃏 (Based on Wikipedia data)
 
 ### Finnish 🇫🇮
 - https://www.kotus.fi/ 📔 (104k words)
 - https://freedict.org 🎯
 - https://github.com/hermitdave/FrequencyWords/ 📔
+- https://github.com/ohmitek/FinnishWordlist 🃏 (old version of Kotus, it is not a dictionary)
+- https://www.mmnt.net/db/0/0/69.43.38.172/mirrors/wordlists/finnish 🃏 ("words.finnish is NOT suitable for a Finnish wordlist")
 
 ### French 🇫🇷
 - http://grammalecte.net:8080/file?name=lexicons/French.lex&ci=tip 📔 (~450k words - 19.1 MB)
