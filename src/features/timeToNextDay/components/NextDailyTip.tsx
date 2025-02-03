@@ -70,7 +70,7 @@ const NextDailyTip = ({
     return (
         <p
           className={clsx('next-daily-tip', {
-            'next-daily-tip--is-near-end': shouldWarnIfNearEnd && minutesToNext <= nearEndMinutes,
+            'next-daily-tip--is-near-end': shouldWarnIfNearEnd && minutesToNext <= nearEndMinutes && endStatus !== GameStatus.Won,
           })}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
