@@ -13,7 +13,6 @@ import './NextDailyTip.scss';
 
 const nearEndMinutes = 15;
 
-// That 1 + at the end moves the edge to the next day
 const getCurrentMinutesTo = () => 24 * 60 - (getNow().nowUTC.getHours() * 60 + getNow().nowUTC.getMinutes());
 
 type Props = {
