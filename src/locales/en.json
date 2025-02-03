@@ -119,7 +119,7 @@
     "end.nextDailyHours_many": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyHours_other": "The new daily word will be available in <strong>{{count}} hours</strong>.",
     "end.nextDailyMinutes_zero": "The new daily word will be available in <strong>less than a minute</strong>.",
-    "end.nextDailyMinutes_one": "The new daily word will be available in <strong>a minutes</strong>.",
+    "end.nextDailyMinutes_one": "The new daily word will be available in <strong>a minute</strong>.",
     "end.nextDailyMinutes_few": "The new daily word will be available in <strong>{{count}} minutes</strong>.",
     "end.nextDailyMinutes_many": "The new daily word will be available in <strong>{{count}} minutes</strong>.",
     "end.nextDailyMinutes_other": "The new daily word will be available in <strong>{{count}} minutes</strong>.",

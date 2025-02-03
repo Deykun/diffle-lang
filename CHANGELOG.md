@@ -13,6 +13,7 @@
 
 #### Version 3.37
 - **New**: Information about the next word is shown near the daily period end and it shows minutes
+- **Fix**: The game is refreshed when the date stamp changes
 
 #### Version 3.36.1 (30.01.2025)
 - **Fix**: String for sandbox mode has been corrected

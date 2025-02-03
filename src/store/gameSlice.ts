@@ -47,7 +47,7 @@ import {
   selectGuessesStatsForLetters,
 } from '@store/selectors';
 
-const initialState: RootGameState = {
+const getInitialState = (): RootGameState => ({
   language: undefined,
   mode: getInitMode(),
   today: getNow().stamp,
@@ -74,7 +74,7 @@ const initialState: RootGameState = {
     notEnd: [],
     end: '',
   },
-};
+});
 
 const resetGame = (state: RootGameState, wordToGuess: string) => {
   state.wordToSubmit = '';
@@ -571,7 +571,7 @@ export const saveEndedGame = createAsyncThunk(
 
 const gameSlice = createSlice({
   name: 'game',
-  initialState,
+  initialState: getInitialState(),
   reducers: {
     setGameLanguage(state, action) {
       const hadGameLanguageSetEarilier = !!state.language;
@@ -739,6 +739,9 @@ const gameSlice = createSlice({
     setProcessing(state, action) {
       state.isProcessing = action.payload;
     },
+    reloadGame() {
+      return getInitialState();
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(resetEasterDays.pending, (state) => {
@@ -900,5 +903,6 @@ export const {
   setWordToSubmit,
   setCaretShift,
   letterChangeInAnswer,
+  reloadGame,
 } = gameSlice.actions;
 export default gameSlice.reducer;

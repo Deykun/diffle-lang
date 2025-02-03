@@ -129,8 +129,8 @@ const Words = () => {
           shorter: shouldBeShorter,
         })}
       >
-          <WordTip />
           <NextDailyTip />
+          <WordTip />
           {guesses.map((guess) => {
             return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
           })}

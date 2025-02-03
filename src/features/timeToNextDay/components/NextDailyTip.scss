@@ -1,23 +1,12 @@
 .next-daily-tip {
-  margin-bottom: 18px;
   font-size: 70%;
   color: var(--text-alt);
+  letter-spacing: 0.03em;
+  margin-bottom: 15px;
+  transition: 0.3s;
 
   strong {
-      color: var(--text);
-  }
-
-  small {
-      font-size: 85%;
-      color: var(--text-alt);
-  }
-
-  svg {
-      fill: currentColor;
-      display: inline-block;
-      vertical-align: middle;
-      height: 20px;
-      margin-right: 4px;
+    color: var(--text);
   }
 
   &.next-daily-tip--is-near-end {

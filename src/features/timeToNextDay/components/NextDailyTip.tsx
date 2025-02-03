@@ -6,12 +6,14 @@ import { GameMode, GameStatus } from '@common-types';
 
 import { getNow } from '@utils/date';
 
-import { useSelector } from '@store';
+import { useSelector, useDispatch } from '@store';
+import { reloadGame } from '@store/gameSlice';
 
 import './NextDailyTip.scss';
 
 const nearEndMinutes = 15;
 
+// That 1 + at the end moves the edge to the next day
 const getCurrentMinutesTo = () => 24 * 60 - (getNow().nowUTC.getHours() * 60 + getNow().nowUTC.getMinutes());
 
 type Props = {
@@ -21,8 +23,10 @@ type Props = {
 const NextDailyTip = ({
   shouldWarnIfNearEnd = true,
 }: Props) => {
+  const dispatch = useDispatch();
   const setIntervalClockRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const [minutesToNext, setMinutesToNext] = useState(getCurrentMinutesTo());
+  const today = useSelector(state => state.game.today);
   const endStatus = useSelector(state => state.game.status);
   const gameMode = useSelector(state => state.game.mode);
 
@@ -41,6 +45,13 @@ const NextDailyTip = ({
       }
     };
   }, []);
+
+  useEffect(() => {
+    const shouldReload = today !== getNow().stamp;
+    if (shouldReload) {
+      dispatch(reloadGame());
+    }
+  }, [dispatch, minutesToNext, today]);
 
   const hoursToNext = 24 - getNow().nowUTC.getHours() - 1;
 

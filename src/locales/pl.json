@@ -118,7 +118,7 @@
     "end.nextDailyHours_few": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godziny</strong>.",
     "end.nextDailyHours_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
     "end.nextDailyHours_other": "Nowe hasło dnia będzie dostępne za <strong>{{count}} godzin</strong>.",
-    "end.nextDailyMinutes_zero": "Nowe hasło dnia będzie dostępne za <strong>mniej niż minutę.</strong>.",
+    "end.nextDailyMinutes_zero": "Nowe hasło dnia będzie dostępne za <strong>mniej niż minutę</strong>.",
     "end.nextDailyMinutes_one": "Nowe hasło dnia będzie dostępne za <strong>minutę</strong>.",
     "end.nextDailyMinutes_few": "Nowe hasło dnia będzie dostępne za <strong>{{count}} minuty</strong>.",
     "end.nextDailyMinutes_many": "Nowe hasło dnia będzie dostępne za <strong>{{count}} minut</strong>.",
