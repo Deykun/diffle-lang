@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { GameMode } from '@common-types';
 
-import { getNow } from '@utils/date';
-
 import { useSelector, useDispatch } from '@store';
 import { setGameMode, setWordToGuess } from '@store/gameSlice';
 import {
@@ -71,8 +69,6 @@ function EndResult() {
     return null;
   }
 
-  const hoursToNext = 24 - getNow().nowUTC.getHours();
-
   return (
       <>
           <EndResultSummary
@@ -106,18 +102,6 @@ function EndResult() {
           <GoToDictionaryButton word={wordToGuess} />
           <WordPopularity word={wordToGuess} />
           <EndResultGameTime />
-          {gameMode === GameMode.Daily && (
-          <p
-            className="next-word-tip"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: t('end.nextDaily', {
-                postProcess: 'interval',
-                count: hoursToNext,
-              }),
-            }}
-          />
-          )}
           <StatisticsHint />
       </>
   );

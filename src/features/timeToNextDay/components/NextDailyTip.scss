@@ -1,0 +1,17 @@
+.next-daily-tip {
+  font-size: 70%;
+  color: var(--text-alt);
+  letter-spacing: 0.03em;
+  margin-bottom: 15px;
+  transition: 0.3s;
+
+  strong {
+    color: var(--text);
+  }
+
+  &.next-daily-tip--is-near-end {
+    strong {
+        color: var(--red);
+    }
+  }
+}
