@@ -21,6 +21,8 @@ import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
 import EndResult from '@components/EndResult/EndResult';
 
+import NextDailyTip from '@features/timeToNextDay/components/NextDailyTip';
+
 import Word from './Word';
 import WordTip from './WordTip';
 
@@ -128,6 +130,7 @@ const Words = () => {
         })}
       >
           <WordTip />
+          <NextDailyTip />
           {guesses.map((guess) => {
             return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
           })}

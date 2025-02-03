@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.36.1
+#### Version 3.37
+- **New**: Information about the next word is shown near the daily period end and it shows minutes
+
+#### Version 3.36.1 (30.01.2025)
 - **Fix**: String for sandbox mode has been corrected
 - **Fix**: actions/upload-artifact and actions/download-artifact has ben updated from @v3 to @v4
 

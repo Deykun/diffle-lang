@@ -1,0 +1,28 @@
+.next-daily-tip {
+  margin-bottom: 18px;
+  font-size: 70%;
+  color: var(--text-alt);
+
+  strong {
+      color: var(--text);
+  }
+
+  small {
+      font-size: 85%;
+      color: var(--text-alt);
+  }
+
+  svg {
+      fill: currentColor;
+      display: inline-block;
+      vertical-align: middle;
+      height: 20px;
+      margin-right: 4px;
+  }
+
+  &.next-daily-tip--is-near-end {
+    strong {
+        color: var(--red);
+    }
+  }
+}

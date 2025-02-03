@@ -9,6 +9,8 @@ import IconGithub from '@components/Icons/IconGithub';
 
 import Button from '@components/Button/Button';
 
+import NextDailyTip from '@features/timeToNextDay/components/NextDailyTip';
+
 import './GameServiceMode.scss';
 
 type Props = {
@@ -32,6 +34,7 @@ const GameServiceMode = ({ today }: Props) => {
             }}
           />
           <IconConstructionMan className="icon-soon" />
+          <NextDailyTip shouldWarnIfNearEnd={false} />
           <p><strong>{t('common.serviceModeWeReturnSoon')}</strong></p>
           <div className="game-update-actions">
               <Button
