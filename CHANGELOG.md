@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.37
+#### Version 3.37.1
+- **Fix**: The incorrect service mode has been removed
+
+#### Version 3.37 (03.2.2025)
 - **New**: Information about the next word is shown near the daily period end and it shows minutes
 - **Fix**: The game is refreshed when the date stamp changes
 
