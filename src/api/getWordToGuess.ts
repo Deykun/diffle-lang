@@ -63,6 +63,7 @@ export const getCatalogInfo = async (gameLanguage: string) => {
 export const getWordToGuess = async (
   { gameMode, gameLanguage, seedNumber }: { gameMode: GameMode, gameLanguage: string, seedNumber?: number },
 ): Promise<string> => {
+  return "dyrekcja";
   const { words: totalNumberOfWords, items } = await getCatalogInfo(gameLanguage);
 
   let randomInt: number;
