@@ -11,10 +11,16 @@
 
 ---
 
-#### Version 3.37.1
+#### Version 3.38
+- **New**: Colors and labels "expected" / "unexpected" were added to the word hints
+- **New**: Hint about the wrong word start doesn't require all known letters to be typed
+- **New**: If we know more required letters, we are hinted at if some are missing in the typed word
+- **TO DO**: hint about expected letter between!
+
+#### Version 3.37.1 (18.02.2025)
 - **Fix**: The incorrect service mode has been removed
 
-#### Version 3.37 (03.2.2025)
+#### Version 3.37 (03.02.2025)
 - **New**: Information about the next word is shown near the daily period end and it shows minutes
 - **Fix**: The game is refreshed when the date stamp changes
 

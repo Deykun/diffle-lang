@@ -151,6 +151,7 @@ export enum AffixStatus {
   Position = 'position',
   Incorrect = 'incorrect',
   IncorrectOccurance = 'incorrect-occurrence',
+  IncorrectOccuranceMissing = 'incorrect-occurrence-missing',
   IncorrectStart = 'incorrect-start',
   IncorrectEnd = 'incorrect-end',
   IncorrectMiddle = 'incorrect-middle',

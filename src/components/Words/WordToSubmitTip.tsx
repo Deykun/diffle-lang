@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { AffixStatus } from '@common-types';
 
+import { capitalize } from '@utils/format';
+
 import { useSelector } from '@store';
 import {
   selectIsProcessing,
@@ -22,7 +24,11 @@ const WordToSubmitTip = () => {
   const { status: wordStatus, details: wordDetails } = useSelector(
     selectWordState(wordToSubmit),
   );
-  const { status: keyboardStatus, details: keyboardDetails } = useSelector(selectKeyboardState);
+  const {
+    status: keyboardStatus,
+    details: keyboardDetails,
+    detailsStatus: keyboardDetailsStatus = '',
+  } = useSelector(selectKeyboardState);
   const hasSpace = wordToSubmit.includes(' ');
   const isIncorrectType = [AffixStatus.Incorrect, AffixStatus.IncorrectOccurance].includes(
     wordStatus,
@@ -31,6 +37,7 @@ const WordToSubmitTip = () => {
       AffixStatus.IncorrectStart,
       AffixStatus.IncorrectMiddle,
       AffixStatus.IncorrectOrder,
+      AffixStatus.IncorrectOccuranceMissing,
       AffixStatus.IncorrectEnd,
     ].includes(keyboardStatus);
 
@@ -38,52 +45,75 @@ const WordToSubmitTip = () => {
 
   useScrollEffect('bottom', [wordToSubmit]);
 
-  const { isImpossibleToWin, tipText, tipDetails } = useMemo(() => {
+  const {
+    tipTextMain, tipText, tipDetails, tipDetailsStatus,
+  } = useMemo(() => {
     let text = '';
     let details = '';
-    // eslint-disable-next-line @typescript-eslint/no-shadow
+    let detailsStatus = '';
     let isImpossibleToWin = false;
 
+    if (!isProcessing) {
+      if (wordStatus === AffixStatus.Incorrect) {
+        isImpossibleToWin = true;
+        details = wordDetails ?? '';
+        detailsStatus = 'unexpected';
+        text = 'game.youCanUseIncorrectLetters';
+      } else if (wordStatus === AffixStatus.IncorrectOccurance) {
+        isImpossibleToWin = true;
+        details = wordDetails ?? '';
+        detailsStatus = 'unexpected';
+        text = 'game.youCanUseLettersTypedTooManyTimes';
+      } else if (keyboardStatus === AffixStatus.IncorrectStart) {
+        isImpossibleToWin = true;
+        details = keyboardDetails ?? '';
+        detailsStatus = keyboardDetailsStatus;
+        text = 'game.youCanUseIncorrectStart';
+      } else if (keyboardStatus === AffixStatus.IncorrectMiddle) {
+        isImpossibleToWin = true;
+        details = keyboardDetails ?? '';
+        detailsStatus = keyboardDetailsStatus;
+        text = 'game.youCanUseIncorrectMiddle';
+      } else if (keyboardStatus === AffixStatus.IncorrectOrder) {
+        isImpossibleToWin = true;
+        details = keyboardDetails ?? '';
+        detailsStatus = keyboardDetailsStatus;
+        text = 'game.youCanUseIncorrectOrder';
+      } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
+        isImpossibleToWin = true;
+        details = keyboardDetails ?? '';
+        detailsStatus = keyboardDetailsStatus;
+        text = 'game.youCanUseIncorrectEnd';
+      } else if (keyboardStatus === AffixStatus.IncorrectOccuranceMissing) {
+        isImpossibleToWin = true;
+        details = keyboardDetails ?? '';
+        detailsStatus = keyboardDetailsStatus;
+        text = 'game.youCanUseIncorrectOccuranceMissing';
+      }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-shadow
+    let tipTextMain = '';
     if (isProcessing) {
-      text = 'game.checking';
-    } else if (wordStatus === AffixStatus.Incorrect) {
-      isImpossibleToWin = true;
-      details = wordDetails ?? '';
-      text = 'game.youCanUseIncorrectLetters';
-    } else if (wordStatus === AffixStatus.IncorrectOccurance) {
-      isImpossibleToWin = true;
-      details = wordDetails ?? '';
-      text = 'game.youCanUseLettersTypedTooManyTimes';
-    } else if (keyboardStatus === AffixStatus.IncorrectStart) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectStart';
-    } else if (keyboardStatus === AffixStatus.IncorrectMiddle) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectMiddle';
-    } else if (keyboardStatus === AffixStatus.IncorrectOrder) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectOrder';
-    } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectEnd';
-    } else if (hasSpace) {
-      text = 'game.youCanUseSpace';
+      tipTextMain = 'game.checking';
+    } else if (isImpossibleToWin) {
+      tipTextMain = 'game.youCanUseThisWordButNotWin';
+    } else if (!text && hasSpace) {
+      tipTextMain = 'game.youCanUseSpace';
     }
 
     return {
-      isImpossibleToWin,
+      tipTextMain,
       tipText: text,
       tipDetails: details,
+      tipDetailsStatus: detailsStatus,
     };
   }, [
     hasSpace,
     isProcessing,
     keyboardStatus,
     keyboardDetails,
+    keyboardDetailsStatus,
     wordStatus,
     wordDetails,
   ]);
@@ -97,12 +127,12 @@ const WordToSubmitTip = () => {
         })}
       >
           {isProcessing && <IconDashedCircle />}
-          {!isProcessing && isImpossibleToWin && (
+          {!isProcessing && tipTextMain && (
           <>
               <span
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
-                  __html: t('game.youCanUseThisWordButNotWin'),
+                  __html: t(tipTextMain),
                 }}
               />
               <br />
@@ -118,7 +148,23 @@ const WordToSubmitTip = () => {
                 }}
               />
               {tipDetails && (
-              <strong className="status-tip-details">{tipDetails}</strong>
+              <>
+                  {tipDetailsStatus
+                  && (
+                  <span>
+                      {', '}
+                      <span className={`status-tip-detawils-status--${tipDetailsStatus}`}>
+                          {t(`game.youCanUseThisWe${capitalize(tipDetailsStatus)}`)}
+                      </span>
+                      :
+                  </span>
+                  )}
+                  <strong
+                    className={`status-tip-details status-tip-details-status--${tipDetailsStatus}`}
+                  >
+                      {tipDetails}
+                  </strong>
+              </>
               )}
               <span>)</span>
           </>

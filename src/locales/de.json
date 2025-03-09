@@ -59,7 +59,7 @@
     "game.youCanUseThisWordButNotWin": "Sie können dieses Wort verwenden, aber Sie <strong>können</strong> damit nicht gewinnen.",
     "game.youCanUseIncorrectLetters": "falscher Buchstabe eingegeben",
     "game.youCanUseLettersTypedTooManyTimes": "richtiger Buchstabe zu oft verwendet",
-    "game.youCanUseSpace": "Wörter haben <strong>keine</strong> Leerzeichen, aber du kannst sie verwenden (sie werden entfernt)",
+    "game.youCanUseSpace": "Wörter haben <strong>keine</strong> Leerzeichen, aber du kannst sie verwenden, sie werden entfernt",
     "game.youCanUseIncorrectStart": "falscher Wortanfang",
     "game.youCanUseIncorrectEnd": "falsches Wortende",
     "game.youCanUseIncorrectMiddle": "einige Buchstaben sollten nebeneinander stehen",
