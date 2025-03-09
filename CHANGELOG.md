@@ -16,6 +16,7 @@
 - **New**: Hint about the wrong word start doesn't require all known letters to be typed
 - **New**: If we know more required letters, we are hinted at if some are missing in the typed word
 - **TO DO**: hint about expected letter between!
+- **TO DO**: hint about wrong order guess: Dyrekcja, type: granie, 2 green one yellow they should hint
 
 #### Version 3.37.1 (18.02.2025)
 - **Fix**: The incorrect service mode has been removed
