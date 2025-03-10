@@ -193,6 +193,19 @@ export const getKeyboardState = ({
           };
         }
       }
+
+      if (flatAffixes.notCorrectOrders.length > 0) {
+        const wrongOrders = flatAffixes.notCorrectOrders.filter(order => getIsTextMatchingOrder(wordToSubmit, order));
+        const isWrongOrder = wrongOrders.length > 0;
+
+        if (isWrongOrder) {
+          return {
+            status: AffixStatus.IncorrectOrder,
+            details: wrongOrders.map(order => order.join(PADDING_CHARACTER)).join(', '),
+            detailsStatus: 'unexpected',
+          };
+        }
+      }
     }
 
     return {

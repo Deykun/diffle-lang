@@ -94,6 +94,7 @@ const getFlatAffixes = (affixes: Affix[]) => {
     notStart: [],
     middle: [],
     correctOrders: [],
+    notCorrectOrders: [],
     notEnd: [],
     end: '',
   };
@@ -125,17 +126,15 @@ const getFlatAffixes = (affixes: Affix[]) => {
   const order = affixes.filter(affix => affix.type === AffixStatus.Correct).map(({ text }) => text);
   if (order.length >= 2) {
     flatAffixes.correctOrders = [order];
-  } else if (order.length === 1) {
-    /*  TEST -> E (green), S (orange), T (grey). This implies the order: S, E */
-    const specialCaseOrder = affixes.filter(
-      affix => [AffixStatus.Correct, AffixStatus.Position].includes(affix.type),
-    ).map(({ type, text }) => ({ type, text }));
+  }
 
-    if (specialCaseOrder.length === 2) {
-      // We have wrong position so this order is reversed
-      const reversedOrder = [specialCaseOrder[1].text, specialCaseOrder[0].text];
-
-      flatAffixes.correctOrders = [reversedOrder];
+  const hasWrongPosition = affixes.some(affix => affix.type === AffixStatus.Position);
+  if (hasWrongPosition) {
+    const notCorrectOrder = affixes.filter(
+      affix => [AffixStatus.Position, AffixStatus.Correct].includes(affix.type),
+    ).map(({ text }) => text);
+    if (notCorrectOrder.length >= 2) {
+      flatAffixes.notCorrectOrders = [notCorrectOrder];
     }
   }
 
@@ -265,6 +264,7 @@ export const getWordReportForMultipleWords = async (
       notStart: [],
       middle: [],
       correctOrders: [],
+      notCorrectOrders: [],
       notEnd: [],
       end: '',
     },

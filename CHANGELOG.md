@@ -15,8 +15,9 @@
 - **New**: Colors and labels "expected" / "unexpected" were added to the word hints
 - **New**: Hint about the wrong word start doesn't require all known letters to be typed
 - **New**: If we know more required letters, we are hinted at if some are missing in the typed word
-- **TO DO**: hint about expected letter between!
-- **TO DO**: hint about wrong order guess: Dyrekcja, type: granie, 2 green one yellow they should hint
+- **New**: Better detection of incorrect order
+- **TO DO**: hint about expected letter between! dyrekcja -> lecz -> e)(c - tech should hint
+- **TO DO**: game with special character should hint if user didn't type any
 
 #### Version 3.37.1 (18.02.2025)
 - **Fix**: The incorrect service mode has been removed

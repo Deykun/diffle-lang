@@ -279,6 +279,7 @@ export type FlatAffixes = {
   notStart: string[],
   middle: string[],
   correctOrders: string[][],
+  notCorrectOrders: string[][],
   notEnd: string[],
   end: string,
 };

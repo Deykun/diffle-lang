@@ -193,5 +193,16 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
 
   flatAffixesResult.correctOrders = [...flatAffixesResult.correctOrders, ...flatAffixesB.correctOrders];
 
+  const notCorrectOrdersBThatAreNew = flatAffixesB.notCorrectOrders.filter(
+    (newOrder) => {
+      const hasOrderAlread = flatAffixesResult.notCorrectOrders.some(
+        existingOrder => JSON.stringify(existingOrder) === JSON.stringify(newOrder),
+      );
+
+      return !hasOrderAlread;
+    },
+  );
+  flatAffixesResult.notCorrectOrders = [...flatAffixesResult.notCorrectOrders, ...notCorrectOrdersBThatAreNew];
+
   return flatAffixesResult;
 };

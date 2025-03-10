@@ -17,6 +17,7 @@ describe('getKeyboardState', () => {
           notStart: [],
           middle: [],
           correctOrders: [],
+          notCorrectOrders: [],
           notEnd: [],
           end: '',
         },
