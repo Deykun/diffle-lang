@@ -16,7 +16,7 @@
 - **New**: Hint about the wrong word start doesn't require all known letters to be typed
 - **New**: If we know more required letters, we are hinted at if some are missing in the typed word
 - **New**: Better detection of incorrect order
-- **TO DO**: hint about expected letter between! dyrekcja -> lecz -> e)(c - tech should hint
+- **New**: Hint about missing letter or letters has been added
 - **TO DO**: game with special character should hint if user didn't type any
 
 #### Version 3.37.1 (18.02.2025)

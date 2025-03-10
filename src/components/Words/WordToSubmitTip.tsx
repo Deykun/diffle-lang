@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { AffixStatus } from '@common-types';
+import { AffixStatus, WordStatus } from '@common-types';
 
 import { capitalize } from '@utils/format';
 
@@ -37,7 +37,8 @@ const WordToSubmitTip = () => {
       AffixStatus.IncorrectStart,
       AffixStatus.IncorrectMiddle,
       AffixStatus.IncorrectOrder,
-      AffixStatus.IncorrectOccuranceMissing,
+      WordStatus.IncorrectOccuranceMissing,
+      WordStatus.IncorrectPairWithLetterMissing,
       AffixStatus.IncorrectEnd,
     ].includes(keyboardStatus);
 
@@ -84,11 +85,16 @@ const WordToSubmitTip = () => {
         details = keyboardDetails ?? '';
         detailsStatus = keyboardDetailsStatus;
         text = 'game.youCanUseIncorrectEnd';
-      } else if (keyboardStatus === AffixStatus.IncorrectOccuranceMissing) {
+      } else if (keyboardStatus === WordStatus.IncorrectOccuranceMissing) {
         isImpossibleToWin = true;
         details = keyboardDetails ?? '';
         detailsStatus = keyboardDetailsStatus;
         text = 'game.youCanUseIncorrectOccuranceMissing';
+      } else if (keyboardStatus === WordStatus.IncorrectPairWithLetterMissing) {
+        isImpossibleToWin = true;
+        details = keyboardDetails ?? '';
+        detailsStatus = keyboardDetailsStatus;
+        text = 'game.youCanUseIncorrectPairWithLetterMissing';
       }
     }
 

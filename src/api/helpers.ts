@@ -204,5 +204,18 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
   );
   flatAffixesResult.notCorrectOrders = [...flatAffixesResult.notCorrectOrders, ...notCorrectOrdersBThatAreNew];
 
+  console.log(JSON.stringify(flatAffixesB));
+
+  const needsALetterBetweenBThatAreNew = flatAffixesB.needsALetterBetween.filter(
+    (newPair) => {
+      const hasPairAlready = flatAffixesResult.needsALetterBetween.some(
+        existingPair => JSON.stringify(existingPair) === JSON.stringify(newPair),
+      );
+
+      return !hasPairAlready;
+    },
+  );
+  flatAffixesResult.needsALetterBetween = [...flatAffixesResult.needsALetterBetween, ...needsALetterBetweenBThatAreNew];
+
   return flatAffixesResult;
 };

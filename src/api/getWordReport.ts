@@ -97,6 +97,7 @@ const getFlatAffixes = (affixes: Affix[]) => {
     notCorrectOrders: [],
     notEnd: [],
     end: '',
+    needsALetterBetween: [],
   };
 
   if (affixes.length === 0) {
@@ -137,6 +138,21 @@ const getFlatAffixes = (affixes: Affix[]) => {
       flatAffixes.notCorrectOrders = [notCorrectOrder];
     }
   }
+
+  const needsALetterBetween = affixes.reduce((stack: string[][], affix, index) => {
+    if (index > 0) {
+      if (affix.type === AffixStatus.Correct) {
+        const previousAffix = affixes[index - 1];
+        if (previousAffix.type === AffixStatus.Correct) {
+          stack.push([previousAffix.text, affix.text]);
+        }
+      }
+    }
+
+    return stack;
+  }, []);
+
+  flatAffixes.needsALetterBetween = needsALetterBetween;
 
   return flatAffixes;
 };
@@ -267,6 +283,7 @@ export const getWordReportForMultipleWords = async (
       notCorrectOrders: [],
       notEnd: [],
       end: '',
+      needsALetterBetween: [],
     },
   };
 

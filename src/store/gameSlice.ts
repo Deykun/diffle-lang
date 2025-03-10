@@ -74,6 +74,7 @@ const getInitialState = (): RootGameState => ({
     notCorrectOrders: [],
     notEnd: [],
     end: '',
+    needsALetterBetween: [],
   },
 });
 
@@ -102,6 +103,7 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
     notCorrectOrders: [],
     notEnd: [],
     end: '',
+    needsALetterBetween: [],
   };
 };
 

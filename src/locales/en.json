@@ -67,6 +67,7 @@
     "game.youCanUseThisWeExpected": "expected",
     "game.youCanUseThisWeUnexpected": "unexpected",
     "game.youCanUseIncorrectOccuranceMissing": "a correct letter is missing",
+    "game.youCanUseIncorrectPairWithLetterMissing": "something is missing in between",
     "game.spacesRemoved": "The spaces were removed.",
     "game.isNotInDictionary": "Word not found in the dictionary.",
     "game.wordAlreadyUsed": "The word had already been used.",

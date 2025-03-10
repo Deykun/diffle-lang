@@ -1,4 +1,4 @@
-import { AffixStatus, FlatAffixes, UsedLetters } from '@common-types';
+import { AffixStatus, WordStatus, FlatAffixes, UsedLetters } from '@common-types';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
@@ -27,7 +27,6 @@ const getIsTextMatchingOrder = (text: string, order: string[]) => {
   return isMatching;
 };
 
-// const PADDING_CHARACTER = '•';
 const PADDING_CHARACTER = '–';
 
 export const getKeyboardState = ({
@@ -43,7 +42,7 @@ export const getKeyboardState = ({
   positionLetters: UsedLetters,
   flatAffixes: FlatAffixes,
 }): {
-  status: AffixStatus,
+  status: AffixStatus | WordStatus,
   details?: string,
   detailsStatus?: 'expected' | 'unexpected',
 } => {
@@ -149,7 +148,7 @@ export const getKeyboardState = ({
       const missingLetters = Object.entries(missingRequiredLetters).filter(([, value]) => value > 0).map(([letter]) => letter);
 
       return {
-        status: AffixStatus.IncorrectOccuranceMissing,
+        status: WordStatus.IncorrectOccuranceMissing,
         details: missingLetters.join(', '),
         detailsStatus: 'expected',
       };
@@ -202,6 +201,25 @@ export const getKeyboardState = ({
           return {
             status: AffixStatus.IncorrectOrder,
             details: wrongOrders.map(order => order.join(PADDING_CHARACTER)).join(', '),
+            detailsStatus: 'unexpected',
+          };
+        }
+      }
+
+      if (flatAffixes.needsALetterBetween.length > 0) {
+        const wrongPairs = flatAffixes.needsALetterBetween.filter(([first, second]) => {
+          const regex = new RegExp(`${first}(.*)${second}`);
+
+          const parts = wordToSubmit.match(regex) ?? [];
+
+          return parts.length >= 2 && parts[1].length === 0
+        });
+        const isWrongPair = wrongPairs.length > 0;
+
+        if (isWrongPair) {
+          return {
+            status: WordStatus.IncorrectPairWithLetterMissing,
+            details: wrongPairs.map(pair => pair.join(PADDING_CHARACTER)).join(', '),
             detailsStatus: 'unexpected',
           };
         }
