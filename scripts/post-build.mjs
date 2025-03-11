@@ -23,10 +23,10 @@ SUPPORTED_LANGS.forEach((lang) => {
     buildPath({ lang, ssrPath: lang, domainPath: lang });
 });
 
-buildPath({ lang: 'en', ssrPath: '404', domainPath: '404' });
+// buildPath({ lang: 'en', ssrPath: '404', domainPath: '404' });
 
-if (!existsSync('./dist/fi')){
-    mkdirSync('./dist/fi');
-}
+// if (!existsSync('./dist/fi')){
+//     mkdirSync('./dist/fi');
+// }
 
-buildPath({ lang: 'en', ssrPath: '404', domainPath: 'fi/404' });
+// buildPath({ lang: 'en', ssrPath: '404', domainPath: 'fi/404' });
