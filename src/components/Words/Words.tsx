@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { Suspense, lazy, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Word as WordType, AffixStatus, GameMode } from '@common-types';
 
@@ -9,22 +8,18 @@ import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
 import { useSelector } from '@store';
 import {
   selectIsGameEnded,
-  selectIsProcessing,
   selectWordToSubmit,
-  selectKeyboardState,
-  selectWordState,
 } from '@store/selectors';
 
 import useScrollEffect from '@hooks/useScrollEffect';
-
-import IconDashedCircle from '@components/Icons/IconDashedCircle';
 
 import EndResult from '@components/EndResult/EndResult';
 
 import NextDailyTip from '@features/timeToNextDay/components/NextDailyTip';
 
 import Word from './Word';
-import WordTip from './WordTip';
+import WordToGuessTip from './WordToGuessTip';
+import WordToSubmitTip from './WordToSubmitTip';
 
 import './Words.scss';
 
@@ -35,23 +30,8 @@ const Words = () => {
   const gameMode = useSelector(state => state.game.mode);
   const isGameEnded = useSelector(selectIsGameEnded);
   const hasLongGuesses = useSelector(state => state.game.hasLongGuesses);
-  const isProcessing = useSelector(selectIsProcessing);
   const wordToSubmit = useSelector(selectWordToSubmit);
-  const { status: wordStatus, details: wordDetails } = useSelector(selectWordState(wordToSubmit));
-  const { status: keyboardStatus, details: keyboardDetails } = useSelector(selectKeyboardState);
   const caretShift = useSelector(state => state.game.caretShift);
-  const hasSpace = wordToSubmit.includes(' ');
-  const isIncorrectType = [AffixStatus.Incorrect, AffixStatus.IncorrectOccurance].includes(
-    wordStatus,
-  )
-    || [
-      AffixStatus.IncorrectStart,
-      AffixStatus.IncorrectMiddle,
-      AffixStatus.IncorrectOrder,
-      AffixStatus.IncorrectEnd,
-    ].includes(keyboardStatus);
-
-  const { t } = useTranslation();
 
   const submitGuess: WordType = useMemo(() => {
     const affixes = (wordToSubmit || ' ')
@@ -67,56 +47,6 @@ const Words = () => {
 
   useScrollEffect('bottom', [wordToSubmit]);
 
-  const { isImpossibleToWin, tipText, tipDetails } = useMemo(() => {
-    let text = '';
-    let details = '';
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    let isImpossibleToWin = false;
-
-    if (isProcessing) {
-      text = 'game.checking';
-    } else if (wordStatus === AffixStatus.Incorrect) {
-      isImpossibleToWin = true;
-      details = wordDetails ?? '';
-      text = 'game.youCanUseIncorrectLetters';
-    } else if (wordStatus === AffixStatus.IncorrectOccurance) {
-      isImpossibleToWin = true;
-      details = wordDetails ?? '';
-      text = 'game.youCanUseLettersTypedTooManyTimes';
-    } else if (keyboardStatus === AffixStatus.IncorrectStart) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectStart';
-    } else if (keyboardStatus === AffixStatus.IncorrectMiddle) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectMiddle';
-    } else if (keyboardStatus === AffixStatus.IncorrectOrder) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectOrder';
-    } else if (keyboardStatus === AffixStatus.IncorrectEnd) {
-      isImpossibleToWin = true;
-      details = keyboardDetails ?? '';
-      text = 'game.youCanUseIncorrectEnd';
-    } else if (hasSpace) {
-      text = 'game.youCanUseSpace';
-    }
-
-    return {
-      isImpossibleToWin,
-      tipText: text,
-      tipDetails: details,
-    };
-  }, [
-    hasSpace,
-    isProcessing,
-    keyboardStatus,
-    keyboardDetails,
-    wordStatus,
-    wordDetails,
-  ]);
-
   const shouldBeNarrower = hasLongGuesses
     || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
   const shouldBeShorter = guesses.length > 8;
@@ -130,7 +60,7 @@ const Words = () => {
         })}
       >
           <NextDailyTip />
-          <WordTip />
+          <WordToGuessTip />
           {guesses.map((guess) => {
             return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
           })}
@@ -140,43 +70,7 @@ const Words = () => {
               <WordSandboxLive />
           </Suspense>
           )}
-          <p
-            className={clsx('status-tip', {
-              'is-processing': isProcessing,
-              'is-incorrect': isIncorrectType,
-              space: hasSpace,
-            })}
-          >
-              {isProcessing && <IconDashedCircle />}
-              {!isProcessing && isImpossibleToWin && (
-              <>
-                  <span
-              // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                      __html: t('game.youCanUseThisWordButNotWin'),
-                    }}
-                  />
-                  <br />
-              </>
-              )}
-              {tipText && (
-              <>
-                  <span>(</span>
-                  <span
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                      __html: t(tipText),
-                    }}
-                  />
-                  {tipDetails && (
-                  <strong className="status-tip-details">
-                      {tipDetails}
-                  </strong>
-                  )}
-                  <span>)</span>
-              </>
-              )}
-          </p>
+          <WordToSubmitTip />
       </div>
   );
 };

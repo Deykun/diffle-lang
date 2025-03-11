@@ -10,7 +10,7 @@ import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
 import './Words.scss';
 
-const WordTip = () => {
+const WordToGuessTip = () => {
   const gameLanguage = useSelector(state => state.game.language);
   const wordToSubmit = useSelector(state => state.game.wordToSubmit);
   const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
@@ -47,4 +47,4 @@ const WordTip = () => {
   );
 };
 
-export default WordTip;
+export default WordToGuessTip;

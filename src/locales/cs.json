@@ -59,7 +59,7 @@
     "game.youCanUseThisWordButNotWin": "Můžete použít toto slovo, ale <strong>nemůžete</strong> s ním vyhrát.",
     "game.youCanUseIncorrectLetters": "nesprávné písmeno zadáno",
     "game.youCanUseLettersTypedTooManyTimes": "správné písmeno použito příliš mnohokrát",
-    "game.youCanUseSpace": "Slova <strong>nemají</strong> mezery, ale můžete je použít (budou odstraněny).",
+    "game.youCanUseSpace": "Slova <strong>nemají</strong> mezery, ale můžete je použít, budou odstraněny.",
     "game.youCanUseIncorrectStart": "nesprávný začátek slova",
     "game.youCanUseIncorrectEnd": "nesprávný konec slova",
     "game.youCanUseIncorrectMiddle": "některá písmena by měla být vedle sebe",

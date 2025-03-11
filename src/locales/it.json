@@ -59,7 +59,7 @@
     "game.youCanUseThisWordButNotWin": "Puoi usare questa parola, ma <strong>non puoi</strong> vincere con essa.",
     "game.youCanUseIncorrectLetters": "lettera errata inserita",
     "game.youCanUseLettersTypedTooManyTimes": "lettera corretta usata troppe volte",
-    "game.youCanUseSpace": "Le parole <strong>non</strong> hanno spazi, ma puoi usarli (verranno rimossi).",
+    "game.youCanUseSpace": "Le parole <strong>non</strong> hanno spazi, ma puoi usarli, verranno rimossi.",
     "game.youCanUseIncorrectStart": "inizio parola errato",
     "game.youCanUseIncorrectEnd": "fine parola errato",
     "game.youCanUseIncorrectMiddle": "alcune lettere devono essere vicine",

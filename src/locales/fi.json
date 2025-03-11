@@ -59,7 +59,7 @@
     "game.youCanUseThisWordButNotWin": "Voit käyttää tätä sanaa, mutta <strong>et voi</strong> voittaa sillä.",
     "game.youCanUseIncorrectLetters": "väärä kirjain kirjoitettu",
     "game.youCanUseLettersTypedTooManyTimes": "oikea kirjain käytetty liian monta kertaa",
-    "game.youCanUseSpace": "Sanat <strong>eivät</strong> sisällä välilyöntejä, mutta voit käyttää niitä (ne poistetaan).",
+    "game.youCanUseSpace": "Sanat <strong>eivät</strong> sisällä välilyöntejä, mutta voit käyttää niitä, ne poistetaan.",
     "game.youCanUseIncorrectStart": "väärä sanan alku",
     "game.youCanUseIncorrectEnd": "väärä sanan loppu",
     "game.youCanUseIncorrectMiddle": "joidenkin kirjainten tulisi olla vierekkäin",

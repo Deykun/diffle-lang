@@ -71,8 +71,10 @@ const getInitialState = (): RootGameState => ({
     notStart: [],
     middle: [],
     correctOrders: [],
+    notCorrectOrders: [],
     notEnd: [],
     end: '',
+    needsALetterBetween: [],
   },
 });
 
@@ -98,8 +100,10 @@ const resetGame = (state: RootGameState, wordToGuess: string) => {
     notStart: [],
     middle: [],
     correctOrders: [],
+    notCorrectOrders: [],
     notEnd: [],
     end: '',
+    needsALetterBetween: [],
   };
 };
 

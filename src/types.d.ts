@@ -157,6 +157,11 @@ export enum AffixStatus {
   IncorrectOrder = 'incorrect-order',
 }
 
+export enum WordStatus {
+  IncorrectOccuranceMissing = 'incorrect-occurrence-missing',
+  IncorrectPairWithLetterMissing = 'incorrect-pair-with-letter-missing',
+}
+
 export type Affix = {
   type: AffixStatus,
   subtype?: 'typed-incorrect',
@@ -278,8 +283,10 @@ export type FlatAffixes = {
   notStart: string[],
   middle: string[],
   correctOrders: string[][],
+  notCorrectOrders: string[][],
   notEnd: string[],
   end: string,
+  needsALetterBetween: string[][],
 };
 
 export type RootGameState = {

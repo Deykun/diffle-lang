@@ -17,8 +17,10 @@ describe('getKeyboardState', () => {
           notStart: [],
           middle: [],
           correctOrders: [],
+          notCorrectOrders: [],
           notEnd: [],
           end: '',
+          needsALetterBetween: [],
         },
       })).toBe({
         status: '',
