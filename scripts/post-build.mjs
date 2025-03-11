@@ -1,19 +1,32 @@
-import fs from 'fs';
+import fs, { existsSync, mkdirSync } from 'fs';
 
 const SUPPORTED_LANGS = ['cs', 'de', 'en', 'es', 'fi', 'fr', 'it', 'pl'];
 
-SUPPORTED_LANGS.forEach((lang) => {
+const buildPath = ({ lang, ssrPath, domainPath }) => {
     let html = fs.readFileSync(`./dist/index.html`, 'utf-8');
     
     // It is twice because at some point root will be using en, but now it uses and this will just work
     html = html.replace('lang="en"', `lang="${lang}"`);
-    html = html.replace('lang="pl"', `lang="${lang}"`);
 
-    const langHead = fs.readFileSync(`./public-ssr/${lang}/head.html`, 'utf-8');
+    const langHead = fs.readFileSync(`./public-ssr/${ssrPath}/head.html`, 'utf-8');
     html = html.replace(/(<!-- langHead -->).*(<!-- .langHead -->)/gsm, langHead);
 
-    const noJsContent = fs.readFileSync(`./public-ssr/${lang}/noJsContent.html`, 'utf-8');
+    html = html.replace('<!-- srcPath -->', `<meta name="diffle-srr" content="${ssrPath} to ${domainPath}" />`);
+
+    const noJsContent = fs.readFileSync(`./public-ssr/${ssrPath}/noJsContent.html`, 'utf-8');
     html = html.replace(/(<!-- langNoJsContent -->).*(<!-- .langNoJsContent -->)/gsm, noJsContent);
     
-    fs.writeFileSync(`./dist/${lang}.html`, html);
+    fs.writeFileSync(`./dist/${domainPath}.html`, html);
+}
+
+SUPPORTED_LANGS.forEach((lang) => {
+    buildPath({ lang, ssrPath: lang, domainPath: lang });
 });
+
+buildPath({ lang: 'en', ssrPath: '404', domainPath: '404' });
+
+if (!existsSync('./dist/fi')){
+    mkdirSync('./dist/fi');
+}
+
+buildPath({ lang: 'en', ssrPath: '404', domainPath: 'fi/404' });
