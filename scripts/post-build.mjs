@@ -11,7 +11,7 @@ const buildPath = ({ lang, ssrPath, domainPath }) => {
     const langHead = fs.readFileSync(`./public-ssr/${ssrPath}/head.html`, 'utf-8');
     html = html.replace(/(<!-- langHead -->).*(<!-- .langHead -->)/gsm, langHead);
 
-    html = html.replace('<!-- srcPath -->', `<meta name="diffle-srr" content="${ssrPath}" />`);
+    html = html.replace('<!-- srcPath -->', `<meta name="diffle-srr" content="${ssrPath} to ${domainPath}" />`);
 
     const noJsContent = fs.readFileSync(`./public-ssr/${ssrPath}/noJsContent.html`, 'utf-8');
     html = html.replace(/(<!-- langNoJsContent -->).*(<!-- .langNoJsContent -->)/gsm, noJsContent);
