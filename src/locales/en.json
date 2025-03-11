@@ -66,7 +66,7 @@
     "game.youCanUseIncorrectOrder": "some letters are in a wrong order",
     "game.youCanUseThisWeExpected": "expected",
     "game.youCanUseThisWeUnexpected": "unexpected",
-    "game.youCanUseIncorrectOccuranceMissing": "a correct letter is missing",
+    "game.youCanUseIncorrectOccuranceMissing": "don't forget a letter",
     "game.youCanUseIncorrectPairWithLetterMissing": "something is missing in between",
     "game.spacesRemoved": "The spaces were removed.",
     "game.isNotInDictionary": "Word not found in the dictionary.",

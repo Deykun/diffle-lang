@@ -133,7 +133,7 @@ const WordToSubmitTip = () => {
         })}
       >
           {isProcessing && <IconDashedCircle />}
-          {!isProcessing && tipTextMain && (
+          {tipTextMain && (
           <>
               <span
                 // eslint-disable-next-line react/no-danger

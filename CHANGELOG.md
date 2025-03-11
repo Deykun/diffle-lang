@@ -17,7 +17,6 @@
 - **New**: If we know more required letters, we are hinted at if some are missing in the typed word
 - **New**: Better detection of incorrect order
 - **New**: Hint about missing letter or letters has been added
-- **TO DO**: game with special character should hint if user didn't type any
 
 #### Version 3.37.1 (18.02.2025)
 - **Fix**: The incorrect service mode has been removed

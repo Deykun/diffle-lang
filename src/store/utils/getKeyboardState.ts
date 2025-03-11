@@ -219,7 +219,7 @@ export const getKeyboardState = ({
         if (isWrongPair) {
           return {
             status: WordStatus.IncorrectPairWithLetterMissing,
-            details: wrongPairs.map(pair => pair.join(PADDING_CHARACTER)).join(', '),
+            details: wrongPairs.map(pair => pair.join('')).join(', '),
             detailsStatus: 'unexpected',
           };
         }
