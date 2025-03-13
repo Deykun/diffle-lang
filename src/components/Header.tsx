@@ -2,12 +2,11 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { GameMode, Pane } from '@common-types';
+import { GameMode } from '@common-types';
 
 import { useSelector } from '@store';
 import { selectIsGameEnded, selectIsTodayEasterDay } from '@store/selectors';
 
-import usePanes from '@features/routes/hooks/usePanes';
 import { rootPath } from '@features/routes/const';
 
 import useEffectChange from '@hooks/useEffectChange';
@@ -23,8 +22,11 @@ import LanguagePicker from '@components/Language/LanguagePicker';
 import SharedContent from '@components/Share/SharedContent';
 
 import './Header.scss';
+import { Link } from 'wouter';
+import useLink from '@features/routes/hooks/useLinks';
 
 const Header = () => {
+  const { activeLink, getLinkPath } = useLink();
   const [flagKey, setFlagKey] = useState('');
   const [shouldShowShared, setShouldShowShared] = useState(false);
   const isTodayEasterDay = useSelector(selectIsTodayEasterDay);
@@ -36,8 +38,6 @@ const Header = () => {
   const guesses = useSelector(state => state.game.guesses);
 
   const { t } = useTranslation();
-
-  const { pane, changePane } = usePanes();
 
   const prevGameLanguage = usePrevious(gameLanguage);
 
@@ -53,29 +53,31 @@ const Header = () => {
     }
   }, [wordToGuess]);
 
-  const isQuiteBadGameShouldHintHelp = pane === Pane.Game && guesses.length >= 8 && !isGameEnded;
+  const isQuiteBadGameShouldHintHelp = activeLink.route === 'game' && guesses.length >= 8 && !isGameEnded;
+
+  const isLeftActive = activeLink.route === 'help';
+  const isRightActive = ['settings', 'statistics', 'aboutLanguage'].includes(activeLink.route);
 
   return (
       <header className="header">
           <div className="header-left">
-              <button
+              <Link
                 className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-left', {
-                  'button-active': pane === Pane.Help,
+                  'button-active': isLeftActive,
                   'has-tooltip-activated': isQuiteBadGameShouldHintHelp,
                 })}
-                onClick={() => changePane(Pane.Help)}
-                type="button"
+                href={getLinkPath({ route: isLeftActive ? 'game' : 'help' })}
               >
-                  {pane === Pane.Help ? <IconClose /> : <IconHelp />}
+                  {isLeftActive ? <IconClose /> : <IconHelp />}
                   <span className="tooltip">
-                      {pane === Pane.Help && t('common.close')}
-                      {pane !== Pane.Help && isQuiteBadGameShouldHintHelp && t('help.howToPlayTitle')}
-                      {pane !== Pane.Help && !isQuiteBadGameShouldHintHelp && t('help.title')}
+                      {isLeftActive && t('common.close')}
+                      {!isLeftActive && isQuiteBadGameShouldHintHelp && t('help.howToPlayTitle')}
+                      {!isLeftActive && !isQuiteBadGameShouldHintHelp && t('help.title')}
                   </span>
-              </button>
+              </Link>
           </div>
           <h1>
-              <button className="header-title" onClick={() => changePane(Pane.Game)} type="button">
+              <Link className="header-title" href={getLinkPath({ route: 'game' })}>
                   Diffle
                   {gameMode === GameMode.Practice && <IconInfinity />}
                   {gameMode === GameMode.SandboxLive && <IconEgg className="header-title-icon-small" />}
@@ -84,7 +86,7 @@ const Header = () => {
                       {today.split('.').filter((_, index) => index !== 2).join('.')}
                   </span>
                   )}
-              </button>
+              </Link>
               {gameLanguage && (
               <LanguagePicker className="header-language-picker" place="header">
                   <img
@@ -98,16 +100,16 @@ const Header = () => {
           </h1>
           <div className="header-right">
               {shouldShowShared && <SharedContent />}
-              <button
+              <Link
                 className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-right', {
-                  'button-active': pane === Pane.Settings,
+                  'button-active': isRightActive,
                 })}
-                onClick={() => changePane(Pane.Settings)}
+                href={getLinkPath({ route: activeLink.route === 'settings' ? 'game' : 'settings' })}
                 type="button"
               >
-                  {[Pane.Settings, Pane.Statistics, Pane.AboutLanguage].includes(pane) ? <IconClose /> : <IconLayers />}
-                  <span className="tooltip">{t(pane === Pane.Settings ? 'common.close' : 'settings.title')}</span>
-              </button>
+                  {isRightActive ? <IconClose /> : <IconLayers />}
+                  <span className="tooltip">{t(isRightActive ? 'common.close' : 'settings.title')}</span>
+              </Link>
           </div>
       </header>
   );

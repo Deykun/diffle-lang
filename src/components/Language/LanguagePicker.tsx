@@ -2,15 +2,13 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Pane as PaneType } from '@common-types';
-
 import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
 
 import { useDispatch, useSelector } from '@store';
 import { track, setToast } from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
-import usePanes from '@features/routes/hooks/usePanes';
+import useLink from '@features/routes/hooks/useLinks';
 
 import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconConstruction from '@components/Icons/IconConstruction';
@@ -31,26 +29,25 @@ type Props = {
 };
 
 const LanguagePicker = ({ children, className, place }: Props) => {
+  const { activeLink, getLinkPath } = useLink();
+
   const dispatch = useDispatch();
   const isGameUpdating = useSelector(state => state.game.isProcessing || state.game.isLoadingGame);
   const [isOpen, setIsOpen] = useState(false);
 
   const { t, i18n } = useTranslation();
   const { vibrate } = useVibrate();
-  const { pane, changePane } = usePanes();
 
-  const handleLanguageChange = (lang: string) => {
+  const onLanguageChanged = (lang: string) => {
     if (lang === i18n.language) {
       return;
     }
 
-    vibrate();
+    dispatch(setToast({ text: 'settings.languageChanged' }));
+
     dispatch(track({ name: `click_change_lang_to_${lang}_from_${i18n.language}` }));
 
-    i18n.changeLanguage(lang);
-
     setIsOpen(false);
-    dispatch(setToast({ text: 'settings.languageChanged' }));
   };
 
   const handleTriggerClick = () => {
@@ -65,11 +62,7 @@ const LanguagePicker = ({ children, className, place }: Props) => {
     setIsOpen(value => !value);
   };
 
-  const handleGoToAboutLanguage = () => {
-    if (pane !== PaneType.AboutLanguage) {
-      changePane(PaneType.AboutLanguage);
-    }
-
+  const onGoToAboutLanguage = () => {
     setIsOpen(value => !value);
   };
 
@@ -97,7 +90,12 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                   <ul className="list-col-4">
                       {shouldShowAboutInLanguages && (
                       <li>
-                          <ButtonTile isInverted onClick={handleGoToAboutLanguage} variant="small">
+                          <ButtonTile
+                            isInverted
+                            onClick={onGoToAboutLanguage}
+                            tagName="link"
+                            href={getLinkPath({ route: 'aboutLanguage' })}
+                          >
                               <IconBookOpen />
                               <span>
                                   {t('settings.statisticsTitle')}
@@ -111,8 +109,10 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                       {SUPPORTED_LANGS.map(lang => (
                           <li key={lang}>
                               <ButtonTile
-                                isActive={lang === i18n.language}
-                                onClick={() => handleLanguageChange(lang)}
+                                isActive={lang === activeLink.lang}
+                                tagName="link"
+                                onClick={() => onLanguageChanged(lang)}
+                                href={getLinkPath({ lang, route: activeLink.route })}
                                 isDisabled={isGameUpdating}
                                 variant="small"
                               >
@@ -139,7 +139,9 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                   <div>
                       <br />
                       <Button
-                        onClick={handleGoToAboutLanguage}
+                        onClick={onGoToAboutLanguage}
+                        tagName="link"
+                        href={getLinkPath({ route: 'aboutLanguage' })}
                         isInverted
                         isText
                       >

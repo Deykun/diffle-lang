@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 
-import { GameMode, Pane } from '@common-types';
+import { GameMode } from '@common-types';
 import { UPDATE_BLOCK_DAILY } from '@const';
 
 import { useSelector, useDispatch } from '@store';
@@ -11,10 +12,11 @@ import { selectIsGameEnded } from '@store/selectors';
 
 import { getNow, getYesterdaysSeed, getYesterdaysStamp } from '@utils/date';
 
+import useLink from '@features/routes/hooks/useLinks';
+
 import getWordToGuess from '@api/getWordToGuess';
 
 import useScrollEffect from '@hooks/useScrollEffect';
-import usePanes from '@features/routes/hooks/usePanes';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
@@ -35,6 +37,8 @@ import SettingsPreferences from './SettingsPreferences';
 import SettingsSources from './SettingsSources';
 
 const Settings = () => {
+  const [, navigation] = useLocation();
+  const { getLinkPath } = useLink();
   const dispatch = useDispatch();
   const [yesterdayWord, setYesterdayWord] = useState('');
   const gameLanguage = useSelector(state => state.game.language);
@@ -44,7 +48,6 @@ const Settings = () => {
   const isGivingUpDisabled = isGameEnded || gameMode !== GameMode.Practice;
 
   const { t } = useTranslation();
-  const { changePane } = usePanes();
 
   useScrollEffect('top', []);
 
@@ -62,7 +65,7 @@ const Settings = () => {
 
   const handleGiveUp = () => {
     dispatch(loseGame());
-    changePane(Pane.Game);
+    navigation(getLinkPath({ route: 'game' }));
   };
 
   const wasYesterdayBlockedByUpdate = useMemo(() => {
@@ -73,14 +76,14 @@ const Settings = () => {
       <div className="settings">
           <ul>
               <li>
-                  <ButtonTile onClick={() => changePane(Pane.Statistics)}>
+                  <ButtonTile tagName="link" href={getLinkPath({ route: 'statistics' })}>
                       <IconDiffleChart />
                       <span>{t('settings.statisticsTitle')}</span>
                   </ButtonTile>
               </li>
               {gameMode === GameMode.Practice && isGivingUpDisabled ? (
                   <li>
-                      <ButtonTile onClick={() => changePane(Pane.Game)}>
+                      <ButtonTile tagName="link" href={getLinkPath({ route: 'game' })}>
                           <IconGamepad />
                           <span>{t('common.play')}</span>
                       </ButtonTile>
@@ -100,7 +103,7 @@ const Settings = () => {
                   </li>
               )}
           </ul>
-          <SettingsModes changePane={changePane} />
+          <SettingsModes />
           <details>
               <summary onClick={handleClickSummary}>
                   <h2>{t('settings.lastDailyWordsTitle')}</h2>

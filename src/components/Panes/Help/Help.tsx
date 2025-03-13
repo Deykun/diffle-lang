@@ -7,7 +7,7 @@ import { SUPPORTED_LANGS } from '@const';
 
 import { getWordReportForMultipleWords } from '@api/getWordReport';
 
-import usePanes from '@features/routes/hooks/usePanes';
+import useLink from '@features/routes/hooks/useLinks';
 import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconBookOpen from '@components/Icons/IconBookOpen';
@@ -22,12 +22,11 @@ import HelpWords from './HelpWords';
 import './Help.scss';
 
 const Help = () => {
+  const { getLinkPath } = useLink();
   const [helpGuesses, setHelpGuesses] = useState<WordType[]>([]);
   const [isAlt, setIsAlt] = useState(false);
 
   const { t, i18n } = useTranslation();
-
-  const { changePane } = usePanes();
 
   const tEnd = isAlt ? 'Alt' : '';
 
@@ -68,7 +67,11 @@ const Help = () => {
           <p>{t('help.howToPlayText2')}</p>
           <HelpWords helpGuesses={helpGuesses} tEnd={tEnd} />
           <p>
-              <Button onClick={() => changePane(Pane.Game)} isLarge>
+              <Button
+                tagName="link"
+                href={getLinkPath({ route: 'game' })}
+                isLarge
+              >
                   <IconGamepad />
                   <span>{t('common.play')}</span>
               </Button>
@@ -81,7 +84,12 @@ const Help = () => {
           </p>
           )}
           <p>
-              <Button onClick={() => changePane(Pane.AboutLanguage)} isInverted isText>
+              <Button
+                tagName="link"
+                href={getLinkPath({ route: 'aboutLanguage' })}
+                isInverted
+                isText
+              >
                   <IconBookOpen />
                   <span>
                       {t('settings.statisticsTitle')}

@@ -1,5 +1,7 @@
 import { SUPPORTED_LANGS } from '@const';
 import { resources } from '../../locales/langs';
+import { getLangRouteKey } from './utils/getLangRouteKey';
+import { getLangFromUrl } from '@utils/lang';
 
 export const rootPath = '/diffle-lang/';
 
@@ -10,7 +12,9 @@ export const supportedRoutes = [
   'statistics',
   'aboutLanguage',
   'hejto2024',
-];
+] as const;
+
+export type SupportedRoutes = typeof supportedRoutes[number] | '404';
 
 type SeoData = {
   title: string,
@@ -26,14 +30,15 @@ const getSeoData = (strings: { [key: string]: string }, route: string, fallback?
   openGraphDescription: strings[`route.${route}..openGraphDescription`] ?? fallback?.title,
 });
 
-type RouteData = SeoData & {
+export type LinkData = SeoData & {
   path: string,
-  route: string,
+  route: SupportedRoutes,
+  lang: string,
 };
 
 type Stack = {
-  routesByPaths: {
-    [path: string]: RouteData,
+  linksByPaths: {
+    [path: string]: LinkData,
   },
   pathsByLangRouteKey: {
     [langRouteKey: string]: string,
@@ -57,19 +62,27 @@ const routesData = SUPPORTED_LANGS.reduce((stack: Stack, lang) => {
       throw `Missing path for ${lang} ${route}!`;
     }
 
-    stack.routesByPaths[path] = {
+    stack.linksByPaths[path] = {
       ...getSeoData(translationStrings, route, defaultSeo),
-      route,
       path,
+      route,
+      lang,
     };
-    stack.pathsByLangRouteKey[`${lang}-${route}`] = path;
+    stack.pathsByLangRouteKey[getLangRouteKey({ lang, route })] = path;
   });
 
   return stack;
 }, {
-  routesByPaths: {},
+  linksByPaths: {},
   pathsByLangRouteKey: {},
 });
 
-export const { routesByPaths } = routesData;
+export const { linksByPaths } = routesData;
 export const { pathsByLangRouteKey } = routesData;
+
+export const path404Data: LinkData = {
+  path: '',
+  route: '404',
+  lang: getLangFromUrl() || '',
+  ...getSeoData(resources.en.translation, 'game'),
+};

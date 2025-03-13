@@ -4,12 +4,10 @@ import {
 import { useTranslation } from 'react-i18next';
 import clsx from 'clsx';
 
-import { Pane } from '@common-types';
-
 import { useSelector, useDispatch } from '@store';
 import { track } from '@store/appSlice';
 
-import usePanes from '@features/routes/hooks/usePanes';
+import useLink from '@features/routes/hooks/useLinks';
 
 import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconDictionary from '@components/Icons/IconDictionary';
@@ -31,12 +29,11 @@ import { DICTIONARIES_BY_LANG } from './constants';
 import './Settings.scss';
 
 const SettingsSources = () => {
+  const { getLinkPath } = useLink();
   const dispatch = useDispatch();
   const [startCount, setStartCount] = useState<null | number>(null);
   const gameLanguage = useSelector(state => state.game.language);
   const { t } = useTranslation();
-
-  const { changePane } = usePanes();
 
   const dictionaries = useMemo(() => {
     if (!gameLanguage) {
@@ -54,7 +51,9 @@ const SettingsSources = () => {
       }
 
       try {
-        const response = await fetch('https://api.github.com/repos/Deykun/diffle-lang');
+        const response = await fetch(
+          'https://api.github.com/repos/Deykun/diffle-lang',
+        );
         const result = await response.json();
 
         const { stargazers_count: stargazersCount } = result;
@@ -69,7 +68,9 @@ const SettingsSources = () => {
   }, [startCount]);
 
   const handleGithubClick = useCallback(() => {
-    dispatch(track({ name: 'click_github_link', params: { source: 'settings' } }));
+    dispatch(
+      track({ name: 'click_github_link', params: { source: 'settings' } }),
+    );
   }, [dispatch]);
 
   return (
@@ -120,46 +121,52 @@ const SettingsSources = () => {
               {': '}
               {t('language.currentLanguage')}
           </h2>
-          <ul className={clsx({
-            'list-col-3': (dictionaries.length + 1) % 3 === 0,
-          })}
+          <ul
+            className={clsx({
+              'list-col-3': (dictionaries.length + 1) % 3 === 0,
+            })}
           >
               <li>
-                  <ButtonTile onClick={() => changePane(Pane.AboutLanguage)}>
+                  <ButtonTile
+                    tagName="link"
+                    href={getLinkPath({ route: 'aboutLanguage' })}
+                  >
                       <IconBookOpen />
                       <span>
                           {t('settings.statisticsTitle')}
                           {': '}
                           <br />
-                          <strong>
-                              {t('language.currentLanguage')}
-                          </strong>
+                          <strong>{t('language.currentLanguage')}</strong>
                       </span>
                   </ButtonTile>
               </li>
-              {dictionaries.map(({ isSpeelchecker = false, href, labelHTML }, index) => (
-                  <li key={href}>
-                      <ButtonTile
-                        tagName="a"
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                          {index % 2 === 0 && <IconDictionary />}
-                          {index % 2 === 1 && <IconDictionaryAlt />}
-                          <span>
-                              <span
-                                // eslint-disable-next-line react/no-danger
-                                dangerouslySetInnerHTML={{
-                                  __html: labelHTML,
-                                }}
-                              />
-                              {' '}
-                              {isSpeelchecker ? t('settings.sourceDictionarySpellchecker') : t('settings.sourceDictionaryWiningWords')}
-                          </span>
-                      </ButtonTile>
-                  </li>
-              ))}
+              {dictionaries.map(
+                ({ isSpeelchecker = false, href, labelHTML }, index) => (
+                    <li key={href}>
+                        <ButtonTile
+                          tagName="a"
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                            {index % 2 === 0 && <IconDictionary />}
+                            {index % 2 === 1 && <IconDictionaryAlt />}
+                            <span>
+                                <span
+                                  // eslint-disable-next-line react/no-danger
+                                  dangerouslySetInnerHTML={{
+                                    __html: labelHTML,
+                                  }}
+                                />
+                                {' '}
+                                {isSpeelchecker
+                                  ? t('settings.sourceDictionarySpellchecker')
+                                  : t('settings.sourceDictionaryWiningWords')}
+                            </span>
+                        </ButtonTile>
+                    </li>
+                ),
+              )}
           </ul>
           <h2>{t('settings.sourcesTitleImages')}</h2>
           <ul>
