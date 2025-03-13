@@ -12,7 +12,7 @@ import { copyMessage } from '@utils/copyMessage';
 import { useDispatch, useSelector } from '@store';
 import { track, setToast } from '@store/appSlice';
 
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 
 import IconGamepad from '@components/Icons/IconGamepad';
 import IconGithub from '@components/Icons/IconGithub';

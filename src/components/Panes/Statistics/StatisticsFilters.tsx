@@ -21,7 +21,7 @@ import {
   LengthFilter,
 } from '@utils/statistics';
 
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 import useVibrate from '@hooks/useVibrate';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 import useEffectChange from '@hooks/useEffectChange';

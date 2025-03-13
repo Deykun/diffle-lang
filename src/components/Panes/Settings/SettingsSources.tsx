@@ -9,7 +9,7 @@ import { Pane } from '@common-types';
 import { useSelector, useDispatch } from '@store';
 import { track } from '@store/appSlice';
 
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 
 import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconDictionary from '@components/Icons/IconDictionary';

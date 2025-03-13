@@ -13,7 +13,7 @@ import {
 
 import Button from '@components/Button/Button';
 
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 
 import IconDiffleChart from '@components/Icons/IconDiffleChart';
 import IconHeartStreak from '@components/Icons/IconHeartStreak';

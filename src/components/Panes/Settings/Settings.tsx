@@ -14,7 +14,7 @@ import { getNow, getYesterdaysSeed, getYesterdaysStamp } from '@utils/date';
 import getWordToGuess from '@api/getWordToGuess';
 
 import useScrollEffect from '@hooks/useScrollEffect';
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';

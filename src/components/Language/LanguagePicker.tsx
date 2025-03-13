@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from '@store';
 import { track, setToast } from '@store/appSlice';
 
 import useVibrate from '@hooks/useVibrate';
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 
 import IconBookOpen from '@components/Icons/IconBookOpen';
 import IconConstruction from '@components/Icons/IconConstruction';
@@ -22,6 +22,7 @@ import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
 import './LanguagePicker.scss';
+import { rootPath } from '@features/routes/const';
 
 type Props = {
   className?: string,
@@ -118,7 +119,7 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                                   <Image
                                     key={lang}
                                     className="language-picker-flag"
-                                    src={`./flags/${lang}.svg`}
+                                    src={`${rootPath}flags/${lang}.svg`}
                                     alt=""
                                   />
                                   <span>

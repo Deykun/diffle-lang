@@ -204,8 +204,6 @@ export const mergeFlatAffixes = (flatAffixesA: FlatAffixes, flatAffixesB: FlatAf
   );
   flatAffixesResult.notCorrectOrders = [...flatAffixesResult.notCorrectOrders, ...notCorrectOrdersBThatAreNew];
 
-  console.log(JSON.stringify(flatAffixesB));
-
   const needsALetterBetweenBThatAreNew = flatAffixesB.needsALetterBetween.filter(
     (newPair) => {
       const hasPairAlready = flatAffixesResult.needsALetterBetween.some(

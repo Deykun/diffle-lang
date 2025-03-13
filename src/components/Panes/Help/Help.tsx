@@ -7,7 +7,7 @@ import { SUPPORTED_LANGS } from '@const';
 
 import { getWordReportForMultipleWords } from '@api/getWordReport';
 
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 import useScrollEffect from '@hooks/useScrollEffect';
 
 import IconBookOpen from '@components/Icons/IconBookOpen';

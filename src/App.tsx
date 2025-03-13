@@ -8,14 +8,16 @@ import { useSelector, useDispatch } from '@store';
 import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
-import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
+import useLangugeChangeIfNeeded from '@features/routes/hooks/useLangugeChangeIfNeeded';
 import useAddTrackersScriptsIfNeeded from '@hooks/useAddTrackersScriptsIfNeeded';
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
 import useTrackGlobal from '@hooks/useTrackGlobal';
 import useUnlockEasterDaysIfPossible from '@hooks/useUnlockEasterDaysIfPossible';
 import useUpdateIfSpecialWord from '@features/specialWords/hooks/useUpdateIfSpecialWord';
 
 import Header from '@components/Header';
+
+import Routes from '@features/routes/components/Routes/Routes';
 
 import CookiesPopup from '@components/Cookies/CookiesPopup';
 
@@ -77,12 +79,13 @@ function App() {
           <Header />
           <main>
               <Toast />
-              {pane === PaneType.Help && <Help />}
+              <Routes />
+              {/* {pane === PaneType.Help && <Help />}
               {pane === PaneType.Game && <Game />}
               {pane === PaneType.Settings && <Settings />}
               {pane === PaneType.Statistics && <Statistics />}
               {pane === PaneType.YearSummary && <YearSummary />}
-              {pane === PaneType.AboutLanguage && <AboutLanguage />}
+              {pane === PaneType.AboutLanguage && <AboutLanguage />} */}
           </main>
           <CookiesPopup />
       </div>

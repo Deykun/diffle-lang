@@ -7,7 +7,9 @@ import { GameMode, Pane } from '@common-types';
 import { useSelector } from '@store';
 import { selectIsGameEnded, selectIsTodayEasterDay } from '@store/selectors';
 
-import usePanes from '@hooks/usePanes';
+import usePanes from '@features/routes/hooks/usePanes';
+import { rootPath } from '@features/routes/const';
+
 import useEffectChange from '@hooks/useEffectChange';
 import usePrevious from '@hooks/usePrevious';
 
@@ -88,7 +90,7 @@ const Header = () => {
                   <img
                     key={flagKey}
                     className={clsx('header-flag', { 'header-flag--animation': flagKey })}
-                    src={`./flags/${flagKey || gameLanguage}.svg`}
+                    src={`${rootPath}flags/${flagKey || gameLanguage}.svg`}
                     alt={flagKey || gameLanguage}
                   />
               </LanguagePicker>
