@@ -25,11 +25,11 @@ import { INITIAL_FILTERS } from './constants';
 import './Statistics.scss';
 
 const Statistics = () => {
-  const gameLanguage = useSelector(state => state.game.language);
+  const gameLanguage = useSelector((state) => state.game.language);
   const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
   const [{ statisticsData, streakData }, setData] = useState<{
-    statisticsData: StatisticDataForCard | undefined,
-    streakData: Streak | undefined,
+    statisticsData: StatisticDataForCard | undefined;
+    streakData: Streak | undefined;
   }>({
     statisticsData: undefined,
     streakData: undefined,
@@ -62,39 +62,33 @@ const Statistics = () => {
   const isMissingData = !statisticsData || statisticsData.totalWon === 0;
 
   return (
-      <div className="statistics">
-          <StatisticsFilters
-            setFiltersData={setFiltersData}
-          />
-          <div>
-              <h2 className="statistics-title">
-                  {t('settings.statisticsTitle')}
-                  <span className="statistics-title-total">
-                      <span>{isMissingData ? 0 : statisticsData.totalGames}</span>
-                      <IconGamepad />
-                  </span>
-              </h2>
-              {isMissingData
-                ? (
-                    <p className="missing-data">
-                        {t('statistics.noData')}
-                    </p>
-                )
-                : (
-                    <>
-                        <StatisticsCard
-                          // eslint-disable-next-line react/jsx-props-no-spreading
-                          {...statisticsData}
-                          // eslint-disable-next-line react/jsx-props-no-spreading
-                          {...streakData}
-                          // eslint-disable-next-line react/jsx-props-no-spreading
-                          {...filtersData}
-                        />
-                        <StatisticsActions refreshStatitics={refreshStatitics} modeFilter={filtersData.modeFilter} />
-                    </>
-                )}
-          </div>
+    <div className="statistics">
+      <StatisticsFilters setFiltersData={setFiltersData} />
+      <div>
+        <h2 className="statistics-title">
+          {t('settings.statisticsTitle')}
+          <span className="statistics-title-total">
+            <span>{isMissingData ? 0 : statisticsData.totalGames}</span>
+            <IconGamepad />
+          </span>
+        </h2>
+        {isMissingData ? (
+          <p className="missing-data">{t('statistics.noData')}</p>
+        ) : (
+          <>
+            <StatisticsCard
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...statisticsData}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...streakData}
+              // eslint-disable-next-line react/jsx-props-no-spreading
+              {...filtersData}
+            />
+            <StatisticsActions refreshStatitics={refreshStatitics} modeFilter={filtersData.modeFilter} />
+          </>
+        )}
       </div>
+    </div>
   );
 };
 

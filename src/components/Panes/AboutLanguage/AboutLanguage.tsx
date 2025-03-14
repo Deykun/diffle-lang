@@ -39,7 +39,7 @@ const getDicitonaryData = async (lang: string | undefined): Promise<DictionaryIn
 };
 
 const AboutLanguage = () => {
-  const gameLanguage = useSelector(state => state.game.language);
+  const gameLanguage = useSelector((state) => state.game.language);
 
   useScrollEffect('top', []);
 
@@ -53,19 +53,19 @@ const AboutLanguage = () => {
   });
 
   return (
-      <div className="about-language">
-          {isLoading && <IconLoader className="about-language-content-loader" />}
-          {data && (
-          <>
-              <AboutLanguageIntro data={data} />
-              <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
-              <AboutLanguageNeighbours data={data} />
-              <AboutLenguageLengths data={data} />
-              <AboutLanguageWordle data={data} />
-              <AboutLanguagePlayDiffle />
-          </>
-          )}
-      </div>
+    <div className="about-language">
+      {isLoading && <IconLoader className="about-language-content-loader" />}
+      {data && (
+        <>
+          <AboutLanguageIntro data={data} />
+          <AboutLanguageLetters data={data} groupBy={DictionaryInfoLetters.InWords} />
+          <AboutLanguageNeighbours data={data} />
+          <AboutLenguageLengths data={data} />
+          <AboutLanguageWordle data={data} />
+          <AboutLanguagePlayDiffle />
+        </>
+      )}
+    </div>
   );
 };
 

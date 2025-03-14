@@ -20,44 +20,12 @@ import { rootPath } from '../const';
 */
 export default function useLangugeChangeIfNeeded() {
   const [location, navigate] = useLocation();
-  const isGameUpdating = useSelector(state => state.game.isProcessing || state.game.isLoadingGame);
+  const gameLanguage = useSelector((state) => state.game.language);
+  const isGameUpdating = useSelector((state) => state.game.isProcessing || state.game.isLoadingGame);
   const [wasAppLanguageDetected, setWasAppLanguageDetected] = useState(false);
   const dispatch = useDispatch();
-  const gameLanguage = useSelector(state => state.game.language);
 
   const { i18n } = useTranslation();
-
-  useEffectChange(() => {
-    const { language: appLanguage } = i18n;
-    const langFromUrl = getLangFromUrl();
-
-    const isRootUrl = location === rootPath;
-
-    const shouldRedirectToLang = isRootUrl;
-    if (shouldRedirectToLang) {
-      navigate(`${rootPath}${appLanguage}`);
-    }
-
-
-    if (!langFromUrl || appLanguage !== langFromUrl) {
-      // const currentUrl = window.location.href.replace(window.location.search, '');
-      // const newLocation = `${currentUrl.replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}`;
-
-      // const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
-      // document.title = title;
-      // document.documentElement.lang = appLanguage;
-
-      // window.history.replaceState(null, title, newLocation);
-    }
-
-    const isMissingLang = !langFromUrl || appLanguage !== langFromUrl;
-
-    const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
-    if (appLanguage && title) {
-      document.title = title;
-      document.documentElement.lang = appLanguage;
-    }
-  }, [wasAppLanguageDetected, i18n.language, location]);
 
   useEffect(() => {
     if (!isGameUpdating && wasAppLanguageDetected) {

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Route, Switch, useLocation,
-} from 'wouter';
+import { Route, Switch, useLocation } from 'wouter';
 
 import { getLangFromUrl } from '@utils/lang';
 
@@ -12,11 +11,7 @@ import Statistics from '@components/Panes/Statistics/Statistics';
 import AboutLanguage from '@components/Panes/AboutLanguage/AboutLanguage';
 import YearSummary from '@components/Panes/YearSummary/YearSummary';
 
-import {
-  rootPath,
-  linksByPaths,
-  SupportedRoutes,
-} from '@features/routes/const';
+import { rootPath, linksByPaths, SupportedRoutes } from '@features/routes/const';
 
 const paths = Object.values(linksByPaths);
 
@@ -66,18 +61,14 @@ const Routes = () => {
   }, [t, i18n, location, navigate]);
 
   return (
-      <div>
-          <Switch>
-              {paths.map(({ path, route }) => (
-                  <Route
-                    key={path}
-                    path={`${rootPath}${path}`}
-                    component={componentsByRoutes[route]}
-                  />
-              ))}
-              <Route>404</Route>
-          </Switch>
-      </div>
+    <div>
+      <Switch>
+        {paths.map(({ path, route }) => (
+          <Route key={path} path={`${rootPath}${path}`} component={componentsByRoutes[route]} />
+        ))}
+        <Route>404</Route>
+      </Switch>
+    </div>
   );
 };
 

@@ -5,11 +5,7 @@ import { Pane, GameMode } from '@common-types';
 
 import { useSelector } from '@store';
 
-import {
-  getStatistic,
-  getStatisticParamsForWord,
-  getStreakForFilter,
-} from '@utils/statistics';
+import { getStatistic, getStatisticParamsForWord, getStreakForFilter } from '@utils/statistics';
 
 import Button from '@components/Button/Button';
 
@@ -21,10 +17,10 @@ import IconHeartStreak from '@components/Icons/IconHeartStreak';
 import './StatisticsHint.scss';
 
 const StatisticsHint = () => {
-  const wordToGuess = useSelector(state => state.game.wordToGuess);
-  const gameLanguage = useSelector(state => state.game.language);
-  const lastWordAddedToStatitstic = useSelector(state => state.game.lastWordAddedToStatitstic);
-  const gameMode = useSelector(state => state.game.mode);
+  const wordToGuess = useSelector((state) => state.game.wordToGuess);
+  const gameLanguage = useSelector((state) => state.game.language);
+  const lastWordAddedToStatitstic = useSelector((state) => state.game.lastWordAddedToStatitstic);
+  const gameMode = useSelector((state) => state.game.mode);
 
   const { t } = useTranslation();
 
@@ -39,17 +35,13 @@ const StatisticsHint = () => {
       if (lastWordAddedToStatitstic) {
         return getStreakForFilter(gameLanguage, { modeFilter: gameMode });
       }
-      const {
-        isShort,
-        hasSpecialCharacters,
-      } = getStatisticParamsForWord(wordToGuess);
+      const { isShort, hasSpecialCharacters } = getStatisticParamsForWord(wordToGuess);
 
-      const {
-        lastGame: {
-          word: lastIndexeWord,
-        } = {},
-      } = getStatistic({
-        gameLanguage, gameMode, hasSpecialCharacters, isShort,
+      const { lastGame: { word: lastIndexeWord } = {} } = getStatistic({
+        gameLanguage,
+        gameMode,
+        hasSpecialCharacters,
+        isShort,
       });
 
       if (lastIndexeWord === wordToGuess) {
@@ -75,22 +67,22 @@ const StatisticsHint = () => {
   }
 
   return (
-      <div className="statistics-hint">
-          <p className="has-tooltip tooltip-relative">
-              <IconHeartStreak />
-              <strong>{wonStreak}</strong>
-              <span className="tooltip">
-                  {t('statistics.totalWonStreak', {
-                    postProcess: 'interval',
-                    count: wonStreak,
-                  })}
-              </span>
-          </p>
-          <Button onClick={handleClick} isInverted isText hasBorder={false}>
-              <IconDiffleChart />
-              <span>{t('settings.statisticsTitle')}</span>
-          </Button>
-      </div>
+    <div className="statistics-hint">
+      <p className="has-tooltip tooltip-relative">
+        <IconHeartStreak />
+        <strong>{wonStreak}</strong>
+        <span className="tooltip">
+          {t('statistics.totalWonStreak', {
+            postProcess: 'interval',
+            count: wonStreak,
+          })}
+        </span>
+      </p>
+      <Button onClick={handleClick} isInverted isText hasBorder={false}>
+        <IconDiffleChart />
+        <span>{t('settings.statisticsTitle')}</span>
+      </Button>
+    </div>
   );
 };
 

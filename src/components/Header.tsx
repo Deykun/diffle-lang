@@ -30,12 +30,12 @@ const Header = () => {
   const [flagKey, setFlagKey] = useState('');
   const [shouldShowShared, setShouldShowShared] = useState(false);
   const isTodayEasterDay = useSelector(selectIsTodayEasterDay);
-  const today = useSelector(state => state.game.today);
-  const gameLanguage = useSelector(state => state.game.language);
+  const today = useSelector((state) => state.game.today);
+  const gameLanguage = useSelector((state) => state.game.language);
   const isGameEnded = useSelector(selectIsGameEnded);
-  const wordToGuess = useSelector(state => state.game.wordToGuess);
-  const gameMode = useSelector(state => state.game.mode);
-  const guesses = useSelector(state => state.game.guesses);
+  const wordToGuess = useSelector((state) => state.game.wordToGuess);
+  const gameMode = useSelector((state) => state.game.mode);
+  const guesses = useSelector((state) => state.game.guesses);
 
   const { t } = useTranslation();
 
@@ -59,59 +59,62 @@ const Header = () => {
   const isRightActive = ['settings', 'statistics', 'aboutLanguage'].includes(activeLink.route);
 
   return (
-      <header className="header">
-          <div className="header-left">
-              <Link
-                className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-left', {
-                  'button-active': isLeftActive,
-                  'has-tooltip-activated': isQuiteBadGameShouldHintHelp,
-                })}
-                href={getLinkPath({ route: isLeftActive ? 'game' : 'help' })}
-              >
-                  {isLeftActive ? <IconClose /> : <IconHelp />}
-                  <span className="tooltip">
-                      {isLeftActive && t('common.close')}
-                      {!isLeftActive && isQuiteBadGameShouldHintHelp && t('help.howToPlayTitle')}
-                      {!isLeftActive && !isQuiteBadGameShouldHintHelp && t('help.title')}
-                  </span>
-              </Link>
-          </div>
-          <h1>
-              <Link className="header-title" href={getLinkPath({ route: 'game' })}>
-                  Diffle
-                  {gameMode === GameMode.Practice && <IconInfinity />}
-                  {gameMode === GameMode.SandboxLive && <IconEgg className="header-title-icon-small" />}
-                  {isTodayEasterDay && (
-                  <span className="header-title-easter-day">
-                      {today.split('.').filter((_, index) => index !== 2).join('.')}
-                  </span>
-                  )}
-              </Link>
-              {gameLanguage && (
-              <LanguagePicker className="header-language-picker" place="header">
-                  <img
-                    key={flagKey}
-                    className={clsx('header-flag', { 'header-flag--animation': flagKey })}
-                    src={`${rootPath}flags/${flagKey || gameLanguage}.svg`}
-                    alt={flagKey || gameLanguage}
-                  />
-              </LanguagePicker>
-              )}
-          </h1>
-          <div className="header-right">
-              {shouldShowShared && <SharedContent />}
-              <Link
-                className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-right', {
-                  'button-active': isRightActive,
-                })}
-                href={getLinkPath({ route: activeLink.route === 'settings' ? 'game' : 'settings' })}
-                type="button"
-              >
-                  {isRightActive ? <IconClose /> : <IconLayers />}
-                  <span className="tooltip">{t(isRightActive ? 'common.close' : 'settings.title')}</span>
-              </Link>
-          </div>
-      </header>
+    <header className="header">
+      <div className="header-left">
+        <Link
+          className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-left', {
+            'button-active': isLeftActive,
+            'has-tooltip-activated': isQuiteBadGameShouldHintHelp,
+          })}
+          href={getLinkPath({ route: isLeftActive ? 'game' : 'help' })}
+        >
+          {isLeftActive ? <IconClose /> : <IconHelp />}
+          <span className="tooltip">
+            {isLeftActive && t('common.close')}
+            {!isLeftActive && isQuiteBadGameShouldHintHelp && t('help.howToPlayTitle')}
+            {!isLeftActive && !isQuiteBadGameShouldHintHelp && t('help.title')}
+          </span>
+        </Link>
+      </div>
+      <h1>
+        <Link className="header-title" href={getLinkPath({ route: 'game' })}>
+          Diffle
+          {gameMode === GameMode.Practice && <IconInfinity />}
+          {gameMode === GameMode.SandboxLive && <IconEgg className="header-title-icon-small" />}
+          {isTodayEasterDay && (
+            <span className="header-title-easter-day">
+              {today
+                .split('.')
+                .filter((_, index) => index !== 2)
+                .join('.')}
+            </span>
+          )}
+        </Link>
+        {gameLanguage && (
+          <LanguagePicker className="header-language-picker" place="header">
+            <img
+              key={flagKey}
+              className={clsx('header-flag', { 'header-flag--animation': flagKey })}
+              src={`${rootPath}flags/${flagKey || gameLanguage}.svg`}
+              alt={flagKey || gameLanguage}
+            />
+          </LanguagePicker>
+        )}
+      </h1>
+      <div className="header-right">
+        {shouldShowShared && <SharedContent />}
+        <Link
+          className={clsx('header-button', 'has-tooltip', 'has-tooltip-from-right', {
+            'button-active': isRightActive,
+          })}
+          href={getLinkPath({ route: activeLink.route === 'settings' ? 'game' : 'settings' })}
+          type="button"
+        >
+          {isRightActive ? <IconClose /> : <IconLayers />}
+          <span className="tooltip">{t(isRightActive ? 'common.close' : 'settings.title')}</span>
+        </Link>
+      </div>
+    </header>
   );
 };
 
