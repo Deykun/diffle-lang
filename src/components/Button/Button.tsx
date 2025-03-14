@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import clsx from 'clsx';
+import { Link } from 'wouter';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -8,7 +9,7 @@ import IconLoader from '@components/Icons/IconLoader';
 import './Button.scss';
 
 type Props = {
-  tagName?: ('button' | 'a')
+  tagName?: 'button' | 'a' | 'link'
   className?: string,
   children: React.ReactNode,
   onClick?: (e: React.MouseEvent<HTMLElement>) => void,
@@ -40,7 +41,10 @@ const Button = ({
   hasBorder = true,
   dataTestId,
 }: Props) => {
-  const Tag = tagName || 'button';
+  let Tag: string | typeof Link = 'button';
+  if (tagName) {
+    Tag = tagName === 'link' ? Link : 'a';
+  }
 
   const { vibrate } = useVibrate();
 
@@ -66,6 +70,7 @@ const Button = ({
         href={href}
         rel={rel}
         target={target}
+        // @ts-expect-error wouter Link doesn't support it
         disabled={isDisabled}
         data-testid={dataTestId}
       >

@@ -9,6 +9,7 @@ module.exports = {
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'prettier/react',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -19,10 +20,7 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'arrow-body-style': 'off',
-    'arrow-parens': ['error', 'as-needed', {
-      requireForBlockBody: true,
-    }],
-    'react/jsx-indent': ['error', 4],
+    'react/jsx-indent': ['error', 2],
     'react/jsx-no-undef': [ "error", { "allowGlobals": true } ],
     'react/require-default-props': 0,
     'react/function-component-definition': 0,
@@ -31,7 +29,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'max-len': ['warn', {
-      'code': 140,
+      'code': 110,
       'ignoreUrls': true,
       'ignorePattern': '(^import|d="([\\s\\S]*?)|\\srequire\\()',
       'ignoreTrailingComments': true,
@@ -48,19 +46,6 @@ module.exports = {
         /** Imports should only be validated against top-level package.json */
         packageDir: '.',
     }],
-  },
-  settings: {
-    'import/resolver': {
-      'alias-array': {
-        alias: true,
-        map: [
-          ['@api', resolve(__dirname, './src/api/')],
-          ['@components', resolve(__dirname, './src/components/')],
-          ['@store', resolve(__dirname, './src/store/')],
-          ['@utils', resolve(__dirname, './src/utils/')],
-        ],
-      }
-    }
   },
   overrides: [
       {

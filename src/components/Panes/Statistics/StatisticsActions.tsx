@@ -25,14 +25,14 @@ import Modal from '@components/Modal/Modal';
 import './StatisticsActions.scss';
 
 type Props = {
-  refreshStatitics: () => void,
-  modeFilter: ModeFilter,
+  refreshStatitics: () => void;
+  modeFilter: ModeFilter;
 };
 
 const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const gameLanguage = useSelector(state => state.game.language);
+  const gameLanguage = useSelector((state) => state.game.language);
 
   const { t } = useTranslation();
 
@@ -76,42 +76,48 @@ const StatisticsActions = ({ refreshStatitics, modeFilter }: Props) => {
   };
 
   return (
-      <>
-          <div className="statistics-actions">
-              <Button className="statistics-action-edit" onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
-                  <IconEraser />
-              </Button>
-              <Button onClick={handleDownload} isInverted>
-                  <IconPicture />
-                  <span>{t('common.download')}</span>
-              </Button>
-          </div>
-          <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="settings">
-                  <h3>{t('statistics.titleRemoveStatistics')}</h3>
-                  <ul>
-                      <li>
-                          <ButtonTileWithConfirm
-                            onClick={() => handleRemoveGameModeStatitics(ModeFilter.Daily)}
-                            isDisabled={!isOpen || modeFilter === ModeFilter.Practice}
-                          >
-                              <IconDay />
-                              <span>{t('game.modeDaily')}</span>
-                          </ButtonTileWithConfirm>
-                      </li>
-                      <li>
-                          <ButtonTileWithConfirm
-                            onClick={() => handleRemoveGameModeStatitics(ModeFilter.Practice)}
-                            isDisabled={!isOpen || modeFilter === ModeFilter.Daily}
-                          >
-                              <IconInfinity />
-                              <span>{t('game.modePractice')}</span>
-                          </ButtonTileWithConfirm>
-                      </li>
-                  </ul>
-              </div>
-          </Modal>
-      </>
+    <>
+      <div className="statistics-actions">
+        <Button
+          className="statistics-action-edit"
+          onClick={() => setIsOpen(true)}
+          isInverted
+          isText
+          hasBorder={false}
+        >
+          <IconEraser />
+        </Button>
+        <Button onClick={handleDownload} isInverted>
+          <IconPicture />
+          <span>{t('common.download')}</span>
+        </Button>
+      </div>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="settings">
+          <h3>{t('statistics.titleRemoveStatistics')}</h3>
+          <ul>
+            <li>
+              <ButtonTileWithConfirm
+                onClick={() => handleRemoveGameModeStatitics(ModeFilter.Daily)}
+                isDisabled={!isOpen || modeFilter === ModeFilter.Practice}
+              >
+                <IconDay />
+                <span>{t('game.modeDaily')}</span>
+              </ButtonTileWithConfirm>
+            </li>
+            <li>
+              <ButtonTileWithConfirm
+                onClick={() => handleRemoveGameModeStatitics(ModeFilter.Practice)}
+                isDisabled={!isOpen || modeFilter === ModeFilter.Daily}
+              >
+                <IconInfinity />
+                <span>{t('game.modePractice')}</span>
+              </ButtonTileWithConfirm>
+            </li>
+          </ul>
+        </div>
+      </Modal>
+    </>
   );
 };
 

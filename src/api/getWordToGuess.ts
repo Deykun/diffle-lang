@@ -1,4 +1,5 @@
 import { GameMode, Catalog } from '@common-types';
+import { ROOT_PATH } from '@const';
 
 import { getNow } from '@utils/date';
 
@@ -38,7 +39,7 @@ export const getCatalogInfo = async (gameLanguage: string) => {
     return cachedCatalogs[gameLanguage];
   }
 
-  const catalogResponse = await fetch(`./dictionary/${gameLanguage}/catalog.json`);
+  const catalogResponse = await fetch(`${ROOT_PATH}dictionary/${gameLanguage}/catalog.json`);
   const {
     words = 0,
     items = [],
@@ -82,7 +83,7 @@ export const getWordToGuess = async (
 
   const { key, endIndex } = keyItem;
 
-  const winingKeyResponse = await fetch(`./dictionary/${gameLanguage}/winning/chunk-${key}.json`);
+  const winingKeyResponse = await fetch(`${ROOT_PATH}dictionary/${gameLanguage}/winning/chunk-${key}.json`);
 
   const winingKeyResult = await winingKeyResponse.json();
 

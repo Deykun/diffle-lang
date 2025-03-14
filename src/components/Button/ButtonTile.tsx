@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import clsx from 'clsx';
+import { Link } from 'wouter';
 
 import useVibrate from '@hooks/useVibrate';
 
@@ -8,7 +9,7 @@ import IconLoader from '@components/Icons/IconLoader';
 import './ButtonTile.scss';
 
 type Props = {
-  tagName?: 'button' | 'a',
+  tagName?: 'button' | 'a' | 'link',
   variant?: 'small' | '',
   className?: string,
   children: React.ReactNode,
@@ -40,7 +41,10 @@ const ButtonTile = ({
   isInverted = false,
   dataTestId,
 }: Props) => {
-  const Tag = tagName || 'button';
+  let Tag: string | typeof Link = 'button';
+  if (tagName) {
+    Tag = tagName === 'link' ? Link : 'a';
+  }
 
   const { vibrate } = useVibrate();
 
@@ -65,7 +69,8 @@ const ButtonTile = ({
         title={title}
         rel={rel}
         target={target}
-        disabled={isDisabled}
+        // @ts-expect-error wouter Link doesn't support it
+        disabled={tagName !== 'link' ? isDisabled : undefined}
         data-testid={dataTestId}
       >
           {children}

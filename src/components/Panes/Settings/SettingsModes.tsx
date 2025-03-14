@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'wouter';
 
 import { GameMode, Pane, PaneChange } from '@common-types';
+
+import useLink from '@features/routes/hooks/useLinks';
 
 import { useSelector, useDispatch } from '@store';
 import { selectIsWon } from '@store/selectors';
@@ -21,11 +24,9 @@ import ButtonTile from '@components/Button/ButtonTile';
 
 import './Settings.scss';
 
-type Props = {
-  changePane: PaneChange,
-};
-
-const SettingsModes = ({ changePane }: Props) => {
+const SettingsModes = () => {
+  const [, navigation] = useLocation();
+  const { getLinkPath } = useLink();
   const dispatch = useDispatch();
   const gameLanguage = useSelector(state => state.game.language);
   const gameMode = useSelector(state => state.game.mode);
@@ -43,8 +44,8 @@ const SettingsModes = ({ changePane }: Props) => {
 
     dispatch(setGameMode(newGameMode));
     dispatch(setWordToGuess(''));
-    changePane(Pane.Game);
-  }, [changePane, dispatch, gameLanguage]);
+    navigation(getLinkPath({ route: 'game' }));
+  }, [gameLanguage, dispatch, navigation, getLinkPath]);
 
   const shouldShowCheckedDaily = gameMode !== GameMode.Daily || isWon;
   const shouldShowTimeForDaily = gameMode === GameMode.Daily && isWon;

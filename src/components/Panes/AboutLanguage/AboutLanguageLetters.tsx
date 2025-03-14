@@ -32,16 +32,13 @@ import AboutLanguageChartLanguageTitle from './AboutLanguageChartLanguageTitle';
 import './AboutLanguageLetters.scss';
 
 type Props = {
-  groupBy?: DictionaryInfoLetters,
-  data: DictionaryInfo
+  groupBy?: DictionaryInfoLetters;
+  data: DictionaryInfo;
 };
 
-const AboutLanguageLetters = ({
-  groupBy: groupByInit = DictionaryInfoLetters.Common,
-  data,
-}: Props) => {
+const AboutLanguageLetters = ({ groupBy: groupByInit = DictionaryInfoLetters.Common, data }: Props) => {
   const dispatch = useDispatch();
-  const gameLanguage = useSelector(state => state.game.language);
+  const gameLanguage = useSelector((state) => state.game.language);
 
   const [shouldShowFilter, setShouldShowFilter] = useState(true);
   const [filterGroupBy, setFilterGroupBy] = useState(groupByInit);
@@ -63,7 +60,10 @@ const AboutLanguageLetters = ({
 
       const { stampOnlyTime } = getNow();
 
-      download(dataUrl, `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
+      download(
+        dataUrl,
+        `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(':', '').replaceAll(' ', '')}.jpeg`,
+      );
 
       dispatch(track({ name: `click_download_language_heatmap_${gameLanguage}` }));
     } catch (error) {
@@ -77,91 +77,88 @@ const AboutLanguageLetters = ({
   const lng = shouldForceEnglishChart ? 'en' : gameLanguage;
 
   return (
-      <section>
-          {shouldShowFilter && (
-          <nav className="heatmap-keyboard-filters">
-              {Object.values(DictionaryInfoLetters).filter(
-                infoLetter => infoLetter !== DictionaryInfoLetters.InWordsWordle,
-              ).map(infoLetter => (
-                  <Button
-                    key={infoLetter}
-                    onClick={() => setFilterGroupBy(infoLetter)}
-                    isInverted
-                    hasBorder={false}
-                    isText={filterGroupBy !== infoLetter}
-                  >
-                      {t(`statistics.filter${capitalize(infoLetter)}`)}
-                  </Button>
-              ))}
-          </nav>
+    <section>
+      {shouldShowFilter && (
+        <nav className="heatmap-keyboard-filters">
+          {Object.values(DictionaryInfoLetters)
+            .filter((infoLetter) => infoLetter !== DictionaryInfoLetters.InWordsWordle)
+            .map((infoLetter) => (
+              <Button
+                key={infoLetter}
+                onClick={() => setFilterGroupBy(infoLetter)}
+                isInverted
+                hasBorder={false}
+                isText={filterGroupBy !== infoLetter}
+              >
+                {t(`statistics.filter${capitalize(infoLetter)}`)}
+              </Button>
+            ))}
+        </nav>
+      )}
+      <div
+        className={clsx('wrapper-padding-escape', 'heatmap-share-content-margins', {
+          'heatmap-share-content-margins--no-filters': !shouldShowFilter,
+        })}
+      >
+        <div id="sharable-heatmap" className="heatmap-share-content">
+          {shouldShowLanguageTitle && <AboutLanguageChartLanguageTitle lng={lng} />}
+          {shouldShowFilter ? (
+            <KeyboardHeatmap lng={lng} groupBy={filterGroupBy} data={data} />
+          ) : (
+            <div className="about-language-keyboards">
+              <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.Common} data={data} />
+              <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.InWords} data={data} />
+              <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.First} data={data} />
+              <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.Last} data={data} />
+            </div>
           )}
-          <div
-            className={clsx('wrapper-padding-escape', 'heatmap-share-content-margins', {
-              'heatmap-share-content-margins--no-filters': !shouldShowFilter,
-            })}
-          >
-              <div id="sharable-heatmap" className="heatmap-share-content">
-                  {shouldShowLanguageTitle && <AboutLanguageChartLanguageTitle lng={lng} />}
-                  {shouldShowFilter
-                    ? (
-                        <KeyboardHeatmap lng={lng} groupBy={filterGroupBy} data={data} />
-                    )
-                    : (
-                        <div className="about-language-keyboards">
-                            <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.Common} data={data} />
-                            <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.InWords} data={data} />
-                            <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.First} data={data} />
-                            <KeyboardHeatmap lng={lng} groupBy={DictionaryInfoLetters.Last} data={data} />
-                        </div>
-                    )}
-                  <AboutLanguageChartFooter lng={lng} data={data} />
-              </div>
-          </div>
-          <div className="keyboard-heatmap-actions">
-              <Button onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
-                  <IconPencil />
-              </Button>
-              <KeyboardLayoutPicker shouldHideIfDisabled />
-              <Button className="about-language-download" onClick={handleDownload} isInverted hasBorder={false}>
-                  <IconPicture />
-                  <span>{t('common.download')}</span>
-              </Button>
-          </div>
-          <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="settings">
-                  <h3>{t('settings.title')}</h3>
-                  <ul className="list-col-3">
-                      <li>
-                          <ButtonTile
-                            isActive={shouldShowFilter}
-                            onClick={() => setShouldShowFilter(value => !value)}
-                          >
-                              <IconPictures />
-                              <span>{t('statistics.showOneChartWithFilters')}</span>
-                          </ButtonTile>
-                      </li>
-                      <li>
-                          <ButtonTile
-                            isActive={shouldShowLanguageTitle}
-                            onClick={() => setShouldShowLanguageTitle(value => !value)}
-                          >
-                              <IconDictionary />
-                              <span>{t('statistics.showTitleWithLanguage')}</span>
-                          </ButtonTile>
-                      </li>
-                      <li>
-                          <ButtonTile
-                            isActive={shouldForceEnglishChart || gameLanguage === 'en'}
-                            onClick={() => setShouldForceEnglishChart(value => !value)}
-                          >
-                              <IconTranslation />
-                              <span><small>Chart labels in English</small></span>
-                          </ButtonTile>
-                      </li>
-                  </ul>
-              </div>
-          </Modal>
-      </section>
+          <AboutLanguageChartFooter lng={lng} data={data} />
+        </div>
+      </div>
+      <div className="keyboard-heatmap-actions">
+        <Button onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
+          <IconPencil />
+        </Button>
+        <KeyboardLayoutPicker shouldHideIfDisabled />
+        <Button className="about-language-download" onClick={handleDownload} isInverted hasBorder={false}>
+          <IconPicture />
+          <span>{t('common.download')}</span>
+        </Button>
+      </div>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="settings">
+          <h3>{t('settings.title')}</h3>
+          <ul className="list-col-3">
+            <li>
+              <ButtonTile isActive={shouldShowFilter} onClick={() => setShouldShowFilter((value) => !value)}>
+                <IconPictures />
+                <span>{t('statistics.showOneChartWithFilters')}</span>
+              </ButtonTile>
+            </li>
+            <li>
+              <ButtonTile
+                isActive={shouldShowLanguageTitle}
+                onClick={() => setShouldShowLanguageTitle((value) => !value)}
+              >
+                <IconDictionary />
+                <span>{t('statistics.showTitleWithLanguage')}</span>
+              </ButtonTile>
+            </li>
+            <li>
+              <ButtonTile
+                isActive={shouldForceEnglishChart || gameLanguage === 'en'}
+                onClick={() => setShouldForceEnglishChart((value) => !value)}
+              >
+                <IconTranslation />
+                <span>
+                  <small>Chart labels in English</small>
+                </span>
+              </ButtonTile>
+            </li>
+          </ul>
+        </div>
+      </Modal>
+    </section>
   );
 };
 

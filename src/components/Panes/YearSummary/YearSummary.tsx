@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { YearSummaryInfo } from '@common-types';
+import { ROOT_PATH } from '@const';
 
 import { useSelector } from '@store';
 
@@ -18,7 +19,7 @@ const getSummaryData = async (
     return undefined;
   }
 
-  const response = await fetch(`./year-summary/${lang}-info.json`);
+  const response = await fetch(`${ROOT_PATH}year-summary/${lang}-info.json`);
   const rawData = await response.json();
 
   return rawData;

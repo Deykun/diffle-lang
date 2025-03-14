@@ -21,7 +21,6 @@ export type KeyLinesVariant = {
 export type Dictionary = {
   code?: string,
   languages: string[],
-  title: string,
   isBeta?: boolean,
   keyLinesVariants: KeyLinesVariant[],
   keyLinesToUse: string[][],
