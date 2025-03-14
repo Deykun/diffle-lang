@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { GameMode } from '@common-types';
+import { ROOT_PATH } from '@const';
 
 import { useSelector } from '@store';
 import { selectIsGameEnded, selectIsTodayEasterDay } from '@store/selectors';
-
-import { rootPath } from '@features/routes/const';
 
 import useEffectChange from '@hooks/useEffectChange';
 import usePrevious from '@hooks/usePrevious';
@@ -95,7 +94,7 @@ const Header = () => {
             <img
               key={flagKey}
               className={clsx('header-flag', { 'header-flag--animation': flagKey })}
-              src={`${rootPath}flags/${flagKey || gameLanguage}.svg`}
+              src={`${ROOT_PATH}flags/${flagKey || gameLanguage}.svg`}
               alt={flagKey || gameLanguage}
             />
           </LanguagePicker>

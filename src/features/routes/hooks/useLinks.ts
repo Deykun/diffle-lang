@@ -2,7 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'wouter';
 import { useCallback, useMemo } from 'react';
 
-import { SupportedRoutes, rootPath, linksByPaths, path404Data } from '../const';
+import { ROOT_PATH } from '@const';
+
+import { SupportedRoutes, linksByPaths, path404Data } from '../const';
 import { getRoute } from '../utils/getRoute';
 
 function useLink() {
@@ -10,7 +12,7 @@ function useLink() {
   const { i18n } = useTranslation();
 
   const activeLink = useMemo(() => {
-    return linksByPaths[location.replace(rootPath, '')] || path404Data;
+    return linksByPaths[location.replace(ROOT_PATH, '')] || path404Data;
   }, [location]);
 
   const getLinkPath = useCallback(

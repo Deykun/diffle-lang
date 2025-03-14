@@ -1,4 +1,5 @@
-import { pathsByLangRouteKey, SupportedRoutes, rootPath } from '../const';
+import { ROOT_PATH } from '@const';
+import { pathsByLangRouteKey, SupportedRoutes } from '../const';
 import { getLangRouteKey } from './getLangRouteKey';
 
 type Params = {
@@ -8,7 +9,8 @@ type Params = {
 
 export const getRoute = ({ lang, route }: Params) => {
   if (route === '404') {
-    return `${rootPath}${lang ?? ''}`;
+    return `${ROOT_PATH}${lang ?? ''}`;
   }
-  return `${rootPath}${pathsByLangRouteKey[getLangRouteKey({ lang, route })]}`;
+
+  return `${ROOT_PATH}${pathsByLangRouteKey[getLangRouteKey({ lang, route })]}`;
 };

@@ -8,6 +8,8 @@
     "route.game.metaDescription": "Każde użyte słowo podpowiada pozycję i kolejność liter w haśle.",
     "route.game.openGraphTitle": "DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱",
     "route.game.openGraphDescription": "Każde użyte słowo podpowiada pozycję i kolejność liter w haśle.",
+    "route.aboutLanguage.title": "Statystyki liter i słów w języku polskim: najczęstsze litery, długości słów i pierwsze litery",
+    "route.aboutLanguage.metaDescription": "Analiza słownika języka polskiego.",
     "common.yes": "Tak",
     "common.no": "Nie",
     "common.play": "Graj",

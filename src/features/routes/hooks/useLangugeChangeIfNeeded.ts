@@ -10,7 +10,6 @@ import { getLangFromUrl, getLangFromBrowser } from '@utils/lang';
 
 import useEffectChange from '@hooks/useEffectChange';
 import { useLocation } from 'wouter';
-import { rootPath } from '../const';
 
 /*
     There are two languages used by the app: one for translations (i18n), and the other for the game.

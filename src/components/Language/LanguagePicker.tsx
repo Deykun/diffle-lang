@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG } from '@const';
+import { SUPPORTED_LANGS, SUPPORTED_DICTIONARY_BY_LANG, ROOT_PATH } from '@const';
 
 import { useDispatch, useSelector } from '@store';
 import { track, setToast } from '@store/appSlice';
@@ -20,7 +20,6 @@ import Image from '@components/Image/Image';
 import Modal from '@components/Modal/Modal';
 
 import './LanguagePicker.scss';
-import { rootPath } from '@features/routes/const';
 
 type Props = {
   className?: string,
@@ -119,7 +118,7 @@ const LanguagePicker = ({ children, className, place }: Props) => {
                                   <Image
                                     key={lang}
                                     className="language-picker-flag"
-                                    src={`${rootPath}flags/${lang}.svg`}
+                                    src={`${ROOT_PATH}flags/${lang}.svg`}
                                     alt=""
                                   />
                                   <span>

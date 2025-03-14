@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { DictionaryInfo, DictionaryInfoLetters } from '@common-types';
+import { ROOT_PATH } from '@const';
 
 import { useSelector } from '@store';
 
@@ -22,10 +23,10 @@ const getDicitonaryData = async (lang: string | undefined): Promise<DictionaryIn
     return undefined;
   }
 
-  const response = await fetch(`./dictionary/${lang}/info.json`);
+  const response = await fetch(`${ROOT_PATH}dictionary/${lang}/info.json`);
   const rawData = await response.json();
 
-  const responseWordleBest = await fetch(`./dictionary/${lang}/info-wordle-best.json`);
+  const responseWordleBest = await fetch(`${ROOT_PATH}dictionary/${lang}/info-wordle-best.json`);
   const rawDataWordleBest = await responseWordleBest.json();
 
   rawData.spellchecker.wordle.bestMax = rawDataWordleBest.best.max;

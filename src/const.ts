@@ -5,6 +5,8 @@ export const isDev = (window.location.origin || '')?.includes('localhost') || fa
 
 export const WORD_MAXLENGTH = 15;
 
+export const ROOT_PATH = '/diffle-lang/';
+
 // If breaking changes are released you can set a date stamp here and it will block the game
 export const UPDATE_BLOCK_DAILY = '12.02.2025';
 
