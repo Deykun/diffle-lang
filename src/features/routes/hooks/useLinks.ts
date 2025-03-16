@@ -16,8 +16,17 @@ function useLink() {
   }, [location]);
 
   const getLinkPath = useCallback(
-    ({ lang, route }: { lang?: string; route: SupportedRoutes }) => {
-      return getRoute({ lang: lang ?? i18n.language, route });
+    ({
+      route,
+      lang,
+      shouldHaveDomain = false,
+    }: {
+      route: SupportedRoutes;
+      lang?: string;
+      shouldHaveDomain?: boolean;
+    }) => {
+      const domainPart = shouldHaveDomain ? window?.location?.origin : '';
+      return domainPart + getRoute({ lang: lang ?? i18n.language, route });
     },
     [i18n.language],
   );

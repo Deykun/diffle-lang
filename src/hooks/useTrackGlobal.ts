@@ -4,20 +4,22 @@ import { useSelector, useDispatch } from '@store';
 import { track } from '@store/appSlice';
 import { selectCookiesPolicyHash } from '@store/selectors';
 
+import useLinks from '@features/routes/hooks/useLinks';
+
 function useTrackGlobal() {
   const dispatch = useDispatch();
+  const { activeLink } = useLinks();
 
   const cookiesRefresherString = useSelector(selectCookiesPolicyHash);
 
-  const activePane = useSelector(state => state.app.pane.active);
   const gameLanguage = useSelector(state => state.game.language);
   const gameMode = useSelector(state => state.game.mode);
 
   useEffect(() => {
-    if (activePane && gameLanguage) {
-      dispatch(track({ name: `pane_view_${gameLanguage}_${activePane.replaceAll('-', '_').toLocaleLowerCase()}` }));
+    if (activeLink.route) {
+      dispatch(track({ name: `route_${activeLink.lang}_${activeLink.route}` }));
     }
-  }, [cookiesRefresherString, dispatch, activePane, gameLanguage]);
+  }, [cookiesRefresherString, dispatch, activeLink.route, activeLink.lang, gameLanguage]);
 
   useEffect(() => {
     if (gameMode && gameLanguage) {

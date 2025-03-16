@@ -1,5 +1,5 @@
 export function keepIfInEnum<T>(
-  value: string | undefined | number,
+  value: string | undefined | number | null,
   enumObject: { [key: string]: T },
 ) {
   if (!value) {

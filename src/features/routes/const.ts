@@ -21,16 +21,20 @@ type SeoData = {
   openGraphDescription: string;
 };
 
-const getSeoData = (strings: { [key: string]: string }, route: string, fallback?: SeoData): SeoData => ({
-  title: strings[`route.${route}.title`] ?? fallback?.title,
-  metaDescription: strings[`route.${route}.metaDescription`] ?? fallback?.title,
-  openGraphTitle:
-    strings[`route.${route}.openGraphTitle`] ?? strings[`route.${route}.title`] ?? fallback?.title,
-  openGraphDescription:
-    strings[`route.${route}..openGraphDescription`] ??
-    strings[`route.${route}.metaDescription`] ??
-    fallback?.title,
-});
+const getSeoData = (strings: { [key: string]: string }, route: string, fallback?: SeoData): SeoData => {
+  const fallbackTitle = fallback?.title || '';
+  const fallbackMetaDescription = fallback?.metaDescription || '';
+  const fallbackOpenGraphTitle = strings[`route.${route}.title`] || fallback?.openGraphTitle || '';
+  const fallbackOpenGraphDescription =
+    strings[`route.${route}.metaDescription`] || fallback?.openGraphDescription || '';
+
+  return {
+    title: strings[`route.${route}.title`] || fallbackTitle,
+    metaDescription: strings[`route.${route}.metaDescription`] || fallbackMetaDescription,
+    openGraphTitle: strings[`route.${route}.openGraphTitle`] || fallbackOpenGraphTitle,
+    openGraphDescription: strings[`route.${route}.openGraphDescription`] || fallbackOpenGraphDescription,
+  };
+};
 
 export type LinkData = SeoData & {
   path: string;
@@ -61,7 +65,6 @@ const routesData = SUPPORTED_LANGS.reduce(
       const path = route === 'game' ? lang : `${lang}/${resources[lang].translation[`route.${route}`]}`;
 
       if (!path) {
-        // eslint-disable-next-line @typescript-eslint/no-throw-literal
         throw `Missing path for ${lang} ${route}!`;
       }
 

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useSelector } from '@store';
@@ -10,6 +10,9 @@ import {
   getStatisticForFilter,
   getStreakForFilter,
   getStatisticCardDataFromStatistics,
+  ModeFilter,
+  CharactersFilter,
+  LengthFilter,
 } from '@utils/statistics';
 
 import useScrollEffect from '@hooks/useScrollEffect';
@@ -23,10 +26,13 @@ import StatisticsActions from './StatisticsActions';
 import { INITIAL_FILTERS } from './constants';
 
 import './Statistics.scss';
+import { useSearch } from 'wouter';
+import { getFiltersFromSearch } from './utils/statistics-params';
 
 const Statistics = () => {
   const gameLanguage = useSelector((state) => state.game.language);
-  const [filtersData, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
+  const searchString = useSearch();
+  const [, setFiltersData] = useState<Filters>(INITIAL_FILTERS);
   const [{ statisticsData, streakData }, setData] = useState<{
     statisticsData: StatisticDataForCard | undefined;
     streakData: Streak | undefined;
@@ -38,6 +44,10 @@ const Statistics = () => {
   const { t } = useTranslation();
 
   useScrollEffect('top', []);
+
+  const filtersData = useMemo(() => {
+    return getFiltersFromSearch(searchString);
+  }, [searchString]);
 
   const refreshStatitics = useCallback(() => {
     if (!gameLanguage) {
@@ -53,7 +63,7 @@ const Statistics = () => {
       statisticsData: statisticsDataToUpadate,
       streakData: streakDataToUpdate,
     });
-  }, [filtersData, gameLanguage]);
+  }, [gameLanguage, filtersData]);
 
   useEffect(() => {
     refreshStatitics();
