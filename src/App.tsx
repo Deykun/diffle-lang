@@ -14,6 +14,7 @@ import usePanes from '@hooks/usePanes';
 import useTrackGlobal from '@hooks/useTrackGlobal';
 import useUnlockEasterDaysIfPossible from '@hooks/useUnlockEasterDaysIfPossible';
 import useUpdateIfSpecialWord from '@features/specialWords/hooks/useUpdateIfSpecialWord';
+import useAprilFoolsJokeIfApplicable from '@features/primaAprilisHieroglyphs/hooks/useAprilFoolsJokeIfApplicable';
 
 import Header from '@components/Header';
 
@@ -44,6 +45,8 @@ function App() {
     dispatch(loadGame());
   }, [dispatch, gameLanguage, gameMode, wordToGuess, todayStamp, isErrorLoading]);
 
+  useAprilFoolsJokeIfApplicable();
+  
   useAppUpdateIfNeeded();
 
   useLangugeChangeIfNeeded();
