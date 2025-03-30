@@ -3,7 +3,7 @@ import { GameStatus } from '@common-types';
 import { useSelector } from '@store';
 import { selectWordToSubmit } from '@store/selectors';
 
-export default function usePrimaAprilisJokeIfNeeded() {
+export default function useAprilFoolsJokeIfApplicable() {
   const status = useSelector(state => state.game.status);
   const guessesLenght = useSelector(state => state.game.guesses.length);
   const wordToSubmit = useSelector(selectWordToSubmit);
