@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.38
+#### Version 3.39
+- **New**: Prima Aprilis hieroglyphs joke
+
+#### Version 3.38 (11.03.2025)
 - **New**: Colors and labels "expected" / "unexpected" were added to the word hints
 - **New**: Hint about the wrong word start doesn't require all known letters to be typed
 - **New**: If we know more required letters, we are hinted at if some are missing in the typed word
