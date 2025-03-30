@@ -1,0 +1,32 @@
+/*
+  https://all-free-download.com/font/download/egyptian_hieroglyphs_silhouette_6906905.html
+  Author: Lene Kristiansen
+*/
+
+@font-face {
+  font-display: swap;
+  font-family: "PrimaAprimaFont";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./EgyptianHieroglyphsSilhouet.woff2") format("woff2");
+}
+
+/*
+  https://github.com/adobe-fonts/adobe-blank
+*/
+
+@font-face {
+  font-display: swap;
+  font-family: "Adobe Blank";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./AdobeBlank.woff2") format("woff2");
+}
+
+body[data-prima-aprilis="egypt"] {
+  .header-title,
+  .keyboard,
+  .game {
+    font-family: "PrimaAprimaFont", "Adobe Blank", "Baloo 2", sans-serif !important;
+  }
+}
