@@ -25,8 +25,56 @@
 
 body[data-prima-aprilis="egypt"] {
   .header-title,
-  .keyboard,
   .game {
-    font-family: "PrimaAprimaFont", "Adobe Blank", "Baloo 2", sans-serif !important;
+    animation: fakeHieroglyphs 0.5s ease-in-out forwards;
+  }
+
+  .key > span:first-child {
+    transform: scale(1.5);
+    animation: fakeHieroglyphsKey 0.5s ease-in-out forwards;
+  }
+}
+
+@keyframes fakeHieroglyphs {
+  0% {
+    font-family: "PrimaAprimaFont", "Adobe Blank", "Baloo 2", sans-serif;
+  }
+
+  20% {
+    font-family: inherit;
+  }
+
+  45% {
+    font-family: "PrimaAprimaFont", "Adobe Blank", "Baloo 2", sans-serif;
+  }
+
+  75% {
+    font-family: inherit;
+  }
+
+  100% {
+    font-family: "PrimaAprimaFont", "Adobe Blank", "Baloo 2", sans-serif;
+  }
+}
+
+@keyframes fakeHieroglyphsKey {
+  0% {
+    scale: 1.2;
+  }
+
+  20% {
+    scale: 1;
+  }
+
+  45% {
+    scale: 1.5;
+  }
+
+  75% {
+    scale: 1;
+  }
+
+  100% {
+    scale: 1.2;
   }
 }

@@ -40,10 +40,23 @@ export default function useAprilFoolsJokeIfApplicable() {
     if (shouldAddScript) {
       const moreThan0Guesses = guessesLenght > 0;
       const emptyWordToSubmit = wordToSubmit.length === 0;
-      const validStatus = [GameStatus.Guessing, GameStatus.Won, GameStatus.Lost].includes(status);
+      const validStatus = [
+        GameStatus.Guessing,
+        GameStatus.Won,
+        GameStatus.Lost,
+      ].includes(status);
 
       const shouldUseJoke = moreThan0Guesses && emptyWordToSubmit && validStatus;
-      document.body.setAttribute('data-prima-aprilis', shouldUseJoke ? 'egypt' : '');
+      const newValue = shouldUseJoke ? 'egypt' : '';
+      const currentValue = document.body.getAttribute('data-prima-aprilis');
+
+      if (currentValue !== newValue) {
+        document.body.setAttribute('data-prima-aprilis', newValue);
+
+        if (navigator.vibrate) {
+          navigator.vibrate(shouldUseJoke ? [50, 100, 50, 10, 50, 100] : 50);
+        }
+      }
     }
   }, [shouldAddScript, status, guessesLenght, wordToSubmit.length]);
 }
