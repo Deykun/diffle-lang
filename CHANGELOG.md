@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.39
+#### Version 3.39.1
+- **New**: The Hieroglyphs mode now has animation and vibration when toggled
+
+#### Version 3.39 (30.03.2025)
 - **New**: Prima Aprilis hieroglyphs joke
 
 #### Version 3.38 (11.03.2025)
