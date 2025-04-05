@@ -9,22 +9,17 @@ import IconDictionary from '@components/Icons/IconDictionary';
 import './AboutLanguageChartFooter.scss';
 
 type Props = {
-  lng?: string,
-  data: DictionaryInfo
+  lng?: string;
+  data: DictionaryInfo;
 };
 
 const AboutLanguageChartFooter = ({
   lng,
   data: {
     spellchecker: {
-      accepted: {
-        all,
-      },
+      accepted: { all },
     },
-    meta: {
-      spellchecker,
-      spellcheckerAlt,
-    },
+    meta: { spellchecker, spellcheckerAlt },
   },
 }: Props) => {
   const { t } = useTranslation();
@@ -38,20 +33,20 @@ const AboutLanguageChartFooter = ({
   const diffleURL = window.location.href.replace('http://', '').replace('https://', '').split('?')[0];
 
   return (
-      <div className="chart-footer">
-          <IconDictionary />
-          <div
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: t('statistics.basedOn', {
-                lng,
-                product: `<span>${diffleURL}</span>`,
-                words: `<span>${formatLargeNumber(all)}</span>`,
-                source: sourceHTML,
-              }),
-            }}
-          />
-      </div>
+    <div className="chart-footer">
+      <IconDictionary />
+      <div
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: t('statistics.basedOn', {
+            lng,
+            product: `<span>${diffleURL}</span>`,
+            words: `<span>${formatLargeNumber(all)}</span>`,
+            source: sourceHTML,
+          }),
+        }}
+      />
+    </div>
   );
 };
 

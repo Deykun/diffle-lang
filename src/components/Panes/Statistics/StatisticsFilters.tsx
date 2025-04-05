@@ -1,30 +1,15 @@
-import {
-  useEffect, useState, Dispatch, SetStateAction,
-} from 'react';
+import { useEffect, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'wouter';
 
 import { WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS } from '@const';
 
-import { useDispatch, useSelector } from '@store';
-import { track } from '@store/appSlice';
-import {
-  selectGameLanguageKeyboardInfo,
-} from '@store/selectors';
+import { useSelector } from '@store';
+import { selectGameLanguageKeyboardInfo } from '@store/selectors';
 
-import {
-  keepIfInEnum,
-} from '@utils/ts';
-import {
-  Filters,
-  ModeFilter,
-  CharactersFilter,
-  LengthFilter,
-} from '@utils/statistics';
+import { ModeFilter, CharactersFilter, LengthFilter } from '@utils/statistics';
 
-import usePanes from '@hooks/usePanes';
-import useVibrate from '@hooks/useVibrate';
 import useEnhancedDetails from '@hooks/useEnhancedDetails';
-import useEffectChange from '@hooks/useEffectChange';
 
 import IconAnimatedCaret from '@components/Icons/IconAnimatedCaret';
 import IconDay from '@components/Icons/IconDay';
@@ -37,176 +22,164 @@ import IconRulerBig from '@components/Icons/IconRulerBig';
 
 import ButtonTile from '@components/Button/ButtonTile';
 
-import { INITIAL_FILTERS } from './constants';
 
 import '../Settings/Settings.scss';
+import { StatisticUrlFilters, getFilterURLValues, getFiltersFromSearch } from './utils/statistics-params';
 
-type Props = {
-  setFiltersData: Dispatch<SetStateAction<Filters>>
-};
 
-const StatisticsFilters = ({ setFiltersData }: Props) => {
-  const dispatch = useDispatch();
-  const {
-    paneParams: {
-      modeFilter: paneModeFilter = '',
-    },
-  } = usePanes();
-  const initialModeFilter = keepIfInEnum<ModeFilter>(paneModeFilter, ModeFilter) ?? INITIAL_FILTERS.modeFilter;
-
+const StatisticsFilters = () => {
   const { hasSpecialCharacters: hasLanguageSpecialCharacters } = useSelector(selectGameLanguageKeyboardInfo);
-  const [modeFilter, setModeFilter] = useState<ModeFilter>(initialModeFilter);
-  const [charactersFilter, setModeCharactersFilter] = useState<CharactersFilter>(INITIAL_FILTERS.charactersFilter);
-  const [lengthFilter, setLengthFilter] = useState<LengthFilter>(INITIAL_FILTERS.lengthFilter);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const filtersData = useMemo(() => {
+    return getFiltersFromSearch(searchParams);
+  }, [searchParams]);
 
   const { t } = useTranslation();
 
-  const { vibrate } = useVibrate();
-
   const { handleClickSummary } = useEnhancedDetails();
 
-  useEffectChange(() => {
-    vibrate();
-  }, [modeFilter, charactersFilter, lengthFilter]);
+  const handleFilterChange = useCallback((name: StatisticUrlFilters, value: string) => {
+    setSearchParams((prev) => ({
+      ...getFilterURLValues(prev),
+      [name]: value,
+    }), {
+      replace: true,
+    });
+  }, []);
 
-  useEffect(() => {
-    const filtersData = {
-      modeFilter,
-      charactersFilter,
-      lengthFilter,
-    };
-
-    dispatch(track({ name: 'click_statistics_filter', params: { filters: `${modeFilter}_${charactersFilter}_${lengthFilter}` } }));
-
-    setFiltersData(filtersData);
-  }, [modeFilter, charactersFilter, lengthFilter, setFiltersData, dispatch]);
 
   useEffect(() => {
     // After changing language
-    const shouldResetSpecialCharacters = !hasLanguageSpecialCharacters && charactersFilter !== CharactersFilter.All;
+    const shouldResetSpecialCharacters =
+      !hasLanguageSpecialCharacters && filtersData.charactersFilter !== CharactersFilter.All;
     if (shouldResetSpecialCharacters) {
-      setModeCharactersFilter(CharactersFilter.All);
+      handleFilterChange('characters', CharactersFilter.All);
     }
-  }, [charactersFilter, hasLanguageSpecialCharacters]);
+  }, [filtersData.charactersFilter, hasLanguageSpecialCharacters]);
 
   return (
-      <details className="statistics-filters">
-          <summary onClick={handleClickSummary}>
-              <h3>{t('statistics.filters')}</h3>
-              <IconAnimatedCaret className="details-icon" />
-          </summary>
-          <div className="details-content">
-              <ul className="list-col-3">
-                  <li>
-                      <ButtonTile
-                        isActive={modeFilter === ModeFilter.All}
-                        onClick={() => setModeFilter(ModeFilter.All)}
-                      >
-                          <IconLayersAlt />
-                          <span>{t('statistics.filterAll')}</span>
-                      </ButtonTile>
-                  </li>
-                  <li>
-                      <ButtonTile
-                        isActive={modeFilter === ModeFilter.Daily}
-                        onClick={() => setModeFilter(ModeFilter.Daily)}
-                      >
-                          <IconDay />
-                          <span>{t('game.modeDaily')}</span>
-                      </ButtonTile>
-                  </li>
-                  <li>
-                      <ButtonTile
-                        isActive={modeFilter === ModeFilter.Practice}
-                        onClick={() => setModeFilter(ModeFilter.Practice)}
-                      >
-                          <IconInfinity />
-                          <span>{t('game.modePractice')}</span>
-                      </ButtonTile>
-                  </li>
-              </ul>
-              {hasLanguageSpecialCharacters && (
-              <ul className="list-col-3">
-                  <li>
-                      <ButtonTile
-                        isActive={charactersFilter === CharactersFilter.All}
-                        onClick={() => setModeCharactersFilter(CharactersFilter.All)}
-                      >
-                          <IconLayersAlt />
-                          <span>{t('statistics.filterAll')}</span>
-                      </ButtonTile>
-                  </li>
-                  <li>
-                      <ButtonTile
-                        isActive={charactersFilter === CharactersFilter.NoSpecial}
-                        onClick={() => setModeCharactersFilter(CharactersFilter.NoSpecial)}
-                      >
-                          <IconFlag />
-                          <span
-                            // eslint-disable-next-line react/no-danger
-                            dangerouslySetInnerHTML={{
-                              __html: t('statistics.specialCharactersWithout'),
-                            }}
-                          />
-                      </ButtonTile>
-                  </li>
-                  <li>
-                      <ButtonTile
-                        isActive={charactersFilter === CharactersFilter.Special}
-                        onClick={() => setModeCharactersFilter(CharactersFilter.Special)}
-                      >
-                          <IconFlagAlt />
-                          <span
-                            // eslint-disable-next-line react/no-danger
-                            dangerouslySetInnerHTML={{
-                              __html: t('statistics.specialCharactersWith'),
-                            }}
-                          />
-                      </ButtonTile>
-                  </li>
-              </ul>
-              )}
-              <ul className="list-col-3">
-                  <li>
-                      <ButtonTile
-                        isActive={lengthFilter === LengthFilter.All}
-                        onClick={() => setLengthFilter(LengthFilter.All)}
-                      >
-                          <IconLayersAlt />
-                          <span>{t('statistics.filterAll')}</span>
-                      </ButtonTile>
-                  </li>
-                  <li>
-                      <ButtonTile
-                        isActive={lengthFilter === LengthFilter.Short}
-                        onClick={() => setLengthFilter(LengthFilter.Short)}
-                      >
-                          <IconRulerSmall />
-                          <span
-                            // eslint-disable-next-line react/no-danger
-                            dangerouslySetInnerHTML={{
-                              __html: t('statistics.wordLengthShort', { to: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS }),
-                            }}
-                          />
-                      </ButtonTile>
-                  </li>
-                  <li>
-                      <ButtonTile
-                        isActive={lengthFilter === LengthFilter.Long}
-                        onClick={() => setLengthFilter(LengthFilter.Long)}
-                      >
-                          <IconRulerBig />
-                          <span
-                            // eslint-disable-next-line react/no-danger
-                            dangerouslySetInnerHTML={{
-                              __html: t('statistics.wordLengthLong', { above: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS }),
-                            }}
-                          />
-                      </ButtonTile>
-                  </li>
-              </ul>
-          </div>
-      </details>
+    <details className="statistics-filters">
+      <summary onClick={handleClickSummary}>
+        <h3>{t('statistics.filters')}</h3>
+        <IconAnimatedCaret className="details-icon" />
+      </summary>
+      <div className="details-content">
+        <ul className="list-col-3">
+          <li>
+            <ButtonTile
+              isActive={filtersData.modeFilter === ModeFilter.All}
+              onClick={() => handleFilterChange('mode', ModeFilter.All)}
+            >
+              <IconLayersAlt />
+              <span>{t('statistics.filterAll')}</span>
+            </ButtonTile>
+          </li>
+          <li>
+            <ButtonTile
+              isActive={filtersData.modeFilter === ModeFilter.Daily}
+              onClick={() => handleFilterChange('mode', ModeFilter.Daily)}
+            >
+              <IconDay />
+              <span>{t('game.modeDaily')}</span>
+            </ButtonTile>
+          </li>
+          <li>
+            <ButtonTile
+              isActive={filtersData.modeFilter === ModeFilter.Practice}
+              onClick={() => handleFilterChange('mode', ModeFilter.Practice)}
+            >
+              <IconInfinity />
+              <span>{t('game.modePractice')}</span>
+            </ButtonTile>
+          </li>
+        </ul>
+        {hasLanguageSpecialCharacters && (
+          <ul className="list-col-3">
+            <li>
+              <ButtonTile
+                isActive={filtersData.charactersFilter === CharactersFilter.All}
+                onClick={() => handleFilterChange('characters', CharactersFilter.All)}
+              >
+                <IconLayersAlt />
+                <span>{t('statistics.filterAll')}</span>
+              </ButtonTile>
+            </li>
+            <li>
+              <ButtonTile
+                isActive={filtersData.charactersFilter === CharactersFilter.NoSpecial}
+                onClick={() => handleFilterChange('characters', CharactersFilter.NoSpecial)}
+              >
+                <IconFlag />
+                <span
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
+                    __html: t('statistics.specialCharactersWithout'),
+                  }}
+                />
+              </ButtonTile>
+            </li>
+            <li>
+              <ButtonTile
+                isActive={filtersData.charactersFilter === CharactersFilter.Special}
+                onClick={() => handleFilterChange('characters', CharactersFilter.Special)}
+              >
+                <IconFlagAlt />
+                <span
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{
+                    __html: t('statistics.specialCharactersWith'),
+                  }}
+                />
+              </ButtonTile>
+            </li>
+          </ul>
+        )}
+        <ul className="list-col-3">
+          <li>
+            <ButtonTile
+              isActive={filtersData.lengthFilter === LengthFilter.All}
+              onClick={() => handleFilterChange('length', LengthFilter.All)}
+            >
+              <IconLayersAlt />
+              <span>{t('statistics.filterAll')}</span>
+            </ButtonTile>
+          </li>
+          <li>
+            <ButtonTile
+              isActive={filtersData.lengthFilter === LengthFilter.Short}
+              onClick={() => handleFilterChange('length', LengthFilter.Short)}
+            >
+              <IconRulerSmall />
+              <span
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html: t('statistics.wordLengthShort', {
+                    to: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS,
+                  }),
+                }}
+              />
+            </ButtonTile>
+          </li>
+          <li>
+            <ButtonTile
+              isActive={filtersData.lengthFilter === LengthFilter.Long}
+              onClick={() => handleFilterChange('length', LengthFilter.Long)}
+            >
+              <IconRulerBig />
+              <span
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html: t('statistics.wordLengthLong', {
+                    above: WINNING_WORD_IS_CONSIDER_LONG_AFTER_X_LATERS,
+                  }),
+                }}
+              />
+            </ButtonTile>
+          </li>
+        </ul>
+      </div>
+    </details>
   );
 };
 

@@ -1,6 +1,4 @@
-import {
-  Filters, ModeFilter, CharactersFilter, LengthFilter,
-} from '@utils/statistics';
+import { Filters, ModeFilter, CharactersFilter, LengthFilter } from '@utils/statistics';
 
 export const ALL_DATA_FILTERS: Filters = {
   modeFilter: ModeFilter.All,

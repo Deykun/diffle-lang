@@ -5,6 +5,8 @@ export const isDev = (window.location.origin || '')?.includes('localhost') || fa
 
 export const WORD_MAXLENGTH = 15;
 
+export const ROOT_PATH = '/diffle-lang/';
+
 // If breaking changes are released you can set a date stamp here and it will block the game
 export const UPDATE_BLOCK_DAILY = '12.02.2025';
 
@@ -143,7 +145,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   cs: {
     code: 'cs',
     languages: ['cs', 'cs-CZ'],
-    title: 'DIFFLE - Hra jako Wordle (v češtině, bez omezení znaků) 🇨🇿',
     keyLinesVariants: KEY_LINES_CS_VARIANTS,
     keyLinesToUse: KEY_LINES_CS_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_CS_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -159,7 +160,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   de: {
     code: 'de',
     languages: ['de', 'de-DE'],
-    title: 'DIFFLE - das Spiel wie Wordle (auf Deutsch, ohne Zeichenbegrenzung) 🇩🇪',
     keyLinesVariants: KEY_LINES_DE_VARIANTS,
     keyLinesToUse: KEY_LINES_DE_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_DE_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -176,7 +176,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   en: {
     code: 'en',
     languages: ['en', 'en-UK'],
-    title: 'DIFFLE - the game like Wordle (without character limit)',
     keyLinesVariants: KEY_LINES_EN_VARIANTS,
     keyLinesToUse: KEY_LINES_EN_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_EN_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -194,7 +193,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'es',
     languages: ['es'],
     isBeta: true,
-    title: 'DIFFLE - el juego similar a Wordle (sin límite de caracteres) 🇪🇸',
     keyLinesVariants: KEY_LINES_ES_VARIANTS,
     keyLinesToUse: KEY_LINES_ES_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_ES_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -211,7 +209,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'es',
     languages: ['es'],
     isBeta: true,
-    title: 'DIFFLE - peli kuin Wordle (ilman merkkirajoitusta) 🇫🇮',
     keyLinesVariants: KEY_LINES_FI_VARIANTS,
     keyLinesToUse: KEY_LINES_FI_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FI_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -227,7 +224,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   fr: {
     code: 'fr',
     languages: ['fr'],
-    title: 'DIFFLE - le jeu similaire à Wordle (en français, sans limite de caractères) 🇫🇷',
     keyLinesVariants: KEY_LINES_FR_VARIANTS,
     keyLinesToUse: KEY_LINES_FR_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_FR_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -245,7 +241,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
     code: 'it',
     languages: ['it'],
     isBeta: true,
-    title: 'DIFFLE - gioco simile a Wordle (in italiano, senza limite di caratteri) 🇮🇹',
     keyLinesVariants: KEY_LINES_IT_VARIANTS,
     keyLinesToUse: KEY_LINES_IT_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_IT_VARIANTS[0].keyLines.flatMap(key => key)],
@@ -261,7 +256,6 @@ export const SUPPORTED_DICTIONARY_BY_LANG: {
   pl: {
     code: 'pl',
     languages: ['pl', 'pl-PL'],
-    title: 'DIFFLE - gra jak Wordle (po polsku, bez limitu znaków) 🇵🇱',
     keyLinesVariants: KEY_LINES_PL_VARIANTS,
     keyLinesToUse: KEY_LINES_PL_VARIANTS[0].keyLines,
     allowedKeys: [...SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES, ...KEY_LINES_PL_VARIANTS[0].keyLines.flatMap(key => key)],

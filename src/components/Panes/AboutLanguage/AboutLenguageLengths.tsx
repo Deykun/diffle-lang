@@ -29,21 +29,17 @@ import AboutLanguageChartLanguageTitle from './AboutLanguageChartLanguageTitle';
 import './AboutLanguageLetters.scss';
 
 type Props = {
-  data: DictionaryInfo
+  data: DictionaryInfo;
 };
 
-const AboutLenguageLengths = ({
-  data,
-}: Props) => {
+const AboutLenguageLengths = ({ data }: Props) => {
   const {
     spellchecker: {
-      accepted: {
-        length,
-      },
+      accepted: { length },
     },
   } = data;
   const dispatch = useDispatch();
-  const gameLanguage = useSelector(state => state.game.language);
+  const gameLanguage = useSelector((state) => state.game.language);
 
   const [shouldShowLanguageTitle, setShouldShowLanguageTitle] = useState(false);
   const [shouldForceEnglishChart, setShouldForceEnglishChart] = useState(false);
@@ -63,7 +59,10 @@ const AboutLenguageLengths = ({
 
       const { stampOnlyTime } = getNow();
 
-      download(dataUrl, `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(':', '').replaceAll(' ', '')}.jpeg`);
+      download(
+        dataUrl,
+        `diffle-${gameLanguage}-${stampOnlyTime.replaceAll(':', '').replaceAll(' ', '')}.jpeg`,
+      );
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error);
@@ -75,49 +74,51 @@ const AboutLenguageLengths = ({
   const lng = shouldForceEnglishChart ? 'en' : gameLanguage;
 
   return (
-      <section>
-          <div className={clsx('wrapper-padding-escape')}>
-              <div id="sharable-lengths" className={clsx('statistics-card-wrapper')}>
-                  {shouldShowLanguageTitle && <AboutLanguageChartLanguageTitle lng={lng} />}
-                  <BarChart lng={lng} entries={length} />
-                  <AboutLanguageChartFooter lng={lng} data={data} />
-              </div>
-          </div>
-          <div className="keyboard-heatmap-actions">
-              <Button onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
-                  <IconPencil />
-              </Button>
-              <Button className="about-language-download" onClick={handleDownload} isInverted hasBorder={false}>
-                  <IconPicture />
-                  <span>{t('common.download')}</span>
-              </Button>
-          </div>
-          <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-              <div className="settings">
-                  <h3>{t('settings.title')}</h3>
-                  <ul>
-                      <li>
-                          <ButtonTile
-                            isActive={shouldShowLanguageTitle}
-                            onClick={() => setShouldShowLanguageTitle(value => !value)}
-                          >
-                              <IconDictionary />
-                              <span>{t('statistics.showTitleWithLanguage')}</span>
-                          </ButtonTile>
-                      </li>
-                      <li>
-                          <ButtonTile
-                            isActive={shouldForceEnglishChart}
-                            onClick={() => setShouldForceEnglishChart(value => !value)}
-                          >
-                              <IconTranslation />
-                              <span><small>Chart labels in English</small></span>
-                          </ButtonTile>
-                      </li>
-                  </ul>
-              </div>
-          </Modal>
-      </section>
+    <section>
+      <div className={clsx('wrapper-padding-escape')}>
+        <div id="sharable-lengths" className={clsx('statistics-card-wrapper')}>
+          {shouldShowLanguageTitle && <AboutLanguageChartLanguageTitle lng={lng} />}
+          <BarChart lng={lng} entries={length} />
+          <AboutLanguageChartFooter lng={lng} data={data} />
+        </div>
+      </div>
+      <div className="keyboard-heatmap-actions">
+        <Button onClick={() => setIsOpen(true)} isInverted isText hasBorder={false}>
+          <IconPencil />
+        </Button>
+        <Button className="about-language-download" onClick={handleDownload} isInverted hasBorder={false}>
+          <IconPicture />
+          <span>{t('common.download')}</span>
+        </Button>
+      </div>
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        <div className="settings">
+          <h3>{t('settings.title')}</h3>
+          <ul>
+            <li>
+              <ButtonTile
+                isActive={shouldShowLanguageTitle}
+                onClick={() => setShouldShowLanguageTitle((value) => !value)}
+              >
+                <IconDictionary />
+                <span>{t('statistics.showTitleWithLanguage')}</span>
+              </ButtonTile>
+            </li>
+            <li>
+              <ButtonTile
+                isActive={shouldForceEnglishChart}
+                onClick={() => setShouldForceEnglishChart((value) => !value)}
+              >
+                <IconTranslation />
+                <span>
+                  <small>Chart labels in English</small>
+                </span>
+              </ButtonTile>
+            </li>
+          </ul>
+        </div>
+      </Modal>
+    </section>
   );
 };
 

@@ -1,16 +1,13 @@
 import { useEffect } from 'react';
 
-import { Pane as PaneType } from '@common-types';
-
 import { LOCAL_STORAGE } from '@const';
 
 import { useSelector, useDispatch } from '@store';
 import { loadGame } from '@store/gameSlice';
 
 import useAppUpdateIfNeeded from '@hooks/useAppUpdateIfNeeded';
-import useLangugeChangeIfNeeded from '@hooks/useLangugeChangeIfNeeded';
+import useLangugeChangeIfNeeded from '@features/routes/hooks/useLangugeChangeIfNeeded';
 import useAddTrackersScriptsIfNeeded from '@hooks/useAddTrackersScriptsIfNeeded';
-import usePanes from '@hooks/usePanes';
 import useTrackGlobal from '@hooks/useTrackGlobal';
 import useUnlockEasterDaysIfPossible from '@hooks/useUnlockEasterDaysIfPossible';
 import useUpdateIfSpecialWord from '@features/specialWords/hooks/useUpdateIfSpecialWord';
@@ -18,14 +15,9 @@ import useAprilFoolsJokeIfApplicable from '@features/primaAprilisHieroglyphs/hoo
 
 import Header from '@components/Header';
 
-import CookiesPopup from '@components/Cookies/CookiesPopup';
+import Routes from '@features/routes/components/Routes/Routes';
 
-import Game from '@components/Panes/Game/Game';
-import Help from '@components/Panes/Help/Help';
-import Settings from '@components/Panes/Settings/Settings';
-import Statistics from '@components/Panes/Statistics/Statistics';
-import YearSummary from '@components/Panes/YearSummary/YearSummary';
-import AboutLanguage from '@components/Panes/AboutLanguage/AboutLanguage';
+import CookiesPopup from '@components/Cookies/CookiesPopup';
 
 import Toast from '@components/Toast/Toast';
 
@@ -38,8 +30,6 @@ function App() {
   const gameMode = useSelector(state => state.game.mode);
   const todayStamp = useSelector(state => state.game.today);
   const isErrorLoading = useSelector(state => state.game.isErrorLoading);
-
-  const { pane } = usePanes();
 
   useEffect(() => {
     dispatch(loadGame());
@@ -80,12 +70,7 @@ function App() {
           <Header />
           <main>
               <Toast />
-              {pane === PaneType.Help && <Help />}
-              {pane === PaneType.Game && <Game />}
-              {pane === PaneType.Settings && <Settings />}
-              {pane === PaneType.Statistics && <Statistics />}
-              {pane === PaneType.YearSummary && <YearSummary />}
-              {pane === PaneType.AboutLanguage && <AboutLanguage />}
+              <Routes />
           </main>
           <CookiesPopup />
       </div>

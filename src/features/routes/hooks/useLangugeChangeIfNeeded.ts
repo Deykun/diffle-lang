@@ -9,6 +9,7 @@ import { setGameLanguage } from '@store/gameSlice';
 import { getLangFromUrl, getLangFromBrowser } from '@utils/lang';
 
 import useEffectChange from '@hooks/useEffectChange';
+import { useLocation } from 'wouter';
 
 /*
     There are two languages used by the app: one for translations (i18n), and the other for the game.
@@ -17,34 +18,13 @@ import useEffectChange from '@hooks/useEffectChange';
     Once the language of the game is changed, the mechanism for restoring the game is triggered the same to the game mode change.
 */
 export default function useLangugeChangeIfNeeded() {
-  const isGameUpdating = useSelector(state => state.game.isProcessing || state.game.isLoadingGame);
+  const [location, navigate] = useLocation();
+  const gameLanguage = useSelector((state) => state.game.language);
+  const isGameUpdating = useSelector((state) => state.game.isProcessing || state.game.isLoadingGame);
   const [wasAppLanguageDetected, setWasAppLanguageDetected] = useState(false);
   const dispatch = useDispatch();
-  const gameLanguage = useSelector(state => state.game.language);
 
   const { i18n } = useTranslation();
-
-  useEffectChange(() => {
-    const { language: appLanguage } = i18n;
-    const langFromUrl = getLangFromUrl();
-
-    if (!langFromUrl || appLanguage !== langFromUrl) {
-      const currentUrl = window.location.href.replace(window.location.search, '');
-      const newLocation = `${currentUrl.replace(`diffle-lang/${langFromUrl}`, 'diffle-lang/')}${appLanguage}`;
-
-      const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
-      document.title = title;
-      document.documentElement.lang = appLanguage;
-
-      window.history.replaceState(null, title, newLocation);
-    }
-
-    const { title } = SUPPORTED_DICTIONARY_BY_LANG[appLanguage];
-    if (appLanguage && title) {
-      document.title = title;
-      document.documentElement.lang = appLanguage;
-    }
-  }, [wasAppLanguageDetected, i18n.language]);
 
   useEffect(() => {
     if (!isGameUpdating && wasAppLanguageDetected) {

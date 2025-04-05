@@ -119,6 +119,7 @@ const SharedContent = () => {
 
     setHash(sharedResult);
 
+    // TODO: replace with some kind of logic
     const isFirstGame = getInitPane() === Pane.Help;
     const shouldAutoOpenSharedResult = !isFirstGame && canUserSeeUsedWords;
 

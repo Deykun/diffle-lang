@@ -1,7 +1,8 @@
+import { ROOT_PATH } from '@const';
 import { getNormalizedKey } from './helpers';
 
 type FetchedWordsListByKeys = {
-  [key: string]: string[]
+  [key: string]: string[];
 };
 
 export const DoesWordExistErrorTypes = {
@@ -9,12 +10,12 @@ export const DoesWordExistErrorTypes = {
   Fetch: 'fetch',
 } as const;
 
-type DoesWordExistErrorType = typeof DoesWordExistErrorTypes[keyof typeof DoesWordExistErrorTypes];
+type DoesWordExistErrorType = (typeof DoesWordExistErrorTypes)[keyof typeof DoesWordExistErrorTypes];
 
 type GetDoesWordExistReport = {
-  doesWordExist: boolean,
-  isError: boolean,
-  errorType?: DoesWordExistErrorType
+  doesWordExist: boolean;
+  isError: boolean;
+  errorType?: DoesWordExistErrorType;
 };
 
 const cachedKeys: FetchedWordsListByKeys = {};
@@ -36,7 +37,7 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
 
   if (!cachedKeys[cacheKey]) {
     try {
-      const response = await fetch(`./dictionary/${lang}/spelling/chunk-${key}.json`).catch((error) => {
+      const response = await fetch(`${ROOT_PATH}dictionary/${lang}/spelling/chunk-${key}.json`).catch((error) => {
         throw error;
       });
 
@@ -70,11 +71,14 @@ export const getDoesWordExist = async (word: string, lang: string): Promise<GetD
 };
 
 type KeyWithIndex = {
-  key: string,
-  index: number,
+  key: string;
+  index: number;
 };
 
-export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[], lang: string): Promise<string[]> => {
+export const getWordsFromKeysWithIndexes = async (
+  keysWithIndexes: KeyWithIndex[],
+  lang: string,
+): Promise<string[]> => {
   const words = [];
 
   // eslint-disable-next-line no-restricted-syntax
@@ -85,7 +89,7 @@ export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[
 
     try {
       // eslint-disable-next-line no-await-in-loop
-      const response = await fetch(`./dictionary/${lang}/spelling/chunk-${key}.json`).catch((error) => {
+      const response = await fetch(`${ROOT_PATH}dictionary/${lang}/spelling/chunk-${key}.json`).catch((error) => {
         throw error;
       });
 
@@ -112,18 +116,16 @@ export const getWordsFromKeysWithIndexes = async (keysWithIndexes: KeyWithIndex[
 };
 
 export const getWordsIndexesChunks = (words: string[], lang: string) => {
-  const keysWithWords = words.map(word => ({ word, key: getNormalizedKey(word, lang) }));
-  const hasAllWordsFetched = keysWithWords.every(
-    ({ word, key }) => {
-      if (!key) {
-        return false;
-      }
+  const keysWithWords = words.map((word) => ({ word, key: getNormalizedKey(word, lang) }));
+  const hasAllWordsFetched = keysWithWords.every(({ word, key }) => {
+    if (!key) {
+      return false;
+    }
 
-      const cacheKey = getCacheKey(lang, key);
+    const cacheKey = getCacheKey(lang, key);
 
-      return Array.isArray(cachedKeys[cacheKey]) && cachedKeys[cacheKey].includes(word);
-    },
-  );
+    return Array.isArray(cachedKeys[cacheKey]) && cachedKeys[cacheKey].includes(word);
+  });
 
   if (!hasAllWordsFetched) {
     return [];
@@ -135,7 +137,10 @@ export const getWordsIndexesChunks = (words: string[], lang: string) => {
     return {
       word,
       key,
-      index: cachedKeys && cachedKeys[cacheKey] ? cachedKeys[cacheKey].findIndex(keyWords => word === keyWords) : -1,
+      index:
+        cachedKeys && cachedKeys[cacheKey]
+          ? cachedKeys[cacheKey].findIndex((keyWords) => word === keyWords)
+          : -1,
     };
   });
 };

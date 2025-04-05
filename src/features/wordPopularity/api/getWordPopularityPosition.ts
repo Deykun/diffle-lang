@@ -1,3 +1,4 @@
+import { ROOT_PATH } from '@const';
 import { getNormalizedKey } from '../../../api/helpers';
 
 type FetchedWordsListByKeys = {
@@ -21,7 +22,7 @@ export const getWordPopularityPosition = async (word: string, lang: string): Pro
 
   if (!cachedKeys[cacheKey]) {
     try {
-      const response = await fetch(`./dictionary/${lang}/popularity/chunk-${key}.json`).catch((error) => {
+      const response = await fetch(`${ROOT_PATH}dictionary/${lang}/popularity/chunk-${key}.json`).catch((error) => {
         throw error;
       });
 
