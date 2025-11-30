@@ -11,9 +11,11 @@ let index = 1;
 export const getWordsFromDictionary = (dictionary: string, {
   pattern,
   lang,
+  limit = Infinity,
 }: {
   pattern: SUPPORTED_PATTERNS,
   lang: string,
+  limit?: number
 }) => {
   const uniqueLines = [... new Set(dictionary.split(/\r?\n/).filter(Boolean).map((line) => line.toLowerCase().replace(/\s+/g,' ').trim()))] as string[];
   console.log('');
@@ -44,6 +46,12 @@ export const getWordsFromDictionary = (dictionary: string, {
   console.log(` - ${chalk.green(formatLargeNumber(uniqueLines.length))} parsed lines`);
 
   index = index + 1;
+
+  if (validWords.length > limit) {
+    console.log(` - valid words limited to ${chalk.green(formatLargeNumber(limit))}`);
+
+    return validWords.slice(0, limit);
+  }
 
   return validWords;
 }

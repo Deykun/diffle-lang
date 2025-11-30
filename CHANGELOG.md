@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.39.2
+#### Version 3.40
+- **New**: More English winning words
+
+#### Version 3.39.2 (30.11.2025)
 - **Fix**: Removed duplicated tip "expected: E-T, E-T, E-T"
 
 #### Version 3.39.1 (01.04.2025)

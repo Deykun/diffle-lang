@@ -6,7 +6,7 @@ import { removeDiacratics, getNormalizedKey } from '../../src/api/helpers';
 import { formatLargeNumber } from '../../src/utils/format';
 
 import {
-    INITAL_DICTIONARY_STATISTICS,
+    INITIAL_DICTIONARY_STATISTICS,
     MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
     MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
     MINIMUM_LENGTH_FOR_A_WINNING_WORD,
@@ -179,7 +179,7 @@ type actionBuildDictionaryParams = {
     BLOCKED_PARTS: string[],
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD: string[],
     DICTIONARIES: any,
-    MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD?: number,
+    MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD?: number,
     MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD?: number,
     MAXIMUM_LENGTH_OF_WINNING_WORD?: number,
     EASTER_EGG_DAYS: any,
@@ -192,7 +192,7 @@ export const actionBuildDictionary = (
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
-        MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD = MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
+        MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD = MAXIMUM_LENGHT_FOR_A_WORD_IN_ABOUT_LANGUAGE,
         MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD = MAXIMUM_LENGTH_FOR_A_SPELLCHEKER_WORD,
         MAXIMUM_LENGTH_OF_WINNING_WORD = MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
         EASTER_EGG_DAYS: EASTER_EGG_DAYS_FOR_LANG = {},
@@ -245,7 +245,7 @@ export const actionBuildDictionary = (
         ...EASTER_EGG_DAYS_FOR_LANG,
     };
 
-    const statistics = INITAL_DICTIONARY_STATISTICS;
+    const statistics = INITIAL_DICTIONARY_STATISTICS;
 
     const hasOnlyWordleParam = process.argv.includes('only-wordle');
 
@@ -346,7 +346,7 @@ export const actionBuildDictionary = (
         const key = getNormalizedKey(word, LANG);
 
         if (key) {
-            if (word.length <= MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD) {
+            if (word.length <= MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD) {
                 statistics.spellchecker.accepted.all += 1;
 
                 const isWordleLengthWord = word.length === 5;

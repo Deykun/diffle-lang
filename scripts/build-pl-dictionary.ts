@@ -36,7 +36,7 @@ const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(
-    (word) => winningWordsDictionariesToCheck.every((wordlist) => wordlist.includes(word)),
+    (word) => winningWordsDictionariesToCheck.every((wordList) => wordList.includes(word)),
 );
 
 actionBuildDictionary(
