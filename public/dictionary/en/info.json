@@ -812,28 +812,28 @@
 		}
 	},
 	"winning": {
-		"all": 9585,
+		"all": 10281,
 		"accepted": {
-			"all": 7734,
+			"all": 8164,
 			"withSpecialCharacters": 0,
-			"withoutSpecialCharacters": 7734,
+			"withoutSpecialCharacters": 8164,
 			"length": {
-				"4": 1016,
-				"5": 1340,
-				"6": 1587,
-				"7": 1462,
-				"8": 1311,
-				"9": 1018
+				"4": 1037,
+				"5": 1375,
+				"6": 1659,
+				"7": 1550,
+				"8": 1406,
+				"9": 1137
 			}
 		},
 		"rejected": {
-			"all": 1851,
-			"tooLong": 1421,
-			"tooShort": 418,
+			"all": 2117,
+			"tooLong": 1668,
+			"tooShort": 424,
 			"censored": 1,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
-			"missingInSpellingDictionary": 11
+			"missingInSpellingDictionary": 24
 		},
 		"lettersNotAcceptedInWinningWord": []
 	},

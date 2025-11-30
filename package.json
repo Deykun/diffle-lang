@@ -9,7 +9,7 @@
     "slowoku"
   ],
   "private": true,
-  "version": "3.39.2",
+  "version": "3.40",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3001",

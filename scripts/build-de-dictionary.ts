@@ -34,7 +34,7 @@ const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(
-    (word) => winningWordsDictionariesToCheck.every((wordlist) => wordlist.includes(word)),
+    (word) => winningWordsDictionariesToCheck.every((wordList) => wordList.includes(word)),
 );
 
 actionBuildDictionary(
@@ -44,7 +44,7 @@ actionBuildDictionary(
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
-        MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD: 25,
+        MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD: 25,
         MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD: 18,
         MAXIMUM_LENGTH_OF_WINNING_WORD: 10,
         EASTER_EGG_DAYS,

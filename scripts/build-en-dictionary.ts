@@ -23,7 +23,7 @@ const winningDictionary1st = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES
 const winningDictionary2nd = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.winning.dir}/jap/dictionary.txt`, 'utf-8');
 const frequencyDictionary = fs.readFileSync(`./resources/${LANG}/${DICTIONARIES.popularity.dir}/dictionary.txt`, 'utf-8');
 
-const frequencyWords = getWordsFromDictionary(frequencyDictionary, { pattern: 'word ignore', lang: LANG });
+const frequencyWords = getWordsFromDictionary(frequencyDictionary, { pattern: 'word ignore', lang: LANG, limit: 200_000 });
 
 const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, { pattern: 'word', lang: LANG });
 
@@ -34,7 +34,7 @@ const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
 ].sort((a, b) => b.length - a.length);
 
 const winningWords = longestWinningWords.filter(
-    (word) => winningWordsDictionariesToCheck.every((wordlist) => wordlist.includes(word)),
+    (word) => winningWordsDictionariesToCheck.every((wordList) => wordList.includes(word)),
 );
 
 actionBuildDictionary(
@@ -44,7 +44,7 @@ actionBuildDictionary(
         BLOCKED_PARTS,
         LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
         DICTIONARIES,
-        MAXIMUM_LENGHT_OF_ABOUT_LANGUAGE_WORD: 17,
+        MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD: 17,
         EASTER_EGG_DAYS,
     },
     spellcheckerWords,
