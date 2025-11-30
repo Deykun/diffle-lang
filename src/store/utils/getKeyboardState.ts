@@ -1,28 +1,35 @@
-import { AffixStatus, WordStatus, FlatAffixes, UsedLetters } from '@common-types';
+import {
+  AffixStatus,
+  WordStatus,
+  FlatAffixes,
+  UsedLetters,
+} from '@common-types';
 
 import { getHasSpecialCharacters } from '@utils/normilzeWord';
 
+import { getUniqueArray } from '@utils/array';
 import { getLetterOccuranceInWord } from './getLetterOccuranceInWord';
 
 const getIsTextMatchingOrder = (text: string, order: string[]) => {
-  const {
-    isMatching,
-  } = order.reduce((stack, subtext) => {
-    if (!stack.restString.includes(subtext)) {
-      return {
-        restString: '',
-        isMatching: false,
-      };
-    }
+  const { isMatching } = order.reduce(
+    (stack, subtext) => {
+      if (!stack.restString.includes(subtext)) {
+        return {
+          restString: '',
+          isMatching: false,
+        };
+      }
 
-    const [, ...rest] = stack.restString.split(subtext);
-    stack.restString = rest.join(subtext);
+      const [, ...rest] = stack.restString.split(subtext);
+      stack.restString = rest.join(subtext);
 
-    return stack;
-  }, {
-    restString: text,
-    isMatching: true,
-  });
+      return stack;
+    },
+    {
+      restString: text,
+      isMatching: true,
+    },
+  );
 
   return isMatching;
 };
@@ -36,15 +43,15 @@ export const getKeyboardState = ({
   positionLetters,
   flatAffixes,
 }: {
-  wordToGuess: string,
-  wordToSubmit: string,
-  incorrectLetters: UsedLetters,
-  positionLetters: UsedLetters,
-  flatAffixes: FlatAffixes,
+  wordToGuess: string;
+  wordToSubmit: string;
+  incorrectLetters: UsedLetters;
+  positionLetters: UsedLetters;
+  flatAffixes: FlatAffixes;
 }): {
-  status: AffixStatus | WordStatus,
-  details?: string,
-  detailsStatus?: 'expected' | 'unexpected',
+  status: AffixStatus | WordStatus;
+  details?: string;
+  detailsStatus?: 'expected' | 'unexpected';
 } => {
   if (!wordToSubmit || !wordToSubmit.replaceAll(' ', '')) {
     return {
@@ -52,9 +59,11 @@ export const getKeyboardState = ({
     };
   }
 
-  const uniqueWordLetters = [...(new Set(wordToSubmit.split('')))].filter(letter => letter !== ' ');
+  const uniqueWordLetters = [...new Set(wordToSubmit.split(''))].filter(
+    letter => letter !== ' ',
+  );
 
-  const incorrectTyppedLetters = uniqueWordLetters.filter((uniqueLetter) => {
+  const incorrectTypedLetters = uniqueWordLetters.filter((uniqueLetter) => {
     const isIncorrect = typeof incorrectLetters[uniqueLetter] === 'number';
     if (!isIncorrect) {
       return false;
@@ -62,7 +71,10 @@ export const getKeyboardState = ({
 
     const isCorrectSometimes = positionLetters[uniqueLetter] > 0;
     if (isCorrectSometimes) {
-      const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
+      const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(
+        uniqueLetter,
+        wordToSubmit,
+      );
 
       return occurrencesOfLetterInSubmitWord > positionLetters[uniqueLetter];
     }
@@ -70,11 +82,11 @@ export const getKeyboardState = ({
     return true;
   });
 
-  const hasIncorrectLetterTyped = incorrectTyppedLetters.length > 0;
+  const hasIncorrectLetterTyped = incorrectTypedLetters.length > 0;
   if (hasIncorrectLetterTyped) {
     return {
       status: AffixStatus.Incorrect,
-      details: incorrectTyppedLetters.join(', '),
+      details: incorrectTypedLetters.join(', '),
       detailsStatus: 'unexpected',
     };
   }
@@ -83,7 +95,13 @@ export const getKeyboardState = ({
   const hasWordToSubmitSpecialCharacters = wordToSubmit && getHasSpecialCharacters(wordToSubmit);
   const specialCharacterTypedWhenNotNeeded = !hasWordToGuessSpecialCharacters && hasWordToSubmitSpecialCharacters;
   if (specialCharacterTypedWhenNotNeeded) {
-    const uniqueSpecialCharactersTyped = [...new Set(wordToSubmit.split('').filter(letter => getHasSpecialCharacters(letter)))];
+    const uniqueSpecialCharactersTyped = [
+      ...new Set(
+        wordToSubmit
+          .split('')
+          .filter(letter => getHasSpecialCharacters(letter)),
+      ),
+    ];
 
     return {
       status: AffixStatus.Incorrect,
@@ -93,7 +111,9 @@ export const getKeyboardState = ({
   }
 
   if (flatAffixes) {
-    const isWrongStart = !wordToSubmit.startsWith(flatAffixes.start.slice(0, wordToSubmit.length));
+    const isWrongStart = !wordToSubmit.startsWith(
+      flatAffixes.start.slice(0, wordToSubmit.length),
+    );
     if (isWrongStart) {
       return {
         status: AffixStatus.IncorrectStart,
@@ -113,39 +133,51 @@ export const getKeyboardState = ({
 
   const uniqueRequiredLetters = Object.keys(positionLetters);
 
-  const { missingRequiredLetters, totalPresent, totalRequired } = uniqueRequiredLetters.reduce((
-    stack: {
-      totalPresent: number,
-      totalRequired: number,
-      missingRequiredLetters: {
-        [letter: string]: number,
-      }
+  const { missingRequiredLetters, totalPresent, totalRequired } = uniqueRequiredLetters.reduce(
+    (
+      stack: {
+        totalPresent: number;
+        totalRequired: number;
+        missingRequiredLetters: {
+          [letter: string]: number;
+        };
+      },
+      uniqueLetter,
+    ) => {
+      const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(
+        uniqueLetter,
+        wordToSubmit,
+      );
+
+      const missingLettersTotal = positionLetters[uniqueLetter] <= occurrencesOfLetterInSubmitWord
+        ? 0
+        : Math.min(
+          positionLetters[uniqueLetter],
+          positionLetters[uniqueLetter] - occurrencesOfLetterInSubmitWord,
+        );
+
+      stack.totalPresent
+          += positionLetters[uniqueLetter] - missingLettersTotal;
+      stack.totalRequired += positionLetters[uniqueLetter];
+
+      stack.missingRequiredLetters[uniqueLetter] = missingLettersTotal;
+
+      return stack;
     },
-    uniqueLetter,
-  ) => {
-    const occurrencesOfLetterInSubmitWord = getLetterOccuranceInWord(uniqueLetter, wordToSubmit);
-
-    const missingLettersTotal = positionLetters[uniqueLetter] <= occurrencesOfLetterInSubmitWord
-      ? 0
-      : Math.min(positionLetters[uniqueLetter], positionLetters[uniqueLetter] - occurrencesOfLetterInSubmitWord);
-
-    stack.totalPresent += positionLetters[uniqueLetter] - missingLettersTotal;
-    stack.totalRequired += positionLetters[uniqueLetter];
-
-    stack.missingRequiredLetters[uniqueLetter] = missingLettersTotal;
-
-    return stack;
-  }, { missingRequiredLetters: {}, totalPresent: 0, totalRequired: 0 });
+    { missingRequiredLetters: {}, totalPresent: 0, totalRequired: 0 },
+  );
 
   const areAllRequiredUsed = totalRequired > 0 && totalRequired === totalPresent;
   const isMissingSomeRequiredLetters = totalRequired > totalPresent;
 
   if (isMissingSomeRequiredLetters) {
-    const hasManyRequiredAndSomeMissing = (totalRequired >= 5 && (totalRequired - totalPresent) <= 2)
-      || (totalRequired >= 7 && (totalRequired - totalPresent) <= 3);
+    const hasManyRequiredAndSomeMissing = (totalRequired >= 5 && totalRequired - totalPresent <= 2)
+      || (totalRequired >= 7 && totalRequired - totalPresent <= 3);
 
     if (hasManyRequiredAndSomeMissing) {
-      const missingLetters = Object.entries(missingRequiredLetters).filter(([, value]) => value > 0).map(([letter]) => letter);
+      const missingLetters = Object.entries(missingRequiredLetters)
+        .filter(([, value]) => value > 0)
+        .map(([letter]) => letter);
 
       return {
         status: WordStatus.IncorrectOccuranceMissing,
@@ -167,12 +199,16 @@ export const getKeyboardState = ({
       if (flatAffixes.notEnd.includes(wordToSubmit[wordToSubmit.length - 1])) {
         return {
           status: AffixStatus.IncorrectEnd,
-          details: `${PADDING_CHARACTER}${wordToSubmit[wordToSubmit.length - 1]}`,
+          details: `${PADDING_CHARACTER}${
+            wordToSubmit[wordToSubmit.length - 1]
+          }`,
           detailsStatus: 'unexpected',
         };
       }
 
-      const wrongMiddles = flatAffixes.middle.filter(flatAffix => !wordToSubmit.includes(flatAffix));
+      const wrongMiddles = flatAffixes.middle.filter(
+        flatAffix => !wordToSubmit.includes(flatAffix),
+      );
       const isWrongMiddle = wrongMiddles.length > 0;
       if (isWrongMiddle) {
         return {
@@ -182,12 +218,16 @@ export const getKeyboardState = ({
       }
 
       if (flatAffixes.correctOrders.length > 0) {
-        const wrongOrders = flatAffixes.correctOrders.filter(order => !getIsTextMatchingOrder(wordToSubmit, order));
+        const wrongOrders = flatAffixes.correctOrders.filter(
+          order => !getIsTextMatchingOrder(wordToSubmit, order),
+        );
         const isWrongOrder = wrongOrders.length > 0;
         if (isWrongOrder) {
           return {
             status: AffixStatus.IncorrectOrder,
-            details: wrongOrders.map(order => order.join(PADDING_CHARACTER)).join(', '),
+            details: getUniqueArray(
+              wrongOrders.map(order => order.join(PADDING_CHARACTER)),
+            ).join(', '),
             detailsStatus: 'expected',
           };
         }
@@ -200,26 +240,32 @@ export const getKeyboardState = ({
         if (isWrongOrder) {
           return {
             status: AffixStatus.IncorrectOrder,
-            details: wrongOrders.map(order => order.join(PADDING_CHARACTER)).join(', '),
+            details: getUniqueArray(
+              wrongOrders.map(order => order.join(PADDING_CHARACTER)),
+            ).join(', '),
             detailsStatus: 'unexpected',
           };
         }
       }
 
       if (flatAffixes.needsALetterBetween.length > 0) {
-        const wrongPairs = flatAffixes.needsALetterBetween.filter(([first, second]) => {
-          const regex = new RegExp(`${first}(.*)${second}`);
+        const wrongPairs = flatAffixes.needsALetterBetween.filter(
+          ([first, second]) => {
+            const regex = new RegExp(`${first}(.*)${second}`);
 
-          const parts = wordToSubmit.match(regex) ?? [];
+            const parts = wordToSubmit.match(regex) ?? [];
 
-          return parts.length >= 2 && parts[1].length === 0
-        });
+            return parts.length >= 2 && parts[1].length === 0;
+          },
+        );
         const isWrongPair = wrongPairs.length > 0;
 
         if (isWrongPair) {
           return {
             status: WordStatus.IncorrectPairWithLetterMissing,
-            details: wrongPairs.map(pair => pair.join('')).join(', '),
+            details: getUniqueArray(
+              wrongPairs.map(pair => pair.join('')),
+            ).join(', '),
             detailsStatus: 'unexpected',
           };
         }

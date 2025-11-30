@@ -47,7 +47,7 @@ export const getCatalogInfo = async (gameLanguage: string) => {
     maxPopularityPosition = 0,
   }: Catalog = await catalogResponse.json();
 
-  const cataolgResult: Catalog = {
+  const catalogResult: Catalog = {
     words,
     items,
     easterEggDays,
@@ -55,14 +55,15 @@ export const getCatalogInfo = async (gameLanguage: string) => {
     maxPopularityPosition,
   };
 
-  cachedCatalogs[gameLanguage] = cataolgResult;
+  cachedCatalogs[gameLanguage] = catalogResult;
 
-  return cataolgResult;
+  return catalogResult;
 };
 
 export const getWordToGuess = async (
   { gameMode, gameLanguage, seedNumber }: { gameMode: GameMode, gameLanguage: string, seedNumber?: number },
 ): Promise<string> => {
+  return 'textbook';
   const { words: totalNumberOfWords, items } = await getCatalogInfo(gameLanguage);
 
   let randomInt: number;
