@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.39.1
+#### Version 3.39.2
+- **Fix**: Removed duplicated tip "expected: E-T, E-T, E-T"
+
+#### Version 3.39.1 (01.04.2025)
 - **New**: The Hieroglyphs mode now has animation and vibration when toggled
 
 #### Version 3.39 (30.03.2025)

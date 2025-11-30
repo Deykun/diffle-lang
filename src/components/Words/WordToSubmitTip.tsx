@@ -159,7 +159,7 @@ const WordToSubmitTip = () => {
                   && (
                   <span>
                       {', '}
-                      <span className={`status-tip-detawils-status--${tipDetailsStatus}`}>
+                      <span className={`status-tip-details-status--${tipDetailsStatus}`}>
                           {t(`game.youCanUseThisWe${capitalize(tipDetailsStatus)}`)}
                       </span>
                       :
