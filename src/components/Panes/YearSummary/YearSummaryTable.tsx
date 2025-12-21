@@ -11,10 +11,10 @@ import useEventT from './hooks/useEventT';
 import YearSummaryTableItem from './YearSummaryTableItem';
 import YearSummaryWordsTable from './YearSummaryWordsTable';
 
-
 import './YearSummaryTable.scss';
 
 type Props = {
+  year: number;
   summary: YearSummaryInfo;
 };
 
@@ -27,19 +27,22 @@ const listFilters = [
   'bestMedianFrom50HardestWordsResults',
 ];
 
-const periodFilters = ['year', ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(String)];
+const periodFilters = [
+  'year',
+  ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(String),
+];
 
-const YearSummaryTable = ({ summary }: Props) => {
+const YearSummaryTable = ({ year, summary }: Props) => {
   const gameLanguage = useSelector(state => state.game.language);
   const [selected, setSelected] = useState('');
   const [period, setPeriod] = useState('year');
   const [sortBy, setSortBy] = useState<
-  'bestDailyResults' |
-  'worstDailyResults' |
-  'bestMedianLetters' |
-  'totalPlayed' |
-  'bestMedianFrom50BestResults' |
-  'bestMedianFrom50HardestWordsResults'
+  | 'bestDailyResults'
+  | 'worstDailyResults'
+  | 'bestMedianLetters'
+  | 'totalPlayed'
+  | 'bestMedianFrom50BestResults'
+  | 'bestMedianFrom50HardestWordsResults'
   >('bestMedianLetters');
 
   const { eventT } = useEventT();
@@ -52,7 +55,9 @@ const YearSummaryTable = ({ summary }: Props) => {
       };
     }
 
-    const knownUsernames = Object.keys(summary.byUser).filter(username => summary.byUser[username].results[period]);
+    const knownUsernames = Object.keys(summary.byUser).filter(
+      username => summary.byUser[username].results[period],
+    );
 
     let minimumNumberOfGamesForRanked = period === 'year' ? 50 : 4;
     if (gameLanguage !== 'pl') {
@@ -60,94 +65,157 @@ const YearSummaryTable = ({ summary }: Props) => {
     }
 
     const usersThatPlayedMoreAtleastXTimes = knownUsernames.filter(
-      username => summary.byUser[username].results[period].gamesPlayed >= minimumNumberOfGamesForRanked,
+      username => summary.byUser[username].results[period].gamesPlayed
+        >= minimumNumberOfGamesForRanked,
     );
 
     // rankByWords
 
     return {
-      totalPlayed: knownUsernames.sort(
-        (a, b) => {
-          if (summary.byUser[b].results[period].gamesPlayed === summary.byUser[a].results[period].gamesPlayed) {
-            if (summary.byUser[a].results[period].medianLetters === summary.byUser[b].results[period].medianLetters) {
-              return summary.byUser[a].results[period].medianWords - summary.byUser[b].results[period].medianWords;
-            }
-
-            const bestB = (summary.byUser[b].dates[period]?.length || 0);
-            const bestA = (summary.byUser[a].dates[period]?.length || 0);
-            if (bestA !== bestB) {
-              return bestB - bestA;
-            }
-
-            return summary.byUser[a].results[period].medianLetters - summary.byUser[b].results[period].medianLetters;
+      totalPlayed: knownUsernames.sort((a, b) => {
+        if (
+          summary.byUser[b].results[period].gamesPlayed
+          === summary.byUser[a].results[period].gamesPlayed
+        ) {
+          if (
+            summary.byUser[a].results[period].medianLetters
+            === summary.byUser[b].results[period].medianLetters
+          ) {
+            return (
+              summary.byUser[a].results[period].medianWords
+              - summary.byUser[b].results[period].medianWords
+            );
           }
 
-          return summary.byUser[b].results[period].gamesPlayed - summary.byUser[a].results[period].gamesPlayed;
-        },
-      ),
-      bestMedianLetters: [...usersThatPlayedMoreAtleastXTimes].sort(
-        (a, b) => summary.byUser[a].results[period].medianLetters - summary.byUser[b].results[period].medianLetters,
-      ).slice(0, 75),
-      bestMedianFrom50BestResults: [...knownUsernames].filter(
-        username => Boolean(summary.byUser[username].best50),
-      ).sort(
-        (a, b) => {
-          if (summary.byUser[a].best50.medianLetters === summary.byUser[b].best50.medianLetters) {
-            if (summary.byUser[a].results[period].medianWords === summary.byUser[b].results[period].medianWords) {
-              return summary.byUser[a].results.year.gamesPlayed - summary.byUser[b].results.year.gamesPlayed;
-            }
-
-            return summary.byUser[a].results[period].medianWords - summary.byUser[b].results[period].medianWords;
+          const bestB = summary.byUser[b].dates[period]?.length || 0;
+          const bestA = summary.byUser[a].dates[period]?.length || 0;
+          if (bestA !== bestB) {
+            return bestB - bestA;
           }
 
-          return summary.byUser[a].best50.medianLetters - summary.byUser[b].best50.medianLetters;
-        },
-      ).slice(0, 75),
-      bestMedianFrom50HardestWordsResults: [...knownUsernames].filter(
-        username => Boolean(summary.byUser[username].hardest50),
-      ).sort(
-        (a, b) => {
-          if (summary.byUser[a].hardest50.medianLetters === summary.byUser[b].hardest50.medianLetters) {
-            if (summary.byUser[a].results[period].medianWords === summary.byUser[b].results[period].medianWords) {
-              return summary.byUser[a].results.year.gamesPlayed - summary.byUser[b].results.year.gamesPlayed;
+          return (
+            summary.byUser[a].results[period].medianLetters
+            - summary.byUser[b].results[period].medianLetters
+          );
+        }
+
+        return (
+          summary.byUser[b].results[period].gamesPlayed
+          - summary.byUser[a].results[period].gamesPlayed
+        );
+      }),
+      bestMedianLetters: [...usersThatPlayedMoreAtleastXTimes]
+        .sort(
+          (a, b) => summary.byUser[a].results[period].medianLetters
+            - summary.byUser[b].results[period].medianLetters,
+        )
+        .slice(0, 75),
+      bestMedianFrom50BestResults: [...knownUsernames]
+        .filter(username => Boolean(summary.byUser[username].best50))
+        .sort((a, b) => {
+          if (
+            summary.byUser[a].best50.medianLetters
+            === summary.byUser[b].best50.medianLetters
+          ) {
+            if (
+              summary.byUser[a].results[period].medianWords
+              === summary.byUser[b].results[period].medianWords
+            ) {
+              return (
+                summary.byUser[a].results.year.gamesPlayed
+                - summary.byUser[b].results.year.gamesPlayed
+              );
             }
 
-            return summary.byUser[a].results[period].medianWords - summary.byUser[b].results[period].medianWords;
+            return (
+              summary.byUser[a].results[period].medianWords
+              - summary.byUser[b].results[period].medianWords
+            );
           }
 
-          return summary.byUser[a].hardest50.medianLetters - summary.byUser[b].hardest50.medianLetters;
-        },
-      ).slice(0, 75),
-      bestDailyResults: [...knownUsernames].sort(
-        (a, b) => {
-          const bestB = (summary.byUser[b].dates[period]?.length || 0);
-          const bestA = (summary.byUser[a].dates[period]?.length || 0);
+          return (
+            summary.byUser[a].best50.medianLetters
+            - summary.byUser[b].best50.medianLetters
+          );
+        })
+        .slice(0, 75),
+      bestMedianFrom50HardestWordsResults: [...knownUsernames]
+        .filter(username => Boolean(summary.byUser[username].hardest50))
+        .sort((a, b) => {
+          if (
+            summary.byUser[a].hardest50.medianLetters
+            === summary.byUser[b].hardest50.medianLetters
+          ) {
+            if (
+              summary.byUser[a].results[period].medianWords
+              === summary.byUser[b].results[period].medianWords
+            ) {
+              return (
+                summary.byUser[a].results.year.gamesPlayed
+                - summary.byUser[b].results.year.gamesPlayed
+              );
+            }
+
+            return (
+              summary.byUser[a].results[period].medianWords
+              - summary.byUser[b].results[period].medianWords
+            );
+          }
+
+          return (
+            summary.byUser[a].hardest50.medianLetters
+            - summary.byUser[b].hardest50.medianLetters
+          );
+        })
+        .slice(0, 75),
+      bestDailyResults: [...knownUsernames]
+        .sort((a, b) => {
+          const bestB = summary.byUser[b].dates[period]?.length || 0;
+          const bestA = summary.byUser[a].dates[period]?.length || 0;
           if (bestA === bestB) {
-            if (summary.byUser[a].results[period].medianLetters === summary.byUser[b].results[period].medianLetters) {
-              return summary.byUser[a].results[period].medianWords - summary.byUser[b].results[period].medianWords;
+            if (
+              summary.byUser[a].results[period].medianLetters
+              === summary.byUser[b].results[period].medianLetters
+            ) {
+              return (
+                summary.byUser[a].results[period].medianWords
+                - summary.byUser[b].results[period].medianWords
+              );
             }
 
-            return summary.byUser[a].results[period].medianLetters - summary.byUser[b].results[period].medianLetters;
+            return (
+              summary.byUser[a].results[period].medianLetters
+              - summary.byUser[b].results[period].medianLetters
+            );
           }
 
           return bestB - bestA;
-        },
-      ).slice(0, 75),
-      worstDailyResults: [...knownUsernames].sort(
-        (a, b) => {
-          const bestB = (summary.byUser[b].worstDates[period]?.length || 0);
-          const bestA = (summary.byUser[a].worstDates[period]?.length || 0);
+        })
+        .slice(0, 75),
+      worstDailyResults: [...knownUsernames]
+        .sort((a, b) => {
+          const bestB = summary.byUser[b].worstDates[period]?.length || 0;
+          const bestA = summary.byUser[a].worstDates[period]?.length || 0;
           if (bestA === bestB) {
-            if (summary.byUser[a].results[period].medianLetters === summary.byUser[b].results[period].medianLetters) {
-              return summary.byUser[b].results[period].medianWords - summary.byUser[a].results[period].medianWords;
+            if (
+              summary.byUser[a].results[period].medianLetters
+              === summary.byUser[b].results[period].medianLetters
+            ) {
+              return (
+                summary.byUser[b].results[period].medianWords
+                - summary.byUser[a].results[period].medianWords
+              );
             }
 
-            return summary.byUser[b].results[period].medianLetters - summary.byUser[a].results[period].medianLetters;
+            return (
+              summary.byUser[b].results[period].medianLetters
+              - summary.byUser[a].results[period].medianLetters
+            );
           }
 
           return bestB - bestA;
-        },
-      ).slice(0, 75),
+        })
+        .slice(0, 75),
       hardestWords: summary.hardestWords,
       bestWords: summary.bestWords,
     };
@@ -159,7 +227,11 @@ const YearSummaryTable = ({ summary }: Props) => {
 
   return (
       <>
-          <YearSummaryWordsTable summary={summary} bestWords={dataBy.bestWords} hardestWords={dataBy.hardestWords} />
+          <YearSummaryWordsTable
+            summary={summary}
+            bestWords={dataBy.bestWords}
+            hardestWords={dataBy.hardestWords}
+          />
           <nav className="year-summary-nav">
               {listFilters.map((sortByValue) => {
                 return (
@@ -170,11 +242,15 @@ const YearSummaryTable = ({ summary }: Props) => {
                       isInverted
                       hasBorder={false}
                       isText={sortByValue !== sortBy}
-                      isDisabled={period !== 'year'
-                      && ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortByValue)}
+                      isDisabled={
+                period !== 'year'
+                && [
+                  'bestMedianFrom50BestResults',
+                  'bestMedianFrom50HardestWordsResults',
+                ].includes(sortByValue)
+              }
                     >
                         <span>
-
                             {eventT(`label.${sortByValue}`)}
                             {eventT(`label.description.${sortByValue}`, '') && (
                             <small>
@@ -183,13 +259,19 @@ const YearSummaryTable = ({ summary }: Props) => {
                             </small>
                             )}
                         </span>
-
                     </Button>
                 );
               })}
               <div
                 className="year-summary-period-nav"
-                style={{ opacity: ['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy) ? 0 : 100 }}
+                style={{
+                  opacity: [
+                    'bestMedianFrom50BestResults',
+                    'bestMedianFrom50HardestWordsResults',
+                  ].includes(sortBy)
+                    ? 0
+                    : 100,
+                }}
               >
                   {periodFilters.map(periodValue => (
                       <Button
@@ -198,9 +280,12 @@ const YearSummaryTable = ({ summary }: Props) => {
                         isInverted
                         hasBorder={false}
                         isText={periodValue !== period}
-                        isDisabled={['bestMedianFrom50BestResults', 'bestMedianFrom50HardestWordsResults'].includes(sortBy)}
+                        isDisabled={[
+                          'bestMedianFrom50BestResults',
+                          'bestMedianFrom50HardestWordsResults',
+                        ].includes(sortBy)}
                       >
-                          {periodValue !== 'year' ? periodValue : 2024}
+                          {periodValue !== 'year' ? periodValue : year}
                       </Button>
                   ))}
               </div>

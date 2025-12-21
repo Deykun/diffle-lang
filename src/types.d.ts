@@ -9,7 +9,8 @@ export enum Pane {
   Game = 'game',
   Settings = 'settings',
   Statistics = 'statistics',
-  YearSummary = 'hejto-2024',
+  YearSummary24 = 'hejto-2024',
+  YearSummary25 = 'hejto-2025',
   AboutLanguage = 'about-language',
 }
 

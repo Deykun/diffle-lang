@@ -11,7 +11,10 @@
 
 ---
 
-#### Version 3.40
+#### Version 3.41
+- **New**: 2025 annual summary for hejto.pl users added
+
+#### Version 3.40 (30.11.2025)
 - **New**: More English winning words
 
 #### Version 3.39.2 (30.11.2025)

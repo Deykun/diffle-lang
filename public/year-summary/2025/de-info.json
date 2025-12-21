@@ -1,0 +1,2432 @@
+{
+	"all": {
+		"best": {
+			"word": "buch",
+			"letters": 17
+		},
+		"worst": {
+			"word": "zerstört",
+			"letters": 107
+		},
+		"totalWords": {
+			"2": 7,
+			"3": 10,
+			"4": 10,
+			"5": 14,
+			"6": 12,
+			"7": 15,
+			"8": 5,
+			"9": 3,
+			"10": 4,
+			"13": 1,
+			"14": 2,
+			"16": 2,
+			"18": 2,
+			"19": 2
+		},
+		"totalLetters": {
+			"17": 2,
+			"18": 1,
+			"19": 2,
+			"20": 4,
+			"21": 2,
+			"22": 4,
+			"23": 2,
+			"24": 1,
+			"25": 2,
+			"26": 2,
+			"27": 3,
+			"28": 2,
+			"29": 1,
+			"30": 4,
+			"31": 3,
+			"32": 2,
+			"33": 2,
+			"34": 4,
+			"35": 2,
+			"36": 1,
+			"37": 5,
+			"38": 3,
+			"40": 3,
+			"41": 2,
+			"42": 3,
+			"43": 1,
+			"45": 4,
+			"46": 3,
+			"47": 1,
+			"48": 1,
+			"50": 2,
+			"52": 3,
+			"53": 1,
+			"56": 1,
+			"63": 1,
+			"74": 2,
+			"77": 2,
+			"82": 1,
+			"84": 1,
+			"90": 1,
+			"96": 1,
+			"107": 1
+		},
+		"gamesPlayed": 89,
+		"medianWords": 6,
+		"medianLetters": 35
+	},
+	"activePlayers": 2,
+	"byUser": {
+		"Felonious_Gru": {
+			"hardest50": {
+				"best": {
+					"word": "mutter",
+					"letters": 19
+				},
+				"worst": {
+					"word": "zerstört",
+					"letters": 107
+				},
+				"totalWords": {
+					"2": 2,
+					"3": 7,
+					"4": 3,
+					"5": 4,
+					"6": 5,
+					"7": 8,
+					"8": 2,
+					"9": 2,
+					"10": 4,
+					"13": 1,
+					"14": 2,
+					"16": 2,
+					"18": 2,
+					"19": 2
+				},
+				"totalLetters": {
+					"19": 1,
+					"20": 2,
+					"21": 1,
+					"22": 2,
+					"23": 1,
+					"25": 2,
+					"27": 1,
+					"28": 1,
+					"30": 2,
+					"31": 1,
+					"32": 2,
+					"33": 1,
+					"34": 1,
+					"37": 1,
+					"38": 2,
+					"40": 2,
+					"41": 1,
+					"42": 1,
+					"43": 1,
+					"45": 2,
+					"46": 1,
+					"47": 1,
+					"48": 1,
+					"50": 2,
+					"52": 2,
+					"53": 1,
+					"63": 1,
+					"74": 2,
+					"77": 2,
+					"82": 1,
+					"84": 1,
+					"90": 1,
+					"96": 1,
+					"107": 1
+				},
+				"gamesPlayed": 46,
+				"medianWords": 6.5,
+				"medianLetters": 40.5
+			},
+			"results": {
+				"1": {
+					"best": {
+						"word": "tenor",
+						"letters": 18
+					},
+					"worst": {
+						"word": "zerstört",
+						"letters": 107
+					},
+					"totalWords": {
+						"2": 2,
+						"3": 1,
+						"5": 1,
+						"6": 1,
+						"7": 4,
+						"10": 3,
+						"14": 1,
+						"19": 1
+					},
+					"totalLetters": {
+						"18": 1,
+						"19": 1,
+						"22": 1,
+						"30": 1,
+						"33": 1,
+						"37": 1,
+						"40": 1,
+						"42": 1,
+						"45": 2,
+						"52": 1,
+						"63": 1,
+						"74": 1,
+						"107": 1
+					},
+					"gamesPlayed": 14,
+					"medianWords": 6.5,
+					"medianLetters": 41
+				},
+				"2": {
+					"best": {
+						"word": "bitter",
+						"letters": 19
+					},
+					"worst": {
+						"word": "überführen",
+						"letters": 90
+					},
+					"totalWords": {
+						"2": 1,
+						"3": 1,
+						"5": 2,
+						"6": 1,
+						"7": 2,
+						"8": 1,
+						"14": 1,
+						"16": 1,
+						"18": 1
+					},
+					"totalLetters": {
+						"19": 1,
+						"27": 1,
+						"30": 1,
+						"31": 1,
+						"38": 1,
+						"40": 1,
+						"48": 1,
+						"50": 1,
+						"77": 2,
+						"90": 1
+					},
+					"gamesPlayed": 11,
+					"medianWords": 7,
+					"medianLetters": 40
+				},
+				"3": {
+					"best": {
+						"word": "spind",
+						"letters": 22
+					},
+					"worst": {
+						"word": "schlecht",
+						"letters": 52
+					},
+					"totalWords": {
+						"3": 1,
+						"4": 1,
+						"6": 1,
+						"9": 1
+					},
+					"totalLetters": {
+						"22": 1,
+						"25": 1,
+						"38": 1,
+						"52": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 5,
+					"medianLetters": 31.5
+				},
+				"4": {
+					"best": {
+						"word": "ball",
+						"letters": 21
+					},
+					"worst": {
+						"word": "scheidung",
+						"letters": 41
+					},
+					"totalWords": {
+						"3": 1,
+						"5": 1
+					},
+					"totalLetters": {
+						"21": 1,
+						"41": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 4,
+					"medianLetters": 31
+				},
+				"5": {
+					"best": {
+						"word": "buch",
+						"letters": 17
+					},
+					"worst": {
+						"word": "buch",
+						"letters": 17
+					},
+					"totalWords": {
+						"2": 1
+					},
+					"totalLetters": {
+						"17": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 2,
+					"medianLetters": 17
+				},
+				"6": {
+					"best": {
+						"word": "hintern",
+						"letters": 20
+					},
+					"worst": {
+						"word": "verfassung",
+						"letters": 74
+					},
+					"totalWords": {
+						"2": 1,
+						"3": 1,
+						"9": 1,
+						"13": 1
+					},
+					"totalLetters": {
+						"20": 1,
+						"25": 1,
+						"53": 1,
+						"74": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 6,
+					"medianLetters": 39
+				},
+				"7": {
+					"best": {
+						"word": "angeln",
+						"letters": 28
+					},
+					"worst": {
+						"word": "dachboden",
+						"letters": 47
+					},
+					"totalWords": {
+						"4": 1,
+						"6": 1,
+						"7": 1,
+						"8": 1
+					},
+					"totalLetters": {
+						"28": 1,
+						"34": 1,
+						"43": 1,
+						"47": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 6.5,
+					"medianLetters": 38.5
+				},
+				"8": {
+					"best": {
+						"word": "toast",
+						"letters": 23
+					},
+					"worst": {
+						"word": "kompass",
+						"letters": 46
+					},
+					"totalWords": {
+						"3": 1,
+						"10": 1
+					},
+					"totalLetters": {
+						"23": 1,
+						"46": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 6.5,
+					"medianLetters": 34.5
+				},
+				"9": {
+					"best": {
+						"word": "bettelarm",
+						"letters": 32
+					},
+					"worst": {
+						"word": "kopfhörer",
+						"letters": 96
+					},
+					"totalWords": {
+						"4": 1,
+						"6": 1,
+						"7": 1,
+						"19": 1
+					},
+					"totalLetters": {
+						"32": 2,
+						"50": 1,
+						"96": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 6.5,
+					"medianLetters": 41
+				},
+				"10": {
+					"best": {
+						"word": "darm",
+						"letters": 20
+					},
+					"worst": {
+						"word": "reliquie",
+						"letters": 84
+					},
+					"totalWords": {
+						"3": 1,
+						"18": 1
+					},
+					"totalLetters": {
+						"20": 1,
+						"84": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 10.5,
+					"medianLetters": 52
+				},
+				"12": {
+					"best": {
+						"word": "schikane",
+						"letters": 82
+					},
+					"worst": {
+						"word": "schikane",
+						"letters": 82
+					},
+					"totalWords": {
+						"16": 1
+					},
+					"totalLetters": {
+						"82": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 16,
+					"medianLetters": 82
+				},
+				"year": {
+					"best": {
+						"word": "buch",
+						"letters": 17
+					},
+					"worst": {
+						"word": "zerstört",
+						"letters": 107
+					},
+					"totalWords": {
+						"2": 5,
+						"3": 7,
+						"4": 3,
+						"5": 4,
+						"6": 5,
+						"7": 8,
+						"8": 2,
+						"9": 2,
+						"10": 4,
+						"13": 1,
+						"14": 2,
+						"16": 2,
+						"18": 2,
+						"19": 2
+					},
+					"totalLetters": {
+						"17": 1,
+						"18": 1,
+						"19": 2,
+						"20": 2,
+						"21": 1,
+						"22": 2,
+						"23": 1,
+						"25": 2,
+						"27": 1,
+						"28": 1,
+						"30": 2,
+						"31": 1,
+						"32": 2,
+						"33": 1,
+						"34": 1,
+						"37": 1,
+						"38": 2,
+						"40": 2,
+						"41": 1,
+						"42": 1,
+						"43": 1,
+						"45": 2,
+						"46": 1,
+						"47": 1,
+						"48": 1,
+						"50": 2,
+						"52": 2,
+						"53": 1,
+						"63": 1,
+						"74": 2,
+						"77": 2,
+						"82": 1,
+						"84": 1,
+						"90": 1,
+						"96": 1,
+						"107": 1
+					},
+					"gamesPlayed": 49,
+					"medianWords": 7,
+					"medianLetters": 40
+				}
+			},
+			"dates": {
+				"1": [
+					"17.01.2025",
+					"12.01.2025",
+					"21.01.2025",
+					"29.01.2025",
+					"13.01.2025"
+				],
+				"2": [
+					"03.02.2025",
+					"10.02.2025",
+					"22.02.2025",
+					"14.02.2025",
+					"08.02.2025",
+					"17.02.2025",
+					"09.02.2025",
+					"20.12.2025"
+				],
+				"3": [
+					"11.03.2025",
+					"08.03.2025",
+					"22.03.2025"
+				],
+				"4": [
+					"09.04.2025",
+					"08.04.2025"
+				],
+				"5": [
+					"06.05.2025"
+				],
+				"6": [
+					"12.06.2025",
+					"16.06.2025",
+					"23.06.2025",
+					"24.06.2025"
+				],
+				"7": [
+					"31.07.2025",
+					"19.07.2025"
+				],
+				"8": [
+					"10.08.2025"
+				],
+				"9": [
+					"11.09.2025",
+					"13.09.2025",
+					"30.09.2025"
+				],
+				"10": [
+					"28.10.2025"
+				],
+				"12": [
+					"20.12.2025"
+				],
+				"year": [
+					"03.02.2025",
+					"09.04.2025",
+					"10.02.2025",
+					"10.08.2025",
+					"11.03.2025",
+					"11.09.2025",
+					"12.06.2025",
+					"13.09.2025",
+					"16.06.2025",
+					"17.01.2025",
+					"23.06.2025",
+					"24.06.2025",
+					"28.10.2025",
+					"30.09.2025",
+					"22.02.2025",
+					"12.01.2025",
+					"14.02.2025",
+					"08.02.2025",
+					"08.04.2025",
+					"31.07.2025",
+					"06.05.2025",
+					"17.02.2025",
+					"19.07.2025",
+					"08.03.2025",
+					"22.03.2025",
+					"21.01.2025",
+					"09.02.2025",
+					"29.01.2025",
+					"13.01.2025",
+					"20.12.2025"
+				]
+			},
+			"worstDates": {
+				"1": [
+					"11.01.2025",
+					"15.01.2025",
+					"27.01.2025",
+					"31.01.2025",
+					"12.01.2025",
+					"14.01.2025",
+					"26.01.2025",
+					"28.01.2025",
+					"21.01.2025",
+					"19.01.2025",
+					"18.01.2025"
+				],
+				"2": [
+					"03.02.2025",
+					"22.02.2025",
+					"12.02.2025",
+					"05.02.2025",
+					"09.02.2025",
+					"15.02.2025",
+					"04.02.2025",
+					"20.12.2025"
+				],
+				"3": [
+					"06.03.2025",
+					"08.03.2025"
+				],
+				"4": [
+					"09.04.2025"
+				],
+				"5": [
+					"06.05.2025"
+				],
+				"6": [
+					"12.06.2025",
+					"16.06.2025",
+					"23.06.2025"
+				],
+				"7": [
+					"10.07.2025",
+					"31.07.2025",
+					"08.07.2025"
+				],
+				"8": [
+					"11.08.2025"
+				],
+				"9": [
+					"11.09.2025",
+					"30.09.2025",
+					"12.09.2025"
+				],
+				"10": [
+					"04.10.2025"
+				],
+				"12": [
+					"20.12.2025"
+				],
+				"year": [
+					"03.02.2025",
+					"06.03.2025",
+					"09.04.2025",
+					"10.07.2025",
+					"11.01.2025",
+					"11.09.2025",
+					"12.06.2025",
+					"15.01.2025",
+					"16.06.2025",
+					"23.06.2025",
+					"27.01.2025",
+					"30.09.2025",
+					"31.01.2025",
+					"22.02.2025",
+					"12.01.2025",
+					"12.02.2025",
+					"14.01.2025",
+					"31.07.2025",
+					"08.07.2025",
+					"05.02.2025",
+					"06.05.2025",
+					"11.08.2025",
+					"04.10.2025",
+					"26.01.2025",
+					"08.03.2025",
+					"28.01.2025",
+					"21.01.2025",
+					"19.01.2025",
+					"09.02.2025",
+					"12.09.2025",
+					"15.02.2025",
+					"04.02.2025",
+					"18.01.2025",
+					"20.12.2025"
+				]
+			}
+		},
+		"Greyman": {
+			"hardest50": {
+				"best": {
+					"word": "hintern",
+					"letters": 20
+				},
+				"worst": {
+					"word": "erbringen",
+					"letters": 56
+				},
+				"totalWords": {
+					"2": 1,
+					"3": 2,
+					"4": 7,
+					"5": 10,
+					"6": 7,
+					"7": 7,
+					"8": 3,
+					"9": 1
+				},
+				"totalLetters": {
+					"20": 2,
+					"22": 2,
+					"23": 1,
+					"24": 1,
+					"26": 2,
+					"27": 2,
+					"28": 1,
+					"29": 1,
+					"30": 2,
+					"31": 2,
+					"33": 1,
+					"34": 3,
+					"35": 2,
+					"36": 1,
+					"37": 4,
+					"38": 1,
+					"40": 1,
+					"41": 1,
+					"42": 2,
+					"45": 2,
+					"46": 2,
+					"52": 1,
+					"56": 1
+				},
+				"gamesPlayed": 38,
+				"medianWords": 4.5,
+				"medianLetters": 33.5
+			},
+			"results": {
+				"1": {
+					"best": {
+						"word": "tenor",
+						"letters": 21
+					},
+					"worst": {
+						"word": "enkelsohn",
+						"letters": 52
+					},
+					"totalWords": {
+						"3": 1,
+						"4": 1,
+						"5": 6,
+						"6": 2,
+						"7": 1,
+						"8": 2
+					},
+					"totalLetters": {
+						"21": 1,
+						"22": 1,
+						"29": 1,
+						"30": 1,
+						"31": 1,
+						"33": 1,
+						"34": 2,
+						"37": 2,
+						"42": 1,
+						"45": 1,
+						"52": 1
+					},
+					"gamesPlayed": 13,
+					"medianWords": 5,
+					"medianLetters": 34
+				},
+				"2": {
+					"best": {
+						"word": "wärmen",
+						"letters": 20
+					},
+					"worst": {
+						"word": "erbringen",
+						"letters": 56
+					},
+					"totalWords": {
+						"3": 1,
+						"4": 1,
+						"5": 1,
+						"6": 1,
+						"7": 3,
+						"8": 1,
+						"9": 1
+					},
+					"totalLetters": {
+						"20": 1,
+						"22": 1,
+						"35": 1,
+						"36": 1,
+						"41": 1,
+						"42": 1,
+						"45": 1,
+						"46": 1,
+						"56": 1
+					},
+					"gamesPlayed": 9,
+					"medianWords": 7,
+					"medianLetters": 41
+				},
+				"3": {
+					"best": {
+						"word": "spind",
+						"letters": 23
+					},
+					"worst": {
+						"word": "stille",
+						"letters": 34
+					},
+					"totalWords": {
+						"4": 2,
+						"5": 1,
+						"6": 1
+					},
+					"totalLetters": {
+						"23": 1,
+						"26": 1,
+						"30": 1,
+						"34": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 4.5,
+					"medianLetters": 28
+				},
+				"4": {
+					"best": {
+						"word": "ball",
+						"letters": 24
+					},
+					"worst": {
+						"word": "ball",
+						"letters": 24
+					},
+					"totalWords": {
+						"5": 1
+					},
+					"totalLetters": {
+						"24": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 5,
+					"medianLetters": 24
+				},
+				"5": {
+					"best": {
+						"word": "buch",
+						"letters": 17
+					},
+					"worst": {
+						"word": "buch",
+						"letters": 17
+					},
+					"totalWords": {
+						"2": 1
+					},
+					"totalLetters": {
+						"17": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 2,
+					"medianLetters": 17
+				},
+				"6": {
+					"best": {
+						"word": "hintern",
+						"letters": 20
+					},
+					"worst": {
+						"word": "böschung",
+						"letters": 37
+					},
+					"totalWords": {
+						"2": 1,
+						"7": 1
+					},
+					"totalLetters": {
+						"20": 1,
+						"37": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 4.5,
+					"medianLetters": 28.5
+				},
+				"7": {
+					"best": {
+						"word": "dachboden",
+						"letters": 26
+					},
+					"worst": {
+						"word": "kneifen",
+						"letters": 40
+					},
+					"totalWords": {
+						"3": 1,
+						"6": 2
+					},
+					"totalLetters": {
+						"26": 1,
+						"35": 1,
+						"40": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 6,
+					"medianLetters": 35
+				},
+				"8": {
+					"best": {
+						"word": "kompass",
+						"letters": 27
+					},
+					"worst": {
+						"word": "toast",
+						"letters": 38
+					},
+					"totalWords": {
+						"4": 2,
+						"7": 1
+					},
+					"totalLetters": {
+						"27": 1,
+						"31": 1,
+						"38": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 4,
+					"medianLetters": 31
+				},
+				"9": {
+					"best": {
+						"word": "kopfhörer",
+						"letters": 28
+					},
+					"worst": {
+						"word": "bettelarm",
+						"letters": 37
+					},
+					"totalWords": {
+						"4": 1,
+						"6": 1
+					},
+					"totalLetters": {
+						"28": 1,
+						"37": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 5,
+					"medianLetters": 32.5
+				},
+				"10": {
+					"best": {
+						"word": "darm",
+						"letters": 27
+					},
+					"worst": {
+						"word": "reliquie",
+						"letters": 46
+					},
+					"totalWords": {
+						"5": 1,
+						"7": 1
+					},
+					"totalLetters": {
+						"27": 1,
+						"46": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 6,
+					"medianLetters": 36.5
+				},
+				"year": {
+					"best": {
+						"word": "buch",
+						"letters": 17
+					},
+					"worst": {
+						"word": "erbringen",
+						"letters": 56
+					},
+					"totalWords": {
+						"2": 2,
+						"3": 3,
+						"4": 7,
+						"5": 10,
+						"6": 7,
+						"7": 7,
+						"8": 3,
+						"9": 1
+					},
+					"totalLetters": {
+						"17": 1,
+						"20": 2,
+						"21": 1,
+						"22": 2,
+						"23": 1,
+						"24": 1,
+						"26": 2,
+						"27": 2,
+						"28": 1,
+						"29": 1,
+						"30": 2,
+						"31": 2,
+						"33": 1,
+						"34": 3,
+						"35": 2,
+						"36": 1,
+						"37": 4,
+						"38": 1,
+						"40": 1,
+						"41": 1,
+						"42": 2,
+						"45": 2,
+						"46": 2,
+						"52": 1,
+						"56": 1
+					},
+					"gamesPlayed": 40,
+					"medianWords": 4.5,
+					"medianLetters": 33.5
+				}
+			},
+			"dates": {
+				"1": [
+					"11.01.2025",
+					"15.01.2025",
+					"27.01.2025",
+					"31.01.2025",
+					"14.01.2025",
+					"16.01.2025",
+					"26.01.2025",
+					"28.01.2025",
+					"19.01.2025",
+					"18.01.2025"
+				],
+				"2": [
+					"12.02.2025",
+					"05.02.2025",
+					"01.02.2025",
+					"15.02.2025",
+					"04.02.2025"
+				],
+				"3": [
+					"06.03.2025",
+					"05.03.2025"
+				],
+				"5": [
+					"06.05.2025"
+				],
+				"6": [
+					"12.06.2025"
+				],
+				"7": [
+					"10.07.2025",
+					"08.07.2025"
+				],
+				"8": [
+					"11.08.2025",
+					"01.08.2025"
+				],
+				"9": [
+					"12.09.2025"
+				],
+				"10": [
+					"04.10.2025"
+				],
+				"year": [
+					"06.03.2025",
+					"10.07.2025",
+					"11.01.2025",
+					"12.06.2025",
+					"15.01.2025",
+					"27.01.2025",
+					"31.01.2025",
+					"12.02.2025",
+					"05.03.2025",
+					"14.01.2025",
+					"08.07.2025",
+					"05.02.2025",
+					"06.05.2025",
+					"11.08.2025",
+					"04.10.2025",
+					"16.01.2025",
+					"26.01.2025",
+					"28.01.2025",
+					"19.01.2025",
+					"01.02.2025",
+					"12.09.2025",
+					"15.02.2025",
+					"04.02.2025",
+					"18.01.2025",
+					"01.08.2025"
+				]
+			},
+			"worstDates": {
+				"1": [
+					"17.01.2025",
+					"16.01.2025",
+					"29.01.2025",
+					"13.01.2025"
+				],
+				"2": [
+					"10.02.2025",
+					"14.02.2025",
+					"08.02.2025",
+					"17.02.2025",
+					"01.02.2025"
+				],
+				"3": [
+					"11.03.2025",
+					"05.03.2025",
+					"22.03.2025"
+				],
+				"4": [
+					"08.04.2025"
+				],
+				"5": [
+					"06.05.2025"
+				],
+				"6": [
+					"12.06.2025",
+					"24.06.2025"
+				],
+				"7": [
+					"19.07.2025"
+				],
+				"8": [
+					"10.08.2025",
+					"01.08.2025"
+				],
+				"9": [
+					"13.09.2025"
+				],
+				"10": [
+					"28.10.2025"
+				],
+				"year": [
+					"10.02.2025",
+					"10.08.2025",
+					"11.03.2025",
+					"12.06.2025",
+					"13.09.2025",
+					"17.01.2025",
+					"24.06.2025",
+					"28.10.2025",
+					"05.03.2025",
+					"14.02.2025",
+					"08.02.2025",
+					"08.04.2025",
+					"06.05.2025",
+					"17.02.2025",
+					"19.07.2025",
+					"16.01.2025",
+					"22.03.2025",
+					"01.02.2025",
+					"29.01.2025",
+					"13.01.2025",
+					"01.08.2025"
+				]
+			}
+		}
+	},
+	"wordsByDates": {
+		"20.12.2025": "schikane",
+		"28.10.2025": "darm",
+		"04.10.2025": "reliquie",
+		"30.09.2025": "bein",
+		"13.09.2025": "bettelarm",
+		"12.09.2025": "kopfhörer",
+		"11.09.2025": "tratschen",
+		"11.08.2025": "kompass",
+		"10.08.2025": "toast",
+		"01.08.2025": "afrikaner",
+		"31.07.2025": "angeln",
+		"19.07.2025": "feldzug",
+		"10.07.2025": "kneifen",
+		"08.07.2025": "dachboden",
+		"24.06.2025": "böschung",
+		"23.06.2025": "langfinger",
+		"16.06.2025": "verfassung",
+		"12.06.2025": "hintern",
+		"06.05.2025": "buch",
+		"09.04.2025": "scheidung",
+		"08.04.2025": "ball",
+		"22.03.2025": "spind",
+		"11.03.2025": "reden",
+		"08.03.2025": "schlecht",
+		"06.03.2025": "kabarett",
+		"05.03.2025": "stille",
+		"22.02.2025": "hysterisch",
+		"17.02.2025": "degen",
+		"15.02.2025": "wärmen",
+		"14.02.2025": "erbringen",
+		"12.02.2025": "überführen",
+		"10.02.2025": "rastplatz",
+		"09.02.2025": "agent",
+		"08.02.2025": "gutachter",
+		"05.02.2025": "japanisch",
+		"04.02.2025": "stammbaum",
+		"03.02.2025": "bitter",
+		"01.02.2025": "türke",
+		"31.01.2025": "urenkel",
+		"29.01.2025": "mutter",
+		"28.01.2025": "zerstört",
+		"27.01.2025": "feminin",
+		"26.01.2025": "plump",
+		"21.01.2025": "holocaust",
+		"19.01.2025": "beleg",
+		"18.01.2025": "knirschen",
+		"17.01.2025": "tenor",
+		"16.01.2025": "dahinter",
+		"15.01.2025": "lyrik",
+		"14.01.2025": "vorahnung",
+		"13.01.2025": "enkelsohn",
+		"12.01.2025": "nichts",
+		"11.01.2025": "zweifach"
+	},
+	"datesByWords": {
+		"schikane": "20.12.2025",
+		"darm": "28.10.2025",
+		"reliquie": "04.10.2025",
+		"bein": "30.09.2025",
+		"bettelarm": "13.09.2025",
+		"kopfhörer": "12.09.2025",
+		"tratschen": "11.09.2025",
+		"kompass": "11.08.2025",
+		"toast": "10.08.2025",
+		"afrikaner": "01.08.2025",
+		"angeln": "31.07.2025",
+		"feldzug": "19.07.2025",
+		"kneifen": "10.07.2025",
+		"dachboden": "08.07.2025",
+		"böschung": "24.06.2025",
+		"langfinger": "23.06.2025",
+		"verfassung": "16.06.2025",
+		"hintern": "12.06.2025",
+		"buch": "06.05.2025",
+		"scheidung": "09.04.2025",
+		"ball": "08.04.2025",
+		"spind": "22.03.2025",
+		"reden": "11.03.2025",
+		"schlecht": "08.03.2025",
+		"kabarett": "06.03.2025",
+		"stille": "05.03.2025",
+		"hysterisch": "22.02.2025",
+		"degen": "17.02.2025",
+		"wärmen": "15.02.2025",
+		"erbringen": "14.02.2025",
+		"überführen": "12.02.2025",
+		"rastplatz": "10.02.2025",
+		"agent": "09.02.2025",
+		"gutachter": "08.02.2025",
+		"japanisch": "05.02.2025",
+		"stammbaum": "04.02.2025",
+		"bitter": "03.02.2025",
+		"türke": "01.02.2025",
+		"urenkel": "31.01.2025",
+		"mutter": "29.01.2025",
+		"zerstört": "28.01.2025",
+		"feminin": "27.01.2025",
+		"plump": "26.01.2025",
+		"holocaust": "21.01.2025",
+		"beleg": "19.01.2025",
+		"knirschen": "18.01.2025",
+		"tenor": "17.01.2025",
+		"dahinter": "16.01.2025",
+		"lyrik": "15.01.2025",
+		"vorahnung": "14.01.2025",
+		"enkelsohn": "13.01.2025",
+		"nichts": "12.01.2025",
+		"zweifach": "11.01.2025"
+	},
+	"rankByWords": {
+		"bitter": {
+			"best": {
+				"word": "bitter",
+				"letters": 19
+			},
+			"worst": {
+				"word": "bitter",
+				"letters": 19
+			},
+			"totalWords": {
+				"2": 1
+			},
+			"totalLetters": {
+				"19": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 2,
+			"medianLetters": 19
+		},
+		"kabarett": {
+			"best": {
+				"word": "kabarett",
+				"letters": 30
+			},
+			"worst": {
+				"word": "kabarett",
+				"letters": 38
+			},
+			"totalWords": {
+				"4": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"30": 1,
+				"38": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 34
+		},
+		"scheidung": {
+			"best": {
+				"word": "scheidung",
+				"letters": 41
+			},
+			"worst": {
+				"word": "scheidung",
+				"letters": 41
+			},
+			"totalWords": {
+				"5": 1
+			},
+			"totalLetters": {
+				"41": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 5,
+			"medianLetters": 41
+		},
+		"rastplatz": {
+			"best": {
+				"word": "rastplatz",
+				"letters": 40
+			},
+			"worst": {
+				"word": "rastplatz",
+				"letters": 42
+			},
+			"totalWords": {
+				"7": 2
+			},
+			"totalLetters": {
+				"40": 1,
+				"42": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7,
+			"medianLetters": 41
+		},
+		"kneifen": {
+			"best": {
+				"word": "kneifen",
+				"letters": 40
+			},
+			"worst": {
+				"word": "kneifen",
+				"letters": 43
+			},
+			"totalWords": {
+				"6": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"40": 1,
+				"43": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7,
+			"medianLetters": 41.5
+		},
+		"toast": {
+			"best": {
+				"word": "toast",
+				"letters": 23
+			},
+			"worst": {
+				"word": "toast",
+				"letters": 38
+			},
+			"totalWords": {
+				"3": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"23": 1,
+				"38": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 30.5
+		},
+		"zweifach": {
+			"best": {
+				"word": "zweifach",
+				"letters": 34
+			},
+			"worst": {
+				"word": "zweifach",
+				"letters": 45
+			},
+			"totalWords": {
+				"5": 1,
+				"10": 1
+			},
+			"totalLetters": {
+				"34": 1,
+				"45": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7.5,
+			"medianLetters": 39.5
+		},
+		"reden": {
+			"best": {
+				"word": "reden",
+				"letters": 25
+			},
+			"worst": {
+				"word": "reden",
+				"letters": 26
+			},
+			"totalWords": {
+				"4": 1,
+				"5": 1
+			},
+			"totalLetters": {
+				"25": 1,
+				"26": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 4.5,
+			"medianLetters": 25.5
+		},
+		"tratschen": {
+			"best": {
+				"word": "tratschen",
+				"letters": 50
+			},
+			"worst": {
+				"word": "tratschen",
+				"letters": 50
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"50": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 50
+		},
+		"hintern": {
+			"best": {
+				"word": "hintern",
+				"letters": 20
+			},
+			"worst": {
+				"word": "hintern",
+				"letters": 20
+			},
+			"totalWords": {
+				"2": 2
+			},
+			"totalLetters": {
+				"20": 2
+			},
+			"gamesPlayed": 2,
+			"medianWords": 2,
+			"medianLetters": 20
+		},
+		"bettelarm": {
+			"best": {
+				"word": "bettelarm",
+				"letters": 32
+			},
+			"worst": {
+				"word": "bettelarm",
+				"letters": 37
+			},
+			"totalWords": {
+				"4": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"32": 1,
+				"37": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 34.5
+		},
+		"lyrik": {
+			"best": {
+				"word": "lyrik",
+				"letters": 22
+			},
+			"worst": {
+				"word": "lyrik",
+				"letters": 40
+			},
+			"totalWords": {
+				"4": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"22": 1,
+				"40": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5.5,
+			"medianLetters": 31
+		},
+		"verfassung": {
+			"best": {
+				"word": "verfassung",
+				"letters": 74
+			},
+			"worst": {
+				"word": "verfassung",
+				"letters": 74
+			},
+			"totalWords": {
+				"13": 1
+			},
+			"totalLetters": {
+				"74": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 13,
+			"medianLetters": 74
+		},
+		"tenor": {
+			"best": {
+				"word": "tenor",
+				"letters": 18
+			},
+			"worst": {
+				"word": "tenor",
+				"letters": 21
+			},
+			"totalWords": {
+				"2": 1,
+				"3": 1
+			},
+			"totalLetters": {
+				"18": 1,
+				"21": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 2.5,
+			"medianLetters": 19.5
+		},
+		"langfinger": {
+			"best": {
+				"word": "langfinger",
+				"letters": 53
+			},
+			"worst": {
+				"word": "langfinger",
+				"letters": 53
+			},
+			"totalWords": {
+				"9": 1
+			},
+			"totalLetters": {
+				"53": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 9,
+			"medianLetters": 53
+		},
+		"böschung": {
+			"best": {
+				"word": "böschung",
+				"letters": 25
+			},
+			"worst": {
+				"word": "böschung",
+				"letters": 37
+			},
+			"totalWords": {
+				"3": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"25": 1,
+				"37": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 31
+		},
+		"feminin": {
+			"best": {
+				"word": "feminin",
+				"letters": 29
+			},
+			"worst": {
+				"word": "feminin",
+				"letters": 30
+			},
+			"totalWords": {
+				"5": 2
+			},
+			"totalLetters": {
+				"29": 1,
+				"30": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 29.5
+		},
+		"darm": {
+			"best": {
+				"word": "darm",
+				"letters": 20
+			},
+			"worst": {
+				"word": "darm",
+				"letters": 27
+			},
+			"totalWords": {
+				"3": 1,
+				"5": 1
+			},
+			"totalLetters": {
+				"20": 1,
+				"27": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 4,
+			"medianLetters": 23.5
+		},
+		"bein": {
+			"best": {
+				"word": "bein",
+				"letters": 32
+			},
+			"worst": {
+				"word": "bein",
+				"letters": 32
+			},
+			"totalWords": {
+				"6": 1
+			},
+			"totalLetters": {
+				"32": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 6,
+			"medianLetters": 32
+		},
+		"urenkel": {
+			"best": {
+				"word": "urenkel",
+				"letters": 31
+			},
+			"worst": {
+				"word": "urenkel",
+				"letters": 52
+			},
+			"totalWords": {
+				"5": 1,
+				"10": 1
+			},
+			"totalLetters": {
+				"31": 1,
+				"52": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7.5,
+			"medianLetters": 41.5
+		},
+		"hysterisch": {
+			"best": {
+				"word": "hysterisch",
+				"letters": 27
+			},
+			"worst": {
+				"word": "hysterisch",
+				"letters": 27
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"27": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 27
+		},
+		"nichts": {
+			"best": {
+				"word": "nichts",
+				"letters": 22
+			},
+			"worst": {
+				"word": "nichts",
+				"letters": 22
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"22": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 22
+		},
+		"überführen": {
+			"best": {
+				"word": "überführen",
+				"letters": 46
+			},
+			"worst": {
+				"word": "überführen",
+				"letters": 90
+			},
+			"totalWords": {
+				"9": 1,
+				"16": 1
+			},
+			"totalLetters": {
+				"46": 1,
+				"90": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 12.5,
+			"medianLetters": 68
+		},
+		"stille": {
+			"best": {
+				"word": "stille",
+				"letters": 34
+			},
+			"worst": {
+				"word": "stille",
+				"letters": 34
+			},
+			"totalWords": {
+				"6": 1
+			},
+			"totalLetters": {
+				"34": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 6,
+			"medianLetters": 34
+		},
+		"vorahnung": {
+			"best": {
+				"word": "vorahnung",
+				"letters": 42
+			},
+			"worst": {
+				"word": "vorahnung",
+				"letters": 74
+			},
+			"totalWords": {
+				"6": 1,
+				"14": 1
+			},
+			"totalLetters": {
+				"42": 1,
+				"74": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 10,
+			"medianLetters": 58
+		},
+		"erbringen": {
+			"best": {
+				"word": "erbringen",
+				"letters": 50
+			},
+			"worst": {
+				"word": "erbringen",
+				"letters": 56
+			},
+			"totalWords": {
+				"8": 2
+			},
+			"totalLetters": {
+				"50": 1,
+				"56": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8,
+			"medianLetters": 53
+		},
+		"gutachter": {
+			"best": {
+				"word": "gutachter",
+				"letters": 38
+			},
+			"worst": {
+				"word": "gutachter",
+				"letters": 41
+			},
+			"totalWords": {
+				"5": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"38": 1,
+				"41": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 39.5
+		},
+		"ball": {
+			"best": {
+				"word": "ball",
+				"letters": 21
+			},
+			"worst": {
+				"word": "ball",
+				"letters": 24
+			},
+			"totalWords": {
+				"3": 1,
+				"5": 1
+			},
+			"totalLetters": {
+				"21": 1,
+				"24": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 4,
+			"medianLetters": 22.5
+		},
+		"angeln": {
+			"best": {
+				"word": "angeln",
+				"letters": 28
+			},
+			"worst": {
+				"word": "angeln",
+				"letters": 28
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"28": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 28
+		},
+		"dachboden": {
+			"best": {
+				"word": "dachboden",
+				"letters": 26
+			},
+			"worst": {
+				"word": "dachboden",
+				"letters": 47
+			},
+			"totalWords": {
+				"3": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"26": 1,
+				"47": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 36.5
+		},
+		"japanisch": {
+			"best": {
+				"word": "japanisch",
+				"letters": 45
+			},
+			"worst": {
+				"word": "japanisch",
+				"letters": 77
+			},
+			"totalWords": {
+				"7": 1,
+				"14": 1
+			},
+			"totalLetters": {
+				"45": 1,
+				"77": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 10.5,
+			"medianLetters": 61
+		},
+		"buch": {
+			"best": {
+				"word": "buch",
+				"letters": 17
+			},
+			"worst": {
+				"word": "buch",
+				"letters": 17
+			},
+			"totalWords": {
+				"2": 2
+			},
+			"totalLetters": {
+				"17": 2
+			},
+			"gamesPlayed": 2,
+			"medianWords": 2,
+			"medianLetters": 17
+		},
+		"degen": {
+			"best": {
+				"word": "degen",
+				"letters": 31
+			},
+			"worst": {
+				"word": "degen",
+				"letters": 35
+			},
+			"totalWords": {
+				"6": 2
+			},
+			"totalLetters": {
+				"31": 1,
+				"35": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 33
+		},
+		"kompass": {
+			"best": {
+				"word": "kompass",
+				"letters": 27
+			},
+			"worst": {
+				"word": "kompass",
+				"letters": 46
+			},
+			"totalWords": {
+				"4": 1,
+				"10": 1
+			},
+			"totalLetters": {
+				"27": 1,
+				"46": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7,
+			"medianLetters": 36.5
+		},
+		"reliquie": {
+			"best": {
+				"word": "reliquie",
+				"letters": 46
+			},
+			"worst": {
+				"word": "reliquie",
+				"letters": 84
+			},
+			"totalWords": {
+				"7": 1,
+				"18": 1
+			},
+			"totalLetters": {
+				"46": 1,
+				"84": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 12.5,
+			"medianLetters": 65
+		},
+		"feldzug": {
+			"best": {
+				"word": "feldzug",
+				"letters": 34
+			},
+			"worst": {
+				"word": "feldzug",
+				"letters": 35
+			},
+			"totalWords": {
+				"6": 2
+			},
+			"totalLetters": {
+				"34": 1,
+				"35": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 34.5
+		},
+		"dahinter": {
+			"best": {
+				"word": "dahinter",
+				"letters": 33
+			},
+			"worst": {
+				"word": "dahinter",
+				"letters": 33
+			},
+			"totalWords": {
+				"5": 1
+			},
+			"totalLetters": {
+				"33": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 5,
+			"medianLetters": 33
+		},
+		"plump": {
+			"best": {
+				"word": "plump",
+				"letters": 34
+			},
+			"worst": {
+				"word": "plump",
+				"letters": 37
+			},
+			"totalWords": {
+				"7": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"34": 1,
+				"37": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7.5,
+			"medianLetters": 35.5
+		},
+		"schlecht": {
+			"best": {
+				"word": "schlecht",
+				"letters": 52
+			},
+			"worst": {
+				"word": "schlecht",
+				"letters": 52
+			},
+			"totalWords": {
+				"9": 1
+			},
+			"totalLetters": {
+				"52": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 9,
+			"medianLetters": 52
+		},
+		"spind": {
+			"best": {
+				"word": "spind",
+				"letters": 22
+			},
+			"worst": {
+				"word": "spind",
+				"letters": 23
+			},
+			"totalWords": {
+				"3": 1,
+				"4": 1
+			},
+			"totalLetters": {
+				"22": 1,
+				"23": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 3.5,
+			"medianLetters": 22.5
+		},
+		"zerstört": {
+			"best": {
+				"word": "zerstört",
+				"letters": 45
+			},
+			"worst": {
+				"word": "zerstört",
+				"letters": 107
+			},
+			"totalWords": {
+				"7": 1,
+				"19": 1
+			},
+			"totalLetters": {
+				"45": 1,
+				"107": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 13,
+			"medianLetters": 76
+		},
+		"holocaust": {
+			"best": {
+				"word": "holocaust",
+				"letters": 45
+			},
+			"worst": {
+				"word": "holocaust",
+				"letters": 45
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"45": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 45
+		},
+		"beleg": {
+			"best": {
+				"word": "beleg",
+				"letters": 30
+			},
+			"worst": {
+				"word": "beleg",
+				"letters": 33
+			},
+			"totalWords": {
+				"5": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"30": 1,
+				"33": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5.5,
+			"medianLetters": 31.5
+		},
+		"agent": {
+			"best": {
+				"word": "agent",
+				"letters": 30
+			},
+			"worst": {
+				"word": "agent",
+				"letters": 30
+			},
+			"totalWords": {
+				"5": 1
+			},
+			"totalLetters": {
+				"30": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 5,
+			"medianLetters": 30
+		},
+		"türke": {
+			"best": {
+				"word": "türke",
+				"letters": 22
+			},
+			"worst": {
+				"word": "türke",
+				"letters": 22
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"22": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 22
+		},
+		"kopfhörer": {
+			"best": {
+				"word": "kopfhörer",
+				"letters": 28
+			},
+			"worst": {
+				"word": "kopfhörer",
+				"letters": 96
+			},
+			"totalWords": {
+				"4": 1,
+				"19": 1
+			},
+			"totalLetters": {
+				"28": 1,
+				"96": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 11.5,
+			"medianLetters": 62
+		},
+		"mutter": {
+			"best": {
+				"word": "mutter",
+				"letters": 19
+			},
+			"worst": {
+				"word": "mutter",
+				"letters": 37
+			},
+			"totalWords": {
+				"2": 1,
+				"5": 1
+			},
+			"totalLetters": {
+				"19": 1,
+				"37": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 3.5,
+			"medianLetters": 28
+		},
+		"wärmen": {
+			"best": {
+				"word": "wärmen",
+				"letters": 20
+			},
+			"worst": {
+				"word": "wärmen",
+				"letters": 48
+			},
+			"totalWords": {
+				"4": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"20": 1,
+				"48": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5.5,
+			"medianLetters": 34
+		},
+		"enkelsohn": {
+			"best": {
+				"word": "enkelsohn",
+				"letters": 42
+			},
+			"worst": {
+				"word": "enkelsohn",
+				"letters": 52
+			},
+			"totalWords": {
+				"7": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"42": 1,
+				"52": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7.5,
+			"medianLetters": 47
+		},
+		"stammbaum": {
+			"best": {
+				"word": "stammbaum",
+				"letters": 36
+			},
+			"worst": {
+				"word": "stammbaum",
+				"letters": 77
+			},
+			"totalWords": {
+				"5": 1,
+				"18": 1
+			},
+			"totalLetters": {
+				"36": 1,
+				"77": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 11.5,
+			"medianLetters": 56.5
+		},
+		"knirschen": {
+			"best": {
+				"word": "knirschen",
+				"letters": 37
+			},
+			"worst": {
+				"word": "knirschen",
+				"letters": 63
+			},
+			"totalWords": {
+				"6": 1,
+				"10": 1
+			},
+			"totalLetters": {
+				"37": 1,
+				"63": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8,
+			"medianLetters": 50
+		},
+		"schikane": {
+			"best": {
+				"word": "schikane",
+				"letters": 82
+			},
+			"worst": {
+				"word": "schikane",
+				"letters": 82
+			},
+			"totalWords": {
+				"16": 1
+			},
+			"totalLetters": {
+				"82": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 16,
+			"medianLetters": 82
+		},
+		"afrikaner": {
+			"best": {
+				"word": "afrikaner",
+				"letters": 31
+			},
+			"worst": {
+				"word": "afrikaner",
+				"letters": 31
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"31": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 31
+		}
+	},
+	"hardestWords": [
+		"schikane",
+		"zerstört",
+		"verfassung",
+		"überführen",
+		"reliquie",
+		"kopfhörer",
+		"japanisch",
+		"vorahnung",
+		"stammbaum",
+		"langfinger",
+		"erbringen",
+		"schlecht",
+		"knirschen",
+		"tratschen",
+		"enkelsohn",
+		"holocaust",
+		"urenkel",
+		"kneifen",
+		"rastplatz",
+		"scheidung",
+		"zweifach",
+		"gutachter",
+		"kompass",
+		"dachboden",
+		"plump",
+		"feldzug",
+		"bettelarm",
+		"stille",
+		"wärmen",
+		"kabarett",
+		"degen",
+		"dahinter",
+		"bein",
+		"beleg",
+		"lyrik",
+		"böschung",
+		"afrikaner",
+		"toast",
+		"agent",
+		"feminin",
+		"angeln",
+		"mutter",
+		"hysterisch",
+		"reden",
+		"darm",
+		"ball",
+		"spind",
+		"nichts",
+		"türke",
+		"hintern"
+	],
+	"bestWords": [
+		"buch",
+		"bitter",
+		"tenor",
+		"hintern",
+		"nichts",
+		"türke",
+		"spind",
+		"ball",
+		"darm",
+		"reden",
+		"hysterisch",
+		"mutter",
+		"angeln",
+		"feminin",
+		"agent",
+		"toast",
+		"afrikaner",
+		"böschung",
+		"lyrik",
+		"beleg",
+		"bein",
+		"dahinter",
+		"degen",
+		"kabarett",
+		"wärmen",
+		"stille",
+		"bettelarm",
+		"feldzug",
+		"plump",
+		"dachboden",
+		"kompass",
+		"gutachter",
+		"zweifach",
+		"scheidung",
+		"rastplatz",
+		"kneifen",
+		"urenkel",
+		"holocaust",
+		"enkelsohn",
+		"tratschen",
+		"knirschen",
+		"schlecht",
+		"erbringen",
+		"langfinger",
+		"stammbaum",
+		"vorahnung",
+		"japanisch",
+		"kopfhörer",
+		"reliquie",
+		"überführen"
+	]
+}

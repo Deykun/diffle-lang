@@ -84,7 +84,8 @@ function App() {
               {pane === PaneType.Game && <Game />}
               {pane === PaneType.Settings && <Settings />}
               {pane === PaneType.Statistics && <Statistics />}
-              {pane === PaneType.YearSummary && <YearSummary />}
+              {pane === PaneType.YearSummary24 && <YearSummary />}
+              {pane === PaneType.YearSummary25 && <YearSummary />}
               {pane === PaneType.AboutLanguage && <AboutLanguage />}
           </main>
           <CookiesPopup />
