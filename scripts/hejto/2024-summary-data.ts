@@ -5,16 +5,16 @@ import { ParsedHejtoResult } from "./hejto-types";
 
 import { getInfoAboutResults } from "./utils/results-parser";
 
-import { results as results1 } from "./parts/part-1";
-import { results as results2 } from "./parts/part-2";
-import { results as results3 } from "./parts/part-3";
-import { results as results4 } from "./parts/part-4";
-import { results as results5 } from "./parts/part-5";
-import { results as results6 } from "./parts/part-6";
-import { results as results7 } from "./parts/part-7";
-import { results as results8 } from "./parts/part-8";
-import { results as results9 } from "./parts/part-9";
-import { results as results10 } from "./parts/part-10";
+import { results as results1 } from "./parts-2024/part-1";
+import { results as results2 } from "./parts-2024/part-2";
+import { results as results3 } from "./parts-2024/part-3";
+import { results as results4 } from "./parts-2024/part-4";
+import { results as results5 } from "./parts-2024/part-5";
+import { results as results6 } from "./parts-2024/part-6";
+import { results as results7 } from "./parts-2024/part-7";
+import { results as results8 } from "./parts-2024/part-8";
+import { results as results9 } from "./parts-2024/part-9";
+import { results as results10 } from "./parts-2024/part-10";
 
 export const resultsBySource: {
   [url: string]: ParsedHejtoResult[];

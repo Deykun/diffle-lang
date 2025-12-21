@@ -1,5 +1,5 @@
 import { ParsedHejtoResult } from '../hejto-types';
-import { results } from '../parts/part-1';
+import { results } from '../parts-2024/part-1';
 
 const getMedian = (medianData: { [value: number]: number }) => {
   const { 0: zero, ...medianDataWithouZero } = medianData;

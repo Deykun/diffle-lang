@@ -1,9 +1,9 @@
-import { ParsedHejtoResult } from '../hejto-types';
+import { ParsedHejtoResult } from "../hejto-types";
 
 export const results: {
   resultsBySource: {
-    [url: string]: ParsedHejtoResult[],
-  },
+    [url: string]: ParsedHejtoResult[];
+  };
 } = {
   resultsBySource: {},
 };
