@@ -1,0 +1,335 @@
+{
+	"all": {
+		"best": {
+			"word": "chérubin",
+			"letters": 20
+		},
+		"worst": {
+			"word": "chiffon",
+			"letters": 58
+		},
+		"totalWords": {
+			"3": 1,
+			"8": 1,
+			"12": 1,
+			"18": 1
+		},
+		"totalLetters": {
+			"20": 1,
+			"43": 1,
+			"55": 1,
+			"58": 1
+		},
+		"gamesPlayed": 4,
+		"medianWords": 10,
+		"medianLetters": 49
+	},
+	"activePlayers": 3,
+	"byUser": {
+		"Felonious_Gru": {
+			"results": {
+				"2": {
+					"best": {
+						"word": "chiffon",
+						"letters": 58
+					},
+					"worst": {
+						"word": "chiffon",
+						"letters": 58
+					},
+					"totalWords": {
+						"18": 1
+					},
+					"totalLetters": {
+						"58": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 18,
+					"medianLetters": 58
+				},
+				"3": {
+					"best": {
+						"word": "fantaisie",
+						"letters": 55
+					},
+					"worst": {
+						"word": "fantaisie",
+						"letters": 55
+					},
+					"totalWords": {
+						"12": 1
+					},
+					"totalLetters": {
+						"55": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 12,
+					"medianLetters": 55
+				},
+				"year": {
+					"best": {
+						"word": "fantaisie",
+						"letters": 55
+					},
+					"worst": {
+						"word": "chiffon",
+						"letters": 58
+					},
+					"totalWords": {
+						"12": 1,
+						"18": 1
+					},
+					"totalLetters": {
+						"55": 1,
+						"58": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 15,
+					"medianLetters": 56.5
+				}
+			},
+			"dates": {
+				"2": [
+					"09.02.2025"
+				],
+				"3": [
+					"08.03.2025"
+				],
+				"year": [
+					"08.03.2025",
+					"09.02.2025"
+				]
+			},
+			"worstDates": {
+				"2": [
+					"09.02.2025"
+				],
+				"3": [
+					"08.03.2025"
+				],
+				"year": [
+					"08.03.2025",
+					"09.02.2025"
+				]
+			}
+		},
+		"nxo": {
+			"results": {
+				"3": {
+					"best": {
+						"word": "chérubin",
+						"letters": 20
+					},
+					"worst": {
+						"word": "chérubin",
+						"letters": 20
+					},
+					"totalWords": {
+						"3": 1
+					},
+					"totalLetters": {
+						"20": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 3,
+					"medianLetters": 20
+				},
+				"year": {
+					"best": {
+						"word": "chérubin",
+						"letters": 20
+					},
+					"worst": {
+						"word": "chérubin",
+						"letters": 20
+					},
+					"totalWords": {
+						"3": 1
+					},
+					"totalLetters": {
+						"20": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 3,
+					"medianLetters": 20
+				}
+			},
+			"dates": {
+				"3": [
+					"09.03.2025"
+				],
+				"year": [
+					"09.03.2025"
+				]
+			},
+			"worstDates": {
+				"3": [
+					"09.03.2025"
+				],
+				"year": [
+					"09.03.2025"
+				]
+			}
+		},
+		"kwiecik": {
+			"results": {
+				"6": {
+					"best": {
+						"word": "carré",
+						"letters": 43
+					},
+					"worst": {
+						"word": "carré",
+						"letters": 43
+					},
+					"totalWords": {
+						"8": 1
+					},
+					"totalLetters": {
+						"43": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 8,
+					"medianLetters": 43
+				},
+				"year": {
+					"best": {
+						"word": "carré",
+						"letters": 43
+					},
+					"worst": {
+						"word": "carré",
+						"letters": 43
+					},
+					"totalWords": {
+						"8": 1
+					},
+					"totalLetters": {
+						"43": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 8,
+					"medianLetters": 43
+				}
+			},
+			"dates": {
+				"6": [
+					"21.06.2025"
+				],
+				"year": [
+					"21.06.2025"
+				]
+			},
+			"worstDates": {
+				"6": [
+					"21.06.2025"
+				],
+				"year": [
+					"21.06.2025"
+				]
+			}
+		}
+	},
+	"wordsByDates": {
+		"21.06.2025": "carré",
+		"09.03.2025": "chérubin",
+		"08.03.2025": "fantaisie",
+		"09.02.2025": "chiffon"
+	},
+	"datesByWords": {
+		"carré": "21.06.2025",
+		"chérubin": "09.03.2025",
+		"fantaisie": "08.03.2025",
+		"chiffon": "09.02.2025"
+	},
+	"rankByWords": {
+		"fantaisie": {
+			"best": {
+				"word": "fantaisie",
+				"letters": 55
+			},
+			"worst": {
+				"word": "fantaisie",
+				"letters": 55
+			},
+			"totalWords": {
+				"12": 1
+			},
+			"totalLetters": {
+				"55": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 12,
+			"medianLetters": 55
+		},
+		"chérubin": {
+			"best": {
+				"word": "chérubin",
+				"letters": 20
+			},
+			"worst": {
+				"word": "chérubin",
+				"letters": 20
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"20": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 20
+		},
+		"carré": {
+			"best": {
+				"word": "carré",
+				"letters": 43
+			},
+			"worst": {
+				"word": "carré",
+				"letters": 43
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"43": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 43
+		},
+		"chiffon": {
+			"best": {
+				"word": "chiffon",
+				"letters": 58
+			},
+			"worst": {
+				"word": "chiffon",
+				"letters": 58
+			},
+			"totalWords": {
+				"18": 1
+			},
+			"totalLetters": {
+				"58": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 18,
+			"medianLetters": 58
+		}
+	},
+	"hardestWords": [
+		"chiffon",
+		"fantaisie",
+		"carré",
+		"chérubin"
+	],
+	"bestWords": [
+		"chérubin",
+		"carré",
+		"fantaisie",
+		"chiffon"
+	]
+}

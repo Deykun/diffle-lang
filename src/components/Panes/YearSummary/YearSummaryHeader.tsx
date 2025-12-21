@@ -9,16 +9,13 @@ import useEventT from './hooks/useEventT';
 import './YearSummaryHeader.scss';
 
 type Props = {
+  year: number;
   summary: YearSummaryInfo;
 };
 
-const YearSummaryHeader = ({ summary }: Props) => {
-  const {
-    gamesPlayed, medianWords, medianLetters,
-  } = summary.all;
-  const {
-    activePlayers,
-  } = summary;
+const YearSummaryHeader = ({ year, summary }: Props) => {
+  const { gamesPlayed, medianWords, medianLetters } = summary.all;
+  const { activePlayers } = summary;
 
   const { t } = useTranslation();
   const { eventT } = useEventT();
@@ -26,7 +23,11 @@ const YearSummaryHeader = ({ summary }: Props) => {
   return (
       <section className="year-summary-header">
           <IconFirework className="year-summary-header-icon" />
-          <h1 className="year-summary-special-text">Hejto 2024</h1>
+          <h1 className="year-summary-special-text">
+              Hejto
+              {' '}
+              {year}
+          </h1>
           <p className="year-sumamry-header-main">
               <span
                 // eslint-disable-next-line react/no-danger
@@ -38,9 +39,7 @@ const YearSummaryHeader = ({ summary }: Props) => {
                 }}
               />
               <span>
-                  <strong>
-                      {activePlayers}
-                  </strong>
+                  <strong>{activePlayers}</strong>
                   {' '}
                   {eventT('main.players')}
               </span>

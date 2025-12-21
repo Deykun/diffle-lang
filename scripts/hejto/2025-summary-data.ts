@@ -5,16 +5,13 @@ import { ParsedHejtoResult } from "./hejto-types";
 
 import { getInfoAboutResults } from "./utils/results-parser";
 
-import { results as results1 } from "./parts-2024/part-1";
-import { results as results2 } from "./parts-2024/part-2";
-import { results as results3 } from "./parts-2024/part-3";
-import { results as results4 } from "./parts-2024/part-4";
-import { results as results5 } from "./parts-2024/part-5";
-import { results as results6 } from "./parts-2024/part-6";
-import { results as results7 } from "./parts-2024/part-7";
-import { results as results8 } from "./parts-2024/part-8";
-import { results as results9 } from "./parts-2024/part-9";
-import { results as results10 } from "./parts-2024/part-10";
+import { results as results1 } from "./parts-2025/part-1";
+import { results as results2 } from "./parts-2025/part-2";
+import { results as results3 } from "./parts-2025/part-3";
+import { results as results4 } from "./parts-2025/part-4";
+import { results as results5 } from "./parts-2025/part-5";
+import { results as results6 } from "./parts-2025/part-6";
+import { results as results7 } from "./parts-2025/part-7";
 
 export const resultsBySource: {
   [url: string]: ParsedHejtoResult[];
@@ -26,9 +23,6 @@ export const resultsBySource: {
   ...results5.resultsBySource,
   ...results6.resultsBySource,
   ...results7.resultsBySource,
-  ...results8.resultsBySource,
-  ...results9.resultsBySource,
-  ...results10.resultsBySource,
 };
 
 const {
@@ -39,7 +33,7 @@ const {
   wordsByDate,
 } = Object.values(resultsBySource)
   .flatMap((v) => v)
-  .filter((v) => v.date?.includes("2024"))
+  .filter((v) => v.date?.includes("2025"))
   .reduce(
     (
       stack: {
@@ -306,7 +300,7 @@ const usersSummary = Object.entries(resultsByUser).reduce(
           }
 
           const bestForDatesForMonth = bestForDates.filter((date) =>
-            date.endsWith(`${month}.2024`)
+            date.endsWith(`${month}.2025`)
           );
 
           if (bestForDatesForMonth.length > 0) {
@@ -314,7 +308,7 @@ const usersSummary = Object.entries(resultsByUser).reduce(
           }
 
           const worstForDatesForMonth = worstForDates.filter((date) =>
-            date.endsWith(`${month}.2024`)
+            date.endsWith(`${month}.2025`)
           );
 
           if (worstForDatesForMonth.length > 0) {
@@ -379,7 +373,7 @@ const usersSummary = Object.entries(resultsByUser).reduce(
 
 langs.forEach((lang) => {
   fs.writeFileSync(
-    `./public/year-summary/2024/${lang}-info.json`,
+    `./public/year-summary/2025/${lang}-info.json`,
     JSON.stringify(
       {
         all: getInfoAboutResults(resultsByLang[lang]),
