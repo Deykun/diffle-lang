@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { YearSummaryInfo } from '@common-types';
 
 import IconFirework from '@components/Icons/IconFirework';
+import IconParty from '@components/Icons/IconParty';
 
 import useEventT from './hooks/useEventT';
 
@@ -22,15 +23,16 @@ const YearSummaryHeader = ({ year, summary }: Props) => {
 
   return (
       <section className="year-summary-header">
-          <IconFirework className="year-summary-header-icon" />
+          {year === 2024 && <IconFirework className="year-summary-header-icon" />}
+          {year === 2025 && <IconParty className="year-summary-header-icon" />}
           <h1 className="year-summary-special-text">
               Hejto
               {' '}
               {year}
           </h1>
-          <p className="year-sumamry-header-main">
+          <p className="year-summary-header-main">
               <span
-                // eslint-disable-next-line react/no-danger
+          // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html: t('statistics.totalGames', {
                     postProcess: 'interval',
