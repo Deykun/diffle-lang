@@ -33,7 +33,7 @@ const {
   wordsByDate,
 } = Object.values(resultsBySource)
   .flatMap((v) => v)
-  .filter((v) => v.date?.includes("2025"))
+  .filter((v) => v.date?.includes("2025") && (v.result?.totalWords || 0) > 0)
   .reduce(
     (
       stack: {

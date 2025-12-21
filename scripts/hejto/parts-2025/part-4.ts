@@ -10583,9 +10583,9 @@ results.resultsBySource[
     nick: "Felonious_Gru",
     lang: "en",
     url: "https://deykun.github.io/diffle-lang/en?r=hkCOukTMtMWay5CZm1yYpBnL5ETLjVnZuAjLyEjLy4CMx4SM2MTLlNWyhSI",
-    value: "!(rXÙKLÍKL\u000bL\u000bXËLNK\u001aXËY\u000bXËLNK\nH",
+    value: "",
     result: {
-      word: "rXÙKLÍKL\u000bL\u000bXËLNK\u001aXËY\u000bXËLNK\nH",
+      word: "",
       correct: null,
       position: null,
       incorrect: null,

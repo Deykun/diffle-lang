@@ -27,7 +27,7 @@ const getSummaryData = async (
 };
 
 const Summary = () => {
-  const [year, setYear] = useState(location.href?.includes('24') ? 2024 : 2025);
+  const [year] = useState(location.href?.includes('24') ? 2024 : 2025);
   const gameLanguage = useSelector(state => state.game.language);
 
   const {

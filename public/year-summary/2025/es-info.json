@@ -13,7 +13,7 @@
 			"3": 3,
 			"4": 7,
 			"5": 13,
-			"6": 8,
+			"6": 9,
 			"7": 8,
 			"8": 8,
 			"9": 6,
@@ -40,7 +40,7 @@
 			"27": 1,
 			"28": 4,
 			"29": 3,
-			"30": 1,
+			"30": 2,
 			"31": 3,
 			"32": 2,
 			"33": 2,
@@ -67,9 +67,9 @@
 			"105": 1,
 			"138": 1
 		},
-		"gamesPlayed": 73,
-		"medianWords": 7,
-		"medianLetters": 34
+		"gamesPlayed": 72,
+		"medianWords": 6.5,
+		"medianLetters": 33.5
 	},
 	"activePlayers": 3,
 	"byUser": {
@@ -87,7 +87,7 @@
 					"2": 3,
 					"4": 3,
 					"5": 7,
-					"6": 4,
+					"6": 5,
 					"7": 4,
 					"8": 6,
 					"9": 5,
@@ -109,7 +109,7 @@
 					"26": 1,
 					"28": 2,
 					"29": 1,
-					"30": 1,
+					"30": 2,
 					"31": 3,
 					"34": 3,
 					"35": 1,
@@ -131,9 +131,9 @@
 					"79": 1,
 					"138": 1
 				},
-				"gamesPlayed": 45,
-				"medianWords": 8,
-				"medianLetters": 38
+				"gamesPlayed": 44,
+				"medianWords": 7.5,
+				"medianLetters": 37.5
 			},
 			"results": {
 				"1": {
@@ -171,7 +171,7 @@
 						"53": 1,
 						"138": 1
 					},
-					"gamesPlayed": 15,
+					"gamesPlayed": 14,
 					"medianWords": 7.5,
 					"medianLetters": 45.5
 				},
@@ -329,18 +329,18 @@
 					"totalWords": {
 						"2": 1,
 						"5": 1,
-						"6": 1,
+						"6": 2,
 						"9": 1
 					},
 					"totalLetters": {
 						"13": 1,
-						"30": 1,
+						"30": 2,
 						"31": 1,
 						"39": 1
 					},
 					"gamesPlayed": 5,
-					"medianWords": 5.5,
-					"medianLetters": 30.5
+					"medianWords": 6,
+					"medianLetters": 30
 				},
 				"10": {
 					"best": {
@@ -397,7 +397,7 @@
 						"2": 3,
 						"4": 3,
 						"5": 7,
-						"6": 4,
+						"6": 5,
 						"7": 4,
 						"8": 6,
 						"9": 5,
@@ -419,7 +419,7 @@
 						"26": 1,
 						"28": 2,
 						"29": 1,
-						"30": 1,
+						"30": 2,
 						"31": 3,
 						"34": 3,
 						"35": 1,
@@ -441,9 +441,9 @@
 						"79": 1,
 						"138": 1
 					},
-					"gamesPlayed": 45,
-					"medianWords": 8,
-					"medianLetters": 38
+					"gamesPlayed": 44,
+					"medianWords": 7.5,
+					"medianLetters": 37.5
 				}
 			},
 			"dates": {
@@ -485,6 +485,7 @@
 					"10.08.2025"
 				],
 				"9": [
+					"11.09.2025",
 					"12.09.2025",
 					"13.09.2025",
 					"18.09.2025",
@@ -504,6 +505,7 @@
 					"04.10.2025",
 					"08.04.2025",
 					"10.08.2025",
+					"11.09.2025",
 					"12.09.2025",
 					"13.09.2025",
 					"18.09.2025",
@@ -569,6 +571,7 @@
 					"20.08.2025"
 				],
 				"9": [
+					"11.09.2025",
 					"12.09.2025",
 					"13.09.2025",
 					"18.09.2025",
@@ -590,6 +593,7 @@
 					"08.07.2025",
 					"10.07.2025",
 					"11.01.2025",
+					"11.09.2025",
 					"12.06.2025",
 					"12.09.2025",
 					"13.09.2025",
@@ -998,7 +1002,7 @@
 		"18.09.2025": "optimista",
 		"13.09.2025": "fundar",
 		"12.09.2025": "vela",
-		"11.09.2025": "[\u000bLM\u000bM\u000bM\u000b\u000b\u0019\\LXÛ\u001b\u000bL\u000bKLØK\u001d\u000bLÌËYËL\u000bÚKL\nH",
+		"11.09.2025": "ojal",
 		"20.08.2025": "paja",
 		"10.08.2025": "suerte",
 		"31.07.2025": "parrilla",
@@ -1034,8 +1038,7 @@
 		"15.01.2025": "colorido",
 		"13.01.2025": "centrar",
 		"12.01.2025": "peludo",
-		"11.01.2025": "reclutar",
-		"10.01.2025": "±­HJ\u0018Ý[\u001d\u001bËLL\u000bMKM\u000bK\u0018XY\u000b\u001bÛ\u000bLÌË]\\X\u001d^\u000bLÌËØÚ\u000bY[\u000bM\f\u000bÝ[\u000bLYH"
+		"11.01.2025": "reclutar"
 	},
 	"datesByWords": {
 		"toalla": "20.12.2025",
@@ -1046,7 +1049,7 @@
 		"optimista": "18.09.2025",
 		"fundar": "13.09.2025",
 		"vela": "12.09.2025",
-		"[\u000bLM\u000bM\u000bM\u000b\u000b\u0019\\LXÛ\u001b\u000bL\u000bKLØK\u001d\u000bLÌËYËL\u000bÚKL\nH": "11.09.2025",
+		"ojal": "11.09.2025",
 		"paja": "20.08.2025",
 		"suerte": "10.08.2025",
 		"parrilla": "31.07.2025",
@@ -1081,8 +1084,7 @@
 		"colorido": "15.01.2025",
 		"centrar": "13.01.2025",
 		"peludo": "12.01.2025",
-		"reclutar": "11.01.2025",
-		"±­HJ\u0018Ý[\u001d\u001bËLL\u000bMKM\u000bK\u0018XY\u000b\u001bÛ\u000bLÌË]\\X\u001d^\u000bLÌËØÚ\u000bY[\u000bM\f\u000bÝ[\u000bLYH": "10.01.2025"
+		"reclutar": "11.01.2025"
 	},
 	"rankByWords": {
 		"armario": {
@@ -1203,21 +1205,6 @@
 			"medianWords": 6.5,
 			"medianLetters": 31.5
 		},
-		"±­HJ\u0018Ý[\u001d\u001bËLL\u000bMKM\u000bK\u0018XY\u000b\u001bÛ\u000bLÌË]\\X\u001d^\u000bLÌËØÚ\u000bY[\u000bM\f\u000bÝ[\u000bLYH": {
-			"best": {
-				"word": "",
-				"letters": 200
-			},
-			"worst": {
-				"word": "",
-				"letters": 0
-			},
-			"totalWords": {},
-			"totalLetters": {},
-			"gamesPlayed": 1,
-			"medianWords": 0,
-			"medianLetters": 0
-		},
 		"vejez": {
 			"best": {
 				"word": "vejez",
@@ -1281,20 +1268,24 @@
 			"medianWords": 19,
 			"medianLetters": 91.5
 		},
-		"[\u000bLM\u000bM\u000bM\u000b\u000b\u0019\\LXÛ\u001b\u000bL\u000bKLØK\u001d\u000bLÌËYËL\u000bÚKL\nH": {
+		"ojal": {
 			"best": {
-				"word": "",
-				"letters": 200
+				"word": "ojal",
+				"letters": 30
 			},
 			"worst": {
-				"word": "",
-				"letters": 0
+				"word": "ojal",
+				"letters": 30
 			},
-			"totalWords": {},
-			"totalLetters": {},
+			"totalWords": {
+				"6": 1
+			},
+			"totalLetters": {
+				"30": 1
+			},
 			"gamesPlayed": 1,
-			"medianWords": 0,
-			"medianLetters": 0
+			"medianWords": 6,
+			"medianLetters": 30
 		},
 		"rumana": {
 			"best": {
@@ -2012,6 +2003,7 @@
 		"lavabo",
 		"optimista",
 		"centrar",
+		"ojal",
 		"vela",
 		"rumana",
 		"mapache",
@@ -2022,13 +2014,9 @@
 		"asar",
 		"rosa",
 		"honor",
-		"pasta",
-		"±­HJ\u0018Ý[\u001d\u001bËLL\u000bMKM\u000bK\u0018XY\u000b\u001bÛ\u000bLÌË]\\X\u001d^\u000bLÌËØÚ\u000bY[\u000bM\f\u000bÝ[\u000bLYH",
-		"[\u000bLM\u000bM\u000bM\u000b\u000b\u0019\\LXÛ\u001b\u000bL\u000bKLØK\u001d\u000bLÌËYËL\u000bÚKL\nH"
+		"pasta"
 	],
 	"bestWords": [
-		"±­HJ\u0018Ý[\u001d\u001bËLL\u000bMKM\u000bK\u0018XY\u000b\u001bÛ\u000bLÌË]\\X\u001d^\u000bLÌËØÚ\u000bY[\u000bM\f\u000bÝ[\u000bLYH",
-		"[\u000bLM\u000bM\u000bM\u000b\u000b\u0019\\LXÛ\u001b\u000bL\u000bKLØK\u001d\u000bLÌËYËL\u000bÚKL\nH",
 		"pasta",
 		"honor",
 		"rosa",
@@ -2039,6 +2027,7 @@
 		"suerte",
 		"mapache",
 		"rumana",
+		"ojal",
 		"vela",
 		"optimista",
 		"centrar",
