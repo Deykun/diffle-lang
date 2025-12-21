@@ -237,7 +237,7 @@ const YearSummaryTable = ({ year, summary }: Props) => {
                 return (
                     <Button
                       key={sortByValue}
-              // @ts-expect-error No one sane should define abstract types just to deal with this nonsense.
+                      // @ts-expect-error No one sane should define abstract types just to deal with this nonsense.
                       onClick={() => setSortBy(sortByValue)}
                       isInverted
                       hasBorder={false}
