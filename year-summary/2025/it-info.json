@@ -1,0 +1,2930 @@
+{
+	"all": {
+		"best": {
+			"word": "moro",
+			"letters": 17
+		},
+		"worst": {
+			"word": "ipnotico",
+			"letters": 100
+		},
+		"totalWords": {
+			"3": 11,
+			"4": 10,
+			"5": 15,
+			"6": 11,
+			"7": 12,
+			"8": 11,
+			"9": 8,
+			"10": 6,
+			"11": 3,
+			"12": 6,
+			"13": 6,
+			"14": 4,
+			"15": 1,
+			"16": 4,
+			"18": 1,
+			"19": 3,
+			"24": 1,
+			"27": 1
+		},
+		"totalLetters": {
+			"17": 1,
+			"18": 2,
+			"19": 1,
+			"21": 1,
+			"22": 4,
+			"23": 3,
+			"24": 2,
+			"25": 2,
+			"26": 4,
+			"28": 3,
+			"29": 2,
+			"30": 1,
+			"31": 4,
+			"32": 5,
+			"33": 4,
+			"34": 2,
+			"35": 4,
+			"36": 4,
+			"37": 3,
+			"39": 4,
+			"40": 1,
+			"41": 5,
+			"42": 1,
+			"43": 1,
+			"44": 7,
+			"45": 1,
+			"47": 3,
+			"48": 3,
+			"49": 1,
+			"50": 2,
+			"51": 2,
+			"52": 2,
+			"53": 2,
+			"54": 2,
+			"55": 1,
+			"56": 2,
+			"57": 3,
+			"58": 1,
+			"60": 3,
+			"63": 1,
+			"65": 1,
+			"66": 2,
+			"67": 3,
+			"72": 1,
+			"73": 1,
+			"82": 1,
+			"83": 1,
+			"87": 1,
+			"91": 1,
+			"97": 1,
+			"100": 1
+		},
+		"gamesPlayed": 114,
+		"medianWords": 6.5,
+		"medianLetters": 40.5
+	},
+	"activePlayers": 2,
+	"byUser": {
+		"Felonious_Gru": {
+			"best50": {
+				"best": {
+					"word": "moro",
+					"letters": 18
+				},
+				"worst": {
+					"word": "ozioso",
+					"letters": 57
+				},
+				"totalWords": {
+					"3": 7,
+					"4": 6,
+					"5": 8,
+					"6": 6,
+					"7": 6,
+					"8": 4,
+					"9": 5,
+					"10": 2,
+					"11": 1,
+					"12": 2,
+					"13": 2,
+					"16": 1
+				},
+				"totalLetters": {
+					"18": 1,
+					"19": 1,
+					"22": 4,
+					"23": 2,
+					"24": 1,
+					"25": 2,
+					"26": 1,
+					"28": 2,
+					"29": 1,
+					"31": 2,
+					"32": 2,
+					"33": 2,
+					"34": 1,
+					"35": 2,
+					"36": 2,
+					"37": 2,
+					"39": 2,
+					"40": 1,
+					"41": 2,
+					"44": 5,
+					"47": 1,
+					"48": 3,
+					"49": 1,
+					"51": 1,
+					"52": 1,
+					"53": 1,
+					"54": 1,
+					"55": 1,
+					"56": 1,
+					"57": 1
+				},
+				"gamesPlayed": 50,
+				"medianWords": 5.5,
+				"medianLetters": 35.5
+			},
+			"hardest50": {
+				"best": {
+					"word": "giovanni",
+					"letters": 22
+				},
+				"worst": {
+					"word": "ipnotico",
+					"letters": 100
+				},
+				"totalWords": {
+					"3": 2,
+					"4": 1,
+					"5": 4,
+					"6": 2,
+					"7": 6,
+					"8": 5,
+					"9": 5,
+					"10": 4,
+					"11": 1,
+					"12": 4,
+					"13": 4,
+					"14": 3,
+					"16": 2,
+					"18": 1,
+					"19": 3,
+					"24": 1,
+					"27": 1
+				},
+				"totalLetters": {
+					"22": 1,
+					"24": 1,
+					"26": 1,
+					"29": 1,
+					"33": 1,
+					"34": 1,
+					"35": 1,
+					"36": 2,
+					"37": 2,
+					"39": 2,
+					"40": 1,
+					"41": 1,
+					"44": 5,
+					"47": 1,
+					"48": 3,
+					"49": 1,
+					"51": 1,
+					"52": 1,
+					"53": 1,
+					"54": 1,
+					"55": 1,
+					"56": 1,
+					"57": 2,
+					"58": 1,
+					"60": 1,
+					"63": 1,
+					"65": 1,
+					"66": 2,
+					"67": 2,
+					"72": 1,
+					"73": 1,
+					"82": 1,
+					"83": 1,
+					"87": 1,
+					"91": 1,
+					"97": 1,
+					"100": 1
+				},
+				"gamesPlayed": 49,
+				"medianWords": 9,
+				"medianLetters": 49
+			},
+			"results": {
+				"1": {
+					"best": {
+						"word": "giovanni",
+						"letters": 22
+					},
+					"worst": {
+						"word": "obliquo",
+						"letters": 73
+					},
+					"totalWords": {
+						"3": 3,
+						"5": 4,
+						"7": 3,
+						"8": 2,
+						"10": 1,
+						"12": 1,
+						"13": 3,
+						"16": 2,
+						"19": 1
+					},
+					"totalLetters": {
+						"22": 2,
+						"23": 1,
+						"24": 1,
+						"29": 1,
+						"35": 2,
+						"36": 1,
+						"39": 1,
+						"44": 1,
+						"48": 1,
+						"51": 1,
+						"53": 1,
+						"57": 1,
+						"60": 1,
+						"66": 2,
+						"67": 1,
+						"72": 1,
+						"73": 1
+					},
+					"gamesPlayed": 20,
+					"medianWords": 7.5,
+					"medianLetters": 46
+				},
+				"2": {
+					"best": {
+						"word": "moro",
+						"letters": 18
+					},
+					"worst": {
+						"word": "svizzero",
+						"letters": 97
+					},
+					"totalWords": {
+						"3": 2,
+						"5": 1,
+						"6": 1,
+						"7": 1,
+						"9": 2,
+						"10": 1,
+						"12": 2,
+						"14": 1,
+						"24": 1
+					},
+					"totalLetters": {
+						"18": 1,
+						"19": 1,
+						"31": 1,
+						"32": 1,
+						"36": 1,
+						"44": 1,
+						"48": 1,
+						"52": 1,
+						"57": 1,
+						"65": 1,
+						"67": 1,
+						"97": 1
+					},
+					"gamesPlayed": 12,
+					"medianWords": 8,
+					"medianLetters": 46
+				},
+				"3": {
+					"best": {
+						"word": "volante",
+						"letters": 33
+					},
+					"worst": {
+						"word": "ipnotico",
+						"letters": 100
+					},
+					"totalWords": {
+						"6": 1,
+						"11": 1,
+						"13": 1,
+						"14": 1,
+						"27": 1
+					},
+					"totalLetters": {
+						"33": 1,
+						"47": 1,
+						"54": 1,
+						"82": 1,
+						"100": 1
+					},
+					"gamesPlayed": 5,
+					"medianWords": 13,
+					"medianLetters": 54
+				},
+				"4": {
+					"best": {
+						"word": "frontale",
+						"letters": 31
+					},
+					"worst": {
+						"word": "assistito",
+						"letters": 63
+					},
+					"totalWords": {
+						"4": 1,
+						"8": 1,
+						"14": 1
+					},
+					"totalLetters": {
+						"31": 1,
+						"49": 1,
+						"63": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 8,
+					"medianLetters": 49
+				},
+				"5": {
+					"best": {
+						"word": "cortese",
+						"letters": 28
+					},
+					"worst": {
+						"word": "schedare",
+						"letters": 44
+					},
+					"totalWords": {
+						"4": 1,
+						"5": 1,
+						"6": 1,
+						"7": 1
+					},
+					"totalLetters": {
+						"28": 1,
+						"33": 1,
+						"37": 1,
+						"44": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 5.5,
+					"medianLetters": 35
+				},
+				"6": {
+					"best": {
+						"word": "medaglia",
+						"letters": 22
+					},
+					"worst": {
+						"word": "assumere",
+						"letters": 44
+					},
+					"totalWords": {
+						"3": 1,
+						"4": 1,
+						"6": 1,
+						"8": 1,
+						"9": 2
+					},
+					"totalLetters": {
+						"22": 1,
+						"23": 1,
+						"32": 1,
+						"37": 1,
+						"44": 2
+					},
+					"gamesPlayed": 6,
+					"medianWords": 7,
+					"medianLetters": 34.5
+				},
+				"7": {
+					"best": {
+						"word": "premiare",
+						"letters": 26
+					},
+					"worst": {
+						"word": "cariatide",
+						"letters": 83
+					},
+					"totalWords": {
+						"4": 1,
+						"8": 1,
+						"10": 2,
+						"19": 1
+					},
+					"totalLetters": {
+						"26": 1,
+						"40": 1,
+						"55": 1,
+						"58": 1,
+						"83": 1
+					},
+					"gamesPlayed": 5,
+					"medianWords": 10,
+					"medianLetters": 55
+				},
+				"8": {
+					"best": {
+						"word": "regime",
+						"letters": 25
+					},
+					"worst": {
+						"word": "precario",
+						"letters": 41
+					},
+					"totalWords": {
+						"4": 1,
+						"6": 1,
+						"7": 1
+					},
+					"totalLetters": {
+						"25": 1,
+						"41": 2
+					},
+					"gamesPlayed": 3,
+					"medianWords": 6,
+					"medianLetters": 41
+				},
+				"9": {
+					"best": {
+						"word": "tanga",
+						"letters": 25
+					},
+					"worst": {
+						"word": "anfratto",
+						"letters": 87
+					},
+					"totalWords": {
+						"4": 1,
+						"5": 1,
+						"6": 1,
+						"12": 1,
+						"18": 1
+					},
+					"totalLetters": {
+						"25": 1,
+						"28": 1,
+						"39": 1,
+						"56": 1,
+						"87": 1
+					},
+					"gamesPlayed": 5,
+					"medianWords": 6,
+					"medianLetters": 39
+				},
+				"10": {
+					"best": {
+						"word": "merito",
+						"letters": 22
+					},
+					"worst": {
+						"word": "esagitato",
+						"letters": 91
+					},
+					"totalWords": {
+						"3": 1,
+						"5": 1,
+						"19": 1
+					},
+					"totalLetters": {
+						"22": 1,
+						"34": 1,
+						"91": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 5,
+					"medianLetters": 34
+				},
+				"12": {
+					"best": {
+						"word": "rotore",
+						"letters": 48
+					},
+					"worst": {
+						"word": "rotore",
+						"letters": 48
+					},
+					"totalWords": {
+						"9": 1
+					},
+					"totalLetters": {
+						"48": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 9,
+					"medianLetters": 48
+				},
+				"year": {
+					"best": {
+						"word": "moro",
+						"letters": 18
+					},
+					"worst": {
+						"word": "ipnotico",
+						"letters": 100
+					},
+					"totalWords": {
+						"3": 7,
+						"4": 6,
+						"5": 8,
+						"6": 6,
+						"7": 6,
+						"8": 5,
+						"9": 5,
+						"10": 4,
+						"11": 1,
+						"12": 4,
+						"13": 4,
+						"14": 3,
+						"16": 2,
+						"18": 1,
+						"19": 3,
+						"24": 1,
+						"27": 1
+					},
+					"totalLetters": {
+						"18": 1,
+						"19": 1,
+						"22": 4,
+						"23": 2,
+						"24": 1,
+						"25": 2,
+						"26": 1,
+						"28": 2,
+						"29": 1,
+						"31": 2,
+						"32": 2,
+						"33": 2,
+						"34": 1,
+						"35": 2,
+						"36": 2,
+						"37": 2,
+						"39": 2,
+						"40": 1,
+						"41": 2,
+						"44": 5,
+						"47": 1,
+						"48": 3,
+						"49": 1,
+						"51": 1,
+						"52": 1,
+						"53": 1,
+						"54": 1,
+						"55": 1,
+						"56": 1,
+						"57": 2,
+						"58": 1,
+						"60": 1,
+						"63": 1,
+						"65": 1,
+						"66": 2,
+						"67": 2,
+						"72": 1,
+						"73": 1,
+						"82": 1,
+						"83": 1,
+						"87": 1,
+						"91": 1,
+						"97": 1,
+						"100": 1
+					},
+					"gamesPlayed": 67,
+					"medianWords": 8,
+					"medianLetters": 44
+				}
+			},
+			"dates": {
+				"1": [
+					"14.01.2025",
+					"07.01.2025",
+					"09.01.2025",
+					"28.01.2025",
+					"17.01.2025",
+					"26.01.2025",
+					"06.01.2025",
+					"20.01.2025",
+					"10.01.2025"
+				],
+				"2": [
+					"03.02.2025",
+					"05.02.2025",
+					"19.02.2025",
+					"20.12.2025",
+					"12.02.2025",
+					"09.02.2025",
+					"17.02.2025"
+				],
+				"3": [
+					"08.03.2025"
+				],
+				"4": [
+					"02.04.2025",
+					"08.04.2025"
+				],
+				"5": [
+					"10.05.2025",
+					"12.05.2025",
+					"06.05.2025"
+				],
+				"6": [
+					"09.06.2025",
+					"11.06.2025",
+					"16.06.2025",
+					"23.06.2025",
+					"24.06.2025"
+				],
+				"7": [
+					"10.07.2025",
+					"19.07.2025",
+					"31.07.2025",
+					"08.07.2025"
+				],
+				"9": [
+					"11.09.2025",
+					"12.09.2025",
+					"30.09.2025",
+					"13.09.2025"
+				],
+				"10": [
+					"05.10.2025",
+					"28.10.2025",
+					"04.10.2025"
+				],
+				"12": [
+					"20.12.2025"
+				],
+				"year": [
+					"14.01.2025",
+					"02.04.2025",
+					"03.02.2025",
+					"05.02.2025",
+					"05.10.2025",
+					"07.01.2025",
+					"08.04.2025",
+					"09.01.2025",
+					"09.06.2025",
+					"10.05.2025",
+					"10.07.2025",
+					"11.06.2025",
+					"11.09.2025",
+					"12.09.2025",
+					"16.06.2025",
+					"19.02.2025",
+					"19.07.2025",
+					"20.12.2025",
+					"23.06.2025",
+					"28.01.2025",
+					"28.10.2025",
+					"30.09.2025",
+					"31.07.2025",
+					"04.10.2025",
+					"12.02.2025",
+					"09.02.2025",
+					"17.01.2025",
+					"26.01.2025",
+					"24.06.2025",
+					"08.03.2025",
+					"08.07.2025",
+					"17.02.2025",
+					"06.01.2025",
+					"20.01.2025",
+					"12.05.2025",
+					"06.05.2025",
+					"13.09.2025",
+					"10.01.2025"
+				]
+			},
+			"worstDates": {
+				"1": [
+					"14.01.2025",
+					"03.01.2025",
+					"11.01.2025",
+					"27.01.2025",
+					"18.01.2025",
+					"04.01.2025",
+					"12.01.2025",
+					"15.01.2025",
+					"19.01.2025",
+					"13.01.2025",
+					"29.01.2025",
+					"10.01.2025",
+					"08.01.2025"
+				],
+				"2": [
+					"03.02.2025",
+					"04.02.2025",
+					"05.02.2025",
+					"20.12.2025",
+					"22.02.2025",
+					"09.02.2025",
+					"17.02.2025",
+					"08.02.2025",
+					"15.02.2025",
+					"10.02.2025",
+					"14.02.2025"
+				],
+				"3": [
+					"06.03.2025",
+					"23.03.2025",
+					"22.03.2025",
+					"24.03.2025",
+					"08.03.2025"
+				],
+				"4": [
+					"02.04.2025",
+					"27.04.2025"
+				],
+				"5": [
+					"10.05.2025",
+					"11.05.2025",
+					"12.05.2025"
+				],
+				"6": [
+					"09.06.2025",
+					"11.06.2025",
+					"12.06.2025",
+					"23.06.2025"
+				],
+				"7": [
+					"10.07.2025",
+					"31.07.2025",
+					"08.07.2025",
+					"12.07.2025"
+				],
+				"8": [
+					"01.08.2025",
+					"10.08.2025",
+					"29.08.2025"
+				],
+				"9": [
+					"11.09.2025",
+					"12.09.2025",
+					"18.09.2025",
+					"30.09.2025",
+					"13.09.2025"
+				],
+				"10": [
+					"04.10.2025"
+				],
+				"12": [
+					"20.12.2025"
+				],
+				"year": [
+					"14.01.2025",
+					"01.08.2025",
+					"02.04.2025",
+					"03.01.2025",
+					"03.02.2025",
+					"04.02.2025",
+					"05.02.2025",
+					"06.03.2025",
+					"09.06.2025",
+					"10.05.2025",
+					"10.07.2025",
+					"10.08.2025",
+					"11.01.2025",
+					"11.05.2025",
+					"11.06.2025",
+					"11.09.2025",
+					"12.06.2025",
+					"12.09.2025",
+					"18.09.2025",
+					"20.12.2025",
+					"22.02.2025",
+					"23.03.2025",
+					"23.06.2025",
+					"27.04.2025",
+					"29.08.2025",
+					"30.09.2025",
+					"31.07.2025",
+					"27.01.2025",
+					"22.03.2025",
+					"04.10.2025",
+					"09.02.2025",
+					"18.01.2025",
+					"04.01.2025",
+					"12.01.2025",
+					"24.03.2025",
+					"08.03.2025",
+					"08.07.2025",
+					"17.02.2025",
+					"08.02.2025",
+					"15.02.2025",
+					"15.01.2025",
+					"10.02.2025",
+					"12.05.2025",
+					"19.01.2025",
+					"14.02.2025",
+					"13.09.2025",
+					"13.01.2025",
+					"29.01.2025",
+					"12.07.2025",
+					"10.01.2025",
+					"08.01.2025"
+				]
+			}
+		},
+		"Greyman": {
+			"results": {
+				"1": {
+					"best": {
+						"word": "mongolia",
+						"letters": 21
+					},
+					"worst": {
+						"word": "sozzura",
+						"letters": 67
+					},
+					"totalWords": {
+						"3": 1,
+						"5": 3,
+						"6": 1,
+						"8": 3,
+						"9": 2,
+						"10": 2,
+						"11": 1,
+						"12": 1,
+						"13": 2,
+						"14": 1,
+						"15": 1,
+						"16": 1
+					},
+					"totalLetters": {
+						"21": 1,
+						"28": 1,
+						"29": 1,
+						"31": 1,
+						"35": 1,
+						"36": 1,
+						"37": 1,
+						"41": 1,
+						"44": 1,
+						"47": 2,
+						"50": 1,
+						"51": 1,
+						"52": 1,
+						"54": 1,
+						"56": 1,
+						"57": 1,
+						"60": 1,
+						"67": 1
+					},
+					"gamesPlayed": 19,
+					"medianWords": 9,
+					"medianLetters": 47
+				},
+				"2": {
+					"best": {
+						"word": "moro",
+						"letters": 17
+					},
+					"worst": {
+						"word": "episodico",
+						"letters": 50
+					},
+					"totalWords": {
+						"3": 1,
+						"4": 2,
+						"7": 3,
+						"9": 1,
+						"11": 1
+					},
+					"totalLetters": {
+						"17": 1,
+						"18": 1,
+						"26": 1,
+						"39": 2,
+						"42": 1,
+						"44": 1,
+						"50": 1
+					},
+					"gamesPlayed": 8,
+					"medianWords": 5.5,
+					"medianLetters": 32.5
+				},
+				"3": {
+					"best": {
+						"word": "volante",
+						"letters": 26
+					},
+					"worst": {
+						"word": "praticare",
+						"letters": 34
+					},
+					"totalWords": {
+						"4": 1,
+						"5": 1,
+						"6": 2
+					},
+					"totalLetters": {
+						"26": 1,
+						"30": 1,
+						"32": 1,
+						"34": 1
+					},
+					"gamesPlayed": 4,
+					"medianWords": 5.5,
+					"medianLetters": 31
+				},
+				"4": {
+					"best": {
+						"word": "dominio",
+						"letters": 31
+					},
+					"worst": {
+						"word": "massetere",
+						"letters": 43
+					},
+					"totalWords": {
+						"4": 1,
+						"8": 2
+					},
+					"totalLetters": {
+						"31": 1,
+						"36": 1,
+						"43": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 8,
+					"medianLetters": 36
+				},
+				"5": {
+					"best": {
+						"word": "affermare",
+						"letters": 33
+					},
+					"worst": {
+						"word": "torbido",
+						"letters": 41
+					},
+					"totalWords": {
+						"5": 1,
+						"7": 1
+					},
+					"totalLetters": {
+						"33": 1,
+						"41": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 6,
+					"medianLetters": 37
+				},
+				"6": {
+					"best": {
+						"word": "circa",
+						"letters": 26
+					},
+					"worst": {
+						"word": "assumere",
+						"letters": 60
+					},
+					"totalWords": {
+						"5": 1,
+						"6": 1,
+						"16": 1
+					},
+					"totalLetters": {
+						"26": 1,
+						"32": 1,
+						"60": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 6,
+					"medianLetters": 32
+				},
+				"7": {
+					"best": {
+						"word": "premiare",
+						"letters": 45
+					},
+					"worst": {
+						"word": "cariatide",
+						"letters": 53
+					},
+					"totalWords": {
+						"8": 1,
+						"12": 1
+					},
+					"totalLetters": {
+						"45": 1,
+						"53": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 10,
+					"medianLetters": 49
+				},
+				"8": {
+					"best": {
+						"word": "regime",
+						"letters": 23
+					},
+					"worst": {
+						"word": "specifico",
+						"letters": 33
+					},
+					"totalWords": {
+						"3": 2,
+						"5": 1
+					},
+					"totalLetters": {
+						"23": 1,
+						"24": 1,
+						"33": 1
+					},
+					"gamesPlayed": 3,
+					"medianWords": 3,
+					"medianLetters": 24
+				},
+				"9": {
+					"best": {
+						"word": "gomitolo",
+						"letters": 35
+					},
+					"worst": {
+						"word": "gomitolo",
+						"letters": 35
+					},
+					"totalWords": {
+						"6": 1
+					},
+					"totalLetters": {
+						"35": 1
+					},
+					"gamesPlayed": 1,
+					"medianWords": 6,
+					"medianLetters": 35
+				},
+				"10": {
+					"best": {
+						"word": "merito",
+						"letters": 32
+					},
+					"worst": {
+						"word": "mostrare",
+						"letters": 41
+					},
+					"totalWords": {
+						"7": 2
+					},
+					"totalLetters": {
+						"32": 1,
+						"41": 1
+					},
+					"gamesPlayed": 2,
+					"medianWords": 7,
+					"medianLetters": 36.5
+				},
+				"year": {
+					"best": {
+						"word": "moro",
+						"letters": 17
+					},
+					"worst": {
+						"word": "sozzura",
+						"letters": 67
+					},
+					"totalWords": {
+						"3": 4,
+						"4": 4,
+						"5": 7,
+						"6": 5,
+						"7": 6,
+						"8": 6,
+						"9": 3,
+						"10": 2,
+						"11": 2,
+						"12": 2,
+						"13": 2,
+						"14": 1,
+						"15": 1,
+						"16": 2
+					},
+					"totalLetters": {
+						"17": 1,
+						"18": 1,
+						"21": 1,
+						"23": 1,
+						"24": 1,
+						"26": 3,
+						"28": 1,
+						"29": 1,
+						"30": 1,
+						"31": 2,
+						"32": 3,
+						"33": 2,
+						"34": 1,
+						"35": 2,
+						"36": 2,
+						"37": 1,
+						"39": 2,
+						"41": 3,
+						"42": 1,
+						"43": 1,
+						"44": 2,
+						"45": 1,
+						"47": 2,
+						"50": 2,
+						"51": 1,
+						"52": 1,
+						"53": 1,
+						"54": 1,
+						"56": 1,
+						"57": 1,
+						"60": 2,
+						"67": 1
+					},
+					"gamesPlayed": 47,
+					"medianWords": 7,
+					"medianLetters": 37
+				}
+			},
+			"dates": {
+				"1": [
+					"03.01.2025",
+					"11.01.2025",
+					"27.01.2025",
+					"18.01.2025",
+					"04.01.2025",
+					"12.01.2025",
+					"15.01.2025",
+					"19.01.2025",
+					"16.01.2025",
+					"13.01.2025",
+					"29.01.2025",
+					"08.01.2025"
+				],
+				"2": [
+					"04.02.2025",
+					"22.02.2025",
+					"08.02.2025",
+					"15.02.2025",
+					"10.02.2025",
+					"14.02.2025"
+				],
+				"3": [
+					"06.03.2025",
+					"23.03.2025",
+					"22.03.2025",
+					"24.03.2025"
+				],
+				"4": [
+					"03.04.2025",
+					"27.04.2025"
+				],
+				"5": [
+					"11.05.2025"
+				],
+				"6": [
+					"12.06.2025"
+				],
+				"7": [
+					"12.07.2025"
+				],
+				"8": [
+					"01.08.2025",
+					"10.08.2025",
+					"29.08.2025"
+				],
+				"9": [
+					"18.09.2025"
+				],
+				"year": [
+					"01.08.2025",
+					"03.01.2025",
+					"03.04.2025",
+					"04.02.2025",
+					"06.03.2025",
+					"10.08.2025",
+					"11.01.2025",
+					"11.05.2025",
+					"12.06.2025",
+					"18.09.2025",
+					"22.02.2025",
+					"23.03.2025",
+					"27.04.2025",
+					"29.08.2025",
+					"27.01.2025",
+					"22.03.2025",
+					"18.01.2025",
+					"04.01.2025",
+					"12.01.2025",
+					"24.03.2025",
+					"08.02.2025",
+					"15.02.2025",
+					"15.01.2025",
+					"10.02.2025",
+					"19.01.2025",
+					"14.02.2025",
+					"16.01.2025",
+					"13.01.2025",
+					"29.01.2025",
+					"12.07.2025",
+					"08.01.2025"
+				]
+			},
+			"worstDates": {
+				"1": [
+					"07.01.2025",
+					"09.01.2025",
+					"28.01.2025",
+					"17.01.2025",
+					"26.01.2025",
+					"06.01.2025",
+					"20.01.2025",
+					"16.01.2025"
+				],
+				"2": [
+					"19.02.2025",
+					"12.02.2025"
+				],
+				"4": [
+					"03.04.2025",
+					"08.04.2025"
+				],
+				"5": [
+					"06.05.2025"
+				],
+				"6": [
+					"16.06.2025",
+					"24.06.2025"
+				],
+				"7": [
+					"19.07.2025"
+				],
+				"10": [
+					"05.10.2025",
+					"28.10.2025"
+				],
+				"year": [
+					"03.04.2025",
+					"05.10.2025",
+					"07.01.2025",
+					"08.04.2025",
+					"09.01.2025",
+					"16.06.2025",
+					"19.02.2025",
+					"19.07.2025",
+					"28.01.2025",
+					"28.10.2025",
+					"12.02.2025",
+					"17.01.2025",
+					"26.01.2025",
+					"24.06.2025",
+					"06.01.2025",
+					"20.01.2025",
+					"06.05.2025",
+					"16.01.2025"
+				]
+			}
+		}
+	},
+	"wordsByDates": {
+		"20.12.2025": "rotore",
+		"28.10.2025": "mostrare",
+		"05.10.2025": "merito",
+		"04.10.2025": "esagitato",
+		"30.09.2025": "anfratto",
+		"18.09.2025": "gomitolo",
+		"13.09.2025": "eroina",
+		"12.09.2025": "basso",
+		"11.09.2025": "tanga",
+		"29.08.2025": "specifico",
+		"10.08.2025": "precario",
+		"01.08.2025": "regime",
+		"31.07.2025": "epigramma",
+		"19.07.2025": "premiare",
+		"12.07.2025": "cariatide",
+		"10.07.2025": "reciso",
+		"08.07.2025": "donnaiolo",
+		"24.06.2025": "sforzo",
+		"23.06.2025": "obovato",
+		"16.06.2025": "assumere",
+		"12.06.2025": "circa",
+		"11.06.2025": "watt",
+		"09.06.2025": "medaglia",
+		"12.05.2025": "cortese",
+		"11.05.2025": "affermare",
+		"10.05.2025": "schedare",
+		"06.05.2025": "torbido",
+		"27.04.2025": "massetere",
+		"08.04.2025": "frontale",
+		"03.04.2025": "dominio",
+		"02.04.2025": "assistito",
+		"24.03.2025": "tommaso",
+		"23.03.2025": "praticare",
+		"22.03.2025": "ipnotico",
+		"08.03.2025": "giudeo",
+		"06.03.2025": "volante",
+		"22.02.2025": "lino",
+		"19.02.2025": "spagnola",
+		"17.02.2025": "giravite",
+		"15.02.2025": "vocazione",
+		"14.02.2025": "ritegno",
+		"12.02.2025": "episodico",
+		"10.02.2025": "svizzero",
+		"09.02.2025": "pesci",
+		"08.02.2025": "impero",
+		"05.02.2025": "schiavo",
+		"04.02.2025": "moro",
+		"03.02.2025": "febbraio",
+		"29.01.2025": "arredare",
+		"28.01.2025": "sozzura",
+		"27.01.2025": "ozioso",
+		"26.01.2025": "giovanni",
+		"20.01.2025": "ballata",
+		"19.01.2025": "superbo",
+		"18.01.2025": "perfido",
+		"17.01.2025": "improprio",
+		"16.01.2025": "condanna",
+		"15.01.2025": "adultera",
+		"14.01.2025": "scagliare",
+		"13.01.2025": "mongolia",
+		"12.01.2025": "fascicolo",
+		"11.01.2025": "bottiglia",
+		"10.01.2025": "toporagno",
+		"09.01.2025": "prete",
+		"08.01.2025": "iponimo",
+		"07.01.2025": "decisivo",
+		"06.01.2025": "ancorare",
+		"04.01.2025": "obliquo",
+		"03.01.2025": "freddezza"
+	},
+	"datesByWords": {
+		"rotore": "20.12.2025",
+		"mostrare": "28.10.2025",
+		"merito": "05.10.2025",
+		"esagitato": "04.10.2025",
+		"anfratto": "30.09.2025",
+		"gomitolo": "18.09.2025",
+		"eroina": "13.09.2025",
+		"basso": "12.09.2025",
+		"tanga": "11.09.2025",
+		"specifico": "29.08.2025",
+		"precario": "10.08.2025",
+		"regime": "01.08.2025",
+		"epigramma": "31.07.2025",
+		"premiare": "19.07.2025",
+		"cariatide": "12.07.2025",
+		"reciso": "10.07.2025",
+		"donnaiolo": "08.07.2025",
+		"sforzo": "24.06.2025",
+		"obovato": "23.06.2025",
+		"assumere": "16.06.2025",
+		"circa": "12.06.2025",
+		"watt": "11.06.2025",
+		"medaglia": "09.06.2025",
+		"cortese": "12.05.2025",
+		"affermare": "11.05.2025",
+		"schedare": "10.05.2025",
+		"torbido": "06.05.2025",
+		"massetere": "27.04.2025",
+		"frontale": "08.04.2025",
+		"dominio": "03.04.2025",
+		"assistito": "02.04.2025",
+		"tommaso": "24.03.2025",
+		"praticare": "23.03.2025",
+		"ipnotico": "22.03.2025",
+		"giudeo": "08.03.2025",
+		"volante": "06.03.2025",
+		"lino": "22.02.2025",
+		"spagnola": "19.02.2025",
+		"giravite": "17.02.2025",
+		"vocazione": "15.02.2025",
+		"ritegno": "14.02.2025",
+		"episodico": "12.02.2025",
+		"svizzero": "10.02.2025",
+		"pesci": "09.02.2025",
+		"impero": "08.02.2025",
+		"schiavo": "05.02.2025",
+		"moro": "04.02.2025",
+		"febbraio": "03.02.2025",
+		"arredare": "29.01.2025",
+		"sozzura": "28.01.2025",
+		"ozioso": "27.01.2025",
+		"giovanni": "26.01.2025",
+		"ballata": "20.01.2025",
+		"superbo": "19.01.2025",
+		"perfido": "18.01.2025",
+		"improprio": "17.01.2025",
+		"condanna": "16.01.2025",
+		"adultera": "15.01.2025",
+		"scagliare": "14.01.2025",
+		"mongolia": "13.01.2025",
+		"fascicolo": "12.01.2025",
+		"bottiglia": "11.01.2025",
+		"toporagno": "10.01.2025",
+		"prete": "09.01.2025",
+		"iponimo": "08.01.2025",
+		"decisivo": "07.01.2025",
+		"ancorare": "06.01.2025",
+		"obliquo": "04.01.2025",
+		"freddezza": "03.01.2025"
+	},
+	"rankByWords": {
+		"scagliare": {
+			"best": {
+				"word": "scagliare",
+				"letters": 66
+			},
+			"worst": {
+				"word": "scagliare",
+				"letters": 66
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"66": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 66
+		},
+		"regime": {
+			"best": {
+				"word": "regime",
+				"letters": 23
+			},
+			"worst": {
+				"word": "regime",
+				"letters": 25
+			},
+			"totalWords": {
+				"3": 1,
+				"4": 1
+			},
+			"totalLetters": {
+				"23": 1,
+				"25": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 3.5,
+			"medianLetters": 24
+		},
+		"assistito": {
+			"best": {
+				"word": "assistito",
+				"letters": 63
+			},
+			"worst": {
+				"word": "assistito",
+				"letters": 63
+			},
+			"totalWords": {
+				"14": 1
+			},
+			"totalLetters": {
+				"63": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 14,
+			"medianLetters": 63
+		},
+		"freddezza": {
+			"best": {
+				"word": "freddezza",
+				"letters": 54
+			},
+			"worst": {
+				"word": "freddezza",
+				"letters": 60
+			},
+			"totalWords": {
+				"12": 1,
+				"13": 1
+			},
+			"totalLetters": {
+				"54": 1,
+				"60": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 12.5,
+			"medianLetters": 57
+		},
+		"febbraio": {
+			"best": {
+				"word": "febbraio",
+				"letters": 67
+			},
+			"worst": {
+				"word": "febbraio",
+				"letters": 67
+			},
+			"totalWords": {
+				"12": 1
+			},
+			"totalLetters": {
+				"67": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 12,
+			"medianLetters": 67
+		},
+		"dominio": {
+			"best": {
+				"word": "dominio",
+				"letters": 31
+			},
+			"worst": {
+				"word": "dominio",
+				"letters": 31
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"31": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 31
+		},
+		"moro": {
+			"best": {
+				"word": "moro",
+				"letters": 17
+			},
+			"worst": {
+				"word": "moro",
+				"letters": 18
+			},
+			"totalWords": {
+				"3": 2
+			},
+			"totalLetters": {
+				"17": 1,
+				"18": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 3,
+			"medianLetters": 17.5
+		},
+		"schiavo": {
+			"best": {
+				"word": "schiavo",
+				"letters": 52
+			},
+			"worst": {
+				"word": "schiavo",
+				"letters": 52
+			},
+			"totalWords": {
+				"12": 1
+			},
+			"totalLetters": {
+				"52": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 12,
+			"medianLetters": 52
+		},
+		"merito": {
+			"best": {
+				"word": "merito",
+				"letters": 22
+			},
+			"worst": {
+				"word": "merito",
+				"letters": 32
+			},
+			"totalWords": {
+				"3": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"22": 1,
+				"32": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 27
+		},
+		"volante": {
+			"best": {
+				"word": "volante",
+				"letters": 26
+			},
+			"worst": {
+				"word": "volante",
+				"letters": 33
+			},
+			"totalWords": {
+				"4": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"26": 1,
+				"33": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 29.5
+		},
+		"decisivo": {
+			"best": {
+				"word": "decisivo",
+				"letters": 35
+			},
+			"worst": {
+				"word": "decisivo",
+				"letters": 44
+			},
+			"totalWords": {
+				"5": 1,
+				"9": 1
+			},
+			"totalLetters": {
+				"35": 1,
+				"44": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7,
+			"medianLetters": 39.5
+		},
+		"frontale": {
+			"best": {
+				"word": "frontale",
+				"letters": 31
+			},
+			"worst": {
+				"word": "frontale",
+				"letters": 36
+			},
+			"totalWords": {
+				"4": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"31": 1,
+				"36": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 33.5
+		},
+		"prete": {
+			"best": {
+				"word": "prete",
+				"letters": 23
+			},
+			"worst": {
+				"word": "prete",
+				"letters": 31
+			},
+			"totalWords": {
+				"5": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"23": 1,
+				"31": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5.5,
+			"medianLetters": 27
+		},
+		"medaglia": {
+			"best": {
+				"word": "medaglia",
+				"letters": 22
+			},
+			"worst": {
+				"word": "medaglia",
+				"letters": 22
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"22": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 22
+		},
+		"schedare": {
+			"best": {
+				"word": "schedare",
+				"letters": 44
+			},
+			"worst": {
+				"word": "schedare",
+				"letters": 44
+			},
+			"totalWords": {
+				"7": 1
+			},
+			"totalLetters": {
+				"44": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 7,
+			"medianLetters": 44
+		},
+		"reciso": {
+			"best": {
+				"word": "reciso",
+				"letters": 40
+			},
+			"worst": {
+				"word": "reciso",
+				"letters": 40
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"40": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 40
+		},
+		"precario": {
+			"best": {
+				"word": "precario",
+				"letters": 24
+			},
+			"worst": {
+				"word": "precario",
+				"letters": 41
+			},
+			"totalWords": {
+				"3": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"24": 1,
+				"41": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 4.5,
+			"medianLetters": 32.5
+		},
+		"bottiglia": {
+			"best": {
+				"word": "bottiglia",
+				"letters": 56
+			},
+			"worst": {
+				"word": "bottiglia",
+				"letters": 66
+			},
+			"totalWords": {
+				"10": 1,
+				"13": 1
+			},
+			"totalLetters": {
+				"56": 1,
+				"66": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 11.5,
+			"medianLetters": 61
+		},
+		"affermare": {
+			"best": {
+				"word": "affermare",
+				"letters": 33
+			},
+			"worst": {
+				"word": "affermare",
+				"letters": 37
+			},
+			"totalWords": {
+				"5": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"33": 1,
+				"37": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5.5,
+			"medianLetters": 35
+		},
+		"watt": {
+			"best": {
+				"word": "watt",
+				"letters": 37
+			},
+			"worst": {
+				"word": "watt",
+				"letters": 37
+			},
+			"totalWords": {
+				"9": 1
+			},
+			"totalLetters": {
+				"37": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 9,
+			"medianLetters": 37
+		},
+		"tanga": {
+			"best": {
+				"word": "tanga",
+				"letters": 25
+			},
+			"worst": {
+				"word": "tanga",
+				"letters": 25
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"25": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 25
+		},
+		"circa": {
+			"best": {
+				"word": "circa",
+				"letters": 26
+			},
+			"worst": {
+				"word": "circa",
+				"letters": 32
+			},
+			"totalWords": {
+				"5": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"26": 1,
+				"32": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5.5,
+			"medianLetters": 29
+		},
+		"basso": {
+			"best": {
+				"word": "basso",
+				"letters": 28
+			},
+			"worst": {
+				"word": "basso",
+				"letters": 28
+			},
+			"totalWords": {
+				"5": 1
+			},
+			"totalLetters": {
+				"28": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 5,
+			"medianLetters": 28
+		},
+		"assumere": {
+			"best": {
+				"word": "assumere",
+				"letters": 44
+			},
+			"worst": {
+				"word": "assumere",
+				"letters": 60
+			},
+			"totalWords": {
+				"9": 1,
+				"16": 1
+			},
+			"totalLetters": {
+				"44": 1,
+				"60": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 12.5,
+			"medianLetters": 52
+		},
+		"gomitolo": {
+			"best": {
+				"word": "gomitolo",
+				"letters": 35
+			},
+			"worst": {
+				"word": "gomitolo",
+				"letters": 56
+			},
+			"totalWords": {
+				"6": 1,
+				"12": 1
+			},
+			"totalLetters": {
+				"35": 1,
+				"56": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 9,
+			"medianLetters": 45.5
+		},
+		"spagnola": {
+			"best": {
+				"word": "spagnola",
+				"letters": 36
+			},
+			"worst": {
+				"word": "spagnola",
+				"letters": 39
+			},
+			"totalWords": {
+				"7": 2
+			},
+			"totalLetters": {
+				"36": 1,
+				"39": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7,
+			"medianLetters": 37.5
+		},
+		"premiare": {
+			"best": {
+				"word": "premiare",
+				"letters": 26
+			},
+			"worst": {
+				"word": "premiare",
+				"letters": 45
+			},
+			"totalWords": {
+				"4": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"26": 1,
+				"45": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 35.5
+		},
+		"rotore": {
+			"best": {
+				"word": "rotore",
+				"letters": 48
+			},
+			"worst": {
+				"word": "rotore",
+				"letters": 48
+			},
+			"totalWords": {
+				"9": 1
+			},
+			"totalLetters": {
+				"48": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 9,
+			"medianLetters": 48
+		},
+		"lino": {
+			"best": {
+				"word": "lino",
+				"letters": 18
+			},
+			"worst": {
+				"word": "lino",
+				"letters": 32
+			},
+			"totalWords": {
+				"4": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"18": 1,
+				"32": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 25
+		},
+		"praticare": {
+			"best": {
+				"word": "praticare",
+				"letters": 34
+			},
+			"worst": {
+				"word": "praticare",
+				"letters": 82
+			},
+			"totalWords": {
+				"6": 1,
+				"14": 1
+			},
+			"totalLetters": {
+				"34": 1,
+				"82": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 10,
+			"medianLetters": 58
+		},
+		"obovato": {
+			"best": {
+				"word": "obovato",
+				"letters": 44
+			},
+			"worst": {
+				"word": "obovato",
+				"letters": 44
+			},
+			"totalWords": {
+				"8": 1
+			},
+			"totalLetters": {
+				"44": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 8,
+			"medianLetters": 44
+		},
+		"massetere": {
+			"best": {
+				"word": "massetere",
+				"letters": 43
+			},
+			"worst": {
+				"word": "massetere",
+				"letters": 49
+			},
+			"totalWords": {
+				"8": 2
+			},
+			"totalLetters": {
+				"43": 1,
+				"49": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8,
+			"medianLetters": 46
+		},
+		"sozzura": {
+			"best": {
+				"word": "sozzura",
+				"letters": 36
+			},
+			"worst": {
+				"word": "sozzura",
+				"letters": 67
+			},
+			"totalWords": {
+				"7": 1,
+				"16": 1
+			},
+			"totalLetters": {
+				"36": 1,
+				"67": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 11.5,
+			"medianLetters": 51.5
+		},
+		"mostrare": {
+			"best": {
+				"word": "mostrare",
+				"letters": 34
+			},
+			"worst": {
+				"word": "mostrare",
+				"letters": 41
+			},
+			"totalWords": {
+				"5": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"34": 1,
+				"41": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 37.5
+		},
+		"specifico": {
+			"best": {
+				"word": "specifico",
+				"letters": 33
+			},
+			"worst": {
+				"word": "specifico",
+				"letters": 41
+			},
+			"totalWords": {
+				"5": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"33": 1,
+				"41": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 37
+		},
+		"anfratto": {
+			"best": {
+				"word": "anfratto",
+				"letters": 87
+			},
+			"worst": {
+				"word": "anfratto",
+				"letters": 87
+			},
+			"totalWords": {
+				"18": 1
+			},
+			"totalLetters": {
+				"87": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 18,
+			"medianLetters": 87
+		},
+		"epigramma": {
+			"best": {
+				"word": "epigramma",
+				"letters": 58
+			},
+			"worst": {
+				"word": "epigramma",
+				"letters": 58
+			},
+			"totalWords": {
+				"10": 1
+			},
+			"totalLetters": {
+				"58": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 10,
+			"medianLetters": 58
+		},
+		"ozioso": {
+			"best": {
+				"word": "ozioso",
+				"letters": 47
+			},
+			"worst": {
+				"word": "ozioso",
+				"letters": 57
+			},
+			"totalWords": {
+				"12": 1,
+				"16": 1
+			},
+			"totalLetters": {
+				"47": 1,
+				"57": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 14,
+			"medianLetters": 52
+		},
+		"ipnotico": {
+			"best": {
+				"word": "ipnotico",
+				"letters": 30
+			},
+			"worst": {
+				"word": "ipnotico",
+				"letters": 100
+			},
+			"totalWords": {
+				"5": 1,
+				"27": 1
+			},
+			"totalLetters": {
+				"30": 1,
+				"100": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 16,
+			"medianLetters": 65
+		},
+		"esagitato": {
+			"best": {
+				"word": "esagitato",
+				"letters": 91
+			},
+			"worst": {
+				"word": "esagitato",
+				"letters": 91
+			},
+			"totalWords": {
+				"19": 1
+			},
+			"totalLetters": {
+				"91": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 19,
+			"medianLetters": 91
+		},
+		"episodico": {
+			"best": {
+				"word": "episodico",
+				"letters": 44
+			},
+			"worst": {
+				"word": "episodico",
+				"letters": 50
+			},
+			"totalWords": {
+				"9": 1,
+				"11": 1
+			},
+			"totalLetters": {
+				"44": 1,
+				"50": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 10,
+			"medianLetters": 47
+		},
+		"pesci": {
+			"best": {
+				"word": "pesci",
+				"letters": 19
+			},
+			"worst": {
+				"word": "pesci",
+				"letters": 19
+			},
+			"totalWords": {
+				"3": 1
+			},
+			"totalLetters": {
+				"19": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 3,
+			"medianLetters": 19
+		},
+		"perfido": {
+			"best": {
+				"word": "perfido",
+				"letters": 35
+			},
+			"worst": {
+				"word": "perfido",
+				"letters": 44
+			},
+			"totalWords": {
+				"5": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"35": 1,
+				"44": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 39.5
+		},
+		"improprio": {
+			"best": {
+				"word": "improprio",
+				"letters": 29
+			},
+			"worst": {
+				"word": "improprio",
+				"letters": 47
+			},
+			"totalWords": {
+				"5": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"29": 1,
+				"47": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6.5,
+			"medianLetters": 38
+		},
+		"giovanni": {
+			"best": {
+				"word": "giovanni",
+				"letters": 22
+			},
+			"worst": {
+				"word": "giovanni",
+				"letters": 57
+			},
+			"totalWords": {
+				"3": 1,
+				"14": 1
+			},
+			"totalLetters": {
+				"22": 1,
+				"57": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8.5,
+			"medianLetters": 39.5
+		},
+		"sforzo": {
+			"best": {
+				"word": "sforzo",
+				"letters": 23
+			},
+			"worst": {
+				"word": "sforzo",
+				"letters": 32
+			},
+			"totalWords": {
+				"4": 1,
+				"6": 1
+			},
+			"totalLetters": {
+				"23": 1,
+				"32": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 27.5
+		},
+		"obliquo": {
+			"best": {
+				"word": "obliquo",
+				"letters": 41
+			},
+			"worst": {
+				"word": "obliquo",
+				"letters": 73
+			},
+			"totalWords": {
+				"10": 1,
+				"16": 1
+			},
+			"totalLetters": {
+				"41": 1,
+				"73": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 13,
+			"medianLetters": 57
+		},
+		"fascicolo": {
+			"best": {
+				"word": "fascicolo",
+				"letters": 36
+			},
+			"worst": {
+				"word": "fascicolo",
+				"letters": 39
+			},
+			"totalWords": {
+				"7": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"36": 1,
+				"39": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7.5,
+			"medianLetters": 37.5
+		},
+		"tommaso": {
+			"best": {
+				"word": "tommaso",
+				"letters": 32
+			},
+			"worst": {
+				"word": "tommaso",
+				"letters": 47
+			},
+			"totalWords": {
+				"6": 1,
+				"11": 1
+			},
+			"totalLetters": {
+				"32": 1,
+				"47": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8.5,
+			"medianLetters": 39.5
+		},
+		"giudeo": {
+			"best": {
+				"word": "giudeo",
+				"letters": 54
+			},
+			"worst": {
+				"word": "giudeo",
+				"letters": 54
+			},
+			"totalWords": {
+				"13": 1
+			},
+			"totalLetters": {
+				"54": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 13,
+			"medianLetters": 54
+		},
+		"donnaiolo": {
+			"best": {
+				"word": "donnaiolo",
+				"letters": 55
+			},
+			"worst": {
+				"word": "donnaiolo",
+				"letters": 55
+			},
+			"totalWords": {
+				"10": 1
+			},
+			"totalLetters": {
+				"55": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 10,
+			"medianLetters": 55
+		},
+		"giravite": {
+			"best": {
+				"word": "giravite",
+				"letters": 65
+			},
+			"worst": {
+				"word": "giravite",
+				"letters": 65
+			},
+			"totalWords": {
+				"14": 1
+			},
+			"totalLetters": {
+				"65": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 14,
+			"medianLetters": 65
+		},
+		"ancorare": {
+			"best": {
+				"word": "ancorare",
+				"letters": 48
+			},
+			"worst": {
+				"word": "ancorare",
+				"letters": 51
+			},
+			"totalWords": {
+				"9": 1,
+				"10": 1
+			},
+			"totalLetters": {
+				"48": 1,
+				"51": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 9.5,
+			"medianLetters": 49.5
+		},
+		"impero": {
+			"best": {
+				"word": "impero",
+				"letters": 26
+			},
+			"worst": {
+				"word": "impero",
+				"letters": 31
+			},
+			"totalWords": {
+				"4": 1,
+				"5": 1
+			},
+			"totalLetters": {
+				"26": 1,
+				"31": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 4.5,
+			"medianLetters": 28.5
+		},
+		"ballata": {
+			"best": {
+				"word": "ballata",
+				"letters": 24
+			},
+			"worst": {
+				"word": "ballata",
+				"letters": 52
+			},
+			"totalWords": {
+				"3": 1,
+				"11": 1
+			},
+			"totalLetters": {
+				"24": 1,
+				"52": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 7,
+			"medianLetters": 38
+		},
+		"vocazione": {
+			"best": {
+				"word": "vocazione",
+				"letters": 42
+			},
+			"worst": {
+				"word": "vocazione",
+				"letters": 57
+			},
+			"totalWords": {
+				"7": 1,
+				"10": 1
+			},
+			"totalLetters": {
+				"42": 1,
+				"57": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8.5,
+			"medianLetters": 49.5
+		},
+		"adultera": {
+			"best": {
+				"word": "adultera",
+				"letters": 28
+			},
+			"worst": {
+				"word": "adultera",
+				"letters": 35
+			},
+			"totalWords": {
+				"5": 2
+			},
+			"totalLetters": {
+				"28": 1,
+				"35": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 5,
+			"medianLetters": 31.5
+		},
+		"svizzero": {
+			"best": {
+				"word": "svizzero",
+				"letters": 44
+			},
+			"worst": {
+				"word": "svizzero",
+				"letters": 97
+			},
+			"totalWords": {
+				"9": 1,
+				"24": 1
+			},
+			"totalLetters": {
+				"44": 1,
+				"97": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 16.5,
+			"medianLetters": 70.5
+		},
+		"cortese": {
+			"best": {
+				"word": "cortese",
+				"letters": 28
+			},
+			"worst": {
+				"word": "cortese",
+				"letters": 28
+			},
+			"totalWords": {
+				"4": 1
+			},
+			"totalLetters": {
+				"28": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 4,
+			"medianLetters": 28
+		},
+		"superbo": {
+			"best": {
+				"word": "superbo",
+				"letters": 29
+			},
+			"worst": {
+				"word": "superbo",
+				"letters": 51
+			},
+			"totalWords": {
+				"5": 1,
+				"8": 1
+			},
+			"totalLetters": {
+				"29": 1,
+				"51": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6.5,
+			"medianLetters": 40
+		},
+		"torbido": {
+			"best": {
+				"word": "torbido",
+				"letters": 33
+			},
+			"worst": {
+				"word": "torbido",
+				"letters": 41
+			},
+			"totalWords": {
+				"5": 1,
+				"7": 1
+			},
+			"totalLetters": {
+				"33": 1,
+				"41": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 6,
+			"medianLetters": 37
+		},
+		"ritegno": {
+			"best": {
+				"word": "ritegno",
+				"letters": 39
+			},
+			"worst": {
+				"word": "ritegno",
+				"letters": 48
+			},
+			"totalWords": {
+				"7": 1,
+				"9": 1
+			},
+			"totalLetters": {
+				"39": 1,
+				"48": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 8,
+			"medianLetters": 43.5
+		},
+		"condanna": {
+			"best": {
+				"word": "condanna",
+				"letters": 50
+			},
+			"worst": {
+				"word": "condanna",
+				"letters": 50
+			},
+			"totalWords": {
+				"13": 1
+			},
+			"totalLetters": {
+				"50": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 13,
+			"medianLetters": 50
+		},
+		"eroina": {
+			"best": {
+				"word": "eroina",
+				"letters": 39
+			},
+			"worst": {
+				"word": "eroina",
+				"letters": 39
+			},
+			"totalWords": {
+				"6": 1
+			},
+			"totalLetters": {
+				"39": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 6,
+			"medianLetters": 39
+		},
+		"mongolia": {
+			"best": {
+				"word": "mongolia",
+				"letters": 21
+			},
+			"worst": {
+				"word": "mongolia",
+				"letters": 22
+			},
+			"totalWords": {
+				"3": 2
+			},
+			"totalLetters": {
+				"21": 1,
+				"22": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 3,
+			"medianLetters": 21.5
+		},
+		"arredare": {
+			"best": {
+				"word": "arredare",
+				"letters": 60
+			},
+			"worst": {
+				"word": "arredare",
+				"letters": 72
+			},
+			"totalWords": {
+				"15": 1,
+				"19": 1
+			},
+			"totalLetters": {
+				"60": 1,
+				"72": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 17,
+			"medianLetters": 66
+		},
+		"cariatide": {
+			"best": {
+				"word": "cariatide",
+				"letters": 53
+			},
+			"worst": {
+				"word": "cariatide",
+				"letters": 83
+			},
+			"totalWords": {
+				"12": 1,
+				"19": 1
+			},
+			"totalLetters": {
+				"53": 1,
+				"83": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 15.5,
+			"medianLetters": 68
+		},
+		"toporagno": {
+			"best": {
+				"word": "toporagno",
+				"letters": 67
+			},
+			"worst": {
+				"word": "toporagno",
+				"letters": 67
+			},
+			"totalWords": {
+				"13": 1
+			},
+			"totalLetters": {
+				"67": 1
+			},
+			"gamesPlayed": 1,
+			"medianWords": 13,
+			"medianLetters": 67
+		},
+		"iponimo": {
+			"best": {
+				"word": "iponimo",
+				"letters": 37
+			},
+			"worst": {
+				"word": "iponimo",
+				"letters": 53
+			},
+			"totalWords": {
+				"8": 1,
+				"13": 1
+			},
+			"totalLetters": {
+				"37": 1,
+				"53": 1
+			},
+			"gamesPlayed": 2,
+			"medianWords": 10.5,
+			"medianLetters": 45
+		}
+	},
+	"hardestWords": [
+		"esagitato",
+		"anfratto",
+		"svizzero",
+		"cariatide",
+		"toporagno",
+		"febbraio",
+		"arredare",
+		"scagliare",
+		"ipnotico",
+		"giravite",
+		"assistito",
+		"bottiglia",
+		"praticare",
+		"epigramma",
+		"obliquo",
+		"freddezza",
+		"donnaiolo",
+		"giudeo",
+		"ozioso",
+		"assumere",
+		"schiavo",
+		"sozzura",
+		"condanna",
+		"ancorare",
+		"vocazione",
+		"rotore",
+		"episodico",
+		"massetere",
+		"gomitolo",
+		"iponimo",
+		"obovato",
+		"schedare",
+		"ritegno",
+		"reciso",
+		"superbo",
+		"giovanni",
+		"tommaso",
+		"decisivo",
+		"perfido",
+		"eroina",
+		"ballata",
+		"improprio",
+		"fascicolo",
+		"spagnola",
+		"mostrare",
+		"watt",
+		"specifico",
+		"torbido",
+		"premiare",
+		"affermare"
+	],
+	"bestWords": [
+		"moro",
+		"pesci",
+		"mongolia",
+		"medaglia",
+		"regime",
+		"tanga",
+		"lino",
+		"merito",
+		"prete",
+		"sforzo",
+		"cortese",
+		"basso",
+		"impero",
+		"circa",
+		"volante",
+		"dominio",
+		"adultera",
+		"precario",
+		"frontale",
+		"affermare",
+		"premiare",
+		"specifico",
+		"torbido",
+		"watt",
+		"mostrare",
+		"spagnola",
+		"fascicolo",
+		"improprio",
+		"ballata",
+		"eroina",
+		"perfido",
+		"decisivo",
+		"giovanni",
+		"tommaso",
+		"superbo",
+		"reciso",
+		"ritegno",
+		"schedare",
+		"obovato",
+		"iponimo",
+		"gomitolo",
+		"massetere",
+		"episodico",
+		"rotore",
+		"vocazione",
+		"ancorare",
+		"condanna",
+		"sozzura",
+		"schiavo",
+		"assumere"
+	]
+}
