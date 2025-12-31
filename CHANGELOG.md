@@ -13,6 +13,7 @@
 
 #### Version 3.41.1 (31.12.2025)
 - **New**: All data for Hejto 2025 summary parsed
+- **New**: Higher minimum number of games required for the ranked summary
 - **Fix**: The icon color in dark mode in the Hejto 2025 summary
 
 #### Version 3.41 (21.12.2025)
