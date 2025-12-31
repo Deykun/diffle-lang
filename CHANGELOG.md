@@ -11,6 +11,9 @@
 
 ---
 
+#### Version 3.41.2 (31.12.2025)
+- **Fix**: Typo fixed in the year summary
+
 #### Version 3.41.1 (31.12.2025)
 - **New**: All data for Hejto 2025 summary parsed
 - **New**: Higher minimum number of games required for the ranked summary
