@@ -22,7 +22,7 @@ const eventDictionary: {
   pl: {
     'main.players': 'graczy',
     'title.hardestWords': 'Najtrudniejsze',
-    'title.easiestWords': 'Najprostrze',
+    'title.easiestWords': 'Najprostsze',
     'label.totalPlayed': 'Gry',
     'label.bestMedianLetters': 'Mediana',
     'label.bestDailyResults': 'Wynik dnia',
