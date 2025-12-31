@@ -12,6 +12,7 @@ import { results as results4 } from "./parts-2025/part-4";
 import { results as results5 } from "./parts-2025/part-5";
 import { results as results6 } from "./parts-2025/part-6";
 import { results as results7 } from "./parts-2025/part-7";
+import { results as results8 } from "./parts-2025/part-8";
 
 export const resultsBySource: {
   [url: string]: ParsedHejtoResult[];
@@ -23,6 +24,7 @@ export const resultsBySource: {
   ...results5.resultsBySource,
   ...results6.resultsBySource,
   ...results7.resultsBySource,
+  ...results8.resultsBySource,
 };
 
 const {

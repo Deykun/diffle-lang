@@ -59,12 +59,14 @@ const YearSummaryTable = ({ year, summary }: Props) => {
       username => summary.byUser[username].results[period],
     );
 
-    let minimumNumberOfGamesForRanked = period === 'year' ? 50 : 4;
-    if (gameLanguage !== 'pl') {
+    let minimumNumberOfGamesForRanked = period === 'year' ? 50 : 6;
+    if (gameLanguage === 'en') {
+      minimumNumberOfGamesForRanked = period === 'year' ? 25 : 3;
+    } else if (gameLanguage !== 'pl') {
       minimumNumberOfGamesForRanked = period === 'year' ? 5 : 1;
     }
 
-    const usersThatPlayedMoreAtleastXTimes = knownUsernames.filter(
+    const usersThatPlayedMoreAtLeastXTimes = knownUsernames.filter(
       username => summary.byUser[username].results[period].gamesPlayed
         >= minimumNumberOfGamesForRanked,
     );
@@ -104,7 +106,7 @@ const YearSummaryTable = ({ year, summary }: Props) => {
           - summary.byUser[a].results[period].gamesPlayed
         );
       }),
-      bestMedianLetters: [...usersThatPlayedMoreAtleastXTimes]
+      bestMedianLetters: [...usersThatPlayedMoreAtLeastXTimes]
         .sort(
           (a, b) => summary.byUser[a].results[period].medianLetters
             - summary.byUser[b].results[period].medianLetters,

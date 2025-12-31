@@ -11,7 +11,12 @@
 
 ---
 
-#### Version 3.41
+#### Version 3.41.1 (31.12.2025)
+- **New**: All data for Hejto 2025 summary parsed
+- **New**: Higher minimum number of games required for the ranked summary
+- **Fix**: The icon color in dark mode in the Hejto 2025 summary
+
+#### Version 3.41 (21.12.2025)
 - **New**: 2025 annual summary for hejto.pl users added
 
 #### Version 3.40 (30.11.2025)

@@ -9,7 +9,7 @@
     "slowoku"
   ],
   "private": true,
-  "version": "3.41",
+  "version": "3.41.1",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3001",
@@ -32,10 +32,7 @@
     "build-hejto": "tsx scripts/hejto/2025-summary-data.ts",
     "preview": "vite preview",
     "test": "jest",
-    "test-e2e": "playwright test",
-    "build-us": "tsx user-scripts/hejto-parser/build.ts",
-    "dev-us": "nodemon --watch user-scripts/hejto-parser --exec npm run build-us",
-    "dev-us-server": "tsx user-scripts/hejto-parser/dev-script.ts"
+    "test-e2e": "playwright test"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.18.1",
