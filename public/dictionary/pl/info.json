@@ -881,23 +881,23 @@
 	"winning": {
 		"all": 24751,
 		"accepted": {
-			"all": 15558,
-			"withSpecialCharacters": 5386,
+			"all": 15557,
+			"withSpecialCharacters": 5385,
 			"withoutSpecialCharacters": 10172,
 			"length": {
 				"4": 1167,
 				"5": 2251,
 				"6": 2952,
-				"7": 3099,
+				"7": 3098,
 				"8": 3260,
 				"9": 2829
 			}
 		},
 		"rejected": {
-			"all": 9193,
+			"all": 9194,
 			"tooLong": 6644,
 			"tooShort": 749,
-			"censored": 13,
+			"censored": 14,
 			"romanNumeral": 0,
 			"wrongLetters": 11,
 			"missingInSpellingDictionary": 1776
