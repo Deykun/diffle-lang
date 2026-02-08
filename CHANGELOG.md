@@ -14,6 +14,7 @@
 #### Version 3.42
 - **New**: Polish dictionary updated
 - **Fix**: A few English swear words were removed from the winning pool
+- **Fix**: Typo in French maintenance mode was removed
 
 #### Version 3.41.2 (31.12.2025)
 - **Fix**: Typo fixed in the year summary
