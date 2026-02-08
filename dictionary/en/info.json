@@ -814,12 +814,12 @@
 	"winning": {
 		"all": 10223,
 		"accepted": {
-			"all": 8137,
+			"all": 8134,
 			"withSpecialCharacters": 0,
-			"withoutSpecialCharacters": 8137,
+			"withoutSpecialCharacters": 8134,
 			"length": {
-				"4": 1036,
-				"5": 1373,
+				"4": 1035,
+				"5": 1371,
 				"6": 1656,
 				"7": 1547,
 				"8": 1398,
@@ -827,10 +827,10 @@
 			}
 		},
 		"rejected": {
-			"all": 2086,
+			"all": 2089,
 			"tooLong": 1644,
 			"tooShort": 424,
-			"censored": 1,
+			"censored": 4,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
 			"missingInSpellingDictionary": 17
