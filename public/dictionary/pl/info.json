@@ -1,198 +1,198 @@
 {
 	"spellchecker": {
-		"all": 3229806,
+		"all": 3249383,
 		"accepted": {
-			"allUsedInGame": 3229806,
-			"all": 3229806,
-			"allWordleWords": 28554,
-			"withSpecialCharacters": 1677506,
-			"withoutSpecialCharacters": 1552300,
+			"allUsedInGame": 3249383,
+			"all": 3249383,
+			"allWordleWords": 28659,
+			"withSpecialCharacters": 1687409,
+			"withoutSpecialCharacters": 1561974,
 			"length": {
 				"2": 134,
-				"3": 1622,
-				"4": 8198,
-				"5": 28554,
-				"6": 65023,
-				"7": 129958,
-				"8": 216138,
-				"9": 312166,
-				"10": 394702,
-				"11": 448722,
-				"12": 462539,
-				"13": 441091,
-				"14": 394327,
-				"15": 326632
+				"3": 1626,
+				"4": 8230,
+				"5": 28659,
+				"6": 65199,
+				"7": 129991,
+				"8": 216212,
+				"9": 312486,
+				"10": 395844,
+				"11": 449188,
+				"12": 464444,
+				"13": 444834,
+				"14": 398980,
+				"15": 333556
 			}
 		},
 		"rejected": 0,
 		"letters": {
 			"first": {
-				"n": 732440,
-				"p": 479499,
-				"w": 231100,
-				"z": 229708,
-				"s": 199018,
-				"o": 195499,
-				"k": 140364,
-				"r": 126637,
-				"d": 125159,
-				"m": 90862,
-				"u": 90540,
-				"b": 83025,
-				"t": 72101,
-				"a": 70650,
-				"c": 68910,
-				"g": 55310,
-				"f": 42440,
-				"l": 38375,
-				"e": 33473,
-				"h": 33332,
-				"i": 27501,
-				"j": 21156,
-				"ś": 15483,
-				"ł": 12582,
-				"ż": 11870,
-				"ć": 1698,
+				"n": 749559,
+				"p": 481604,
+				"w": 231412,
+				"z": 231204,
+				"s": 199424,
+				"o": 196225,
+				"k": 139092,
+				"r": 127050,
+				"d": 126040,
+				"u": 91185,
+				"m": 90453,
+				"b": 81553,
+				"t": 72083,
+				"a": 70895,
+				"c": 68587,
+				"g": 54710,
+				"f": 43206,
+				"l": 37468,
+				"e": 33993,
+				"h": 33729,
+				"i": 27567,
+				"j": 20568,
+				"ś": 15361,
+				"ł": 12012,
+				"ż": 11639,
+				"ć": 1677,
 				"ź": 614,
-				"y": 280,
+				"y": 293,
 				"ó": 168,
 				"ą": 11,
 				"ę": 1
 			},
 			"last": {
-				"y": 440223,
-				"m": 403786,
-				"i": 398318,
-				"e": 382072,
-				"a": 256941,
-				"o": 203640,
-				"h": 197442,
-				"ą": 188431,
-				"u": 177691,
-				"j": 140305,
-				"ś": 93605,
-				"ę": 51759,
-				"ż": 50718,
-				"ń": 46531,
-				"w": 40139,
-				"ć": 33904,
-				"z": 31369,
-				"ł": 26446,
-				"k": 21326,
-				"c": 15406,
-				"n": 8390,
-				"t": 5139,
-				"r": 4749,
-				"l": 2564,
-				"s": 2220,
-				"d": 1739,
-				"g": 1716,
-				"p": 1053,
-				"ź": 927,
-				"b": 729,
-				"f": 472,
-				"x": 52,
-				"v": 4
+				"y": 444572,
+				"m": 404827,
+				"i": 399629,
+				"e": 383794,
+				"a": 258243,
+				"o": 205433,
+				"h": 197761,
+				"ą": 190709,
+				"u": 180209,
+				"j": 144692,
+				"ś": 94471,
+				"ż": 51242,
+				"ę": 50817,
+				"ń": 47058,
+				"w": 40262,
+				"ć": 34359,
+				"z": 31684,
+				"ł": 26738,
+				"k": 19634,
+				"c": 15613,
+				"n": 5983,
+				"t": 5205,
+				"r": 4823,
+				"l": 2599,
+				"s": 2256,
+				"g": 1752,
+				"d": 1749,
+				"p": 1068,
+				"ź": 928,
+				"b": 732,
+				"f": 479,
+				"x": 57,
+				"v": 5
 			},
 			"common": {
-				"a": 3440088,
-				"i": 3253244,
-				"o": 2979081,
-				"e": 2781869,
-				"n": 2484094,
-				"y": 1797726,
-				"w": 1704479,
-				"z": 1689650,
-				"r": 1601519,
-				"c": 1486073,
-				"m": 1398392,
-				"k": 1190731,
-				"s": 1189842,
-				"p": 1096503,
-				"t": 1006857,
-				"u": 1002149,
-				"l": 879990,
-				"d": 802836,
-				"ł": 755715,
-				"j": 716369,
-				"b": 701701,
-				"g": 482893,
-				"ą": 463471,
-				"h": 420117,
-				"ś": 348139,
-				"ę": 233410,
-				"ż": 231837,
-				"f": 164694,
-				"ó": 128488,
-				"ń": 104480,
-				"ć": 43708,
-				"ź": 25924,
-				"x": 517,
-				"v": 222,
+				"a": 3439998,
+				"i": 3270497,
+				"o": 3011626,
+				"e": 2823838,
+				"n": 2488200,
+				"y": 1812045,
+				"w": 1726891,
+				"z": 1692380,
+				"r": 1613829,
+				"c": 1484125,
+				"m": 1407467,
+				"s": 1206143,
+				"k": 1189028,
+				"p": 1107359,
+				"t": 1019585,
+				"u": 1015124,
+				"l": 889700,
+				"d": 809674,
+				"ł": 760388,
+				"j": 729720,
+				"b": 703504,
+				"g": 487613,
+				"ą": 467932,
+				"h": 421985,
+				"ś": 351199,
+				"ż": 233182,
+				"ę": 232871,
+				"f": 168520,
+				"ó": 129752,
+				"ń": 104102,
+				"ć": 44165,
+				"ź": 26051,
+				"x": 570,
+				"v": 236,
 				"q": 1
 			},
 			"inWordsWordle": {
-				"a": 11575,
-				"o": 9112,
-				"i": 8312,
-				"e": 7363,
-				"k": 6951,
-				"r": 6789,
-				"u": 6757,
-				"m": 5454,
-				"l": 5372,
-				"n": 5330,
-				"s": 5269,
-				"y": 5191,
-				"t": 4812,
-				"p": 4366,
-				"w": 4299,
-				"z": 4227,
-				"c": 4027,
-				"d": 3792,
-				"b": 3311,
-				"ą": 3237,
-				"ł": 3010,
-				"g": 2876,
-				"ę": 2832,
-				"j": 2764,
-				"ż": 1820,
-				"f": 1541,
-				"h": 1381,
-				"ó": 1243,
-				"ć": 800,
+				"a": 11620,
+				"o": 9154,
+				"i": 8343,
+				"e": 7397,
+				"k": 6962,
+				"r": 6804,
+				"u": 6791,
+				"m": 5470,
+				"l": 5403,
+				"n": 5335,
+				"s": 5292,
+				"y": 5211,
+				"t": 4834,
+				"p": 4391,
+				"w": 4315,
+				"z": 4259,
+				"c": 4035,
+				"d": 3805,
+				"b": 3313,
+				"ą": 3245,
+				"ł": 3013,
+				"g": 2881,
+				"ę": 2837,
+				"j": 2774,
+				"ż": 1819,
+				"f": 1554,
+				"h": 1386,
+				"ó": 1245,
+				"ć": 807,
 				"ś": 627,
-				"ń": 515,
+				"ń": 517,
 				"ź": 287,
-				"x": 44,
+				"x": 45,
 				"v": 8
 			},
 			"wordle": {
 				"0": {
-					"s": 2366,
-					"k": 2285,
-					"p": 2207,
-					"w": 1801,
-					"m": 1667,
-					"b": 1531,
-					"o": 1431,
-					"d": 1390,
-					"z": 1336,
-					"t": 1335,
-					"g": 1301,
-					"r": 1255,
-					"c": 1086,
-					"l": 1049,
-					"u": 957,
-					"n": 867,
-					"f": 864,
-					"a": 772,
-					"h": 599,
-					"ł": 541,
+					"s": 2380,
+					"k": 2287,
+					"p": 2217,
+					"w": 1811,
+					"m": 1669,
+					"b": 1527,
+					"o": 1437,
+					"d": 1397,
+					"z": 1356,
+					"t": 1342,
+					"g": 1304,
+					"r": 1256,
+					"c": 1089,
+					"l": 1055,
+					"u": 959,
+					"f": 871,
+					"n": 868,
+					"a": 777,
+					"h": 600,
+					"ł": 540,
 					"j": 524,
-					"ż": 444,
+					"ż": 446,
 					"e": 326,
-					"i": 313,
+					"i": 314,
 					"ś": 172,
 					"ć": 77,
 					"y": 30,
@@ -201,34 +201,34 @@
 					"ą": 2
 				},
 				"1": {
-					"a": 4980,
-					"o": 3310,
-					"i": 2750,
-					"u": 2670,
-					"e": 2268,
-					"r": 1711,
-					"y": 1573,
-					"l": 1044,
-					"z": 776,
-					"k": 614,
+					"a": 5006,
+					"o": 3320,
+					"i": 2757,
+					"u": 2686,
+					"e": 2275,
+					"r": 1719,
+					"y": 1577,
+					"l": 1053,
+					"z": 778,
+					"k": 617,
 					"m": 559,
 					"p": 548,
-					"s": 542,
-					"n": 528,
+					"s": 545,
+					"n": 529,
 					"w": 515,
-					"ł": 502,
+					"ł": 505,
 					"t": 461,
-					"ę": 442,
-					"b": 415,
-					"d": 373,
+					"ę": 441,
+					"b": 416,
+					"d": 374,
 					"g": 357,
 					"ą": 314,
 					"ó": 273,
-					"ż": 262,
+					"ż": 263,
 					"c": 257,
-					"h": 239,
-					"j": 100,
-					"f": 89,
+					"h": 241,
+					"j": 101,
+					"f": 90,
 					"ś": 54,
 					"ź": 11,
 					"ć": 11,
@@ -236,29 +236,29 @@
 				},
 				"2": {
 					"r": 2304,
-					"a": 2246,
-					"l": 1642,
-					"o": 1615,
-					"n": 1567,
-					"i": 1466,
-					"s": 1429,
-					"t": 1424,
-					"c": 1226,
-					"e": 1117,
-					"d": 1092,
-					"u": 1088,
-					"p": 1056,
-					"k": 1046,
-					"m": 927,
-					"b": 887,
-					"j": 801,
-					"y": 749,
-					"z": 731,
-					"w": 707,
+					"a": 2249,
+					"l": 1649,
+					"o": 1625,
+					"n": 1573,
+					"i": 1473,
+					"s": 1437,
+					"t": 1431,
+					"c": 1232,
+					"e": 1135,
+					"d": 1093,
+					"u": 1091,
+					"p": 1058,
+					"k": 1047,
+					"m": 932,
+					"b": 892,
+					"j": 802,
+					"y": 750,
+					"z": 740,
+					"w": 708,
 					"ł": 659,
-					"g": 602,
-					"f": 452,
-					"ż": 431,
+					"g": 603,
+					"f": 455,
+					"ż": 426,
 					"ę": 300,
 					"ą": 248,
 					"ś": 164,
@@ -266,38 +266,38 @@
 					"h": 125,
 					"ń": 118,
 					"ź": 82,
-					"ć": 65,
+					"ć": 70,
 					"x": 34,
 					"v": 5
 				},
 				"3": {
-					"k": 2617,
-					"i": 2292,
-					"n": 2074,
-					"e": 2021,
-					"a": 1847,
-					"o": 1647,
+					"k": 2620,
+					"i": 2305,
+					"n": 2080,
+					"e": 2028,
+					"a": 1843,
+					"o": 1657,
+					"l": 1404,
 					"c": 1397,
-					"l": 1396,
-					"t": 1277,
-					"z": 1129,
-					"r": 1120,
+					"t": 1284,
+					"z": 1136,
+					"r": 1124,
 					"s": 880,
-					"d": 834,
-					"ó": 820,
-					"m": 820,
-					"u": 815,
+					"d": 839,
+					"m": 824,
+					"ó": 822,
+					"u": 819,
 					"ł": 720,
-					"w": 655,
-					"j": 644,
+					"w": 660,
+					"j": 649,
 					"g": 562,
-					"y": 553,
-					"ż": 551,
-					"p": 505,
+					"y": 554,
+					"ż": 552,
+					"p": 518,
 					"b": 446,
-					"ą": 291,
-					"h": 281,
-					"f": 158,
+					"ą": 292,
+					"h": 282,
+					"f": 160,
 					"ę": 119,
 					"ś": 60,
 					"ź": 17,
@@ -306,146 +306,146 @@
 					"ć": 1
 				},
 				"4": {
-					"a": 3263,
-					"y": 2525,
-					"ą": 2451,
-					"e": 2215,
-					"i": 2170,
-					"ę": 2024,
-					"o": 2013,
-					"m": 1836,
-					"u": 1618,
-					"k": 789,
-					"w": 773,
-					"j": 752,
-					"ł": 653,
-					"ć": 648,
-					"t": 579,
-					"n": 547,
-					"r": 490,
+					"a": 3280,
+					"y": 2539,
+					"ą": 2458,
+					"e": 2221,
+					"i": 2174,
+					"ę": 2030,
+					"o": 2023,
+					"m": 1843,
+					"u": 1629,
+					"k": 791,
+					"w": 778,
+					"j": 755,
+					"ł": 654,
+					"ć": 650,
+					"t": 584,
+					"n": 538,
+					"r": 492,
 					"z": 425,
-					"l": 414,
-					"ń": 389,
+					"l": 418,
+					"ń": 391,
 					"s": 336,
-					"c": 246,
+					"c": 247,
 					"d": 217,
-					"p": 193,
+					"p": 194,
 					"ś": 178,
 					"ż": 171,
 					"b": 158,
 					"ź": 156,
-					"h": 150,
-					"g": 121,
+					"h": 152,
+					"g": 122,
 					"f": 44,
-					"x": 10
+					"x": 11
 				}
 			},
 			"inWords": {
-				"a": 2283349,
-				"i": 2197556,
-				"o": 2088556,
-				"e": 1974112,
-				"n": 1811297,
-				"w": 1454306,
-				"r": 1433289,
-				"y": 1407436,
-				"z": 1389288,
-				"c": 1272909,
-				"m": 1240672,
-				"s": 1074119,
-				"k": 1059803,
-				"p": 989228,
-				"t": 909087,
-				"u": 904963,
-				"l": 828593,
-				"d": 754195,
-				"ł": 709705,
-				"j": 667965,
-				"b": 652793,
-				"g": 462257,
-				"ą": 433747,
-				"h": 402586,
-				"ś": 338214,
-				"ę": 228229,
-				"ż": 221636,
-				"f": 159701,
-				"ó": 126699,
-				"ń": 104284,
-				"ć": 43358,
-				"ź": 25645,
-				"x": 517,
-				"v": 222,
+				"a": 2287453,
+				"i": 2209718,
+				"o": 2106708,
+				"e": 1997523,
+				"n": 1816453,
+				"w": 1472763,
+				"r": 1443558,
+				"y": 1419232,
+				"z": 1392527,
+				"c": 1272537,
+				"m": 1248575,
+				"s": 1087862,
+				"k": 1059065,
+				"p": 998869,
+				"t": 920324,
+				"u": 915883,
+				"l": 837016,
+				"d": 760598,
+				"ł": 714186,
+				"j": 679509,
+				"b": 654392,
+				"g": 466581,
+				"ą": 437931,
+				"h": 404208,
+				"ś": 341206,
+				"ę": 227734,
+				"ż": 222971,
+				"f": 163295,
+				"ó": 127931,
+				"ń": 103900,
+				"ć": 43815,
+				"ź": 25772,
+				"x": 570,
+				"v": 236,
 				"q": 1
 			}
 		},
 		"substrings": {
 			"first": {
 				"2": {
-					"ni": 620554,
-					"po": 241005,
-					"pr": 140055,
-					"wy": 131973,
-					"za": 129249
+					"ni": 637839,
+					"po": 242287,
+					"pr": 140877,
+					"wy": 132605,
+					"za": 129904
 				},
 				"3": {
-					"nie": 615404,
-					"prz": 114161,
-					"roz": 67274,
-					"pod": 49560,
-					"pow": 25059
+					"nie": 632702,
+					"prz": 114765,
+					"roz": 67662,
+					"pod": 50068,
+					"pow": 25085
 				},
 				"4": {
-					"niep": 93132,
-					"prze": 69007,
-					"niew": 57573,
-					"niez": 53061,
-					"nieo": 52059
+					"niep": 95033,
+					"prze": 69407,
+					"niew": 58467,
+					"niez": 54112,
+					"nieo": 52786
 				}
 			},
 			"middle": {
 				"2": {
-					"ie": 1012809,
-					"ow": 814840,
-					"ni": 605333,
-					"an": 605211,
-					"wa": 569098
+					"ie": 1034576,
+					"ow": 831398,
+					"ni": 599989,
+					"an": 588156,
+					"wa": 579148
 				},
 				"3": {
-					"owa": 357186,
-					"wan": 226775,
-					"ani": 208152,
-					"wał": 147577,
-					"jąc": 146741
+					"owa": 365553,
+					"wan": 231590,
+					"ani": 203216,
+					"wał": 150570,
+					"jąc": 148801
 				},
 				"4": {
-					"owan": 157047,
-					"ował": 101201,
-					"wani": 82740,
-					"ując": 76716,
-					"ając": 64577
+					"owan": 161087,
+					"ował": 103773,
+					"wani": 84211,
+					"ując": 78542,
+					"ając": 64795
 				}
 			},
 			"last": {
 				"2": {
-					"ie": 201849,
-					"ch": 197381,
-					"mi": 197113,
-					"ym": 141525,
-					"my": 124612
+					"ie": 201351,
+					"ch": 197698,
+					"mi": 197426,
+					"ym": 144238,
+					"my": 125645
 				},
 				"3": {
-					"cie": 114800,
-					"ach": 100802,
-					"ami": 100762,
-					"emu": 93873,
-					"ego": 93809
+					"cie": 115657,
+					"ach": 99058,
+					"ami": 99017,
+					"emu": 95893,
+					"ego": 95829
 				},
 				"4": {
-					"ście": 56721,
-					"yśmy": 48784,
-					"nych": 38247,
-					"nymi": 38246,
-					"nemu": 38231
+					"ście": 56997,
+					"yśmy": 49068,
+					"nych": 38608,
+					"nymi": 38607,
+					"nemu": 38591
 				}
 			}
 		},
@@ -454,141 +454,141 @@
 				{
 					"word": "okrai",
 					"score": {
-						"inWords": 42739,
-						"letterPosition": 8366,
-						"uniqueLetterPosition": 8366
+						"inWords": 42883,
+						"letterPosition": 8375,
+						"uniqueLetterPosition": 8375
 					},
 					"result": {
-						"total": 28554,
-						"green": 8366,
-						"orange": 34373,
-						"gray": 100031
+						"total": 28659,
+						"green": 8375,
+						"orange": 34508,
+						"gray": 100412
 					}
 				},
 				{
 					"word": "areko",
 					"score": {
-						"inWords": 41790,
-						"letterPosition": 8230,
-						"uniqueLetterPosition": 8230
+						"inWords": 41937,
+						"letterPosition": 8274,
+						"uniqueLetterPosition": 8274
 					},
 					"result": {
-						"total": 28554,
-						"green": 8230,
-						"orange": 33560,
-						"gray": 100980
+						"total": 28659,
+						"green": 8274,
+						"orange": 33663,
+						"gray": 101358
 					}
 				},
 				{
 					"word": "eonia",
 					"score": {
-						"inWords": 41692,
-						"letterPosition": 10758,
-						"uniqueLetterPosition": 10758
+						"inWords": 41849,
+						"letterPosition": 10804,
+						"uniqueLetterPosition": 10804
 					},
 					"result": {
-						"total": 28554,
-						"green": 10758,
-						"orange": 30934,
-						"gray": 101078
+						"total": 28659,
+						"green": 10804,
+						"orange": 31045,
+						"gray": 101446
 					}
 				},
 				{
 					"word": "akiom",
 					"score": {
-						"inWords": 41404,
-						"letterPosition": 6335,
-						"uniqueLetterPosition": 6335
+						"inWords": 41549,
+						"letterPosition": 6367,
+						"uniqueLetterPosition": 6367
 					},
 					"result": {
-						"total": 28554,
-						"green": 6335,
-						"orange": 35069,
-						"gray": 101366
+						"total": 28659,
+						"green": 6367,
+						"orange": 35182,
+						"gray": 101746
 					}
 				},
 				{
 					"word": "amoki",
 					"score": {
-						"inWords": 41404,
-						"letterPosition": 7733,
-						"uniqueLetterPosition": 7733
+						"inWords": 41549,
+						"letterPosition": 7755,
+						"uniqueLetterPosition": 7755
 					},
 					"result": {
-						"total": 28554,
-						"green": 7733,
-						"orange": 33671,
-						"gray": 101366
+						"total": 28659,
+						"green": 7755,
+						"orange": 33794,
+						"gray": 101746
 					}
 				},
 				{
 					"word": "makio",
 					"score": {
-						"inWords": 41404,
-						"letterPosition": 11998,
-						"uniqueLetterPosition": 11998
+						"inWords": 41549,
+						"letterPosition": 12050,
+						"uniqueLetterPosition": 12050
 					},
 					"result": {
-						"total": 28554,
-						"green": 11998,
-						"orange": 29406,
-						"gray": 101366
+						"total": 28659,
+						"green": 12050,
+						"orange": 29499,
+						"gray": 101746
 					}
 				},
 				{
 					"word": "okami",
 					"score": {
-						"inWords": 41404,
-						"letterPosition": 7281,
-						"uniqueLetterPosition": 7281
+						"inWords": 41549,
+						"letterPosition": 7301,
+						"uniqueLetterPosition": 7301
 					},
 					"result": {
-						"total": 28554,
-						"green": 7281,
-						"orange": 34123,
-						"gray": 101366
+						"total": 28659,
+						"green": 7301,
+						"orange": 34248,
+						"gray": 101746
 					}
 				},
 				{
 					"word": "kalio",
 					"score": {
-						"inWords": 41322,
-						"letterPosition": 13212,
-						"uniqueLetterPosition": 13212
+						"inWords": 41482,
+						"letterPosition": 13270,
+						"uniqueLetterPosition": 13270
 					},
 					"result": {
-						"total": 28554,
-						"green": 13212,
-						"orange": 28110,
-						"gray": 101448
+						"total": 28659,
+						"green": 13270,
+						"orange": 28212,
+						"gray": 101813
 					}
 				},
 				{
 					"word": "koali",
 					"score": {
-						"inWords": 41322,
-						"letterPosition": 11407,
-						"uniqueLetterPosition": 11407
+						"inWords": 41482,
+						"letterPosition": 11434,
+						"uniqueLetterPosition": 11434
 					},
 					"result": {
-						"total": 28554,
-						"green": 11407,
-						"orange": 29915,
-						"gray": 101448
+						"total": 28659,
+						"green": 11434,
+						"orange": 30048,
+						"gray": 101813
 					}
 				},
 				{
 					"word": "kolia",
 					"score": {
-						"inWords": 41322,
-						"letterPosition": 12792,
-						"uniqueLetterPosition": 12792
+						"inWords": 41482,
+						"letterPosition": 12841,
+						"uniqueLetterPosition": 12841
 					},
 					"result": {
-						"total": 28554,
-						"green": 12792,
-						"orange": 28530,
-						"gray": 101448
+						"total": 28659,
+						"green": 12841,
+						"orange": 28641,
+						"gray": 101813
 					}
 				}
 			],
@@ -597,140 +597,140 @@
 					"word": "sarka",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 15530,
+						"letterPosition": 15590,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 15530,
-						"orange": 16568,
-						"gray": 110672
+						"total": 28659,
+						"green": 15590,
+						"orange": 16604,
+						"gray": 111101
 					}
 				},
 				{
 					"word": "karka",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 15449,
+						"letterPosition": 15497,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 15449,
-						"orange": 11780,
-						"gray": 115541
+						"total": 28659,
+						"green": 15497,
+						"orange": 11805,
+						"gray": 115993
 					}
 				},
 				{
 					"word": "parka",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 15371,
+						"letterPosition": 15427,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 15371,
-						"orange": 15824,
-						"gray": 111575
+						"total": 28659,
+						"green": 15427,
+						"orange": 15866,
+						"gray": 112002
 					}
 				},
 				{
 					"word": "sarna",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 14987,
+						"letterPosition": 15050,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 14987,
-						"orange": 15490,
-						"gray": 112293
+						"total": 28659,
+						"green": 15050,
+						"orange": 15517,
+						"gray": 112728
 					}
 				},
 				{
 					"word": "warka",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 14965,
+						"letterPosition": 15021,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 14965,
-						"orange": 16163,
-						"gray": 111642
+						"total": 28659,
+						"green": 15021,
+						"orange": 16196,
+						"gray": 112078
 					}
 				},
 				{
 					"word": "karna",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 14906,
+						"letterPosition": 14957,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 14906,
-						"orange": 17253,
-						"gray": 110611
+						"total": 28659,
+						"green": 14957,
+						"orange": 17280,
+						"gray": 111058
 					}
 				},
 				{
 					"word": "salka",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 14868,
+						"letterPosition": 14935,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 14868,
-						"orange": 15813,
-						"gray": 112089
-					}
-				},
-				{
-					"word": "marka",
-					"score": {
-						"inWords": 0,
-						"letterPosition": 14831,
-						"uniqueLetterPosition": 0
-					},
-					"result": {
-						"total": 28554,
-						"green": 14831,
-						"orange": 17452,
-						"gray": 110487
+						"total": 28659,
+						"green": 14935,
+						"orange": 15858,
+						"gray": 112502
 					}
 				},
 				{
 					"word": "parna",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 14828,
+						"letterPosition": 14887,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 14828,
-						"orange": 14746,
-						"gray": 113196
+						"total": 28659,
+						"green": 14887,
+						"orange": 14779,
+						"gray": 113629
+					}
+				},
+				{
+					"word": "marka",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 14879,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 28659,
+						"green": 14879,
+						"orange": 17493,
+						"gray": 110923
 					}
 				},
 				{
 					"word": "kalka",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 14787,
+						"letterPosition": 14842,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 28554,
-						"green": 14787,
-						"orange": 11025,
-						"gray": 116958
+						"total": 28659,
+						"green": 14842,
+						"orange": 11059,
+						"gray": 117394
 					}
 				}
 			],
@@ -738,141 +738,141 @@
 				{
 					"word": "parką",
 					"score": {
-						"inWords": 32918,
-						"letterPosition": 14559,
-						"uniqueLetterPosition": 14559
+						"inWords": 33022,
+						"letterPosition": 14605,
+						"uniqueLetterPosition": 14605
 					},
 					"result": {
-						"total": 28554,
-						"green": 14559,
-						"orange": 18359,
-						"gray": 109852
+						"total": 28659,
+						"green": 14605,
+						"orange": 18417,
+						"gray": 110273
 					}
 				},
 				{
 					"word": "parki",
 					"score": {
-						"inWords": 37993,
-						"letterPosition": 14278,
-						"uniqueLetterPosition": 14278
+						"inWords": 38120,
+						"letterPosition": 14321,
+						"uniqueLetterPosition": 14321
 					},
 					"result": {
-						"total": 28554,
-						"green": 14278,
-						"orange": 23715,
-						"gray": 104777
+						"total": 28659,
+						"green": 14321,
+						"orange": 23799,
+						"gray": 105175
 					}
 				},
 				{
 					"word": "sarny",
 					"score": {
-						"inWords": 34154,
-						"letterPosition": 14249,
-						"uniqueLetterPosition": 14249
+						"inWords": 34262,
+						"letterPosition": 14309,
+						"uniqueLetterPosition": 14309
 					},
 					"result": {
-						"total": 28554,
-						"green": 14249,
-						"orange": 19905,
-						"gray": 108616
+						"total": 28659,
+						"green": 14309,
+						"orange": 19953,
+						"gray": 109033
 					}
 				},
 				{
 					"word": "sarną",
 					"score": {
-						"inWords": 32200,
-						"letterPosition": 14175,
-						"uniqueLetterPosition": 14175
+						"inWords": 32296,
+						"letterPosition": 14228,
+						"uniqueLetterPosition": 14228
 					},
 					"result": {
-						"total": 28554,
-						"green": 14175,
-						"orange": 18025,
-						"gray": 110570
+						"total": 28659,
+						"green": 14228,
+						"orange": 18068,
+						"gray": 110999
 					}
 				},
 				{
 					"word": "karny",
 					"score": {
-						"inWords": 35836,
-						"letterPosition": 14168,
-						"uniqueLetterPosition": 14168
+						"inWords": 35932,
+						"letterPosition": 14216,
+						"uniqueLetterPosition": 14216
 					},
 					"result": {
-						"total": 28554,
-						"green": 14168,
-						"orange": 21668,
-						"gray": 106934
+						"total": 28659,
+						"green": 14216,
+						"orange": 21716,
+						"gray": 107363
 					}
 				},
 				{
 					"word": "warką",
 					"score": {
-						"inWords": 32851,
-						"letterPosition": 14153,
-						"uniqueLetterPosition": 14153
+						"inWords": 32946,
+						"letterPosition": 14199,
+						"uniqueLetterPosition": 14199
 					},
 					"result": {
-						"total": 28554,
-						"green": 14153,
-						"orange": 18698,
-						"gray": 109919
+						"total": 28659,
+						"green": 14199,
+						"orange": 18747,
+						"gray": 110349
 					}
 				},
 				{
 					"word": "parkę",
 					"score": {
-						"inWords": 32513,
-						"letterPosition": 14132,
-						"uniqueLetterPosition": 14132
+						"inWords": 32614,
+						"letterPosition": 14177,
+						"uniqueLetterPosition": 14177
 					},
 					"result": {
-						"total": 28554,
-						"green": 14132,
-						"orange": 18381,
-						"gray": 110257
+						"total": 28659,
+						"green": 14177,
+						"orange": 18437,
+						"gray": 110681
 					}
 				},
 				{
 					"word": "parko",
 					"score": {
-						"inWords": 38793,
-						"letterPosition": 14121,
-						"uniqueLetterPosition": 14121
+						"inWords": 38931,
+						"letterPosition": 14170,
+						"uniqueLetterPosition": 14170
 					},
 					"result": {
-						"total": 28554,
-						"green": 14121,
-						"orange": 24672,
-						"gray": 103977
-					}
-				},
-				{
-					"word": "karną",
-					"score": {
-						"inWords": 33882,
-						"letterPosition": 14094,
-						"uniqueLetterPosition": 14094
-					},
-					"result": {
-						"total": 28554,
-						"green": 14094,
-						"orange": 19788,
-						"gray": 108888
+						"total": 28659,
+						"green": 14170,
+						"orange": 24761,
+						"gray": 104364
 					}
 				},
 				{
 					"word": "parny",
 					"score": {
-						"inWords": 33251,
-						"letterPosition": 14090,
-						"uniqueLetterPosition": 14090
+						"inWords": 33361,
+						"letterPosition": 14146,
+						"uniqueLetterPosition": 14146
 					},
 					"result": {
-						"total": 28554,
-						"green": 14090,
-						"orange": 19161,
-						"gray": 109519
+						"total": 28659,
+						"green": 14146,
+						"orange": 19215,
+						"gray": 109934
+					}
+				},
+				{
+					"word": "karną",
+					"score": {
+						"inWords": 33966,
+						"letterPosition": 14135,
+						"uniqueLetterPosition": 14135
+					},
+					"result": {
+						"total": 28659,
+						"green": 14135,
+						"orange": 19831,
+						"gray": 109329
 					}
 				}
 			]
@@ -881,26 +881,26 @@
 	"winning": {
 		"all": 24751,
 		"accepted": {
-			"all": 15549,
-			"withSpecialCharacters": 5388,
-			"withoutSpecialCharacters": 10161,
+			"all": 15558,
+			"withSpecialCharacters": 5386,
+			"withoutSpecialCharacters": 10172,
 			"length": {
-				"4": 1163,
-				"5": 2250,
-				"6": 2949,
-				"7": 3096,
-				"8": 3261,
-				"9": 2830
+				"4": 1167,
+				"5": 2251,
+				"6": 2952,
+				"7": 3099,
+				"8": 3260,
+				"9": 2829
 			}
 		},
 		"rejected": {
-			"all": 9202,
+			"all": 9193,
 			"tooLong": 6644,
 			"tooShort": 749,
 			"censored": 13,
 			"romanNumeral": 0,
-			"wrongLetters": 10,
-			"missingInSpellingDictionary": 1786
+			"wrongLetters": 11,
+			"missingInSpellingDictionary": 1776
 		},
 		"lettersNotAcceptedInWinningWord": [
 			"q",
