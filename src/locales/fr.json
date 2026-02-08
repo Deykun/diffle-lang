@@ -21,7 +21,7 @@
     "common.fetchError": "Une erreur de récupération, veuillez réessayer.",
     "common.unknownError": "Une erreur inconnue s'est produite.",
     "common.serviceMode": "Maintenance du service <strong>{{today}}</strong>.",
-    "common.serviceModeWeReturnSoon": "\"De retour en action demain !",
+    "common.serviceModeWeReturnSoon": "De retour en service demain !",
     "language.currentLanguage": "Français",
     "language.cs": "Tchèque",
     "language.de": "Allemand",

@@ -1,4 +1,4 @@
-export const BLOCKED_WORDS = ['pierdolić', 'chuj'];
+export const BLOCKED_WORDS = ['pierdolić', 'chuj', 'dupczyć'];
 
 export const BLOCKED_PARTS = ['jeb', 'gówn', 'kutas'];
 

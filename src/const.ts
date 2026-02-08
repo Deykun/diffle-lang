@@ -6,7 +6,7 @@ export const isDev = (window.location.origin || '')?.includes('localhost') || fa
 export const WORD_MAXLENGTH = 15;
 
 // If breaking changes are released you can set a date stamp here and it will block the game
-export const UPDATE_BLOCK_DAILY = '30.11.2025';
+export const UPDATE_BLOCK_DAILY = '08.02.2026';
 
 const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [
   ' ', 'delete', 'arrowleft', 'arrowright', 'arrowdown', 'arrowup', 'home', 'end',

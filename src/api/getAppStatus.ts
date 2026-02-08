@@ -4,7 +4,7 @@ type GetAppStatusReport = {
 };
 
 // Keep the same as public/app-status.json
-const LAST_BREAKING_CHANGES_APP = '3.40';
+const LAST_BREAKING_CHANGES_APP = '3.42';
 const LAST_BREAKING_CHANGES_STORE = '2.0';
 
 export const getAppStatus = async (): Promise<GetAppStatusReport> => {
