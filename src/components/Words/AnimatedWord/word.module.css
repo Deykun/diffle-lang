@@ -1,0 +1,276 @@
+/*
+  Mirrors Affix.scss, but every letter is its own box, so the boxes can merge into an affix.
+  Split:  (A) (B) (C)   - each letter looks like a typed letter, no colors
+  Joined: ( A B C )     - same metrics as .affix: 0.6em + letters with 0.3em spacing + 0.3em
+
+  Joining: letters connect -> --delay -> affix color fades in (.affix::before).
+  Splitting is the same in reverse.
+*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.word {
+  --size: min(42px, 8vw);
+  --font-size: min(24px, 5vw);
+  --radius: 21px;
+  --duration: 0.15s;
+  /* Pause between the shape change and the color change */
+  --delay: 0.1s;
+  --shape-delay: calc(var(--duration) + var(--delay));
+  --color-delay: 0s;
+  /* Outline of letters is switched instantly while the colored affix covers it */
+  --outline-delay: 0s;
+
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-size);
+  font-weight: 600;
+  line-height: var(--size);
+  text-transform: uppercase;
+}
+
+:global(.narrow) .word {
+  --size: min(28px, 6.5vw);
+  --font-size: min(18px, 4vw);
+}
+
+.word.word--is-long {
+  --size: min(22px, 5vw);
+  --font-size: min(16px, 3vw);
+}
+
+.word.word--is-extra-long {
+  --size: min(20px, 4vw);
+  --font-size: min(14px, 2.5vw);
+}
+
+.word--is-joined {
+  --shape-delay: 0s;
+  --color-delay: calc(var(--duration) + var(--delay));
+  --outline-delay: calc(var(--color-delay) + var(--duration));
+}
+
+.affix {
+  --affix-radius-start: var(--radius);
+  --affix-radius-end: var(--radius);
+
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  margin: 0 2px;
+}
+
+.affix--start {
+  --affix-radius-start: 0px;
+}
+
+.affix--end {
+  --affix-radius-end: 0px;
+}
+
+.affix--correct {
+  --affix-color: var(--green-contrast);
+  --affix-background: var(--green);
+  --affix-border: var(--green);
+}
+
+.affix--incorrect {
+  --affix-color: var(--incorrect-contrast);
+  --affix-background: var(--incorrect);
+  --affix-border: var(--incorrect);
+}
+
+.affix--position {
+  --affix-color: var(--orange-contrast);
+  --affix-background: var(--orange);
+  --affix-border: var(--orange);
+}
+
+:global(.words.words--is-ended) .affix--incorrect.affix--typed-incorrect {
+  --affix-color: var(--incorrect-red);
+  --affix-background: var(--incorrect-red-contrast);
+  --affix-border: var(--incorrect-red-contrast);
+}
+
+/* Colored affix, the same box as .affix in Affix.scss - one per affix, so it can fade without seams between letters */
+.affix::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--affix-background, transparent);
+  border: 1px solid var(--affix-border, var(--border));
+  border-radius: var(--affix-radius-start) var(--affix-radius-end)
+    var(--affix-radius-end) var(--affix-radius-start);
+  opacity: 0;
+  transition: opacity var(--duration) ease-in-out var(--color-delay);
+}
+
+.word--is-joined .affix::before {
+  opacity: 1;
+}
+
+/* Outline of a letter, the colored affix fades in above it and replaces it */
+.letter {
+  --radius-start: var(--radius);
+  --radius-end: var(--radius);
+  --border-start-duration: 0s;
+  --border-start-delay: var(--outline-delay);
+  --border-end-duration: 0s;
+  --border-end-delay: var(--outline-delay);
+
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: content-box;
+  width: calc(var(--size) - 2px);
+  height: calc(var(--size) - 2px);
+  margin: 0 2px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-start) var(--radius-end) var(--radius-end)
+    var(--radius-start);
+  transition:
+    width var(--duration) ease-in-out var(--shape-delay),
+    margin var(--duration) ease-in-out var(--shape-delay),
+    padding var(--duration) ease-in-out var(--shape-delay),
+    border-radius var(--duration) ease-in-out var(--shape-delay),
+    color var(--duration) ease-in-out var(--color-delay),
+    text-shadow var(--duration) ease-in-out var(--color-delay),
+    border-top-color 0s linear var(--outline-delay),
+    border-bottom-color 0s linear var(--outline-delay),
+    border-left-color var(--border-start-duration) ease-in-out
+      var(--border-start-delay),
+    border-right-color var(--border-end-duration) ease-in-out
+      var(--border-end-delay);
+}
+
+.letter:first-child {
+  --radius-start: var(--affix-radius-start);
+
+  margin-left: 0;
+}
+
+.letter:last-child {
+  --radius-end: var(--affix-radius-end);
+
+  margin-right: 0;
+}
+
+/* Inner sides fade when letters connect */
+.letter:not(:first-child) {
+  --border-start-duration: var(--duration);
+  --border-start-delay: var(--shape-delay);
+}
+
+.letter:not(:last-child) {
+  --border-end-duration: var(--duration);
+  --border-end-delay: var(--shape-delay);
+}
+
+.glyph {
+  /* Above .affix::before */
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Hidden pair of letters used to measure kerning, has to keep the letter-spacing of .affix */
+.pair {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  letter-spacing: 0.3em;
+}
+
+/*
+  Joined - inner borders stay 1px (animating border-width snaps to full pixels and makes letters jump),
+  they turn transparent and are swallowed by -1px margins instead.
+*/
+
+.word--is-joined .letter {
+  color: var(--affix-color, inherit);
+  border-color: transparent;
+}
+
+.word--is-joined .letter:not(:only-child) {
+  /* --glyph-width and --kerning are set in AnimatedWord.tsx, width: auto can't be transitioned */
+  width: var(--glyph-width, 0.6em);
+  padding-right: calc(0.3em + var(--kerning, 0em));
+}
+
+.word--is-joined .letter:not(:first-child) {
+  --radius-start: 0px;
+
+  margin-left: -1px;
+}
+
+.word--is-joined .letter:not(:last-child) {
+  --radius-end: 0px;
+
+  margin-right: -1px;
+}
+
+.word--is-joined .letter:first-child:not(:only-child) {
+  padding-left: 0.6em;
+}
+
+.word--is-joined .letter:last-child:not(:only-child) {
+  padding-right: 0.6em;
+}
+
+/* High contrast mode */
+
+:global(.contrast) .word--is-joined .letter {
+  text-shadow:
+    0 2px 4px var(--stroke-contrast),
+    0 1px 3px var(--stroke-contrast),
+    0 0 2px var(--stroke-contrast);
+}
+
+:global(.contrast) .word--is-joined .affix--new .letter {
+  text-shadow: none;
+}
+
+:global(.contrast) .affix--position::before {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--incorrect) 0px,
+    var(--incorrect) 10px,
+    var(--orange) 10px,
+    var(--orange) 20px
+  );
+}
+
+:global(.contrast .words.words--is-ended)
+  .affix--incorrect.affix--typed-incorrect {
+  --affix-color: var(--red-contrast);
+}
+
+:global(.contrast .words.words--is-ended)
+  .affix--incorrect.affix--typed-incorrect::before {
+  background-image:
+    radial-gradient(
+      color-mix(in srgb, var(--background) 40%, transparent) 20%,
+      transparent 0
+    ),
+    radial-gradient(
+      color-mix(in srgb, var(--background) 40%, transparent) 20%,
+      transparent 0
+    );
+  background-size: 20px 20px;
+  background-position:
+    20px 20px,
+    10px 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word {
+    --duration: 0s;
+    --delay: 0s;
+  }
+}

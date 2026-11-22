@@ -111,8 +111,9 @@ test.describe('Typing with virtual keyboard', () => {
     */
     const wordReset = page.getByTestId('word-reset');
 
-    const affixWithS = wordReset.getByText(/s/);
-  
+    const affixWithS = wordReset.getByTestId(/^affix-/).filter({ hasText: /s/ });
+
+    await expect(affixWithS).toBeVisible();
     await expect(affixWithS).not.toHaveClass(/new/);
   });
 
