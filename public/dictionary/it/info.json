@@ -846,29 +846,29 @@
 		}
 	},
 	"winning": {
-		"all": 12123,
+		"all": 9974,
 		"accepted": {
-			"all": 9726,
-			"withSpecialCharacters": 197,
-			"withoutSpecialCharacters": 9529,
+			"all": 8125,
+			"withSpecialCharacters": 152,
+			"withoutSpecialCharacters": 7973,
 			"length": {
-				"4": 450,
-				"5": 1030,
-				"6": 1303,
-				"7": 1883,
-				"8": 1905,
-				"9": 1746,
-				"10": 1409
+				"4": 418,
+				"5": 929,
+				"6": 1139,
+				"7": 1616,
+				"8": 1553,
+				"9": 1366,
+				"10": 1104
 			}
 		},
 		"rejected": {
-			"all": 2397,
-			"tooLong": 2175,
-			"tooShort": 147,
+			"all": 1849,
+			"tooLong": 1665,
+			"tooShort": 135,
 			"censored": 9,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
-			"missingInSpellingDictionary": 66
+			"missingInSpellingDictionary": 40
 		},
 		"lettersNotAcceptedInWinningWord": []
 	},

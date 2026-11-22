@@ -48,7 +48,7 @@ const frequencyDictionary = fs.readFileSync(
 const frequencyWords = getWordsFromDictionary(frequencyDictionary, {
   pattern: "word ignore",
   lang: LANG,
-  limit: 125_000,
+  limit: 35_000,
 });
 
 const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
