@@ -9,7 +9,7 @@
     "slowoku"
   ],
   "private": true,
-  "version": "3.42",
+  "version": "3.43",
   "type": "module",
   "scripts": {
     "dev": "vite --port 3001",
@@ -49,7 +49,8 @@
   "devDependencies": {
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.5",
-    "@playwright/test": "^1.48.0",
+    "@jest/globals": "^30.5.2",
+    "@playwright/test": "^1.65.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",

@@ -14,7 +14,7 @@
 13. Add an srr index for the language at `public-ssr/[langCode]` and `scripts\post-build.ts`
 14. Remember to include a custom open graph image.
 15. Add dictionaries to `src\components\Panes\Settings\constants.tsx`
-16. If everything works run `build-[lang] only-wordle-perfect`
+16. If everything works run `build-[lang] only-wordle`
 17. Add easter days to `resources/[lang]/constants.ts`
 
 Feel free to adjust as needed for your specific context!

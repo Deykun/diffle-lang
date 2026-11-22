@@ -11,7 +11,13 @@
 
 ---
 
-#### Version 3.42
+#### Version 3.43
+- **New**: Large Italian dictionary update and removal of the beta marker
+- **New**: Polish dictionary updated
+- **Fix**: Triggering Playwright tests in the deployment pipeline works again
+- **New**: Test pipeline for unit tests added
+
+#### Version 3.42 (08.02.2026)
 - **New**: Polish dictionary updated
 - **Fix**: A few English swear words were removed from the winning pool
 - **Fix**: Typo in French maintenance mode was removed
