@@ -3,7 +3,7 @@ import { Suspense, lazy, useMemo } from "react";
 
 import { Word as WordType, AffixStatus, GameMode } from "@common-types";
 
-import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS, isDev } from "@const";
+import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from "@const";
 
 import { useSelector } from "@store";
 import { selectIsGameEnded, selectWordToSubmit } from "@store/selectors";
