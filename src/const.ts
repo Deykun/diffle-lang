@@ -8,7 +8,7 @@ export const isDev =
 export const WORD_MAXLENGTH = 15;
 
 // If breaking changes are released you can set a date stamp here and it will block the game
-export const UPDATE_BLOCK_DAILY = "08.02.2026";
+export const UPDATE_BLOCK_DAILY = "22.11.2026";
 
 const SUPPORTED_BUT_NOT_INCLUDED_IN_VIRTUAL_KEY_LINES = [
   " ",
