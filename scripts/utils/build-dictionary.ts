@@ -13,8 +13,8 @@ import {
     MAXIMUM_LENGTH_FOR_A_WINNING_WORD,
 } from '../constants';
 
-import type { EasterDays, Catalog } from '../../src/types.d';
-import { GameMode } from '../../src/types.d';
+import type { EasterDays, Catalog } from '../../src/types';
+import { GameMode } from '../../src/types';
 
 export const getIsRomanNumeral = (word: string) => /^(?=[MDCLXVI])M*(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$/.test(word.toUpperCase());
 

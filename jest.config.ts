@@ -9,7 +9,7 @@ export default {
         '@components(.*)': '<rootDir>/src/components$1',
         '@hooks(.*)': '<rootDir>/src/hooks$1',
         '@const(.*)': '<rootDir>/src/const$1',
-        '@common-types(.*)': '<rootDir>/src/types.d.ts$1',
+        '@common-types(.*)': '<rootDir>/src/types.ts$1',
         '@store(.*)': '<rootDir>/src/store$1',
         '@utils(.*)': '<rootDir>/src/utils$1',
         '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',

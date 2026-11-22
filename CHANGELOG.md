@@ -14,8 +14,11 @@
 #### Version 3.44
 - **New**: Animation between two word states (typed and submitted)
 
-#### Version 3.43
-[TBD]
+#### Version 3.43 (22.11.2026)
+- **New**: Large Italian dictionary update and removal of the beta marker
+- **New**: Polish dictionary updated
+- **Fix**: Triggering Playwright tests in the deployment pipeline works again
+- **New**: Test pipeline for unit tests added
 
 #### Version 3.42 (08.02.2026)
 - **New**: Polish dictionary updated

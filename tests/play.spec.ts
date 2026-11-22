@@ -85,7 +85,7 @@ test.describe('Typing with virtual keyboard', () => {
     const wordReset = page.getByTestId('word-reset');
     await expect(wordReset).not.toBeVisible();
 
-    typeOnVirtualKeyboardWord(page, 'reset');
+    await typeOnVirtualKeyboardWord(page, 'reset');
 
     await expect(wordReset).toBeVisible();
 
@@ -95,7 +95,7 @@ test.describe('Typing with virtual keyboard', () => {
   });
 
   test('Correct word can be submited', async ({ page }) => {
-    typeOnVirtualKeyboardWord(page, 'reset');
+    await typeOnVirtualKeyboardWord(page, 'reset');
 
     const affixS = page.getByTestId('affix-s');
 
@@ -117,7 +117,7 @@ test.describe('Typing with virtual keyboard', () => {
   });
 
   test('Incorrect word is rejected with toast', async ({ page }) => {
-    typeOnVirtualKeyboardWord(page, 'dshjg');
+    await typeOnVirtualKeyboardWord(page, 'dshjg');
 
     await page.getByTestId('key-enter').click();
 
