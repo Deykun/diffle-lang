@@ -12,7 +12,8 @@ type Props = {
 export const AnimatedWord = ({ affixes }: Props) => {
   const wordRef = useRef<HTMLDivElement>(null);
 
-  const length = affixes.reduce((total, { text }) => total + text.length, 0);
+  const wordText = affixes.map(({ text }) => text).join("");
+  const { length } = wordText;
 
   /*
     CSS can't transition to width: auto, so joined letters get their natural width as variables (in em, so they scale).
@@ -94,6 +95,7 @@ export const AnimatedWord = ({ affixes }: Props) => {
           [styles["word--is-long"]]: length > 12,
           [styles["word--is-extra-long"]]: length > 15,
         })}
+        data-testid={`word-${wordText.replaceAll(" ", "spacebar") || "empty"}`}
       >
         {affixes.map(({ text, type, subtype, isStart, isEnd }, affixIndex) => (
           <span
@@ -104,6 +106,7 @@ export const AnimatedWord = ({ affixes }: Props) => {
               [styles["affix--start"]]: isStart,
               [styles["affix--end"]]: isEnd,
             })}
+            data-testid={`affix-${text.replaceAll(" ", "spacebar")}`}
           >
             {/* Both text-transform: uppercase and .toUppercase() replace ß with SS */}
             {[...text.replaceAll("ß", "ẞ")].map((letter, letterIndex) => (
