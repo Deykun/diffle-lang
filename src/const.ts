@@ -304,6 +304,7 @@ export const LOCAL_STORAGE = {
   LAST_LANG: 'diffle_last_lang',
   THEME: 'diffle_theme',
   THEME_CONTRAST: 'diffle_theme_contrast',
+  WORD_ANIMATION_BLOCK: 'diffle_word_animation_block',
   COOKIES: 'diffle_cookies',
   SHOULD_VIBRATE: 'diffle_should_vibrate',
   SHOULD_VIBRATE_KEYBOARD: 'diffle_should_vibrate_keyboard',

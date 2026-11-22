@@ -1,9 +1,7 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import clsx from "clsx";
 
 import { Affix as AffixType } from "@common-types";
-
-import Button from "@components/Button/Button";
 
 import styles from "./word.module.css";
 
@@ -12,7 +10,6 @@ type Props = {
 };
 
 export const AnimatedWord = ({ affixes }: Props) => {
-  const [isJoined, setIsJoined] = useState(true);
   const wordRef = useRef<HTMLDivElement>(null);
 
   const length = affixes.reduce((total, { text }) => total + text.length, 0);
@@ -90,13 +87,10 @@ export const AnimatedWord = ({ affixes }: Props) => {
 
   return (
     <div className={styles.container}>
-      <Button onClick={() => setIsJoined((value) => !value)} isInverted>
-        {isJoined ? "Split letters" : "Join letters"}
-      </Button>
       <div
         ref={wordRef}
         className={clsx(styles.word, {
-          [styles["word--is-joined"]]: isJoined,
+          [styles["word--is-joined"]]: true,
           [styles["word--is-long"]]: length > 12,
           [styles["word--is-extra-long"]]: length > 15,
         })}

@@ -20,6 +20,7 @@ import WordToGuessTip from "./WordToGuessTip";
 import WordToSubmitTip from "./WordToSubmitTip";
 
 import "./Words.scss";
+import { useIsAnimationLimited } from "@hooks/useIsAnimationLimited";
 
 const WordSandboxLive = lazy(() => import("./WordSandboxLive"));
 
@@ -30,6 +31,8 @@ const Words = () => {
   const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
   const wordToSubmit = useSelector(selectWordToSubmit);
   const caretShift = useSelector((state) => state.game.caretShift);
+
+  const isAnimationLimited = useIsAnimationLimited();
 
   const submitGuess: WordType = useMemo(() => {
     const affixes = (wordToSubmit || " ")
@@ -60,15 +63,25 @@ const Words = () => {
     >
       <NextDailyTip />
       <WordToGuessTip />
-      {guesses.slice(0, -1).map((guess) => {
-        return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
-      })}
-      {/* Dev preview of the split/joined animation, for the last guess */}
-      {guesses.length > 0 && (
-        <AnimatedWord
-          key={guesses.at(-1)?.word}
-          affixes={guesses[guesses.length - 1].affixes}
-        />
+      {isAnimationLimited ? (
+        <>
+          {guesses.map((guess) => {
+            return (
+              <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />
+            );
+          })}
+        </>
+      ) : (
+        <>
+          {guesses.map((guess) => {
+            return (
+              <AnimatedWord
+                key={`guess-${guess.word}`}
+                affixes={guess.affixes}
+              />
+            );
+          })}
+        </>
       )}
       {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
       {!isGameEnded && gameMode === GameMode.SandboxLive && (
