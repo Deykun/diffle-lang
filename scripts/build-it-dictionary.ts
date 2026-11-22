@@ -15,7 +15,7 @@ import {
 const LANG = "it";
 
 const spellcheckerDir = `./resources/${LANG}/${DICTIONARIES.spellchecker.dir}`;
-const spellcheckerDictionaryPath = `${spellcheckerDir}/dictionary.txt`;
+const spellcheckerDictionaryPath = `${spellcheckerDir}/temp-dictionary.txt`;
 
 if (!fs.existsSync(spellcheckerDictionaryPath)) {
   console.log(`Missing: ${spellcheckerDictionaryPath}`);
@@ -48,7 +48,7 @@ const frequencyDictionary = fs.readFileSync(
 const frequencyWords = getWordsFromDictionary(frequencyDictionary, {
   pattern: "word ignore",
   lang: LANG,
-  limit: 75_000,
+  limit: 125_000,
 });
 
 const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
