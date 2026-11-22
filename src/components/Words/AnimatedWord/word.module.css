@@ -1,0 +1,184 @@
+/*
+  Mirrors Affix.scss, but every letter is its own box, so the boxes can merge into an affix.
+  Split:  (A) (B) (C)   - each letter looks like a one-letter affix
+  Joined: ( A B C )     - same metrics as .affix: 0.6em + letters with 0.3em spacing + 0.3em
+*/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.word {
+  --size: min(42px, 8vw);
+  --font-size: min(24px, 5vw);
+  --radius: 21px;
+  --duration: 0.35s;
+
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-size);
+  font-weight: 600;
+  line-height: var(--size);
+  text-transform: uppercase;
+}
+
+:global(.narrow) .word {
+  --size: min(28px, 6.5vw);
+  --font-size: min(18px, 4vw);
+}
+
+.word.word--is-long {
+  --size: min(22px, 5vw);
+  --font-size: min(16px, 3vw);
+}
+
+.word.word--is-extra-long {
+  --size: min(20px, 4vw);
+  --font-size: min(14px, 2.5vw);
+}
+
+.affix {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.affix--correct {
+  --affix-color: var(--green-contrast);
+  --affix-background: var(--green);
+  --affix-border: var(--green);
+}
+
+.affix--incorrect {
+  --affix-color: var(--incorrect-contrast);
+  --affix-background: var(--incorrect);
+  --affix-border: var(--incorrect);
+}
+
+.affix--position {
+  --affix-color: var(--orange-contrast);
+  --affix-background: var(--orange);
+  --affix-border: var(--orange);
+}
+
+:global(.words.words--is-ended) .affix--incorrect.affix--typed-incorrect {
+  --affix-color: var(--incorrect-red);
+  --affix-background: var(--incorrect-red-contrast);
+  --affix-border: var(--incorrect-red-contrast);
+}
+
+.letter {
+  --radius-start: var(--radius);
+  --radius-end: var(--radius);
+
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: content-box;
+  width: calc(var(--size) - 2px);
+  height: calc(var(--size) - 2px);
+  margin: 0 2px;
+  padding: 0;
+  color: var(--affix-color, inherit);
+  background-color: var(--affix-background, transparent);
+  border: 1px solid;
+  border-color: var(--affix-border, var(--border));
+  border-radius: var(--radius-start) var(--radius-end) var(--radius-end) var(--radius-start);
+  transition-property: width, margin, padding, border-color, border-radius;
+  transition-duration: var(--duration);
+  transition-timing-function: ease-in-out;
+}
+
+.glyph {
+  flex-shrink: 0;
+}
+
+/* Hidden pair of letters used to measure kerning, has to keep the letter-spacing of .affix */
+.pair {
+  position: absolute;
+  visibility: hidden;
+  white-space: pre;
+  letter-spacing: 0.3em;
+}
+
+.affix--start .letter:first-child {
+  --radius-start: 0px;
+}
+
+.affix--end .letter:last-child {
+  --radius-end: 0px;
+}
+
+/*
+  Joined - inner borders stay 1px (animating border-width snaps to full pixels and makes letters jump),
+  they blend with the background and are swallowed by -1px margins instead.
+*/
+
+.word--is-joined .letter:not(:only-child) {
+  /* --glyph-width and --kerning are set in AnimatedWord.tsx, width: auto can't be transitioned */
+  width: var(--glyph-width, 0.6em);
+  padding-right: calc(0.3em + var(--kerning, 0em));
+}
+
+.word--is-joined .letter:not(:first-child) {
+  --radius-start: 0px;
+
+  margin-left: -1px;
+  border-left-color: var(--affix-background, transparent);
+}
+
+.word--is-joined .letter:not(:last-child) {
+  --radius-end: 0px;
+
+  margin-right: -1px;
+  border-right-color: var(--affix-background, transparent);
+}
+
+.word--is-joined .letter:first-child:not(:only-child) {
+  padding-left: 0.6em;
+}
+
+.word--is-joined .letter:last-child:not(:only-child) {
+  padding-right: 0.6em;
+}
+
+/* High contrast mode */
+
+:global(.contrast) .letter {
+  text-shadow: 0 2px 4px var(--stroke-contrast), 0 1px 3px var(--stroke-contrast), 0 0 2px var(--stroke-contrast);
+}
+
+:global(.contrast) .affix--new .letter {
+  text-shadow: none;
+}
+
+:global(.contrast) .affix--position .letter {
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--incorrect) 0px,
+    var(--incorrect) 10px,
+    var(--orange) 10px,
+    var(--orange) 20px
+  );
+}
+
+:global(.contrast .words.words--is-ended) .affix--incorrect.affix--typed-incorrect {
+  --affix-color: var(--red-contrast);
+}
+
+:global(.contrast .words.words--is-ended) .affix--incorrect.affix--typed-incorrect .letter {
+  background-image:
+    radial-gradient(color-mix(in srgb, var(--background) 40%, transparent) 20%, transparent 0),
+    radial-gradient(color-mix(in srgb, var(--background) 40%, transparent) 20%, transparent 0);
+  background-size: 20px 20px;
+  background-position: 20px 20px, 10px 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter {
+    transition: none;
+  }
+}

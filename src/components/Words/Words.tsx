@@ -1,42 +1,40 @@
-import clsx from 'clsx';
-import { Suspense, lazy, useMemo } from 'react';
+import clsx from "clsx";
+import { Suspense, lazy, useMemo } from "react";
 
-import { Word as WordType, AffixStatus, GameMode } from '@common-types';
+import { Word as WordType, AffixStatus, GameMode } from "@common-types";
 
-import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS } from '@const';
+import { WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS, isDev } from "@const";
 
-import { useSelector } from '@store';
-import {
-  selectIsGameEnded,
-  selectWordToSubmit,
-} from '@store/selectors';
+import { useSelector } from "@store";
+import { selectIsGameEnded, selectWordToSubmit } from "@store/selectors";
 
-import useScrollEffect from '@hooks/useScrollEffect';
+import useScrollEffect from "@hooks/useScrollEffect";
 
-import EndResult from '@components/EndResult/EndResult';
+import EndResult from "@components/EndResult/EndResult";
 
-import NextDailyTip from '@features/timeToNextDay/components/NextDailyTip';
+import NextDailyTip from "@features/timeToNextDay/components/NextDailyTip";
 
-import Word from './Word';
-import WordToGuessTip from './WordToGuessTip';
-import WordToSubmitTip from './WordToSubmitTip';
+import Word from "./Word";
+import { AnimatedWord } from "./AnimatedWord/AnimatedWord";
+import WordToGuessTip from "./WordToGuessTip";
+import WordToSubmitTip from "./WordToSubmitTip";
 
-import './Words.scss';
+import "./Words.scss";
 
-const WordSandboxLive = lazy(() => import('./WordSandboxLive'));
+const WordSandboxLive = lazy(() => import("./WordSandboxLive"));
 
 const Words = () => {
-  const guesses = useSelector(state => state.game.guesses);
-  const gameMode = useSelector(state => state.game.mode);
+  const guesses = useSelector((state) => state.game.guesses);
+  const gameMode = useSelector((state) => state.game.mode);
   const isGameEnded = useSelector(selectIsGameEnded);
-  const hasLongGuesses = useSelector(state => state.game.hasLongGuesses);
+  const hasLongGuesses = useSelector((state) => state.game.hasLongGuesses);
   const wordToSubmit = useSelector(selectWordToSubmit);
-  const caretShift = useSelector(state => state.game.caretShift);
+  const caretShift = useSelector((state) => state.game.caretShift);
 
   const submitGuess: WordType = useMemo(() => {
-    const affixes = (wordToSubmit || ' ')
-      .split('')
-      .map(letter => ({ type: AffixStatus.New, text: letter }));
+    const affixes = (wordToSubmit || " ")
+      .split("")
+      .map((letter) => ({ type: AffixStatus.New, text: letter }));
 
     return {
       word: wordToSubmit,
@@ -45,33 +43,41 @@ const Words = () => {
     };
   }, [wordToSubmit, caretShift]);
 
-  useScrollEffect('bottom', [wordToSubmit]);
+  useScrollEffect("bottom", [wordToSubmit]);
 
-  const shouldBeNarrower = hasLongGuesses
-    || wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
+  const shouldBeNarrower =
+    hasLongGuesses ||
+    wordToSubmit.length > WORD_IS_CONSIDER_LONG_AFTER_X_LETTERS;
   const shouldBeShorter = guesses.length > 8;
 
   return (
-      <div
-        className={clsx('words', {
-          'words--is-ended': isGameEnded,
-          narrow: shouldBeNarrower,
-          shorter: shouldBeShorter,
-        })}
-      >
-          <NextDailyTip />
-          <WordToGuessTip />
-          {guesses.map((guess) => {
-            return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
-          })}
-          {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
-          {!isGameEnded && gameMode === GameMode.SandboxLive && (
-          <Suspense>
-              <WordSandboxLive />
-          </Suspense>
-          )}
-          <WordToSubmitTip />
-      </div>
+    <div
+      className={clsx("words", {
+        "words--is-ended": isGameEnded,
+        narrow: shouldBeNarrower,
+        shorter: shouldBeShorter,
+      })}
+    >
+      <NextDailyTip />
+      <WordToGuessTip />
+      {guesses.slice(0, -1).map((guess) => {
+        return <Word key={`guess-${guess.word}`} guess={guess} isSubmitted />;
+      })}
+      {/* Dev preview of the split/joined animation, for the last guess */}
+      {guesses.length > 0 && (
+        <AnimatedWord
+          key={guesses.at(-1)?.word}
+          affixes={guesses[guesses.length - 1].affixes}
+        />
+      )}
+      {isGameEnded ? <EndResult /> : <Word guess={submitGuess} />}
+      {!isGameEnded && gameMode === GameMode.SandboxLive && (
+        <Suspense>
+          <WordSandboxLive />
+        </Suspense>
+      )}
+      <WordToSubmitTip />
+    </div>
   );
 };
 
