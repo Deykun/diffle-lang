@@ -14,17 +14,28 @@ import {
 
 const LANG = "it";
 
+const spellcheckerDir = `./resources/${LANG}/${DICTIONARIES.spellchecker.dir}`;
+const spellcheckerDictionaryPath = `${spellcheckerDir}/dictionary.txt`;
+
+if (!fs.existsSync(spellcheckerDictionaryPath)) {
+  console.log(`Missing: ${spellcheckerDictionaryPath}`);
+  console.log(
+    `It is gitignored, unmunch it first: npx tsx ${spellcheckerDir}/scripts/createDictionaryTXT.ts`,
+  );
+  process.exit(1);
+}
+
 const spellcheckerDictionary1st = fs.readFileSync(
-  `./resources/${LANG}/${DICTIONARIES.spellchecker.dir}/dictionary.txt`,
-  "utf-8"
+  spellcheckerDictionaryPath,
+  "utf-8",
 );
 const spellcheckerDictionary2nd = fs.readFileSync(
   `./resources/${LANG}/${DICTIONARIES.spellcheckerAlt.dir}/dictionary.txt`,
-  "utf-8"
+  "utf-8",
 );
 const winningDictionary = fs.readFileSync(
   `./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`,
-  "utf-8"
+  "utf-8",
 );
 
 const spellcheckerWords1st = getWordsFromDictionary(spellcheckerDictionary1st, {
@@ -42,7 +53,7 @@ const spellcheckerWords = [
 
 const frequencyDictionary = fs.readFileSync(
   `./resources/${LANG}/${DICTIONARIES.popularity.dir}/dictionary.txt`,
-  "utf-8"
+  "utf-8",
 );
 
 const frequencyWords = getWordsFromDictionary(frequencyDictionary, {
@@ -62,10 +73,12 @@ actionBuildDictionary(
     BLOCKED_PARTS,
     LETTERS_NOT_ALLOWED_IN_WINNING_WORD,
     DICTIONARIES,
-    MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD: 17,
+    MAXIMUM_LENGTH_OF_ABOUT_LANGUAGE_WORD: 20,
+    MAXIMUM_LENGTH_OF_SPELLCHEKER_WORD: 18,
+    MAXIMUM_LENGTH_OF_WINNING_WORD: 10,
     EASTER_EGG_DAYS,
   },
   spellcheckerWords,
   winningWords,
-  frequencyWords
+  frequencyWords,
 );

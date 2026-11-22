@@ -1,60 +1,63 @@
 {
 	"spellchecker": {
-		"all": 126521,
+		"all": 3146372,
 		"accepted": {
-			"allUsedInGame": 124499,
-			"all": 126025,
-			"allWordleWords": 6368,
-			"withSpecialCharacters": 3120,
-			"withoutSpecialCharacters": 122905,
+			"allUsedInGame": 2949517,
+			"all": 3013711,
+			"allWordleWords": 9669,
+			"withSpecialCharacters": 24731,
+			"withoutSpecialCharacters": 2988980,
 			"length": {
-				"2": 332,
-				"3": 1303,
-				"4": 3292,
-				"5": 6368,
-				"6": 9522,
-				"7": 14286,
-				"8": 16507,
-				"9": 18514,
-				"10": 17529,
-				"11": 14282,
-				"12": 10192,
-				"13": 6380,
-				"14": 3848,
-				"15": 2144,
-				"16": 1035,
-				"17": 491
+				"2": 343,
+				"3": 1418,
+				"4": 4106,
+				"5": 9669,
+				"6": 19376,
+				"7": 39969,
+				"8": 70541,
+				"9": 125516,
+				"10": 204355,
+				"11": 308247,
+				"12": 398599,
+				"13": 464953,
+				"14": 435988,
+				"15": 363263,
+				"16": 255422,
+				"17": 160775,
+				"18": 86977,
+				"19": 43850,
+				"20": 20344
 			}
 		},
-		"rejected": 2022,
+		"rejected": 196855,
 		"letters": {
 			"first": {
-				"s": 15957,
-				"a": 13202,
-				"c": 11543,
-				"p": 10722,
-				"i": 10086,
-				"r": 9216,
-				"m": 7055,
-				"t": 6672,
-				"d": 6094,
-				"b": 5602,
-				"f": 4642,
-				"e": 4530,
-				"g": 4149,
-				"o": 3373,
-				"l": 3310,
-				"v": 3286,
-				"n": 2239,
-				"u": 1299,
-				"h": 627,
-				"q": 504,
-				"z": 490,
-				"k": 467,
-				"j": 384,
-				"w": 363,
-				"y": 121,
-				"x": 83,
+				"s": 560389,
+				"r": 425225,
+				"a": 346600,
+				"i": 333902,
+				"c": 209483,
+				"p": 196826,
+				"d": 191096,
+				"t": 136632,
+				"m": 99489,
+				"b": 92008,
+				"f": 80048,
+				"e": 75328,
+				"g": 62899,
+				"v": 55211,
+				"o": 46633,
+				"l": 41026,
+				"n": 24478,
+				"u": 17103,
+				"z": 8163,
+				"q": 7878,
+				"h": 1304,
+				"x": 582,
+				"k": 500,
+				"j": 401,
+				"w": 370,
+				"y": 128,
 				"í": 3,
 				"ì": 2,
 				"é": 1,
@@ -63,36 +66,36 @@
 				"è": 1
 			},
 			"last": {
-				"o": 45554,
-				"e": 31954,
-				"a": 24177,
-				"i": 11906,
-				"à": 2264,
-				"n": 1579,
+				"i": 1228406,
+				"e": 826998,
+				"o": 509401,
+				"a": 406161,
+				"ò": 13420,
+				"à": 9348,
+				"r": 8441,
+				"n": 2152,
 				"s": 1275,
-				"r": 1131,
+				"é": 1000,
 				"y": 922,
 				"t": 769,
-				"l": 611,
-				"d": 522,
-				"ò": 466,
+				"ì": 732,
+				"l": 650,
+				"d": 523,
+				"v": 469,
+				"x": 439,
 				"g": 412,
 				"h": 383,
-				"m": 357,
+				"m": 358,
 				"k": 309,
 				"u": 248,
-				"c": 144,
+				"c": 173,
 				"p": 140,
 				"z": 125,
-				"x": 108,
 				"f": 91,
 				"w": 85,
 				"è": 83,
 				"b": 81,
-				"ì": 81,
-				"é": 78,
 				"ù": 65,
-				"v": 53,
 				"j": 22,
 				"í": 17,
 				"q": 9,
@@ -100,37 +103,37 @@
 				"ú": 1
 			},
 			"common": {
-				"a": 137859,
-				"i": 130696,
-				"o": 116519,
-				"e": 107519,
-				"r": 91741,
-				"t": 89117,
-				"n": 76514,
-				"s": 60016,
-				"c": 58850,
-				"l": 51389,
-				"m": 35741,
-				"d": 31580,
-				"p": 29896,
-				"g": 27104,
-				"u": 25471,
-				"b": 18594,
-				"v": 16283,
-				"z": 16191,
-				"f": 15890,
-				"h": 7319,
-				"à": 2266,
-				"k": 1598,
-				"y": 1598,
-				"q": 1566,
-				"w": 885,
-				"j": 529,
-				"ò": 467,
-				"x": 380,
-				"é": 100,
+				"i": 5322621,
+				"a": 4888413,
+				"e": 4400192,
+				"t": 3310757,
+				"l": 2951779,
+				"o": 2735904,
+				"r": 2362036,
+				"n": 2122053,
+				"c": 2038119,
+				"s": 2032608,
+				"m": 1361087,
+				"g": 1168140,
+				"d": 955072,
+				"v": 776356,
+				"p": 769336,
+				"z": 674788,
+				"u": 590899,
+				"f": 447024,
+				"b": 446028,
+				"h": 173295,
+				"q": 37596,
+				"ò": 13421,
+				"à": 9350,
+				"x": 4680,
+				"k": 2762,
+				"y": 2050,
+				"é": 1022,
+				"w": 1005,
+				"ì": 742,
+				"j": 546,
 				"è": 93,
-				"ì": 91,
 				"ù": 65,
 				"í": 36,
 				"ó": 7,
@@ -138,232 +141,232 @@
 				"î": 1
 			},
 			"inWordsWordle": {
-				"a": 3290,
-				"o": 2629,
-				"e": 2610,
-				"i": 2455,
-				"r": 2146,
-				"n": 1610,
-				"s": 1600,
-				"t": 1461,
-				"l": 1444,
-				"c": 1129,
-				"u": 971,
-				"m": 968,
-				"d": 903,
-				"p": 786,
-				"g": 771,
-				"b": 704,
-				"v": 520,
-				"f": 506,
-				"h": 473,
+				"a": 4735,
+				"i": 4335,
+				"e": 3743,
+				"o": 3607,
+				"r": 3216,
+				"s": 2372,
+				"l": 2246,
+				"n": 2218,
+				"t": 2064,
+				"c": 1841,
+				"m": 1573,
+				"u": 1492,
+				"d": 1444,
+				"p": 1195,
+				"g": 1165,
+				"b": 1083,
+				"v": 1016,
+				"f": 797,
+				"h": 531,
+				"ò": 477,
 				"y": 451,
-				"k": 311,
-				"z": 268,
+				"z": 421,
+				"k": 315,
+				"x": 295,
 				"j": 126,
 				"w": 118,
-				"ò": 57,
-				"x": 52,
-				"à": 43,
-				"q": 38,
-				"ì": 22,
+				"ì": 89,
+				"é": 70,
+				"à": 53,
+				"q": 42,
 				"è": 20,
-				"é": 18,
 				"ù": 10,
 				"í": 4,
 				"ó": 3
 			},
 			"wordle": {
 				"0": {
-					"s": 639,
-					"c": 524,
-					"p": 473,
-					"a": 457,
-					"b": 431,
-					"m": 425,
-					"t": 417,
-					"f": 338,
-					"l": 309,
-					"d": 305,
-					"r": 289,
-					"g": 276,
-					"v": 220,
-					"e": 199,
-					"n": 187,
-					"o": 178,
+					"s": 1061,
+					"c": 846,
+					"m": 725,
+					"a": 708,
+					"p": 685,
+					"b": 654,
+					"t": 606,
+					"f": 496,
+					"r": 476,
+					"d": 452,
+					"l": 451,
+					"g": 410,
+					"v": 330,
+					"e": 328,
+					"o": 299,
+					"n": 252,
+					"i": 178,
+					"u": 171,
 					"h": 124,
-					"i": 113,
-					"u": 102,
-					"k": 98,
+					"z": 105,
+					"k": 99,
 					"j": 94,
-					"z": 65,
 					"w": 56,
-					"q": 25,
+					"q": 29,
 					"y": 17,
-					"x": 6,
+					"x": 16,
 					"é": 1
 				},
 				"1": {
-					"a": 1310,
-					"o": 979,
-					"e": 907,
-					"i": 764,
-					"u": 499,
-					"r": 484,
-					"l": 237,
-					"t": 135,
-					"n": 131,
-					"h": 123,
-					"s": 121,
-					"m": 120,
-					"c": 91,
-					"p": 91,
-					"v": 70,
-					"d": 66,
+					"a": 1788,
+					"o": 1395,
+					"e": 1265,
+					"i": 1149,
+					"r": 752,
+					"u": 732,
+					"l": 390,
+					"c": 273,
+					"m": 226,
+					"n": 206,
+					"s": 202,
+					"t": 200,
+					"d": 188,
+					"v": 174,
+					"p": 168,
+					"h": 132,
+					"b": 91,
+					"f": 86,
+					"g": 65,
+					"x": 65,
 					"y": 56,
-					"b": 51,
-					"g": 39,
-					"f": 35,
+					"z": 20,
 					"w": 18,
 					"k": 17,
-					"z": 11,
 					"é": 3,
 					"q": 3,
-					"x": 2,
 					"j": 2,
 					"ì": 1,
 					"ó": 1,
 					"í": 1
 				},
 				"2": {
-					"r": 766,
-					"n": 616,
-					"l": 546,
-					"a": 544,
-					"i": 521,
-					"o": 426,
-					"s": 402,
-					"e": 384,
-					"t": 328,
-					"g": 253,
-					"u": 237,
-					"c": 218,
-					"m": 208,
-					"d": 169,
-					"p": 141,
-					"b": 133,
-					"z": 110,
-					"v": 95,
-					"f": 81,
+					"r": 1065,
+					"n": 871,
+					"a": 868,
+					"l": 832,
+					"i": 829,
+					"o": 631,
+					"s": 588,
+					"e": 582,
+					"t": 460,
+					"u": 417,
+					"g": 396,
+					"c": 390,
+					"m": 307,
+					"d": 249,
+					"p": 226,
+					"b": 201,
+					"z": 165,
+					"x": 150,
+					"v": 147,
+					"f": 123,
 					"y": 48,
+					"h": 35,
 					"k": 35,
-					"h": 33,
 					"w": 29,
-					"x": 20,
 					"j": 15,
 					"q": 7,
 					"è": 2,
 					"í": 1
 				},
 				"3": {
-					"t": 686,
-					"n": 577,
-					"i": 558,
-					"r": 536,
-					"e": 446,
-					"l": 445,
-					"c": 418,
-					"s": 379,
-					"d": 353,
-					"a": 270,
-					"m": 241,
-					"g": 211,
-					"o": 185,
-					"v": 154,
-					"p": 153,
-					"b": 148,
-					"z": 142,
-					"u": 116,
-					"h": 96,
-					"k": 94,
-					"f": 93,
+					"t": 975,
+					"i": 875,
+					"n": 830,
+					"r": 765,
+					"l": 719,
+					"c": 605,
+					"s": 570,
+					"e": 569,
+					"d": 553,
+					"a": 540,
+					"m": 404,
+					"g": 322,
+					"v": 311,
+					"p": 254,
+					"z": 238,
+					"b": 225,
+					"o": 193,
+					"u": 164,
+					"f": 161,
+					"h": 143,
+					"k": 97,
+					"x": 94,
 					"y": 27,
 					"j": 15,
 					"w": 12,
-					"x": 5,
 					"é": 3,
 					"ì": 2,
 					"ó": 2,
 					"í": 1
 				},
 				"4": {
-					"a": 1358,
-					"o": 1280,
-					"e": 1039,
-					"i": 749,
+					"i": 1981,
+					"a": 1712,
+					"o": 1597,
+					"e": 1538,
+					"ò": 477,
+					"r": 374,
 					"y": 304,
 					"s": 290,
 					"n": 261,
-					"r": 192,
 					"t": 132,
-					"l": 117,
+					"l": 126,
 					"h": 106,
+					"x": 88,
+					"v": 87,
+					"ì": 86,
 					"k": 81,
+					"é": 63,
 					"d": 60,
-					"ò": 57,
+					"à": 53,
 					"g": 50,
-					"à": 43,
 					"m": 40,
 					"u": 38,
-					"x": 21,
+					"c": 23,
 					"z": 21,
-					"ì": 19,
 					"f": 19,
 					"è": 18,
-					"c": 16,
 					"p": 14,
 					"b": 12,
-					"é": 11,
 					"ù": 10,
 					"w": 3,
 					"q": 3,
-					"v": 2,
 					"j": 1,
 					"í": 1
 				}
 			},
 			"inWords": {
-				"a": 91532,
-				"i": 87233,
-				"o": 81898,
-				"e": 76854,
-				"r": 71504,
-				"t": 64963,
-				"n": 60900,
-				"s": 48099,
-				"c": 46182,
-				"l": 42507,
-				"m": 31476,
-				"d": 28605,
-				"p": 26324,
-				"u": 24132,
-				"g": 22946,
-				"b": 16452,
-				"v": 14919,
-				"f": 13954,
-				"z": 11138,
-				"h": 7137,
-				"à": 2266,
-				"y": 1576,
-				"q": 1542,
-				"k": 1531,
-				"w": 861,
-				"j": 525,
-				"ò": 467,
-				"x": 368,
-				"é": 99,
+				"a": 2730735,
+				"i": 2608454,
+				"e": 2417515,
+				"t": 2173583,
+				"l": 2067105,
+				"o": 1947875,
+				"r": 1797778,
+				"n": 1597960,
+				"s": 1527502,
+				"c": 1463220,
+				"m": 1133226,
+				"g": 912928,
+				"d": 844276,
+				"v": 695949,
+				"p": 649159,
+				"u": 565037,
+				"z": 382807,
+				"f": 375665,
+				"b": 370906,
+				"h": 172140,
+				"q": 37067,
+				"ò": 13421,
+				"à": 9350,
+				"x": 3245,
+				"k": 2687,
+				"y": 2028,
+				"é": 1021,
+				"w": 981,
+				"ì": 741,
+				"j": 542,
 				"è": 93,
-				"ì": 90,
 				"ù": 65,
 				"í": 36,
 				"ó": 7,
@@ -374,498 +377,498 @@
 		"substrings": {
 			"first": {
 				"2": {
-					"in": 5977,
-					"ri": 4976,
-					"co": 4773,
-					"ca": 3195,
-					"di": 2833
+					"ri": 298798,
+					"in": 219288,
+					"co": 110209,
+					"sc": 105722,
+					"di": 91060
 				},
 				"3": {
-					"con": 2047,
-					"dis": 1434,
-					"int": 1306,
-					"pro": 1266,
-					"pre": 1244
+					"dis": 59092,
+					"con": 57845,
+					"inc": 56823,
+					"imp": 48377,
+					"ria": 47310
 				},
 				"4": {
-					"inte": 758,
-					"cont": 679,
-					"comp": 503,
-					"auto": 493,
-					"stra": 396
+					"inca": 25972,
+					"rico": 23634,
+					"stra": 18300,
+					"cont": 17759,
+					"inte": 16260
 				}
 			},
 			"middle": {
 				"2": {
-					"at": 19899,
-					"an": 18211,
-					"ar": 16485,
-					"er": 16059,
-					"on": 14451
+					"at": 1471195,
+					"el": 1321297,
+					"te": 751586,
+					"ta": 714823,
+					"ia": 699316
 				},
 				"3": {
-					"and": 6676,
-					"ent": 5867,
-					"ion": 4302,
-					"ett": 3801,
-					"ist": 3284
+					"gli": 413609,
+					"ati": 374139,
+					"ndo": 370812,
+					"ate": 350698,
+					"ata": 323901
 				},
 				"4": {
-					"zion": 2958,
-					"ment": 2814,
-					"izza": 2385,
-					"azio": 2097,
-					"tric": 1841
+					"ando": 296891,
+					"glie": 277258,
+					"liel": 218177,
+					"iamo": 198111,
+					"izza": 191886
 				}
 			},
 			"last": {
 				"2": {
-					"to": 11492,
-					"re": 10496,
-					"do": 7622,
-					"te": 5291,
-					"no": 5166
+					"li": 411162,
+					"ne": 357765,
+					"le": 353521,
+					"la": 351243,
+					"lo": 350852
 				},
 				"3": {
-					"ndo": 7052,
-					"ato": 6833,
-					"are": 6292,
-					"one": 3620,
-					"ico": 3548
+					"ene": 301653,
+					"ela": 300138,
+					"ele": 300138,
+					"eli": 300127,
+					"elo": 300116
 				},
 				"4": {
-					"ando": 5666,
-					"ione": 2696,
-					"bile": 1798,
-					"ento": 1794,
-					"tore": 1794
+					"cene": 55580,
+					"cele": 55566,
+					"celi": 55561,
+					"cela": 55554,
+					"celo": 55553
 				}
 			}
 		},
 		"wordle": {
 			"inWords": [
 				{
-					"word": "erano",
+					"word": "aiole",
 					"score": {
-						"inWords": 12285,
-						"letterPosition": 3084,
-						"uniqueLetterPosition": 3084
+						"inWords": 18666,
+						"letterPosition": 4745,
+						"uniqueLetterPosition": 4745
 					},
 					"result": {
-						"total": 6368,
-						"green": 3084,
-						"orange": 9201,
-						"gray": 19555
+						"total": 9669,
+						"green": 4745,
+						"orange": 13921,
+						"gray": 29679
 					}
 				},
 				{
-					"word": "erosa",
+					"word": "aires",
 					"score": {
-						"inWords": 12275,
-						"letterPosition": 2846,
-						"uniqueLetterPosition": 2846
+						"inWords": 18401,
+						"letterPosition": 3781,
+						"uniqueLetterPosition": 3781
 					},
 					"result": {
-						"total": 6368,
-						"green": 2846,
-						"orange": 9429,
-						"gray": 19565
+						"total": 9669,
+						"green": 3781,
+						"orange": 14620,
+						"gray": 29944
 					}
 				},
 				{
-					"word": "osare",
+					"word": "isera",
 					"score": {
-						"inWords": 12275,
-						"letterPosition": 2418,
-						"uniqueLetterPosition": 2418
+						"inWords": 18401,
+						"letterPosition": 3439,
+						"uniqueLetterPosition": 3439
 					},
 					"result": {
-						"total": 6368,
-						"green": 2418,
-						"orange": 9857,
-						"gray": 19565
+						"total": 9669,
+						"green": 3439,
+						"orange": 14962,
+						"gray": 29944
 					}
 				},
 				{
-					"word": "rosea",
+					"word": "resia",
 					"score": {
-						"inWords": 12275,
-						"letterPosition": 3474,
-						"uniqueLetterPosition": 3474
+						"inWords": 18401,
+						"letterPosition": 4916,
+						"uniqueLetterPosition": 4916
 					},
 					"result": {
-						"total": 6368,
-						"green": 3474,
-						"orange": 8801,
-						"gray": 19565
+						"total": 9669,
+						"green": 4916,
+						"orange": 13485,
+						"gray": 29944
 					}
 				},
 				{
-					"word": "reato",
+					"word": "sarei",
 					"score": {
-						"inWords": 12136,
-						"letterPosition": 3706,
-						"uniqueLetterPosition": 3706
+						"inWords": 18401,
+						"letterPosition": 6464,
+						"uniqueLetterPosition": 6464
 					},
 					"result": {
-						"total": 6368,
-						"green": 3706,
-						"orange": 8430,
-						"gray": 19704
+						"total": 9669,
+						"green": 6464,
+						"orange": 11937,
+						"gray": 29944
 					}
 				},
 				{
-					"word": "noria",
+					"word": "seria",
 					"score": {
-						"inWords": 12130,
-						"letterPosition": 3848,
-						"uniqueLetterPosition": 3848
+						"inWords": 18401,
+						"letterPosition": 5978,
+						"uniqueLetterPosition": 5978
 					},
 					"result": {
-						"total": 6368,
-						"green": 3848,
-						"orange": 8282,
-						"gray": 19710
+						"total": 9669,
+						"green": 5978,
+						"orange": 12423,
+						"gray": 29944
 					}
 				},
 				{
-					"word": "raion",
+					"word": "ariel",
 					"score": {
-						"inWords": 12130,
-						"letterPosition": 2566,
-						"uniqueLetterPosition": 2566
+						"inWords": 18275,
+						"letterPosition": 2984,
+						"uniqueLetterPosition": 2984
 					},
 					"result": {
-						"total": 6368,
-						"green": 2566,
-						"orange": 9564,
-						"gray": 19710
+						"total": 9669,
+						"green": 2984,
+						"orange": 15291,
+						"gray": 30070
 					}
 				},
 				{
-					"word": "riano",
+					"word": "ilare",
 					"score": {
-						"inWords": 12130,
-						"letterPosition": 3454,
-						"uniqueLetterPosition": 3454
+						"inWords": 18275,
+						"letterPosition": 3739,
+						"uniqueLetterPosition": 3739
 					},
 					"result": {
-						"total": 6368,
-						"green": 3454,
-						"orange": 8676,
-						"gray": 19710
+						"total": 9669,
+						"green": 3739,
+						"orange": 14536,
+						"gray": 30070
+					}
+				},
+				{
+					"word": "reali",
+					"score": {
+						"inWords": 18275,
+						"letterPosition": 5309,
+						"uniqueLetterPosition": 5309
+					},
+					"result": {
+						"total": 9669,
+						"green": 5309,
+						"orange": 12966,
+						"gray": 30070
 					}
 				},
 				{
 					"word": "irosa",
 					"score": {
-						"inWords": 12120,
-						"letterPosition": 2760,
-						"uniqueLetterPosition": 2760
+						"inWords": 18265,
+						"letterPosition": 3843,
+						"uniqueLetterPosition": 3843
 					},
 					"result": {
-						"total": 6368,
-						"green": 2760,
-						"orange": 9360,
-						"gray": 19720
-					}
-				},
-				{
-					"word": "rasoi",
-					"score": {
-						"inWords": 12120,
-						"letterPosition": 2935,
-						"uniqueLetterPosition": 2935
-					},
-					"result": {
-						"total": 6368,
-						"green": 2935,
-						"orange": 9185,
-						"gray": 19720
+						"total": 9669,
+						"green": 3843,
+						"orange": 14422,
+						"gray": 30080
 					}
 				}
 			],
 			"letterPosition": [
 				{
+					"word": "sarti",
+					"score": {
+						"inWords": 16722,
+						"letterPosition": 6870,
+						"uniqueLetterPosition": 6870
+					},
+					"result": {
+						"total": 9669,
+						"green": 6870,
+						"orange": 9852,
+						"gray": 31623
+					}
+				},
+				{
+					"word": "santi",
+					"score": {
+						"inWords": 15724,
+						"letterPosition": 6676,
+						"uniqueLetterPosition": 6676
+					},
+					"result": {
+						"total": 9669,
+						"green": 6676,
+						"orange": 9048,
+						"gray": 32621
+					}
+				},
+				{
+					"word": "salti",
+					"score": {
+						"inWords": 15752,
+						"letterPosition": 6637,
+						"uniqueLetterPosition": 6637
+					},
+					"result": {
+						"total": 9669,
+						"green": 6637,
+						"orange": 9115,
+						"gray": 32593
+					}
+				},
+				{
 					"word": "sarta",
 					"score": {
 						"inWords": 0,
-						"letterPosition": 4759,
+						"letterPosition": 6601,
 						"uniqueLetterPosition": 0
 					},
 					"result": {
-						"total": 6368,
-						"green": 4759,
-						"orange": 4369,
-						"gray": 22712
+						"total": 9669,
+						"green": 6601,
+						"orange": 6642,
+						"gray": 35102
+					}
+				},
+				{
+					"word": "salii",
+					"score": {
+						"inWords": 0,
+						"letterPosition": 6537,
+						"uniqueLetterPosition": 0
+					},
+					"result": {
+						"total": 9669,
+						"green": 6537,
+						"orange": 7794,
+						"gray": 34014
+					}
+				},
+				{
+					"word": "marti",
+					"score": {
+						"inWords": 15923,
+						"letterPosition": 6534,
+						"uniqueLetterPosition": 6534
+					},
+					"result": {
+						"total": 9669,
+						"green": 6534,
+						"orange": 9389,
+						"gray": 32422
+					}
+				},
+				{
+					"word": "carni",
+					"score": {
+						"inWords": 16345,
+						"letterPosition": 6510,
+						"uniqueLetterPosition": 6510
+					},
+					"result": {
+						"total": 9669,
+						"green": 6510,
+						"orange": 9835,
+						"gray": 32000
+					}
+				},
+				{
+					"word": "parti",
+					"score": {
+						"inWords": 15545,
+						"letterPosition": 6494,
+						"uniqueLetterPosition": 6494
+					},
+					"result": {
+						"total": 9669,
+						"green": 6494,
+						"orange": 9051,
+						"gray": 32800
 					}
 				},
 				{
 					"word": "sarto",
 					"score": {
-						"inWords": 11126,
-						"letterPosition": 4681,
-						"uniqueLetterPosition": 4681
+						"inWords": 15994,
+						"letterPosition": 6486,
+						"uniqueLetterPosition": 6486
 					},
 					"result": {
-						"total": 6368,
-						"green": 4681,
-						"orange": 6445,
-						"gray": 20714
+						"total": 9669,
+						"green": 6486,
+						"orange": 9508,
+						"gray": 32351
 					}
 				},
 				{
-					"word": "carta",
+					"word": "sorti",
 					"score": {
-						"inWords": 0,
-						"letterPosition": 4644,
-						"uniqueLetterPosition": 0
+						"inWords": 15594,
+						"letterPosition": 6477,
+						"uniqueLetterPosition": 6477
 					},
 					"result": {
-						"total": 6368,
-						"green": 4644,
-						"orange": 4013,
-						"gray": 23183
-					}
-				},
-				{
-					"word": "santa",
-					"score": {
-						"inWords": 0,
-						"letterPosition": 4609,
-						"uniqueLetterPosition": 0
-					},
-					"result": {
-						"total": 6368,
-						"green": 4609,
-						"orange": 3983,
-						"gray": 23248
-					}
-				},
-				{
-					"word": "parta",
-					"score": {
-						"inWords": 0,
-						"letterPosition": 4593,
-						"uniqueLetterPosition": 0
-					},
-					"result": {
-						"total": 6368,
-						"green": 4593,
-						"orange": 3721,
-						"gray": 23526
-					}
-				},
-				{
-					"word": "sarno",
-					"score": {
-						"inWords": 11275,
-						"letterPosition": 4572,
-						"uniqueLetterPosition": 4572
-					},
-					"result": {
-						"total": 6368,
-						"green": 4572,
-						"orange": 6703,
-						"gray": 20565
-					}
-				},
-				{
-					"word": "marta",
-					"score": {
-						"inWords": 0,
-						"letterPosition": 4545,
-						"uniqueLetterPosition": 0
-					},
-					"result": {
-						"total": 6368,
-						"green": 4545,
-						"orange": 3951,
-						"gray": 23344
-					}
-				},
-				{
-					"word": "salta",
-					"score": {
-						"inWords": 0,
-						"letterPosition": 4539,
-						"uniqueLetterPosition": 0
-					},
-					"result": {
-						"total": 6368,
-						"green": 4539,
-						"orange": 3887,
-						"gray": 23414
-					}
-				},
-				{
-					"word": "santo",
-					"score": {
-						"inWords": 10590,
-						"letterPosition": 4531,
-						"uniqueLetterPosition": 4531
-					},
-					"result": {
-						"total": 6368,
-						"green": 4531,
-						"orange": 6059,
-						"gray": 21250
-					}
-				},
-				{
-					"word": "parto",
-					"score": {
-						"inWords": 10312,
-						"letterPosition": 4515,
-						"uniqueLetterPosition": 4515
-					},
-					"result": {
-						"total": 6368,
-						"green": 4515,
-						"orange": 5797,
-						"gray": 21528
+						"total": 9669,
+						"green": 6477,
+						"orange": 9117,
+						"gray": 32751
 					}
 				}
 			],
 			"uniqueLetterPosition": [
 				{
+					"word": "sarti",
+					"score": {
+						"inWords": 16722,
+						"letterPosition": 6870,
+						"uniqueLetterPosition": 6870
+					},
+					"result": {
+						"total": 9669,
+						"green": 6870,
+						"orange": 9852,
+						"gray": 31623
+					}
+				},
+				{
+					"word": "santi",
+					"score": {
+						"inWords": 15724,
+						"letterPosition": 6676,
+						"uniqueLetterPosition": 6676
+					},
+					"result": {
+						"total": 9669,
+						"green": 6676,
+						"orange": 9048,
+						"gray": 32621
+					}
+				},
+				{
+					"word": "salti",
+					"score": {
+						"inWords": 15752,
+						"letterPosition": 6637,
+						"uniqueLetterPosition": 6637
+					},
+					"result": {
+						"total": 9669,
+						"green": 6637,
+						"orange": 9115,
+						"gray": 32593
+					}
+				},
+				{
+					"word": "marti",
+					"score": {
+						"inWords": 15923,
+						"letterPosition": 6534,
+						"uniqueLetterPosition": 6534
+					},
+					"result": {
+						"total": 9669,
+						"green": 6534,
+						"orange": 9389,
+						"gray": 32422
+					}
+				},
+				{
+					"word": "carni",
+					"score": {
+						"inWords": 16345,
+						"letterPosition": 6510,
+						"uniqueLetterPosition": 6510
+					},
+					"result": {
+						"total": 9669,
+						"green": 6510,
+						"orange": 9835,
+						"gray": 32000
+					}
+				},
+				{
+					"word": "parti",
+					"score": {
+						"inWords": 15545,
+						"letterPosition": 6494,
+						"uniqueLetterPosition": 6494
+					},
+					"result": {
+						"total": 9669,
+						"green": 6494,
+						"orange": 9051,
+						"gray": 32800
+					}
+				},
+				{
 					"word": "sarto",
 					"score": {
-						"inWords": 11126,
-						"letterPosition": 4681,
-						"uniqueLetterPosition": 4681
+						"inWords": 15994,
+						"letterPosition": 6486,
+						"uniqueLetterPosition": 6486
 					},
 					"result": {
-						"total": 6368,
-						"green": 4681,
-						"orange": 6445,
-						"gray": 20714
+						"total": 9669,
+						"green": 6486,
+						"orange": 9508,
+						"gray": 32351
 					}
 				},
 				{
-					"word": "sarno",
+					"word": "sorti",
 					"score": {
-						"inWords": 11275,
-						"letterPosition": 4572,
-						"uniqueLetterPosition": 4572
+						"inWords": 15594,
+						"letterPosition": 6477,
+						"uniqueLetterPosition": 6477
 					},
 					"result": {
-						"total": 6368,
-						"green": 4572,
-						"orange": 6703,
-						"gray": 20565
+						"total": 9669,
+						"green": 6477,
+						"orange": 9117,
+						"gray": 32751
 					}
 				},
 				{
-					"word": "santo",
+					"word": "sarei",
 					"score": {
-						"inWords": 10590,
-						"letterPosition": 4531,
-						"uniqueLetterPosition": 4531
+						"inWords": 18401,
+						"letterPosition": 6464,
+						"uniqueLetterPosition": 6464
 					},
 					"result": {
-						"total": 6368,
-						"green": 4531,
-						"orange": 6059,
-						"gray": 21250
+						"total": 9669,
+						"green": 6464,
+						"orange": 11937,
+						"gray": 29944
 					}
 				},
 				{
-					"word": "parto",
+					"word": "canti",
 					"score": {
-						"inWords": 10312,
-						"letterPosition": 4515,
-						"uniqueLetterPosition": 4515
+						"inWords": 15193,
+						"letterPosition": 6461,
+						"uniqueLetterPosition": 6461
 					},
 					"result": {
-						"total": 6368,
-						"green": 4515,
-						"orange": 5797,
-						"gray": 21528
-					}
-				},
-				{
-					"word": "salto",
-					"score": {
-						"inWords": 10424,
-						"letterPosition": 4461,
-						"uniqueLetterPosition": 4461
-					},
-					"result": {
-						"total": 6368,
-						"green": 4461,
-						"orange": 5963,
-						"gray": 21416
-					}
-				},
-				{
-					"word": "saito",
-					"score": {
-						"inWords": 11435,
-						"letterPosition": 4436,
-						"uniqueLetterPosition": 4436
-					},
-					"result": {
-						"total": 6368,
-						"green": 4436,
-						"orange": 6999,
-						"gray": 20405
-					}
-				},
-				{
-					"word": "sorta",
-					"score": {
-						"inWords": 11126,
-						"letterPosition": 4428,
-						"uniqueLetterPosition": 4428
-					},
-					"result": {
-						"total": 6368,
-						"green": 4428,
-						"orange": 6698,
-						"gray": 20714
-					}
-				},
-				{
-					"word": "canto",
-					"score": {
-						"inWords": 10119,
-						"letterPosition": 4416,
-						"uniqueLetterPosition": 4416
-					},
-					"result": {
-						"total": 6368,
-						"green": 4416,
-						"orange": 5703,
-						"gray": 21721
-					}
-				},
-				{
-					"word": "pario",
-					"score": {
-						"inWords": 11306,
-						"letterPosition": 4387,
-						"uniqueLetterPosition": 4387
-					},
-					"result": {
-						"total": 6368,
-						"green": 4387,
-						"orange": 6919,
-						"gray": 20534
-					}
-				},
-				{
-					"word": "sardo",
-					"score": {
-						"inWords": 10568,
-						"letterPosition": 4348,
-						"uniqueLetterPosition": 4348
-					},
-					"result": {
-						"total": 6368,
-						"green": 4348,
-						"orange": 6220,
-						"gray": 21272
+						"total": 9669,
+						"green": 6461,
+						"orange": 8732,
+						"gray": 33152
 					}
 				}
 			]
@@ -874,26 +877,27 @@
 	"winning": {
 		"all": 15938,
 		"accepted": {
-			"all": 9563,
-			"withSpecialCharacters": 199,
-			"withoutSpecialCharacters": 9364,
+			"all": 11852,
+			"withSpecialCharacters": 238,
+			"withoutSpecialCharacters": 11614,
 			"length": {
-				"4": 421,
-				"5": 1034,
-				"6": 1476,
-				"7": 2170,
-				"8": 2254,
-				"9": 2208
+				"4": 425,
+				"5": 1059,
+				"6": 1538,
+				"7": 2252,
+				"8": 2351,
+				"9": 2289,
+				"10": 1938
 			}
 		},
 		"rejected": {
-			"all": 6375,
-			"tooLong": 5632,
+			"all": 4086,
+			"tooLong": 3619,
 			"tooShort": 121,
 			"censored": 9,
 			"romanNumeral": 0,
 			"wrongLetters": 0,
-			"missingInSpellingDictionary": 613
+			"missingInSpellingDictionary": 337
 		},
 		"lettersNotAcceptedInWinningWord": []
 	},
