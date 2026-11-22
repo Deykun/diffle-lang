@@ -25,31 +25,20 @@ if (!fs.existsSync(spellcheckerDictionaryPath)) {
   process.exit(1);
 }
 
-const spellcheckerDictionary1st = fs.readFileSync(
+const spellcheckerDictionary = fs.readFileSync(
   spellcheckerDictionaryPath,
   "utf-8",
 );
-const spellcheckerDictionary2nd = fs.readFileSync(
-  `./resources/${LANG}/${DICTIONARIES.spellcheckerAlt.dir}/dictionary.txt`,
-  "utf-8",
-);
+
 const winningDictionary = fs.readFileSync(
-  `./resources/${LANG}/${DICTIONARIES.winning.dir}/pol/dictionary.txt`,
+  `./resources/${LANG}/${DICTIONARIES.winning.dir}/eng/dictionary.txt`,
   "utf-8",
 );
 
-const spellcheckerWords1st = getWordsFromDictionary(spellcheckerDictionary1st, {
+const spellcheckerWords = getWordsFromDictionary(spellcheckerDictionary, {
   pattern: "word/ignore",
   lang: LANG,
 });
-const spellcheckerWords2nd = getWordsFromDictionary(spellcheckerDictionary2nd, {
-  pattern: "word ignore",
-  lang: LANG,
-});
-
-const spellcheckerWords = [
-  ...new Set([...spellcheckerWords1st, ...spellcheckerWords2nd]),
-];
 
 const frequencyDictionary = fs.readFileSync(
   `./resources/${LANG}/${DICTIONARIES.popularity.dir}/dictionary.txt`,
@@ -59,12 +48,20 @@ const frequencyDictionary = fs.readFileSync(
 const frequencyWords = getWordsFromDictionary(frequencyDictionary, {
   pattern: "word ignore",
   lang: LANG,
+  limit: 75_000,
 });
 
-const winningWords = getWordsFromDictionary(winningDictionary, {
-  pattern: "word ignore",
-  lang: LANG,
-});
+const [longestWinningWords, ...winningWordsDictionariesToCheck] = [
+  getWordsFromDictionary(winningDictionary, {
+    pattern: "word ignore",
+    lang: LANG,
+  }),
+  frequencyWords,
+].sort((a, b) => b.length - a.length);
+
+const winningWords = longestWinningWords.filter((word) =>
+  winningWordsDictionariesToCheck.every((wordList) => wordList.includes(word)),
+);
 
 actionBuildDictionary(
   {
