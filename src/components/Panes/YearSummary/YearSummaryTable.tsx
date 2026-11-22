@@ -115,10 +115,11 @@ const YearSummaryTable = ({ year, summary }: Props) => {
       bestMedianFrom50BestResults: [...knownUsernames]
         .filter(username => Boolean(summary.byUser[username].best50))
         .sort((a, b) => {
-          if (
-            summary.byUser[a].best50.medianLetters
-            === summary.byUser[b].best50.medianLetters
-          ) {
+          // Users without best50 are filtered out above
+          const medianLettersA = summary.byUser[a].best50?.medianLetters ?? 0;
+          const medianLettersB = summary.byUser[b].best50?.medianLetters ?? 0;
+
+          if (medianLettersA === medianLettersB) {
             if (
               summary.byUser[a].results[period].medianWords
               === summary.byUser[b].results[period].medianWords
@@ -135,19 +136,17 @@ const YearSummaryTable = ({ year, summary }: Props) => {
             );
           }
 
-          return (
-            summary.byUser[a].best50.medianLetters
-            - summary.byUser[b].best50.medianLetters
-          );
+          return medianLettersA - medianLettersB;
         })
         .slice(0, 75),
       bestMedianFrom50HardestWordsResults: [...knownUsernames]
         .filter(username => Boolean(summary.byUser[username].hardest50))
         .sort((a, b) => {
-          if (
-            summary.byUser[a].hardest50.medianLetters
-            === summary.byUser[b].hardest50.medianLetters
-          ) {
+          // Users without hardest50 are filtered out above
+          const medianLettersA = summary.byUser[a].hardest50?.medianLetters ?? 0;
+          const medianLettersB = summary.byUser[b].hardest50?.medianLetters ?? 0;
+
+          if (medianLettersA === medianLettersB) {
             if (
               summary.byUser[a].results[period].medianWords
               === summary.byUser[b].results[period].medianWords
@@ -164,10 +163,7 @@ const YearSummaryTable = ({ year, summary }: Props) => {
             );
           }
 
-          return (
-            summary.byUser[a].hardest50.medianLetters
-            - summary.byUser[b].hardest50.medianLetters
-          );
+          return medianLettersA - medianLettersB;
         })
         .slice(0, 75),
       bestDailyResults: [...knownUsernames]

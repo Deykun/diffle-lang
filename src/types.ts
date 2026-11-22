@@ -359,22 +359,42 @@ export type ResultsInfo = {
   };
 };
 
+export type YearSummaryUserInfo = {
+  // Only for users with at least 50 accepted results
+  best50?: ResultsInfo;
+  // Only for users with enough results for the hardest words
+  hardest50?: ResultsInfo;
+  results: {
+    year: ResultsInfo;
+    [month: string]: ResultsInfo;
+  };
+  // Dates with the best result of the day
+  dates: {
+    year: string[];
+    [month: string]: string[];
+  };
+  // Dates with the worst result of the day
+  worstDates: {
+    year: string[];
+    [month: string]: string[];
+  };
+};
+
 export type YearSummaryInfo = {
+  all: ResultsInfo;
   activePlayers: number;
   byUser: {
-    [username: string]: {
-      best30: ResultsInfo;
-      results: {
-        year: ResultsInfo;
-        [month: string]: ResultsInfo;
-      };
-      dates: {
-        year: string[];
-        [month: string]: string[];
-      };
-    };
+    [username: string]: YearSummaryUserInfo;
+  };
+  wordsByDates: {
+    [date: string]: string;
+  };
+  datesByWords: {
+    [word: string]: string;
   };
   rankByWords: {
     [word: string]: ResultsInfo;
   };
+  hardestWords: string[];
+  bestWords: string[];
 };
